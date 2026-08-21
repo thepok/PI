@@ -25,7 +25,7 @@ The overview states that the ratio `p_pi(m) / L_m` is uncontrolled, but it does 
 
 ## Deliverables
 
-- `ResearchAgents/reports/RA-0004-appearance-ratio-route.md`.
+- `GPTPro/Deliverables/RA-0004/README.md`.
 - Exact theorem/interface map for the relevant modules, including T26 through T30 and any imported supporting declarations.
 - A normalized statement of the weakest missing asymptotic condition sufficient for the route.
 - Either a plausible bounded proof program with named intermediate lemmas, or a reusable obstruction/countermodel showing why current complexity information cannot imply it.

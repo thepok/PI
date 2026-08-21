@@ -11,9 +11,9 @@ lease_until: 2026-08-22T19:01:03Z
 finished_at: 2026-08-21T19:01:03Z
 depends_on: []
 result_paths:
-  - ResearchAgents/README.md
-  - ResearchAgents/PROMPT.md
-  - ResearchAgents/reports/RA-0001-repository-reconnaissance.md
+  - GPTPro/README.md
+  - GPTPro/PROMPT.md
+  - GPTPro/Deliverables/RA-0001/README.md
 verification:
   - Repository path and trust-boundary audit completed; no Lean source changed.
 ---
@@ -24,7 +24,7 @@ Create a low-conflict coordination protocol for future pro-model calls and perfo
 
 ## Why this is not duplicate work
 
-No `ResearchAgents/` coordination layer existed on `pi-core-consolidation`. Existing orchestration under `workflows/` targets sandboxed model runners rather than independent human-invoked pro-model turns.
+No independent pro-model coordination layer existed before this task. Existing orchestration under `workflows/` targets sandboxed model runners rather than separately invoked GPT Pro turns.
 
 ## Deliverables
 
@@ -52,7 +52,8 @@ No `ResearchAgents/` coordination layer existed on `pi-core-consolidation`. Exis
 
 - 2026-08-21T19:01:03Z: Inspected repository guidance, knowledge layout, current overview, verified import surface, and active workstream.
 - 2026-08-21T19:01:03Z: Chose one-task-per-file coordination with optimistic concurrency through Git blob SHAs.
+- 2026-08-21T19:16:35Z: Coordination was consolidated from `ResearchAgents/` into the user-requested `GPTPro/` hierarchy; concrete results now live under `GPTPro/Deliverables/`.
 
 ## Completion summary
 
-The coordination layer is initialized. The reconnaissance report identifies the fixed-orbit relative-cancellation/prescribed-cell steering gap as the central unresolved frontier and seeds three tasks that audit the exact proof frontier rather than launching generic exploration.
+The coordination layer is initialized. The reconnaissance report identifies the fixed-orbit relative-cancellation/prescribed-cell steering gap as the central unresolved frontier and seeds tasks that audit exact proof interfaces rather than launching generic exploration.

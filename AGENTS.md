@@ -31,7 +31,7 @@ Act as a skeptical research collaborator on the decimal-digit occurrence problem
 - `knowledge/pi/workstreams/`: bounded restartable current work.
 - `workflows/`: all model, pod, orchestration, runtime, and verification machinery.
 - `workflows/state/`: ignored runtime state. `OPERATOR_PAUSED` prevents autonomous launches.
-- `ResearchAgents/`: coordination tasks and compact reports for separately invoked high-capability model turns. It is not proof authority; follow `ResearchAgents/README.md` and promote accepted work to the canonical locations above.
+- `GPTPro/`: coordination tasks and concrete deliverables for separately invoked high-capability model turns. It is not proof authority; follow `GPTPro/README.md` and promote accepted work to the canonical locations above.
 
 Raw model transcripts and copied sandboxes are disposable. Promote only compact conclusions, checks, and reproducible artifacts into the knowledge base.
 
