@@ -77,6 +77,15 @@ See
 and
 [`t116_raw_gcd_small_support_bounds_no_go_20260821.md`](results/negative/t116_raw_gcd_small_support_bounds_no_go_20260821.md).
 
+The first T117 normalized-census workflow candidate is explicitly rejected.
+Its generator and verifier shared the same missing `10^N` factor in
+`Q_N=10^N*bbpPartial(7N)`, so a passing self-test merely reproduced the same
+wrong rational twice. No output from that run is evidence for K1 or K2. The
+replacement contract pins exact scaled anchors, requires a scaling-deletion
+mutation, reconstructs every record and both endpoints by the independent
+literal-pole route, and keeps shards independently generable. See
+[`t117_unscaled_q_workflow_false_positive_20260821.md`](results/negative/t117_unscaled_q_workflow_false_positive_20260821.md).
+
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
 `PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge
