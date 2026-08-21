@@ -4,7 +4,7 @@ Copy this file to a globally unique filename. Remove instructional placeholders 
 
 ```yaml
 ---
-id: RA-YYYYMMDDTHHMMSSZ-UNIQUE
+id: GP-YYYYMMDDTHHMMSSZ-UNIQUE
 title: Precise one-turn objective
 status: open
 priority: P1
@@ -26,12 +26,12 @@ State one exact question or change.
 
 ## Why this is not duplicate work
 
-Name the completed, claimed, and repository work checked before creating this task.
+Name the completed, claimed, and canonical repository work checked before creating this task.
 
 ## Deliverables
 
-- One bounded artifact or code change.
-- Exact paths to create or update.
+- `GPTPro/Deliverables/<task-id>/README.md`.
+- Any bounded supporting artifact or code change.
 
 ## Acceptance checks
 
@@ -49,4 +49,4 @@ Add compact timestamped notes only when they change continuation state.
 
 ## Completion summary
 
-Fill this before changing the status to `done` or `blocked`. Include the conclusion, evidence, rejected alternatives, verification outcome, and next bottleneck.
+Fill this before changing status to `done` or `blocked`. Include the conclusion, evidence, rejected alternatives, verification outcome, and next bottleneck.

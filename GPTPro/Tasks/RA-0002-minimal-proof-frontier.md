@@ -25,7 +25,7 @@ Trace the shortest currently available machine-checked routes from the normalize
 
 ## Deliverables
 
-- `ResearchAgents/reports/RA-0002-minimal-proof-frontier.md`.
+- `GPTPro/Deliverables/RA-0002/README.md`.
 - A dependency graph covering at least the strongest Fourier/cancellation route, appearance-ratio route, fixed-sixteen-return route, and BBP forced-orbit route.
 - For every open edge: exact quantifiers, assumptions, target conclusion, claim status, source file, and why existing theorems do not close it.
 - One recommended next theorem target, plus one explicit falsification or countermodel check.

@@ -21,11 +21,11 @@ Audit the current `pi-quantitative-block-hitting` workstream against the canonic
 
 ## Why this is not duplicate work
 
-The workstream contains large machine-oriented JSON/JSONL state, while the consolidated repository exposes only a compact narrative status. No compact post-consolidation audit for pro-model task selection exists in `ResearchAgents/`.
+The workstream contains large machine-oriented JSON/JSONL state, while the consolidated repository exposes only a compact narrative status. No compact post-consolidation audit for Pro-model task selection exists in `GPTPro/`.
 
 ## Deliverables
 
-- `ResearchAgents/reports/RA-0003-current-workstream-audit.md`.
+- `GPTPro/Deliverables/RA-0003/README.md`.
 - A table of the highest-value records classified as `promoted`, `live`, `blocked`, `obsolete`, `duplicate`, or `unclear`.
 - Exact links or identifiers for each classified record and any corresponding Lean module or knowledge report.
 - At most two follow-up task files for genuinely live, non-duplicate work.
@@ -33,7 +33,7 @@ The workstream contains large machine-oriented JSON/JSONL state, while the conso
 ## Acceptance checks
 
 - Inspect `program.json`, `knowledge.jsonl`, `log.jsonl`, `director-state.json`, and `library/`.
-- Do not copy raw logs into the report.
+- Do not copy raw logs into the deliverable.
 - Verify every claimed promotion against `TheoryLib.lean` and, where relevant, `audit/AxiomAudit.lean`.
 - Treat model-generated workstream labels as untrusted until independently matched to repository artifacts.
 - End with a concrete recommendation: continue, archive, split, or replace the workstream.
