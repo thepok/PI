@@ -18,7 +18,7 @@ All research execution machinery lives under this directory.
   --sandbox-image localhost/allmath-research:latest \
   --tasks-dir workflows/modelbench/tasks/pi/current \
   --models ox,oxzen \
-  --concurrency 14 \
+  --concurrency 20 \
   --out workflows/state/runs/pi-current
 ```
 

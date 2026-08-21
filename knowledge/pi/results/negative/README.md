@@ -5,6 +5,10 @@ durable obstruction. These artifacts prevent future workers from repeatedly
 spending tokens on the same dead ends.
 
 - `ultrapi/bbp_fiber_matching_no_go*`: failed fiber-matching route with replay checks.
+- `bbp_three_adic_fiber_archimedean_density_no_go_20260821.md`:
+  reviewed same-fiber density separator; finite three-adic BBP residue data
+  cannot constrain the real decimal phase without exact numerator/denominator
+  or coefficient coupling.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.

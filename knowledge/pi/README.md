@@ -13,3 +13,14 @@ This directory holds durable research state. It intentionally excludes raw model
 - `handoffs/`: concise review or continuation handoffs.
 
 The proof authority is `TheoryLib/`, not this directory. Reports here describe proof artifacts; they do not replace them.
+
+## External-model integration
+
+`handoffs/external/` is an inbox and immutable provenance layer. Every newly
+committed GPT Pro handoff receives an independent semantic and source review.
+Accepted conclusions are distilled into the appropriate `results/negative/`,
+`results/intermediate/`, `workstreams/`, or `results/machine-checked/` location
+with their source commit recorded; they are not left only in the inbox.
+Promotion preserves the existing claim label. External work is never upgraded
+to `machine-checked` without canonical Lean integration and the complete axiom
+gate.

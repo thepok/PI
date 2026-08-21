@@ -2,7 +2,7 @@
 
 Status: `conjecture`
 
-Last audited: 2026-08-13 UTC
+Last audited: 2026-08-21 UTC
 
 ## Executive finding
 
@@ -13,6 +13,29 @@ the repository's
 [`RESEARCH_SUMMARY_20260809.md`](work/review-handoffs/pi/RESEARCH_SUMMARY_20260809.md)
 reports no fixed-\(\pi\) proof. No result found here is a
 `candidate resolution` or a `verified resolution`.
+
+A 2026-08-21 `machine-checked` BBP transfer milestone now gives three exact
+interfaces. T107 proves that the seven-step sampled BBP orbit is a summable
+fixed-frequency phase perturbation of the decimal pi orbit, so real Weyl
+cancellation is equivalent for the two sequences; it proves no cancellation.
+T108 works endpoint-safely in `UnitAddCircle` and proves that canonical V1 is
+equivalent to arbitrarily-late circle density of the sampled BBP orbit; it
+asserts neither side. T109, under the still-explicit external hypothesis
+`IrrationalityMeasureBelow Real.pi 8`, proves eventual equality of the
+seven-oversampled BBP codes with the corresponding pi cylinder/block codes;
+this is not a prescribed-word occurrence result. The full repository gate and
+central axiom audit passed. See
+[`bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md`](results/machine-checked/bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md).
+No novelty or literature-check claim is attached to this milestone.
+
+A reviewed 2026-08-21 `proof sketch` separator closes a narrower dead end:
+finite selected three-adic BBP residue fibers, their coherence, arbitrary
+one-sided tail schedules, and generic T106-style coboundary identities do not
+constrain the real decimal phase. Same-fiber shadows can approximate arbitrary
+real targets. Any surviving BBP route must visibly use the full exact
+numerator/denominator or coefficient coupling that same-fiber replacement
+destroys. See
+[`bbp_three_adic_fiber_archimedean_density_no_go_20260821.md`](results/negative/bbp_three_adic_fiber_archimedean_density_no_go_20260821.md).
 
 A fresh primary-source and mathlib audit, extended through 2026-08-13,
 reached the same conclusion.  The broad dated search, source pins, and

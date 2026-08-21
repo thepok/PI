@@ -1,0 +1,112 @@
+[
+  {
+    "id": "pi-t108-v1-implies-tail-circle-a",
+    "dimension": "lean_research",
+    "timeout_s": 7200,
+    "max_attempts": 7,
+    "variant": "high",
+    "prompt": "Create Contribution.lean using only the allowed imports. Read TASK_CONTRACT.md. In namespace Theory.PiDigits.T108BBPCircleDensityTransfer prove exactly canonicalV1_implies_pi_circleDenseArbitrarilyLate_a. Convert V1 to arbitrarily-late finite-word occurrence via T21, choose a sufficiently fine decimal cylinder inside the requested UnitAddCircle ball, and preserve the lower index bound. Do not infer tail density from DenseRange or plain density. This is an implication only; never claim V1 or density unconditionally. Compile and report.",
+    "fixtures": [
+      {
+        "source": "workflows/modelbench/tasks/pi/current/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md"
+      },
+      {
+        "source": "TheoryLib/PiDigits/T21PiDigitsV1V3Relationship.lean",
+        "destination": "inputs/T21.lean"
+      },
+      {
+        "source": "TheoryLib/PiDigits/T20BaseTenOrbitDensity.lean",
+        "destination": "inputs/T20.lean"
+      },
+      {
+        "source": "TheoryLib/PiQuantitativeBlockHitting/T75T75UniformShadowCover.lean",
+        "destination": "inputs/T75.lean"
+      }
+    ],
+    "grading": {
+      "type": "agentic_lean_artifact",
+      "artifact": "Contribution.lean",
+      "theorem_names": [
+        "Theory.PiDigits.T108BBPCircleDensityTransfer.canonicalV1_implies_pi_circleDenseArbitrarilyLate_a"
+      ],
+      "expected_types": {
+        "Theory.PiDigits.T108BBPCircleDensityTransfer.canonicalV1_implies_pi_circleDenseArbitrarilyLate_a": "Theory.PiDigits.V1 → Theory.PiDigits.T75UniformShadowCover.BaseTenOrbitCircleDenseArbitrarilyLate Real.pi"
+      },
+      "allowed_imports": [
+        "TheoryLib.PiDigits.T21PiDigitsV1V3Relationship",
+        "TheoryLib.PiQuantitativeBlockHitting.T75T75UniformShadowCover"
+      ],
+      "required_imports": [
+        "TheoryLib.PiDigits.T21PiDigitsV1V3Relationship",
+        "TheoryLib.PiQuantitativeBlockHitting.T75T75UniformShadowCover"
+      ],
+      "required_markers": [
+        "namespace Theory.PiDigits.T108BBPCircleDensityTransfer",
+        "canonicalV1_implies_pi_circleDenseArbitrarilyLate_a"
+      ],
+      "forbidden_markers": [
+        "sorry",
+        "admit",
+        "native_decide",
+        "axiom ",
+        "unsafe "
+      ]
+    }
+  },
+  {
+    "id": "pi-t108-v1-implies-tail-circle-b",
+    "dimension": "lean_research",
+    "timeout_s": 7200,
+    "max_attempts": 7,
+    "variant": "high",
+    "prompt": "Independently prove the exact reverse T108 bridge in Contribution.lean after reading TASK_CONTRACT.md. In namespace Theory.PiDigits.T108BBPCircleDensityTransfer prove canonicalV1_implies_pi_circleDenseArbitrarilyLate_b using T21's arbitrarily-late word occurrence and endpoint-safe UnitAddCircle geometry. Preserve every quantifier and the arbitrary lower time bound. Do not use plain DenseRange as a substitute and do not assert V1. Compile and report.",
+    "fixtures": [
+      {
+        "source": "workflows/modelbench/tasks/pi/current/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md"
+      },
+      {
+        "source": "TheoryLib/PiDigits/T21PiDigitsV1V3Relationship.lean",
+        "destination": "inputs/T21.lean"
+      },
+      {
+        "source": "TheoryLib/PiDigits/T20BaseTenOrbitDensity.lean",
+        "destination": "inputs/T20.lean"
+      },
+      {
+        "source": "TheoryLib/PiQuantitativeBlockHitting/T75T75UniformShadowCover.lean",
+        "destination": "inputs/T75.lean"
+      }
+    ],
+    "grading": {
+      "type": "agentic_lean_artifact",
+      "artifact": "Contribution.lean",
+      "theorem_names": [
+        "Theory.PiDigits.T108BBPCircleDensityTransfer.canonicalV1_implies_pi_circleDenseArbitrarilyLate_b"
+      ],
+      "expected_types": {
+        "Theory.PiDigits.T108BBPCircleDensityTransfer.canonicalV1_implies_pi_circleDenseArbitrarilyLate_b": "Theory.PiDigits.V1 → Theory.PiDigits.T75UniformShadowCover.BaseTenOrbitCircleDenseArbitrarilyLate Real.pi"
+      },
+      "allowed_imports": [
+        "TheoryLib.PiDigits.T21PiDigitsV1V3Relationship",
+        "TheoryLib.PiQuantitativeBlockHitting.T75T75UniformShadowCover"
+      ],
+      "required_imports": [
+        "TheoryLib.PiDigits.T21PiDigitsV1V3Relationship",
+        "TheoryLib.PiQuantitativeBlockHitting.T75T75UniformShadowCover"
+      ],
+      "required_markers": [
+        "namespace Theory.PiDigits.T108BBPCircleDensityTransfer",
+        "canonicalV1_implies_pi_circleDenseArbitrarilyLate_b"
+      ],
+      "forbidden_markers": [
+        "sorry",
+        "admit",
+        "native_decide",
+        "axiom ",
+        "unsafe "
+      ]
+    }
+  }
+]
