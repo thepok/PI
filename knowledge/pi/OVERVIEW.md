@@ -37,6 +37,14 @@ signed estimate is proved for the sampled BBP orbit, so T111 proves neither
 density nor V1. See
 [`t111_signed_dft_cell_occupancy_circle_cover_20260821.md`](results/machine-checked/t111_signed_dft_cell_occupancy_circle_cover_20260821.md).
 
+A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
+plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
+`PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge
+already machine-checked in T35 and adds source-specific edge-case provenance,
+not a new formal theorem. It excludes neither C1 nor V1 and supplies no
+Fourier cancellation; T17 remains conditional inside Lean. See
+[`salikhov_power_ten_diophantine_bridge_20260821.md`](results/intermediate/salikhov_power_ten_diophantine_bridge_20260821.md).
+
 A reviewed 2026-08-21 `proof sketch` separator closes a narrower dead end:
 finite selected three-adic BBP residue fibers, their coherence, arbitrary
 one-sided tail schedules, and generic T106-style coboundary identities do not
