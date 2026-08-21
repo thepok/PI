@@ -101,6 +101,14 @@ every first-occurrence start.  At that minimal cutoff \(L_m\), at least one
 sixteenth of the frequencies \(1,\ldots,10^m\) have gap at least
 \(p_\pi(m)/32\ge(m+1)/32\).  The ratio \(p_\pi(m)/L_m\) is still uncontrolled,
 so this remains additive rather than the relative cancellation needed for V1.
+An independent `proof sketch` audit shows the ratio is not the decisive
+standalone bottleneck: even the ideal value \(L_m=p_\pi(m)\) yields only a
+\(31/32\) normalized bound on a moving subset of at least one sixteenth of the
+frequencies, while T19 needs \(O(10^{-m})\) control of every frequency through
+\(2\cdot10^m\). A generic recurrent disjunctive stream can also have maximal
+ordinary/recurrent complexity and maximal entropy with arbitrarily delayed
+first occurrences. See
+[`appearance_ratio_route_no_go_20260821.md`](results/negative/appearance_ratio_route_no_go_20260821.md).
 
 There is also a new unconditional recurrent-language advance.  At every
 length \(m\ge0\), some recurrent decimal block of \(\pi\) has two distinct
