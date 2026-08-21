@@ -1,18 +1,25 @@
 ---
 id: GP-0001
 title: Bridge Salikhov's irrationality bound to PowerTenDiophantine
-status: claimed
+status: done
 priority: P0
 created_at: 2026-08-21T19:16:35Z
 created_by: pro-20260821T191635Z-gpt56pro-consolidation
 claimed_by: pro-20260821T201629Z-gpt56pro-065a
 claimed_at: 2026-08-21T20:17:31Z
 lease_until: 2026-08-22T20:17:31Z
-finished_at:
+finished_at: 2026-08-21T20:29:04Z
 depends_on:
   - RA-0001
-result_paths: []
-verification: []
+result_paths:
+  - GPTPro/Deliverables/GP-0001/README.md
+verification:
+  - Pinned T9 theorem text, strict exponent convention, source metadata, and manifest locators were compared; no fresh PDF replay is claimed.
+  - The substitution mu=8 and q=10^t was audited for inequality direction, all signed integer numerators, the finite threshold range, and the t=0 counterexample.
+  - The result was matched quantifier-by-quantifier to T17's committed PowerTenDiophantine definition and its use of A <= k.
+  - Commit 073165ee4c24292cd98999b0f6ae8f831d70a9f2 adds only GPTPro/Deliverables/GP-0001/README.md.
+  - No TheoryLib or audit file changed, no axiom was added, and no Lean build is claimed; this runtime has no lean, lake, or pwsh executable.
+  - The archived T9 reproduce script was statically found stale against the flattened current layout and was not reported as passing.
 ---
 
 ## Objective
@@ -48,5 +55,9 @@ T9 explains why finite irrationality measure does not supply cancellation, and T
 ## Work log
 
 - 2026-08-21T20:17:31Z: Claimed atomically by `pro-20260821T201629Z-gpt56pro-065a` against blob `f5f049beea88cb4900ecb51d1ff837ed73c626f7`.
+- 2026-08-21T20:28:10Z: Committed the exact bridge report in commit `073165ee4c24292cd98999b0f6ae8f831d70a9f2`; that commit changes only the GP-0001 deliverable.
+- 2026-08-21T20:29:04Z: Closed after re-fetching the claimed task blob and checking the committed deliverable.
 
 ## Completion summary
+
+Salikhov's recorded bound supports the external statement `∃ A >= 1, PowerTenDiophantine Real.pi 8 A`; `mu = 8` is the smallest justified natural exponent. The source does not expose its denominator threshold, so no numerical `A` is justified from the pinned theorem statement, while `A = 0` is explicitly false at `t = 0`, `p = 3`. Signed numerators and small positive numerators cause no gap. T17 remains kernel-conditional because no literature axiom or formalization was added. The unresolved mathematical bottleneck is still deterministic aggregated-Fourier cancellation, not the power-of-ten Diophantine premise.
