@@ -9,6 +9,10 @@ spending tokens on the same dead ends.
   reviewed same-fiber density separator; finite three-adic BBP residue data
   cannot constrain the real decimal phase without exact numerator/denominator
   or coefficient coupling.
+- `appearance_ratio_route_no_go_20260821.md`: reviewed scoped separator for
+  the T28–T29 route; even optimal appearance ratio leaves a constant bound on
+  a moving selected frequency set, and maximal recurrent language/entropy does
+  not control first-appearance delay.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.
