@@ -1371,6 +1371,100 @@ def grade(
                 missing_files.append(required_relative.as_posix())
         if missing_files:
             return False, f"artifact missing required files {missing_files}"
+
+        json_cache: dict[str, Any] = {}
+
+        def load_contract_json(relative_name: str) -> tuple[Any | None, str | None]:
+            try:
+                relative = _safe_relative_artifact(relative_name)
+            except ValueError:
+                return None, f"unsafe JSON artifact path {relative_name!r}"
+            path = (work_dir / relative).resolve()
+            if (
+                work_dir.resolve() not in path.parents
+                or not path.is_file()
+                or path.is_symlink()
+            ):
+                return None, f"missing JSON artifact {relative.as_posix()}"
+            key = relative.as_posix()
+            if key not in json_cache:
+                try:
+                    json_cache[key] = json.loads(path.read_text(encoding="utf-8"))
+                except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                    return None, f"invalid JSON artifact {key}: {exc}"
+            return json_cache[key], None
+
+        def json_path_value(document: Any, path: list[Any]) -> tuple[Any, bool]:
+            value = document
+            for component in path:
+                if isinstance(component, int) and isinstance(value, list):
+                    if component < 0 or component >= len(value):
+                        return None, False
+                    value = value[component]
+                elif isinstance(component, str) and isinstance(value, dict):
+                    if component not in value:
+                        return None, False
+                    value = value[component]
+                else:
+                    return None, False
+            return value, True
+
+        for assertion in task["grading"].get("required_json_values", []):
+            if not isinstance(assertion, dict):
+                return False, "invalid required_json_values entry"
+            relative_name = str(assertion.get("file", ""))
+            path = assertion.get("path")
+            if not isinstance(path, list) or "equals" not in assertion:
+                return False, "invalid required_json_values contract"
+            document, error = load_contract_json(relative_name)
+            if error:
+                return False, error
+            actual, found = json_path_value(document, path)
+            if not found:
+                return False, f"JSON artifact {relative_name} misses path {path!r}"
+            expected = assertion["equals"]
+            if type(actual) is not type(expected) or actual != expected:
+                return False, (
+                    f"JSON artifact {relative_name} has {path!r}={actual!r}; "
+                    f"expected {expected!r}"
+                )
+
+        for sequence in task["grading"].get("required_json_sequences", []):
+            if not isinstance(sequence, dict):
+                return False, "invalid required_json_sequences entry"
+            relative_name = str(sequence.get("file", ""))
+            path = sequence.get("path")
+            key = sequence.get("key")
+            start = sequence.get("start")
+            end = sequence.get("end")
+            if (
+                not isinstance(path, list)
+                or not isinstance(key, str)
+                or not isinstance(start, int)
+                or isinstance(start, bool)
+                or not isinstance(end, int)
+                or isinstance(end, bool)
+                or end < start
+            ):
+                return False, "invalid required_json_sequences contract"
+            document, error = load_contract_json(relative_name)
+            if error:
+                return False, error
+            records, found = json_path_value(document, path)
+            if not found or not isinstance(records, list):
+                return False, (
+                    f"JSON artifact {relative_name} has no list at {path!r}"
+                )
+            actual = [
+                record.get(key) if isinstance(record, dict) else None
+                for record in records
+            ]
+            expected = list(range(start, end + 1))
+            if actual != expected:
+                return False, (
+                    f"JSON artifact {relative_name} does not contain exact ordered "
+                    f"{key} range {start}..{end}"
+                )
         return True, "artifact contract satisfied; quality review still required"
     return False, f"unknown grading type {kind}"
 

@@ -229,6 +229,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T112T112SampledBBPSelectedResidue
 import TheoryLib.PiQuantitativeBlockHitting.T113T113SampledBBPReducedCellRecurrence
 import TheoryLib.PiQuantitativeBlockHitting.T114T114SampledBBPGCDNormalizedSuccessor
 import TheoryLib.PiQuantitativeBlockHitting.T115T115SampledBBPCellDefectPhase
+import TheoryLib.PiQuantitativeBlockHitting.T116T116SampledBBPGCDPrimeSupport
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3006,6 +3007,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T115T115SampledBBPCellDefectPhase
 #print axioms Theory.PiDigits.T115SampledBBPCellDefectPhase.mul_residue_eq_den_mul_cell_add_remainder
 #print axioms Theory.PiDigits.T115SampledBBPCellDefectPhase.zero_mesh_data
 #print axioms Theory.PiDigits.T115SampledBBPCellDefectPhase.centered_sampledBBPCell_character_eq_residue_mul_defect
+#print axioms Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_crossNormalizationGCD_support
+#print axioms Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_sampledBBPNormalizationGCD_support
 
 -- Representative endpoint registrations recovered by the RA-0003 audit.
 #print axioms Theory.PiDigits.QuantitativeBlockHitting.acceptance_audit_surface

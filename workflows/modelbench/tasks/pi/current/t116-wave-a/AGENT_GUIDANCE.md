@@ -11,6 +11,9 @@ full denominators. Cross multiplication, existence of an unspecified factor,
 or a claim only about 2/5-adic valuations is insufficient.
 
 For the census, use one exact canonical generator and one independent verifier.
+The canonical `bbpPartial M` is inclusive over `k = 0..M`; in particular
+`bbpPartial 0 = Q_0 = 47/15`.  Treat omission of the `k = 0` term as a fatal
+semantic error, even if a self-consistent generator and verifier agree.
 Freeze discovery at N=0..255 and holdout at N=256..511. Compute actual reduced
 `Q_N`, actual reduced forcing `F_N`, raw `U_N,V_N`, and exact `g_N`; never use
 floating-point approximations or unreduced shadow pairs. Record prime-source

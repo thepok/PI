@@ -52,7 +52,7 @@
     "timeout_s": 10800,
     "max_attempts": 4,
     "variant": "high",
-    "prompt": "Work only in the assigned directory. Read AGENTS.md. Create census.py, verify_census.py, census.json, and RESULT.md. Compute exact Fraction data for the canonical synchronized sampled BBP recurrence for every N=0..511: reduced Q_N=10^N*bbpPartial(7*N), reduced F_N=sampledBBPForcingRat N, U_N=10*Q.num*F.den+F.num*Q.den, V_N=Q.den*F.den, and g_N=gcd(abs(U_N),V_N). Use discovery N=0..255 and frozen holdout N=256..511. Record sufficient exact fields and hashes for independent replay, prime-source classification (common denominator versus base-10-only), valuations at 2 and 5, bit lengths, and an exact rational cancellation ratio representation. Test and explicitly accept/reject only these preregistered laws: G1 every prime of g is in {2,5}; G2 g divides 10; G3 g^2<=V; G4 g<=10^6. One exact witness rejects a law. The independent verifier must recompute source equations and every reported verdict from census.json, exit nonzero on mutation, and be run successfully. RESULT.md must report exact ranges, commands, file SHA-256 values, first witnesses, resource/time limits, and the boundary that finite data is experiment only. Do not browse or claim asymptotics, occupancy, cancellation, or V1.",
+    "prompt": "Work only in the assigned directory. Read AGENTS.md. Create census.py, verify_census.py, census.json, and RESULT.md. Compute exact Fraction data for the canonical synchronized sampled BBP recurrence for every N=0..511. The canonical bbpPartial(M) is inclusive: sum bbpCombinedTerm(k) for k=0..M, so bbpPartial(0)=47/15 and Q_0=47/15; omitting k=0 is a fatal semantic error. Use reduced Q_N=10^N*bbpPartial(7*N), reduced F_N=sampledBBPForcingRat N, U_N=10*Q.num*F.den+F.num*Q.den, V_N=Q.den*F.den, and g_N=gcd(abs(U_N),V_N). Use discovery N=0..255 and frozen holdout N=256..511. Record sufficient exact fields and hashes for independent replay, prime-source classification (common denominator versus base-10-only), valuations at 2 and 5, bit lengths, and an exact rational cancellation ratio representation. Test and explicitly accept/reject only these preregistered laws: G1 every prime of g is in {2,5}; G2 g divides 10; G3 g^2<=V; G4 g<=10^6. One exact witness rejects a law. The independent verifier must recompute source equations and every reported verdict from census.json, enforce exact ordered unique coverage N=0..511, exit nonzero on mutation, and be run successfully. RESULT.md must report exact ranges, commands, file SHA-256 values, first witnesses, resource/time limits, and the boundary that finite data is experiment only. Do not browse or claim asymptotics, occupancy, cancellation, or V1.",
     "fixtures": [
       {"source": "workflows/modelbench/tasks/pi/current/t116-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
       {"source": "TheoryLib/PiQuantitativeBlockHitting/T98T98BBPArchimedeanTerm.lean", "destination": "inputs/T98.lean"},
@@ -64,6 +64,15 @@
       "artifact": "RESULT.md",
       "min_chars": 1800,
       "required_files": ["census.py", "verify_census.py", "census.json"],
+      "required_json_values": [
+        {"file": "census.json", "path": ["records", 0, "n"], "equals": 0},
+        {"file": "census.json", "path": ["records", 0, "q_num"], "equals": "47"},
+        {"file": "census.json", "path": ["records", 0, "q_den"], "equals": "15"},
+        {"file": "census.json", "path": ["records", 0, "g"], "equals": "15"}
+      ],
+      "required_json_sequences": [
+        {"file": "census.json", "path": ["records"], "key": "n", "start": 0, "end": 511}
+      ],
       "required_markers": [
         "Status: `experiment`", "DISCOVERY_RANGE=0..255",
         "HOLDOUT_RANGE=256..511", "GENERATOR_SHA256=", "VERIFIER_SHA256=",
