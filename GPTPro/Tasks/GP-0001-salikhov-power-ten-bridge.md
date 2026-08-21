@@ -1,13 +1,13 @@
 ---
 id: GP-0001
 title: Bridge Salikhov's irrationality bound to PowerTenDiophantine
-status: open
+status: claimed
 priority: P0
 created_at: 2026-08-21T19:16:35Z
 created_by: pro-20260821T191635Z-gpt56pro-consolidation
-claimed_by:
-claimed_at:
-lease_until:
+claimed_by: pro-20260821T201629Z-gpt56pro-065a
+claimed_at: 2026-08-21T20:17:31Z
+lease_until: 2026-08-22T20:17:31Z
 finished_at:
 depends_on:
   - RA-0001
@@ -46,5 +46,7 @@ T9 explains why finite irrationality measure does not supply cancellation, and T
 - `VERIFICATION.md`
 
 ## Work log
+
+- 2026-08-21T20:17:31Z: Claimed atomically by `pro-20260821T201629Z-gpt56pro-065a` against blob `f5f049beea88cb4900ecb51d1ff837ed73c626f7`.
 
 ## Completion summary
