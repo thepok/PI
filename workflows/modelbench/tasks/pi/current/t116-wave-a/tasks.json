@@ -1,0 +1,79 @@
+[
+  {
+    "id": "pi-t116-prime-support-gcd",
+    "dimension": "lean_research",
+    "timeout_s": 10800,
+    "max_attempts": 7,
+    "variant": "high",
+    "prompt": "Create Contribution.lean importing only canonical T114 and T115. Read AGENTS.md and TASK_CONTRACT.md. In namespace Theory.PiDigits.T116SampledBBPGCDPrimeSupport prove the generic exact prime-support theorem for U=10*A*E+C*D and V=D*E under the two reduced-pair coprimality hypotheses. Then prove its specialization to the actual Q_N=10^N*bbpPartial(7*N) and F_N=sampledBBPForcingRat N using their true Rat reducedness. A prime dividing the exact T114 normalization gcd must divide Q.den and must divide F.den or 10. Handle p=2, p=5, N=0, signed numerators, and zero numerators through the exact statement rather than assumptions. Compile and write REPORT.md; claim no gcd size or valuation bound.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t116-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T114T114SampledBBPGCDNormalizedSuccessor.lean", "destination": "inputs/T114.lean"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T115T115SampledBBPCellDefectPhase.lean", "destination": "inputs/T115.lean"}
+    ],
+    "grading": {
+      "type": "agentic_lean_artifact",
+      "artifact": "Contribution.lean",
+      "theorem_names": [
+        "Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_crossNormalizationGCD_support",
+        "Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_sampledBBPNormalizationGCD_support"
+      ],
+      "expected_types": {
+        "Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_crossNormalizationGCD_support": "∀ (p : ℕ), p.Prime → ∀ (A C : ℤ) (D E : ℕ), Nat.Coprime A.natAbs D → Nat.Coprime C.natAbs E → p ∣ Int.gcd (10 * A * (E : ℤ) + C * (D : ℤ)) ((D * E : ℕ) : ℤ) → p ∣ D ∧ (p ∣ E ∨ p ∣ 10)",
+        "Theory.PiDigits.T116SampledBBPGCDPrimeSupport.prime_dvd_sampledBBPNormalizationGCD_support": "∀ (N p : ℕ), p.Prime → (let Q : ℚ := (10 : ℚ) ^ N * Theory.PiDigits.T77SelectedPadicDefectShell.bbpPartial (7 * N); let F : ℚ := Theory.PiDigits.T106BBPForcedOrbit.sampledBBPForcingRat N; let U : ℤ := 10 * Q.num * (F.den : ℤ) + F.num * (Q.den : ℤ); let V : ℕ := Q.den * F.den; p ∣ Int.gcd U (V : ℤ) → p ∣ Q.den ∧ (p ∣ F.den ∨ p ∣ 10))"
+      },
+      "allowed_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T114T114SampledBBPGCDNormalizedSuccessor",
+        "TheoryLib.PiQuantitativeBlockHitting.T115T115SampledBBPCellDefectPhase"
+      ],
+      "required_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T114T114SampledBBPGCDNormalizedSuccessor",
+        "TheoryLib.PiQuantitativeBlockHitting.T115T115SampledBBPCellDefectPhase"
+      ],
+      "required_markers": [
+        "namespace Theory.PiDigits.T116SampledBBPGCDPrimeSupport",
+        "prime_dvd_crossNormalizationGCD_support",
+        "prime_dvd_sampledBBPNormalizationGCD_support",
+        "Nat.Coprime A.natAbs D", "Nat.Coprime C.natAbs E",
+        "10 * A * (E : ℤ) + C * (D : ℤ)", "Int.gcd",
+        "let Q : ℚ", "let F : ℚ", "Q.num", "Q.den", "F.num", "F.den",
+        "p ∣ Q.den", "p ∣ F.den ∨ p ∣ 10"
+      ],
+      "forbidden_markers": [
+        "sorry", "admit", "native_decide", "axiom ", "opaque ", "constant ",
+        "unsafe ", "syntax ", "threeLocalResidue", "evenScaledResidue",
+        "ZMod (3 ^", "Parseval", "norm_sq", "cyclicCell", "signedDFTTrough"
+      ]
+    }
+  },
+  {
+    "id": "pi-t116-exact-gcd-census",
+    "dimension": "exact_experiment",
+    "timeout_s": 10800,
+    "max_attempts": 4,
+    "variant": "high",
+    "prompt": "Work only in the assigned directory. Read AGENTS.md. Create census.py, verify_census.py, census.json, and RESULT.md. Compute exact Fraction data for the canonical synchronized sampled BBP recurrence for every N=0..511: reduced Q_N=10^N*bbpPartial(7*N), reduced F_N=sampledBBPForcingRat N, U_N=10*Q.num*F.den+F.num*Q.den, V_N=Q.den*F.den, and g_N=gcd(abs(U_N),V_N). Use discovery N=0..255 and frozen holdout N=256..511. Record sufficient exact fields and hashes for independent replay, prime-source classification (common denominator versus base-10-only), valuations at 2 and 5, bit lengths, and an exact rational cancellation ratio representation. Test and explicitly accept/reject only these preregistered laws: G1 every prime of g is in {2,5}; G2 g divides 10; G3 g^2<=V; G4 g<=10^6. One exact witness rejects a law. The independent verifier must recompute source equations and every reported verdict from census.json, exit nonzero on mutation, and be run successfully. RESULT.md must report exact ranges, commands, file SHA-256 values, first witnesses, resource/time limits, and the boundary that finite data is experiment only. Do not browse or claim asymptotics, occupancy, cancellation, or V1.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t116-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T98T98BBPArchimedeanTerm.lean", "destination": "inputs/T98.lean"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T106T106BBPForcedOrbit.lean", "destination": "inputs/T106.lean"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T114T114SampledBBPGCDNormalizedSuccessor.lean", "destination": "inputs/T114.lean"}
+    ],
+    "grading": {
+      "type": "artifact_contract",
+      "artifact": "RESULT.md",
+      "min_chars": 1800,
+      "required_files": ["census.py", "verify_census.py", "census.json"],
+      "required_markers": [
+        "Status: `experiment`", "DISCOVERY_RANGE=0..255",
+        "HOLDOUT_RANGE=256..511", "GENERATOR_SHA256=", "VERIFIER_SHA256=",
+        "CENSUS_SHA256=", "EXACT_REPLAY=PASS", "G1", "G2", "G3", "G4",
+        "first witness", "finite data", "does not prove"
+      ],
+      "forbidden_markers": [
+        "verified resolution", "candidate resolution", "proves V1",
+        "normality follows", "floating-point"
+      ]
+    }
+  }
+]
