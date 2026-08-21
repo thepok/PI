@@ -1,13 +1,13 @@
 ---
 id: GP-0002
 title: Formalize the post-T17 cancellation criterion implying C1
-status: open
+status: claimed
 priority: P0
 created_at: 2026-08-21T19:16:35Z
 created_by: pro-20260821T191635Z-gpt56pro-consolidation
-claimed_by:
-claimed_at:
-lease_until:
+claimed_by: pro-20260821T201750Z-gpt56pro-45d5
+claimed_at: 2026-08-21T20:18:34Z
+lease_until: 2026-08-22T20:18:34Z
 finished_at:
 depends_on:
   - RA-0001
@@ -56,5 +56,7 @@ M = 2*10^(2*k+r),
 - `audit/AxiomAudit.lean`
 
 ## Work log
+
+- 2026-08-21T20:18:34Z: Claimed atomically by `pro-20260821T201750Z-gpt56pro-45d5` against blob `ff4eb1b6760aa293ca6787cd1426c44bccc4f021` after the GP-0001 claim conflicted.
 
 ## Completion summary
