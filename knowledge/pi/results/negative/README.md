@@ -17,6 +17,10 @@ spending tokens on the same dead ends.
   sampled-BBP census rejecting raw-gcd prime-support, divisibility-by-10, and
   uniform-size hypotheses; records the marker-gate false positive and the
   normalized excess-gcd direction that remains open.
+- `t117_unscaled_q_workflow_false_positive_20260821.md`: rejects an Ox
+  normalized-census artifact whose generator and verifier both omitted the
+  required `10^N` scaling in `Q_N`; records the exact guard and independent
+  endpoint checks now required before any T117 census may run.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.
