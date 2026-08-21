@@ -1,0 +1,701 @@
+                                              Incomplete exponential sums over exponential
+                                                               functions
+                                                                     Bryce Kerr
+                                                     Department of Computing, Macquarie University
+arXiv:1302.4170v1 [math.NT] 18 Feb 2013
+
+
+
+
+                                                             Sydney, NSW 2109, Australia
+                                                                bryce.kerr@mq.edu.au
+
+
+                                                                                   Abstract
+
+                                                XWe extend
+                                                       n
+                                                             some methods of bounding exponential sums of the type
+                                                 e2πiag /p to deal with the case when g is not necessarily a primitive
+                                               n≤N
+                                               root. We also show some recent results of Shkredov concerning additive
+                                               properties of multiplicative subgroups imply new bounds for the sums under
+                                               consideration.
+
+
+                                          1    Introduction
+                                          For p prime, g ∈ F∗p of order t and integer N ≤ t we consider the sums
+
+                                                                                          N
+                                                                                          X
+                                                                         Sg,p (λ, N) =          ep (λg n )                    (1)
+                                                                                          n=1
+
+
+                                          where ep (z) = e2πiz/p and gcd(λ, p) = 1. Estimates for Sg,p (λ, N) have been
+                                          considered in a number of works. For instance Korobov [7] obtains the bound
+
+                                                                       max |Sg,p (λ, N)| ≪ p1/2 log p                         (2)
+                                                                    gcd(λ,p)=1
+
+
+                                          which is used to study the distribution of digits in decimal exansions of rational
+                                          numbers (see also [10] and references therein). If g is a primitive root, Bourgain
+                                          and Garaev [1] give bounds for the number of solutions to the equation
+
+                                                       g x1 + g x2 ≡ g x3 + g x4   (mod p),        1 ≤ x1 , . . . , x4 ≤ N,
+
+
+                                                                                      1
+which they use to estimate Sg,p (λ, N). Konyagin and Shparlinski [6] improve on
+this bound and give applications to the gaps between powers of a primitive root.
+    The case of complete sums with N = t have also been considered by a number of
+authors (see for example [5]) from which corresponding bounds for the incomplete
+sums can be obtained using a method of [9].
+    We show that the proof of [1, Theorem 1.4] can be generalized to deal with the
+case when g is not a primitive root. This gives an upper bound for the sums
+                                 X
+                                     |Sg,p (λ, N)|4 .                          (3)
+                                 λ∈F∗p
+
+We then combine the argument of [6, Theorem 1] and our upper bound for (3) to
+deduce a bound for Sg,p (λ, N). Next we show that [9, Theorem 34] combined with
+a method of [9] gives another bound for Sg,p (λ, N).
+   We use the notation f (x) ≪ g(x) and f (x) = O(g(x)) to mean there exists
+some absolutle constant C such that f (x) ≤ Cg(x) and f (x) = o(g(x)) will mean
+that f (x) ≤ εg(x) for any ε > 0 and sufficiently large x.
+
+
+2     Main results
+Theorem 1. For prime p and g ∈ F∗p of order t and integer N ≤ t, we have
+             X
+                 |Sg,p (λ, N)|4 ≪ pN 71/24+o(1) 1 + (N 2 /t)1/24
+                                                                 
+                 λ∈F∗p
+
+as N → ∞.
+    We use Theorem 1 to deduce
+Theorem 2. For g ∈ F∗p of order t and integer N ≤ t, we have
+                           
+                              1/8 71/96+o(1)
+                           p N
+                                            ,        N ≤ t1/2 ,
+      max |Sg,p (λ, N)| ≤ p1/8 t−1/96 N 73/96+o(1) ,  t1/2 < N ≤ p1/2 ,
+    gcd(λ,p)=1             
+                            1/4 −1/96 49/96+o(1)
+                             p t      N            ,  p1/2 < N < t,
+as N → ∞.
+    The following is a consequence of [7, Lemma 2] and [8, Theorem 34]
+Theorem 3. For g ∈ F∗p of order t and integer N ≤ t, we have
+                        1/8 22/36
+                       
+                        p t         (log p)7/6 ,   t ≤ p1/2 ,
+                       p1/4 t13/36 (log p)7/6 ,
+                       
+                                                  p1/2 < t ≤ p3/5 (log p)−6/5 ,
+   max |Sg,p (λ, N)| ≪
+ gcd(λ,p)=1            
+                       
+                        p1/6 t1/2 (log p)4/3 ,    p3/5 < t ≤ p2/3 (log p)−2/3 ,
+                        1/2
+                         p log p,                    t > p2/3 (log p)−2/3 .
+
+                                         2
+   We may combine Theorem 2 and Theorem 3 into a single result for particular
+values of t. For instance, when t has order p1/2 we get
+
+Corollary 4. Suppose g ∈ F∗p has order t with p1/2 ≪ t ≪ p1/2 . Then
+                              
+                                 1/8+o(1) 71/96
+                              p
+                                        N      , N ≤ p1/4 ,
+           max |Sg,p (λ, N)| ≤ p23/192+o(1) N 73/96 , p1/4 < N ≤ p179/438 ,
+         gcd(λ,p)=1           
+                               31/72+o(1)
+                               p           , p179/438 < N ≪ p1/2 .
+
+
+3      Preliminary Results
+Given A, B ⊆ Fp we define
+
+                           A + B = {a + b : a ∈ A, b ∈ B}
+
+and
+                     A
+                        = {ab−1 : a ∈ A, b ∈ B, b 6= 0}.
+                     B
+We follow the method of [1] to generalise [1, Lemma 2.8]
+
+Lemma 5. Suppose g ∈ F∗p has multiplicative order t and let L1 , L2 , M be non-
+negative integers with 1 ≤ M ≤ t. Let
+
+                 X ⊆ [L1 + 1, L1 + M]      and        Y ⊆ [L2 + 1, L2 + M]
+
+be two sets of integers of cardinalities
+
+                         #X = M∆1          and       #Y = M∆2 .
+
+Then for the sets
+
+                   A = {g x : x ∈ X }         and     B = {g y : y ∈ Y}
+
+we have
+                               n                                              o
+                                   9/8+o(1)    3/4                     5/8
+                #(A + B) ≥ min M              ∆1 ∆2 , t1/8 M 7/8+o(1) ∆1 ∆2       .
+
+Proof. We follow the proof of [1, Lemma 2.8] and begin by considering the sum
+    X
+         # (a1 B ∩ a2 B) = #{(a1 , a2 , b1 , b2 ) ∈ A × A × B × B : a1 b1 = a2 b2 }.
+    a1 ,a2 ∈A
+
+
+
+
+                                              3
+By [11, Lemma 2.9] and the Cauchy-Schwarz inequality we get
+                         X                                       (#A)2 (#B)2
+                                    # (a1 B ∩ a2 B) ≥
+                        a1 a2 ∈A
+                                                                   #(AB)
+
+hence there exists some fixed a0 ∈ A such that
+                            X                                    #A (#B)2
+                                    # (aB ∩ a0 B) ≥                       .
+                            a∈A
+                                                                  #(AB)
+
+Using an argument from [2, Theorem 1], for positive integer j ≤ log #B/ log 2 + 1,
+let Dj be the set of all a ∈ A such that
+
+                                2j−1 ≤ # (aB ∩ a0 B) < 2j
+
+and set Dj = ∅ otherwise. Then we have
+                   XX
+                                j
+                                         X          #A (#B)2
+                            2 ≥     # (aB ∩ a0 B) ≥          .
+                    j   a∈D     a∈A
+                                                     #(AB)
+                            j
+
+
+                                     j
+                        P
+We choose j0 so that      a∈Dj 2         is maximum for j = j0 and let
+
+                            N = 2j0 −1 ,                 A1 = Dj0 ⊆ A,                  (4)
+
+so that
+                                N ≤ # (aB ∩ a0 B) ≤ 2N.                                 (5)
+We have
+                                         X
+                                                     j0 −1
+                                                                 XX
+                                                                           j #A (#B)2
+             (log #B/ log 2 + 1)                 2           ≥           2 ≥
+                                         a∈Dj0                   j   a∈D
+                                                                              #(AB)
+                                                                       j
+
+
+and the inequality #B ≤ M gives
+
+                                                      #A (#B)2
+                                N#A1 ≥                            .                     (6)
+                                                     4#(AB) log M
+   Since 1 ≤ M ≤ t, for any x1 , x2 ∈ X we have x1 6≡ x2 (mod t) so that g x1 6≡ g x2
+(mod p), hence we get
+                                   #A = M∆1 ,                                    (7)
+                                            #B = M∆2 ,                                  (8)
+and
+                    #(AB) = #{g x+y : x ∈ X , y ∈ Y} ≪ M.                               (9)
+
+                                                        4
+Inserting (7), (8), (9) into (6) and recalling that N ≤ #B and #A1 ≤ #A gives
+
+                                                 ∆1 ∆22
+                                  N#A1 ≫ M 2            ,                   (10)
+                                                 log M
+                                                ∆1 ∆2
+                                   #A1 ≫ M            ,                     (11)
+                                                log M
+                                                 ∆22
+                                    N ≫M             .                      (12)
+                                               log M
+By [1, Lemma 2.6] we have
+
+                    #(aA + (aB ∩ a0 B))#(a0 A + (aB ∩ a0 B))   (#(A + B))2
+  #(aA ± a0 A) ≤                                             ≤              ,
+                                #(aB ∩ a0 B))                  #(aB ∩ a0 B)
+
+so that for any a ∈ A1 , by (5)
+
+                                               (#(A + B))2
+                          #(aA ± a0 A) ≤                   .                (13)
+                                                   N
+Using the same argument from the beginning of the proof, there exists a′0 ∈ A1
+such that
+                      X
+                                   ′         (#A1 )3
+                          #(aA1 ∩ a0 A1 ) ≥            .                   (14)
+                     a∈A
+                                            # (A1 A1 )
+                            1
+
+Let A2 be the set of all a ∈ A1 such that
+
+                                                    (#A1 )2
+                        #((a/a′0 )A1 ∩ A1 ) ≥                  .            (15)
+                                                   2# (A1 A1 )
+
+Then we have
+                                           (#A1 )2
+                                  #A2 ≥               ,                     (16)
+                                          2# (A1 A1 )
+since if the inequality (16) were false, we would have
+        X                      X                       X
+            #(aA1 ∩ a′0 A1 ) =      #(aA1 ∩ a′0 A1 ) +   #(aA1 ∩ a′0 A1 )
+      a∈A1                      a∈A2                        a∈A1 \A2
+
+                                              (#A1 )2
+                            ≤ #A2 #A1 + #A1
+                                             2# (A1 A1 )
+                                      3 
+                                                    (#A1 )3
+                                              
+                               (#A1 )     1 1
+                            <              +    =            ,
+                              # (A1 A1 ) 2 2      # (A1 A1 )
+
+
+
+                                           5
+which contradicts (14). Let
+
+                  d0 = max{ ordp (a/a′0 ) : a ∈ A2 } = ordp (a′′0 /a′0 )
+
+for some a′′0 ∈ A2 . We split the remaining proof into 2 cases:
+    Case 1:                   
+                                A1 − A1
+                                        
+                           #              < ordp (a′′0 /a′0 )
+                                A1 − A1
+Let
+                                       C = (a′′0 /a0 )A1 ∩ A1
+then we have
+                      
+                           C−C
+                                                 
+                                                      A1 − A1
+                                                                  
+                  #                       ≤#                          < ordp (a′′0 /a′0 )          (17)
+                          A1 − A1                     A1 − A1
+
+so there exists c1 , c2 ∈ C and a3 , a4 ∈ A1 such that
+                                                c1 − c2    C −C
+                                 (a′0 /a′′0 )           6∈      .
+                                                a3 − a4 A1 − A1
+
+Since if (a′0 /a′′0 )y ∈ AC−C
+                          1 −A1
+                                for all y ∈ AC−C
+                                             1 −A1
+                                                   then the distinct elements
+                                                                        ′′   ′
+                           y, (a′0 /a′′0 )y, . . . , (a′0 /a′′0 ) ordp (a0 /a0 )−1 y
+
+all belong to AC−C
+               1 −A1
+                     , contradicting (17). Using a similar argument, we may show
+that we have strict subset inclusion C ⊂ A1 so that we may choose a1 , a2 ∈ A1
+such that
+                                 a1 − a2    C−C
+                                         6∈         .
+                                 a3 − a4 A1 − A1
+Hence by [3, Lemma 3.1] we have
+                                          
+                                               a1 − a2
+                                                         
+          #((a1 − a2 )A + (a3 − a4 )A) ≥ # C +         A1 ≥ #A1 #C
+                                               a3 − a4
+
+and since a′′0 ∈ A2 , we have by (15)
+
+                                                                         (#A1 )3
+                      #((a1 − a2 )A + (a3 − a4 )A) ≥                               .               (18)
+                                                                        # (A1 A1 )
+
+In [1, Lemma 2.7] we take k = 4 and
+
+        B1 = a1 A,        B2 = −a2 A,            B3 = a3 A,         B4 = −a4 A,        X = a0 A,
+
+
+                                                       6
+which gives
+
+ #(a1 A − a2 A + a3 A − a4 A) ≤
+                     #(a0 A + a1 A)#(a0 A − a2 A)#(a0 A + a3 A)#(a0 A − a4 A)
+                                                                              .
+                                              (#A)3
+                                                                           (19)
+
+The inequality # ((a1 − a2 )A + (a3 − a4 )A) ≤ # (a1 A − a2 A + a3 A − a4 A) along
+with (13) and (18) gives
+
+                                                   ((#A1 )3 (#A)3 N 4
+                           (#(A + B))8 ≥                              .
+                                                      # (A1 A1 )
+
+Inserting (7), (10) and (12) into the above and using # (A1 A1 ) ≪ M we get
+
+                               (#(A + B))8 ≥ M 9+o(1) ∆61 ∆82 .                                     (20)
+
+   Case 2:                         
+                                       A1 − A1
+                                                  
+                               #                      ≥ ordp (a′′0 /a′0 )
+                                       A1 − A1
+                                                                      ′′
+Then we have M 4 ≥ ordp (a′′0 /a′0 ) and writing a′′0 = g x0 and a′0 = g x0 , we have
+                                                             t
+                               ordp (a′′0 /a′0 ) =
+                                                      gcd(t, x′′0 − x′0 )
+
+and since 1 ≤ |x′′0 − x′0 | ≤ M we get ordp (a′′0 /a′0 ) ≫ M/t. Combining this with
+the previous inequality gives M ≥ t1/5 . We may suppose ∆1 ∆2 ≥ M −1/5 since
+otherwise the bound is trivial, so that (11) and (16) give
+
+                                              ∆21 ∆22
+                           #A2 ≫ M                    ≫ M 3/5 ≫ t1/20 .                             (21)
+                                             log2 M
+
+Since A2 ⊆ {g x : L0 + 1 ≤ x ≤ L0 + M}, we have
+                                                                                          
+              X                X                  X          X                      Md0
+     #A2 =           1≤                      1≤                            1≤           + 1 τ (t)
+              a∈A2             a∈A2
+                                                                                     t
+                                                   d|t L1 +1≤x≤L1 +M
+                          ordp (a/a′0 )≤d0        d≤d0       t|dx
+
+
+with τ (t) counting the number of divisors of t. By (21) and the bound τ (t) ≪
+to(1) [4, Theorem 315] we obtain 1 ≪ |A2 |/τ (t) and hence
+                                           
+                              t #A2               t#A2
+                        d0 ≥           −1 ≫              M.                (22)
+                             M τ (t)               τ (t)
+
+                                                    7
+By assumption on d0 and (16) we have
+
+                                         t (#A1 )2
+                           
+                             A1 − A1
+                                     
+                         #             ≫           .
+                             A1 − A1      τ (t)M 2
+Taking G = A1 − A1 /A1 − A1 in [3, Lemma 3.3] we see that there exists λ ∈
+(A1 − A1 )/(A1 − A1 ) such that
+                                         (                     )
+                                                           2
+                                                2 t (#A1 )
+         # (A + λA) ≥ # (A1 + λA1 ) ≥ min (#A1 ) ,           M2 .
+                                                     τ (t)
+
+Hence there exist a1 , a2 , a3 , a4 ∈ A1 such that
+                       # ((a1 − a2 )A + (a3 − a4 )A) ≫ (#A1 )2
+or
+                                                         t (#A1 )2 2
+                    # ((a1 − a2 )A + (a3 − a4 )A) ≫               M .
+                                                            τ (t)
+For the first case, by (13) and (19)
+                  # (a0 A + a1 A) # (a0 A − a2 A) # (a0 A + a3 A) # (a0 A − a4 A)
+      (#A1 )2 ≤
+                                             (#A1 )3
+                  (#(A + B))8
+              ≤
+                   (#A)3 N 3
+and by (7), (10) and (12) we get
+                   (#(A + B))8 ≫ M 9+o(1) ∆51 ∆82 ≫ M 9+o(1) ∆61 ∆82                (23)
+similarily for the second case, we get
+                                               t
+                          (#(A + B))8 ≫            M 7+o(1) ∆51 ∆82
+                                             τ (t)
+and recalling that M ≥ t1/5 and τ (t) ≪ to(1) , we may absorb the term 1/τ (t) into
+M o(1) , which gives
+                            (#(A + B))8 ≫ tM 7+o(1) ∆51 ∆82                         (24)
+and the result follows combining (20), (23) and (24).
+     Given A, B ⊂ Fp , we write
+            E+ (A, B) = #{(a1 , a2 , b1 , b2 ) ∈ A2 × B2 : a1 + b1 = a2 + b2 }.
+Then we have [1, Lemma 7.1]
+
+                                            8
+Lemma 6. Let A, B ⊂ Fp , then
+                                     8
+                XX
+                          ep (xy) ≤ p(#A)4 (#B)4 E+ (A, A)E+ (B, B)
+                a∈A b∈B
+
+Lemma 7. Suppose g ∈ F∗p has order t and let A ⊂ Fp∗ be the subgroup generated
+by g. Then for N ≤ t we have
+                                  (
+                                    p1/8 E+ (A, A)1/4 log t
+               max |Sg,p(λ, N)| ≪
+             gcd(λ,p)=1             p1/4 t−1/4 E+ (A, A)1/4 log t.
+
+Proof. Let
+                                               t
+                                               X
+                                 σ(a, c) =           et (an)ep (cg n )
+                                               n=1
+
+then we have
+                          N                       t   N           t−1
+                          X                    1 XX               X
+          Sg,p (λ, N) =         ep (λg n ) =             et (−kj)     et (kn)ep (λg n )
+                          n=1
+                                               t k=1 j=1          n=0
+
+
+so that
+                                          t      N
+                                  1X X
+                  |Sg,p (λ, N)| ≤           et (−kj) max |σ(k, λ)|
+                                  t k=1 j=1          k∈Fp
+
+                                   ≪ log t max |σ(k, λ)| .                                (25)
+                                               k∈Fp
+
+
+By [9, Lemma 3.14] for any integers k, λ, with gcd(λ, p) = 1, we have
+
+                           |σ(k, λ)| ≤ p1/4 t−1/4 E+ (A, A)1/4,
+
+                                 |σ(k, λ)| ≤ p1/8 E+ (A, A)1/4
+and the result follows combining these bounds with (25).
+
+
+4    Proof of Theorem 1
+Let J(g, N) equal the number of solutions to the equation
+
+                 g x1 + g x2 = g x3 + g x4 ,           1 ≤ x1 , x2 , x3 , x4 ≤ N,
+
+
+
+                                                  9
+then we have
+                 X                           X
+                         |Sλ (p; g, N)|4 ≤          |Sλ (p; g, N)|4 = pJ(g, N).                            (26)
+                 λ∈F∗p                       λ∈Fp
+
+Given A, B ⊆ Fp and E0 ⊂ A × B we write
+                               A+E0 B = {a + b : (a, b) ∈ E0 }
+so that by [1, Lemma 2.4] there exists E0 ⊆ A × A such that
+                                              8(#E0 )2
+                            E+ (A, A) ≤                log2 (e#A)
+                                             #(A+E0 A)
+and writing K = N 2 /#E0 gives
+                                                   N 4+o(1)
+                                J(g, N) ≤                      .                                           (27)
+                                               # (A +E0 A) K 2
+Since N ≤ t we have #A = N so that #E0 = (#A)2 /K. Hence by [1, Lemma 2.3]
+there exists A1 , A2 ⊆ A and integer Q with
+                                    N                         N2
+                           #A1 ≫      ,         #A2 ≫                  ,                                   (28)
+                                    K                       QK 2 log N
+such that
+                                                                         QN
+                         (# (A+E0 A))3 ≫ # (A1 + A2 )                            .                         (29)
+                                                                    K 3 log N
+By (28) and Lemma 5 we have
+                                                                           
+                             9/8+o(1) 1      N      1/8 7/8+o(1) 1      N
+     # (A1 + A2 ) > min N                        ,t N
+                                      K 3/4 QK 2                 K 5/8 QK 2
+                    t1/8 N 4+o(1) QK 2+3/4
+                                                                       
+                                                           1
+                  ≥ 2 5+3/8                                                                                (30)
+                     tK          N 1+7/8+o(1) N 2/8+o(1) + t1/8 K 1/8
+                    t1/8 N 3−7/8+o(1)
+                                                               
+                                                   1
+                  ≥
+                         QK 19/8        N 2/8+o(1) + t1/8 K 1/8
+and from (29) and (30) we get
+                                                                         1/24       !
+                                              K 36/24               N2
+                                                                
+                 (# (A+E0 A))−1 <                                                +1 .                      (31)
+                                          N 1+1/24+o(1)             Kt
+Combining (27) with (31) gives
+                                               1/24        !                                 1/24        !
+                                          N2                                             N2
+                                                                                    
+   J(g, N) < K 36/24−2 N 3−1/24                        +1       < N 3−1/24                            +1
+                                          Kt                                              t
+and since K ≥ 1 the result follows.
+
+                                                10
+5    Proof of Theorem 2
+We follow the method of [6] and begin with considering
+
+                            σp,g (N) = max              max |Sp,g (λ, K)|
+                                           1≤K≤N gcd(λ,p)=1
+
+
+so that for any integer K we have
+                                               K    N
+                                       1 XX
+                      Sp,g (λ, N) −              ep (λg k+n ) ≤ 2σg,p (K).
+                                       K k=1 n=1
+
+Taking A = {g n : 1 ≤ n ≤ N}, B = {λg n : 1 ≤ n ≤ K} in Lemma 6, we have by
+Theorem 1
+        K      N
+     1 XX
+               ep (λg k+n) ≤
+     K k=1 n=1
+                                                    1/192 !                                                  1/192 !
+                                               N2                                                    K2
+                                                                                                
+            p1/8 N 167/192+o(1)      1+                        K −25/192+o(1)               1+
+                                                t                                                     t
+
+and letting K = ⌊N/3⌋ we get
+                                                                                              1/96 !
+                                                                                         N2
+                                                                                     
+              σp,g (N) ≤ σp,g (⌊N/3⌋) + p1/8 N 71/96+o(1)                    1+                           .
+                                                                                          t
+
+Repeating the above argument recursively, we end up with O(log N) terms all
+bounded by
+                                          2 1/96 !
+                                          N
+                        p1/8 N 71/96 1 +
+                                           t
+which gives
+                                                                                            1/96 !
+                                                                                      N2
+                                                                                 
+                   max |Sg,p (λ, N)| ≤ p1/8 N 71/96+o(1)                 1+                           .              (32)
+               gcd(λ,p)=1                                                              t
+
+Also, we have from Hölder’s inequality,
+
+         K X
+           N                                     N
+                                               K X                           4
+         X                                     X                                     X
+                              k+n          3                       k+n
+                     ep (λg         ) ≤K                  ep (λg         )       ≤          |Sp,g (a, N)|4
+         k=1 n=1                               k=1 n=1                               a∈Fp
+
+
+
+
+                                                     11
+so by Theorem 1 we get
+          K X
+            N                                                                    2
+                                                                                      1/96 !
+          X                                                                  N
+                    ep (λg k+n) ≤ p1/4 K −1/4+o(1) N 71/96+o(1)    1+
+          k=1 n=1
+                                                                              t
+
+and taking K = ⌊N/3⌋ gives
+                                                                            1/96 !
+                                                                       N2
+                                                                   
+             σp,g (N) ≤ σp,g (⌊N/3⌋) + p1/4 N 47/96+o(1)      1+                         .
+                                                                        t
+
+As before we end up with the bound
+                                                                            1/96 !
+                                                                       N2
+                                                                   
+                 max |Sg,p (λ, N)| ≤ p1/4 N 47/96+o(1)        1+                                (33)
+               gcd(λ,p)=1                                               t
+
+and the result follows combining (32) and (33).
+
+
+6     Proof of Theorem 3
+Let A ⊂ F∗p be the subgroup generated by g, so by [8, Theorem 34] we have
+                        (
+                          t22/9 (log p)2/3 , if t ≤ p3/5 (log p)−6/5 ,
+            E+ (A, A) ≪ 3 −1/3                                            (34)
+                          tp       (log p)4/3 , if t > p3/5 (log p)−6/5 .
+
+We consider first when t ≤ p1/2 . Combining Lemma 7 with (34) gives
+
+                            max |Sg,p (λ, N)| ≤ p1/8 t22/36 (log p)7/6 .
+                       gcd(λ,p)=1
+
+
+For p1/2 < t ≤ p3/5 (log p)−6/5 we have,
+
+                            max |Sg,p (λ, N)| ≤ p1/4 t13/36 (log p)7/6 .
+                       gcd(λ,p)=1
+
+
+If p3/5 (log p)−6/5 < t ≤ p2/3 (log p)−2/3
+
+                             max |Sg,p (λ, N)| ≤ p1/6 t1/2 (log p)4/3
+                         gcd(λ,p)=1
+
+
+and for p2/3 (log p)−2/3 < t, from [7, Lemma 2]
+
+                                 max |Sg,p (λ, N)| ≤ p1/2 log p
+                               gcd(λ,p)=1
+
+and the result follows combining the above bounds.
+
+                                               12
+References
+ [1] J. Bourgain and M. Z. Garaev, ‘On a variant of sum-product estimates and
+     explicit exponential sum bounds in prime fields’, Math. Proc. Cambr. Phil.
+     Soc., 146 (2008), 1–21.
+
+ [2] M. Z. Garaev, ‘An explicit sum-product estimate in Fp ’, Intern. Math. Res.
+     Notices, 2007 (2007), Article rnm035, 1–11.
+
+ [3] A. Glibichuk and S. V. Konyagin, ‘Additive properties of product sets in fields
+     of prime order’, Additive combinatorics, CRM Proc. Lecture Notes, vol. 43,
+     Amer. Math. Soc., Providence, RI, 2007, 279–286.
+
+ [4] G. H. Hardy and E. M. Wright, An introduction to the theory of numbers,
+     Oxford Univ. Press, Oxford, 1979.
+
+ [5] D. R. Heath-Brown and S. V. Konyagin, ‘New bounds for Gauss sums derived
+     from kth powers, and for Heilbronn’s exponential sum’, Quart. J. Math., 51
+     (2000), 221–235.
+
+ [6] S. V. Konyagin and I. E. Shparlinski, ‘On the consecutive powers of a primitive
+     root: Gaps and exponential sums’, Mathematika, 58 (2012), 11–20.
+
+ [7] N. M. Korobov, ‘On the distribution of digits in periodic fractions’, Matem.
+     Sbornik , 89 (1972), 654–670 (in Russian).
+
+ [8] I. D. Shkredov, ‘Some new inequalities in additive cominatorics’,
+     arXiv:1208.2344, v3
+
+ [9] I. E. Shparlinski, ‘Cryptographic Applications of Analytic Number Theory:
+     Complexity Lower Bounds and Pseudorandomness’, Birkhäuser Verlag, 2003
+
+[10] I. E. Shparlinski and W. Steiner, ‘On digit patterns in expansions of rational
+     numbers with prime denominator’, Quart. J. Math., (to appear).
+
+[11] T. Tao and V. Vu, Additive combinatorics, Cambridge Univ. Press, Cam-
+     bridge, 2006.
+
+
+
+
+                                        13
+

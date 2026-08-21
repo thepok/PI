@@ -1,0 +1,12 @@
+T154_EXACT_RATIONAL_REPLAY
+FINITE_COMPUTATION_LABEL: experiment, not asymptotic proof
+HASHES_OK: 7
+T153_STATUS: active generation-1 lease; no mathematical artifact in snapshot
+CASE N=12 k=4 S=2 lower=3/50 optimum=3/50 upper=3/50 R=9 B=12 prefix_dual=2/25
+CASE N=12 k=4 S=2,3,4 lower=3/50 optimum=3/50 upper=3/50 R=9 B=12 prefix_dual=2/25
+CASE N=15 k=5 S=3,5 lower=3/40 optimum=3/40 upper=3/40 R=9 B=13 prefix_dual=13/120
+CASE N=18 k=6 S=3,4,6 lower=9/100 optimum=9/100 upper=9/100 R=11 B=16 prefix_dual=36/275
+ENDPOINTS_CAPACITIES_DUALS_OK
+FINITE_STRONG_DUALITY_TESTS_OK
+TERMINAL_VERDICT_COUNT: 1
+FIXED_PI_A1_C1_C2_CLAIMS: none

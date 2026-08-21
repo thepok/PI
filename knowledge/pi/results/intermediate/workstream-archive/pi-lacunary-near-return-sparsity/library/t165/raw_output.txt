@@ -1,0 +1,17 @@
+T165 finite validation (experiment; not proof)
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+prefix_cases=24
+literal_pair_enumeration_cases=12
+constant_grid_cases=3456
+selected_rows: K m M distinct cmax E
+2 1 189 10 20 3681
+2 2 188 99 3 382
+3 3 2887 999 5 8831
+4 1 38889 10 4000 152346321
+4 4 38886 9999 7 159436
+4 6 38884 30527 3 55826
+class_partition=PASS
+ordered_diagonal_energy=PASS
+stratum_alignment_boundary_carry=PASS
+explicit_constants=PASS
+status=PASS

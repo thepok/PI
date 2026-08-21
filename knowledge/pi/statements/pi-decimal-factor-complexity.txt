@@ -1,0 +1,16 @@
+CANONICAL QUESTION
+Let pi = 3.d_1 d_2 d_3 ... be its unique nonterminating decimal expansion, with d_i in {0,...,9} for every integer i >= 1. For every integer n >= 1, let F_pi(n) = {(d_i,...,d_(i+n-1)) : i >= 1} and p_pi(n) = |F_pi(n)|. Is it true that for every real C > 0 there is an integer N >= 1 such that p_pi(n) > C*n for every integer n >= N? Equivalently, does lim_(n->infinity) p_pi(n)/n = infinity?
+
+PROVENANCE
+Formulated by this system on 2026-07-21 from the local:pi-digits mission and the theory-track strategy playbook. The problem isolates a strict intermediate digit-stream target between irrationality and disjunctivity. Morse-Hedlund supplies the baseline p_pi(n) >= n+1 from irrationality; Adamczewski-Bugeaud, On the complexity of algebraic numbers I (Annals of Mathematics 165, 2007, DOI 10.4007/annals.2007.165.547), proves a related superlinear result for algebraic irrationals, not pi. Exact statements and applicability must be source-pinned before use.
+
+RECORDED AMBIGUITIES
+A1 (CANONICAL): p_pi(n)/n tends to infinity as quantified above. Status: OPEN to be source-pinned; no pi-specific proof is claimed.
+A2: p_pi(n)-n tends to infinity. This is weaker than A1 and is not the canonical target. Status: OPEN for pi to be source-pinned.
+A3: limsup p_pi(n)/n = infinity. This is weaker than A1 because it permits infinitely many low-complexity lengths. Status: OPEN for pi to be source-pinned.
+A4: p_pi(n) >= n+1 for every n >= 1. TRUE, conditional only on the standard irrationality of pi, by Morse-Hedlund; it is a baseline and not a resolution of A1.
+A5: p_pi(n) = 10^n for every n >= 1. This is equivalent to the local:pi-digits disjunctivity question, is stronger than A1, and is not this target. Status: OPEN.
+A6: count noncontiguous subsequences, prefixes only, or include the integer digit 3. These are different conventions and are excluded: canonical factors are contiguous and begin at arbitrary fractional-digit positions. The alternate terminating decimal convention is inapplicable because pi is irrational.
+
+VERIFICATION RULES
+This problem is subject to VERIFICATION.md in full. Finite computation of pi digits is heuristic evidence only and cannot prove A1. Every sibling-variant result must name its variant and must not claim the canonical target or local:pi-digits unless its stated implication is formally established. Literature claims require pinned sources and hypotheses; formal results require their checked artifacts.

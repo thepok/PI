@@ -1,0 +1,1337 @@
+Random Generators and Normal Numbers
+David H. Bailey and Richard E. Crandall
+
+
+CONTENTS
+                                                         Pursuant to the authors’ previous chaotic-dynamical model
+1. Introduction                                          for random digits of fundamental constants [Bailey and Cran-
+2. Nomenclature and Fundamentals                         dall 01], we investigate a complementary, statistical picture in
+3. Pseudo-Random Number Generators (PRNGs)               which pseudorandom number generators (PRNGs) are central.
+4. PRNGs Admitting of Normality Proofs                   Some rigorous results are achieved: We establish b-normality
+                                                                                     
+5. PRNGs Leading to Density and Irrationality Proofs     for constants of the form i 1/(bmi cni ) for certain sequences
+6. Special Numbers with ”Nonrandom” Digits               (mi ), (ni ) of integers. This work unifies and extends previ-
+7. Conclusions and Open Problems                         ously known classes of explicit normals. We prove that for
+                                                                                                                           n
+Acknowledgments                                          coprime b, c > 1 the constant αb,c =          n=c,c2 ,c3 ,... 1/(nb )
+                                                         is b-normal, thus generalizing the Stoneham class of normals
+References
+                                                         [Stoneham 73a]. Our approach also reproves b-normality for
+                                                         the Korobov class [Korobov 90] βb,c,d , for which the summa-
+                                                                                                                    2    3
+                                                         tion index n above runs instead over powers cd , cd , cd , . . .
+                                                         with d > 1. Eventually we describe an uncountable class of
+                                                         explicit normals that succumb to the PRNG approach. Num-
+                                                         bers of the α, β classes share with fundamental constants such
+                                                         as π, log 2 the property that isolated digits can be directly cal-
+                                                         culated, but for these new classes such computation tends to be
+                                                         surprisingly rapid. For example, we find that the googol-th (i.e.,
+                                                         10100 -th) binary bit of α2,3 is 0. We also present a collection
+                                                         of other results—such as digit-density results and irrationality
+                                                         proofs based on PRNG ideas—for various special numbers.
+
+
+
+
+                                                         1. INTRODUCTION
+                                                         We call a real number b-normal if, qualitatively speak-
+                                                         ing, its base-b digits are “truly random.” For example,
+                                                         in the decimal expansion of a number that is 10-normal,
+                                                         the digit 7 must appear 1/10 of the time, the string 783
+                                                         must appear 1/1000 of the time, and so on. It is remark-
+                                                         able that in spite of the elegance of the classical notion of
+                                                         normality, and the sobering fact that almost all real num-
+                                                         bers are absolutely normal (meaning b-normal for every
+                                                         b = 2, 3, . . . ), proofs of normality√for fundamental con-
+                                                         stants such as log 2, π, ζ(3) and 2 remain elusive. In
+                                                         [Bailey and Crandall 01] we proposed a general “Hypoth-
+                                                         esis A” that connects normality theory with a certain
+2000 AMS Subject Classification: Primary 11K16, 11K06;
+Secondary 11J81, 11K45                                   aspect of chaotic dynamics. In a subsequent work, J. La-
+Keywords: Normal numbers, transcendental numbers,        garias [Lagarias 01] provided some additional interesting
+pseudo-random number generators                          viewpoints and analyses using the dynamical approach.
+                                                                                                               c A K Peters, Ltd.
+                                                                                                 1058-6458/2001 $ 0.50 per page
+                                                                                         Experimental Mathematics 11:4, page 527
+528    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+   There is a fascinating historical thread in normality        and d > 1):
+theory, from “artificial” or “unnatural” normals to “nat-
+                                                                                                                        1
+ural” normals. By the adjective “artificial” or “unnat-                       βb,c,d       =                               ,
+                                                                                                                       nbn
+ural,” we mean that a number’s construction is relatively                                      n=c,cd ,cd2 ,cd3 ,...
+nonalgebraic and nonanalytic, in contrast to a “natural”
+normal number, which is given by some reasonably an-            Korobov showed in 1990, via a clever combinatorial ar-
+alytic formulation, such as a conveniently defined series.      gument, that βb,c,d is b-normal [Korobov 90]. We shall
+Such talk is of course qualitative and heuristic; yet, in the   reprove this result, and do so with a general method
+last few decades we have seen numbers, provably normal          that encompasses also the Stoneham class and generaliza-
+to some base, and via elegant series descriptions looking       tions. It should be remarked that these pioneers were not
+more like fundamental constants.                                merely concerned with the aforementioned thread from
+   Since the 1930s we have known of artificial construc-        artificial to natural constructions. For example, Stone-
+tions, such as the 10-normal, binary Champernowne con-          ham used the representations
+stant [Champernowme 33]:                                                      √                                   1
+                                                                               2       = 2                  1−            ,
+C10    =   0.(1)(2)(3)(4)(5)(6)(7)(8)(9)(10)(11)(12) · · · ,                                                     4d2
+                                                                                               d odd
+                                                                                                                     1
+(or the 2-normal C2 = 0.(1)(10)(11)(100)(101)(110)                               π     = 4                      1−            ,
+                                                                                                                     d2
+(111) · · ·2 ), with the (·) notation meaning the expansion                                    d odd >1
+
+is constructed via mere concatenation of registers.             to creatively demonstrate (for either constant) that for a
+   The migration toward more natural constructions was          fixed number of multiplicands, certain digit strings must
+intensified by the work of Korobov and Stoneham from            appear in the resulting rational period [Stoneham 76].
+the 1950s into the 1990s, with Levin [Levin 99] and             Unfortunately this does not on the face of it lead
+others working even more recently on statistical prop-                                                           √ to rig-
+                                                                orous results about the exact constants π and 2. (It is
+erties of normals. Those investigations were rooted in          also puzzling, in that, whereas π falls squarely under the
+the recurring-decimal constructions of Good [Good 46]           rubric of the present authors’
+(see, e.g., the interesting historical discussions in [Stone-                                √ Hypothesis A [Bailey and
+                                                                Crandall 01], the constant 2 does not, and one can only
+ham 76]). Let us now highlight what we shall call Ko-           wonder whether the two constants should ultimately be
+robov and Stoneham classes of normals, referring fur-           treated in the same fashion as regards normality.) As for
+ther details to the works of those authors, [Stoneham 83],      Korobov, his work actually included explicit continued
+[Stoneham 70], [Stoneham 73b], [Stoneham 74], [Stone-           fractions for the βb,c,d and related normals. For example,
+ham 76], [Korobov 92], [Korobov 90], and [Korobov 72].
+Although Korobov achieved normal number construction                                              1                    1
+                                                                        β2,3,2   =                          =                 ,
+                                                                                                                  23 + 1+ 1 1
+                                                                                                        i
+in the 1950s by parlaying Good’s ideas [Stoneham 76],                                           2i 32
+                                                                                           i≥0 3 2                            7+···
+and Stoneham gave some explicit–yet rather recondite–
+series construction of normals in 1970 [Stoneham 70], an        with the precise algorithm for the fraction’s ensuing ele-
+elegant and easily described representative class of “nat-      ments given in the reference [Korobov 90] (and note that
+ural” normals was exhibited in 1973 by Stoneham [Stone-         the fraction elements soon grow extremely rapidly, the
+ham 73a]. We shall denote these Stoneham numbers by             11-th element being 26399 − 1).
+{αb,c }, with b, c > 1 coprime:                                    In the present paper, the way we generalize and extend
+                                         ∞
+                                                                such normality classes is to adopt a complementary view-
+                                 1               1              point to Hypothesis A, focusing upon pseudo-random
+           αb,c   =                  =                  .
+                                bn n
+                                         k=1
+                                               bck ck           number generators (PRNGs), with relevant analyses of
+                      n=ck >1
+                                                                these PRNGs carried out via exponential-sum and other
+Stoneham proved that αb,c is b-normal whenever c is an          number-theoretical techniques. One example of success
+odd prime and b is a primitive root of c2 . We shall in         along this pathway is the establishment of large (indeed,
+the present paper generalize this class of normals by re-       uncountable) classes of “natural” normal numbers. Look-
+moving Stoneham’s restrictions, demanding only coprime          ing longingly at the fundamental constants
+b, c > 1. Another class of normals we shall be able to
+cover with the present techniques is the Korobov class                                      b                      1
+                                                                                     log              =
+whose members we denote (for b, c > 1 again coprime                                        b−1              n>0
+                                                                                                                  bn n
+                                                             Bailey and Crandall: Random Generators and Normal Numbers          529
+
+
+whose normality–for any b ≥ 2 and to any base, b or                condition that ({an }) be merely dense in [0, 1), noting
+not–remains to this day unresolved, we use PRNG con-               that equidistributed implies dense.
+cepts to prove b-normality for sums involving sparse fil-             Armed with the above nomenclature, we paraphrase
+tering of the logarithms’ summation indices. Of specific           from [Bailey and Crandall 01] and references [Kuipers
+interest to us are sums                                            and Niederreiter 74], [Hardy and Wright 79], [Niven 56],
+                                                   1               and [Korobov 92] in the form of a collective definition.
+                  αb,c,m,n       =
+                                                 bmi cni
+                                           i≥1
+                                                                   Definition 2.1. (Collection.) The following pertain to
+for certain integer pairs b, c and sequences m = (mi ), n =        real numbers α and sequences of real numbers (αn ∈
+(ni ) that enjoy certain growth properties. Note that our          [0, 1) : n = 0, 1, 2, . . . ). For any base b = 2, 3, 4 . . . we
+definition of Stoneham numbers αb,c is the case ni =               assume, as enunciated above, a unique base-b expansion
+i, mi = cni , while the Korobov numbers βb,c,d arise from          of whatever real number is in question.
+sequence definitions ni = di , mi = cni .                           (1) α is said to be b-dense iﬀ in the base-b expansion
+   It is tantalizing that Stoneham and Korobov numbers                  of α every possible finite string of consecutive digits
+both involve restrictions on the summation indices in                   appears.
+the aforementioned logarithmic expansion, in the sense
+that numbers of either class enjoy the general form                 (2) α is said to be b-normal iﬀ in the base-b expansion of
+             n                            +                             α every string of k base-b digits appears with (well-
+   n∈S 1/(nb ) for some subset S ⊂ Z . Our general-
+izations include the sums                                               defined) limiting frequency 1/bk . A number that is
+                                                                        b-normal for every b = 2, 3, 4, . . . is said to be ab-
+                                            1
+                                               ,                        solutely normal. (This definition of normality diﬀers
+                                           nbn
+                   n=cf (1) ,cf (2) ,...                                from, but is provably equivalent to, other historical
+                                                                        definitions [Hardy and Wright 79], [Niven 56].)
+for suitable integer-valued functions f ; so again we have a
+restriction of a logarithmic sum to a sparse set of indices.        (3) The discrepancy of (αn ), essentially a measure of
+   In addition to the normality theorems applicable to                  unevenness of the distribution in [0, 1) of the first
+the restricted sums mentioned above, we present a col-                  N sequence elements, is defined (when the sequence
+lection of additional results on irrationality and b-density            has at least N elements) as
+(see ensuing definitions), these side results having arisen
+                                                                                       #(n < N : αn ∈ [a, b))
+during our research into the PRNG connection.                           DN =      sup                         − (b − a) .
+                                                                               0≤a<b<1         N
+
+2. NOMENCLATURE AND FUNDAMENTALS                                        One may also speak of a number α’s b-discrepancy,
+                                                                        as the discrepancy of the sequence (bn α), which se-
+We first give some necessary nomenclature relevant to
+                                                                        quence being relevant to the study of b-normality.
+base-b expansions. For a real number α ∈ [0, 1) we shall
+assume uniqueness of base-b digits, b an integer ≥ 2; i.e.,         (4) The gap-maximum of (αn ), the largest gap “around
+α = 0.b1 b2 · · · with each bj ∈ [0, b − 1], with a certain ter-        the mod-1 circle” of the first N sequence elements, is
+mination rule to avoid infinite tails of digit values b − 1.            defined (when the sequence has at least N elements)
+One way to state the rule is simply to define bj = bj α ;               as
+another way is to convert a trailing tail of consecutive
+                                                                          GN =      max         ||β(k+1) mod N − βk mod N ||,
+digits of value b − 1, as in 0.4999 · · · → 0.5000 · · · for                     k=0,...,N −1
+base b = 10. Next, denote by {α}, or α mod 1, the frac-
+                                                                        where (βn ) is a sorted (either in decreasing or in-
+tional part of α, and denote by ||α|| the closer of the
+                                                                        creasing order) version of the first N elements of
+absolute distances of α mod 1 to the interval endpoints
+                                                                        (αn mod 1).
+0, 1, i.e., ||α|| = min({α}, 1 − {α}). Denote by (αn ) the
+ordered sequence of elements α0 , α1 , . . . . Of interest will
+be sequences (αn ) such that ({αn }) is equidistributed in         On the basis of such definition we next give a collection of
+[0, 1), meaning that any subinterval [u, v) ⊆ [0, 1) is vis-       known results in regard to b-dense and b-normal numbers:
+ited by {αn } for a (properly defined) limiting fraction
+(v − u) of the n indices; i.e., the members of the sequence        Theorem 2.2. (Collection.) In the following we consider
+fall in a “fair” manner. We sometimes consider a weaker            real numbers and sequences as in Definition 2.1. For any
+530    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+base b = 2, 3, 4 . . . we assume, as enunciated above, a           Proof: See [Kuipers and Niederreiter 74, page 7,
+unique base-b expansion of whatever number in question.            Theorem 2.1].
+
+(1) If α is b-normal then α is b-dense.                        (9) (Erdős—Turan discrepancy bound.) There exists an
+                                                                   absolute constant C such that for any positive integer
+      Proof: If every finite string appears with well-             m the discrepancy of any sequence ({αn }) satisfies
+      defined, fair frequency, then it appears perforce.           (again, it is assumed that the sequence has at least
+                                                                   N elements):
+(2) If, for some b, α is b-dense then α is irrational.
+                                                                                            m          N −1
+                                                                                      1           1 1
+      Proof: The base-b expansion of any rational is ul-               DN    < C        +                 e2πihαn    .
+                                                                                      m           h N n=0
+      timately periodic, which means some finite digit                                      h=1
+      strings never appear.
+                                                                   Proof: See [Kuipers and Niederreiter 74, pages 112—
+(3) Almost all real numbers in [0, 1) are absolutely nor-          113], where an even stronger Theorem 2.5 is given.
+    mal (the set of non-absolutely-normal numbers is
+    null).
+                                                              (10) Assume (xn ) is equidistributed (dense). If yn → c,
+      Proof: See [Kuipers and Niederreiter 74, page 71,            where c is constant, then ({xn + yn }) is likewise
+      Corollary 8.2], [Hardy and Wright 79].                       equidistributed (dense). Also, for any nonzero in-
+                                                                   teger d, ({dxn }) is equidistributed (dense).
+(4) α is b-dense iﬀ the sequence ({bn α}) is dense.
+                                                                   Proof: For normality (density) of ({xn + yn }) see
+      Proof: See [Bailey and Crandall 01].                         [Bailey and Crandall 01], [Kuipers and Niederreiter
+                                                                   74, Exercise 2.11] (one may start with the obser-
+(5) α is b-normal iﬀ the sequence ({bn α}) is equidistrib-         vation that (xn + yn ) = (xn + c) + (yn − c) and
+    uted.                                                          ({xn +c}) is equidistributed iﬀ (xn ) is). The equidis-
+                                                                   tribution of ({dxn }) follows immediately from parts
+      Proof: See [Kuipers and Niederreiter 74, page 70,            (5) and (8) above. As for density of ({dxn }), one has
+      Theorem 8.1]                                                 {dxn } = {d{xn }} for any integer d, and the density
+                                                                   property is invariant under any dilation of the mod-
+(6) Let m = k. Then α is bk -normal iﬀ α is bm -normal.            1 circle, by any real number of magnitude ≥ 1.
+
+      Proof: See [Kuipers and Niederreiter 74, page 72,       (11) Given a number α, define the sequence (αn ) =
+      Theorem 8.2]                                                 ({bn α}). Then α is b-dense iﬀ limN →∞ GN = 0.
+(7) Let q, r be rational, q = 0. If α is b-normal then so          Proof: The only-if is immediate. Assume, then, the
+    is qα + r, while if c = bq is an integer then α is also        vanishing limit, in which case for any > 0 and any
+    c-normal.                                                      point in [0, 1) some sequence member can be found
+                                                                   to lie within /2 of said point, hence we have density.
+      Proof: The b-normality of qα is a consequence of the
+      Birkoﬀ ergodic theorem–see [Bailey and Rudolph
+      02]; see also [Kuipers and Niederreiter 74, page 77,
+                                                              (12) Consider α and the corresponding sequence (αn )
+      Exercise 8.9]. For the additive (+r) part, see end of
+                                                                   of the previous item. Then α is b-normal iﬀ
+      the present section. For the c-normality see [Kuipers
+                                                                   limN →∞ DN = 0.
+      and Niederreiter 74, page 77, Exercise 8.5].
+                                                                   Proof: See [Kuipers and Niederreiter 74, page 89,
+(8) (Weyl criterion.) A sequence ({αn }) is equidistrib-
+                                                                   Theorem 1.1].
+    uted iﬀ for every integer h = 0
+                    N −1
+                           e2πihαn   =   o(N ).               Some of the results in the above collection are simple,
+                    n=0                                       some are diﬃcult; the aforementioned references reveal
+                                                                       Bailey and Crandall: Random Generators and Normal Numbers              531
+
+
+the diﬃculty spectrum. This collective Theorem 2.2 is a                           It is unknown whether this hypothesis be true, how-
+starting point for many interdisciplinary directions. Of                       ever a motivation is this: The normality of many funda-
+special interest in the present treatment is the interplay                     mental constants believed to be normal would follow from
+between normality and equidistribution.                                        Hypothesis 3.1. Let us now posit an unconditional the-
+   We focus first on the celebrated Weyl result, Theorem                       orem that leads to both conditional and unconditional
+2.2(8). Observe the little-o notation, essentially saying                      normality results:
+that the relevant complex vectors will on average exhibit
+significant cancellation. An immediate textbook applica-                       Theorem 3.2. (Unconditional.) Associate a real number
+tion of the Weyl theorem is to show that for any irrational                                                         ∞
+α, the sequence ({nα}) is equidistributed. Such elemen-                                                                rn
+                                                                                                          β    =
+tary forays are of little help in normality studies, because                                                       n=1
+                                                                                                                       bn
+we need to contemplate not multiples nα but the rapidly
+                                                                               where limn→∞ rn = c, a constant, with a PRNG sequence
+diverging constructs bn α.
+                                                                               (xn ) starting x0 = 0 and iterating
+   We shall be able to put the Weyl theorem to some
+use in the present treatment. For the moment, it is in-                                        xn       = (bxn−1 + rn ) mod 1.
+structive to look at one nontrivial implication of Theorem
+2.2(8). We selected the following example application of                       Then (xn ) is equidistributed (dense) iﬀ β is b-normal (b-
+the Weyl sum to foreshadow several important elements                          dense).
+of our eventual analyses. With Theorem 2.2((5),(6), and
+(8)) we can prove part of Theorem 2.2(7), namely: If                           Proof: Write
+α is b-normal and r is rational then α + r is b-normal.                                             ∞
+Let r = p/q in lowest terms. The sequence of integers                          bd β − xd   =            bd−n rn − (bd−1 r1 + bd−2 r2 + · · · + rd )
+(bm mod q) is eventually periodic, say with period T .                                          n=1
+Thus for some fixed integer c and any integer n we have                                         rd+1  rd+2
+                                                                                           =         + 2 + ··· → c ,
+bnT mod q = c. Next, we develop an exponential sum,                                               b    b
+assuming nonzero h:                                                            with c a constant. Therefore by Theorem 2.2(10), (xn )
+         N −1                                     N −1                         equidistributed (dense) implies β is b-normal (b-dense).
+                     nT                                           nT
+S    =          e2πihb    (α+p/q)
+                                    = e2πihcp/q          e2πihb        α
+                                                                           .   Now assume b-normality (b-density). Then (xd ) is the
+         n=0                                      n=0                          sequence ({bd β}) plus a sequence that approaches con-
+Now a chain of logic finishes the argument: α is b-normal                      stant, and again by Theorem 2.2(10), (xd ) is equidistrib-
+so it is also bT -normal by Theorem 2.2(6). But this im-                       uted (dense).
+plies S = e2πihcp/q o(N ) = o(N ) so that α + p/q is bT -
+                                                                                  In our previous work [Bailey and Crandall 01] this
+normal, and so by Theorem 2.2(6) is thus b-normal.
+                                                                               kind of unconditional theorem led to the following (con-
+                                                                               ditional) result:
+3. PSEUDO-RANDOM NUMBER GENERATORS
+We consider pseudo-random                number          generators            Theorem 3.3. (Conditional.)              On Hypothesis 3.1, each
+(PRNGs) under the iteration                                                    of the constants
+
+                xn   =     (bxn−1 + rn ) mod 1,                                                               π, log 2, ζ(3)
+which is a familiar congruential form, except that the                         is 2-normal. Also, in Hypothesis 3.1, if ζ(5) is irrational,
+perturbation sequence rn is not yet specified (in a con-                       then it likewise is 2-normal.
+ventional linear-congruential PRNG this perturbation is
+constant). Much of the present work is motivated by the                           Theorem 3.3 works, of course, because the indi-
+following hypothesis from [Bailey and Crandall 01].                            cated fundamental constants admit polylogarithm-like
+                                                                               expansions of the form    rn b−n where rn is rational-
+Hypothesis 3.1. (Bailey—Crandall ”Hypothesis A.”) If                           polynomial. The canonical example is
+the perturbation rn = p(n)/q(n), a nonsingular rational-
+                                                                                                                     ∞
+polynomial function with deg q > deg p ≥ 0, then (xn ) is                                                                1
+                                                                                                        log 2 =
+either equidistributed or has a finite attractor.                                                                   n=1
+                                                                                                                        n2n
+532    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+and 2-normality of log 2 comes down to the question of            and remind ourselves that
+whether (for x0 = 0)
+                                                                                    2d log 2 =   xd + td ,
+                                  1
+              xn   =      2xn−1 +        mod 1
+                                  n                               where td is a “tail” term that vanishes in the limit, but
+gives rise to an equidistributed (xn ). The main results          is also a kind of source for subsequent generator iter-
+of the present paper will be to establish equidistribution        ates. (Note that the first term always vanishes mod-
+for generators reminiscent of, but not quite the same as,         ulo 1; we include that term for clarity.) One can think
+this one for log 2.                                               of such a PRNG as a “cascaded” random number gener-
+   With a view to ultimate achievement of normality re-           ator, in which distinct generators (2d−m mod m)/m are
+sults, let us take a brief tour of some other (not rational-      added together, with the number of moduli m steadily
+polynomial) perturbation functions. The iteration                 diverging.
+                                     n                               There are diﬃcult aspects of the PRNG analysis for
+             xn =       2xn−1 + n2 −n mod 1                       log 2. First, the theory of cascaded PRNGs appears dif-
+                                  2
+                                                                  ficult; even the class of generators with fixed numbers of
+is associated with the constant
+                                                                  summands are not completely understood. Second, even
+                                     n
+                      β =                ,                        if we succeeded in some form of equidistribution theorem
+                                    2 n2
+                               n≥1                                for cascaded generators, we still have the problem that
+which is 2-dense but not 2-normal, as we establish later.         the tail td is to be added into the final segment of the
+Another rather peculiar perturbation, for base b = 4, is          generator that has just been started with its power-of-
+                                                                  two numerators.
+                               1 4n + 1
+                   rn   =                 .                          These diﬃculties may be insurmountable. Nonethe-
+                             (2n)! 4n + 2
+                                                   √              less, there are two separate approaches to altering the
+If the associated PRNG is equidistributed, then 1/ e is           log 2 PRNG such that density and normality results ac-
+2-normal. Likewise, and again for base b = 4, a result of         crue. These separate modifications are:
+equidistribution for a perturbation
+                                                                  (1) Arrange for some kind of synchronization, in which
+               (2n − 3)!!         (2n − 3)(2n − 5) · · · 3 · 1
+     rn =                     =                                       iterates change number-theoretic character on the
+                      n!           n(n − 1)(n − 2) · · · 2 · 1
+                                                                      basis of a “kicking” pertubation that emerges only
+                        √
+would prove that 2 is 4-normal, hence 2-normal. It                    at certain iterates.
+might have seemed on the face of it that the decay rate
+of the perturbation rn has something to do with nor-              (2) Arrange somehow for the tail td to be so very small
+mality. But the conditional results in Hypothesis 3.1 in-             that meaningful statistical properties of the first
+volve only polynomial-decay perturbations, while the rn               d + d generator terms are realized before td is sig-
+assignments immediately above involve rapid, factorial                nificantly magnified via d multiplies by b.
+decay. On the other hand, there are very slowly decay-               We shall be able to apply both of these qualitative
+ing perturbation functions for which one still embraces           alterations. For the first case (kicking/synchronization)
+the likelihood of normality. For example, the mysterious          we shall finally achieve normality proofs. For the second
+Euler constant γ can be associated with the base b = 2            kind of alteration (small tail) we shall be able to eﬀect
+and perturbation function rn that decays like n−1/2 (see          some proofs on density and irrationality.
+Section 5 and [Bailey and Crandall 01]).
+   In a spirit of statistical investigation let us revisit once
+again the canonical case of the number β = log 2 and              4. PRNGs ADMITTING OF NORMALITY PROOFS
+base b = 2. For the purpose of discussion, we write out
+for d = 1, 2, 3, . . . an iterate as assembled from d explicit    Herein we exhibit a class of generators–we shall call
+terms:                                                            them (b, c, m, n)-PRNGs, for which normality proofs can
+                                                                  be achieved due to the special synchronization such gen-
+           2d−1 mod 1 2d−2 mod 2 2d−3 mod 3
+   xd =               +           +         +                     erators enjoy. We begin with some necessary nomencla-
+                1           2         3                           ture (we are indebted to C. Pomerance for his expertise,
+                    2     1                                       ideas and helpful communications on nontrivial arith-
+             ... +      +    mod 1,
+                   d−1 d                                          metic modulo prime powers).
+                                                                           Bailey and Crandall: Random Generators and Normal Numbers                   533
+
+
+Definition 4.1. We define a (b, c, m, n)-PRNG sequence                           We intend to argue, for certain parameter sets (b, c, m, n),
+x = (x0 , x1 , x2 , . . . ) for coprime integers b, c > 1 and                    that x = (xk ) is equidistributed. For this we shall require
+strictly increasing sequences m = (0, m1 , m2 , . . . ), n =                     some results from the number theory of power moduli,
+(0, n1 , n2 , . . . ) as follows: Set x0 = 0 and for k > 0 iterate               and an important lemma on exponential sums. But first
+                                                                                 we give a general lemma useful for estimating the dis-
+                  xk       =      (bxk−1 + rk ) mod 1,
+                                                                                 crepancy of an ordered union of finite subsequences. We
+with the perturbation given by                                                   use notation reminiscent of that above for our (b, c, m, n)-
+                                                1                                PRNG sequences:
+                                r mi     =          ,
+                                               c ni
+with all other rk vanishing.                                                     Lemma 4.2. For an infinite sequence (yn ) built as an
+                                                                                 ordered union,
+   Knowing the parameters (b, c, m, n) determines the                                 ((y0 , . . . , yN1 −1 ), (yN1 , . . . , yN1 +N2 −1 ), · · · ))
+PRNG sequence x. The perturbation is of the “kick-
+ing” variety, not happening unless the index j on rj is                          of subsequences of respective lengths Ni , we have, for
+one of the exponents mi . So the PRNG runs as follows                            K > 0, N = N1 + N2 + · · · + NK + J with J ∈ [1, NK+1 ],
+(we denote simply by ≡ an equality on the mod-1 circle):                         a discrepancy bound
+       x0    ≡     0,                                                                                             K
+                                                                                                                     Ni      J
+                                                                                                  DN      ≤             DNi + DJ ,
+            ...    ,                                                                                                 N       N
+                                                                                                                 i=1
+                                                    1
+     xm1     ≡     b m1 · 0 + r m1 ≡                      ,                      where DNi are the respective discrepancies of the finite
+                                                   c n1
+                     b                                                           subsequences and DJ is the discrepancy of the partial se-
+  xm1 +1     ≡           ,
+                   c n1                                                          quence (yN1 +···+NK +j : j = 0, 1, 2, . . . , J − 1).
+            ...    ,
+                   bm2 −m1 −1                                                    Proof: This is proved simply, in [Kuipers and Niederreiter
+  xm2 −1     ≡                  ,
+                         c n1                                                    74, page 115, Theorem 2.6].
+                   bm2 −m1              bm2 −m1 cn2 −n1 + 1
+     xm2     ≡                +  r m2 ≡                     ,
+                       c n1                     c n2                                Now we can focus upon number-theoretical ideas, in
+            ...    ,                                                             order to bound subsequence discrepancies. We shall
+and generally speaking,                                                          make use of the following lemma which gives relations
+                                  ak                                             for the order of numbers modulo a given modulus c. We
+                               x mk   ,  ≡                                       denote the multiplicative order of y modulo c by ord(y, c)
+                                 c nk
+where ak is always coprime to c. It is evident that upon                         in what follows.
+the 1/cnk perturbation, the xk commence an orbit of
+length µk+1 = mk+1 − mk before the next perturba-                                Lemma 4.3. Let b, c > 1 be coprime with c having prime
+tion. Therefore, the first N terms of the sequence x                             decomposition c = pt11 · · · ptss . Let τ1 (c) = ord(b, p1 · · · ps )
+can be envisioned as follows: Observe m0 = 0 and write                           and define βi by:
+N = µ1 +· · ·+µK +J where J ∈ [1, µK+1 ] is the (possibly                                                pβi i        b(µ+1)τ1 − 1
+partial) length of the last orbit. Then the first N terms
+of the (b, c, m, n)-PRNG sequence start with µ1 = m1                             where µ = 1 if c is even and τ1 is odd and b ≡ 3( mod 4);
+zeros and appear:                                                                otherwise µ = 0. Define further
+           N −1                                                                                                        s
+     (xn )|k=0         ≡       (0, 0, . . . , 0,                                                                               min(tk ,βk )
+                                                                                                     c1 (c) =               pk                .
+                                a1 ba1 b2 a1             bµ2 −1 a1                                                    k=1
+                                 n
+                                     , n1 , n1 , . . . ,            ,
+                               c   1    c   c                cn1
+                               ...,                                              Then
+                                ak bak b2 ak              bµk+1 −1 ak                                                             c
+                                 n
+                                     , n , n ,...,                     ,                                  ord(b, c)        =        τ,
+                               c k c k c k                    c nk                                                               c1
+                               ...,
+                                                                                 where τ = 2τ1 if µ = 1 and c ≡ 0(mod 4); otherwise
+                                aK baK b2 aK                 bJ−1 aK
+                                      ,    ,       , . . . ,          ).         τ = τ1 .
+                               c nK c nK c nK                  c nK
+534   Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+Proof: This lemma is proved in [Korobov 72] and refer-         only to make the transition c → cn for the exponential
+ences therein.                                                 sum, but also to unrestrict J.
+
+   These above order relations lead easily to a key lemma      Theorem 4.6. For b, c > 1 coprime, there exist constants
+for our present treatment.                                     A, B, D such that for any positive integer J and suﬃ-
+                                                               ciently large n, the condition gcd(H, cn ) < Dcn implies
+Lemma 4.4. Let b, c > 1 be coprime. Then there exist
+constants A1 , A2 such that for suﬃciently large n both of         J−1
+                                                                               j   n
+these conditions hold:                                                   e2πiHb /c       <    B Acn/2 + Jc−n/2 log cn .
+                                                                   j=0
+                    ord(b, cn ) =   A1 cn ,
+                    ord(b, cn )                                Proof: Substituting c → cn in Lemma 4.5, and us-
+                                =   A2 cn
+                      c1 (cn )                                 ing Lemma 4.4, we establish that for suﬃciently large
+                                                               n, the indicated exponential sum of the theorem, for
+Proof: The simple replacement c → cn in Lemma 4.3              any H as indicated, is less in magnitude than a bound
+leaves the values of the βi and τ1 invariant. Thus, for        Ecn/2 log cn/2 , where E is constant, as long as J does
+suﬃciently large n, we have c1 (cn ) = pβi i which is fixed,   not exceed ord(b, cn ). But for larger J we have at most
+and both large-n results follow.                                J/ord(b, cn ) copies of the exponential sum, and this
+                                                               ceiling is bounded by 1 + J/(A1 cn ), so the result follows.
+  Next we state a lemma on exponential sums.
+
+Lemma 4.5. (Korobov, Niederreiter.) For b, c > 1 co-              We are aware that one could start from Theorem 4.6
+prime, with c1 (c) defined as in Lemma 4.3, and an in-         and apply the Weyl criterion (Theorem 2.2 (8)) to es-
+teger h such that d = gcd(h, c) < c/c1 , and an integer        tablish equidistribution for certain (b, c, m, n)-PRNG se-
+J ∈ [1, ord(b, c)], we have                                    quences. We shall prove a little more, by virtue of dis-
+                                                               crepancy formulae. Again consider the first N terms of
+          J−1
+                       j            c         c                the sequence x = (xn ), where N = N0 +µk1 +· · ·+µK +J,
+                 e2πihb /c   <        1 + log   .              where J ∈ [1, µK+1 ] as before, but k1 is chosen so that
+           j=0
+                                    d         d
+                                                               the powers cn for any n > nk1 −1 are suﬃciently large, as
+                                                               in Lemma 4.4 and Theorem 4.6, and so N0 is constant.
+Proof: The lemma is a direct corollary of results found in     Then the discrepancy of the first J elements of an orbit,
+[Korobov 92, e.g., page 167, Lemma 32], for odd c, but         namely of the subsequence
+(earlier) results of Korobov [Korobov 72] are suﬃciently
+general to cover all composite c. See also [Niederreiter                     ak bak b2 ak        bJ −1 ak
+                                                                               n
+                                                                                   , n , n ,...,
+78, pages 1004—1008]. A highly readable proof of a simi-                     c   k  c k  c k       c nk
+lar result and an elementary description of Niederreiter’s
+seminal work on the topic can be found in [Knuth 81,           for k ≥ k1 is bounded according to the Erdős—Turan
+pages 107—110]. There are also enhancements on the the-        Theorem 2.2(9):
+ory of fractional parts for the exponential function, as in                                                      
+                                                                                     M        J −1
+[Levin 99] and references therein.                                               1      1   1               j  nk
+                                                                Dµk+1 < C1        +               e2πihak b /c  ,
+                                                                                 M      h J j=0
+                                                                                             h=1
+   Lemma 4.5 speaks to the distribution of powers of b
+modulo general c coprime to b. For our purposes we want
+                                                               where we are at liberty to chose M = Dcnk /2 with
+to bound the magnitudes of exponential sums when the
+                                                               the constant D from Theorem 4.6, so that the expo-
+modulus is a pure power, say cn . (Incidentally, we shall
+                                                               nential sum appearing in the discrepancy bound is cov-
+not be needing the dependence of the lemma’s bound
+                                                               ered by the theorem–recall ak and c are coprime so that
+on d.) To this end we establish a theorem. Note that
+                                                               gcd(hak , cnk ) = gcd(h, cnk ) ≤ h ≤ M < Dcnk . We then
+in this theorem and thereafter, when we say constants
+                                                               get, for an orbit’s discrepancy for J terms of that orbit,
+exist we mean always positive constants depending only
+on b, c, therefore independent of any running indices or                                     cnk /2
+growing powers. The idea of the following theorem is not              DJ     <       B   A          + c−nk /2 log2 cnk ,
+                                                                                              J
+                                                                      Bailey and Crandall: Random Generators and Normal Numbers           535
+
+
+where A , B are constants, and we shall take J = µk+1                        Proof: We bound contributions to the discrepancy bound
+for each complete orbit and observe J = J in our last                        of Lemma 4.7, using growth condition (ii) as follows:
+orbit (the orbit in which lies the last element xN −1 ). Now                       K                              K−1
+using Lemma 4.2, we can obtain an overall discrepancy                          1           µk                1          cγnK−L cnK−1 /2
+                                                                                                     ≤                                   .
+formula for the N sequence terms, N suﬃciently large:                         µK         cnk−1 /2        cnK−1 /2 L=0    cγnK cnK−L−1 /2
+                                                                                   k=1
+
+                    K                                 µk                     Now
+DN < NN0 + B        k=k1     A cnk−1 /2 +                      log2 cnk−1
+           N                                        cnk−1 /2
+                                                                                              1
+                                                                              γ(nK − nK−L ) + (nK − nK−1 − (nK−L − nK−L−1 ))
+               +B
+                N
+                                  J
+                     A cnK /2 + cnK /2 log2 cnK .                                             2
+                                                                                       1
+                                                                                 ≥ γ−      L,
+We can weaken this bound slightly, in favor of economy                                 2
+of notation, by observing that N µK , J < N , and the
+                                                                             this last inequality arising from growth condition (i) and
+powers cni are monotonic in i, so that the following result
+                                                                             the fact that the nk are monotone increasing with n1 ≥ 1.
+is thereby established (note that we allow ourselves to
+                                                                             Thus
+rename constants with previously used names when such
+                                                                                          K
+nomenclature is not ambiguous):                                                     1           µk              1             1
+                                                                                               nk−1 /2
+                                                                                                         ≤                            .
+                                                                                   µK
+                                                                                         k=1
+                                                                                             c               cnK−1 /2    1 − c1/2−γ
+Lemma 4.7. For the (b, c, m, n)-PRNG sequence x =
+(xn ), the discrepancy is bounded for suﬃciently large N                     Actually this component is the only problematic part of
+by                                                                           the discrepancy bound in Lemma 4.7, and we quickly
+                                                                             write, now with more conveniently labeled constants Ci ,
+                                              K     µk          log2 cnK−1   and for suﬃciently large N ,
+DN (x) < N0 + AcnK−1 /2 + B                   k=1 cnk−1 /2          µK
+                           nK /2
+                  + A c µK + B cnK1 /2 log2 cnK ,                                                 1       log2 cnK−1        log2 cnK−1
+                                                                             DN (x) <         C1 n γ + C2 n            + C3
+                                                                                                c K      c K−1 (γ−1/2)        cnK−1 /2
+where µk = mk − mk−1 and N is decomposed as N =                                                     log2 cnK      log2 cnK
+                                                                                                +C4 n (γ−1/2) + C5 n /2 .
+µ1 + · · · + µK + J with J ∈ [1, µK+1 ], with N0 , A, B                                            c K              c K
+constant.                                                                    Since (log2 z)/z is, for any > 0, eventually monotone
+                                                                             decreasing as z → ∞, it follows that for suﬃciently
+   It is now feasible to posit growth conditions on the                      large N
+m, n sequences of our PRNGs such that discrepancy van-
+ishes as N → ∞. One possible result is                                                                        log2 cnK−1
+                                                                                          DN (x) <       C n                   .
+                                                                                                          c K−1 min(γ−1/2,1/2)
+Theorem 4.8. For the (b, c, m, n)-PRNG sequence x =                          But this means DN → 0 as N → ∞, so x is equidistrib-
+(xk ) of Definition 4.1, assume that the diﬀerence se-                       uted by Theorem 2.2(12). Theorem 3.1 then establishes
+quences µk = mk − mk−1 , νk = nk − nk−1 satisfy the                          the number αb,c,m,n as b-normal.
+following growth conditions:
+                                                                             As we have said, equidistribution of sequences x as in
+(i) (νk ) is nondecreasing,                                                  Theorem 4.8 would also follow from simpler arguments
+                                                                             involving the Weyl criterion. However, the discrepancy
+(ii) There exists a constant γ > 1/2 such that for suﬃ-                      bound at the end of the above proof is interesting in its
+     ciently large k                                                         own right. For certain choices of the m, n sequences, such
+                       µk                   µk−1                             as mi = ci , ni = i, we can easily relate the index N to
+                                   ≥              .                          the cnK−1 to obtain a discrepancy bound
+                      cγnk                 cγnk−1
+                                                                                                                  log2 N
+Then x is equidistributed and the number                                                            DN (x) <     C √     .
+                                                                                                                     N
+                                       ∞
+                                                1                            Now such bounds (logarithmic numerator and square-
+                αb,c,m,n     =
+                                            b m k c nk                       root denominator) on classical PRNGs have been ob-
+                                   k=1
+                                                                             tained in brilliant fashion by Niederreiter (see [Niederre-
+is b-normal.                                                                 iter 78, page 1009], and [Neiderreiter 92, pages 169—170],
+536    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+who also gives arguments as to the best possible nature of            is b-normal. So for example,
+such bounds in the classical PRNG contexts. It is thus                                              1
+no surprise that our exponent factor min(γ − 1/2, 1/2)                                           ci2 bci
+                                                                                                        2
+                                                                                           i≥1
+at the end of the above proof cannot exceed 1/2 (how-
+ever, we see later in this section that other constructions           and
+of normals involved number discrepancies of somewhat                                                1
+lower magnitude).
+                                                                                           i≥1
+                                                                                                 ci! bci!
+   The discrepancy approach, in yielding Theorem 4.8,
+leads us to specific classes of normals:                              are both b-normal.
+
+Corollary 4.9. In what follows we assume an underlying           Proof: Each of the results (i)—(v) follows easily from The-
+                                                                                                                       √
+(b, c, m, n)-PRNG and so b, c > 1 are coprime.                   orem 4.8. For example, in case (iv), we have d > c so
+                                                                 define δ by c = cδ+1/2 so that for a constant C1
+ (i) The generalized Stoneham numbers
+                                                                                   µK         C1 c(δ+1/2)K
+                                              1                                          =                            (4—1)
+                        αb,c    =                                                  γn
+                                                                                  c K              cγK
+                                        i≥1
+                                            c bci
+                                             i
+                                                                 which, for γ chosen between 1/2 and 1/2+δ, is monotone
+      are each b-normal.                                         increasing. The rest of the results follow in similar fash-
+                                                                 ion.
+(ii) The generalized Korobov numbers (d > 1):
+                                                                    It is natural to ask whether a number αb,c,m,n associ-
+                                                  1              ated with a (b, c, m, n)-PRNGs is transcendental, which
+                      βb,c,d    =
+                                                di bcdi
+                                        i≥1 c                    question we answer at least for some such numbers:
+      are each b-normal.
+                                                                 Theorem 4.10. Denote αb,c,m,n = i≥1 1/(cni bmi ) where
+(iii) For positive integers s < 2r, each of the numbers          (b, c, m, n) are as in Definition 4.1 but without the restric-
+                                                                 tion of coprimality. Let λ = log b/ log c and assume that
+                                    1
+                                                                 for some fixed δ > 2 and suﬃciently large K
+                          i≥1
+                                cir bcis
+                                                                                  nK+1 + λmK+1
+                                                                                                            > δ.
+      is b-normal. So for example,                                                  nK + λmK
+                                   1                             Then αb,c,m,n is transcendental.
+                               8 i 332i
+                           i≥1
+                                                                 Remark 4.11. Some of the αb,c,m,n appearing here are
+      is 3-normal.                                               not in the class of b-normal constants relevant to Theo-
+                      √                                          rem 4.8, because of the coprimality requirement for our
+(iv) If integer d >    c, then each of                           defined PRNGs. Conversely, some of the b-normals in
+                                  1                              question are not covered by Theorem 4.10; for example,
+                               c i bdi                           the assignments b = 3, c = 2, nk = k, mk = 2k yield a
+                           i≥1
+                                                                 b-normal, but the inequality above involving δ fails (yet,
+      is b-normal. So for example,                               the b-normal may well be transcendental; we are saying
+                                 1                               the following application of the Roth theorem is not suf-
+                                i 22i                            ficient).
+                           i≥1
+                               3
+
+      is 2-normal.                                               Proof: For simplicity, denote α = αb,c,m,n . The cele-
+                                                                 brated Roth theorem states [Roth 55] [Cassels 57] that if
+ (v) If the integer-valued function f (i) is strictly increas-   |P/Q−α| < 1/Q2+ admits of infinitely many distinct ra-
+     ing, and f (i) − f (i − 1) is nondecreasing for suﬃ-        tional solutions P/Q (i.e., if α is approximable to degree
+     ciently large n, then                                       2 + for some > 0), then α is transcendental. Write
+                                   1                                                                          1
+                              f (i) bcf (i)
+                                                                                 α =      P/Q +                       ,
+                        i≥1
+                            c                                                                               cni bmi
+                                                                                                     i>k
+                                                                               Bailey and Crandall: Random Generators and Normal Numbers     537
+
+
+where gcd(P, Q) = 1 with Q = cnk bmk . The sum over i                                    Inasmuch as this construction is fairly straightforward,
+gives                                                                                one wonders whether there are other simple approaches.
+                                                                                     As a possible example, for the Champernowne C10 , let
+                                                     2
+              |α − P/Q|            <                            .                    (uk ) be the ordered set of positions of 0s, and likewise
+                                            cnk+1 bmk+1
+                                                                                     let (vk ) be the set of positions of 1s. Clearly, by 10-
+But the right-hand side is, by virtue of the δ-inequality,                           normality of C10 , these two sets are infinite. Now, based
+less than 2/Qδ and transcendency follows.                                            on some real number t as was used in Theorem 4.12,
+                                                                                     either swap (when tk = 1) or do not swap the (0,1) digit
+   Theorem 4.10 immediately repeats transcendency re-                                pair from respective positions (uk , vk ) depending on the
+sults on Stoneham and Korobov numbers, such results                                  k-th bit of t. So for t = 0 = 0.000 . . . , the Champernowne
+having been known to both of those authors, except for                               is left unchanged; while for any other real t < 1, the
+the former class when c = 2, as explained in Remark 4.11.                            Champernowne is altered and may be 10-normal. We
+   For a diﬀerent research foray, consider the problem of                            have not finished this argument; we mention it only to
+specifying an uncountable collection of normals. One way                             note that there may be other means of constructing an
+to do this is surprisingly easy. In what follows, we define                          uncountable class of normal numbers.
+the bits of a real number according to the no-trailer rule:                              Next we move to a computational issue: Can one ef-
+Any infinite trailer of 1s is to be removed via carry; e.g.,                         ficiently obtain isolated digits of αb,c,m,n ? It turns out
+0.01111 · · · → 0.1 in binary; and then when we ask for                              that at least the Stoneham number αb,c admits an indi-
+the k-th bit of a real number in [0, 1), we shall mean the                           vidual digit-calculation algorithm, as was established for
+k-bit to the right of the decimal point.                                             π, log 2 and some others in the original Bailey—Borwein—
+                                                                                     Plouﬀe (BBP) paper [Bailey et al. 97]–the same ap-
+Theorem 4.12. Let b, c > 1 be coprime and for each real                              proach works for the new, b-normal and transcendental
+t ∈ [0, 1) denote by tk the k-th binary bit of t. Then the                           constants. Indeed, for αb,c the BBP algorithm is extraor-
+collection of numbers                                                                dinarily rapid: The overall bit-complexity to resolve the
+                                                                                     n-th base-b digit of αb,c is
+                                                 1
+                  α(t)        =                            ,
+                                   i≥0
+                                            ci bci +ti                                          O(log2 n log log n log log log n),
+
+is uncountable, and each is b-normal.                                                which can conveniently be thought of as O(n ). By com-
+                                                                                     parison, the complexity for the BBP scheme applied to
+Remark 4.13. We are creating here what could be called                               fundamental constants such as π and log 2 (in general,
+“perturbed Stoneham numbers,” yet we could just as eas-                              the constants falling under the umbrella of Hypothesis
+ily perturb in this way other kinds of normals.                                      3.1) is O(n1+ ). As a specific example, in only 2.8 sec-
+                                                                                     onds run time on a modern workstation the authors were
+Proof: That α(t) is always b-normal follows from The-                                able to calculate binary bits of α2,3 , beginning at posi-
+orem 4.8–take γ = 2/3, say, so that the perturbation                                 tion one googol (i.e., 10100 ). The googol-th binary digit
+of adding ti to mi does not harm the required growth                                 is 0; the first ten hexadecimal digits starting at this po-
+condition (ii). It remains to show that the α(t) are all                             sition are 2205896E7B. In contrast, C. Percival’s recent
+pairwise distinct. Indeed, let s > t, with the first oc-                             resolution of the quadrillionth (1015 -th) binary bit of π
+currence of unequal corresponding bits between s and t                               is claimed to be the deepest computation in history for a
+being sk = 1, tk = 0. Then                                                           1-bit result [Percival 00], finding said bit to be 0 but at
+                                                                                     the cost of over 1018 CPU clocks.
+                  1 1                   1
+ α(t) − α(s) =                 1−                                                        At this point, one might look longingly at the b-
+                 cK bcK                 b
+                                                                                     normality of αb,p and wonder how diﬃcult it is to relax
+                              1             1              1
+                    +                            −                                   the constraint on summation indices in n∈S 1/(nbn ) in
+                        i>k
+                              ci       cci +ti           bci +si                     order finally to resolve logarithmic sums. Some relax-
+                                                                                     ations of the set S ⊂ Z + may be easier than others. We
+                  1 1                   1                           1   1
+             >                 1−                1−                                  conjecture that
+                 cK bcK                 b                       ci−k bci −ck
+                                                          i>k
+                                                                                                                        1
+             > 0.                                                                                         α =              ,
+                                                                                                                       p2p
+538    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+where p runs through the set of Artin primes (of which                     For another research direction, there is another
+2 is a primitive root), is 2-normal. It is a celebrated                 exponential-sum result of Korobov [Korobov 92, Theo-
+fact that under the extended Riemann hypothesis (ERH)                   rem 33, page 171] that addresses the distribution of the
+the Artin-prime set is infinite, and in fact–this may be                powers (b, b2 , b3 , . . . bm ) modulo a prime power pi , but
+important–has positive density amongst the primes. We                   where m is significantly less than ord(b, pi ). It may
+make this conjecture not so much because of statistical                 be possible to use such a result to establish normality
+evidence, but because we hope the fact of 2 being a primi-              of numbers such as            1/(pi bmi ) where the mi have dif-
+tive root for every index p might streamline any analysis.              ferent growth conditions than we have so far posited via
+Moreover, any connection whatever between the ERH                       Theorem 4.8.
+and the present theory is automatically interesting.                       One also looks longingly at some modern treatments
+    With these results in hand, let us sketch some alterna-             of nonstandard exponential sums, such as the series of
+tive approaches to normality. We have mentioned in our                  papers [Friedlander et al. 01], [Friedlander and Shpar-
+introduction some of the directions taken by Good, Ko-                  linski 01], and [Friedlander and Shparlinski 02], wherein
+robov, Stoneham et al. over the decades. Also of interest               results are obtained for power generators, which gen-
+is the form appearing in [Korobov 92, Theorem 30, page                  erators having become of vogue in cryptography. The
+162], where it is proven that                                           manner in which Friedlander et al. treat exponential
+                                                                        sums–for their purposes the summands being such as
+                                     b{f (n)}                                      j
+                     α =                                                exp(2πig g /c)–is of interest not because of any direct
+                                        bn
+                              n≥1                                       connection to normality, but because of the bounding
+                                                                        techniques used.
+is b-normal for any “completely uniformly distributed”
+function f , meaning that for every integer s ≥ 1 the vec-
+tors (f (n), f (n + 1), . . . f (n + s)) are, as n = 1, 2, 3, . . . ,
+equidistributed in the unit s-cube. (Korobov also cites a               5. PRNGs LEADING TO DENSITY AND
+converse, that any b-normal number has such an expan-                      IRRATIONALITY PROOFS
+sion with function f .) Moreover, Korobov gives explicit                Independent of number theory and special primes, one
+functions such as                                                       could ask what is the statistical behavior of truly ran-
+                                    ∞
+                                           5
+                                                                        dom points chosen modulo 1; for example, what are the
+                     f (x) =            e−k xk ,                        expected gaps that work against uniform point density?
+                                  k=0                                      In view of Definition 2.1(4) and Theorem 2.2(11), it
+for which the number α above is therefore b-normal. It is               behooves us to ponder the expected gap-maximum for
+possible to think of some normals as being “more normal”                random points: If N random (with uniform distribution)
+than others, in the sense of discrepancy measures. We                   points are placed in [0, 1), then the probability that the
+have seen that the normals of our Theorem 4.8 enjoy                     gap-maximum GN exceeds x is known to be [Jacobsen
+                                                   √                    78]
+discrepancy no better than DN (x) = O log2 N/ N ,
+while on the other hand we know [Levin 99] that for                                                1/x
+                                                                                                         N
+almost all real x,                                                        Prob(GN ≥ x) =                   (−1)j+1 (1 − jx)N −1 .
+                                                                                                  j=1
+                                                                                                         j
+                                                   1/2
+                 n                  log log N
+       DN ({(b x)}) = O                                  .
+                                        N                               The expectation E of the gap-maximum can be obtained
+                                                                        by direct integration of this distribution formula, to yield:
+Yet, researchers have done better than this. Levin gives
+[Levin 99] constructions of normals based on certain                                                 1
+                                                                                      E(GN ) =         (ψ(N + 1) + γ)
+well-behaved sequences–such as quasi-Monte Carlo, low-                                               N
+discrepancy sequences or Pascal matrices–and derives                    where ψ is the standard polygamma function Γ /Γ. Thus
+discrepancy bounds as good as                                           for large N we have
+                                        logk N                                                  log N + γ − 1/2      1
+             DN ({(bn α)}) = O                                                   E(GN ) =                       + O( 2 )
+                                          N                                                             N           N
+                                                                                                log N
+for k = 2, 3.                                                                               ∼         .
+                                                                                                  N
+                                                            Bailey and Crandall: Random Generators and Normal Numbers     539
+
+
+This shows that whereas the mean gap is 1/N , the mean            Attention to the fact that the ei are strictly increasing
+maximum gap is essentially (log N )/N . In this sense,            leads directly to the upper bound 3/2 k/2 on the maxi-
+which remains heuristic with an uncertain implication             mum gap for the y, and hence the x generator.
+for our problem, we expect a high-order cascaded PRNG
+to have gaps no larger than “about” (log P )/P where P               Of course, the maximum-gap theorem just exhibited is
+is the overall period of the PRNG.                                weaker than the statistical expectation of the maximum
+    It turns out that for very specialized PRNGs, we can          gap, roughly (log E)/E where E = e1 · · · ek , but at least
+eﬀect rigorous results on the gap-maximum GN . One                we finally have a rigorously vanishing gap and therefore,
+such result is as follows:                                        as we shall see, some digit-density, hence irrationality
+                                                                  results.
+Theorem 5.1. Let 1 = e1 < e2 < e3 < . . . < ek be a set of           Though the previous section reveals diﬃculties with
+pairwise coprime integers. Consider the PRNG with any             the PRNG approach, there are ways to apply these basic
+starting seed (s1 , . . . , sk ):                                 ideas to obtain irrationality proofs for certain numbers
+                                                                  of the form
+                      2s1     2s2           2sk
+ xd   =        2d          +        . . .               mod 1.                                          1
+                    2e1 − 1 2e2 − 1       2ek − 1                                      x =                   .
+                                                                                                  i
+                                                                                                      mi 2ni
+Then the generated sequence (xd ) has period e1 e2 · · · ek
+and for suﬃciently large N we have                                for integers mi and ni . A first result is based on our
+                                                                  rigorous PRNG gap bound, from Theorem 5.1, as:
+                      GN     < 3/2 k/2 .
+
+                                                                  Theorem 5.2. Let 1 = e1 < e2 < . . . be a strictly increas-
+Proof: Each numerator 2d+si clearly has period ei mod-
+                                                                  ing set of integers that are pairwise coprime. Let (di ) be
+ulo the respective denominator 2ei − 1, so the period is
+                                                                  a sequence of integers with the growth property:
+the given product. The given bound on gaps can be es-
+tablished by noting first that the behavior of the PRNG                                           k          k
+defined by                                                                        dk+1    >           di +         ei .
+                                                                                              i=1            i=1
+                    2f1 − 1 2f2 − 1        2fk − 1
+      y(fi )   =           + e2     + ··· + e      ,
+                     e
+                    2 −1 2 −1
+                      1                    2 k −1                 Then the number:
+as each fi runs over its respective period interval [0, ei −                       ∞
+                                                                                              1
+1], is very similar to the original generator. In fact, the               x   =
+                                                                                  m=1
+                                                                                        2dm (2em − 1)
+only diﬀerence is that this latter form has constant oﬀset
+                                                                                        1             1
+   1/(2ei − 1) so that the maximum gap around the mod                         =                +              + ...
+                                                                                  2d1 (2e1 − 1) 2d2 (2e2 − 1)
+1 circle is unchanged. Now consider a point z ∈ [0, 1) and
+attempt construction of a set (fi ) such that y(fi ) ≈ z, as      is 2-dense and hence irrational.
+follows. Write a binary expansion of z in the (nonstan-
+dard) form:                                                       Proof: Fix a k, define D = di , E = ei , and for 0 ≤
+                                       1                          g < E consider the fractional part of a certain multiple
+                        z    =         bn
+                                          ,                       of x:
+                                  n=1
+                                      2
+                                                                                         k                   k
+i.e., the bn denote the positions of the 1 bits of z. Now set                                2fi − 1       1
+                                                                        {2g+D x} =            e
+                                                                                                     +  e
+                                                                                                             + T,
+fi = ei −bi for i from k down to k−K +1 inclusive. Using                                 i=1
+                                                                                             2 − 1 i=1 2 − 1
+                                                                                                i        k
+
+
+the following inequality chain for any real 0 < a < b > 1:
+                                                                  where fi = 2g+D−di and error term |T | < 1/2ek . By the
+                    a 1            a−1   a
+                      −      <         < ,                        Chinese remainder theorem, we can find, in the stated
+                    b   b          b−1   b
+                                                                  range for g, a g such that the PRNG values of Theorem
+it follows that we can find a PRNG value such that                5.1 are attained. Thus the maximum gap between suc-
+                                              K                   cessive values of the sequence {2n x} vanishes as k → ∞,
+                                     2           1                so the sequence is dense by Theorem 2.2(11) and desired
+          ||y(fi ) − z|| <       − ek−K+1 +      bk
+                                                    .
+                                  2         j=1
+                                                2                 results follow.
+540    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+   Of course, there should be an alternative–even easy–            there may well be a way to establish that the E number
+means to establish such an irrationality result. In fact,          is 2-dense.
+there are precedents arising from disparate lines of analy-           As a computational matter, it is of interest that one
+sis. Consider what we call the Erdős—Borwein number:              can also combine the terms of E to obtain an accelerated
+The sum of the reciprocals of all Mersenne numbers,                series:
+namely:                                                                                                  ∞
+                                                                                                               1 2m + 1
+                                      ∞                                                   E    =                              .
+                                            1                                                         m=1
+                                                                                                              2m2 2m − 1
+                      E       =            n−1
+                                               .
+                                      n=1
+                                          2
+                                                                   Furthermore, the E number finds its way into com-
+This still-mysterious number is known to be irrational,            plex analysis and the theory of the Riemann zeta func-
+as shown by Erdős [Erdős 48] with a clever number-               tion. For example, by applying the identity ζ 2 (s) =
+                                                                                s
+theoretical argument. More recently, P. Borwein [Bor-                 n≥1 d(n)/n , one can derive
+wein 92] established the irrationality of more general
+numbers     1/(q n − r) when r = 0, using Pade approxi-                                γ − log log 2    1                 Γ(s)ζ 2 (s)
+                                                                          E     =                    +                             s
+                                                                                                                                      dt,
+mant techniques. Erdős also once showed that the sum                                     log 2        2π                R (log 2)
+                  n
+of terms 1/(bn 22 ) is always irrational for any positive
+                                                                   where R is the Riemann critical line s = 1/2 + it. In this
+integer sequence (bn ). Such binary series with reciprocal
+                                                                   sophisticated integral formula, we note the surprise ap-
+terms have indeed been studied for decades.
+                                                                   pearance of the celebrated Euler constant γ. Such machi-
+   The Erdős approach for the E number can be sketched
+                                                                   nations lead one to wonder whether γ has a place of dis-
+as follows. It is an attractive combinatorial exercise to
+                                                                   tinction within the present context. A possibly relevant
+show that
+                                                                   series is [Beeler et al. 72]
+                          ∞       ∞           ∞
+                                       1        d(n)
+             E    =                       =          ,                                        ∞
+                                                                                                     1
+                                                                                                             k−1
+                                                                                                                    2k−j + j
+                                                                                                                                  −1
+                      a=1 b=1
+                                      2ab   n=1
+                                                 2n                             γ     =                                                .
+                                                                                                    2k+1 j=0           j
+                                                                                              k=1
+where d(n) is the number of divisors of n (including 1
+and n). To paraphrase the Erdős method for our present            If any one of our models is to apply, it would have to take
+context, consider a relevant fractional part:                      into account the fairly slow convergence of the j sum for
+                                                                   large k. (After k = 1 the j-sum evidently approaches 1
+{2m E} =                                                           from above.) Still, the explicit presence of binary powers
+        d(m + 1) d(m + 2) d(m + 3)                                 and rational multipliers of said powers suggests various
+                +        +         + ...                 mod 1.    lines of analysis. In particular, it is not unthinkable that
+           2        22       23
+                                                                   the j-sum above corresponds to some special dynamical
+What Erdős showed is that one can choose any pre-                 map, in this way bringing the Euler constant into a more
+scribed number of succesive integers k + 1, k + 2, . . . k + K     general dynamical model.
+such that their respective divisor counts d(k + 1), d(k +              It is of interest that a certain PRNG conjecture ad-
+2), . . . , d(k + K) are respectively divisible by increas-        dresses directly the character of the expansion of the
+ing powers 2, 22 , 23 , . . . , 2K , and furthermore this can be   Erdős-Borwein number.
+done such that the subsequent terms beyond the K-th of
+the above series for {2k E} are not too large. In this way         Conjecture 5.3. The sequence given by the PRNG defin-
+Erdős established that the binary expansion of E has ar-          ition
+bitrarily long strings of zeros. This proves irrationality
+                                                                            d                                       d
+(one also argues that infinitely many 1s appear, but this                           2d − 1                               2d mod k − 1
+                                                                   xd =                         mod 1 =                                     mod 1
+is not hard). We still do not know, however, whether                                2k − 1                                  2k − 1
+                                                                          k=1                                      k=1
+E is 2-dense. The primary diﬃculty is that the Erdős
+approach, which hinges on the idea that if n be divisible          is equidistributed.
+by j distinct primes, each to the first power, then d(n)
+is divisible by 2j , does not obviously generalize to the          Remark 5.4. One could also conjecture that the sequence
+finding of arbitrary d values modulo arbitrary powers of           in Conjecture 5.3 is merely dense, which would lead to
+2. Still, this historical foreshadowing is tantalizing and         2-density of E.
+                                                       Bailey and Crandall: Random Generators and Normal Numbers        541
+
+
+  This conjecture leads immediately, along the lines         prove 2-density (i.e., all possible finite bitstrings appear
+of our previous theorems pertaining to specially-            in E) on the basis of the prime k-tuples postulate. That
+constructed PRNGs, to:                                       connection would, of course, be highly interesting. Along
+                                                             such lines, we do note that a result essentially of the form:
+Theorem 5.5. The Erdős-Borwein number E is 2-normal         “The sequence ({2m E}) contains a near-miss (in some
+iﬀ Conjecture 5.3 holds.                                     appropriate sense) with any given element of ({nE})”
+                                                             would lead to 2-density of E, because, of course, we know
+Proof: For the PRNG of Conjecture 5.3, we have               E is irrational and thus ({nE}) is equidistributed.
+                                     
+                                  1                          6. SPECIAL NUMBERS WITH ”NONRANDOM”
+      xd = (2d − 1) E −               mod 1,
+                               2j − 1                           DIGITS
+                                j>d
+                                                             This section is a tour of side results with regard to some
+so that
+                                                             special numbers. We shall exhibit numbers that are b-
+          {xd }   = {{2d E} + {−E − 1 + td }},               dense but not b-normal, uncountable collections of num-
+                                                             bers that are neither b-dense nor b-normal, and so on.
+where td → 0. Thus {2d E} is equidistributed iﬀ (xn ) is,    One reason to provide such a tour is to dispel any belief
+by Theorem 2.2(10).                                          that, because almost all numbers are absolutely normal,
+                                                             it should be hard to use algebra (as opposed to artificial
+    We believe that at least a weaker, density conjecture    construction) to “point to” nonnormal numbers. In fact,
+should be assailable via the kind of technique exhibited     it is not hard to do so.
+in Theorem 5.1, whereby one proceeds constructively, es-         First, though, let us revisit some of the artificially con-
+tablishing density by forcing the indicated generator to     structed normal numbers, with a view to reasons why
+approximate any given value in [0, 1).                       they are normal. We have mentioned the binary Cham-
+    P. Borwein has forwarded to us an interesting obser-     pernowne, which can also be written
+vation on a possible relation between the number E and                                        ∞
+the “prime-tuples” postulates, or the more general Hy-                                              n
+                                                                                   C2    =         F (n)
+pothesis H of Schinzel and Sierpinski. The idea is–                                          n=1
+                                                                                                 2
+and we shall be highly heuristic here–the fractional part
+                                                             where the indicated exponent is:
+d(m + 1)/2 + d(m + 2)/22 + · · · might be quite tractable
+if, for example, we have                                                                          n
+                                                                             F (n)      = n+          log2 k .
+                     m+1    =     p1 ,                                                          k=1
+
+                     m+2    =     2p2 ,                      Note that the growth of the exponent F (n) is slightly
+                            ...   ,                          more than linear. It turns out that if such an expo-
+                                                             nent grows too fast, then normality can be ruined. More
+                     m+n    =     npn ,
+                                                             generally, there is the class of Erdős—Copeland numbers
+at least up to some n = N , where the pi > N are all         [Copeland and Erdős], formed by (we remind ourselves
+primes that appear in an appropriate “constellation” that    that the (·) notation means digits are concatenated, and
+we generally expect to live very far out on the integer      here we concatenate the base-b representations)
+line. Note that in the range of these n terms we have
+                                                                               α     = 0.(a1 )b (a2 )b · · ·
+d(m + j) = 2d(j). Now if the tail sum beyond d(m +
+N )/2N is somehow suﬃciently small, we would have a          where (an ) is any increasing integer sequence with an =
+good approximation                                           O(n1+ ), any > 0. An example of the class is
+
+          {2m E} ≈    d(1) + d(2)/2 + · · · = 2E.                       0.(2)(3)(5)(7)(11)(13)(17) · · ·10 ,
+
+But this implies in turn that some iterate {2m E} revisits   where primes are simply concatenated. These numbers
+the neighborhood of an earlier iterate, namely {2E}. It is   are known to be b-normal, and they all can be written in
+not clear where such an argument–especially given the        the form    G(n)/bF (n) for appropriate numerator func-
+heuristic aspect–should lead, but it may be possible to      tion G and, again, slowly diverging exponent F . We add
+542    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+in passing that the generalized Mahler numbers (for any          Theorem 6.2. For polynomials P, Q with nonnegative in-
+g, b > 1)                                                        teger coeﬃcients, deg Q > deg P > 0, the number
+
+             Mb (g) =       0.(g0 )b (g 1 )b (g 2 )b · · ·                                            P (n)
+                                                                                        α =
+                                                                                                  n≥1
+                                                                                                      bQ(n)
+are known at least to be irrational [Niederreiter 86], [Zun
+87], and it would be of interest to establish perturbation       is b-dense, but not b-normal.
+sums in regard to such numbers. Incidentally, it is ironic
+that some of the methods for establishing irrationality of       Proof: The final statement about nonnormality is easy:
+the Mb (g) are used by us, below, to establish nonnormal-        Almost all of the base-b digits are 0s, because logb P (n) =
+ity of certain forms.                                            o(Q(n) − Q(n − 1)). For the density argument, we shall
+   We have promised to establish that                            show that for any r ∈ (0, 1), there exist integers N0 <
+                                                                 N1 < . . . and d1 , d2 , . . . with Q(Nj−1 ) < dj < Q(Nj ),
+                                             2
+                      α =             n/2n                       such that
+                                n≥1
+                                                                                        lim {bdj α} =        r.
+                                                                                       j→∞
+                                                             2
+is 2-dense but not 2-normal. Indeed, in the n -th binary
+position, we have the value n, and since for suﬃciently          This, in turn, implies that ({bd α}) : d = 1, 2, . . . }) is
+large n, we have n2 − (n− 1)2 > 1 +log2 n, the numerator         dense, hence α is b-dense. Now for any ascending chain
+n at bit position n2 will not interfere (in the sense of         of Ni with N0 suﬃciently large, we can assign integers dj
+carry) with any other numerator. One may bury a given            according to
+finite binary string in some suﬃciently large integer n (we
+say bury because a string 0000101, for example, would                Q(Nj ) > dj = Q(Nj ) + logb r − logb P (Nj ) + θj
+appear in such as n = 10000101), whence said string                               > Q(Nj−1 )
+appears in the expansion. Note that the divergence of
+                                                                 where θj ∈ [0, 1). Then
+the exponent n2 is a key to this argument that α is 2-
+dense. As for the lack of 2-normality, it is likewise evident                   P (Nj )/bQ(Nj )−dj       =    2θj r.
+that almost all bits are 0s.
+   Let us consider faster growing exponents, to establish        However, ({logb P (n)}) is dense, so we can find an as-
+a more general result, yielding a class of b-dense numbers       cending Nj -chain such that lim θj = 0. Since dj < Q(Nj )
+none of which are b-normal. We start with a simple but           we have
+quite useful lemma.
+                                                                 {bdj α} =   bθj r +         P (Nj + k)/bQ(Nj +k)−dj   mod 1
+Lemma 6.1. For polynomials P with nonnegative integer                                  k>0
+coeﬃcients, deg P > 0, and for any integer b > 1, the
+                                                                 and because the sum vanishes as j → ∞, it follows that
+sequence
+                                                                 α is b-dense.
+            ({logb P (n)} : n = 1, 2, 3, . . . )                    Consider the interesting function [Kuipers and Nieder-
+                                                                 reiter 74, page 10]:
+is dense in [0, 1).
+                                                                                                    ∞
+                                                                                                         nx
+                                                 d
+Proof: For d = deg P , let P (x) = ad x + · · · + a0 . Then                            f (x) =              .
+                                                                                                   n=1
+                                                                                                         2n
+logb P (n) = logb ad + d(log n)/ log b + O(1/n). Since
+log n = 1 + 1/2 + 1/3 + · · · + 1/n − γ + O(1/n2 ) di-           The function f is reminiscent of a degenerate case of
+verges with n but by vanishing increments, the sequence          a generalized polylogarithm form–that is why we en-
+({d(log n)/ log b}) and therefore the desired ({logb P (n)})     countered such a function during our past [Bailey and
+are both dense by Theorem 2.2(10).                               Crandall 01] and present work. Regardless of our current
+                                                                 connections, the function and its variants have certainly
+   Now we consider numbers constructed via superposi-            been studied, especially in regard to continued fractions,
+tion of terms P (n)/bQ(n) , with a growth condition on           [Danilov 72], [Davison 77], [Kuipers and Niederreiter 74],
+P, Q.                                                            [Borwein and Borwein 93], [Mayer 00], [Böhmer 1926],
+                                                              Bailey and Crandall: Random Generators and Normal Numbers          543
+
+
+[Adams and Davison 77], [Bowman 95], and [Bowman                    yet manage to “completely miss” 2-dense (and hence 2-
+88]. If one plots the f function over the interval x ∈ [0, 1),      normal) values: Indeed, the discontinuities of f are dense.
+one sees a brand of “devil’s staircase,” a curve with in-           The notion that the range R is a null set is surprising,
+finitely many discontinuities, with vertical-step sizes oc-         yet follows immediately from the fact that almost all x
+curring in a fractal pattern. There are so many other               have 1s density equal to 1/2. The beautiful continued
+interesting features of f that it is eﬃcient to give an-            fraction result allows extremely rapid computation of f
+other collective theorem. Proofs of the harder parts can            values. The fraction form is exemplified by the following
+be found in the aforementioned references.                          evaluation, where x is the reciprocal of the golden mean
+                                                                    and the Fibonacci numbers are denoted Fi :
+Theorem 6.3. (Collection.) For the “devil’s staircase”
+                                                                                                      2
+function f defined above, with the argument x ∈ (0, 1),                          f (1/τ ) =    f       √
+                                                                                                    1+ 5
+(1) f is monotone increasing.
+                                                                                          =    [2F0 , 2F1 , 2F2 , . . .]
+(2) f is continuous at every irrational x, but discontin-                                                 1
+                                                                                          =
+    uous at every rational x.                                                                  1 + 2+ 1 1
+                                                                                                              2         1
+                                                                                                                  4+      1
+                                                                                                                       8 + ...
+(3) For rational x = p/q, lowest terms, we have
+                                           ∞                        It is the superexponential growth of the convergents to a
+                                1         1                         typical f (x) that has enabled transcendency proofs as in
+                f (x)   =          +
+                             2q − 1 m=1 2 m/x                       Theorem 6.2(6).
+                                                                        An interesting question is whether (or when) a com-
+     but when x is irrational we have the same formula
+                                                                    panion function
+     without the 1/(2q − 1) leading term (as if to say q →
+     ∞).                                                                                            ∞
+                                                                                                        {nx}
+                                                                                       g(x) =
+(4) For irrational x = [a1 , a2 , a3 , . . .], a simple continued                                   n=1
+                                                                                                         2n
+    fraction with convergents (pn /qn ), we have:
+                                                                    can attain 2-normal values. Evidently
+                   f (x) =      [A1 , A2 , A3 , . . .],
+                                                                                      g(x) =       2x − f (x),
+     where the elements An are:
+                                                                    and, given the established nonrandom behavior of the
+                                      2an qn−1 − 1
+                   An    =    2qn−2                .                bits of f (x) for any x, one should be able to establish a
+                                       2qn−1 − 1                    correlation between normality of x and normality of g(x).
+     Moreover, if (Pn /Qn ) denote the convergents to               One reason why this question is interesting is that g is
+     f (x), we have                                                 constructed from “random” real values {nx} (we know
+                                                                    these are equidistributed) placed at unique bit positions.
+                        Qn     = 2qn − 1.                           Still, we did look numerically at a specific irrational ar-
+                                                                    gument, namely
+(5) f (x) is irrational iﬀ x is.
+                                                                                                          1
+                                                                                      x =
+(6) If x is irrational, then f (x) is transcendental.                                               2n(n+1)/2
+                                                                                              n≥1
+
+(7) f (x) is never 2-dense and never 2-normal.
+                                                                    and noted that g(x) almost certainly is not 2-normal.
+(8) The range R = f ([0, 1)) is a null set (measure zero).          For instance, in the first 66,420 binary digits of g(x),
+                                                                    the string ’010010’ occurs 3034 times, while many other
+(9) The density of 1s in the binary expansion of f (x)              length-6 strings do not occur at all.
+    is x itself; accordingly, f −1 , the inverse function on
+    the range R, is just 1s density.
+                                                                    7. CONCLUSIONS AND OPEN PROBLEMS
+   Some commentary about this fascinating function f is             Finally, we give a sampling of open problems pertaining
+in order. We see now how f can be strictly increasing,              to this interdisciplinary eﬀort:
+544    Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+  • We have shown that for (b, c, m, n)-PRNG systems,             When we coauthors began–and this will surprise no one who
+    each associated constant αb,p,m,n –under the condi-           knows of Erdős–our goals were presumed unrelated to the
+    tions of Theorem 4.8–is b-normal. What about c-               Erdős world. But later, his way of thinking meant a great
+                                                                  deal. Such is the persona of genius, that it can speak to us
+    normality of such numbers for c not a rational power
+                                                                  even across rigid boundaries.
+    of b?                                                            Bailey’s work is supported by the Director, Oﬃce of Com-
+                                                                  putational and Technology Research, Division of Mathemat-
+  • The generalized Stoneham numbers (case (i) of                 ical, Information, and Computational Sciences of the U.S.
+    Corollary 4.9) might be generalizable in the follow-          Department of Energy, under contract number DE-AC03-
+    ing way: Instead of coprimality of b, c, just specify         76SF00098.
+    that neither integer divides the other. Can a result
+    on b-normality then be eﬀected? Presumably one                REFERENCES
+    would need some generalization of the exponential-
+                                                                  [Adams and Davison 77] W. W. Adams and J. L. Davison.
+    sum lemmas.                                                       “A Remarkable Class of Continued Fractions.” Proceed-
+                                                                      ings of the American Mathematical Society 65 (1977),
+  • We have obtained rigorous results for PRNGs that                  194—198.
+    either have a certain synchronization, or have ex-
+                                                                  [Allouche and Shallit 02] J.-P. Allouche and J. Shallit. “Au-
+    tremely small “tails.” What techniques would strike                tomatic Sequences Theory, Applications, Generaliza-
+    at the intermediate scenario which, for better or                  tions.” Manuscript, 2002.
+    worse, is typical for fundamental constants; e.g., the        [Bailey and Rudolph 02] David H. Bailey and Daniel J.
+    constants falling under the umbrella of Hypothesis                 Rudolph.    “An Ergodic     Proof that Rational
+    3.1?                                                               Times Normal is Normal.” Manuscript, 2002.
+                                                                       Available from World Wide Web: (http://www.nersc.
+  • What are the fundamental connections between nor-                  gov/˜dhbailey/dhbpapers/ratxnormal.pdf), 2002.
+    mality theory and automated sequences (for an ex-             [Bailey et al. 97] David H. Bailey, Peter B. Borwein and Si-
+    cellent survey of the latter, see [Allouche and Shallit            mon Plouﬀe. “On The Rapid Computation of Various
+    02])? We have talked–albeit heuristically–about                    Polylogarithmic Constants.” Mathematics of Computa-
+                                                                       tion66:218 (1997), 903—913.
+    unnatural versus natural constructions. Perhaps
+                                                                  [Bailey and Crandall 01] David H. Bailey and Richard E.
+    there are elegant, undiscovered ways to create new
+                                                                       Crandall. “On the Random Character of Fundamen-
+    normals via automatic rules.                                       tal Constant Expansions.” Experimental Mathematics 10
+                                                                       (2001), 175—190.
+  • Does polynomial-time (in log n) resolution of the n-
+                                                                  [Beeler et al. 72] M. Beeler, et al. Item 120 in M. Beeler, R.
+    th digit for our αb,c and similar constants give rise
+                                                                       W. Gosper, and R. Schroeppel, HAKMEM, Cambridge,
+    to some kind of “trap-door” function, as is relevant               MA: MIT Artificial Intelligence Laboratory, Memo AIM-
+    in cryptographic applications? The idea here is that               239, 55, Feb. 1972.
+    it is so very easy to find a given digit even though          [Böhmer 1926] P. E. Böhmer. “Über die Transzendenz
+    the digits are “random.” (As in: Multiplication of n-              gewisser dyadischer Brüche.” Mathematische Annalen 96
+    digit numbers takes polynomial time, yet factoring                 (1926), 367—377; Erratum 96 (1926), 735.
+    into multiples is evidently very much harder.)                [Borwein et al. 98] Jonathan M. Borwein, David M. Bradley,
+                                                                      and Richard E. Crandall. “Computational Strategies for
+                                                                      the Riemann Zeta Function.”Journal of Computational
+ACKNOWLEDGMENTS
+                                                                      and Applied Mathematics 121 (2000), 247—296.
+The authors are grateful to J. Borwein, P. Borwein, D. Bow-       [Borwein 92] Peter Borwein. “On the Irrationality of Cer-
+man, D. Broadhurst, J. Buhler, D. Copeland, H. Ferguson, M.           tain Series.” Mathematical Proceedings of the Cambridge
+Jacobsen, J. Lagarias, R. Mayer, H. Niederreiter, S. Plouﬀe,          Philosophical Society 112 (1992), 141—146.
+A. Pollington, C. Pomerance, M. Robinson, S. Wagon, T.
+                                                                  [Borwein and Borwein 93] Jonathan Borwein and Peter Bor-
+Wieting, and S. Wolfram for theoretical and computational
+                                                                      wein. “On the Generating Function of the Integer Part of
+expertise throughout this project. We thank, in particular,
+                                                                      unα+γJ.” Journal of Number Theory 43 (1993), 293—318.
+J. Shallit whose acute scholarship alerted us to the deeper
+history of normal numbers, allowing clutch corrections to an      [Bowman 95] Douglas Bowman. “Approximation of unα + sJ
+earlier draft of our work. A referee was kind to provide key          and the zero of {nα + s}.” Journal of Number Theory 50
+corrections as well. We would like to dedicate this work to the       (1995), 128—144.
+memory of Paul Erdős, whose ingenuity on a certain, exotic       [Bowman 88] Douglas Bowman. “A New Generalization of
+analysis dilemma–the character of the Erdős—Borwein con-             Davison’s Theorem.” Fibonacci Quarterly 26 (1988), 40—
+stant E–has been a kind of guiding light for our research.            45.
+                                                          Bailey and Crandall: Random Generators and Normal Numbers      545
+
+
+[Broadhurst 98] David J. Broadhurst. “Polylogarithmic Lad-      [Jacobsen 78] Mark Jacobsen. Private communication, 2000.
+    ders, Hypergeometric Series and the Ten Millionth Digits         Jacobsen in turn references Herbert Solomon, Geometric
+    of ζ(3) and ζ(5).” Preprint, 1998. Available from World          Probabilities. Philadelphia: SIAM, 1978.
+    Wide Web: (http://xxx.lanl.gov/abs/math/9803067),
+    1998.                                                       [Khinchin 64] A. Khinchin. Continued Fractions. Phoenix
+                                                                    Books. Chicago: Univ. of Chicago Press, 1964.
+[Broadhurst 00] David J. Broadhurst. “Conjecture on
+    Integer-Base Polylogarithmic Zeros Motivated by the         [Knuth 81] Donald E. Knuth. The Art of Computer Program-
+    Cunningham Project.” Manuscript, 2000.                          ming, Volume 2, Second Edition. Menlo Park: Addison-
+[Cassels 57] J. W. S. Cassels. An Introduction to Diophantine       Wesley, 1981.
+     Approximations. Cambridge: Cambridge Univ. Press,          [Korobov 92] N. Korobov. Exponential Sums and their Appli-
+     1957.                                                          cations. Norwood: Kluwer Academic Publishers, 1992.
+[Champernowme 33] D. G. Champernowne. “The Construc-
+                                                                [Korobov 90] N. Korobov. “Continued Fractions of Certain
+    tion of Decimals Normal in the Scale of Ten.” Journal of
+                                                                    Normal Numbers.” Mathematik Zametki 47 (1990), 28—
+    the London Mathematical Society 8 (1933), 254—260.
+                                                                    33; In Russian; English translation in Mathematical
+[Copeland and Erdős] A. H. Copeland and P. Erdős. “Note           Notes of the Academy of Science USSR 47 (1990), 128—
+    on Normal Numbers.” Bulletin American Mathematical              132.
+    Society 52 (1946), 857—860.
+                                                                [Korobov 72] N. Korobov. “On the Distribution of Digits in
+[Crandall 96] R. Crandall. Topics in Advanced Scientific
+                                                                    Periodic Fractions.” Mathematicheskie USSR Sbornik 18
+    Computation. Berlin: Springer-Verlag, 1996.
+                                                                    (1972), 659—676.
+[Danilov 72] L. V. Danilov. “Some Classes of Transcendental
+    Numbers.” Matematicheskie Zametki 12 (1972), 149—154;       [Kuipers and Niederreiter 74] L. Kuipers and H. Niederre-
+    In Russian, English translation in Mathematical Notes of        iter. Uniform Distribution of Sequences. New York:
+    the Academy of Science of the USSR 12 (1972), 524—527.          Wiley-Interscience, 1974.
+[Davison 77] J. L. Davison. “A Series and Its Associated Con-   [Lagarias 01] J. Lagarias. “On the Normality of Fundamental
+    tinued Fraction.” Proceedings of the American Mathe-            Constants.” Experimental Mathematics 10:3 (2001), 353—
+    matical Society 63 (1977), 29—32.                               366.
+[Devaney 95] Robert L. Devaney. Complex Dynamical Sys-
+                                                                [Levin 99] M. Levin. “On the Discrepancy Estimate of Nor-
+    tems: The Mathematics Behind the Mandelbrot and Julia
+                                                                     mal Numbers.” Acta Arithmetica LXXXVIII:2 (1999),
+    Sets. Providence: American Mathematical Society, 1995.
+                                                                     99—111.
+[Erdős 48] P. Erdős. “On Arithmetical Properties of Lam-
+     bert Series.” Journal of the Indian Mathematical Society   [Mayer 00] R. Mayer. Private Communication, 2000.
+     (N.S.) 12 (1948), 63—66.
+                                                                [Mercer 94] A. McD. Mercer. “A Note on Some Irrational
+[Friedlander et al. 01] J. Friedlander, C. Pomerance, and           Decimal Fractions.” American Mathematical Monthly
+     I. Shparlinski. “Period of the Power Generator and Small       101 (1994), 567—568.
+     Values of Carmichael’s Function.” Mathematics of Com-
+     putation 70 (2001), 1591—1605.                             [Niederreiter 78] H. Niederreiter. “Quasi-Monte Carlo Meth-
+                                                                     ods and Pseudo-Random Numbers.” Bulletin of the
+[Friedlander and Shparlinski 01] J. Friedlander and I. Shpar-
+                                                                     American Mathematical Society 84:6 (1978), 957—1041.
+     linski. “On the Distribution of the Power Generator.”
+     Mathematics of Computation 70 (2001), 1575—1589.           [Neiderreiter 92] H. Niederreiter. “Random Number Gener-
+[Friedlander and Shparlinski 02] J. Friedlander and I. Shpar-        ation and Quasi-Monte Carlo Methods.” In CBMS-
+     linski. “Some Double Exponential Sums over Zm .” Man-           NSF Regional Conference Series in Applied Mathemat-
+     uscript, 2002.                                                  ics. Philadelphia: SIAM, 1992.
+[Good 46] I. Good. “Normal Recurring Decimals.” Journal of      [Niederreiter 86] H. Niederreiter. “On an Irrationality Theo-
+    the London Mathematical Society 21 (1946), 167—169.              rem of Mahler and Bundschuh.” Journal of Number The-
+[Ferguson et al. 99] Helaman R. P. Ferguson, David H. Bai-           ory 24 (1986), 197—199.
+     ley. and Stephen Arno. “Analysis of PSLQ, An Integer       [Niven 56] I. Niven. Irrational Numbers, Carus Mathematical
+     Relation Finding Algorithm.” Mathematics of Computa-            Monographs, No. 11. New York: Wiley, 1956.
+     tion 68:225 (1999), 351—369.
+[Hardy and Wright 79] G. H. Hardy and E. M. Wright. An          [Percival 00] C. Percival. “PiHex: A Distributed Eﬀort
+    Introduction to the Theory of Numbers. Oxford: Oxford            to Calculate Pi.” Available from World Wide Web:
+    University Press, 1979.                                          (http://www.cecm.sfu.ca/projects/pihex/index.html),
+                                                                     2000.
+[Hegyvari 93] Norbert Hegyvari. “On Some Irrational Dec-
+    imal Fractions.” American Mathematical Monthly 100          [Ribenboim 96] P. Ribenboim. The New Book of Prime Num-
+    (1993), 779—780.                                                 ber Records. New York: Springer-Verlag, 1996.
+546   Experimental Mathematics, Vol. 11 (2002), No. 4
+
+
+[Roth 55] K. Roth. “Rational Approximations to Algebraic       [Stoneham 74] R. Stoneham. “Some Further Results Con-
+    Numbers.” Mathematika, 2 (1955), 1—20. Corrigendum,             cerning the (j, ) Normality in the Rationals.” Acta
+    168.                                                            Arithmetica 26 (1974), 83—96.
+[Stoneham 70] R. Stoneham. “A General Arithmetic Con-          [Stoneham 76] R. Stoneham. “Normal Recurring Decimals,
+     struction of Transcendental Non-Liouville Normal Num-          Normal Periodic Systems, (j, )-Normality, and Normal
+     bers from Rational Fractions.” Acta Arithmetica 16             Numbers.” Acta Arithmetica 28 (1976), 349—361.
+     (1970), 239—253.                                          [Stoneham 83] R. Stoneham. “On a Sequence of (j, )-Normal
+[Stoneham 73a] R. Stoneham. “On Absolute (j, )-Normality            Approximations to π/4 and the Brouwer Conjecture.”
+     in the Rational Fractions with Applications to Normal          Acta Arithmetica 42 (1983), 265—279.
+     Numbers.” Acta Arithmetica 22 (1973), 277—286.            [Weisstein 03] E. Weisstein. Available from World Wide Web:
+[Stoneham 73b] R. Stoneham. “On the Uniform Epsilon-               (http://www.mathworld.com), 2003.
+     Distribution of Residues Within the Periods of Rational   [Zun 87] J. Zun. “A Note on Irrationality of Some Numbers.”
+     Fractions with Applications to Normal Numbers.” Acta          Journal of Number Theory 25 (1987), 211—212.
+     Arithmetica 22 (1973), 371—389.
+
+
+David H. Bailey, Lawrence Berkeley National Laboratory, Berkeley, CA 94720 (dhbailey@lbl.gov)
+
+Richard E. Crandall, Center for Advanced Computation, Reed College, Portland, OR 97202 (crandall@reed.edu)
+
+
+
+Received March 6, 2002; accepted in revised form November 14, 2002.
+

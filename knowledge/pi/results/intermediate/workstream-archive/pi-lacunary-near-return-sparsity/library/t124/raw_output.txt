@@ -1,0 +1,17 @@
+Command: python3 verify_t124.py
+
+HASH OK canonical_statement.txt cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+HASH OK baake-grimm-0809.0580.pdf 31106ba1771edc9b4abc961007f12c00ca1d22e0bce9e2310fbe58e8f6e1f824
+HASH OK baker-banaji-2401.01241v2.pdf f07b9e579360cff6843fccb526086d27ea454925d6ed46d297fff274ca5689e6
+HASH OK bourgain-chang-2006.pdf a4c130e401ff03a5b91fbd20339f06021f26bf871ca2bb375f2ce25e3ee5d1d7
+HASH OK bourgain-varju-1006.3365.pdf 4cca2184078d800609defec5ed4dcc5be736180d9a7c02924690d98babdd0356
+HASH OK erdelyi-1406.2233.pdf 413d8d38ebfe2d99394886f096ed38b8466308fdc61738b700d02e41a9285c40
+HASH OK konieczny-1611.09985v2.pdf 92cc1e1f37a924d89bb2788d883670eba2604c2d56a029d94c750803e78c2360
+HASH OK salehi-golsefidy-varju-1108.4900v3.pdf 3d64af888a107edb190dcd713b3f82584d2b55426bca7e93bd5dfa5058179d68
+HASH OK singh-venkataramana-1208.6460v2.pdf edc121df43a7921658c4e5ab4d728ad3021de746f9712ba5f92db933d0b0c1b3
+CONTRACT OK 8 sources, 3 candidates, 1 verdict, 1 successor
+H1 OK companion matrices and balanced-fiber divisibility m=1..8
+H2 OK companion matrices; only q=10 in the decimal tower is squarefree
+M1 OK decimal specialization freezes by ceil(log2(m))+1 for m=1..32
+T10 BUDGET OK J >= 2^35 A^4 n^4 implies sqrt(2J) <= J/(2^17 A^2 n^2)
+T124 REPLAY PASS

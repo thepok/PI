@@ -1,0 +1,115 @@
+{
+  "charging_checks": {
+    "inverse_thresholds": 97,
+    "label_patterns": 25
+  },
+  "classification": "experiment on synthetic finite label systems only",
+  "nonclaims": [
+    "PiALocLinearBound",
+    "C7",
+    "C2",
+    "C1"
+  ],
+  "pi_digits_read": 0,
+  "separating_families": {
+    "constant_family": [
+      {
+        "A_loc": 18,
+        "E3": 300,
+        "L": 10,
+        "h": 1,
+        "n": 2
+      },
+      {
+        "A_loc": 50,
+        "E3": 300,
+        "L": 10,
+        "h": 2,
+        "n": 3
+      },
+      {
+        "A_loc": 972,
+        "E3": 30000,
+        "L": 100,
+        "h": 3,
+        "n": 4
+      },
+      {
+        "A_loc": 1356,
+        "E3": 30000,
+        "L": 100,
+        "h": 4,
+        "n": 5
+      },
+      {
+        "A_loc": 17930,
+        "E3": 3000000,
+        "L": 1000,
+        "h": 5,
+        "n": 6
+      },
+      {
+        "A_loc": 21882,
+        "E3": 3000000,
+        "L": 1000,
+        "h": 6,
+        "n": 7
+      },
+      {
+        "A_loc": 259836,
+        "E3": 300000000,
+        "L": 10000,
+        "h": 7,
+        "n": 8
+      }
+    ],
+    "injective_family": [
+      {
+        "A_loc": 0,
+        "L": 10,
+        "W5": 18,
+        "n": 2
+      },
+      {
+        "A_loc": 0,
+        "L": 10,
+        "W5": 18,
+        "n": 3
+      },
+      {
+        "A_loc": 0,
+        "L": 100,
+        "W5": 198,
+        "n": 4
+      },
+      {
+        "A_loc": 0,
+        "L": 100,
+        "W5": 198,
+        "n": 5
+      },
+      {
+        "A_loc": 0,
+        "L": 1000,
+        "W5": 1998,
+        "n": 6
+      },
+      {
+        "A_loc": 0,
+        "L": 1000,
+        "W5": 1998,
+        "n": 7
+      },
+      {
+        "A_loc": 0,
+        "L": 10000,
+        "W5": 19998,
+        "n": 8
+      }
+    ]
+  },
+  "window_checks": {
+    "covered_pairs": 71920,
+    "window_parameter_cases": 495
+  }
+}

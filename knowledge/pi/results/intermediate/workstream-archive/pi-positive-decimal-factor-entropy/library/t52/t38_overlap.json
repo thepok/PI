@@ -1,0 +1,44 @@
+{
+  "convention_warning": "T38 uses carries 0..15 and no endpoint claim. Full T48 uses -1..16, has a synthetic root, and can have additional endpoint-live SCCs.",
+  "format_version": 1,
+  "nonclaim": "No T38 entropy-gap table or tau table is reproduced.",
+  "rows": [
+    {
+      "mapping": "(carry,leftKMP,rightKMP) <-> T48 R=1 raw state; label (a,b) <-> digit column",
+      "q": 16,
+      "restricted_T48_edge_set_equal": true,
+      "restriction": "T48 raw induced subgraph on carries 0..15; synthetic root omitted",
+      "t38_cyclic_scc_sizes": [
+        15
+      ],
+      "t38_labelled_edge_count": 130,
+      "t38_live_count_all_declared_raw_states": 15,
+      "t38_reachable_count": 16,
+      "t38_reachable_live_count": 15,
+      "t38_start_count": 16,
+      "t38_state_count": 16,
+      "vendored_T38_code_replay_agrees": true,
+      "word": "0"
+    },
+    {
+      "mapping": "(carry,leftKMP,rightKMP) <-> T48 R=1 raw state; label (a,b) <-> digit column",
+      "q": 16,
+      "restricted_T48_edge_set_equal": true,
+      "restriction": "T48 raw induced subgraph on carries 0..15; synthetic root omitted",
+      "t38_cyclic_scc_sizes": [
+        60
+      ],
+      "t38_labelled_edge_count": 1346,
+      "t38_live_count_all_declared_raw_states": 141,
+      "t38_reachable_count": 61,
+      "t38_reachable_live_count": 60,
+      "t38_start_count": 16,
+      "t38_state_count": 144,
+      "vendored_T38_code_replay_agrees": true,
+      "word": "010"
+    }
+  ],
+  "source": "T38 replayed experiment bundle, structural fields only",
+  "source_entropy_certificates_sha256": "bdf20ce54a4198e61af6fcf100aaffd5d0cfc050e93dd0d99b19c4d8a939e4da",
+  "source_t38_experiment_sha256": "7598c198969b40fdfa3fcfe0b8320730c337764ac12b932775d676f33fe8c8cb"
+}

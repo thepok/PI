@@ -1,0 +1,128 @@
+{
+  "asserts_exceptional_path_decay": false,
+  "asserts_irrationality": false,
+  "asserts_nonautomaticity": false,
+  "asserts_transcendence": false,
+  "asserts_v1": false,
+  "base9_digits_least_significant_first": [
+    2,
+    4,
+    6,
+    6,
+    8,
+    2,
+    6,
+    0,
+    4,
+    5,
+    8,
+    0
+  ],
+  "bounded_falsification": {
+    "affine_recurrence_counts_over_zmod9": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "height_bound": 100000,
+    "small_monic_quadratic_found": false,
+    "small_rational_found": false
+  },
+  "claim_label": "experiment",
+  "direct_rows": [
+    {
+      "depth": 4,
+      "direct_unit_mod_3e": 2,
+      "epoch": 2,
+      "shell_limit_mod_3e": 2
+    },
+    {
+      "depth": 49,
+      "direct_unit_mod_3e": 38,
+      "epoch": 4,
+      "shell_limit_mod_3e": 38
+    },
+    {
+      "depth": 454,
+      "direct_unit_mod_3e": 524,
+      "epoch": 6,
+      "shell_limit_mod_3e": 524
+    },
+    {
+      "depth": 4099,
+      "direct_unit_mod_3e": 4898,
+      "epoch": 8,
+      "shell_limit_mod_3e": 4898
+    },
+    {
+      "depth": 36904,
+      "direct_unit_mod_3e": 57386,
+      "epoch": 10,
+      "shell_limit_mod_3e": 57386
+    },
+    {
+      "depth": 332149,
+      "direct_unit_mod_3e": 175484,
+      "epoch": 12,
+      "shell_limit_mod_3e": 175484
+    }
+  ],
+  "frozen_inputs": {
+    "problems/local/pi-digits.txt": "2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825",
+    "work/theory/pi-quantitative-block-hitting/library/t4/bbp-1997.pdf": "e4e0b97fde01328ec41da5f2cd4d6ffc8bcd2b7bd7516b9d8afc320f6d1916c4",
+    "work/ultrapi-resume/bbp_three_primary_decimation_20260813.md": "29d4f903dca429ebe2cedad248f0a726b985492bfd0f06471a668a47e652ede0"
+  },
+  "limit_mod_3pow24": 30006928667,
+  "limit_precision_ternary_digits": 24,
+  "limit_rows": [
+    {
+      "precision": 2,
+      "residue": 2
+    },
+    {
+      "precision": 4,
+      "residue": 38
+    },
+    {
+      "precision": 6,
+      "residue": 524
+    },
+    {
+      "precision": 8,
+      "residue": 4898
+    },
+    {
+      "precision": 10,
+      "residue": 57386
+    },
+    {
+      "precision": 12,
+      "residue": 175484
+    },
+    {
+      "precision": 14,
+      "residue": 3364130
+    },
+    {
+      "precision": 16,
+      "residue": 3364130
+    },
+    {
+      "precision": 18,
+      "residue": 175551014
+    },
+    {
+      "precision": 20,
+      "residue": 2112653459
+    },
+    {
+      "precision": 22,
+      "residue": 30006928667
+    },
+    {
+      "precision": 24,
+      "residue": 30006928667
+    }
+  ],
+  "rho_mod_3pow24": 122572440670
+}

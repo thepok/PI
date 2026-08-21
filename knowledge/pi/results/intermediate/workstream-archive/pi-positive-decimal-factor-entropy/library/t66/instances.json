@@ -1,0 +1,77 @@
+{
+  "format_version": 1,
+  "caps": {
+    "state_cap": 2500,
+    "time_cap_seconds": 120
+  },
+  "baseline_definition": "the 16 completed T52 instances, in their original order",
+  "extension_order_rule": "word-major then depth-major: one-digit words 0 through 9, each at depths 1 through 3, omitting pairs already present in the baseline",
+  "instances": [
+    {"cohort": "t52_completed_baseline", "word": "0", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "1", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "2", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "3", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "4", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "5", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "6", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "7", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "8", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "9", "depth": 0},
+    {"cohort": "t52_completed_baseline", "word": "0", "depth": 1},
+    {"cohort": "t52_completed_baseline", "word": "00", "depth": 1},
+    {"cohort": "t52_completed_baseline", "word": "01", "depth": 1},
+    {"cohort": "t52_completed_baseline", "word": "010", "depth": 1},
+    {"cohort": "t52_completed_baseline", "word": "0", "depth": 2},
+    {"cohort": "t52_completed_baseline", "word": "010", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "0", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "1", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "1", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "1", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "2", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "2", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "2", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "3", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "3", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "3", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "4", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "4", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "4", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "5", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "5", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "5", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "6", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "6", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "6", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "7", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "7", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "7", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "8", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "8", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "8", "depth": 3},
+    {"cohort": "deterministic_extension", "word": "9", "depth": 1},
+    {"cohort": "deterministic_extension", "word": "9", "depth": 2},
+    {"cohort": "deterministic_extension", "word": "9", "depth": 3}
+  ],
+  "source_dependencies": [
+    {
+      "file": "T46T46LiveSCC.lean",
+      "sha256": "9e35511d20b9997e7fd98eaf54bfb3eb3b2e53f42b720d962b671b128bf61ec8",
+      "convention": "reachable, live, cyclic, SameSCC, ReachableLiveEdge, and SimpleDirectedCycleSCC"
+    },
+    {
+      "file": "T48EndpointCarryKMP.lean",
+      "sha256": "cbe1652c833fb21ae2618aedbc3040a2f29a7db5b310a9f3873536c888c4b211",
+      "convention": "endpoint-complete carries [-1,16], KMP RawStep, synthetic root, and partial labelled transition"
+    },
+    {
+      "file": "T65RationalCoreCertificate.lean",
+      "sha256": "6ee5b2a7e35405340fc82e4232582c743b820b89b9c5c73a9598e485b48bcba8",
+      "theorem": "DecimalFactorEntropy.T65RationalCoreCertificate.relaxedLiveSCCCriterion_iff_internal_and_projected_determinism"
+    },
+    {
+      "file": "t52_experiment.py",
+      "sha256": "5b5d790f623b2e51fa9b6babf48c483bc4e633afafdf1047aaa84e468054e0a0",
+      "convention": "replayable exact-integer implementation of the T48 graph"
+    }
+  ]
+}

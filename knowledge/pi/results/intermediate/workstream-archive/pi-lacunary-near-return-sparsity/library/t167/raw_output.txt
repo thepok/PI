@@ -1,0 +1,9 @@
+T167 artifact validation (experiment; not proof)
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+primary_sources=4 cap=12
+searched_domains=4 minimum=3
+retained_candidates=2 cap=4
+exclusion_range=T89-T165 rows=77
+scoped_verdict=CLOSE count=1
+successors=0
+all_checks=pass

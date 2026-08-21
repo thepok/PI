@@ -1,0 +1,646 @@
+{
+  "algorithm": {
+    "K_definition": "number of unordered non-diagonal near-return pairs",
+    "diagonal_included": true,
+    "id": "sorted-circular-prefix-v1",
+    "ordered_pairs": true,
+    "pair_counting": "sort plus circular forward scan",
+    "pair_counting_complexity": "O(N log N + K) time and O(N + K_lag) memory",
+    "strict_threshold": true
+  },
+  "artifact_kind": "experiment",
+  "inputs": {
+    "base": 10,
+    "code_sha256": "61b28588e02fbbac71a628c2f0b3d210345e077a5e9c2a62c732d2c4fd1034eb",
+    "constant": "pi",
+    "mpmath_version": "1.3.0",
+    "statement_file": "canonical_statement.txt",
+    "statement_sha256": "cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8"
+  },
+  "interpretation": {
+    "claim": "These finite computations neither prove nor refute C1 or C2 and make no universal or fixed-pi proof claim.",
+    "label": "experiment",
+    "scope": "bounded fixed-pi heuristic evidence only"
+  },
+  "item_id": "T8",
+  "precision_checks": [
+    {
+      "all_reported_integer_margins_exceed_two_units": true,
+      "minimum_cylinder_boundary_margin": "1627021951e-24",
+      "minimum_pair_threshold_margin": "46482883491872e-24",
+      "minimum_sort_gap": "1993581282622446e-24",
+      "mpmath_decimal_precision": 32048,
+      "pi_fraction_digits_generated": 32023,
+      "previous_digit_prefix_equal": false,
+      "previous_semantic_counts_equal": false,
+      "semantic_sha256": "80e812e7e01456becb8f1b94d6c1957138620d7c913c4c9bfda4807f0ff2543c",
+      "tail_digits": 24
+    },
+    {
+      "all_reported_integer_margins_exceed_two_units": true,
+      "minimum_cylinder_boundary_margin": "1627021950048940268268e-36",
+      "minimum_pair_threshold_margin": "46482883491872656112074924e-36",
+      "minimum_sort_gap": "1993581282622446302194628764e-36",
+      "mpmath_decimal_precision": 32060,
+      "pi_fraction_digits_generated": 32035,
+      "previous_digit_prefix_equal": true,
+      "previous_semantic_counts_equal": true,
+      "semantic_sha256": "80e812e7e01456becb8f1b94d6c1957138620d7c913c4c9bfda4807f0ff2543c",
+      "tail_digits": 36
+    }
+  ],
+  "quadratic_validation": {
+    "N_values": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "all_equal": true,
+    "cases_checked": 30,
+    "compared_quantities": [
+      "Q_pi",
+      "complete unordered lag histogram",
+      "finite cylinder collision energy"
+    ],
+    "n_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "reported_values": {
+    "lag_share_denominator": "all unordered non-diagonal near-return pairs",
+    "minima_by_n": [
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 2078634,
+          "available": true,
+          "decimal_16_sig": "0.006089748046875",
+          "denominator": 512000000,
+          "numerator": 3117951
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 1055334,
+          "decimal_16_sig": "0.003091798828125",
+          "denominator": 512000000,
+          "numerator": 1583001
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.000874606793398331",
+          "denominator": 1023317,
+          "numerator": 895,
+          "top10_lag_count": 895,
+          "top_lags": [
+            [
+              688,
+              93
+            ],
+            [
+              72,
+              91
+            ],
+            [
+              321,
+              91
+            ],
+            [
+              1493,
+              91
+            ],
+            [
+              2936,
+              89
+            ],
+            [
+              4543,
+              89
+            ],
+            [
+              23,
+              88
+            ],
+            [
+              2160,
+              88
+            ],
+            [
+              2172,
+              88
+            ],
+            [
+              622,
+              87
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 1023317
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.0000908809293698824",
+          "denominator": 1023317,
+          "max_lag_count": 93,
+          "maximizing_lags": [
+            688
+          ],
+          "numerator": 93,
+          "unordered_non_diagonal_pairs": 1023317
+        },
+        "n": 3
+      },
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 236540,
+          "available": true,
+          "decimal_16_sig": "0.000923984375",
+          "denominator": 12800000,
+          "numerator": 11827
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 134050,
+          "decimal_16_sig": "0.0005236328125",
+          "denominator": 5120000,
+          "numerator": 2681
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.00166226654933020",
+          "denominator": 10227,
+          "numerator": 17,
+          "top10_lag_count": 170,
+          "top_lags": [
+            [
+              321,
+              19
+            ],
+            [
+              2156,
+              19
+            ],
+            [
+              1539,
+              17
+            ],
+            [
+              1894,
+              17
+            ],
+            [
+              2043,
+              17
+            ],
+            [
+              4359,
+              17
+            ],
+            [
+              298,
+              16
+            ],
+            [
+              842,
+              16
+            ],
+            [
+              2747,
+              16
+            ],
+            [
+              4480,
+              16
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 102270
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.000185782731983964",
+          "denominator": 102270,
+          "max_lag_count": 19,
+          "maximizing_lags": [
+            321,
+            2156
+          ],
+          "numerator": 19,
+          "unordered_non_diagonal_pairs": 102270
+        },
+        "n": 4
+      },
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 52294,
+          "available": true,
+          "decimal_16_sig": "0.000255341796875",
+          "denominator": 102400000,
+          "numerator": 26147
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 42054,
+          "decimal_16_sig": "0.000205341796875",
+          "denominator": 102400000,
+          "numerator": 21027
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.00512466738937617",
+          "denominator": 10147,
+          "numerator": 52,
+          "top10_lag_count": 52,
+          "top_lags": [
+            [
+              475,
+              6
+            ],
+            [
+              2156,
+              6
+            ],
+            [
+              382,
+              5
+            ],
+            [
+              451,
+              5
+            ],
+            [
+              466,
+              5
+            ],
+            [
+              516,
+              5
+            ],
+            [
+              928,
+              5
+            ],
+            [
+              1110,
+              5
+            ],
+            [
+              1894,
+              5
+            ],
+            [
+              4025,
+              5
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 10147
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.000591307775697250",
+          "denominator": 10147,
+          "max_lag_count": 6,
+          "maximizing_lags": [
+            475,
+            2156
+          ],
+          "numerator": 6,
+          "unordered_non_diagonal_pairs": 10147
+        },
+        "n": 5
+      },
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 34016,
+          "available": true,
+          "decimal_16_sig": "0.0001993125",
+          "denominator": 16000000,
+          "numerator": 3189
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 32974,
+          "decimal_16_sig": "0.00019320703125",
+          "denominator": 256000000,
+          "numerator": 49461
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.0297619047619048",
+          "denominator": 168,
+          "numerator": 5,
+          "top10_lag_count": 30,
+          "top_lags": [
+            [
+              377,
+              3
+            ],
+            [
+              382,
+              3
+            ],
+            [
+              451,
+              3
+            ],
+            [
+              475,
+              3
+            ],
+            [
+              516,
+              3
+            ],
+            [
+              2156,
+              3
+            ],
+            [
+              4432,
+              3
+            ],
+            [
+              5256,
+              3
+            ],
+            [
+              5533,
+              3
+            ],
+            [
+              9822,
+              3
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 1008
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.00297619047619048",
+          "denominator": 336,
+          "max_lag_count": 3,
+          "maximizing_lags": [
+            377,
+            382,
+            451,
+            475,
+            516,
+            2156,
+            4432,
+            5256,
+            5533,
+            9822,
+            10042,
+            11206,
+            13262,
+            13658,
+            18821,
+            19086,
+            23014,
+            28096
+          ],
+          "numerator": 1,
+          "unordered_non_diagonal_pairs": 1008
+        },
+        "n": 6
+      },
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 32206,
+          "available": true,
+          "decimal_16_sig": "0.000220158203125",
+          "denominator": 512000000,
+          "numerator": 112721
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 32114,
+          "decimal_16_sig": "0.000219529296875",
+          "denominator": 512000000,
+          "numerator": 112399
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.194174757281553",
+          "denominator": 103,
+          "numerator": 20,
+          "top10_lag_count": 20,
+          "top_lags": [
+            [
+              377,
+              2
+            ],
+            [
+              382,
+              2
+            ],
+            [
+              475,
+              2
+            ],
+            [
+              4432,
+              2
+            ],
+            [
+              5256,
+              2
+            ],
+            [
+              5533,
+              2
+            ],
+            [
+              9822,
+              2
+            ],
+            [
+              10042,
+              2
+            ],
+            [
+              11206,
+              2
+            ],
+            [
+              13262,
+              2
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 103
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.0194174757281553",
+          "denominator": 103,
+          "max_lag_count": 2,
+          "maximizing_lags": [
+            377,
+            382,
+            475,
+            4432,
+            5256,
+            5533,
+            9822,
+            10042,
+            11206,
+            13262,
+            13658,
+            18821,
+            19086,
+            23014,
+            28096
+          ],
+          "numerator": 2,
+          "unordered_non_diagonal_pairs": 103
+        },
+        "n": 7
+      },
+      {
+        "min_n_Q_over_N_squared": {
+          "N": 32000,
+          "Q_pi": 32030,
+          "available": true,
+          "decimal_16_sig": "0.000250234375",
+          "denominator": 12800000,
+          "numerator": 3203
+        },
+        "min_n_energy_over_N_squared": {
+          "N": 32000,
+          "available": true,
+          "cylinder_energy": 32016,
+          "decimal_16_sig": "0.000250125",
+          "denominator": 8000000,
+          "numerator": 2001
+        },
+        "min_top10_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.666666666666667",
+          "denominator": 3,
+          "numerator": 2,
+          "top10_lag_count": 10,
+          "top_lags": [
+            [
+              377,
+              1
+            ],
+            [
+              382,
+              1
+            ],
+            [
+              475,
+              1
+            ],
+            [
+              4432,
+              1
+            ],
+            [
+              5256,
+              1
+            ],
+            [
+              5533,
+              1
+            ],
+            [
+              9822,
+              1
+            ],
+            [
+              10042,
+              1
+            ],
+            [
+              11206,
+              1
+            ],
+            [
+              13262,
+              1
+            ]
+          ],
+          "unordered_non_diagonal_pairs": 15
+        },
+        "min_top1_lag_share": {
+          "N": 32000,
+          "available": true,
+          "decimal_16_sig": "0.0666666666666667",
+          "denominator": 15,
+          "max_lag_count": 1,
+          "maximizing_lags": [
+            377,
+            382,
+            475,
+            4432,
+            5256,
+            5533,
+            9822,
+            10042,
+            11206,
+            13262,
+            13658,
+            18821,
+            19086,
+            23014,
+            28096
+          ],
+          "numerator": 1,
+          "unordered_non_diagonal_pairs": 15
+        },
+        "n": 8
+      }
+    ],
+    "policy": "only minima over the explicitly listed N search set"
+  },
+  "search_bounds": {
+    "N_selection": "each listed N independently; no intermediate N",
+    "N_values": [
+      1000,
+      2000,
+      4000,
+      8000,
+      16000,
+      32000
+    ],
+    "n_values": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "precision_tail_digits": {
+      "extra_mpmath_digits": 25,
+      "initial": 24,
+      "maximum": 60,
+      "step": 12
+    }
+  }
+}

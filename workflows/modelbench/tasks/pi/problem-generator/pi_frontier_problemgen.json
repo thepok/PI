@@ -1,0 +1,30 @@
+[
+  {
+    "id": "pi-frontier-problemgen-01",
+    "dimension": "problem_generation",
+    "timeout_s": 1800,
+    "max_attempts": 2,
+    "variant": "high",
+    "resume_prompt": "Continue the same benchmark in the same directory. You already read all required inputs. Do not reread sources, browse, narrate status, or explain a plan. Your first action must create PROBLEMS.md; then complete it to the full original contract with exactly three ranked candidates, Rejected temptations, and Self-critique. Do not finish the turn until PROBLEMS.md exists and is complete. Modify no other file.",
+    "prompt": "You are being evaluated as a skeptical mathematical research-problem generator, not as a prose brainstormer and not as a proof solver. Work only in your assigned benchmark directory. The harness has placed byte-for-byte source copies under inputs/ because unattended OpenCode runs cannot read outside this directory. Read inputs/knowledge/PROBLEM_TEMPLATE.md completely, then read inputs/knowledge/pi/statements/pi-digits.txt, inputs/knowledge/pi/results/intermediate/ultrapi-campaign/t77_selected_padic_defect_shell_report.md, and the final 220 lines of inputs/knowledge/pi/OVERVIEW.md. Preserve their original repository paths when citing them. The immutable canonical source is local:pi-digits, SHA-256 2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825; it has no external source URL, so do not invent one. Produce PROBLEMS.md with exactly three ranked candidate research subproblems for the current pi frontier. Begin each candidate from the structure of knowledge/PROBLEM_TEMPLATE.md. For every candidate: give an exact statement with all quantifiers, domains, constants, edge cases, and dependency direction explicit; list ambiguities; distinguish known results from conjectures; give a dated literature-search log and direct source links only for sources you actually inspect; give a finite falsification experiment with parameters and a statement of what failure/success would and would not prove; explain the exact logical route by which the candidate would help V1 and prove that you have not merely restated V1 or a known equivalent; audit it against the separator/countermodel obstructions already recorded in knowledge/pi/OVERVIEW.md; provide a small-lemma Lean formalization map; and state a concrete rejection criterion that would terminate the branch. Use only the repository claim labels experiment, conjecture, proof sketch, machine-checked, literature-checked, candidate resolution, verified resolution. Do not claim novelty or literature-checked status without a dated inspectable search. After the three candidates, add a section titled Rejected temptations containing at least two attractive but unproductive ideas and the exact obstruction for each. Prefer one precise high-leverage candidate over speculative breadth; the three candidates must be genuinely distinct. Do not modify or create any file except PROBLEMS.md; inputs/ is harness-owned. End with an honest one-paragraph self-critique of the weakest candidate.",
+    "fixtures": [
+      {"source": "knowledge/PROBLEM_TEMPLATE.md", "destination": "inputs/knowledge/PROBLEM_TEMPLATE.md"},
+      {"source": "knowledge/pi/statements/pi-digits.txt", "destination": "inputs/knowledge/pi/statements/pi-digits.txt"},
+      {"source": "knowledge/pi/results/intermediate/ultrapi-campaign/t77_selected_padic_defect_shell_report.md", "destination": "inputs/knowledge/pi/results/intermediate/ultrapi-campaign/t77_selected_padic_defect_shell_report.md"},
+      {"source": "knowledge/pi/OVERVIEW.md", "destination": "inputs/knowledge/pi/OVERVIEW.md"}
+    ],
+    "grading": {
+      "type": "artifact_contract",
+      "artifact": "PROBLEMS.md",
+      "min_chars": 5000,
+      "required_markers": [
+        "Normalized statement",
+        "Ambiguities",
+        "Literature search log",
+        "Formalization map",
+        "Rejected temptations",
+        "Self-critique"
+      ]
+    }
+  }
+]

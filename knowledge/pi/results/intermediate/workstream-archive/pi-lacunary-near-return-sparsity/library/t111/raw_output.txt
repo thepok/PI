@@ -1,0 +1,10 @@
+canonical_sha256=ok
+primary_pdf_hashes=3/3
+source_pdf_and_text_hashes=6/6
+source_anchor_sets=3/3
+report_contract=ok
+order=1 starts=4 unique=4 cyclic_neighbors=diagonal-only
+order=2 starts=16 unique=16 cyclic_neighbors=diagonal-only
+order=3 starts=64 unique=64 cyclic_neighbors=diagonal-only
+order=4 starts=256 unique=256 cyclic_neighbors=diagonal-only
+finite_checks_label=experiment

@@ -1,0 +1,602 @@
+A NNALES DE L’ INSTITUT F OURIER
+
+
+
+
+ J EAN B OURGAIN
+ Sidon sets and Riesz products
+ Annales de l’institut Fourier, tome 35, no 1 (1985), p. 137-148
+ <http://www.numdam.org/item?id=AIF_1985__35_1_137_0>
+
+
+
+
+    © Annales de l’institut Fourier, 1985, tous droits réservés.
+    L’accès aux archives de la revue « Annales de l’institut Fourier »
+    (http://annalif.ujf-grenoble.fr/) implique l’accord avec les conditions gé-
+    nérales d’utilisation (http://www.numdam.org/conditions). Toute utilisa-
+    tion commerciale ou impression systématique est constitutive d’une in-
+    fraction pénale. Toute copie ou impression de ce fichier doit conte-
+    nir la présente mention de copyright.
+
+
+
+
+                  Article numérisé dans le cadre du programme
+                Numérisation de documents anciens mathématiques
+                              http://www.numdam.org/
+Ann. Inst. Fourier, Grenoble
+35,1(1985), 137-148
+
+
+
+
+            SIDON SETS AND RIESZ PRODUCTS
+
+                                  by Jean BOURGAIN
+
+
+
+                                      1. Notations.
+
+    In what follows, G will be a compact abelian group and
+r = G the dual group. According to the context, we will use
+the additive or multiplicative notation for the group operation
+in r. For 1 < p < oo, \f (G) denotes the usual Lebesgue space.
+For ^ G M ( G ) , let ||^i||pM = sup 1^(7) I .
+                                 -yer
+     A subset A of r is called a Sidon set provided there is a
+constant C such that the inequality
+                               S I c ^ K C H S o^Tlloo                    (1)
+                           7GA                 7GA
+
+holds for all finite scalar sequences (^\^A • The smallest constant
+S(A) fulfilling (1) is called the Sidon constant of A. The reader
+is referred to [3] for elementary Sidon set theory.
+       I A | stands for the cardinal of the set A.
+      Assume A a subset of F and d > 0. We will consider the
+set of characters
+       P<JA]=jS z^Tl^ZCyGA)                           and   S|zJ<d).
+                  (7€A                                      7CA       )
+
+
+Then       |P^[A]|<(——)                  if    d<\A\
+                     a
+
+and        IP^A]!^^                       if   rf>|A|
+                               IA I
+
+where C is a numerical constant (cf. [7], p. 46).
+
+Mots-clefs : Ensemble de Sidon, Ensemble quasi-independant, Produits de Riesz.
+138                             J.BOURGAIN
+
+
+      We say that       A C F is quasi-independent, if the relation
+  £ ^ 7 = 0, z ^ = - 1 , 0 , 1 Cy^A) implies            z^ = O C y G A ) .
+    If A is quasi-independent, the measure
+                         ^ = n (1 + Rea^7)
+                              TCEA
+
+where a^ e C , | a^ | < 1, is positive and || ^ ||^ (Q) = 1.
+    We call it a Riesz product.
+     Say that A C F tends to infinity provided to each finite
+subset FQ of r corresponds a finite subset AQ of A such
+that
+                 7 , 5 G A \ A o , 7=^5 = ^ 7 - 8 ^ ^ .
+A Sidon set A is of first type provided there is a constant
+C <<» and, for each nonempty open subset I of G, there is a
+finite subset \ of A so that
+                    S      Ic^KCII          S    ^7llc(i)                (2)
+                 7€A\Ao                7€=A\Ao
+
+for finite scalar sequences (c^)^\^ , where
+                           ll/llc(I)= SUP|/(JC)|.
+                                      xei
+
+
+              2. Interpolation by averaging Riesz products.
+
+      In this section, we will prove the following results
+
+THEOREM.-For a subset A of F, the following conditions are
+equivalent:
+(1) A is a Sidon set
+(2) ||£^ c^ 7||^ < Cp 1 / 2 (S |a^| 2 ) 1 / 2 /or a// finite scalar sequen-
+    ces (o^eA and p> \.
+(3) 7%^ ^ 6 > 0 such that each finite subset A of A contains
+    a quasHndependent subset B with ( B | > 6 | A |.
+(4) There is 8 > 0 such that if (a^\^ is a finite sequence of
+    scalars, there exists a quasi-independent subset A of A
+    such that
+                      SIDON SETS AND RIESZ PRODUCTS                     139
+
+
+
+                           S      | c ^ | > 6 £ |c^|.
+                           -y^A            -yGA
+
+
+      Implication (1) =» (2) is a consequence of Khintchine's inequa-
+lities and is due to W. Rudin [8]. The standard argument that quasi-
+independent sets are Sidon sets yields (4) ==» (1). We will not give it
+here since it will appear in the next section in the context of an
+application. Finally, the results (2)==^ (1) and (!)==» (3) are due
+to G. Pisier (see [4], [5] and [6]. The characterization (4)is new. It has
+the following consequence (by a duality argument):
+
+
+COROLLARY 1.-If A is a Sidon set, there is 8 > 0 such that
+whenever teyXyeA is a fi^te scalar sequence and \a \ < 5 , then we
+have
+                ^(7) = JQ 7(x) ^ (dx) = a^        for   7eA
+where ^ is in the a-convex hull of a sequence of Riesz products.
+       Recall that the a-convex hull of a bounded subset P of a
+                                                           00
+
+
+
+complex Banach space X is the set of all elements £ X/ x^ where
+       oo                                         i=i
+Xf^ P, 2- I \ I < 1 .
+       <=i
+    The remainder of the paragraph is devoted to the proof of
+(2) =^ (3) =^ (4).
+     Let us point out that in the case of bounded groups, i.e. which
+elements are of bounded order, they can be simplified using
+algebraic arguments.
+
+LEMMA 1. - Condition ( 2 ) implies ( 3 ) with 6 ^ C"~2 .
+
+       Proof. - We first exhibit a subset A^ of A , I AJ ^ C~ 2 | A |,
+such     that    if    L e^ 7 = 0          and     e = - 1 ,0,1 ,      then
+                      7<=Ai
+
+
+Sje^K-IAJ.            If      ^ ^7=0,             e^=±l    and   A^ C A,
+           z
+                            T^A^
+is choosen with I A ^ I maximum, the set B = A^A^                   will be
+quasi-independent and | B | > 5 | A |.
+ 140                                     j. BOURGAIN
+
+
+         The set A^         is obtained using a probabilistic argument. Fix
+r = C71 C""2         and fi = , r |A| (C^              is a fixed constant, choosen
+                                                             be
+to fulfil a next estimation). Let (^)^A                            independent (0,1)-
+valued random variables in cj and define
+                             IAI
+               F^)= ^L               Z       n ty(o;)(700+'700).
+                            m=C     SCA ^eS
+                                   |S|=m
+
+
+    Notice that the property ^ F^ (^) dx = 0 is equivalent to
+the fact JQ n (7 4- 7) = 0 whenever S is a subset of the
+                     7€=S
+
+random set {7^A|^(o;)= 1} with | S | > £ .
+     Thus the random set does not present                           (± l)-relations of
+length at least £.
+        Using condition (2) and the choice of r , S., we may evaluate
+ /*/»                          JA|          1
+JJG      Pc^^A^ S ^ — —    i                           1^(7+7)1"
+               w =e  w ! VLr
+                                            v^                /JAI^72
+                                           <1          rw(6C)w(i—l) < 2 - c / 2 .
+T,                                              m>V.                    Tn
+rience
+
+             LIA
+                    ' + 2 f i / 2 y X ^(x)dxd^<f                  Z ^(o;)
+                z
+                                                                  TGA
+
+implying the existence of a; s.t.
+
+                                     IA,1>^
+
+where A^ = {7^A|^(a;) = 1}
+and
+              ^ F , ( x ) < 2 - ^ | A | < l , so^ F,(^)=0.
+    By definition of F^, and the choice of £, it follows that
+A^ has the desired properties.
+        The key step is the following construction:
+
+LEMMA 2. - Assume              A ^ , . . . , Aj        disjoint     quasi-independent
+subsets of r and
+                        SIDON SETS AND RIESZ PRODUCTS                                141
+
+                  IA..J
+                  ——^- > R               for    / = 1, .. . , J - 1
+                   |Ay|
+where the ratio R > 10 is some fixed                                  numerical constant
+(appearing through later computations).
+      Then there are subsets Ay            of        Ay(l < / < J) s. t.
+
+      (1)   1 ^ 1 >'.7. lAyl         and       (2)    U Ay is quasi-independent.
+                    1U                               y= i
+
+
+    Proof. - Fixing / = 1 ,. . . , J, we will exhibit a subset Ay of
+Ay satisfying the following condition (*)
+                        7 ? i . . . r ? y _ i 7?,.^ . . . T ^ O
+if
+                  0 ^ r ? y = S e^7(s = ~ 1 , 0 , 1 )
+                                 7CEA'
+
+and for each fc =^= 7
+
+             ^IVA,)                  where      ^ = = I A I ^ | e! | .
+                                                     |A^| /yeA^
+Those sets A. satisfy (2). Indeed if
+        7?i...7?j=0            and     7?y= Z e 7(6. = - 1 , 0 , 1 )
+                                               7<=Ay    •         '
+
+
+then, defining dy = £|e^|, either dy = 0 or r f J A J > d y | A . | for
+                         Ay.
+
+
+some fc ^y^. If the dy are not all 0, we may consider /' s.t. d..|Ay'|
+is maximum, leading to a contradiction.
+     The construction of A' for fixed / is done in the spirit of
+Lemma 1. It suffices to construct first Ay C Ay, | A y | > — | A . | ,
+fulfilling (*) under the additional restriction
+
+                                S, |e^|>-|A,|.                                      (^)
+                               7^Af              2
+
+
+This set Ay is again found randomly. Consider independent (0,1)-
+valued random variable           { ^ I r ^ y } of mean — and define the
+random function on G
+ 142                                           J. BOURGAIN
+
+
+                   IAy|
+       =
+ ^                 ^
+            W=|A,|/10
+                            ^
+                          SCA,      -yes
+                                        n s ( o , ) C y + 7 ) ^.
+                                                              n s {r? e p^^ / . (A.)}
+                                                                                '    (w)   k j
+
+                          |S|=w
+
+
+ where d^(m) = —^—m . Write
+               IAJ
+
+
+ //o
+                                        IA/1
+
+            F^ (^) dxdw<
+       'G x w                           S
+                                        1:           2-
+                                                     2--
+                                  W ==|Ay|/10
+
+
+                                    ^ n (i +Re7) n 2 { r ? e p                         (A^)},
+                                          7€Ay                  fc^/             "
+
+and using the estimation on |P^(A) | mentioned in the introduction,
+it follows the maj oration by
+ _^l
+       10
+2           ^ |P^(A,)|                                          (^=^(|A,|)=^-)
+
+            IAy|
+
+        I'^exp 2 S |AJ logC l^-1 + 2 2 IA^-2 logC 1^
+                 *</        lA^I     t>/IA^)      | Ay |
+Since log x < 2 .^x"              for      x > 1, we may further estimate by
+
+                                                   r^
+ 2
+     ''^'"pic,
+            (
+                2;  (-^y^c.
+         "^^^(^'"^^(^fi^K,-
+               fc</ \ | A ^ | /
+                      (
+                                £(!^n
+                                ^A |A^|/ )
+                          k<j \ | A ^ | /
+                                           lA,l<2-         ^>^A |A^|/   )
+                                                                            //
+                                                                                     1
+
+
+
+for an appropriate choice of the ratio R.
+        So again, since we may assume I A.I > 20
+                           |Ay|
+
+        -.|A,|+2' Tr /^ F^(x)dxd^<f S ^)d^
+                                                A
+                                                  /
+and there exists therefore some a; s.t. if A^. = {7 GAJ { (co) = 1}
+we have
+                        -    1                          r
+                       |A,|>^|A^|              and     ^ F^(x) dx = 0.
+
+      But the latter property means that (*) holds under the
+restriction (**).
+                     SIDON SETS AND RIESZ PRODUCTS                       143
+
+
+    This proves lemma 2.
+    We derive now the implication (3) ===» (4).
+
+
+LEMMA 3.-If (3) of the theorem holds, then (4) is valid mth
+6 ( 4 ) - 5 (3).
+
+     Proof. — From Lemma 2, the argument is routine. Let R be
+the constant appearing in Lemma 2 and fix a sequence (cU-ycA s•t•
+S|c^|=l.
+    Define for ^ = = 0 , 1 , 2 , . . .
+                           { 7 e A | R ^ k>
+                  A ^^ === {^^\\^
+                  A                           ^ i ^ x ^ fc - l }
+                                          ^ i|cU>R7
+where R^ is a numerical constant with R^ > 4R.
+     By hypothesis, there exists for each k a quasi-independent
+subset A^ of A^ s.t.
+                                   I| A
+                                      A^^| >S6I| A
+                                                 A ^^| .                 (1)
+Defining
+                n, =       U       A^     and      i2o =     U      A^
+                         fc even                           fc odd
+
+we have
+
+                        s i^i+ -yeno
+                        ^en^
+                                s i^i^^
+                                      ^i
+and may for instance assume
+
+                                S 1<M>^.                                  (2)
+                               7en^  ^KI
+    Define inductively the sequence (^y)y= 1 , 2 , . . . ^V
+     ^ =0         and      fe^i = min { f c > ^ | |A^| > R |A^|}.
+     If we take         A2 == A^ ,          it follows by construction that
+
+^
+Moreover
+ 144
+                                            J. BOURGAIN
+
+
+
+  2:         2:              S    |a7 |
+  /    kj<k<kj^^         7<=A^
+
+
+
+                                 ^J^'^'
+                                                   1
+                                 ^i^- '^'
+                                  2R ^
+                                 <R- L          |a I
+                                  KI •ye"e         '
+
+and since R, > 4R, it follows thus by (2)
+
+
+                                 L^'^8'                                                  <3'
+     Application of Lemma 2 to the sequence (A^2)^ ^     leads
+to further subsets AJ C A^2 satisfying            ' '" '
+
+                  I A / I > jo ^ A ^         and       A == u A 3
+                                                               / ^ quasi-independent.
+       It remains to write
+
+ -.|«,|..SR^-|A;|>-VR-,|A;|
+7CA      7
+                  /      A          /
+                                        '     10R^      ,
+
+                                                                    >
+                                                                        — Z Z icu        7
+                                                                        ^KI   /   TCA/
+and use (3).
+
+     Remark. - Say that a subset A of the dual group F is
+d-independent (d = 1 , 2 , . . . ) provided the relation
+
+                   S' e ^ 7 = 0 ( e ^ = - d , - d + l , . . . , d )
+                  7€=A
+
+implies ^ == 0 (7 G A).
+     With this terminology, 1-independent corresponds to quasi-
+independent.
+     Assume G a torsion-free compact, abelian group. Fixing an
+integer d , statements (3) and (4) of the theorem can be reformulated
+for d-independent sets. The proof is a straightforward modification.
+                     SIDON SETS AND RIESZ PRODUCTS                        145
+
+
+                          3. Sidon sets of first type.
+       As an application of previous section, we show
+
+COROLLARY 2. — A sidon set tending to infinity is a Sidon set of
+first type.
+      Notice that conversely each set of first type tends to infinity
+(see [2]). Also, each Sidon set is the finite union of sets tending to
+infinity (see [3], p. 141 and [1] for the general case).
+     Proof of Cor. 2. — Fix a Sidon set A tending to infinity and
+a nonempty open subset I of G. Choose 6 > 0 s.t. (4) of the
+previous theorem holds.
+       Let   p € L1 (G)      be     a      polynomial   s.t.   p > 0,   p > 0,
+JQ? = 1 and | p | < e on G\I (where e > 0 will be defined
+later). Denote F^ the spectrum of p. By hypothesis, we may
+assume
+               J - S ^ F Q for 7 ^ 5 in A.              (1)
+       We claim the existence of a finite subset AQ               of A s.t. if
+                ls   a      16
+(oc^)-yeA\A         fi^i scalar sequence, there exists a quasi-
+independent subset A of A\AQ s.t.
+
+                             Z      |c^|>^S |aJ                            (2)
+                            'v£A
+                            -yGEA             2
+
+and
+                          fp n (1 + Re 7) < 2 .                            (3)
+                                 TGA
+
+     The existence of A^ is shown by contradiction. Indeed,
+one should otherwise obtain finite disjointly supported systems
+                  (Q^eAl' • • - (S^eA,,. .. (A, C A)
+with
+                                    S 1^1 == 1
+                                  •yGA,.
+
+
+and for which a quasi-independent set fulfilling (2), (3) does not
+exist.
+      Fix R large and apply (4) of the Theorem to the system
+146                                    J. BOURGAIN
+
+                                         R
+                               (              »
+                                   (^|7€ U A ( .
+                               (              r=l    )
+
+This yields a quasi-independent set B C A so that
+                          R
+                          S            S      |a^|>5R.                     (4)
+                         r=l       7€A^nB
+
+Also, since p > 0
+ R
+Z
+S jfpp           nn     (1(1+ +RRe e77) -)l- l )
+rr =
+   =1l        T
+              ^G^BHA^                         )
+
+                             </^ 11 (1 + R e 7 ) < l l p l L < i r j .    (5)
+                               v
+                                        TGB
+
+
+As a consequence of (4), (5), there must be some r = 1 , . . . , R
+                Y^                 5
+for which       ^      | a^ | > — as well as
+             -yeAynB               2
+
+                 fp      n         (1 + R e 7 ) < 1 + fp = 2,
+                                                         J
+                ~      TEBOA^
+
+
+provided R is chosen large enough. Since A = B H A^ is quasi-
+independent, a contradiction follows. This ensures the existence
+of AQ . We assume 1^ C A^ .
+         Let now (a-y)-ye=A\Ao a finite scalar sequence and A a
+quasi-independent set fulfilling (2), (3). Clearly, whenever
+I fl-y I ^ 1 (7 e A), by construction of p ,
+\f n        (1 4- R e ^ 7 ) ( 2 . a ^ 7 ) p |< 2\\^a^j\\^ + e S | c ^ | .
+
+We now analyze the left side, defining a^ = K b^ (\b^\ = 1) , K to
+be specified later. Write
+
+          n     (1 4- Rea^ 7) = 1 + K S Re 6- 7 + S ^ fi Qo
+         7€=A                                 <yeA           02
+
+
+where    Qg = Z          n Re b 7             and,   since   f(2 a- 7) p = 0,
+                  S C A -yes                                      '
+                 IS|=fi
+
+minorate consequently the left member as
+                    SIDON SETS AND RIESZ PRODUCTS                            147
+
+
+K | / ( S R e ^ 7 ) ( 2 ^ 7 ) p l - S ^ 1 </f Q f i P ( 2 ^ 7 ) l .          (*)
+  " \€A                            fi>2
+Since p > 0, we have for fixed £ (from (3))
+               l / Q e p ( S c ^ 7 ) l < I I Q f i P l l p M - S |a^|
+and
+
+IIQfiPllpM<ll ( S     II R e 7 ^ 1 1 p M
+              \ s CA res        /
+                 |S|==fi
+
+                                             < j | n (1 + R e 7 ) - P l l i < 2 .
+                                                   TCA
+
+Thus (*) can be minorated as
+           ^yl f ( l Re^7)(S a y 7 ) p | - 3 / c 2 2 |a^|.
+                SeA      '
+
+Since Re & 7 can be replaced by Im b^ 7, we see that
+
+ 2 II S c^ 7llc(i) > J |/(SA ^T)(SA ^ ^ ^ 1 ~ (6 + 3/<2 ) s 1^1-
+
+Now, for 7 G A C A and 5 e A, either 7 = 6 or j 7 8 p = 0.
+
+                                                 ^yJ —,
+This as a consequence of (1). Thus, taking b^ == —
+                                                           I "'y I
+
+
+
+           y\2^ ^ 7) (SA Oy 7)P = SA 1^1 >-|2; |^|.
+
+Choosing e, ^c appropriately, the proof is completed.
+
+     Remark. - Let G be a compactly generated, locally compact
+abelian group and B the dual group. A subset A of F is called a
+topological Sidon set provided there exists a compact subset K
+of     G    satisfying S |a^| < C sup | S a^j(x)\ where C
+                           -yGA               xGK      7^A
+
+is a fixed constant.
+       Similarly to the case of compact groups, we define Sidon sets
+of first type. Then Cor. 2 remains valid. It is indeed easy using the
+stability property of topological Sidon sets for small perturbations
+(see [2] for details) to reduce the problem to the periodic case.
+148                          J.BOURGAIN
+
+
+
+
+                          BIBLIOGRAPHY
+
+
+[1] J. BOURGAIN, Proprietes de decomposition pour les ensembles
+    de Sidon, Bull Soc. Math. France, 111 (1983), 421-428.
+[2] M. DECHAMPS-GONDIM, Ensembles de Sidon topologiques, Ann.
+    Inst. Fourier, Grenoble, 22-3 (1972), 51-79.
+[3] J.M. LOPEZ, K.A. Ross, Sidon Sets, LN Pure and Appl. Math.,
+    No 13, M. Dekker, New York, 1975.
+[4] G. PISIER, Ensembles de Sidon et processus gaussiens, C.R.A.S,
+    Paris, Ser. A,286 (1978), 1003-1006.
+[5] G. PISIER, De nouvelles caracterisations des ensembles de Sidon,
+    Math. Anal. and Appl., Part B, Advances in Math., Suppl. Sts.
+    Vol. 7, 685-726.
+[6] G. PISIER, Conditions d'entropie et caracterisations arithmetiques
+      des ensembles de Sidon, preprint.
+[ 7 ] POLYA -SZEGO , Inequalities.
+[8] W. RUDIN, Tigonometric series with gaps, /. Math. Mech., 9
+    (1960), 203-227.
+
+                                   Manuscrit requ Ie 2 novembre 1983
+                                        revise Ie 20 mars 1984.
+                                            Jean BOURGAIN,
+                                         Dept. of Mathematics
+                                       Vrije Universiteit Brussel
+                                             Pleinlaan 2-F7
+                                       1050 Brussels (Belgium).
+

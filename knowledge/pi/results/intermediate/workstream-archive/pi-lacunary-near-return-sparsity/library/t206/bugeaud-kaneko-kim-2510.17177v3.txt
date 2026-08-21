@@ -1,0 +1,1072 @@
+                                             ON THE IRRATIONALITY EXPONENT OF REAL NUMBERS
+                                                     WITH LOW COMPLEXITY EXPANSION
+
+
+                                                        YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+arXiv:2510.17177v3 [math.NT] 20 Mar 2026
+
+
+
+
+                                                   Abstract. Let ξ be a real number and b ≥ 2 an integer. We study the rela-
+                                                   tionship between the irrationality exponent of ξ and the subword complexity
+                                                   p(n, x) of the b-ary expansion x of ξ, where p(n, x) counts the number of dis-
+                                                   tinct blocks of length n in x, for n ≥ 1. If the irrationality exponent of ξ
+                                                   is equal to 2, which is the case for almost all real numbers ξ, we show that
+                                                   the limit superior of the sequence (p(n, x)/n)n≥1 is at least equal to 4/3. The
+                                                   proof is based on a careful study of the evolution of the Rauzy graphs of infinite
+                                                   words of low complexity.
+
+
+
+
+                                                                                1. Introduction
+
+                                             Let ξ be an irrational real number. Its irrationality exponent µ(ξ) is the supre-
+                                           mum of the real numbers µ for which the inequality
+
+                                                                                          p   1
+                                                                                    ξ−      < µ
+                                                                                          q  q
+
+                                           has infinitely many rational solutions p/q with q ≥ 1. It follows from the theory
+                                           of continued fractions that µ(ξ) is always at least equal to 2 and an easy covering
+                                           argument shows that equality holds for almost all ξ with respect to the Lebesgue
+                                           measure. Recently, Bugeaud and Kim [8] established a connection between the
+                                           irrationality exponent of a real number and the complexity of its expansion in a
+                                           given integer base. Before stating their result, let us introduce some notions from
+                                           combinatorics on words.
+                                             Let A be a finite set called an alphabet and denote by |A| its cardinality. A word
+                                           over A is a finite or infinite sequence of elements of A. For a (finite or infinite)
+                                           word x = x1 x2 . . . written over A, let n 7→ p(n, x) denote its subword complexity
+                                           function of x which counts the number of different subwords of length n occurring
+
+
+                                             2020 Mathematics Subject Classification. 11A63, 11J82 (primary); 68R15 (secondary).
+                                             Key words and phrases. irrationality exponent, subword complexity, b-ary expansion.
+                                                                                           1
+2                YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+in x, that is,
+
+                 p(n, x) = Card{xj+1 xj+2 . . . xj+n : j ≥ 0},       n ≥ 1.
+
+Clearly, we have
+                               1 ≤ p(n, x) ≤ |A|n ,     n ≥ 1.
+
+We set p(0, x) = 1 for convenience. The Morse-Hedlund Theorem [18] states that
+if x is ultimately periodic, then there exists an integer C such that p(n, x) ≤ C for
+n ≥ 0; otherwise, we have
+
+(1.1)                      p(n + 1, x) ≥ p(n, x) + 1,       n ≥ 0,
+
+thus p(n, x) ≥ n + 1 for n ≥ 0. There exist uncountably many infinite words s over
+{0, 1} such that p(n, s) = n + 1 for n ≥ 0. These words are called Sturmian words.
+Classical references on combinatorics on words and on Sturmian sequences include
+[6,15,17]. The words x for which there exists an integer C such that p(n, x) ≤ n+C
+for n ≥ 0 are called quasi-Sturmian. See [11] for more details.
+    Let ξ be a real number. Let b be an integer greater than or equal to 2. There
+exists a unique infinite sequence (xj )j≥1 of integers from {0, 1, . . . , b − 1}, called the
+b-ary expansion of ξ, such that
+                                                X xj
+(1.2)                               ξ = ⌊ξ⌋ +
+                                                       bj
+                                                j≥1
+
+and xj ̸= b − 1 for infinitely many indices j. Here, ⌊·⌋ denotes the integer part
+function. The sequence (xj )j≥1 is ultimately periodic if, and only if, ξ is rational.
+A natural way to measure the complexity of the real number ξ written in base b
+as in (1.2) is to count the number of distinct blocks of given length in the infinite
+word x = x1 x2 . . .. We set
+
+                               p(n, ξ, b) = p(n, x),    n ≥ 1,
+
+and call the function n 7→ p(n, ξ, b) the complexity function of ξ in base b.
+    Adamczewski [3] has observed that the statements on the combinatorial structure
+of Sturmian words established in [7] and [4] almost immediately imply that the
+irrationality exponent of any real number, whose sequence of digits in some integer
+base is quasi-Sturmian, is greater than 2. The main result of [8] asserts that, if the
+complexity function of ξ in base b grows sufficiently slowly, then the sequence of
+digits of ξ contains very large repetitions, that causes the irrationality exponent of
+ξ to exceed 2.
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION                   3
+
+
+Theorem 1.1 ([8]). Let b ≥ 2 be an integer and ξ an irrational real number. If µ
+denotes the irrationality exponent of ξ, then
+                            p(n, ξ, b)     1 − 2µ(µ − 1)(µ − 2)
+                       lim inf         ≥1+
+                       n→+∞    n                µ3 (µ − 1)
+and
+                            p(n, ξ, b)     1 − 2µ(µ − 1)(µ − 2)
+                       lim sup         ≥1+                      .
+                       n→+∞    n            3µ3 − 6µ2 + 4µ − 1
+
+   The lower bound for the limsup obtained in Theorem 1.1 has been refined in [10]
+as follows.
+
+Theorem 1.2. Let b ≥ 2 be an integer and ξ an irrational real number. If µ
+denotes the irrationality exponent of ξ, then
+                        p(n, ξ, b)       −µ3 + 2µ2 + µ − 1
+                   lim inf         ≥1+ 4
+                   n→+∞    n          µ − 2µ3 + 3µ2 − 3µ + 1
+and
+                                                p
+                                p(n, ξ, b)   µ + 4(µ − 1)3 + µ2
+(1.3)                   lim sup            ≥                    .
+                         n→+∞      n             2µ(µ − 1)
+   The purpose of the present paper is, by means of a totally different approach, to
+improve (1.3).
+
+Theorem 1.3. Let b ≥ 2 be an integer and ξ an irrational real number. Let µ
+denote the irrationality exponent of ξ. If µ = 2, then
+                                           p(n, ξ, b)  4
+(1.4)                            lim sup              ≥ .
+                                  n→+∞        n        3
+If µ > 2, then
+                                                 p
+                      p(n, ξ, b)     µ+1−         81(µ − 2)2 − 10µ + 29
+(1.5)         lim sup            ≥1+                                    .
+               n→+∞      n                         8(µ − 2)
+
+   Note that the right-hand side of (1.5) tends to 4/3 when µ tends to 2. Fur-
+thermore, it is greater than one (that is, it gives a non-trivial result) for µ < 2.2.
+Observe also that Theorems 1.1 and 1.2 give respectively the lower bounds 8/7 and
+    √
+(1 + 2)/2 = 1.207 . . . for the limit superior when µ = 2. Thus, Theorem 1.3 is
+noticeably stronger. As explained in [10], the method developed in [8] and slightly
+refined in [10] is unlikely to yield the result of the present paper.
+   Here, we obtain Theorem 1.3 after a very detailled study of Rauzy graphs, intro-
+duced by Gérard Rauzy in 1983 [19]. While this approach gives better estimates for
+the limsup, it gives unfortunately no estimate for the liminf, unlike the approach
+followed in [8, 10].
+4                  YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+     Theorem 1.3 is a restatement of Theorem 1.4 below, which involves the repetition
+function n 7→ r(n, x) of an infinite word x, defined for any positive integer n by
+
+    r(n, x) = max{m ≥ 1 | x1 . . . xn , x2 . . . xn+1 , . . . , xm . . . xn+m−1 are all distinct}
+
+            = min{m ≥ 1 | xm+1 . . . xm+n = xi+1 . . . xi+n for some 0 ≤ i < m}.
+
+Observe that the present definition of r(n, x) differs by −n from that given in [8–10]
+and that we have p(n, x) ≥ r(n, x) for n ≥ 1.
+     Theorem 1.4 asserts that if p(n, x) is sufficiently small for every large value of n,
+then there are some positive ε and arbitrarily large values of n such that the prefix
+of length ⌊(2 − ε)n⌋ of x has two (necessarily overlapping) occurrences of a same
+block of length n.
+
+Theorem 1.4. Let b ≥ 2 be an integer. Let x = x1 x2 . . . be an infinite word over
+{0, 1, . . . , b − 1} which is not ultimately periodic and satisfies
+                                                 p(n, x)  4
+                                      ρ = lim sup        < .
+                                            n→+∞   n      3
+Then, we have
+                                      r(n, x)          4 − 3ρ
+                            lim inf           ≤1−
+                             n→∞        n         2(1 + 2ρ)(2 − ρ)
+and
+                                     X x 
+                                             j             4 − 3ρ
+(1.6)                            µ                 ≥2+              .
+                                            bj            ρ(9 − 4ρ)
+                                      j≥1
+                                            P        xj 
+     We note that by setting µ = µ               j≥1 bj   and solving (1.6), we obtain (1.4) and
+(1.5).
+     Let x denote the word given by the b-ary expansion of an irrational, real number
+ξ. In [8,10], we have shown that there are δ, δ ′ , δ ′′ > 0 such that, if r(n, x) ≤ (1+δ)n
+for every sufficiently large integer n, then there are arbitrarily large n such that
+r(n, x) ≤ (1 − δ ′ )n (see [8, Theorem 3.5], [10, Proposition 1.6]), thus, by [8, Lemma
+3.6], we have µ(ξ) ≥ 2 + δ ′′ . Said differently, if µ(ξ) < 2 + δ ′′ , then there are
+arbitrarily large n such that p(n, x) ≥ r(n, x) ≥ (1 + δ)n.
+     In the present paper, our approach is different. Our assumption is on the function
+n 7→ p(n, x) and not on the function n 7→ r(n, x). We show that there are δ, δ ′ > 0
+such that, if p(n, x) ≤ (1 + δ)n for every sufficiently large integer n, then, there are
+arbitrarily large n such that r(n, x) ≤ (1 − δ ′ )n.
+     To achieve this, we study very carefully the combinatorial structure of words
+of small complexity, focusing on the evolution of their Rauzy graphs defined in
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION                    5
+
+
+Subsection 2.1. Previous works on these words and their Rauzy graphs include
+[1,2], where Aberkane studies, among other, the infinite words x such that p(n, x)/n
+tends to 1 as n tends to infinity. Also, Heinis [16] established that if the sequence
+(p(n, x)/n)n≥1 has a limit, then this limit cannot be in the open interval (1, 2). This
+interval is the best one can obtain, since there exist sequences x with p(n, x) = 2n+1
+for n ≥ 1. Certain such sequences, under the additional assumption of minimality,
+have been studied by Arnoux and Rauzy [5], again by means of the evolution of
+their Rauzy graphs. Recently, Creutz and Pavlov [13] showed that if X is an
+infinite transitive subshift with lim sup p(n)/n < 4/3, where p(n) is the number of
+n-subwords appearing in sequences in the subshift X, then X is uniquely ergodic
+and its unique ergodic measure has discrete spectrum. See also [14].
+  One important difficulty we had to overcome is that there is no additional as-
+sumption on x in Theorem 1.4. In particular, x is not supposed to be minimal, nor
+even recurrent: it may happen that arbitrarily long prefixes of x occur only once
+in x.
+
+                               2. Auxiliary lemmas
+
+  Throughout the paper, we assume that the words are written over a finite al-
+phabet.
+
+2.1. Special words and the Rauzy graph. Let n be a positive integer. An
+n-word is a word of length n. If x is an infinite word, an n-subword (or, n-factor)
+of x is a factor of x of length n.
+
+Definition 2.1. Let x be an infinite word and n a positive integer. We let Fn (x)
+denote the set of n-subwords of x. A word w in Fn (x) is called right-special if
+there exist distinct letters x, y such that wx and wy are subwords of x. A word w
+in Fn (x) is called left-special if there exist distinct letters x, y such that xw and
+yw are subwords of x. Any word in Fn (x) which is right-special and left-special is
+called a bi-special word.
+
+  The following lemma is an immediate consequence of Definition 2.1.
+
+Lemma 2.2. Let x be an infinite word and m, n integers with n > m ≥ 1.
+  (i) If w is a left-special n-word of x, then the prefix of w of length m is a left
+special m-word of x.
+  (ii) If w is a right-special n-word of x, then the suffix of w of length m is a right
+special m-word of x.
+6                YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+Lemma 2.3. Suppose that x is a non-ultimately periodic word. Then there is at
+least one left-special word w with the property that there are two distinct letters x, y
+such that the words xw and yw occur infinitely many times in x.
+
+Proof. If there is no such left-special word, then after deleting a suitable prefix of
+x the remaining word has no left-special words, which implies that x is ultimately
+periodic by (1.1).                                                                          □
+
+    Let n be a positive integer. We define the Rauzy graph Gn = Gn (x) of x. The
+set of vertices of the oriented graph Gn is the set of subwords of x of length n.
+There exists an edge from u to v in Gn if and only if there exist letters x, y such
+that ux = yv is a subword of x. In this case, we write
+
+                                      [uv] = ux = yv.
+
+A finite sequence of edges [u1 u2 ], [u2 u3 ], . . . , [uk−1 uk ] is called a path and we write
+it as [u1 u2 . . . uk−1 uk ]. A subword of length n + ℓ of the word x induces a path of
+length ℓ in Gn . Moreover, a path of length ℓ in Gn+k induces a path of length ℓ + k
+in Gn . However, the converse does not hold in general.
+    Let U and V be two paths in Gn . If the last vertex of U and the initial vertex of V
+are identical, we define the concatenated path U V in a natural way. We denote the
+length of a path U in Gn by |U |n . For example, we have |U |n = k and |U | = n + k,
+where | · | denotes the length (that is, the number of letters) of a word.
+    In the Rauzy graph, any non-right special vertex has exactly one outgoing edge,
+and any non-left special vertex has exactly one incoming edge, unless it is a prefix
+of x having no other occurrence in x. Any right special vertex has at least two
+outgoing edges. Any left special vertex has at least two incoming edges.
+
+2.2. Recurrent words.
+
+Definition 2.4. A subword w of an infinite word x is recurrent if w occurs in x
+infinitely many times. An infinite word x is n-recurrent if every subword of x of
+length n is recurrent. An infinite word x is called recurrent if every subword of x
+is recurrent.
+
+Definition 2.5. For any n ≥ 1, let an denote the shortest prefix of x such that
+x = an zn and zn is n-recurrent. We call an the n-th non-recurrent prefix of x
+and Gn′ (x) := Gn (zn+1 ) the n-th reduced Rauzy graph of x, which is a subgraph
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION                          7
+
+
+of Gn (x) consisting of recurrent vertices (n-subwords) and recurrent edges (n + 1-
+subwords). We note that the reduced Rauzy graph is strongly connected. We let
+sn = |an | denote the length of an . When there is no ambiguity, we simply write a
+and z instead of an and zn .
+
+Lemma 2.6. Suppose that zn ̸= zn+1 . Then there exists a bi-special (n − 1)-word
+w in zn such that xwy is an (n + 1)-subword of zn but xwy is not a subword of
+zn+1 , where wy is the prefix of length n of zn+1 and x is the last letter of an+1 . In
+particular, wy is a left-special word.
+
+Proof. We write x = x1 x2 . . . . Let x = [u1 u2 . . . ] with ui = xi xi+1 . . . xi+n−1 . Let
+s := sn+1 = |an+1 |. Then zn+1 = xs+1 xs+2 · · · = [us+1 us+2 . . . ] and [us us+1 ] is not
+recurrent. Since both us and us+1 are both recurrent, us is right special and us+1
+is left special. Let us = xw and us+1 = wy. Then w is a bi-special (n − 1)-word
+by Lemma 2.2. Therefore, there are letters x′ and y ′ such that x′ ̸= x, y ′ ̸= y and
+the n-words x′ w and wy ′ are factors of zn . However xwy = [us us+1 ] = xs . . . xs+n
+is not recurrent, thus it is not a subword of zn+1 .                                       □
+
+Lemma 2.7. Let n ≥ 1. Then we have
+
+                       p(n + sn − 1, x) = p(n + sn − 1, zn ) + sn .
+
+Proof. If sn = 0, then x = z0 , thus the lemma holds. We assume that s := sn =
+|an | ≥ 1. We write x = x1 x2 · · · = [u1 u2 . . . ] with ui = xi xi+1 . . . xi+n−1 . Then us
+is not recurrent and ui is recurrent for i ≥ s + 1.
+   For each i with 1 ≤ i ≤ s, the subword [ui . . . ui+s−1 ] contains us . However, for
+i ≥ s + 1, the subword [ui . . . ui+s−1 ] is a factor of zn = [us+1 us+2 . . . ] and do not
+contain any non-recurrent n-subword.
+   Since uj ̸= us for j ≥ s + 1, we deduce that the s words [ui . . . ui+s−1 ] with i =
+1, . . . , s are all distinct. Therefore, we have p(n + s − 1, x) = p(n + s − 1, zn ) + s. □
+
+   The following lemma is [12, Theorem 4.5.4].
+
+Lemma 2.8. Let x = x1 x2 . . . be a non-ultimately periodic word. Let n ≥ 1.
+Suppose that p(n + 1, x) = p(n, x) + 1. Then there is one right-special word of
+length n. Moreover, if x1 . . . xn occurs in x more than once, then there is a unique
+left-special word of length n in x and x is n-recurrent.
+
+Definition 2.9. A right-special word w is called essential if w is a suffix of a
+right-special word of any length (or of arbitrarily large length, this is equivalent).
+8              YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+    From Lemma 2.2, we note that for any non-essential right-special word w there
+exists m such that w is not a suffix of a right special word of length bigger than m.
+Therefore, if x is not ultimately periodic, then for each n there exists an essential
+right-special word of length n.
+
+Lemma 2.10. Suppose that lim inf n→∞ p(n, x)/n < 2 and x is not ultimately
+periodic. Then, for each n, there exists a unique essential right-special word of
+length n.
+
+Proof. By the above remark, there exists an essential right-special word of length n.
+By assumption, there is an integer m > n such that p(m + 1, x) = p(m, x) + 1. By
+Lemma 2.8, there exists one right-special word of length m. Therefore, the number
+of essential right-special words of length n is at most one.                          □
+
+Lemma 2.11. Suppose that x is n-recurrent and non-ultimately periodic. If p(n +
+1, x) = p(n, x) + 1, then x is (n + 1)-recurrent.
+
+Proof. Write x = az, where a is the (n + 1)-th non-recurrent prefix of x and assume
+that a is non-empty. Let z = xs+1 xs+2 . . . . Then xs+1 . . . xs+n is a left-special n-
+word of x by Lemma 2.6. Since there is only one left special n-word in x by
+Lemma 2.8 and the only left special word has two preceding letters, Lemma 2.3
+implies that xs xs+1 . . . xs+n occurs infinitely many times in x, which contradicts
+the choice of a and z.                                                                □
+
+2.3. Rauzy graph of ∞-shape. A Rauzy graph Gn (resp., a reduced Rauzy graph
+Gn′ ) is called of ∞-shape if there exist exactly one left special word and one right
+special word of length n in x (resp., in zn+1 ), both of which coincide with the word
+w, and there are exactly two paths from w to itself. Note that w is a bi-special
+word.
+
+Lemma 2.12. Suppose that a non-ultimately periodic word x satisfies that p(n +
+1, x) = p(n, x) + 1 for some positive integer n. Then the reduced Rauzy graph Gn′ (x)
+is isomorphic to one of the graphs
+
+
+
+
+Moreover, in the latter case, there exists a positive integer d depending on n such
+      ′
+that Gn+d (x) is of ∞-shape.
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION                        9
+
+
+Proof. Let x = az with the n-th non-recurrent prefix (possibly empty) a. Then,
+p(n + 1, z) = p(n, z) + 1 and z has either one right special word and one left special
+word, or one bispecial word of length n.
+   If there is a bi-special word w of length n in z, then there are no other special
+vertices. Let [wu1 · · · uk−1 w] and [wv1 · · · vℓ−1 w] denote the two cycles containing
+w. When k = 1, then [wu1 · · · uk−1 w] denotes [ww]. The Rauzy graph Gn (z) can
+be represented as follows:
+
+
+                                            w
+
+
+
+   If the right-special word and the left special word are distinct, then Gn (z) is
+either of the form
+                                                                     u
+
+
+
+
+                w            u
+                                                 or                  w
+
+For the left-hand side graph, z is ultimately periodic, which is not allowed. Let u
+denote the left special word and w denote the right special word. In the Rauzy graph
+Gn (z), there exist two paths from w to u, namely, [wu1 · · · uk−1 u] and [wv1 · · · vℓ−1 u]
+and there exists one path from u to w, namely [uw1 . . . wm−1 w]. Then, the (n + m)-
+subword [uw1 . . . wm−1 w] is bispecial since [uw1 . . . wm−1 wu1 ], [uw1 . . . wm−1 wv1 ]
+and [uk−1 uw1 . . . wm−1 w], [vℓ−1 uw1 . . . wm−1 w] are edges of the graph Gn+m (z).
+The two cycles containing the bispecial word are
+
+                     [uw1 . . . wm−1 wu1 u2 · · · uk−1 uw1 . . . wm−1 w]
+
+and
+
+                     [uw1 . . . wm−1 wv1 v2 · · · vℓ−1 uw1 . . . wm−1 w].
+
+Consequently, the graph Gn+m (z) is of ∞-shape.
+   Any right special word of z of length n + d for 0 ≤ d ≤ m is a suffix of
+[uw1 w2 . . . wm−1 w]. Therefore, p(n + d + 1, z) = p(n + d, z) + 1, for 0 ≤ d ≤ m.
+                                                                    ′
+By Lemma 2.11, the word z is (n + m + 1)-recurrent. Hence, we have Gn+m (x) =
+Gn+m (z).                                                                                 □
+10               YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+
+
+                             U                      w                  V
+
+
+          Figure 1. The Rauzy graph Gn (x) with a bispecial word w and
+          two cycles U , V
+
+                        3. Evolution of the Rauzy graphs
+
+     In this section, we consider the evolution of the Rauzy graph of x = x1 x2 . . .
+when x is not ultimately periodic and p(n, x) ≤ 34 n for every large integer n. Then
+Lemma 2.12 implies that there exist infinitely many n such that the reduced Rauzy
+graphs Gn′ (x) are of ∞-shape. Let the Rauzy graph Gn (x) be of ∞-shape with the
+bispecial word w, and let U = [wu1 . . . uk−1 w], V = [wv1 . . . vℓ−1 w] denote the two
+cycles of Gn (x) from w to itself and put u0 = uk = v0 = vℓ = w. See Figure 1.
+Note that if k = 1, then U = [ww]. We write concatenated paths in the Rauzy
+graph Gn as U U = [wu1 . . . uk−1 wu1 . . . uk−1 w], U V = [wu1 . . . uk−1 wv1 . . . vℓ−1 w]
+and V b = V · · · V is called the b-th concatenated path of V . We also define
+
+                         Ui = [ui . . . uk−1 w],        i = 1, . . . , k − 1,
+
+and
+                          Vi = [vi . . . vℓ−1 w],       i = 1, . . . , ℓ − 1.
+
+We write U0 = U , V0 = V and for convenience we let Uk = Vℓ denote the empty
+path.
+     By Lemma 2.10, either [uk−1 w] or [vℓ−1 w] is essentially right-special. If [uk−1 w]
+is essentially right-special, then so is U .
+
+Lemma 3.1. Suppose that x is not ultimately periodic and the Rauzy graph Gn (x)
+is of ∞-shape with the bi-special word w and two cycles U = [wu1 . . . uk−1 w], V =
+[wv1 . . . vℓ−1 w]. We assume that, for any m > n, we have
+                                        p(m, x)  4
+                                                ≤ .
+                                          m      3
+Assume further that U is essentially right-special.
+(i) If U V b U is a factor of x for some integer b ≥ 2, then
+
+                                     k ≥ (2b − 3)ℓ + 4.
+                         ′
+(ii) If U V b U and U V b U are factors of x for some integers b, b′ ≥ 1, then b = b′ .
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 11
+
+
+Proof. (i) If U V b U is a factor of x, then V b−1 is a right-special word. Let m
+be an integer with n + 1 ≤ m ≤ n + (b − 1)ℓ. Then by Lemma 2.2, the suffix
+of V b−1 of length m is a right-special word. Since U is essentially right-special,
+there is another right-special word ending with [uk−1 w] of length m. Therefore,
+p(m + 1, x) ≥ p(m, x) + 2 for each n + 1 ≤ m ≤ n + (b − 1)ℓ. Thus
+
+                    p(n + (b − 1)ℓ + 1, x) ≥ p(n + 1, x) + 2(b − 1)ℓ.
+
+Since p(n + 1, x) = k + ℓ ≥ n + 2, we obtain
+
+          4   p(n + (b − 1)ℓ + 1, x)   k + (2b − 1)ℓ     (b − 1)ℓ + 1
+            ≥                        ≥               =1+              .
+          3     n + (b − 1)ℓ + 1        k + bℓ − 1        k + bℓ − 1
+Therefore, we get
+
+                                   k ≥ (2b − 3)ℓ + 4.
+                                                                     ′
+  (ii) We may assume that b > b′ . Note that V b−1 and U V b are right-special and
+by Lemma 2.2 the suffixes of them are right-special. The number of suffixes of V b−1
+                                                                         ′
+ending by [vℓ−1 w] is (b − 1)ℓ and the number of suffixes of U V b ending by [vℓ−1 w]
+is k + b′ ℓ. Since b′ ℓ of these suffixes coincide, the number of right-special subwords
+of x ending by [vℓ−1 w] is at least
+
+                        (b − 1)ℓ + k + b′ ℓ − b′ ℓ = k + (b − 1)ℓ,
+
+and so
+
+              p(n + k + (b − 1)ℓ + 1, x) ≥ p(n + 1, x) + 2k + 2(b − 1)ℓ
+
+                                          = 3k + (2b − 1)ℓ.
+
+Thus, since b ≥ 2, we have
+                  p(n + k + (b − 1)ℓ + 1, x)   3k + (2b − 1)ℓ  4
+                                             ≥                > ,
+                    n + k + (b − 1)ℓ + 1        2k + bℓ − 1    3
+which gives a contradiction.                                                          □
+
+Definition 3.2. Suppose that the Rauzy graph Gn (x) consists of one bispecial word
+w and two cycles U , V . We call U a special cycle if U is essentially right-special.
+A Rauzy graph Gn (x) with a bispecial word w, a special cycle U , and a non-special
+cycle V is called a Rauzy graph of configuration (w, U, V ). We say that the Rauzy
+graph Gn (x) of configuration (w, U, V ) has multiplicity b ≥ 1 if the concatenated
+path U V b U is a factor of x.
+12               YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+
+
+                      UU                     U                U V bU
+
+
+
+                                                       ′
+                    Figure 2. The reduced Rauzy graph Gn+k (x)
+
+
+     We note that for Sturmian words, a standard pair (cf. [17, Section 2.2.1]) (U, V )
+is mapped to (U, U V ) or (V U, V ). It corresponds to the case b = 1 in the evolution
+of the Rauzy graph, after the Rauzy graph of configuration (w, U, V ), the next
+graph of ∞-shape has configuration (U, U U, U V U ). If b = 1 for all large n with
+Gn (x) of ∞-shape, then the word x is quasi-Sturmian.
+
+Proposition 3.3. Suppose that the reduced Rauzy graph Gn′ (x) is of configuration
+(w, U, V ) with multiplicity b ≥ 1 and let |U |n = k and |V |n = ℓ. Assume that
+
+                               p(m, x)   4
+                                       ≤         for m ≥ n.
+                                 m       3
+                              ′
+Then the reduced Rauzy graph Gn+k (x) is of configuration either (U, U U, U V b U ) or
+(U, U V b U, U U ) with the bispecial word U and the two cycles of concatenated paths
+U U and U V b U (see Figure 2). Furthermore, we have
+
+(3.1)                 p(n + (b − 1)ℓ + 1, zn+k+1 ) = k + (2b − 1)ℓ
+
+and
+
+(3.2)                            sn+(b−1)ℓ+2 = sn+k+1 .
+
+Moreover, if k < ℓ and sn+1 < sn+k+1 with b = 1, then there exists i, 1 ≤ i ≤ ℓ − 1
+such that
+
+(3.3)       zn+1 = Vi V U . . . , zn+k+1 = V U . . . , and sn+k+1 − sn+1 = |Vi |n ,
+
+
+
+Proof. Since x is not ultimately periodic, both U and V are recurrent. By Lemma 3.1
+(ii), U V b U is recurrent as well. Since U is an essential right-special word, U U is
+also recurrent. By Lemma 3.1, we note that for any b ≥ 1 we have
+
+                                    k ≥ (b − 1)ℓ + 1.
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 13
+
+
+All the recurrent words of length n + (b − 1)ℓ + 1 are prefixes of
+            
+            
+            
+            
+             Ui ,                             for 0 ≤ i ≤ k − (b − 1)ℓ − 1,
+            
+             Ui U, Ui V b U,                  for k − (b − 1)ℓ ≤ i ≤ k − 1,
+            
+            
+            Vi U, Vi V U, . . . , Vi V b−1 U, for 0 ≤ i ≤ ℓ − 1.
+            
+
+
+Using Lemma 3.1 (ii), we deduce that there is no other recurrent word of length
+n + (b − 1)ℓ + 1. Consequently,
+
+            p(n + (b − 1)ℓ + 1, zn+(b−1)ℓ+1 ) = p(n + (b − 1)ℓ + 1, zn+k+1 )
+(3.4)
+                                                    = k + (2b − 1)ℓ.
+
+  Suppose zn+(b−1)ℓ+2 ̸= zn+k+1 . Then by Lemma 2.6, there exists a recurrent
+bispecial word W of length m with n + (b − 1)ℓ + 1 ≤ m ≤ n + k − 1. By Lemma 2.2,
+the bispecial word W should be a path in Gn that starts and ends with U or V .
+However, since |U | = n + k, the word W cannot contain U . Thus W = V c for some
+                                       ′
+c > b. Since W is recurrent, U V c U for c′ ≥ c is a factor of zn , which is not allowed
+by Lemma 3.1 (ii). Hence, we have sn+(b−1)ℓ+2 = sn+k+1 .
+  We assume that b = 1 and sn+1 < sn+2 = sn+k+1 . Since U is the special cycle,
+U U , U V are recurrent factors. We also check that V U is recurrent, otherwise x is
+ultimately periodic. Therefore, by Lemma 2.6, [vℓ−1 wv1 ] is not a recurrent factor
+of x and
+
+(3.5)                   xs xs+1 · · · = [vℓ−1 wv1 . . . ],   s := sn+2 .
+
+Suppose that k < ℓ. We apply Lemma 2.7 for n + 2. Then we have
+
+        p(n + sn+2 + 1, x) = p(n + sn+2 + 1, zn+2 ) + sn+2 ≥ n + 2sn+2 + 2.
+
+Combined with p(n+sn+2 +1, x) ≤ 43 (n+sn+2 +1) and p(n, zn+1 ) = k+ℓ−1 ≥ n+1,
+we have
+
+                           2sn+2 + 2 ≤ n ≤ k + ℓ − 2 < 2ℓ − 2.
+
+Therefore, sn+2 < ℓ − 2 and (3.5) yields that
+
+            zn+1 = [vi . . . vℓ−1 wv1 . . . ],    for some i with 2 < i ≤ ℓ − 1.
+
+Hence
+
+           zn+1 = Vi V U . . . ,    zn+2 = V U . . . , and sn+2 − sn+1 = |Vi |n .     □
+14                 YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+Definition 3.4. Suppose that x is not ultimately periodic and p(n, x) ≤ 4n
+                                                                         3 for
+every large integer n. By Proposition 3.3, we have an increasing sequence of integers
+(ni )∞                                      ′
+     i=0 such that the reduced Rauzy graph Gni (x) is of ∞-shape. We will write
+
+Gn′ i (x) is of configuration (w(i) , U(i) , V(i) ) with multiplicity bi and ki = |U(i) |ni ,
+ℓi = |V(i) |ni . We note that ni = |w(i) |.
+
+Definition 3.5. We say that x has bounded cycles if there exists M such that all
+the reduced Rauzy graphs Gn′ (x) have a cycle whose length is bounded by M .
+
+Proposition 3.6. Suppose that x is not ultimately periodic and p(n, x) ≤ 4n
+                                                                          3 for
+every large integer n.
+     (i) If x has bounded cycles, then ki is constant and bi = 1 for all large i.
+     (ii) If x does not have bounded cycles, then there are infinitely many ni ’s such
+that ki > ℓi .
+     In both cases, we have limi→∞ ℓi = ∞.
+
+Proof. By Proposition 3.3, we have
+
+                     ni+1 = |w(i+1) | = |U(i) | = |U(i) |ni + ni = ki + ni
+
+and the reduced Rauzy graph Gn′ i+1 is of configuration (U(i) , U(i) U(i) , U(i) (V(i) )bi U(i) )
+or (U(i) , U(i) (V(i) )bi U(i) , U(i) U(i) ). If U(i+1) = U(i) U(i) , V(i+1) = U(i) (V(i) )bi U(i) then
+
+ki+1 = |U(i) U(i) |ni+1 = |U(i) U(i) |ni − ki = 2ki − ki = ki ,
+
+ℓi+1 = |U(i) (V(i) )bi U(i) |ni+1 = |U(i) (V(i) )bi U(i) |ni − ki = 2ki + bi ℓi − ki = ki + bi ℓi .
+
+If U(i+1) = U(i) (V(i) )bi U(i) , V(i+1) = U(i) , then
+
+          ki+1 = |U(i) (V(i) )bi U(i) |ni+1 = ki + bi ℓi ,   ℓi+1 = |U(i) U(i) |ni+1 = ki .
+
+If ki+1 = ki for all large i’s, then ki is bounded and ℓi goes to infinity. By
+Lemma 3.1, bi = 1 for all large i’s.
+     If ki+1 > ki for infinitely many i’s, then ki+1 = ki + bi ℓi > ki = ℓi+1 for infinitely
+many i’s. Note that (ki +ℓi )∞
+                             i=0 is strictly increasing. We see that ki goes to infinity
+
+and so does ℓi .                                                                                    □
+
+Example 3.7. Let x = U a1 V U a2 V · · · V U an V · · · with a1 ≤ a2 ≤ . . . for some
+cycles U = [wu1 . . . uk−1 w] and V = [wv1 . . . vℓ−1 w] with n-subwords w, uj (1 ≤
+j ≤ k − 1) and vj (1 ≤ j ≤ ℓ − 1). Let ni (ni > n) be the sequence such that
+the reduced Rauzy graph Gn′ i (x) is of ∞-shape. Then ni = n + ik and Gn′ i (x) has
+cycles U i+1 and U i V U i . Therefore, x has bounded cycles.
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 15
+
+
+Example 3.8. Let w0 = 0, w1 = 00011. We define recursively
+
+                          wn+1 = wn wn wn wn−1 wn−1            for n ≥ 1.
+
+We define x = limn→∞ wn . Then x is recurrent and Gn′ (x) = Gn (x) for all n.
+Let n0 = 3. Then w(0) = 000, U := U(0) = 00011000, V := V(0) = 0000 with
+multiplicity b0 = 2. Therefore, k0 = |00011000|3 = 5, ℓ0 = |0000|3 = 1. In what
+follows, we define the concatenation of U and V as paths of G3 . In particular,
+U U = 0001100011000 and U V V U = 000110000011000. We check that
+
+   w(1) = U,               U(1) = U U,                    V(1) = U V V U,                b1 = 1,
+
+   w(2) = U U,             U(2) = U U U,                  V(2) = U U V V U U,            b2 = 1,
+
+   w(3) = U U U,           U(3) = U U U V V U U U,        V(3) = U U U U,                b3 = 2,
+
+   w(4) = U 3 V 2 U 3 ,    U(4) = U 3 V 2 U 3 V 2 U 3 ,   V(4) = U 3 V 2 U 5 V 2 U 3 ,   b4 = 1
+
+and
+
+        n1 = n0 + k0 = 8,            k1 = k0 = 5,                    ℓ1 = k0 + b0 ℓ0 = 7,
+
+        n2 = n1 + k1 = 13,           k2 = k1 = 5,                    ℓ2 = k1 + b1 ℓ1 = 12,
+
+        n3 = n2 + k2 = 18,           k3 = k2 + b2 ℓ2 = 17,           ℓ3 = k2 = 5,
+
+        n4 = n3 + k3 = 35,           k4 = k3 = 17,                   ℓ4 = k3 + b3 ℓ3 = 27.
+
+              4. Recurrence time of low complexity sequences
+
+  Recall that sn denotes the length of n-th non-recurrent prefix of x. Moreover,
+we use the same notation for U = [wu1 . . . uk−1 w], V = [wv1 . . . vℓ−1 w] as in the
+previous section. Throughout this section, ρ is a positive real number less than
+4/3 and we assume that x is not ultimately periodic and that p(m, x)/m < ρ for
+sufficiently large m.
+
+Lemma 4.1. Let n be given and suppose that
+
+                                           p(m, x)
+                                                   <ρ
+                                             m
+
+holds for any m ≥ n. Suppose that Gn′ (x) is of ∞-shape with two cycles U and V .
+Let b be the multiplicity of Gn′ (x). Let |U |n = k and |V |n = ℓ. Then we have
+
+                                         2b + 1
+(4.1)                               k+          ℓ < ρ(n + 1)
+                                            3
+16                YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+and
+                                                           ρn
+(4.2)                       2sn+k+1 + k + (2b − 1) ℓ <        .
+                                                          2−ρ
+Proof. By Proposition 3.3, we have s := sn+(b−1)ℓ+2 = sn+k+1 . We apply Lemma 2.7
+with n replaced by n + (b − 1)ℓ + 2. Then, combined with (3.1), we have
+
+           p(n + (b − 1)ℓ + s + 1, x) = p(n + (b − 1)ℓ + s + 1, zn+(b−1)ℓ+2 ) + s
+
+                                      ≥ p(n + (b − 1)ℓ + 1, zn+(b−1)ℓ+2 ) + 2s
+
+                                      = k + (2b − 1)ℓ + 2s.
+
+By using p(n + (b − 1)ℓ + s + 1, x) < ρ(n + (b − 1)ℓ + s + 1), we deduce that
+
+(4.3)                (2 − ρ)s + k + (2b − 1 − ρ(b − 1))ℓ < ρ(n + 1).
+
+Therefore, we have
+                        
+                   2b 1
+             k+      +     ℓ ≤ k + (2b − 1 − ρ(b − 1)) ℓ < ρ(n + 1),
+                   3   3
+which is (4.1).
+     We note that, since p(n, zn+1 ) = k + ℓ − 1 ≥ n + 1, we have
+
+(4.4)                                  n ≤ k + ℓ − 2.
+
+Combined with (4.3), this gives
+                                                      ρ    ρ
+               (2 − ρ)s + k + ℓ + (2 − ρ)(b − 1)ℓ <     n + (k + ℓ − 2) + ρ,
+                                                      2    2
+that is,
+                               ρ                             ρ
+               (2 − ρ)s + 1 −       (k + ℓ) + (2 − ρ)(b − 1)ℓ < n.
+                                2                              2
+                   ρ
+By dividing by 1 − 2 , we obtain (4.2).                                             □
+
+     In the rest of the paper, we put
+                                              4 − 3ρ
+                                  δ :=                    .
+                                         2(1 + 2ρ)(2 − ρ)
+Lemma 4.2. We use the same notation as in Lemma 4.1. Let n be large enough.
+Then we have
+
+(4.5)                   sn+k+1 + 2k + bℓ < (1 − δ)(n + 2k + bℓ).
+
+For k ′ = 0, . . . , k − 1, we have either
+
+(4.6)                  sn+k+1 + 2k + bℓ < (1 − δ)(n + k + bℓ + k ′ )
+     IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 17
+
+
+or
+
+(4.7)                    sn+k+1 + 2k + bℓ + k ′ < (1 − δ)(n + 2k).
+
+Moreover, if ℓ < k, then
+
+(4.8)                       sn+k+1 + 2k + bℓ < (1 − δ)(n + 2k).
+
+Proof. By (4.1) and the last statement of Proposition 3.6, for large n such that
+ℓ ≥ 3 > 2ρ, we have
+
+(4.9)                                   2k + bℓ < 2ρn.
+
+Then we have by (4.2)
+                                      ρn                      ρn     4 − 3ρ
+  sn+k+1 + δ(n + 2k + bℓ) <                 + (1 + 2ρ)δn =         +         n = n.
+                                   2(2 − ρ)                2(2 − ρ) 2(2 − ρ)
+Therefore, we deduce (4.5).
+     From (4.2), for k ′ = 0, . . . , k − 1, we have either
+                                                    ρn
+(4.10)                          sn+k+1 + k <              + k′
+                                                 2(2 − ρ)
+or
+                                                         ρn
+(4.11)                          sn+k+1 + bℓ + k ′ <            .
+                                                      2(2 − ρ)
+If (4.10) holds, then by (4.9)
+                                                  ρn
+        sn+k+1 + k + δ(n + k + bℓ + k ′ ) <             + k ′ + (1 + 2ρ)δn = n + k ′ ,
+                                               2(2 − ρ)
+which implies (4.6). If (4.11) holds, then by (4.9)
+                                                      ρn
+               sn+k+1 + bℓ + k ′ + δ(n + 2k) <              + (1 + 2ρ)δn = n.
+                                                   2(2 − ρ)
+which implies (4.7).
+     If ℓ < k, then by (4.2)
+                                                      ρn
+                                  sn+k+1 + bℓ <             .
+                                                   2(2 − ρ)
+Using (4.9), we have
+                                                   ρn
+                 sn+k+1 + bℓ + δ(n + 2k) <               + (1 + 2ρ)δn = n.
+                                                2(2 − ρ)
+Therefore, we obtain (4.8).                                                              □
+
+     For a sequence x with bounded cycles, the growth of the subword complexity
+function is due to the growth of the lengths of the initial non-recurrent prefixes of
+x. The case of bounded cycles is considered separately.
+18                  YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+Proposition 4.3. If x has bounded cycles, then for infinitely many integers n we
+have
+                                         r(n, x) < (1 − δ)n.
+
+Proof. We use the notations introduced in Definition 3.4. Using Proposition 3.6,
+we may choose (ni )∞
+                   i=0 as ki = k is a constant and bi = 1 for all i ≥ 0. Set
+
+(w, U, V ) := (w(0) , U(0) , V(0) ) and ℓ := ℓ0 . Then we have w(i) = U i , U(i) = U i+1
+and V(i) = U i V U i for each i ≥ 1. We note that ni = |w(i) | = n0 + ki, |U(i) | =
+n0 + (i + 1)k, |V(i) | = n0 + ℓ + 2ki and that |U(i) |ni = k, |V(i) |ni = ℓ + ki. Since x
+is not ultimately periodic, sni +1 < sni+1 +1 for infinitely many i’s. Choose i large
+enough to ensure that
+
+(4.12)                                      (ℓ + ki)δ > 2k.
+
+By Proposition 3.3, we see that sni +2 = sni+1 +1 = sni +k+1 and
+
+(4.13)                                   zni +2 = V(i) U(i) . . . ,
+
+where the concatenation rule follows from the word of length ni . Let
+
+                         h = h(i) := max{j ≥ 1 | sni+1 +1 = sni+j +1 }.
+
+Then sni+h +1 < sni+h+1 +1 . We, again, apply Proposition 3.3. Then we have
+
+(4.14)            zni+h +1 = V^
+                              (i+h) V(i+h) U(i+h) . . . ,       zni+h +2 = V(i+h) U(i+h) . . .
+
+and
+                                sni+h +2 − sni+h +1 = |V^
+                                                        (i+h) |ni+h ,
+
+where the concatenation rule follows from the word of length ni+h and V^
+                                                                       (i+h) is a
+
+suffix of V(i+h) = (U(i) )h V(i) (U(i) )h . Since zni +2 = zni+h +1 , by (4.13) and (4.14),
+                               h
+we have V^ (i+h) = V(i) (U(i) ) . Therefore, we have
+
+
+(4.15) sni+h +k+1 −sni +2 = sni+h +2 −sni+h +1 = |V(i) (U(i) )h |ni+h = |V(i) |ni = ℓ+ki
+
+and
+
+     zni+h +1 = V(i) (U(i) )h V(i) (U(i) )h+1 . . . ,   zni+h +2 = (U(i) )h V(i) (U(i) )i+h+1 . . . .
+
+Therefore
+
+(4.16)                    r(ni + (h − 1)k, x) ≤ sni +2 + (i + 1)k + ℓ.
+
+     Note that the lengths of the two cycles of Gn′ i+h are
+
+                      |U(i+h) |ni+h = k,          |V(i+h) |ni+h = ℓ + (i + h)k.
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 19
+
+
+Thus, we get by (4.5) that
+
+         sni+h +k+1 + 2k + ℓ + (i + h)k < (1 − δ)(ni+h + 2k + ℓ + (i + h)k).
+
+Therefore, combined with (4.15), we have
+
+            sni +2 + (h + 2i + 2)k + 2ℓ < (1 − δ)(ni + (2h + i + 2)k + ℓ).
+
+Combined with (4.16) and (4.12), we have
+
+      r(ni + (h − 1)k, x) ≤ sni +2 + (i + 1)k + ℓ
+
+                            < (1 − δ)(ni + (2h + i + 2)k + ℓ) − (i + h + 1)k − ℓ
+
+                            = (1 − δ)(ni + 2(h + 1)k) − (h + 1)k − δ(ki + ℓ)
+
+                            < (1 − δ)(ni + 2(h + 1)k) − (h + 3)k
+
+                            < (1 − δ)(ni + (h − 1)k).
+
+Since there are infinitely many such ni ’s, the proof is complete.                         □
+
+Lemma 4.4. Suppose that Gn′ (x) is of configuration (w, U, V ) with |U |n = k,
+|V |n = ℓ and multiplicity b ≥ 1. Then zn+k+1 belongs to one of the following
+cases, where U ′ (resp. V ′ ) denotes a suffix of U (resp. V ) with 0 ≤ |U ′ |n =: k ′ < k
+(resp. 0 ≤ |V ′ |n =: ℓ′ < ℓ)
+    (1) If zn+k+1 = U ′ U U . . . , then r(n + k + k ′ , x) ≤ sn+k+1 + k.
+    (2) If zn+k+1 = U ′ U V b U U U . . . , then r(n + k ′ , x) ≤ sn+k+1 + k and r(n +
+        2k, x) ≤ sn+k+1 + 2k + bℓ + k ′ .
+    (3) If zn+k+1 = U ′ U V b U U V b U . . . , then r(n+2k+bℓ+k ′ , x) ≤ sn+k+1 +2k+bℓ.
+    (4) If zn+k+1 = U ′ U V b U V b U . . . , then r(n + 2k + bℓ, x) ≤ sn+k+1 + k + bℓ + k ′ .
+    (5) If zn+k+1 = U ′ V b U U U . . . , then r(n + 2k, x) ≤ sn+k+1 + k + bℓ + k ′ .
+    (6) If zn+k+1 = U ′ V b U U V b U . . . , then r(n + (b − 1)ℓ, x) ≤ sn+k+1 + ℓ + k ′ and
+        r(n + k + bℓ + k ′ , x) ≤ sn+k+1 + 2k + bℓ.
+    (7) If zn+k+1 = U ′ V b U V b U . . . , then r(n + k + bℓ + k ′ , x) ≤ sn+k+1 + k + bℓ.
+    (8) If zn+k+1 = V ′ V c U U . . . for some 0 ≤ c < b, then r(n + k, x) ≤ sn+k+1 +
+        k + cℓ + ℓ′ .
+    (9) If zn+k+1 = V ′ V c U V b U . . . for some 0 ≤ c < b, then r(n + k + cℓ + ℓ′ , x) ≤
+        sn+k+1 + k + bℓ.
+
+Proof. By Proposition 3.3, every subword of zn+k+1 starting with U is a concate-
+nation of the two words U U and U V b U . Therefore, if zn+k+1 starts with U ′ , then
+the prefix of zn+k+1 is either U ′ U U , U ′ U V b U or U ′ V b U . The second and the third
+20                 YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+cases are divided into the three subcases respectively: U ′ U V b U U U , U ′ U V b U U V b U ,
+U ′ U V b U V b U , and U ′ V b U U U , U ′ V b U U V b U , U ′ V b U V b U .
+     If zn+k+1 starts with V ′ , a suffix of V , then the prefix of zn+k+1 is either V ′ V c U U
+or V ′ V c U V b U for some c ≤ b − 1, thus giving the last two cases.                        □
+
+Proposition 4.5. Let 1 ≤ ρ < 4/3 be defined as in Lemma 4.1. Moreover, let n
+be large enough that ℓ ≥ 3. Let Gn′ (x) be of configuration (w, U, V ) with multiplicity
+b ≥ 1. Suppose that |U |n = k > ℓ = |V |n . Then there exists m with n ≤ m <
+n + 3k + bℓ satisfying that
+                                         r(m, x) < (1 − δ)m.
+
+Proof. By Lemma 4.4, we have
+      (1) If zn+k+1 = U ′ U U . . . , then by (4.5) we have
+
+         r(n + k + k ′ , x) ≤ sn+k+1 + k < (1 − δ) (n + k) ≤ (1 − δ) (n + k + k ′ ).
+
+      (2) If zn+k+1 = U ′ U V b U U U . . . , then by (4.6) or (4.7), we have either
+
+                         r(n + k ′ , x) ≤ sn+k+1 + k < (1 − δ)(n + k ′ )
+
+          or
+
+                 r(n + 2k, x) ≤ sn+k+1 + 2k + bℓ + k ′ < (1 − δ)(n + 2k).
+
+      (3) If zn+k+1 = U ′ U V b U U V b U . . . , then by (4.5)
+
+       r(n + 2k + bℓ + k ′ , x) ≤ sn+k+1 + 2k + bℓ
+
+                                   < (1 − δ)(n + 2k + bℓ) ≤ (1 − δ)(n + 2k + bℓ + k ′ ).
+
+      (4) If zn+k+1 = U ′ U V b U V b U . . . , then by (4.5)
+
+               r(n + 2k + bℓ, x) ≤ sn+k+1 + k + bℓ + k ′
+
+                                     ≤ sn+k+1 + 2k + bℓ < (1 − δ)(n + 2k + bℓ).
+
+      (5) If zn+k+1 = U ′ V b U U U . . . , then by (4.8)
+
+      r(n + 2k, x) ≤ sn+k+1 + k + bℓ + k ′ < sn+k+1 + 2k + bℓ < (1 − δ)(n + 2k).
+
+      (6) If zn+k+1 = U ′ V b U U V b U . . . , then by (4.7) or (4.6), we have either
+
+        r(n + (b − 1)ℓ, x) ≤ sn+k+1 + ℓ + k ′ ≤ (1 − δ)n ≤ (1 − δ)(n + (b − 1)ℓ)
+
+          or
+
+          r(n + k + bℓ + k ′ , x) ≤ sn+k+1 + 2k + bℓ < (1 − δ)(n + k + bℓ + k ′ ).
+       IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 21
+
+
+       (7) If zn+k+1 = U ′ V b U V b U . . . , then by (4.5)
+
+          r(n + k + bℓ + k ′ , x) ≤ sn+k+1 + k + bℓ
+
+                                  < (1 − δ)(n + k + bℓ) ≤ (1 − δ)(n + k + bℓ + k ′ ).
+
+       (8) If zn+k+1 = V ′ V c U U . . . , then by (4.8)
+
+         r(n + k, x) ≤ sn+k+1 + k + cℓ + ℓ′ ≤ sn+k+1 + k + bℓ < (1 − δ)(n + k).
+
+       (9) If zn+k+1 = V ′ V c U V b U . . . , then by (4.8)
+
+r(n + k + cℓ + ℓ′ , x) ≤ sn+k+1 + k + bℓ < (1 − δ)(n + k) ≤ (1 − δ)(n + k + cℓ + ℓ′ ).
+
+                                                                                                □
+
+Proof of Theorem 1.4. By Proposition 3.6, x is either of bounded cycle with multi-
+plicity 1 for large ni or unbounded cycle with infinitely many ni ’s with |U(i) | > |V(i) |.
+By Propositions 4.3 and 4.5, we get the first assertion. Set
+                                                        r(n, x)
+                                    rep(x) = lim inf            .
+                                               n→∞        n
+By [8, Lemma 3.6] (recall that the definition of rep is different there), we have
+                             X x                 1
+                                    j
+                            µ            ≥1+           .
+                                   bj           rep(x)
+                                      j≥1
+
+This implies the second assertion.                                                              □
+
+
+                                      Acknowledgment
+
+   The authors are thankful to Julien Cassaigne for introducing them to Aberkane’s
+papers. The second author’s work was supported by the JSPS KAKENHI Grant
+Number 24K06641. The third author was supported by the National Research
+Foundation of Korea (NRF-2018R1A2B6001624, RS-2023-00245719).
+
+
+                                            References
+ [1] Ali Aberkane, Exemples de suites de complexité inférieure à 2n, Bull. Belg. Math. Soc.
+       Simon Stevin 8 (2001), no. 2, 161–180 (French, with French summary). Journées Montoises
+       d’Informatique Théorique (Marne-la-Vallée, 2000). MR1838940
+                                                       p(n)
+ [2]          , Words whose complexity satisfies lim    n
+                                                            = 1, Theoret. Comput. Sci. 307 (2003),
+       no. 1, 31–46, DOI 10.1016/S0304-3975(03)00091-4. Words. MR2014729
+ [3] Boris Adamczewski, On the expansion of some exponential periods in an integer base, Math.
+       Ann. 346 (2010), no. 1, 107–116, DOI 10.1007/s00208-009-0391-z. MR2558889
+22                  YANN BUGEAUD, HAJIME KANEKO, AND DONG HAN KIM
+
+
+ [4] Boris Adamczewski and Yann Bugeaud, Nombres réels de complexité sous-linéaire: mesures
+       d’irrationalité et de transcendance, J. Reine Angew. Math. 658 (2011), 65–98, DOI
+       10.1515/CRELLE.2011.061 (French, with English summary). MR2831513
+ [5] Pierre Arnoux and Gérard Rauzy, Représentation géométrique de suites de complexité 2n +
+       1, Bull. Soc. Math. France 119 (1991), no. 2, 199–215 (French, with English summary).
+       MR1116845
+ [6] Jean-Paul Allouche and Jeffrey Shallit, Automatic sequences, Cambridge University Press,
+       Cambridge, 2003. Theory, applications, generalizations. MR1997038
+ [7] Valérie Berthé, Charles Holton, and Luca Q. Zamboni, Initial powers of Sturmian sequences,
+       Acta Arith. 122 (2006), no. 4, 315–347, DOI 10.4064/aa122-4-1. MR2234421
+ [8] Yann Bugeaud and Dong Han Kim, On the b-ary expansions of log(1 + a1 ) and e, Ann. Sc.
+       Norm. Super. Pisa Cl. Sci. (5) 17 (2017), no. 3, 931–947. MR3726831
+ [9]          , A new complexity function, repetitions in Sturmian words, and irrationality expo-
+       nents of Sturmian numbers, Trans. Amer. Math. Soc. 371 (2019), no. 5, 3281–3308, DOI
+       10.1090/tran/7378. MR3896112
+[10]          , On the b-ary expansion of a real number whose irrationality exponent is close to 2,
+       available at arXiv:2510.02059[math.NT]. preprint.
+[11] Julien Cassaigne, Sequences with grouped factors, DLT’97, Developments in Language Theory
+       III (Thessaloniki), Aristotle University of Thessaloniki, 1998, pp. 211–222.
+[12] Julien Cassaigne and François Nicolas, Factor complexity, Combinatorics, automata and num-
+       ber theory, Encyclopedia Math. Appl., vol. 135, Cambridge Univ. Press, Cambridge, 2010,
+       pp. 163–247. MR2759107
+[13] Darren Creutz and Ronnie Pavlov, Low complexity subshifts have discrete spectrum, Forum
+       Math. Sigma 11 (2023), Paper No. e96, 22, DOI 10.1017/fms.2023.95. MR4655530
+[14]          , On minimal subshifts of linear word complexity with slope less than 3/2 (2023),
+       available at arXiv:2308.14901[math.DS].
+[15] N. Pytheas Fogg, Substitutions in dynamics, arithmetics and combinatorics (V. Berthé, S.
+       Ferenczi, C. Mauduit, and A. Siegel, eds.), Lecture Notes in Mathematics, vol. 1794, Springer-
+       Verlag, Berlin, 2002. Edited by V. Berthé, S. Ferenczi, C. Mauduit and A. Siegel. MR1970385
+[16] Alex Heinis, The P (n)/n-function for bi-infinite words, Theoret. Comput. Sci. 273 (2002),
+       no. 1-2, 35–46, DOI 10.1016/S0304-3975(00)00432-1. WORDS (Rouen, 1999). MR1872441
+[17] M. Lothaire, Algebraic combinatorics on words, Encyclopedia of Mathematics and its Appli-
+       cations, vol. 90, Cambridge University Press, Cambridge, 2002. MR1905123
+[18] Marston Morse and Gustav A. Hedlund, Symbolic dynamics II. Sturmian trajectories, Amer.
+       J. Math. 62 (1940), 1–42, DOI 10.2307/2371431. MR0000745
+[19] Gérard Rauzy, Suites à termes dans un alphabet fini, Seminar on number theory, 1982–
+       1983 (Talence, 1982/1983), Univ. Bordeaux I, Talence, 1983, pp. Exp. No. 25, 16 (French).
+       MR750326
+
+
+
+
+     I.R.M.A., UMR 7501, Université de Strasbourg et CNRS, 7 rue René Descartes, 67084
+Strasbourg Cedex, France
+   IRRATIONALITY EXPONENT OF NUMBERS WITH LOW COMPLEXITY EXPANSION 23
+
+
+  Institut universitaire de France
+  Email address: bugeaud@math.unistra.fr
+
+  Institute of Mathematics, University of Tsukuba, 1-1-1 Tenodai, Tsukuba, Ibaraki,
+305-8571, Japan
+  Email address: kanekoha@math.tsukuba.ac.jp
+
+  Department of Mathematics Education, Dongguk University, 30 Pildong-ro 1-gil,
+Jung-gu, Seoul 04620, Korea.
+  Email address: kim2010@dgu.ac.kr
+

@@ -1,0 +1,269 @@
+                                       C. R. Acad. Sci. Paris, Ser. I 339 (2004) 321–325
+
+
+                                                        Number Theory
+   Mordell type exponential sum estimates in fields of prime order
+                                                        Jean Bourgain
+                                         IAS, School of Mathematics, Princeton, NJ 08540, USA
+                                              Received 29 May 2004; accepted 1 June 2004
+                                                     Available online 6 August 2004
+                                                       Presented by Jean Bourgain
+
+
+
+
+Abstract
+   We establish
+               a Mordell type exponential sum estimate (see Mordell [Q. J. Math. 3 (1932) 161–162]) for ‘sparse’ polynomials
+f (x) = ri=1 ai x ki , (ai , p) = 1, p prime, under essentially optimal conditions on the exponents 1 ⩽ ki < p − 1. The method is
+based on sum–product
+                       estimates in finite fields Fp and their Cartesian products. We also obtain estimates on incomplete sums
+of the form ts=1 ep ( ri=1 ai θis ) for t > pε , under appropriate conditions on the θi ∈ F∗p . To cite this article: J. Bourgain,
+C. R. Acad. Sci. Paris, Ser. I 339 (2004).
+ 2004 Académie des sciences. Published by Elsevier SAS. All rights reserved.
+Résumé
+   Estimations de type Mordell pour les sommes exponentielles dans les corps d’ordre premier. Nous démontrons une
+estimée du type Mordell (voir
+                          Mordell [Q. J. Math. 3 (1932) 161–162]) pour les sommes exponentielles associées à des poly-
+nômes clairsemés f (x) = ri=1 ai x ki , (ai , p) = 1, p premier, sous des hypothèses essentiellement optimales sur les exposants
+1 ⩽ ki < p − 1. La méthode repose sur des estimés « sommes-produits » dans des corps     finis Fp 
+                                                                                                   et leurs produits cartésiens. On
+obtient également des bornes non-triviales sur des sommes incomplètes de la forme ts=1 ep ( ri=1 ai θis ) pour t > pε , sous
+des hypothèses appropriées sur les θi ∈ F∗p . Pour citer cet article : J. Bourgain, C. R. Acad. Sci. Paris, Ser. I 339 (2004).
+ 2004 Académie des sciences. Published by Elsevier SAS. All rights reserved.
+
+
+
+
+Version française abrégée
+                                        
+    Soit p un nombre premier et f (x) = ri=1 ai x ki ∈ Z[X], (ai , p) = 1 et 1 ⩽ ki < p −1 tel que (ki , p −1) < p1−ε
+et (ki − kj , p − 1) < p1−ε pour tout 1 ⩽ i = j ⩽ r, où ε > 0 est arbitrairement petit et fixé. On a alors une borne
+sur la somme exponentielle
+        p−1           
+                  
+       
+            ep f (x)  < Cp1−δ
+                      
+        x=1
+où δ = δr (ε) > 0.
+
+    E-mail address: bourgain@math.ias.edu (J. Bourgain).
+
+1631-073X/$ – see front matter  2004 Académie des sciences. Published by Elsevier SAS. All rights reserved.
+doi:10.1016/j.crma.2004.06.013
+322                                        J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 339 (2004) 321–325
+
+
+   Le résultat généralise à des polynomes « clairsemés » l’estimé sur les sommes de Gauss obtenue dans [2]. La
+méthode utilisée est semblable à celle de [2], et consiste à établir un théorème « sommes-produits » pour des sous-
+ensembles A de Fp × Fp (ceci nous permet de traiter le cas où f (x) est un binôme, donc r = 2, ce qui suffit pour
+obtenir le cas général).                                                                    
+   Une approche analogue s’applique aux sommes incomplètes de la forme ts=1 ep ( ri=1 ai θis ), où t > pε et
+θi ∈ F∗p satisfont 0(θi ) > pε et 0(θi θj−1 ) > pε pour tous 1 ⩽ i = j ⩽ r (on dénote ici 0(ψ) l’ordre multiplicatif de
+ψ ∈ F∗p ). On démontre une estimée
+                         t     r      
+                                       
+                                      s 
+             max           ep     ai θi  < Ctp−δ
+      (ai ,...,ar ,p)=1                  
+                             s=1     i=1
+où δ = δr (ε) > 0.
+   Le cas r = 1 fut traité dans [1]. Ce genre de sommes interviennent en cryptographie, en particulier dans le
+contexte, des distributions de Diffie–Hellman (voir [6] par exemple).
+
+
+1. A Mordell type estimate
+
+      The main result of this paper is the following:
+
+Theorem 1.1. Let p be prime. Given r ∈ Z+ and ε > 0, there is δ = δ(r, ε) > 0 satisfying the following property:
+If
+                    
+                    r
+         f (x) =            ai x ki ∈ Z[x] and (ai , p) = 1,
+                    i=1
+where the exponents 1 ⩽ ki < p − 1 satisfy
+         (ki , p − 1) < p1−ε         for all 1 ⩽ i ⩽ r,                                                             (1)
+         (ki − kj , p − 1) < p      1−ε
+                                           for all 1 ⩽ i = j ⩽ r                                                   (2)
+then there is an exponential sum estimate
+       p−1           
+                 
+      
+           ep f (x)  < p1−δ                                                                                       (3)
+                     
+          x=1
+
+(denoting ep (y) = e2πiy/p ).
+Remark 1. The result for r = 1 (Gauss sums) was obtained in [2]. Thus
+     p−1           
+                  
+                   
+         ep (ax k ) < p1−δ if a ∈ F∗p and (k, p − 1) < p1−ε .                                                     (4)
+                   
+          x=1
+More precisely, it was shown in [2] that if G  F∗p and |G| > pε , then
+                 
+                  
+         e   (ax)  < |G|1−δ for a ∈ F∗ .                                                                          (5)
+           p                            p
+          x∈G
+See also [1] for further extensions to exponential sums of the form
+         
+         t1
+               ep (aθ s )                                                                                           (6)
+         s=1
+                                          J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 339 (2004) 321–325         323
+
+
+and
+        
+        t1
+                                   
+                  ep (aθ s + bθ ss ),                                                                             (7)
+       s,s  =1
+
+where a, θ ∈ F∗p and θ of multiplicative order t, t ⩾ t1 > pδ .
+   The methods involved here are closely related to those used in [2] and [1] (while the results in [6] and [5] depend
+on Stepanov’s method).
+Remark 2. Theorem 1.1 stated above improves upon the results from [4] and [5] when the exponents {ki } are large.
+Notice that the recent paper [4] already contains a substantial improvement over Mordell’s original paper [7].
+Remark 3. The role of condition (2) above is made clear by the following example from [4] (see Example 1.1).
+Let r be even and
+                    
+                    r/2
+       f (x) =            (x (p−1)/2+i − x i ).                                                                   (8)
+                    i=1
+Then
+        p−1                  
+                   p − 1     √
+       
+            ep f (x) −        ⩽ r p.                                                                            (9)
+                        2 
+        x=1
+
+
+
+2. The Role of sum–product estimates
+
+   As mentioned above, our argument follows the same pattern as in [2] and [1]. The key combinatorial ingredient
+in [2] is a ‘sum–product’ theorem for subsets A of the field Fp (see also [3]).
+
+Proposition 2.1. Given ε > 0, there is δ > 0 such that if A ⊂ Fp and
+       1 < |A| < p1−ε                                                                                            (10)
+then
+       |A + A| + |A · A| > C|A|1+δ .                                                                             (11)
+
+   We denote here A + A = {x + y | x, y ∈ A} and A · A = {x · y | x, y ∈ A} the sum and product set (and will use
+the same notations if, more generally, A is a subset of a commutative ring R).
+   Given G  F∗p consider the probability measure ν on Fp defined by
+               1 
+       ν=          δx .                                                                                          (12)
+              |G|
+                     x∈G
+As shown in [2], one may then derive from Proposition 2.1 uniform bounds on the convolution powers
+      ν (k) = ν ∗ · · · ∗ ν
+                  k -fold
+denoting
+                         
+      (ν ∗ µ)(x) =           ν(x − y)µ(y)
+                            y∈Fp
+
+and those bounds translate in exponential sum estimates such as (5).
+324                                      J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 339 (2004) 321–325
+
+
+   It turns out that in order to establish Theorem 1.1 for general r, it suffices to treat the monomial (r = 1) and the
+binomial case (r = 2). Thus we are left with the problem for r = 2. Following the scheme used for r = 1, we need
+to establish a sum–product theorem for subsets A of the product Fp × Fp . Clearly if A is a subset of the form
+         A = {a} × Fp ,         A = Fp × {a} or A = (x, ax) | x ∈ Fp
+one has |A| = |A + A| = |A · A| = p. It turns out that these are essentially the only ‘exceptions’ to be taken into
+account when reformulating Proposition 2.1 for Fp × Fp .
+
+Proposition 2.2. Let A ⊂ Fp × Fp satisfying for some ε0 > 0
+         |A| > pε0 .                                                                                              (13)
+Assume that
+         |A + A| + |A · A| < pε |A|.                                                                              (14)
+Then one of the following cases occurs:
+                            
+ (i)      |A| > p2−ε .                                                                                            (15)
+(ii) There is a ∈ Fp such that either
+                        
+          A ∩ {a} × Fp  > p−ε |A|
+
+        or
+                         
+              A ∩ Fp × {a}  > p−ε |A|.
+
+(iii) There is a ∈ F∗p such that
+                                
+           A ∩ (x, ax) | x ∈ Fp  > p−ε |A|,
+
+        where ε = ε (ε) → 0 for ε → 0 with ε0 in (13) fixed.
+
+Moreover, in cases (ii), (iii)
+                                  
+         p1−ε < |A| < p1+ε .                                                                                      (16)
+
+
+3. Exponential sums associated to power residues
+
+      Theorem 1.1 has the following reformulation.
+      For θ ∈ F∗p , denote 0(θ ) the multiplicative order of θ in F∗p .
+
+Corollary 3.1. Let θ1 , . . . , θr ∈ F∗p satisfy for some ε > 0
+         0(θi ) > pε    for all i = 1, . . . , r,                                                                 (17)
+         0(θi θj−1 ) > pε       for all 1 ⩽ i = j ⩽ r.                                                           (18)
+Then
+                 p−1  r       
+                              
+                                
+         max∗       ep   ai θis  < p1−δ                                                                         (19)
+         ai ∈Fp                 
+                  s=1       i=1
+with δ = δr (ε).
+                                                J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 339 (2004) 321–325                          325
+
+
+   Indeed, let ψ be a generator of F∗p and write θi = ψ ki , where thus
+                    p−1
+       0(θi ) =               ,                                                                                                        (20)
+                 (p − 1, ki )
+                          p−1
+       0(θi θj−1 ) =                   .                                                                                               (21)
+                     (p − 1, ki − kj )
+Clearly
+                   r                                      r                
+       
+       p−1                                                
+             ep          ai ψ   ski
+                                          =           ep          ai x   ki
+                                                                                  .
+       s=1         i=1                        x∈F∗p         i=1
+
+Since (17), (18), (20), and (21) ensure conditions (1), (2) on the exponents ki , (19) is equivalent to (3).
+   The corollary remains valid for incomplete sums (the case r = 1 appears in [1]).
+
+Theorem 3.2. Let ε > 0 and θ1 , . . . , θr ∈ F∗p satisfy (17), (18). Then for t > pε
+             t     r      
+                          
+                          s 
+     max∗      ep     ai θi  < p−δ t,                                                                                                (22)
+     ai ∈Fp                 
+                  s=1      i=1
+where δ = δ(ε).
+
+
+References
+
+[1] J. Bourgain, Estimates on exponential sums related to the Diffie–Hellman distributions, GAFA, in press.
+[2] J. Bourgain, S. Konyagin, Estimates for the number of sums and products and for exponential sums over subgroups in fields of prime order,
+    C. R. Acad. Sci. Paris, Ser. I 337 (2) (2003) 75–80.
+[3] J. Bourgain, N. Katz, T. Tao, A sum–product theorem in finite fields and applications, GAFA, in press.
+[4] T. Cochrane, C. Pinner, An improved Mordell type bound for exponential sums, Proc. Amer. Math. Soc., submitted for publication.
+[5] T. Cochrane, C. Pinner, Stepanov’s method applied to binomial exponential sums, Q. J. Math. 54 (3) (2003) 243–255.
+[6] S. Konyagin, I. Shparlinski, Character Sums with Exponential Functions and their Applications, Cambridge University Press, Cambridge,
+    1999.
+[7] L.J. Mordell, On a sum analogous to a Gauss’ sum, Q. J. Math. 3 (1932) 161–162.
+

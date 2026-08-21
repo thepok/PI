@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "item": "T9",
+  "retrieved_at_utc": "2026-07-22T13:28:19Z",
+  "scope": {
+    "included": "Deterministic fixed-orbit results for {b^n*x}, especially b=10, and digit-complexity or irrationality-measure hypotheses that can be compared with a proved property of pi.",
+    "excluded": [
+      "Every source already retained by T4.",
+      "General almost-everywhere, full-measure, Hausdorff-dimension, and probabilistic shrinking-target results.",
+      "Finite computations of digits of pi.",
+      "Results only for non-integral multipliers p/q with q >= 2, except as screened exclusions.",
+      "Constructed normal numbers unless they provide a deterministic obstruction to an arithmetic hypothesis proposed for pi."
+    ]
+  },
+  "canonical_target": {
+    "path_from_workspace": "knowledge/pi/statements/pi-quantitative-block-hitting.txt",
+    "sha256": "ab000220813f99eb40cfdc2d7fdae4ea7796291852df43dce7e6bf317c247449"
+  },
+  "dependencies": [
+    {
+      "role": "T3 finite-frequency certificate",
+      "path_from_workspace": "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/knowledge_library/t3/UniformPiAnalyticCover.lean",
+      "sha256": "473277f59fd2735f70c8ad03c26c0c7c024c1fd611a1375ab4afdba35d3cc2cc",
+      "locator": "definition lines 31-43; expanded theorem lines 124-150"
+    },
+    {
+      "role": "T4 existing corpus, excluded from T9",
+      "path_from_workspace": "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/knowledge_library/t4/T4_AUDIT.md",
+      "sha256": "432500da9cd3e29470cfba78ab1fd0f5f5362c20bf6038fccdfede8987e3d5a0"
+    },
+    {
+      "role": "T4 source manifest, excluded from T9",
+      "path_from_workspace": "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/knowledge_library/t4/retrieval_manifest.json",
+      "sha256": "673d31125cb1776ceff7dec5c72f9ba48ab46f12dd20f1c7369745838f6be913"
+    }
+  ],
+  "extraction": {
+    "command": "pdftotext -layout INPUT.pdf OUTPUT.txt",
+    "authority": "The retained PDFs are authoritative. Text extractions are pinned searchable aids; quotations were checked against their page layouts."
+  },
+  "sources": [
+    {
+      "id": "ABT2024",
+      "role": "dated survey map and explicit metric-result exclusion",
+      "citation": "C. Aistleitner, I. Berkes, R. Tichy, Lacunary sequences in analysis, probability and number theory, arXiv:2301.05561v3 (2024)",
+      "doi": "https://doi.org/10.48550/arXiv.2301.05561",
+      "url": "https://arxiv.org/pdf/2301.05561v3",
+      "file": "sources/aistleitner-berkes-tichy-2024.pdf",
+      "bytes": 643822,
+      "sha256": "163d5904b6d97149c219c8689d2c454a993a00b9ba8dd255cd277f53c305af9f",
+      "text_file": "text/aistleitner-berkes-tichy-2024.txt",
+      "pdftotext_sha256": "10b631edc00b756dd6a3b53d6989e738fe9927e44716917357eafa4c25407cf5",
+      "locators": "survey pp. 4-7, extracted lines 152-320; pp. 20-22, lines 1020-1105"
+    },
+    {
+      "id": "BD2005",
+      "role": "primary deterministic integer-base orbit-range classification",
+      "citation": "Y. Bugeaud, A. Dubickas, Fractional parts of powers and Sturmian words, C. R. Acad. Sci. Paris Ser. I 341 (2005), 69-74",
+      "doi": "https://doi.org/10.1016/j.crma.2005.06.007",
+      "url": "https://www.numdam.org/item/10.1016/j.crma.2005.06.007.pdf",
+      "file": "sources/bugueaud-dubickas-2005.pdf",
+      "bytes": 98185,
+      "sha256": "6558a891adbef8e06bd9cc11c36421f461f9aa35de9aea2c31f36ef1da4fd634",
+      "text_file": "text/bugueaud-dubickas-2005.txt",
+      "pdftotext_sha256": "566bf1ed00eafbbbccee7a019e14bf6628cfacbff6c4c4f2c724487997c1765c",
+      "locators": "Theorem 1.1, printed p. 71, extracted lines 117-130; Theorem 2.1, printed p. 72, lines 157-166"
+    },
+    {
+      "id": "BK2017",
+      "role": "primary repetition-complexity and irrationality-exponent obstruction",
+      "citation": "Y. Bugeaud, D. H. Kim, A new complexity function, repetitions in Sturmian words, and irrationality exponents of Sturmian numbers, Trans. Amer. Math. Soc. 371 (2019), 3281-3308; arXiv v3 dated 2017",
+      "doi": "https://doi.org/10.1090/tran/7378",
+      "url": "https://arxiv.org/pdf/1510.00279v3",
+      "file": "sources/bugueaud-kim-2017.pdf",
+      "bytes": 356943,
+      "sha256": "008d909f11d3d549592945735bfd442cb758452ac8b476c2863890ea6d5ea211",
+      "text_file": "text/bugueaud-kim-2017.txt",
+      "pdftotext_sha256": "e0b42e3b1bc434b1202ca330477ea5935529a4994fcc9a50287ddee171675d06",
+      "locators": "Definition 3.2 and Theorem 3.4, preprint pp. 6-7, extracted lines 231-280; Definition 4.1 and Theorems 4.2-4.5, pp. 8-10, lines 326-439"
+    },
+    {
+      "id": "KWON2012",
+      "role": "deterministic beta-orbit diameter and low-complexity classification",
+      "citation": "D.-Y. Kwon, The orbit of a beta-transformation cannot lie in a small interval, J. Korean Math. Soc. 49 (2012), 867-879",
+      "doi": "https://doi.org/10.4134/JKMS.2012.49.4.867",
+      "url": "https://ocean.kisti.re.kr/downfile/crosscheck/kms/JAKO201219240565538.pdf",
+      "file": "sources/kwon-2012.pdf",
+      "bytes": 138535,
+      "sha256": "d64470b29f8bbd05ba9f86fd1d19e16280224717e47edc5882486929dc05d657",
+      "text_file": "text/kwon-2012.txt",
+      "pdftotext_sha256": "90a42f04e123a01c75885c2afc25d0b4cd2a2eabcaa5f37bd916e217236d54b5",
+      "locators": "Theorem 1.1, printed p. 868, extracted lines 80-87; Theorem 5.1, printed p. 878, lines 512-551"
+    },
+    {
+      "id": "SAL2008",
+      "role": "proved arithmetic input for pi",
+      "citation": "V. Kh. Salikhov, On the irrationality measure of pi, Russian Math. Surveys 63 (2008), 570-572",
+      "doi": "https://doi.org/10.1070/RM2008v063n03ABEH004543",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=rm&paperid=9175&what=fullteng&option_lang=eng",
+      "fetch_headers": {
+        "User-Agent": "Mozilla/5.0",
+        "Referer": "https://www.mathnet.ru/eng/rm9175"
+      },
+      "file": "sources/salikhov-2008.pdf",
+      "bytes": 145229,
+      "sha256": "a871a3fd09a7d606c3b0d6402094e2af7777bf007254aec89a36aee2150ab60d",
+      "text_file": "text/salikhov-2008.txt",
+      "pdftotext_sha256": "e05fcf2c6941386ab51d0bb2705110f4e67660d7669d9f2a92d9c3e9a9466699",
+      "locators": "Theorem 1, printed p. 570, extracted lines 7-18; final exponent calculation, pp. 571-572, lines 117-124"
+    }
+  ],
+  "searches": [
+    {
+      "database": "Crossref",
+      "query": "fractional parts powers Sturmian integer base orbit",
+      "bound": "first 30 selected metadata records",
+      "url": "https://api.crossref.org/works?query.bibliographic=fractional%20parts%20powers%20Sturmian%20integer%20base%20orbit&rows=30&select=DOI,title,author,published,URL,type",
+      "retained_response": "searches/crossref-fixed-orbit.json",
+      "sha256": "82a76e4a9812614b3684d79e018208cb98a7d15b78db72811d0f7d307fc0a210"
+    },
+    {
+      "database": "OpenAlex",
+      "query": "fractional parts powers Sturmian shrinking target beta transformation",
+      "bound": "first 30 selected metadata records",
+      "url": "https://api.openalex.org/works?search=fractional%20parts%20powers%20Sturmian%20shrinking%20target%20beta%20transformation&per-page=30&select=id,doi,title,publication_year,primary_location,open_access",
+      "retained_response": "searches/openalex-beta-orbit.json",
+      "sha256": "31358f72161f3b2d53d4874fd2d274aefcde1760eafe313557f733e0a651b20c"
+    },
+    {
+      "database": "Crossref",
+      "query": "irrationality exponent base expansion block complexity",
+      "bound": "first 30 selected metadata records",
+      "url": "https://api.crossref.org/works?query.bibliographic=irrationality%20exponent%20base%20expansion%20block%20complexity&rows=30&select=DOI,title,author,published,URL,type",
+      "retained_response": "searches/crossref-irrationality-complexity.json",
+      "sha256": "54f6b30270015155f8de3301e97b8192ced2da36cae2e3c5a463731153fba9d3"
+    },
+    {
+      "database": "Crossref",
+      "query": "irrationality measure of pi",
+      "bound": "first 20 selected metadata records",
+      "url": "https://api.crossref.org/works?query.title=irrationality%20measure%20of%20pi&rows=20&select=DOI,title,author,published,URL,type",
+      "retained_response": "searches/crossref-pi-irrationality.json",
+      "sha256": "780e883125f8ab4a880a8f3f9757421d0f6e215e4d3459053756f624b8c4f4bf"
+    }
+  ],
+  "screened_exclusions": [
+    {
+      "citation": "L. Flatto, J. C. Lagarias, A. Pollington, On the range of fractional parts {xi(p/q)^n}, Acta Arith. 70 (1995), 125-147",
+      "doi": "https://doi.org/10.4064/aa-70-2-125-147",
+      "reason": "Its stated theorems assume coprime p > q >= 2, so they do not specialize to the integer multiplier 10 (q=1)."
+    },
+    {
+      "citation": "Y. Bugeaud, Linear mod one transformations and the distribution of fractional parts {xi(p/q)^n}, Acta Arith. 114 (2004), 301-311",
+      "doi": "https://doi.org/10.4064/aa114-4-1",
+      "reason": "The multiplier is again non-integral p/q with q >= 2; its full-measure assertions in the interval parameter are also not fixed-pi conclusions."
+    },
+    {
+      "citation": "A. Dubickas, Powers of a rational number modulo 1 cannot lie in a small interval, Acta Arith. 137 (2009), 233-247",
+      "doi": "https://doi.org/10.4064/aa137-3-4",
+      "reason": "Theorem 1 assumes 1 < q < p < q^2 and therefore excludes q=1 and multiplier 10."
+    },
+    {
+      "citation": "E. Stefanescu, The dispersion of dilated lacunary sequences, with applications in multiplicative Diophantine approximation, Adv. Math. 463 (2025), 110062",
+      "doi": "https://doi.org/10.1016/j.aim.2024.110062",
+      "reason": "The abstract's logarithmic dispersion conclusion is for existence of a dilation factor and its second bound is for Lebesgue-almost all factors, not the named factor pi."
+    }
+  ],
+  "retrieval_notes": [
+    "The first Kwon publisher download endpoint failed with TLS errors; the Crossref-deposited ocean.kisti.re.kr URL succeeded and is pinned.",
+    "The first Salikhov MathNet request returned HTTP 403; replay requires the recorded User-Agent and Referer headers.",
+    "The irrationality-complexity Crossref request initially returned HTTP 429 and succeeded on the recorded retry.",
+    "An initially retrieved Zeilberger-Zudilin paper concerned logarithms rather than pi and was removed from the retained corpus rather than misclassified as pi evidence."
+  ],
+  "limitations": [
+    "This is a dated finite corpus, not an exhaustive nonexistence theorem.",
+    "T4's ten-source corpus and its already-audited generic lacunary results are deliberately not duplicated.",
+    "Mutable search responses may change; retained responses and primary PDFs identify exactly what was inspected."
+  ]
+}

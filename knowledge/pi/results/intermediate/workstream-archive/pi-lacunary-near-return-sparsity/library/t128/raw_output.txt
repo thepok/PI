@@ -1,0 +1,19 @@
+{
+  "canonical_sha256": "cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8",
+  "finite_checks": {
+    "abss_power_range_cases": 4,
+    "levin_absorption_cases": 5,
+    "thue_morse_rejection_cases": 4,
+    "ugalde_exact_energy_cases": 28
+  },
+  "item_id": "T128",
+  "label": "experiment",
+  "primary_source_cap": 12,
+  "primary_source_count": 7,
+  "retained_candidate_cap": 4,
+  "retained_candidate_count": 4,
+  "source_anchor_status": "all fresh pdftotext anchors found",
+  "status": "ok",
+  "t122_comparison_boundary": "availability-only; no content inferred",
+  "warning": "Finite replay checks are not proofs of asymptotic or fixed-pi claims."
+}

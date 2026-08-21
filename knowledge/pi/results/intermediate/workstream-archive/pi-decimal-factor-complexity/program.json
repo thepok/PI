@@ -1,0 +1,508 @@
+{
+  "agenda": [
+    {
+      "acceptance": "A skeptic can compile the file with Lean trust-zero settings, inspect the explicit A1-A5 definitions, and find checked theorems for the two stated bridges with no sorry, admit, or new axiom.",
+      "attempts": 2,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 7200
+      },
+      "content_sha256": "76778ca913beaea5837bfed77399426c71d87211635021854b79624caa281005",
+      "deliverable": "A trust-zero Lean file defining contiguous factor sets and factor complexity for streams over a finite alphabet, stating A1 and variants A2-A5, and proving both Morse-Hedlund's p(n) >= n+1 consequence for non-eventually-periodic streams and disjunctivity iff p(n)=10^n for every n.",
+      "id": "T1",
+      "kind": "formalize",
+      "learn_either_way": "Success supplies importable digit-stream machinery; failure identifies the exact missing library or formalization boundary without claiming evidence about pi's digits.",
+      "serves_goal": "G1",
+      "status": "done",
+      "strategy": "Formalize-first; reduce to a known theorem"
+    },
+    {
+      "acceptance": "A skeptic can verify each row against a pinned primary source and see an explicit yes/no/not-known applicability verdict; no theorem is reported as applying to pi without all hypotheses matched.",
+      "attempts": 2,
+      "budget": {
+        "cpu": 1,
+        "ram_gb": 4,
+        "timeout_s": 10800
+      },
+      "content_sha256": "db02c16d1c68e155e315c28ef9e888dd1e2ed94809fbf33e760b9c6b6985c4a7",
+      "deliverable": "A source-pinned applicability matrix for Morse-Hedlund, algebraic-number complexity theorems, known transcendental low-complexity constructions, and pi-specific digit-distribution results, recording every hypothesis and whether it is known for pi.",
+      "id": "T2",
+      "kind": "literature",
+      "learn_either_way": "A positive row yields a concrete next theorem target; an all-negative matrix is evidence to park this detour rather than mislabel generic theory as pi progress.",
+      "parked_reason": "ledger attempts exhausted without an accepted artifact",
+      "serves_goal": "G2",
+      "status": "done",
+      "strategy": "Library-driven descent; transfer from a solved analogue"
+    },
+    {
+      "acceptance": "A skeptic can compile the file with Lean trust-zero settings and verify that it imports T1 rather than reproving its accepted theorems, contains the stated right-extension identity and exact A1 equivalence with no sorry, admit, or new axiom, handles arbitrary fractional-digit factor starts, and explicitly makes no pi-specific growth claim.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 10800
+      },
+      "content_sha256": "acfd26cc300f8846c9756c684d4ec9fff6536655f02809b978bff20ab6f26cc3",
+      "deliverable": "A trust-zero Lean file importing TheoryLib.PiDecimalFactorComplexity.T1DecimalFactorComplexity, defining the finite set of right extensions of each arbitrary-position factor, and proving both the exact identity p(n+1)-p(n) = sum over length-n factors of (number of right extensions minus one) and the resulting equivalence between T1's exact canonical A1 predicate and divergence of the Cesaro averages of these branching excesses. The artifact must label this as an equivalent structural reduction only and must not claim superlinear complexity for pi.",
+      "id": "T3",
+      "kind": "formalize",
+      "learn_either_way": "Success identifies average branching as an importable exact frontier for A1; failure localizes the formal obstruction to factor decomposition, right-extension nonemptiness, or finite-cardinality telescoping rather than supplying evidence about pi's digits.",
+      "serves_goal": "G3",
+      "status": "done",
+      "strategy": "Cardinality / counting; invariant hunting; formalize-first; reduce to a known theorem"
+    },
+    {
+      "acceptance": "A skeptic can compile the file with Lean trust-zero settings, verify that it imports T1 and T3 rather than reproving them, and inspect all four claimed bridges with no sorry, admit, or new axiom. Definitions must count arbitrary fractional-digit starts with the first N starts indexed consistently, and labels must make no unconditional pi-specific growth claim.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 10800
+      },
+      "content_sha256": "9a0d9afcafbb8f0b1107fb6f836a338d0a6230c7586a2f9fd4f3e072df95abf7",
+      "deliverable": "A trust-zero Lean file importing TheoryLib.PiDecimalFactorComplexity.T1DecimalFactorComplexity and TheoryLib.PiDecimalFactorComplexity.T3RightExtensionBranching, defining first-N factor multiplicities, the observed factor set, collision-pair count, and collision energy E(n,N). Prove that collision energy equals the collision-pair cardinality, that observedFactorCount(n,N) * E(n,N) >= N^2, that observedFactorCount(n,N) is at most T1's canonical factor complexity, and that the exact stronger sibling hypothesis C1 implies both T1's canonical A1 predicate and T3's branching-Cesaro divergence predicate. The file must state that C1 is unproved for pi, is only sufficient, and is not the canonical statement.",
+      "id": "T4",
+      "kind": "formalize",
+      "learn_either_way": "Success supplies an importable finite collision certificate for A1; failure identifies whether the obstruction lies in multiplicity double-counting, the finite-prefix/full-language inclusion, coercion inequalities, or reuse of T3, without being evidence about pi's digits.",
+      "serves_goal": "G4",
+      "status": "done",
+      "strategy": "Cardinality / counting; invariant hunting; formalize-first; axiomatize the obstruction"
+    },
+    {
+      "acceptance": "A skeptic can check the explicit stream definition, disjunctivity argument, and quantified failure of C1 line by line; any impossibility outcome must identify and prove the incompatible construction invariants. The artifact must make no claim about pi or canonical A1.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 21600
+      },
+      "content_sha256": "6d20e0e53db262f59e1f0d1075e851771165dee7ec5597667774e6cc34864664",
+      "deliverable": "A rigorous constructive proof, explicitly labeled as a generic sibling result and not a statement about pi, either exhibiting a decimal stream that is disjunctive (so its factor complexity is 10^n for every n) but fails the exact C1 analogue, or proving that the proposed sparse-universal construction cannot have both properties. The proof must define the stream and verify the all-prefix collision-energy quantifiers rather than relying on an informal density slogan.",
+      "id": "T5",
+      "kind": "prove",
+      "learn_either_way": "A separator proves C1 is strictly stronger than even maximal factor complexity; a proved obstruction identifies which prefix-energy condition defeats the sparse-universal approach and narrows the search for a separator.",
+      "serves_goal": "G5",
+      "status": "done",
+      "strategy": "Explicit construction; compactness / diagonalization; weaken/strengthen probes"
+    },
+    {
+      "acceptance": "A skeptic can rerun the code, reproduce the digit-source and output hashes and every exact table entry, and verify that the report distinguishes tested finite behavior from universal claims and compares pi with the declared controls on the identical grid.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 10800
+      },
+      "content_sha256": "d8de2fcce486fff7b21e5f984626a693ccd6d1f93b81568c6983f663f336e6d1",
+      "deliverable": "A reproducible exact-integer computation of E_pi(n,N) and R(n,N)=N^2/(n*E_pi(n,N)) for 1 <= n <= 12 and N in {1000,10000,100000,1000000}, using a pinned or independently cross-checked source for the first 1000011 fractional digits of pi, together with fixed-seed random decimal controls. Provide code, hashes, raw tables, and a short comparison with the random-model scale. State prominently that every result is finite heuristic evidence only and cannot prove or refute C1 or A1.",
+      "id": "T6",
+      "kind": "experiment",
+      "learn_either_way": "Random-scale behavior supports further pursuit of C1 only heuristically; excess collision concentration or unstable scaling quantifies where the naive random model fails at tested scales and supplies concrete targets for a later analytic bound.",
+      "serves_goal": "G5",
+      "status": "done",
+      "strategy": "Probabilistic heuristic, stated honestly; invariant hunting"
+    },
+    {
+      "acceptance": "A skeptic can verify the probability space, the overlapping-window count, the summable bound, the almost-sure quantifiers, and the deduction E(n,N_n)=N_n and N_n/n tending to infinity line by line; the artifact explicitly makes no claim about pi, canonical A1 for pi, or finite computation as proof.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 1,
+        "ram_gb": 4,
+        "timeout_s": 21600
+      },
+      "content_sha256": "759117cbc083699708ca13ad1f95a06d225521ecc48a02563c19cb65d48e5aa6",
+      "deliverable": "A rigorous proof, explicitly labeled as a generic random-stream sibling result and not a statement about pi, that the exact C1 analogue holds almost surely for an iid uniform decimal stream. Define the product probability model and collision energy with the same first-N-start convention as T4; take N_n = 10^(floor(n/3)); prove that any two distinct length-n windows agree with probability 10^(-n), including overlapping windows; use a summable union bound and the first Borel-Cantelli argument to obtain eventual collision-free prefixes; and derive the full for-every-C, eventually-for-every-n C1 quantifiers. Any invoked probability theorem must be proved in the artifact or precisely source-pinned.",
+      "id": "T7",
+      "kind": "prove",
+      "learn_either_way": "Success proves that T5's failure mode is exceptional under the iid model and rigorously interprets T6's controls; failure identifies whether overlap dependence, measure-theoretic quantifiers, or the proposed collision-free scale invalidates that benchmark.",
+      "serves_goal": "G6",
+      "status": "done",
+      "strategy": "Cardinality / counting; transfer from a solved analogue"
+    },
+    {
+      "acceptance": "A skeptic can compile the file with Lean trust-zero settings, verify that it imports rather than reproves T1 and T4, check the decimal indexing and ordered-pair conventions, and inspect the collision-to-near-return bound and C2-to-C1-to-A1 implication with no sorry, admit, or new axiom and no unconditional pi growth claim.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 8,
+        "timeout_s": 21600
+      },
+      "content_sha256": "b7540285c83d372d2e32921b4b7b39f4b592e3c45e3f791e7a24e1c81f69e34e",
+      "deliverable": "A trust-zero Lean file importing T1 and T4, using their exact arbitrary fractional-start and first-N conventions, defining the ordered-pair lacunary near-return count Q_pi(n,N), proving that equality of two length-n pi decimal factors implies circle distance ||(10^j-10^i)*pi|| < 10^(-n), proving E_pi(n,N) <= Q_pi(n,N), and proving that the exact stronger sibling conjecture C2 implies C1 and hence canonical A1 via T4. C2 must be labeled unproved for pi, strictly sufficient rather than equivalent, and not the canonical statement.",
+      "id": "T8",
+      "kind": "formalize",
+      "learn_either_way": "Success exposes an importable arithmetic frontier for C1; failure identifies whether the obstruction is T1's real-to-decimal interface, arbitrary-start indexing, circle-distance arithmetic, pair counting, or reuse of T4, without supplying evidence about pi's digits.",
+      "serves_goal": "G7",
+      "status": "done",
+      "strategy": "Reduce to a known theorem; split into cases; formalize-first; axiomatize the obstruction"
+    },
+    {
+      "acceptance": "A skeptic can verify the pointwise majorant, every coefficient bound, the ordered-pair summation identity, and the quantified implication to C2 line by line; any external majorant theorem is pinned with exact hypotheses and location.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 1,
+        "ram_gb": 4,
+        "timeout_s": 21600
+      },
+      "content_sha256": "71bf84e00d8913a031c73e84f33d6f8486b63d8362f705420c892b5f7ee76de0",
+      "deliverable": "A rigorous proof note defining S_h(N) = sum_{i<N} exp(2*pi*I*h*10^i*pi), giving an explicit degree-H trigonometric majorant for the circle interval of radius 10^(-n), and deriving with explicit constants an upper bound for T8's Q_pi(n,N) in terms of weighted |S_h(N)|^2. State a natural weighted Fourier-energy hypothesis and prove that it implies C2. The note must import T8's conventions, preserve all eventual-n and existential-N quantifiers, and state that the hypothesis is unproved for pi and that neither C2, C1, nor A1 is proved.",
+      "id": "T9",
+      "kind": "prove",
+      "learn_either_way": "Success exposes a reusable harmonic-analytic target for C2; failure identifies whether the obstruction is the hard-interval majorant, coefficient control, pair summation, or preservation of C2's quantifiers.",
+      "serves_goal": "G8",
+      "status": "done",
+      "strategy": "Cardinality / counting; reduce to a known theorem; split into cases; axiomatize the obstruction"
+    },
+    {
+      "acceptance": "A skeptic can compile the file with Lean trust-zero settings, verify that it imports T8 rather than reproving it, and inspect the majorant, coefficient estimates, pair-sum identity, Q_pi bound, and HFE(pi)-to-C2 implication with no sorry, admit, or new axiom and no unconditional pi-growth claim.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 16,
+        "timeout_s": 21600
+      },
+      "content_sha256": "9256af42ca2aae85b01da3d3887ba7a40829f9eb379b9e501e649bb802b404b5",
+      "deliverable": "A trust-zero Lean file importing TheoryLib.PiDecimalFactorComplexity.T8PiLacunaryNearReturns and formalizing T9's explicit finite Fejer-kernel argument: define the lacunary sums S_h(N), prove the pointwise circle-interval majorant and its coefficient bounds, derive the ordered-pair identity and explicit upper bound for T8's Q_pi(n,N), state the exact weighted Fourier-energy hypothesis HFE(pi), and prove HFE(pi) implies T8's C2 with its eventual-n and existential-N quantifiers unchanged. The file must state that HFE(pi), C2, C1, and canonical A1 remain unproved.",
+      "id": "T10",
+      "kind": "formalize",
+      "learn_either_way": "Success raises T9's exact reduction to kernel-checked status and isolates HFE(pi) as the formal arithmetic frontier; failure identifies whether the obstruction is finite Fourier algebra, the hard-interval majorant, complex coercions, or preservation of C2's quantifiers.",
+      "serves_goal": "G8",
+      "status": "done",
+      "strategy": "Cardinality / counting; reduce to a known theorem; split into cases; formalize-first; library-driven descent; axiomatize the obstruction"
+    },
+    {
+      "acceptance": "A skeptic can verify every theorem statement and applicability verdict against pinned primary sources and T10's formal HFE_pi definition, and can confirm that no almost-everywhere, generic, finite-computation, or merely pointwise estimate is reported as a fixed-pi proof without every HFE_pi quantifier matched.",
+      "attempts": 2,
+      "budget": {
+        "cpu": 1,
+        "ram_gb": 4,
+        "timeout_s": 21600
+      },
+      "content_sha256": "ad88ac213219f2939b399d4c3027ef655e2ff30b97205223120c430b1baaae34",
+      "deliverable": "A bounded, source-pinned applicability matrix comparing T10's exact HFE_pi predicate clause by clause with primary results on fixed-point lacunary exponential sums, weighted mean-square bounds, pair correlation, and discrepancy. For every candidate, record the exact theorem, fixed pi versus almost-everywhere scope, frequency and scale uniformity, weights, quantifier order, constants and effectiveness, and a YES, NO, or CONDITIONAL verdict. Reuse rather than repeat T2 and the recorded pi-digits T28 audit, and include a quantified explanation of why known pointwise irrationality-measure bounds do or do not reach HFE_pi. An all-negative matrix must identify the first unmatched clause and must not be described as evidence that HFE_pi, C2, C1, or A1 is false.",
+      "id": "T11",
+      "kind": "literature",
+      "learn_either_way": "A positive row supplies a precise theorem-to-HFE_pi proof target; an all-negative result identifies the exact fixed-pi, uniformity, weighting, scale, or effectiveness gap and prevents another unsupported conditional reduction.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Reduce to a known theorem; transfer from a solved analogue; split into cases; weaken/strengthen probes"
+    }
+  ],
+  "conjectures": [
+    {
+      "evidence": [
+        "T6",
+        "T7"
+      ],
+      "id": "C1",
+      "statement": "Stronger sufficient sibling conjecture, not the canonical statement: let E_pi(n,N) be the sum of squared multiplicities of length-n factors among the first N fractional-digit starting positions of pi. For every real C > 0, eventually for every n there exists N >= 1 such that, after coercion to the reals, N^2 > C*n*E_pi(n,N).",
+      "status": "supported"
+    },
+    {
+      "evidence": [],
+      "id": "C2",
+      "statement": "Stronger sufficient sibling conjecture, not C1 or the canonical statement: let Q_pi(n,N) count ordered pairs 0 <= i,j < N for which the circle distance of (10^j-10^i)*pi to an integer is less than 10^(-n). For every real C > 0, eventually for every n there exists N >= 1 such that, after coercion to the reals, Q_pi(n,N) < N^2/(C*n).",
+      "status": "open"
+    }
+  ],
+  "goals": [
+    {
+      "id": "G1",
+      "rationale": "This is reusable machinery that the pi root can import without conflating intermediate complexity with resolution.",
+      "status": "achieved",
+      "text": "Build a machine-checked factor-complexity hierarchy for digit streams, including the irrationality baseline and the exact disjunctivity endpoint."
+    },
+    {
+      "id": "G2",
+      "rationale": "This gate distinguishes a real pi route from generic symbolic-dynamics ballast.",
+      "status": "achieved",
+      "text": "Determine, from pinned literature, whether any theorem with hypotheses verified for pi can improve the linear factor-complexity baseline."
+    },
+    {
+      "id": "G3",
+      "rationale": "This imports T1 and exposes a local combinatorial frontier without claiming any pi-specific growth result.",
+      "status": "achieved",
+      "text": "Reduce canonical A1 exactly to divergence of average right-extension branching in the decimal factor language."
+    },
+    {
+      "id": "G4",
+      "rationale": "This extends T3 with a finite statistic accessible to both combinatorial counting and future analytic estimates, while keeping the pi-specific hypothesis explicit and unproved.",
+      "status": "achieved",
+      "text": "Develop a machine-checked finite-prefix collision-energy criterion sufficient for superlinear decimal factor complexity of pi."
+    },
+    {
+      "id": "G5",
+      "rationale": "T4 isolates C1 as sufficient, while neither its truth for pi nor its strictness relative to A1 is known.",
+      "status": "achieved",
+      "text": "Determine whether collision-energy conjecture C1 is a viable and appropriately sharp route toward canonical A1."
+    },
+    {
+      "id": "G6",
+      "rationale": "This converts T6's finite random-control heuristic into a theorem and calibrates the exceptional separator from T5 without asserting pseudorandomness of pi.",
+      "status": "achieved",
+      "text": "Determine rigorously whether the exact C1 collision-energy property is typical in the iid uniform decimal-stream model."
+    },
+    {
+      "id": "G7",
+      "rationale": "T4 ends at a digit-combinatorial hypothesis, whereas an arithmetic near-return formulation can expose the precise pi-specific estimate missing after T2 and T7.",
+      "status": "achieved",
+      "text": "Reduce pi's finite decimal collision energy to a lacunary Diophantine near-return count and isolate an exact arithmetic condition sufficient for C1."
+    },
+    {
+      "id": "G8",
+      "rationale": "T8 isolates C2 as sufficient; a pair-count Fourier inequality exposes the fixed-pi cancellation estimate now missing.",
+      "status": "achieved",
+      "text": "Reduce C2 to a concrete weighted Fourier-energy estimate for the lacunary orbit of pi."
+    },
+    {
+      "id": "G9",
+      "rationale": "T10 kernel-checks HFE_pi implies C2, while the existing surveys predate this exact pair-energy frontier or address different discrepancy predicates.",
+      "status": "achieved",
+      "text": "Determine whether any pinned theorem establishes T10's exact fixed-pi weighted Fourier-energy hypothesis HFE_pi, or isolate the first unmatched hypothesis or quantifier."
+    }
+  ],
+  "problem": "local:pi-decimal-factor-complexity",
+  "program_version": 10,
+  "results": [
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t1-1784628077-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t1-1784628077-r0/theory_artifacts/DecimalFactorComplexity.lean"
+      ],
+      "item": "T1",
+      "recorded_at": "2026-07-21T10:16:56Z",
+      "skeptic_notes": "theorem DecimalFactorComplexity.morse_hedlund depends on disallowed axioms ['choice']",
+      "strategy": "Formalize-first; reduce to a known theorem",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t1",
+      "verdict": "revise"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t1-1784631198-r1/theory_artifacts/DecimalFactorComplexity.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T1",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "recorded_at": "2026-07-21T11:35:51Z",
+      "skeptic_notes": "Accept. The gate recompiled both claimed canonical bridge theorems with allowed axioms only. The delivered Lean file explicitly defines contiguous arbitrary-position factors, exact factor cardinality, A1-A5, eventual periodicity, and disjunctivity. It has no sorry or admit, accurately disclaims any result about pi, and its embedded source hash matches the staged canonical statement. The independent statement referee found no faithfulness discrepancies.",
+      "skeptic_policy_version": 3,
+      "strategy": "Formalize-first; reduce to a known theorem",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t1",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/ADVERSARIAL_RECHECK.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/APPLICABILITY_MATRIX.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/SOURCE_MANIFEST.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/adamczewski-bugeaud-2007.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/bailey-crandall-2001.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/lindemann-1882-pi-transcendental.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/morse-hedlund-1938.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/niven-1947-pi-irrational.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/trueb-2016-pi-digit-statistics.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/adamczewski-bugeaud-2007.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/bailey-crandall-2001.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/lindemann-1882-pi-transcendental.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/morse-hedlund-1938.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/niven-1947-pi-irrational.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/sources/trueb-2016-pi-digit-statistics.pdf",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_builder_result.json"
+      ],
+      "item": "T2",
+      "recorded_at": "2026-07-22T04:08:01Z",
+      "skeptic_notes": "review pipeline failed repeatedly (4 respawns); human review needed",
+      "skeptic_policy_version": 4,
+      "strategy": "Library-driven descent; transfer from a solved analogue",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t2",
+      "verdict": "reject"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/APPLICABILITY_MATRIX.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/SOURCE_MANIFEST.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/ADVERSARIAL_RECHECK.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/adamczewski-bugeaud-2007.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/bailey-crandall-2001.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t2-1784634806-r0/theory_artifacts/source_text/trueb-2016-pi-digit-statistics.txt"
+      ],
+      "failure_cause": "none",
+      "item": "T2",
+      "recorded_at": "2026-07-22T04:19:26Z",
+      "skeptic_notes": "The gate passed. The source-pinned matrix gives every named row an explicit YES, NO, or NOT KNOWN applicability verdict and a hypothesis audit. The source texts support the central blockers: pi is transcendental rather than algebraic, Bailey--Crandall is conditional and concerns bases 2/16, and Trueb is finite empirical evidence only. The sole YES is clearly limited to the accepted one-sided A4 bridge with its hypotheses matched; no row claims an A1 theorem for pi.",
+      "skeptic_policy_version": 4,
+      "strategy": "Library-driven descent; transfer from a solved analogue",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t2",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t3-1784693456-r0/theory_artifacts/RightExtensionBranching.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T3",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T04:31:57Z",
+      "skeptic_notes": "The trust-zero gate recompiled the two required canonical theorems with allowed axioms only. The delivered file imports T1, defines finite right-extension fibers for T1's arbitrary-position factors, proves the stated identity and exact canonical A1 equivalence, and explicitly disclaims any pi-specific growth conclusion.",
+      "skeptic_policy_version": 4,
+      "strategy": "Cardinality / counting; invariant hunting; formalize-first; reduce to a known theorem",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t3",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t4-1784694989-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t4-1784694989-r0/theory_artifacts/FinitePrefixCollisionEnergy.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T4",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 3,
+      "recorded_at": "2026-07-22T04:57:10Z",
+      "skeptic_notes": "The Lean gate passed under allowed axioms. The delivered file imports T1 and T3, defines first-N starts with Fin N (zero-based 0 through N-1, explicitly matched to d_1 through d_N), and proves the collision, Cauchy-Schwarz, finite-support inclusion, and C1 consequence bridges. Its labels explicitly call C1 sufficient, noncanonical, and unproved for pi; the statement referee found the encoding faithful. The source hash matches the staged canonical statement.",
+      "skeptic_policy_version": 4,
+      "strategy": "Cardinality / counting; invariant hunting; formalize-first; axiomatize the obstruction",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t4",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t5-1784696486-r0/theory_artifacts/GENERIC_DISJUNCTIVE_C1_SEPARATOR.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t5-1784696486-r0/theory_artifacts/ADVERSARIAL_RECHECK.md"
+      ],
+      "failure_cause": "none",
+      "item": "T5",
+      "recorded_at": "2026-07-22T05:20:06Z",
+      "skeptic_notes": "The generic separator explicitly defines the stream by disjoint, recursively placed word-enumeration intervals and proves disjunctivity directly. Its bad-start count is uniform over every prefix N, including factor look-ahead; the diagonal and zero-block energy bounds then prove N^2 <= 4 n_j E(n_j,N) for every N at unbounded selected lengths. This refutes C1 with C=4 and its exact eventual quantifiers. It is accurately labeled a paper proof sketch and generic sibling, makes no claim about pi or canonical A1, and uses no experiment or external literature citation.",
+      "skeptic_policy_version": 4,
+      "strategy": "Explicit construction; compactness / diagonalization; weaken/strengthen probes",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t5",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/run_experiment.py",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/verify_results.py",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/SOURCE_MANIFEST.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/results.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/comparison.csv",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/REPORT.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t6-1784696489-r0/theory_artifacts/CHECKSUMS.sha256"
+      ],
+      "failure_cause": "none",
+      "item": "T6",
+      "problems_reported": 3,
+      "recorded_at": "2026-07-22T05:30:32Z",
+      "skeptic_notes": "The passed gate delivered the required artifacts. Independent rerun of run_experiment.py fetched both pinned digit sources, reproduced the extracted digit hash, and regenerated all four output hashes. verify_results.py independently recounts every 192 exact row, 48 aligned comparison rows, and 12 report rows. REPORT.md defines the finite grid and exact E and R, compares pi with all three declared fixed-seed controls on that grid, and prominently says the computation is finite heuristic evidence only, not a proof or refutation of C1 or A1. The source URLs and complete-download hashes are exact and pinned.",
+      "skeptic_policy_version": 4,
+      "strategy": "Probabilistic heuristic, stated honestly; invariant hunting",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t6",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t7-1784698480-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t7-1784698480-r0/theory_artifacts/IID_RANDOM_STREAM_C1.md"
+      ],
+      "failure_cause": "none",
+      "item": "T7",
+      "lean_gate_receipt": "passed: no Lean content",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T06:05:41Z",
+      "skeptic_notes": "The delivered proof constructs the iid decimal product probability space, proves the overlapping and nonoverlapping collision probability 10^(-n), obtains the explicit summable union-bound majorant, proves the needed first Borel--Cantelli implication, and checks the measure-one and for-every-C/eventually-for-every-n quantifiers. It derives E(n,N_n)=N_n from eventual pairwise distinctness and proves N_n/n tends to infinity. Its scope labels explicitly exclude pi, canonical A1 for pi, and finite computation as proof. The cited mathlib commit, files, line ranges, and hashes were verified.",
+      "skeptic_policy_version": 4,
+      "strategy": "Cardinality / counting; transfer from a solved analogue",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t7",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t8-1784700574-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t8-1784700574-r0/theory_artifacts/PiLacunaryNearReturns.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T8",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T10:44:01Z",
+      "skeptic_notes": "The gate recompiled the delivered Lean file with allowed axioms only. It imports T1 and T4, retains T1's zero-based arbitrary fractional starts and T4's Fin N ordered-pair convention, proves the collision-to-near-return bound and E_pi <= Q_pi, and derives C2 -> C1 -> canonical A1 conditionally. The staged statement-referee report found the formalization faithful. C2 is explicitly unproved, strictly sufficient, and non-canonical; no unconditional pi-growth claim is made.",
+      "skeptic_policy_version": 4,
+      "strategy": "Reduce to a known theorem; split into cases; formalize-first; axiomatize the obstruction",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t8",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t9-1784717245-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t9-1784717245-r0/theory_artifacts/WEIGHTED_FOURIER_REDUCTION.md"
+      ],
+      "failure_cause": "none",
+      "item": "T9",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T11:01:45Z",
+      "skeptic_notes": "Acceptance: the self-contained Fejer-kernel construction proves the pointwise majorant in (12), gives the zero and nonzero coefficient formulas and bounds in (14)--(18), and derives the ordered-pair identity in (21) and explicit Q_pi bound in (25). Lines 400--473 preserve C2's eventual-n and existential-N quantifiers and prove HFE(pi) implies C2. The T8 hash pin and canonical-statement hash match the staged premises. No external majorant theorem is invoked. Labels honestly state that HFE(pi), C2, C1, and A1 remain unproved.",
+      "skeptic_policy_version": 4,
+      "strategy": "Cardinality / counting; reduce to a known theorem; split into cases; axiomatize the obstruction",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t9",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t10-1784718285-r0/theory_artifacts/PiWeightedFourierReduction.lean"
+      ],
+      "failure_cause": "none",
+      "flash_prove_calls": 1,
+      "item": "T10",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T12:16:38Z",
+      "skeptic_notes": "The trust-zero gate passed for all listed theorems. The delivered file imports T8, proves the requested Fejer majorant, coefficient estimates, ordered-pair identities, Q_pi bound, and conditional HFE_pi-to-C2 implication, and explicitly labels HFE_pi, C2, C1, and canonical A1 unproved. It makes no unconditional pi-growth claim.",
+      "skeptic_policy_version": 4,
+      "strategy": "Cardinality / counting; reduce to a known theorem; split into cases; formalize-first; library-driven descent; axiomatize the obstruction",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t10",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784722863-r0/theory_artifacts/HFE_PI_APPLICABILITY_MATRIX.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784722863-r0/theory_artifacts/SOURCE_MANIFEST.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784722863-r0/theory_artifacts/source_text/rudnick-zaharescu-1999.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784722863-r0/theory_artifacts/source_text/zeilberger-zudilin-2020.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784722863-r0/theory_artifacts/source_text/salem-zygmund-1947.txt"
+      ],
+      "failure_cause": "pipeline",
+      "item": "T11",
+      "recorded_at": "2026-07-22T12:58:05Z",
+      "skeptic_notes": "The gate passed and the delivered matrix faithfully transcribes T10's HFE_pi weights, cutoff, and quantifier order. The staged RZ, ZZ, and Salem texts support their rows; labels correctly keep metric, averaged, and finite evidence away from a fixed-pi proof, and the all-negative conclusion is bounded. However, the EG, Philipp, and Fukuyama rows are material candidates whose exact theorem statements are only attributed to an unstaged T28 audit and unstaged primary files. The manifest supplies hashes and DOIs but not the audit or texts required to independently verify those transcriptions. Stage those sources or the accepted T28 audit and its acceptance evidence; this is a repairable review-plumbing omission, not a mathematical defect.",
+      "skeptic_policy_version": 4,
+      "strategy": "Reduce to a known theorem; transfer from a solved analogue; split into cases; weaken/strengthen probes",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t11",
+      "verdict": "revise"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/HFE_PI_APPLICABILITY_MATRIX.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/SOURCE_MANIFEST.md",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/source_text/rudnick-zaharescu-1999.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/source_text/salem-zygmund-1947.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/source_text/zeilberger-zudilin-2020.txt",
+        "removed-workflow-record://todo-theory-pi-decimal-factor-complexity-t11-1784725088-r1/theory_artifacts/t28/T28-lacunary-sum-audit.md"
+      ],
+      "failure_cause": "none",
+      "item": "T11",
+      "lean_gate_receipt": "Gate passed; Lean was not run because this literature delivery contains no Lean content.",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T13:18:56Z",
+      "skeptic_notes": "The gate passed. The matrix states T10's HFE_pi weights and quantifier order faithfully, then records the first unmatched clause for every candidate. Metric, mean-square, and distribution results remain almost-everywhere; the deterministic discrepancy bridge remains conditional; and the irrationality-measure row is limited to the direct phase-separation deficit. The all-negative conclusion is explicitly bounded and is not represented as evidence against HFE_pi, C2, C1, or A1. Source text hashes match the manifest pins; the cited primary results support the stated scope verdicts.",
+      "skeptic_policy_version": 4,
+      "strategy": "Reduce to a known theorem; transfer from a solved analogue; split into cases; weaken/strengthen probes",
+      "todo_id": "todo:theory-pi-decimal-factor-complexity:t11",
+      "verdict": "accept"
+    }
+  ],
+  "schema_version": 1,
+  "statement_sha256": "e2b6c9375936a97fe6cdd10c3f014613267f3c491935b536c6ec016c5f501e43",
+  "updated_at": "2026-07-22T13:23:09Z"
+}

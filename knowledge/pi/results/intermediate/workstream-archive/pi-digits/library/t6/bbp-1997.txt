@@ -1,0 +1,781 @@
+                                     On the Rapid                    Computation                         of
+                                 Various            Polylogarithmic                          Constants
+
+
+                           David     H. Bailey, l Peter Borwein,                         2 Simon          PlouffJ
+
+                             NAS      Technical           Report      NAS-96-016                 April         1996
+
+
+
+    dbailey@nas.nasa.gov,                     pborwein@cecm.sfu.ca,                           and plouffe@cecm.sfu.ca
+                                             NASA Ames Research                           Center
+                                                          Mail Stop 258-6
+                                             Moffett      Field, CA 94035-1000
+
+
+                                                               Abstract
+
+
+We give algorithms               for the computation   of the d-th digit of certain transcendental
+numbers  in various              bases. These algorithms    can be easily implemented      (multiple
+precision  arithmetic  is not needed), require virtually no memory,                                                   and feature run
+times that scale nearly linearly with the order of the digit desired.                                                  They make it fea-
+sible to compute,   for example, the billionth                               binary          digit of log(2)          or _ on a modest
+workstation  in a few hours run time.
+
+
+We demonstrate             this technique    by computing      the ten billionth hexadecimal  digit of
+it, the billionth        hexadecimal      digits of _'_, log(2) and log2(2), and the ten billionth
+decimal      digit of log(9/10).
+
+These      calculations          rest on the observation                  that very special                types      of identities   exist
+for certain        numbers        like n, it 2, log(2)            and 1og2(2). These                    are essentially       polyloga-
+rithmic     ladders       in an integer          base. A number               of these         identities        that we derive       in this
+work      appear     to be new, for example                    the critical           identity     for 7z:
+
+
+                                             =    _01_(    8i+1
+                                                              4       8i+4
+                                                                         2            8i+5
+                                                                                         1       8i+6
+                                                                                                    1     ).
+                                                 i=
+
+
+1. NASA     Ames      Research     Center,       M/S   T27A-1,     Moffett      Field,       CA 94035-1000
+
+2. Department       of Mathematics           and Statistics,      Simon      Fraser      University,      Burnaby,     BC V5A    1S6 Canada
+
+
+
+
+                                                                     1
+1.      Introduction.
+
+It is widely believed that computing      just the d-th digit of a number like 7r is really
+no easier than computing      all of the first d digits.  From a bit complexity   point of
+view this may well be true, although     it. is probably very hard to prove. What we will
+show is that it is possible to compute just the d-th digit of many transcendentals        in
+(essentially)     linear time and logarithmic   space. So while this is not of fundamentally
+lower complexity        than the best known algorithms     (for say _r or log(2)), this makes
+such calculations        feasible on modest   workstations   without  needing to implement
+arbitrary     precision    arithmetic.
+
+We illustrate  this by computing     the ten billionth hexadecimal       digit of _r, the billionth
+hexadecimal    digits of r 2, log(2) and 1og2(2), and the ten billionth decimal digit of
+log(9/10).    Details  are given in Section       4. A previous     result in this same spirit
+is the Rabinowitz-Wagon        "spigot"   algorithm   for lr. In that scheme,        however, the
+computation    of the digit at position     n depends    on all digits preceding      position    n.
+
+We are interested   in computing   in polynomially  logarithmic   space and polynomial
+time. This class is usually denoted    SC (space = log°O)(d)    and time = d °(1) where
+d is the place of the "digit" to be computed).  Actually    we are most interested   in
+the space we will denote by SC* of polynomially     logarithmic   space and (almost)
+linear time (here we want the time = O(dlog°O)(d))).        There is always a possible
+ambiguity    when computing    a digit string base b in distinguishing     a sequence    of
+digits a(b - l)(b - 1)(b - 1) from (a + 1)000. In this particular      case we consider
+either representation  as an acceptable    computation. In practice this problem      does
+not arise.
+
+It is not known whether    division is possible in SC, similarly    it is not known whether
+base change is possible in SC. The situation          is even worse in SC*, where it is not
+even known whether      multiplication   is possible.    If two numbers    are in SC* (in the
+same base) then their product computes   in time = O(d_log°(1)(d))                  and is in SC
+but not obviously in SC*. The d 2 factor here is present because                 the logarithmic
+space requirement precludes        the   usage of advanced    multiplication    techniques,   such
+as those based on FFTs.
+
+We will not dwell on complexity   issues except to point out that different algorithms
+are needed  for different  bases (at least given our current      ignorance   about   base
+change) and very little closure exists on the class of numbers      with d-th digit com-
+putable in SC. Various of the complexity   related issues are discussed in [6,8,9,11,14].
+
+As we will show in Section 3, the class of numbers            we can compute      in SC* in base
+b includes all numbers  of the form
+
+                                            OO
+
+
+
+(1.1)                                      _    p(k)
+                                           k=l bCkq(k)'
+
+
+where p and q are polynomials        with integer coefficients and c is a positive integer.
+Since addition   is possible in SC', integer linear combinations     of such numbers     are
+also feasible (provided     the base is fixed).
+Thealgorithmforthe binarydigitsof 7r,whichalsoshowsthat7ris in SC*in base
+2,restsonthefollowingremarkableidentity:
+
+Theorem            1.     The following                identity       holds."
+
+
+                                                 1         4+ 1            2
+(1.2)                       7r=                ]-_(_                    Si+4         8i+51           8i+6i     )"
+                                      i=0
+
+
+This     can also be written                   as:
+
+                                  _o   P_
+                                                                      [Pi] = [4,0,0,-2,-1,-1,0,0]
+(1.3)                       7r = E   16[_Ji'
+                                     i=1
+
+
+where     the     overbar      notation              indicates        that the sequence        is periodic.
+
+
+Proof.     This     identity         is equivalent              to:
+
+
+
+(1.4)                              7r =              1/,/7 4v_        - 8x 3 - 4v/2x 4 - 8x 5 dx,
+                                               a0                           1- xs
+
+which     on substituting              y := v/'2x becomes
+
+
+
+                                                     =      1 u _2 16
+                                                                   - 4v_4
+                                                                      y - 16                 dr
+
+The     equivalence         of (1.2)           and (1.4)          is straightforward.         It follows       from      the identity
+
+
+                                   fllVSxk_l__            fllv'___
+                                   .io       1 - x s dx =                                 x k-l+si      dx
+                                                                          dO        i=0
+
+
+
+                                                                                              1
+                                                                       -- v/_k i=0 16i(8i + k)
+
+That     the integral        (1.4) evaluates                 to 7r is an exercise          in partial        fractions     most   easily
+done     in Maple         or Mathematica.                       []
+
+
+This proof entirely     conceals the route to discovery.    We found the identity (1.2) by
+a combination     of inspired guessing and extensive     searching using the PSLQ integer
+relation  algorithm    [3,12].
+
+Shortly   after the authors   originally  annour/ced   the result (1.2), several colleagues,
+including    Helaman   Ferguson,    Tom Hales, Victor Adamchik,        Stan Wagon, Donald
+Knuth and Robert Harley, pointed         out to us other formulas for 7r of this type. One
+intriguing      example         is
+
+
+
+             7r=            1
+                           _7(_+           2             _+ 2           4i+31          1/2
+                                                                                     4i+5              1/2
+                                                                                                     4i+6             1/__4.]
+                                                                                                                    4i+7"'
+                    i=0
+ which     can be written             more          compactly                 as
+
+
+                                                                              2                             1
+                                                    0 4'             4i+1+4-V +45                                 )
+
+ In [2], this      and some           related           identities            are derived      using        Mathematica.
+
+As it turns out, these other formulas                                   for 7r can all be written                     as formula    (1.2)       plus
+a rational multiple  of the identity
+
+
+                                                                                                                         2            1
+                    1        -8                     8                  4                 8              2
+        0= i=0                                                                                                        8i+6         8i+7     )
+
+
+The proof         of this identity            is similar             to that           of Theorem       1.
+
+The identities  of the next section and Section    5 show                                              that, in base 2, 7r_, 1og2(2)
+and various other constants,  including {log(2), log(3),...,                                               1og(22)} are in SC*. (We
+don't know however if 1og(23) is even in SC.)
+
+We will describe        the algorithm    in the Section  3. Complexity                                              issues are discussed
+in [3,5,6,7,8,9,14,19,21]      and algorithmic   issues in [5,6,7,8,14].                                           The requisite  special
+function    theory may be found in [1,5,15,16,17,20].
+
+2. Identities.
+
+As usual,        we define        the rn-th             polylogarithm                  Lm by
+
+
+(2.1)                                         Lm(z) :=                        .==
+                                                                               zi            Izl < 1.
+                                                                     i----1
+
+
+
+The most         basic     identity      is
+
+
+(2.2)                                               -log(1       - 2-")             = L,(1/2")
+
+which     shows     that     log(1 - 2 -n)                is in SC* base 2 for integer                          n. (See also section            5.)
+
+Much      less obvious        are the identities
+
+
+(2.3)                7r2 = 36L2(1/2)                     - 36L2(1/4)                - 12L_(1/8)         + 6L_(1/64)
+
+and
+
+
+(2.4)                1og2(2) = 4L2(1/2)                       - 6L_(I/4)               - 2L2(1/8)       + L_(1/64).
+
+These     can be written           as
+
+                                              c_         ai
+
+(2.5)                        _r2 = 36 E                 2ii _'                [ai] :    [1,-3,-2,-3,             1, O]
+                                              i=l
+                                       oo b,
+(26)                         1og2(2)= 2Z 2,i2'                        [bi] = [2,-10,-7,-10,                    2,-1].
+                                             ,=1
+
+
+Here      the overline           notation          indicates       that       the sequences          repeat.       Thus      we see that
+r 2 and log2(2)               are in SC* in base 2. These                      two formulas          can alternately           be written
+
+                        oo                                                                               6                     1
+               = 8           ((6i16       + 1) 2                 24
+                                                           (6i + 2) 2           (6i+   8 3) 2        (6i + 4) 2 + (6i + 5) 2 )
+
+
+
+                    1_      1 _ -16                      16              40                  14                10             1
+1°g2(2)        :    8 i=0 6-47_(6-_)2+(6i                + 1)2       (6i + 2) 2          (6i + 3) 2       ------------_
+                                                                                                          (6i  + 4) + (6i
+                                                                                                                        -------------_)"
+                                                                                                                             + 5)
+
+Identities   (2.3)-(2-6)  are examples     of polylogarithmic    ladders in the base 1/2 in
+the sense of [16]. As with (1.2) we found them by searching              for identities of this
+type using an integer relation     algorithm.     We have not found them directly in print.
+However (2.5) follows from equation          (4.70) of [15] with (_ = r/3,/3 = 7r/2 and 7 =
+7r/3. Identity    (2.6) now follows from the well known identity
+
+(2.7)                                              12L2(1/2)        = _r2 - 6 log_(2).
+
+
+A distinct          but similar          formula         that    we have found             for 7r2 is
+
+          ¢¢        1          16                   16                8                   16                 4                                 2    \
+
+_r2=2..,_7_-_+1)
+       2_-''                                (8i+2)         _     (8i+3)        2      (8i+4)     2    (8i+5)        2      (8i q- 6) 2     (8i + 7)2J'
+         i=0
+
+
+which      can be derived            from the methods                     of section       1.
+
+There      are several          ladder      identities          involving       L3:
+
+(2.8)          35/2_(3)         - rr2 log(2)        = 36L3(1/2)               - 18L3(1/4)        - 4L3(1/8)             + L3(1/64),
+
+
+(2.9)              21og3(2)     - 7_(3)       = -24L3(1/2)                + 18L3(1/4)           + 4L3(1/8)          - L3(1/64),
+
+
+
+(2.10)     10 log3(2)-           2rr 2 log(2)       = -48L3(1/2)+54L3(1/4)+                           12L3(1/8)-            3L3(1/64).
+
+
+The favored algorithms                    for 7r of the last centuries                  involved      some       variant     of Machin's
+1706 formula:
+
+                                              _r                      1                      1
+(2.11)                                        _ = 4 arctan            g - arctan           23"---9
+
+There are many related formula [15,16,17,20] but to be useful to us all the arguments
+of the arctans have to be a power of a common base, and we have not discovered
+any such formula                for 7r . One can however                      write
+
+                                              r                           1                     1
+(2.12)                                        _ = 2 arctan            _        + arctan
+Thiscanbewrittenas
+
+(2.13)                 v/2rr=4f(1/2)+f(1/8)                                  where f(x):=                       2i+1
+                                                                                                       i---1
+
+
+
+and      allows    for the calculation                    of x/_r       in SC*.
+
+Another       two identities             involving             Catalan's       constant          G, _r and log(2)          are:
+
+
+                             7r log(2)                             ¢i
+(2.14)               G                         -                                     [ci] = [1, 1, 1,0,-1,-1,-1,0]
+                                   8                   i=1 2[ _-_-Ji2
+                                                              '       '
+
+and
+
+
+(2.15)             57r2         1og2(2)                  oo     di                        [di] = [1,0,-1,-1,-1,0,                  1, 1]
+                   96              8               -     E 2l'-_j i2'
+                                                         i=1
+
+
+
+These may be found in [17 p. 105, p. 151]. Thus                                                8G-    7flog(2) is also in SC* in
+base 2, but it is open and interesting as to whether                                            G is itself in SC* in base 2.
+
+A family         of base   2 ladder           identities           exist:
+
+
+                  Lm(1/64)                   Lm(1/8)                2 Lm(1/4)                 4 Lm(1/2)            5 (-log(2))           m
+(2.16)             6m_1                       3m_1                    2m-1                +       9                      9m!
+
+
+             7r_ (- log(2)) m-_                        7r4 (- log(2)) m-4                 403 ((5) (- log(2)) "'-S                = 0.
+                 54 (m - 2)!                              486 (m - 4)!                         1296 (m-    5)!
+
+The above identity    holds for 1 _< m                                  _< 5; when the arguments    to factorials                            are
+negative  they are taken to be infinite                                 so the corresponding  terms disappear.                               See
+[16, p. 45].
+
+As in the case of formula (1.2) for 7r, colleagues of the authors   have subsequently
+pointed out several other formulas of this type for various constants.    Three exam-
+ples reported by Knuth,  which are based on formulas    in [13, p. 17, 18, 22, 47, 139],
+are
+
+                                                               1         1            1/2             1/4
+                  ,Sin(1 +                   =Z                    (85-        +                +               + 1/8 )
+                                                   i=O
+
+
+                                                  oo 1                       1          1/2               1/4            1/8
+              x/2 arctan(1/v_)                 = _-_ _7 (_                   + 1      8i+3+8i+5                        8i+7    )
+                                                        i=0
+
+
+
+                                                oo 1                    1             1             1/2            1/_.4 )
+                    arctan(1/3)          :     _-'_ _6-7 (_             + 1        8i+2           8i+4           8i+5"
+                                               i=0
+
+
+
+Thus     these     constants        are also in class SC*.                         Some       other   examples          can be found          in
+[18].
+3.      The   Algorithm.
+
+Our algorithm      to compute     individual    base-b digits of certain constants     is based on
+the binary scheme for exponentiation,            wherein one evaluates    x'* rapidly by succes-
+sive squaring     and multiplication.        This reduces    the number    of multiplications     to
+less than 21og2(n ). According           to Knuth     [14], where details are given, this trick
+goes back at least to 200 B.C. In our application,             we need to perform     exponentia-
+tion modulo a positive integer c, but the overall scheme is the same -- one merely
+performs    all operations   modulo c. An efficient formulation          of this algorithm     is as
+follows.
+
+To compute        r = bn mod c, first           set t to be the largest                 power    of two < n, and set
+r = 1. Then
+
+         A: if n > t then      r _    br mod c;         n _       n - t;        endif
+
+
+
+         if t > 1 then     r _-- r _ rood c;      go to A;           endif
+
+Here and in what           follows,   "mod"     is used in the binary             operator       sense,   namely   as the
+binary function    defined by x mod V := x - [x/V]y. Note that the above algorithm
+is entirely performed     with positive integers that do not exceed c _ in size. Thus it
+can be correctly    performed,    without round-off  error, provided a numeric precision
+of at least 1 + 2 log 2 c bits is used.
+
+Consider      now a constant          defined   by a series        of the form
+                                                        OO
+
+
+
+                                                _=_--_       1
+                                                     k=0 bckp( k ) '
+
+where b and c are positive integers and p(k) is a polynomial    with integer coefficients.
+First observe that the digits in the base b expansion  of _beginning     at position n + 1
+can be obtained   from the fractional  part of bn_. Thus we can write
+
+                                                             oo   bn_ck
+(3.4)                                 bn_    modl=_--                        modl
+                                                             z..,k=0
+                                                                  p(k)
+                    L_/cJ                                                   oo           bn_ek
+                                      mod p(k)
+                     5-"                            mod        1 +         _             --        mod 1
+                     k=0
+                                      p(k)                                 --
+                                                                      k=tnlcJ+l
+                                                                                         p(k)
+
+For each term of the first summation,      the binary exponentiation    scheme is used
+to evaluate   the numerator.  Then floating-point    arithmetic is used to perform    the
+division   and add the result to the sum mod 1. The second summation,              where
+the exponent       of b is negative,     may be evaluated     as written  using floating-point
+arithmetic.    It is only necessary      to compute   a few terms of this second summation,
+just enough to insure that the remaining            terms sum to less than the "epsilon"       of
+the floating-point     arithmetic    being used. The final result, a fraction between 0 and
+ 1, is then converted      to the desired base b.
+ Since floating-point       arithmetic     is used here in divisions      and in addition        modulo     1,
+the result is of course subject            to round-off     error.  If the floating-point       arithmetic
+system being used has the property              that the result of each individual         floating-point
+operation     is in error by at most one bit (as in systems                  implementing        the IEEE
+arithmetic     standard),       then no more than log2(2n ) bits of the final result will be
+corrupted.       This is actually        a generous     estimate,    since it does not assume             any
+cancelation     of errors, which would yield a lower estimate.                 In any event, it is clear
+that ordinary      IEEE 64-bit arithmetic         is sufficient to obtain a numerically         significant
+result for even a large computation,             and "quad precision"        (i.e. 128-bit) arithmetic,
+if available,     can insure that the final result is accurate              to several digits beyond
+the one desired.        One can check the significance             of a computed      result beginning
+at position     n by also performing           a computation       at position     n + 1 or n - 1 and
+comparing      the trailing      digits produced.
+
+The most      basic interesting    constant      whose digits      can be computed     using this scheme
+is
+
+                                              log(2)   =   tim   k2 k
+                                                           k=l
+
+
+in base 2. Using this scheme to compute hexademical                digits of _r from identity (1.2)
+is only marginally       more complicated,     since one can rewrite formula (1.2) using four
+sums of the required        form. Details are given in the next section.          In both cases, in
+order to compute        the n-th binary digit (or a fixed number of binary digits at the
+n-th place) we must sum O(n) terms of the series. Each term requires                      O(log(n))
+arithmetic     operations      and the required     precision   is O(log(n))    digits.  This gives
+a total bit complexity          of O(n log(n)m(log(n)))       where M(j)     is the complexity      of
+multiplying      j bit integers.   So even with ordinary multiplication         the bit complexity
+is O(n log3(n)).
+
+This algorithm      is, by a factor of log(log(log(n))),         asymptotically       slower than the
+fastest known algorithms         for generating   the n-th digit by generating           all of the first
+n digits of log(2) or 7r [7]. The asymptotically             fastest algorithms        for all the first
+n digits known requires         a Strassen-Sch6nhage        multiplication      [19]; the algorithms
+actually   employed     use an FFT based multiplication          and are marginally         slower than
+our algorithm,    from a complexity       point of view, for computing        just the n-th digit. Of
+course this complexity       analysis is totally misleading:        the strength     of our algorithm
+rests mostly    on its easy implementation           in standard      precision    without     requiring
+FFT methods       to accelerate     the computation.
+
+It is clear   that the above methods     can easily                be extended   to evaluate      digits   of
+contstants    defined by a formula of the form
+
+
+
+
+where p and q are polynomials  with integer coefficients    and e is a positive integer.
+Similarly if p and q are slowly growing    analytic   functions  of various    types the
+method extends.
+4.   Computations.
+
+We report    here computations     of 7r, log(2),                           logS(2),   7r_ and log(9/10),  based on
+the formulas    (1.1), (2.2), (2.5), (2.6) and                             the identity    log(0/10)  = -LI(1/10),
+respectively.
+
+Each of our computations      employed   quad precision   floating-point     arithmetic  for
+division and sum mod 1 operations.     Quad precision    is supported     from Fortran    on
+the IBM RS6000/590      and the SGI Power Challenge     (R8000), which were employed
+by the authors  in these computations.    We were able to avoid the usage of explicit
+quad precision in the exponentiation   scheme by exploiting      a hardware    feature com-
+mon to these two systems, namely the 106-bit internal registers in the multiply-add
+operation.       This saved considerable   time, because                                   quad        precision     operations    are
+significantly     more expensive  than 64-bit operations.
+
+Computation       of 7r2 and !og2(2) presented   a special challenge,    because    one must
+perform the exponentiation      algorithm  modulo k s instead of k. When n is larger than
+only 213, some terms of the series (2.5) and (2.6) must be computed         with a modulus
+k 2 that is greater  than 226. Squares that appear in the exponentiation      algorithm   will
+then exceed 2 _2, which is the nearly the maximum       precision of IEEE 64-bit floating-
+point numbers.       When n is larger than 226, then squares        in the exponentiation
+algorithm    will exceed 2 TM, which is nearly the limit of quad precision.
+
+This difficulty can be remedied   using a method    which                                         has been employed    for ex-
+ample in searches for Wieferich   primes [10]. Represent                                          the running   value r in the
+exponentiation   algorithm  by the ordered   pair (rl,r2),                                         where r = ra + kr2, and
+where rl and r2 are positive integers less than k. Then                                           one can write
+
+                                   7"2 =    ('1   "-{- _7"2)   2 =    r2   ._   21r.lr2_    "3L r2ks
+
+
+
+When this is.reduced     mod k s, the last term disappears.    The remaining  expression  is
+of the required  ordered pair form, provided     that r_ is first reduced mod k, the carry
+from this reduction     is added to 2firs,   and this sum is also reduced     mod k. Note
+that this scheme can be implemented        with integers of size not exceeding 2k 2. Since
+the computation     of r s mod k s is the key operation     of the binary exponentiation
+algorithm,   this means that ordinary     IEEE 64-bit floating-point     arithmetic  can be
+used to compute      the n-th hexadecimal     digit of r 2 or 1og2(2) for n up to about
+224. For larger n, we still used this basic scheme,       but we employed      the multiply-
+add "trick" mentioned      above to avoid the need for explicit quad precision       in this
+section     of code.
+
+Our results      are given below. The first entry, for example,      gives the 106-th through
+106+ 13-th      hexadecimal   digits of 7rafter the "decimal"   point. In all cases we did the
+calculations      twice -- the second calculation    was similar to the first, except shifted
+back      one position.       Since        this changes          all the arithmetic                    performed,       it is a highly
+rigorous     validity     check.     Thus we believe                 that all the digits               shown       below are correct.
+                       Constant:                      Base:              Position:                           Digits             from      Position:
+
+
+                       7r                             16                 106                                 26C65E52CB4593
+                                                                         107                                 17hF5863EFED8D
+                                                                         10 s                               ECB840E21926EC
+                                                                         10 9                               85895585AO428B
+                                                                         10 t°                              921C73C6838FB2
+
+
+                      log(2)                          16                 10 6                               418489h9406EC9
+                                                                         10 7                               815F479E2B9102
+                                                                         10 8                               E648F40940E13E
+                                                                         10 9                               BIEEF1252297EC
+
+
+                      z2                              16                 10 6                               685554E1228505
+                                                                         10 7                               9862837hD8AABF
+                                                                         10 8                               4861AAF8F861BE
+                                                                         109                                437A2BA4A13591
+
+
+                      log2(2)                     16                     10 6                               2ECTEDB82B2DF7
+                                                                         10 7                               33374B47882832
+                                                                         10 8                               3F55150FIAB3DC
+                                                                         10 9                               8BA7C885CEFCE8
+
+
+                      log(9/lO)                   10                     106                                80174212190900
+                                                                         107                                21093001236414
+                                                                         10 s                               01309302330968
+                                                                         10 9                               44066397959215
+                                                                        101°                                82528693381274
+
+These          computations                    were        done       at NASA             Ames       Research             Center,         using   workstation
+cycles         that         otherwise           would          have      been        idle.
+
+
+5.      Logs          in     base        2.
+
+It is easy            to     compute,            in base             2, the       d-th     binary        digit      of
+
+(5.1)                                                          log(1         -   2 -n)     = L1(1/2").
+
+So it is easy                to     compute            log(m)          for any           integer      m that             can    be     written        as
+
+                                                               (2"'      -       1)(2 _= -     1)...(2           "h -     1)
+(5.2)                                            m :=
+                                                               (2 b, -           1)(2 b_ -     1)...(2           b, -     1)"
+
+In   particular               the       n-th     cyclotomic                  polynomial             evaluated             at    2 is so computable.                    A
+check      shows             that      all primes             less     than        19 are     of this       form.          The       beginning             of this   list
+is:
+
+                                    {2,3,5,7,          11,13,          17,31,43,57,73,127,                        151,205,257}               .
+
+
+                                                                                         10
+Since
+                                                  2 is-1       =7.9.19.73,
+
+and since         7, x/9 and         73 are all on the               above    list we can compute          log(19)        in SC*
+from
+                           log(19)     --- log(218 -          1) - log(7)       -log(9)     - 1og(73).
+
+Note     that     21_ - 1 = 23- 89 so either                 both     1og(23)      and 1og(89)    are in SC* or neither
+is.
+
+
+We would like to thank Carl Pomerance        for showing that an identity     of type (5.2)
+does not exist for 23. This is a consequence      of the fact that each cyclotomic    poly-
+nomial evaluated     at two has a new distinct     prime factor.   We would also like to
+thank    Robert  Harley for pointing   out that 29 and 37 are in _cC* in base 2 via
+consideration   of the Aurefeuillian factors 2 2n-1 -4-2 '_ + 1 and 2 2n-1 -- 2n + 1.
+
+
+6.    Relation         Bounds.
+
+One of the first questions that arises in the wake of the above study is whether there
+exists a scheme of this type to compute      decimal digits of It. At present we know
+of no identity    like (1.2) in base 10. The chances that there is such an identity          are
+dimmed by some numerical           results that we have obtained       using the PSLQ integer
+relation  algorithm      [3, 12]. These computations       establish  (with the usual provisos
+of computer      "proofs")    that there are no identities     (except for the case n = 16) of
+the form
+
+                       al               _         1          a2               a3                  am+l      .
+                   7r= -- +
+                           ao               _:
+                                                 -_   [mfe _ l ÷ mk + 2 ÷ . . . + mk + m j1,
+where n ranges from 2 to 128, where m ranges from 1 to min(n, 32), and where
+the Euclidean    norm of the integer vector (a0, al,...   ,a,_+l)  is 1012 or less. These
+results of course do not have any bearing on the possibility      that there is a formula
+not of this form which permits    computation   of 7r in some non-binary     base.
+
+In fact,    J. P. Buhler         has reported              a proof     that   any identity      for r of the above          form
+must      have     n =     2 K or n = v_ K.                  This     also    does    not   exclude     more      complicated
+formulae         for the   computation            of 7r base 10.
+
+
+7.    Questions.
+
+As mentioned           in the previous           section,         we cannot        at present   compute         decimal    digits
+of _r by our methods   because we know of no identity   like (1.2) in base 10. But it
+seems unlikely that it is fundamentally impossible to do so. This raises the following
+obvious     problem:
+
+1] Find an algorithm   for the n-th decimal digit of 7r in SC*.                                        It is not even       clear
+that r is in SC in base 10 but it ought to be possible to show                                        this.
+
+2] Show         that   7r is in SC in all bases.
+
+3] Are     e and x/_ in SC (SC*)                  in any base?
+
+                                                                     11
+Similarly   the treatment   of log is incomplete:
+
+4] Is log(2)    in SC* in base   10?
+
+5] Is 1og(23)    in SC* in base 2?
+
+
+8.   Acknowledgments.
+
+The authors     wish to acknowledge   the following for their helpful comments:     V.
+Adamchik,    J. Borwein,  J. Buhler, R. Crandall,  H. Ferguson,  T. Hales, R. Harley,
+D. Knuth,   C. Pomerance    and S. Wagon.
+
+
+
+
+                                              12
+                                                                                           REFERENCES
+
+
+
+  1. M.      Abramowitz                     & I.A.        Stegun,              Handbook                 of Mathematical                     Functions,              Dover,         New        York,       NY,
+       1965.
+
+  2.   V.   Adamchik                & S.           Wagon,           Pi:        A     2000-year              search           changes            direction           (preprint).
+
+  3.   A. V. Aho,            J.E.           Hopcroft,            & J.       D. Ullman,                  The      Design             and    Analysis              of Computer                Algorithms,
+       Addison-Wesley,                       Reading,             MA,          1974.
+
+  4.   D.   H. Bailey,             J.       Borwein           and         R.       Girgensohn,                Experimental                      evaluation           of Euler            sums,       Exper-
+       imental       Mathematics                      3 (1994),                17-30.
+
+  5.   J.   Borwein,              & P             Borwein,           Pi        and         the    AGM             -     A      Study         in    Analytic              Number             Theory        and
+       Computational                        Complexity,              Wiley,            New       York,           NY,        1987.
+
+  6.   J. Borwein            & P. Borwein,                     On the               complexity             of familiar              functions              and     numbers,            SIAM        Review
+       30    (1988),         589_601.
+
+  7.   J. Borwein,            P.        Borwein            &: D. H.                Bailey,        Ramanujan,                       modular          equations              and      approximations
+       to pi, Amer.               Math.             Monthly            96       (1989),          201-219.
+
+  8.   R. Brent,            The     parallel              evaluation                of general             arithmetic                 expressions,            J.    Assoc.         Comput.            Mach.
+       21    (1974),         201-206.
+
+  9.   S. Cook,         A     taxonomy                    o] problems                 with       fast       parallel           algorithms,              Information                and       Control        64
+       (1985),       2-22.
+
+10.    R.    Crandall,              K.        Dilcher,           and           C.     Pomerance,                  A         searc'h       for      Wieferich               and        Wilson         primes
+
+       (preprint).
+
+11.    R. Crandall             and           J.     Buhler,          On        the        evaluation              of Euler             sums,        Experimental                   Mathematics                 3,
+       (1995),       275-285.
+
+12.    H. R. P.        Ferguson                & D. H. Bailey,                       Analysis            of PSLQ,                 an integer           relation          algorithm            (preprint).
+
+13.    E. R.      Hansen,               A     Table        of Series                and      Products,            Prentice-Hall,                   Englewood                Cliffs,      N J,     1975.
+
+
+14.    D. E. Knuth,                The        Art     of Computer                     Programming.                      Vol. 2:         Seminumerical                    Algorithms,              Addison-
+       Wesley,         Reading,                MA,        1981.
+
+15.    L. Lewis,            Polylogarithms                       and       Associated                Functions,                North            Holland,           New      York,        1981.
+
+16.    L. Lewin,            Structural               Properties                 of Polylogarithms,                          Amer.         Math.         Soc.,       RI.,     1991.
+
+17.    N.   Nielsen,          Der           Eulersche             Dilogarithmus,                        Halle,         Leipzig,           1909.
+
+18.    S. D. Rabinowitz                       and     S. Wagon,                    A spigot          algorithm               for      pi, Amer.            Math.         Monthly            103      (1995),
+       195-203.
+
+19.    A.   SchSnhage,                  Asymptotically                      fast          algorithms             for        the     numerical              multiplication                 and      division
+       o] polynomials                    with        complex              coe O_cients,              in:      EUROCAM                      (1982)          Marseille,             Springer         Lecture
+       Notes      in Computer                       Science,         vol.          144,      1982,         pp.    3-15.
+
+20.    J. Todd,         A     problem                on    arc      tangent               relations,             MAA          Monthly             56    (1940),          517-528.
+
+21.    H. S. Wilt,            Algorithms                  and       Complexity,                  Prentice              Hall,        Englewood                Cliffs,       N J,     1986.
+
+
+
+
+                                                                                                         13
+BAILEY:           NASA      AMES      RESEARCH             CENTER,           MAIL     STOP      T27A-1,     MOFFETT      FIELD,     CA,    USA
+
+94035-1000           dbailey@nas,              nasa.gov
+
+
+
+
+BORWEIN:           DEPARTMENT             OF     MATHEMATICS            AND       STATISTICS,       SIMON   FRASER    UNIVERSITY,         BURN-
+ABY,      B.C.,     CANADA          VSA        1S6    pborwein@cecm.sfu.ca
+
+
+
+
+PLOUFFE:           DEPARTMENT             OF     MATHEMATICS            AND       STATISTICS,       SIMON   FRASER    UNIVERSITY,         BURN-
+
+ABY,      B.C.,     CANADA          VSA        1S6    pXouffe@cecm.sfu.ca
+
+
+
+
+                                                                             14
+                                   Title:
+
+
+IMAS
+
+                                   Author(s):
+
+
+
+                                   Riviewers:
+                                      have carefully    and thoroughly     reviewed
+                                   this technical   report. I have worked      with the
+                                   author(s)   to ensure clarity of presentation    and
+                                   technical   accuracy.  I take personal responsi-
+                                   bility for the quality _f/this document.
+
+                                   Signed:     _J__/_/_////'_'1'1_              _'_
+
+                                   Name:         //_,'4 __             _'_ j_,/g>//J
+
+    _   /   _   _   _ i_?_i_i_i_
+
+                                   Signed:             _                   _'
+
+
+                                   Name:
+
+After approval,                    Branch      Chief:
+assign NAS
+Report number:
+                                   Approved:     ___       J_   t_a_
+
+
+Date:                              NAS ReportNumber:
+
+                                      Nt - %- Ol(o
+

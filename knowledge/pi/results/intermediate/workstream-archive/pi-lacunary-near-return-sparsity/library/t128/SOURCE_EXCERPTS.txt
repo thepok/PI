@@ -1,0 +1,56 @@
+T128 SOURCE EXCERPT INDEX
+Generated after `pdftotext -layout SOURCE.pdf SOURCE.txt` on 2026-08-10.
+The quotations below are short anchor strings for deterministic lookup; the
+PDF and printed-page locator in SOURCE_PINS.md remain authoritative.
+
+[S1-DB] ugalde-2000.pdf, printed p. 167
+"An Eulerian path on B(b, k) defines a Hamiltonian path in B(b, k + 1)"
+
+[S1-NAME] ugalde-2000.pdf, printed p. 168
+"A b-adic Eulerian number contains in its b-adic expansion all the b-adic blocks of all lengths"
+
+[S1-EXT] ugalde-2000.pdf, printed pp. 171-172
+"Extension procedure for the de Bruijn digraphs."
+"Start with the block"
+
+[S2-DISC] levin-1999.pdf, printed p. 99, formula (1)
+"is called the discrepancy"
+
+[S2-THM] levin-1999.pdf, printed pp. 100-101
+"Theorem 2. Let"
+"Pascal's triangle mod 2"
+
+[S2-FINITE] levin-1999.pdf, printed pp. 109-110
+"Corollary 2. Let"
+"End of the proof of Theorem 2."
+
+[S3-NESTED] becher-carton-1805.03713v1.pdf, preprint p. 2
+"Theorem 1. For each base b the number x defined by Levin"
+"nested perfect necklaces"
+
+[S4-FINITE] hofer-larcher-2211.04212v1.pdf, preprint p. 3
+"Theorem 2. Let b"
+"Then the star discrepancy"
+
+[S5-POINT] aistleitner-becher-scheerer-slaman-1707.02628v1.pdf, preprint p. 2
+"Theorem 1. There is an absolutely normal number x"
+"Cb = 3433"
+
+[S5-ALGORITHM] aistleitner-becher-scheerer-slaman-1707.02628v1.pdf, preprint pp. 13-14
+"The real number determined by our construction is the unique element"
+"The interval"
+"leftmost interval"
+
+[S6-MORPHISM] balkova-1107.5033v1.pdf, preprint p. 1
+"The generalized Thue-Morse word"
+"fixed point starting in 0 of the morphism"
+
+[S6-FREQ] balkova-1107.5033v1.pdf, preprint p. 3 and Section 4
+"Theorem 2.4."
+"Example 4.2."
+
+[S7-COMPLEXITY] goc-schaeffer-shallit-1206.5352v1.pdf, preprint pp. 1-4
+"The subword complexity function"
+"consider the Thue-Morse sequence"
+"it is well-known that rho_t(n)-rho_t(n-1) <= 4" (notation normalized)
+"at most 5"

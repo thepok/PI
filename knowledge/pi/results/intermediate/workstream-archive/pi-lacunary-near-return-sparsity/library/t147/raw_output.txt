@@ -1,0 +1,16 @@
+T147 finite replay: experiment only
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+t140_report_sha256=ff05177ccaaebfd56d41467f2f74dce085aae3b855be95f6d1c458526541f35c
+t144_report_sha256=96c685692710b05035208ca459e4536f992bef2a69c030cc318625c5de00da7a
+small_words_checked=504
+ordered_diagonal_depth_checks=1512
+counterfamilies_checked=3
+counterfamily_words_checked=33808
+k=8000;sum_inv_sqrt=52.407827763813;phi_over_N=0.111803398875;cost_over_N=0.036407067001
+k=8001;sum_inv_sqrt=52.403196016694;phi_over_N=0.111810386369;cost_over_N=0.036402516971
+k=10000;sum_inv_sqrt=58.590714906687;phi_over_N=0.125000000000;cost_over_N=0.032563470670
+k=16000;sum_inv_sqrt=74.106317668149;phi_over_N=0.158113883008;cost_over_N=0.025743683960
+terminal=exact_infinite_counterfamily
+verdict=close
+pi_transfer=unproved_not_asserted
+fixed_pi_claim=none;A1_claim=none;C1_claim=none;C2_claim=none

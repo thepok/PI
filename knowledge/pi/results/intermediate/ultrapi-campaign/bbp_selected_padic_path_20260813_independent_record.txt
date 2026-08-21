@@ -1,0 +1,22 @@
+status=PASS
+analytic_claim_label=proof sketch
+bounded_claim_label=experiment
+symbolic_endpoint_regression_checks=80
+pole_shell_totals_mod_9=8,8,0,3
+exact_fraction_defects_mod_9=1,1,1
+epoch_2=a2,hidden2,lift3
+epoch_4=a29,hidden8,lift0
+epoch_6=a29,hidden8,lift0
+epoch_8=a29,hidden3,lift4
+epoch_10=a26273,hidden2,lift3
+epoch_12=a203420,hidden2,lift3
+epoch_14=a1797743,hidden0,lift1
+visible_state_collision=a29_next_lifts_0_0_4
+predicted_a16=6580712
+affine_order_one_laws_mod_9=0
+affine_order_two_laws_mod_9=0
+asserts_all_finite_state_encodings_impossible=false
+asserts_exceptional_path_decay=false
+asserts_v1=false
+exact_record_sha256=ab6b5f4a7d4d8ffd38e59377c120b17581b2592f1530eaad7f593a287cfeae4b
+elapsed=37.36 maxrss_kib=17920

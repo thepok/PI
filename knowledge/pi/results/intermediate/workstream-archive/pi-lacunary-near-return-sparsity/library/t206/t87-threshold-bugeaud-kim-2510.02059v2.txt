@@ -1,0 +1,736 @@
+                                             ON THE b-ARY EXPANSION OF A REAL NUMBER WHOSE
+                                                  IRRATIONALITY EXPONENT IS CLOSE TO 2
+
+
+                                                                     YANN BUGEAUD AND DONG HAN KIM
+arXiv:2510.02059v2 [math.NT] 20 Apr 2026
+
+
+
+
+                                                    Abstract. Let b ≥ 2 be an integer and ξ an irrational real number. We
+                                                    establishes that, if the irrationality exponent of ξ is less than 2.324 . . ., then
+                                                    the b-ary expansion of ξ cannot be ‘too simple’, in a suitable sense. This
+                                                    improves the results of our previous paper [Ann. Sc. Norm. Super. Pisa Cl.
+                                                    Sci., 2017].
+
+
+
+
+                                                                                 1. Introduction
+                                              A central question in Diophantine approximation is to determine how well a
+                                           given irrational real number ξ can be approximated by rational numbers.
+                                           Definition 1.1. The irrationality exponent µ(ξ) of an irrational real number ξ is
+                                           the supremum of the real numbers µ such that the inequality
+                                                                                 p     1
+                                                                             ξ−    < µ
+                                                                                 q    q
+                                           has infinitely many solutions in rational numbers p/q.
+                                              It follows from the theory of continued fractions that every convergent p/q of ξ
+                                           satisfies |ξ − p/q| < 1/q 2 . Consequently, we get the lower bound µ(ξ) ≥ 2. In the
+                                           opposite direction, an easy covering argument, usually called the Cantelli lemma,
+                                           shows that we have µ(ξ) ≤ 2 (and thus µ(ξ) = 2) for almost all ξ, with respect to
+                                           the Lebesgue measure. However, to determine the irrationality exponent of a given
+                                           real number is a very difficult problem, unless we know explicitly its continued
+                                           fraction expansion. For example, the irrationality exponent of e is equal to 2. By
+                                           Roth’s Theorem, the irrationality exponent of any algebraic irrational real number
+                                           is also equal to 2. Classical numbers known to have their irrationality exponent
+                                           equal to 2 include non-zero rational powers of e, badly approximable numbers,
+                                           tan a1 , where a is any positive integer, etc. Further examples are given in [1, 7].
+                                           Note that the irrationality exponents of classical numbers like π, ζ(2), ζ(3), log(2)
+                                           remain unknown. At present, the best known estimate for π is µ(π) ≤ 7.10321,
+                                           established in [14].
+                                              Throughout the present paper, b always denotes an integer greater than or equal
+                                           to 2 and ξ a real number. There exists a unique infinite sequence (aj )j≥1 of integers
+                                           from {0, 1, . . . , b − 1}, called the b-ary expansion of ξ, such that
+                                                                                            X aj
+                                           (1.1)                                  ξ = ⌊ξ⌋ +
+                                                                                                bj
+                                                                                                j≥1
+
+                                              2020 Mathematics Subject Classification. 11A63, 11J82, 68R15.
+                                              Key words and phrases. rational approximation, exponent of approximation, combinatorics on
+                                           words.
+                                                                                            1
+2                        YANN BUGEAUD AND DONG HAN KIM
+
+
+and aj ̸= b − 1 for infinitely many indices j. Here, ⌊·⌋ denotes the integer part
+function. Clearly, the sequence (aj )j≥1 is ultimately periodic if, and only if, ξ is
+rational.
+   Let us introduce some terminology from combinatorics on words. Let A be
+a finite set called an alphabet and denote by |A| its cardinality. A word over
+A is a finite or infinite sequence of elements of A. For a (finite or infinite) word
+x = x1 x2 . . . written over A, let n 7→ p(n, x) denote its subword complexity function
+which counts the number of different subwords of length n occurring in x, that is,
+                p(n, x) = Card{xj+1 xj+2 . . . xj+n : j ≥ 0},   n ≥ 1.
+Clearly, we have
+                             1 ≤ p(n, x) ≤ |A|n , n ≥ 1.
+If x is ultimately periodic, then there exists an integer C such that p(n, x) ≤ C for
+n ≥ 1. Otherwise, we have
+(1.2)                    p(n + 1, x) ≥ p(n, x) + 1,    n ≥ 1,
+thus p(n, x) ≥ n + 1 for n ≥ 1. There exist uncountably many infinite words s over
+{0, 1} such that p(n, s) = n + 1 for n ≥ 1. These words are called Sturmian words.
+Classical references on combinatorics on words and on Sturmian sequences include
+[12, 13, 4]. The Fibonacci word f defined in Section 5 is an emblematic example of
+a Sturmian word.
+   A natural way to measure the complexity of the real number ξ written in base b
+as in (1.1) is to count the number of distinct blocks of given length in the infinite
+word a = a1 a2 . . .. We set
+                            p(n, ξ, b) = p(n, a),   n ≥ 1.
+   A real number ξ is normal to base b if, for every k ≥ 1, every block of k digits
+over {0, 1, . . . b − 1} occurs in the b-ary expansion of ξ with the same frequency
+1/bk . In particular, if ξ is normal to base b, then p(n, ξ, b) = bn for every positive
+integer n. To establish a good lower bound for p(n, ξ, b) is a first step towards the
+confirmation that ξ is normal to base b. This point of view has been taken by
+Ferenczi and Mauduit [10], who showed that the b-ary expansion of an irrational
+algebraic number cannot be too simple.
+Theorem 1.2 (Ferenczi and Mauduit, 1997). Let ξ be a real number. If the se-
+quence of b-ary digits of ξ is a Sturmian sequence, then ξ is transcendental.
+   It has been observed in [1] that the statements on the combinatorial structure
+of Sturmian words established in [5] and [3] almost immediately imply that the
+irrationality exponent of any real number, whose sequence of digits in some integer
+base is Sturmian, is greater than 2. In view of Roth’s Theorem mentioned above,
+this extends Theorem 1.2. The main result of [7], reproduced below, is much
+stronger and establishes a connection between the irrationality exponent of a real
+number and the complexity of its b-ary expansion. It asserts that any irrational real
+number, whose expansion in some integer base has sufficiently small complexity, has
+an exponent of irrationality larger than 2.
+Theorem 1.3 (Bugeaud and Kim, 2017). Let b ≥ 2 be an integer and ξ an irra-
+tional real number. If µ denotes the irrationality exponent of ξ, then
+                           p(n, ξ, b)      1 − 2µ(µ − 1)(µ − 2)
+                   lim inf            ≥1+                       .
+                   n→+∞       n                  µ3 (µ − 1)
+                   ON THE b-ARY EXPANSION OF A REAL NUMBER                             3
+
+
+and
+                         p(n, ξ, b)     1 − 2µ(µ − 1)(µ − 2)
+                   lim sup          ≥1+                      .
+                    n→+∞    n            3µ3 − 6µ2 + 4µ − 1
+   For an algebraic irrational real number ξ, Theorem 1.3 gives a much weaker
+result than the main theorem of [2], which asserts that, for any integer b ≥ 2, we
+have
+                                     p(n, ξ, b)
+                               lim              = +∞;
+                              n→+∞        n
+see also [6].
+   The purpose of the present work is to show how Theorem 1.3 can be strengthened
+by means of a more precise combinatorial study than that given in [7]. We establish
+the following result.
+Theorem 1.4. Let b ≥ 2 be an integer and ξ an irrational real number. If µ
+denotes the irrationality exponent of ξ, then
+                       p(n, ξ, b)       −µ3 + 2µ2 + µ − 1
+(1.3)             lim inf         ≥1+ 4
+                  n→+∞    n          µ − 2µ3 + 3µ2 − 3µ + 1
+and
+                                             p
+                             p(n, ξ, b)   µ + 4(µ − 1)3 + µ2
+(1.4)                lim sup            ≥                    .
+                      n→+∞      n             2µ(µ − 1)
+In particular, every irrational real number ξ whose irrationality exponent is equal
+to 2 satisfies
+                                                                   √
+          p(n, ξ, b)  8                           p(n, ξ, b)   1+ 2
+  lim inf            ≥ = 1.1428 . . . and lim sup            ≥        = 1.207 . . .
+  n→+∞         n      7                    n→+∞      n            2
+   Theorem 1.4 improves [7, Theorem 1.5], where, for µ = 2, we got the lower
+bounds 9/8 = 1.125 and 8/7, respectively. Inequality (1.3) gives a non-trivial
+result on the b-ary expansion of any real number ξ whose irrationality exponent
+satisfies
+                             2 ≤ µ(ξ) < µ1 := 2.246 . . . ,
+where µ1 is the root greater than 2 of the polynomial X 3 − 2X 2 − X + 1. Inequality
+(1.4) gives a non-trivial result on the b-ary expansion of any real number ξ whose
+irrationality exponent satisfies
+                             2 ≤ µ(ξ) < µ2 := 2.324 . . . ,
+where µ2 is the root greater than 2 of the polynomial X(X − 1)(X − 2) − 1. The
+ranges are larger than the one in [7], where µ(ξ) has to be smaller than 2.19 . . .
+(which is the root greater than 2 of the polynomial 2X(X − 1)(X − 2) − 1). Thus,
+Theorem 1.4 applies to a slightly wider class of classical numbers than Theorem
+1.3, which includes in particular the transcendental number log(1 + a1 ), where a is
+a sufficiently large positive integer. More examples are given in [7, Section 2]. As
+                                                          k
+noted in [7], the badly approximable number k≥0 2−2 shows that Theorem 1.4
+                                                P
+is sharp up to the values of the numerical constants.
+   A key ingredient for the proof of Theorems 1.3 and 1.4 is the study of a complex-
+ity function defined in terms of the smallest return time of a factor of an infinite
+word. For an infinite word x = x1 x2 . . . and an integer n ≥ 1, set
+r(n, x) = min{m ≥ 1 : xi . . . xi+n−1 = xm−n+1 . . . xm for some i in {1, . . . , m−n}}.
+4                       YANN BUGEAUD AND DONG HAN KIM
+
+
+Said differently, r(n, x) denotes the length of the smallest prefix of x containing
+two (possibly overlapping) occurrences of some word of length n.
+Definition 1.5. For an infinite word x which is not ultimately periodic, we set
+                               r(n, x)                            r(n, x)
+            rep(x) = lim inf             and   Rep(x) = lim sup           .
+                      n→+∞       n                       n→+∞       n
+   A key ingredient in the proof of Theorem 1.3 is an improvement of the trivial
+inequality Rep(x) ≥ rep(x). Namely, we established in [7] that
+                                                    1
+(1.5)               Rep(x) ≥ rep(x) +                           .
+                                         1 + rep(x) + (rep(x))2
+We improve this result in Section 3, where we establish the following lower bound.
+Proposition 1.6. For an infinite word x which is not ultimately periodic, we have
+                               p
+                 rep(x) + 1      (rep(x))2 (rep(x) − 1)2 + 4(rep(x) − 1)
+      Rep(x) ≥              +                                            .
+                     2                          2 rep(x)
+   Our paper is organized as follows. We gather several auxiliary combinatorial
+lemmas in Section 2. Then, we establish Proposition 1.6 in Section 3 and complete
+the proof of Theorem 1.4 in the subsequent section. We conclude the paper by
+some additional remarks.
+
+                     2. Auxiliary combinatorial lemmas
+   The function n 7→ r(n, x) defined in Section 1 has been introduced and studied
+in [8], where the following two assertions are established.
+Theorem 2.1. For every infinite word x which is not ultimately periodic, there
+exist arbitrarily large integers n such that r(n, x) ≥ 2n + 1. Consequently, we have
+Rep(x) ≥ 2. The only infinite words x such that r(n, x) ≤ 2n + 1 for all n ≥ 1 and
+which are not ultimately periodic are the Sturmian words.
+   Lemma 3.1 of [7], reproduced below, shows how the functions n 7→ p(n, x) and
+n 7→ r(n, x) are related.
+Lemma 2.2. For any infinite word x and any positive integer n, we have
+                                p(n, x) ≥ r(n, x) − n.
+   We remark that any infinite word x such that p(n, x)/n tends to 1 as n tends to
+infinity satisfies Rep(x) = 2.
+   For a word U = u1 . . . un composed of n letters, set
+              Λ(U ) = {1 ≤ k < n : ui = ui+k for all 1 ≤ i ≤ n − k}.
+An element of Λ(U ) is called a period of U . A finite word U is called periodic if
+Λ(U ) is not empty. We stress that a period of a word of length n may not be a
+divisor of n. The next lemma is a classical tool in combinatorics on words.
+Lemma 2.3 (Fine and Wilf Theorem [11]). Let U = u1 . . . un and h, k be in Λ(U ).
+If n ≥ h + k − gcd(h, k), then U is periodic of period gcd(h, k).
+  We conclude this section with an easy lemma, for which some notation is re-
+quired.
+                    ON THE b-ARY EXPANSION OF A REAL NUMBER                             5
+
+
+Notation 2.4. For positive integers i, j, we write xji for the factor xi xi+1 . . . xj of
+the word x = x1 x2 . . . when i ≤ j and, by convention, xji is the empty word when
+i > j.
+Lemma 2.5. Let x be an infinite word and m, n be integers with m > n ≥ 1. If λ
+is in Λ(xm
+         n ), then r(m − n + 1 − λ, x) ≤ m.
+
+Proof. The assumption implies that xm−λ
+                                    n     = xm
+                                             n+λ . Consequently, a same word of
+length m − n + 1 − λ has two occurrences in xm            m
+                                             n , thus in x1 .                □
+
+                          3. Proof of Proposition 1.6
+   Let x be an infinite word which is not ultimately periodic. For simplicity, we
+often write r(·) for r(·, x). Set σ = Rep(x) and ρ = rep(x). Let ε be an arbitrarily
+small positive real number. We have
+                          r(n, x)
+                ρ−ε≤              ≤ σ + ε, for all sufficiently large n.
+                              n
+From Theorem 2.1, we note that Rep(x) ≥ 2. Therefore, we assume that ρ ≥ ρ2 ,
+where ρ2 := 1.754 . . . is the real root of X(X − 1)2 − 1. This is equivalent to
+                                   p
+                          ρ+1        ρ2 (ρ − 1)2 + 4(ρ − 1)
+                                +                           ≥ 2.
+                            2                 2ρ
+Since                                       p
+                            1      ρ+1        ρ2 (ρ − 1)2 + 4(ρ − 1)
+                    ρ+          >        +                           ,
+                          1+ρ        2                 2ρ
+we also assume that
+                                                 1
+(3.1)                                 σ <ρ+          .
+                                               1+ρ
+Otherwise, Proposition 1.6 holds immediately. We will see in Section 5 that the
+inequality σ ≥ ρ + 1/(1 + ρ) does not hold for all x. This justifies the assumption
+(3.1).
+   Let (nj )j≥1 be the increasing sequence composed of all the jumps of the function
+n 7→ r(n, x), that is, of all the integers n such that r(n + 1) > r(n) + 1. Between
+two consecutive jumps, the function n 7→ r(n, x) has slope 1. Consequently, for
+j ≥ 2, we have
+            r(nj−1 + h) = r(nj−1 + 1) + h − 1,         h = 1, . . . , nj − nj−1 ,
+thus, in particular,
+(3.2)                   r(nj−1 + 1) = r(nj ) − nj + nj−1 + 1.
+Observe that
+                                r(nj , x)                     r(nj + 1, x)
+            rep(x) = lim inf              ,   Rep(x) = lim sup             .
+                       j→+∞       nj                     j→+∞   nj + 1
+We further define
+                                                r(nj + 1, x)
+(3.3)                          β(x) = lim inf                .
+                                        j→+∞      nj + 1
+   We will bound Rep(x) and β(x) from below. To this end, we take a large integer
+n in the sequence (nj )j≥1 , that is, such that r(n + 1) > r(n) + 1, and we bound
+r(n + 1)/(n + 1) from below.
+6                           YANN BUGEAUD AND DONG HAN KIM
+
+
+   Let n be an integer such that r(n + 1) > r(n) + 1. Let λ, λ′ denote the positive
+integers defined by
+                r(n)               r(n)−λ              r(n+1)           r(n+1)−λ′
+               xr(n)−n+1 = xr(n)−n+1−λ ,            xr(n+1)−n = xr(n+1)−n−λ′ .
+    It follows from (3.1) that
+                                                                n
+(3.4)                                 r(n + 1) − r(n) ≤
+                                                                2
+since
+                                                                           
+                                                                     1
+         r(n + 1) − r(n) ≤ (σ − ρ + 2ε)n + σ + ε <                      + 2ε n + σ + ε.
+                                                                    1+ρ
+    Observe that
+                          r(n)                                  r(n+1)
+                                                    λ′ = min Λ xr(n+1)−n−λ′ .
+                                                                          
+               λ = min Λ xr(n)−n+1−λ ,
+Set
+                            r(n)              r(n)−λ                r(n)−λ′
+                   Vn = xr(n+1)−n = xr(n+1)−n−λ = xr(n+1)−n−λ′ .
+The length vn of Vn satisfies
+(3.5)                       vn = r(n) − r(n + 1) + n + 1 < n.
+Note that the assumption (3.1) guarantees that
+                                         ρ
+                                 vn ≥       n.
+                                       1+ρ
+We have
+(3.6)                                          λ ̸= λ′ ,
+since otherwise we would get from (3.4) that xr(n)−λ+1 = xr(n)+1 , in contradiction
+to the definition of r(n).
+                                             r(n)−min{λ,λ′ }
+   Since there are two occurrences of Vn in x1               , we have
+(3.7)                            r(n) − λ ≥ r(vn ), if λ < λ′ ,
+(3.8)                            r(n) − λ′ ≥ r(vn ), if λ > λ′ .
+We distinguish five cases.
+• Assume that λ < λ′ . If λ ≥ vn , then
+      r(vn ) ≤ r(n) − λ ≤ r(n) − vn = r(n + 1) − n − 1 ≤ (σ + ε)(n + 1) − n − 1
+and                                                                   
+        r(vn ) ≥ (ρ − ε)vn ≥ (ρ − ε) (ρ − ε)n − (σ + ε)(n + 1) + n + 1 .
+Consequently, we get
+             (ρ − ε)2 n ≤ (σ + ε)(ρ + 1 − ε)(n + 1) − (ρ + 1 − ε)(n + 1),
+a contradiction with (3.1) if ε is small enough. Thus, we have vn > λ. Furthermore,
+                       r(n)−λ′              r(n)                              r(n)
+             Vn = xr(n+1)−n−λ′ = xr(n+1)−n is a subword of xr(n)−n+1 ,
+                r(n)−λ′    
+thus λ is in Λ xr(n+1)−n−λ′ . It then follows from Lemma 2.5 that
+(3.9)                                r(n) − λ′ ≥ r(vn − λ).
+• Assume that λ > λ′ and r(n + 1) − λ′ < r(n) + 1. If λ′ ≥ n, then
+                                 r(vn ) ≤ r(n) − λ′ ≤ r(n) − n.
+                       ON THE b-ARY EXPANSION OF A REAL NUMBER                           7
+
+
+Arguing as above, we get as well a contradiction with (3.1). Thus, we have n > λ′ .
+Furthermore,
+                 r(n)−λ             r(n)                       r(n+1)
+              xr(n)−n+1−λ = xr(n)−n+1 is a subword of xr(n+1)−n−λ′ ,
+                  r(n)−λ
+thus λ′ is in Λ xr(n)−n+1−λ . It then follows from Lemma 2.5 that
+                           
+
+(3.10)                              r(n) − λ ≥ r(n − λ′ ).
+
+• Assume that λ > λ′ and r(n + 1) − λ′ ≥ r(n) + 1. Then,
+              r(n)−λ                r(n)                            r(n+1)
+            xr(n+1)−n−λ′ −λ = xr(n+1)−n−λ′ is a subword of xr(n+1)−n−λ′ ,
+                  r(n)−λ
+thus λ′ is in Λ xr(n+1)−n−λ′ −λ . It then follows from Lemma 2.5 that
+                                
+
+(3.11)                                 r(n) − λ ≥ r(vn ).
+                                                             r(n)
+• Assume that r(n + 1) − λ′ ≤ r(n) − λ + 1. Then xr(n)−n+1−λ is a subword of
+ r(n+1)                         r(n)                               r(n)
+xr(n+1)−n−λ′ , thus λ′ is in Λ xr(n)−n+1−λ . Since λ is also in Λ xr(n)−n+1−λ , we
+                                                                            
+
+deduce from Lemma 2.3 that
+(3.12)                          λ′ > n + λ − λ + 1 = n + 1.
+                                                             r(n)
+• Assume that r(n + 1) − λ′ > r(n) − λ + 1. Then xr(n+1)−n−λ′ is a subword of
+ r(n)                         r(n)       
+xr(n)−n+1−λ , thus λ is in Λ xr(n)−n+1−λ′ and we see that
+                                        r(n)
+                             λ, λ′ ∈ Λ xr(n+1)−n−λ′ .
+                                                   
+
+We deduce from Lemma 2.3 that
+                                     λ′ > vn + λ′ − λ + 1,
+that is,
+(3.13)                                     λ > vn + 1.
+
+   These five cases can be summarized in the following four cases:
+• Case (i): r(n + 1) − λ′ ≤ r(n) − λ + 1 (in this case we have λ < λ′ ).
+   We have (3.7), (3.9), (3.12), that is,
+           r(n) − λ ≥ (ρ − ε)vn ,      r(n) − λ′ ≥ (ρ − ε)(vn − λ),     λ′ > n + 1.
+Consequently,
+               n + 1 < λ′ ≤ r(n) − (ρ − ε)vn + (ρ − ε)λ
+                            ≤ r(n) − (ρ − ε)vn + (ρ − ε)r(n) − (ρ − ε)2 vn ,
+thus
+                       n + 1 < (1 + ρ − ε)r(n) − (ρ − ε)(1 + ρ − ε)vn .
+Combining this with
+           (ρ − ε)(1 + ρ − ε)r(n + 1) = (r(n) + n + 1 − vn )(ρ − ε)(1 + ρ − ε),
+given by (3.5), we get
+(ρ − ε)(1 + ρ − ε)r(n + 1) > (n + 1)(1 + (ρ − ε)(1 + ρ − ε)) + r(n)(1 + ρ − ε)(ρ − 1 − ε),
+8                         YANN BUGEAUD AND DONG HAN KIM
+
+
+thus,
+                r(n + 1)             1           r(n) ρ − 1 − ε
+(3.14)                   >1+                   +      ·         .
+                 n+1         (ρ − ε)(1 + ρ − ε) n + 1   ρ−ε
+By letting ε tend to 0, we obtain
+                                               1
+                                   σ−ρ≥              .
+                                            ρ(ρ + 1)
+• Case (ii): r(n) − λ + 1 < r(n + 1) − λ′ and λ < λ′ .
+   We have (3.7), (3.13). We get
+                          r(n) − λ ≥ (ρ − ε)vn ,   λ > vn + 1.
+Consequently,
+                               (1 + ρ − ε)vn < r(n) − 1,
+thus, by (3.5), we obtain
+             (1 + ρ − ε)r(n + 1) > (1 + ρ − ε)(r(n) + n + 1) − r(n) + 1
+and
+                            r(n + 1)     r(n)   ρ−ε
+(3.15)                               >1+      ·     .
+                             n+1         n+1 1+ρ−ε
+This gives eventually
+                                              1
+                                    σ−ρ≥         .
+                                             ρ+1
+• Case (iii): r(n + 1) − λ′ < r(n) + 1 and λ > λ′ .
+   We have (3.8), (3.10), (3.13), that is,
+         r(n) − λ′ ≥ (ρ − ε)vn ,    r(n) − λ ≥ (ρ − ε)(n − λ′ ),   λ > vn + 1.
+Consequently,
+vn + 1 < λ ≤ r(n) − (ρ − ε)n + (ρ − ε)λ′ ≤ r(n) − (ρ − ε)n + (ρ − ε)r(n) − (ρ − ε)2 vn ,
+thus
+                (1 + (ρ − ε)2 )vn + (ρ − ε)n + 1 < (1 + ρ − ε)r(n).
+By using by (3.5), this implies
+(1 + (ρ − ε)2 )r(n + 1) > (1 + (ρ − ε)2 )(r(n) + n + 1) + (ρ − ε)n − (1 + ρ − ε)r(n),
+thus
+             r(n + 1)       n      ρ−ε         r(n) (ρ − ε)2 − ρ + ε
+(3.16)                >1+      ·           2
+                                             +     ·                 .
+              n+1         n + 1 1 + (ρ − ε)    n+1    1 + (ρ − ε)2
+This gives eventually
+                                               1
+                                    σ−ρ≥              .
+                                             ρ2 + 1
+• Case (iv): r(n + 1) − λ′ ≥ r(n) + 1 and λ > λ′ .
+   We have (3.11), (3.13), that is,
+                          r(n) − λ ≥ (ρ − ε)vn ,   λ > vn + 1.
+As in Case (ii), we get
+                                              1
+                                    σ−ρ≥         .
+                                             ρ+1
+                   ON THE b-ARY EXPANSION OF A REAL NUMBER                            9
+
+
+  To summarize, we have established that
+                               1
+                        
+                        
+                                    , in Case (i),
+                         1 + 1)
+                           ρ(ρ
+                        
+                        
+                        
+                σ−ρ≥               ,   in Case (iii),
+                          ρ2 + 1
+                             1
+                        
+                        
+                                 ,     in Cases (ii) and (iv).
+                        
+                        
+                        
+                           ρ+1
+This improves (1.5), but we will do slightly better below. It may be tempting to
+conjecture that Case (ii) or Case (iv) occurs infinitely often, but the discussion in
+Section 5 shows that this is not true in whole generality.
+   But before going further, let us observe that, by (3.14), (3.15), and (3.16), we
+get
+                                                  1
+(3.17)                           β(x) ≥ ρ +             .
+                                               ρ(ρ + 1)
+  For j ≥ 1, let λj be the positive integer such that
+                             r(n )            r(n )−λ
+                           xr(njj )−nj +1 = xr(njj )−njj +1−λj .
+By (3.6), there exist infinitely many integers j such that λj+1 > λj . Hence, there
+are infinitely many integers n for which we are in Case (i) or in Case (ii).
+   Therefore, Case (i) happens infinitely often and we consider now the subsequent
+jump. This means that we take integers n and n + k such that
+ r(n + 1) > r(n) + 1, r(n + k + 1) > r(n + k) + 1, r(n + k) = r(n + 1) + k − 1.
+This implies that r(m + 1) = r(m) + 1 for m = n + 1, . . . , n + k − 1. Let λ, λ′ , λ′′
+be the integers satisfying
+               r(n)          r(n)−λ             r(n+1)             r(n+1)−λ′
+              xr(n)−n+1 = xr(n)−n+1−λ ,       xr(n+1)−n = xr(n+1)−n−λ′ ,
+                         r(n+k+1)             r(n+k+1)−λ′′
+                        xr(n+k+1)−n−k = xr(n+k+1)−n−k−λ′′ .
+  Since r(n + 1) + k − 1 = r(n + k) ≥ (ρ − ε)(n + k), we get
+                                 r(n + 1) − (ρ − ε)n − 1
+(3.18)                      k≤                           .
+                                        ρ−ε−1
+By letting ε tend to 0, this gives
+                                           σ−ρ
+(3.19)                                k≤       n.
+                                           ρ−1
+  Since we are in Case (i), we get (3.12), that is,
+(3.20)                                λ′ > n + 1.
+For the subsequent jump, we are in one of the cases (i), (ii), (iii), or (iv). Since
+Cases (ii) and (iv) can occur only finitely often, we have only to consider Cases (i)
+and (iii).
+• Case (i) for the subsequent jump: r(n + k + 1) − λ′′ ≤ r(n + k) − λ′ + 1 (in this
+case we have λ′ < λ′′ ).
+   Then, by (3.7) we have
+   r(n + k) − λ′ ≥ (ρ − ε)vn+k = (ρ − ε)(r(n + k) − r(n + k + 1) + n + k + 1),
+10                        YANN BUGEAUD AND DONG HAN KIM
+
+
+thus, by (3.20),
+
+      (ρ − ε)r(n + k + 1) ≥ (ρ − ε − 1)r(n + k) + (ρ − ε)(n + k + 1) + λ′
+                         > (ρ − ε)(ρ − ε − 1)(n + k) + (ρ − ε)(n + k + 1) + n + 1
+                         = (ρ − ε)2 (n + k) + ρ − ε + n + 1.
+
+Combined with (3.19), this gives
+              r(n + k + 1)   (ρ − ε)(n + k) + 1         n+1
+                           >                    +
+               n+k+1             n+k+1            (ρ − ε)(n + k + 1)
+                             (ρ − ε)(n + k) + 1            n+1
+                           ≥                    +                        .
+                                 n+k+1            (ρ − ε)(n + σ−ρ
+                                                              ρ−1 n + 1)
+
+By letting ε tend to 0, we get
+                                             ρ−1
+                                   σ ≥ρ+             .
+                                            ρ(σ − 1)
+
+• Case (iii) for the subsequent jump: r(n + k + 1) − λ′′ < r(n + k) + 1 and λ′ > λ′′ .
+     Then, by (3.8) and (3.10) we have
+                                                             λ′   r(n + k)
+               r(n + k) − (ρ − ε)vn+k ≥ λ′′ ≥ n + k +           −          .
+                                                            ρ−ε     ρ−ε
+Instead of the lower bound λ′ > vn+k + 1, we use (3.20) and obtain
+
+     (ρ − ε)r(n + k) − (ρ − ε)2 (r(n + k) − r(n + k + 1) + n + k + 1)
+                                               > (ρ − ε)(n + k) + n + 1 − r(n + k).
+
+Letting ε tend to 0, this gives
+
+         ρ2 r(n + k + 1) ≥ (ρ2 − ρ − 1)r(n + k) + ρ(ρ + 1)(n + k) + n + 1 + ρ2 .
+
+By dividing both members of the inequality by n+k +1, using (3.19), we eventually
+arrive at
+                                          ρ−1
+                              σ ≥ρ+ 2            .
+                                       ρ (σ − 1)
+
+
+     Consequently, we have shown that, in every case, we have
+                                             ρ−1
+                                  σ ≥ρ+                 .
+                                           ρ2 (σ − 1)
+This proves Proposition 1.6. This can be rewritten as
+                                   p
+                           ρ+1       ρ2 (ρ − 1)2 + 4(ρ − 1)
+(3.21)                σ≥        +                           .
+                             2                2ρ
+A rapid calculation shows that the right hand side of (3.21) is larger than ρ +
+1/(ρ2 + 1) for ρ ≥ ρ2 .
+                     ON THE b-ARY EXPANSION OF A REAL NUMBER                           11
+
+
+                              4. Proof of Theorem 1.4
+   Let ε > 0 be a given (small) real number. Set σ = Rep(x), ρ = rep(x) as before.
+Then we have
+                        r(n, x)
+               ρ−ε≤             ≤ σ + ε, for all sufficiently large n.
+                           n
+Observe that, by definition of the sequence (nj )j≥1 composed of all the jumps of
+the function n 7→ r(n, x), we have (3.2), that is,
+              r(nj+1 , x) = r(nj + 1, x) + nj+1 − nj − 1 ≥ (ρ − ε)nj+1 .
+Consequently,
+                                      r(nj + 1, x) − nj − 1
+(4.1)                        nj+1 ≤                         .
+                                            ρ−1−ε
+Let n be an integer with nj + 1 ≤ n ≤ nj+1 . By (1.2) and Lemma 2.2 we have
+         p(n, x) ≥ p(nj + 1, x) + n − nj − 1 ≥ r(nj + 1, x) + n − 2nj − 2,
+thus
+        p(n, x)     r(nj + 1, x) − 2nj − 2     r(nj + 1, x) − 2nj − 2
+                ≥1+                        ≥1+                        .
+          n                    n                       nj+1
+Combined with (4.1), this gives
+                     p(n, x)                   r(nj + 1, x) − 2nj − 2
+                             ≥ 1 + (ρ − 1 − ε)
+                       n                        r(nj + 1, x) − nj − 1
+                                                          1
+                             ≥ ρ − ε − (ρ − 1 − ε) r(n +1,x)
+                                                      j
+                                                     nj +1   −1
+                                                         1
+                            ≥ ρ − ε − (ρ − 1 − ε)                ,
+                                                    β(x) − ε − 1
+for all sufficiently large j, where β(x) is defined in (3.3). Since ε can be taken
+arbitrarily small, we deduce from (3.17) that
+                p(n, x)                 ρ−1            ρ3 − ρ 2 − ρ + 2
+(4.2)      lim inf      ≥ρ−                        =ρ·                  .
+           n→+∞   n                       1               ρ3 − ρ + 1
+                                    ρ+          −1
+                                       ρ(ρ + 1)
+Note that (3.17) and (4.2) give trivial bounds if ρ < ρ1 , where ρ1 := 1.8019 . . . is
+the root greater than 1 of the polynomial X 3 − X 2 − 2X + 1.
+  Let b ≥ 2 be an integer. Our last auxiliary result establishes a close connection
+between the exponent of repetition of an infinite word x written over {0, 1, . . . , b−1}
+and the irrationality exponent (see Definition 1.1) of the real number whose b-ary
+expansion is given by x. This is [7, Lemma 3.6].
+Lemma 4.1. Let b ≥ 2 be an integer and x = x1 x2 . . . an infinite word over
+{0, 1, . . . , b − 1}, which isPnot ultimately periodic. Then, the irrationality exponent
+of the irrational number k≥1 xbkk satisfies
+                                   X x           rep(x)
+                                           k
+(4.3)                             µ        k
+                                              ≥             ,
+                                         b       rep(x) − 1
+                                  k≥1
+
+where the right hand side is infinite if rep(x) = 1.
+12                         YANN BUGEAUD AND DONG HAN KIM
+
+
+   Lemma 4.1 shows that, when the exponent of repetition of an infinite word
+x = x1 x2 . . . is
+                Pless than 2, then the irrationality exponent of the associated real
+number ξ := k≥1 xk /bk exceeds 2. Indeed, there are ε > 0 and infinitely many
+pairs of positive integers (u, v) such that
+                                                   1
+                           ∥bu (bv − 1)ξ∥ < u v            .
+                                            (b (b − 1))1+ε
+This does not mean, however, that all the (or all but finitely many) best rational
+approximations to ξ can be read off its b-ary expansion. In particular, we do not
+know if (nor under which additional assumptions) equality holds in (4.3).
+   We are in position to complete the proof of Theorem 1.4.
+Proof of Theorem 1.4.
+   Let b ≥ 2 be an integer and ξ an irrational real number. Put µ = µ(ξ). Write ξ
+in base b as in (1.1) and put a = a1 a2 . . .. Lemma 4.1 asserts that
+                                                  µ
+                                      rep(a) ≥        .
+                                                µ−1
+Combined with (3.21), this gives
+                                                 p
+                                   µ(2µ − 1) + 4(µ − 1)3 + µ2
+                        Rep(a) ≥                                   .
+                                              2µ(µ − 1)
+By Theorem 2.1, this is non-trivial as soon as the lower bound is greater than or
+equal to 2, that is, as soon as µ is less than the root µ2 . Observe that µi = ρi /(ρi −1)
+for i = 1, 2. This gives
+                                                        p
+                         p(n, a)                    µ + 4(µ − 1)3 + µ2
+               lim sup           ≥ Rep(a) − 1 ≥                           .
+                n→+∞        n                             2µ(µ − 1)
+As well, by (4.2), we obtain
+              p(n, a)     ρ3 − ρ 2 − ρ + 2     µ   µ3 − 3µ2 + 5µ − 2
+          lim inf     ≥ρ·      3
+                                           ≥      · 3                .
+       n→+∞     n            ρ −ρ+1          µ − 1 µ − µ2 + 2µ − 1
+We have completed the proof of Theorem 1.4.
+
+                                   5. Final discussion
+     The Fibonacci word
+                       f = f1 f2 f3 . . . = 010010100100101001010 . . .
+is defined as the limit of the sequence of finite words (fj )j≥1 , where f1 = 0, f2 = 01,
+and fj+2 = fj+1 fj , for j ≥ 1. Clearly, the length of fj is equal to the Fibonacci
+number Fj for j ≥ 1. We check that, for n ≥ 3, we have
+                    r(Fn − 2, f ) = Fn+1 − 2,    r(Fn − 1, f ) = 2Fn − 1,
+and
+                r(Fn + h, f ) = 2Fn + h, h = −1, 0, . . . , Fn−1 − 2.
+                               √
+We derive that rep(f ) = (1 + 5)/2 and Rep(f ) = 2, thus
+                                                    1
+                           Rep(f ) = rep(f ) +             .
+                                               1 + rep(f )
+As noted in the course of Section 3, it could be tempting to conjecture that
+                                                    1
+                          Rep(x) − rep(x) ≥                 ,
+                                               1 + rep(x)
+                     ON THE b-ARY EXPANSION OF A REAL NUMBER                                 13
+
+
+for every x which is not ultimately periodic. This is however not true.√Indeed, we
+proved in [8] the existence of a Sturmian word s such that rep(s) = 10 − 23 . A
+rapid calculation shows that
+                               1        43 √      113
+                 rep(s) +            =       10 −      = 2.037 . . . ,
+                          1 + rep(s)    39        78
+while Theorem 2.1 asserts that Rep(s) = 2.
+   The difficulty for estimating the gap between Rep(x) and rep(x) comes from the
+following fact. At a jump nj of the function n 7→ r(n, x), the second occurrence of
+                                 r(n +1,x)
+a word of length nj + 1 in x1 j            may overlap the second occurrence of a word
+                  r(nj ,x)
+of length nj in x1         . If there are no such overlaps when nj is sufficiently large,
+then we say that the word x has the disjointness property and we have
+                             r(nj + 1, x) − nj − 1 ≥ r(nj , x),
+hence,
+(5.1)                              Rep(x) ≥ rep(x) + 1.
+This disjointness property is automatically satisfied if, instead of looking for repeti-
+tions of an arbitrary word, we consider only repetitions of the digit 0, that is, if we
+look only at large blocks of 0. In that case, r(n, x) is replaced by the length of the
+shortest prefix of x containing two occurrences of 0n . This special case corresponds
+to the approximation by rational numbers whose denominator is a power of b and
+has been studied in [9]. The inequality (5.1) then corresponds to the inequality
+vb ≥ vbb /(1 − vbb ) proved in [9]. Here, as noted below Lemma 4.1, we consider ap-
+proximation by rational numbers whose denominator is of the form bu (bv − 1), for
+positive integers u and v. This explains why the combinatorial analysis is much
+more delicate in the present case than in [9].
+
+                                  Acknowledgements
+  This paper was written during the second author’s visit to IRMA, supported
+by the CNRS. The second author was also supported by the National Research
+Foundation of Korea (RS-2023-00245719).
+
+
+                                        References
+ [1] B. Adamczewski, On the expansion of some exponential periods in an integer base, Math.
+     Ann. 346 (2010), 107–116.
+ [2] B. Adamczewski and Y. Bugeaud, On the complexity of algebraic numbers I. Expansions in
+     integer bases, Ann. of Math. 165 (2007), 547–565.
+ [3] B. Adamczewski and Y. Bugeaud, Nombres réels de complexité sous-linéaire: mesures
+     d’irrationalité et de transcendance, J. Reine Angew. Math. 658 (2011), 65–98.
+ [4] J.-P. Allouche and J. Shallit, Automatic Sequences: Theory, Applications, Generalizations,
+     Cambridge University Press, 2003.
+ [5] V. Berthé, C. Holton, and L. Q. Zamboni, Initial powers of Sturmian sequences, Acta Arith.
+     122 (2006), 315–347.
+ [6] Y. Bugeaud and J.-H. Evertse, On two notions of complexity of algebraic numbers, Acta
+     Arith. 133 (2008), 221–250.
+ [7] Y. Bugeaud and D.H. Kim, On the b-ary expansions of log(1 + a1 ) and e. Ann. Sc. Norm.
+     Super. Pisa Cl. Sci. 17 (2017), 931–947.
+14                          YANN BUGEAUD AND DONG HAN KIM
+
+
+ [8] Y. Bugeaud and D. H. Kim, A new complexity function, repetitions in Sturmian words, and
+     irrationality exponents of Sturmian numbers, Trans. Amer. Math. Soc. 371 (2019), 3281–
+     3308.
+ [9] Y. Bugeaud and L. Liao, Uniform Diophantine approximation related to β-ary and β-
+     expansion, Ergodic Theory Dynam. Systems 36 (2016), 1–22.
+[10] S. Ferenczi and C. Mauduit, Transcendence of numbers with a low complexity expansion,
+     J. Number Theory 67 (1997), 146–161.
+[11] N. J. Fine and H. S. Wilf, Uniqueness theorems for periodic functions, Proc. Amer. Math.
+     Soc. 16 (1965), 109–114.
+[12] N. P. Fogg, Substitutions in dynamics, arithmetics and combinatorics. Edited by V. Berthé,
+     S. Ferenczi, C. Mauduit and A. Siegel. Lecture Notes in Mathematics, 1794. Springer-Verlag,
+     Berlin, 2002.
+[13] M. Lothaire, Algebraic combinatorics on words. Encyclopedia of Mathematics and its Appli-
+     cations, 90. Cambridge University Press, Cambridge, 2002.
+[14] D. Zeilberger and W. Zudilin, The irrationality measure of π is at most 7.103205334137 . . .,
+     Mosc. J. Comb. Number Theory 9 (2020), 407–419.
+
+  I.R.M.A., UMR 7501, Université de Strasbourg et CNRS, 7 rue René Descartes, 67084
+Strasbourg Cedex, France
+
+     Institut universitaire de France
+     Email address: bugeaud@math.unistra.fr
+
+     Department of Mathematics Education, Dongguk University, Seoul 04620, Korea.
+     Email address: kim2010@dgu.ac.kr
+

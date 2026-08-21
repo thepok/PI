@@ -1,0 +1,2713 @@
+                                                             The bad and rough rotation is Poissonian
+                                                                                        Manuel Hauke-Treuer
+
+                                                                                            August 17, 2026
+
+                                                                                                  Abstract
+                                                      The fine-scale properties of sequences (an α)n∈N mod 1 with (an )n∈N ⊆ N and α irrational
+                                                  have been extensively studied in the last decades. In this article, we prove that for (an )n∈N
+arXiv:2506.01736v2 [math.NT] 14 Aug 2026
+
+
+
+
+                                                  arising from the set of rough numbers with explicit roughness parameters and any badly
+                                                  approximable α, (an α)n∈N mod 1 has Poissonian correlations of all orders, and consequently,
+                                                  Poissonian gaps. This is the first known explicit sequence (an α)n∈N mod 1 with any of these
+                                                  properties. Further, we show that the statement is false for Lebesgue almost every α, thereby
+                                                  disproving a conjecture of Larcher and Stockinger [Math. Proc. Camb. Phil. Soc. 2020]. The
+                                                  method of proof makes use of an equidistribution result in Zd in Diophantine Bohr sets which
+                                                  is established by appealing to a novel method of examining random walks on Ostrowski digit
+                                                  expansions.
+
+
+                                                  1     Introduction and statement of results
+                                                  A sequence (xn )n∈N ⊆ [0, 1) is said to be uniformly distributed modulo 1 if asymptotically,
+                                                  each interval I contains its fair share of points, i.e. for all I = [a, b] ⊆ [0, 1), we have
+                                                                                          1
+                                                                                    lim       #{n ≤ N : xn ∈ I} = λ(I),
+                                                                                   N →∞ N
+
+                                                  where λ denotes the Lebesgue measure. This notion goes back at least to Weyl’s seminal paper
+                                                  [66] and was a very intensively studied concept in the last century. We remark that the property
+                                                  for a sequence to be uniformly distributed can be seen as a measure of (pseudo-)randomness:
+                                                                                                                              d
+                                                  Choosing a sequence of i.i.d. random variables (Xn )n∈N with X1 = U ([0, 1)), we obtain that
+                                                  (Xn )n∈N is almost surely uniformly distributed.
+                                                     Another, stronger (see [2, 18, 22, 43, 60]) pseudo-random property for a sequence is having
+                                                  Poissonian correlations of k-th order : A sequence is said to have Poissonian correlations of
+                                                  k-th order for k ≥ 2 if for any axis-parallel rectangle R ⊆ Rk−1 , we have1
+                                                                                                                                  
+                                                                 1                k                                              R
+                                                  Rk (R, N ) := # n ∈ [1, N ]̸= : (xn1 − xn2 , xn1 − xn3 , . . . , xn1 − xnk ) ∈     → Vol(R),
+                                                                 N                                                               N N →∞
+
+                                                  where [1, N ]k̸= stands for all k-tuples with pairwise distinct entries in [1, N ], and Vol denotes the
+                                                  (k−1)-dimensional Lebesgue measure. The correlation functions Rk can be defined in the anal-
+                                                  ogous way for triangular arrays ((xn )n≤N )N ∈N as well, see e.g. [43] for such a generalization.
+                                                  While a sequence of i.i.d. random variables as above has almost surely Poissonian correlations
+                                                  of k-th order (see e.g. [1, Appendix B]), there are only very few explicit sequences known to
+                                                                                                                                       √
+                                                  have these properties: El-Baz, Marklof and Vinogradov [13] showed that { n}n∈N\{m2 :m∈N}
+                                                  (here and throughout this article, {·} denotes the fractional part of a real number) has Poisso-
+                                                  nian pair correlations (PPC), i.e., Poissonian correlations of second order. Lutsko, Sourmelidis
+                                                  and Technau [39] showed that {αnθ } has PPC for all α and all θ < 14/41, a result improved
+                                                  by Radziwiłł and Shubin [50] to all θ < 43/117. For higher-order correlations, even less is
+                                                  known: Lutsko and Technau [40] showed that {αnθ }n∈N has Poissonian correlations of k-th
+                                               2020 Mathematics subject classification (MSC 2020): 11J71 11N25 11N80 11K45 11K60 11J83
+                                              1 There are other, equivalent ways to define Poissonian correlations e.g. by taking smooth test function instead of
+
+                                           rectangles or considering the tuples (xn1 − xn2 , xn2 − xn3 , . . . xnk−1 − xnk ) instead. For a proof of the equivalences
+                                           between these definitions, we refer the reader to [22, Appendix A].
+
+
+                                                                                                       1
+order for all 2 ≤ k ≤ m when θ < θm where θm → 0 as m → ∞, and {α(log n)A }n∈N , A > 1
+has Poissonian correlations of k-th order for all k ≥ 2 [41].
+
+    The main motivation for studying (Poissonian) correlations is to determine the gap dis-
+                                         (N )      (N )            (N )
+tribution of a given sequence: Writing x1      ≤ x2 . . . ≤ xN for the ordered sample of
+{xn : 1 ≤ n ≤ N }, we say that a sequence (xn )n∈N ⊆ [0, 1) has Poissonian gap distribution
+(or sometimes also called Exponential gaps) if for all [a, b] ⊂ [0, ∞), we have
+                                                                     Z b
+                     1                                        [a, b]
+                                                                            e−t dt.
+                                             (N )
+                lim    # 1 ≤ n ≤ N − 1 : xn+1 − x(N   n
+                                                         )
+                                                           ∈            =
+               N →∞ N                                          N          a
+
+Analyzing the gap distribution directly is notoriously difficult. While it is known that having
+Poissonian gaps does not imply uniform distribution and thus also not Poissonian correlations
+of any order [1], the most promising approach to showing Poissonian gaps usually goes by
+proving that a sequence has Poissonian correlations of k-th order for all k ≥ 2, which then
+implies that a sequence has Poissonian gaps, see [34, Appendix A] for a proof of this implication.
+
+    Finding the gap distribution of a sequence is considered generally challenging: There are
+various deep and widely open conjectures in this area that include the Berry–Tabor Conjecture
+from theoretical physics (see [7, 42, 53] for more details), and the Rudnick–Sarnak–(Zaharescu)
+Conjecture [54, 55] that was repeated by Heath–Brown [23]: Under a Diophantine condition on
+α (which is α being badly approximable in [54]), {n2 α}n∈N has Poissonian gaps, and clearly,
+a bound on the Diophantine exponent of α is necessary. While there has been partial progress
+[23, 38, 55, 62, 64], the conjecture itself remains widely open.
+    As to be expected, only a few examples are known where the gap distribution of a sequence
+in [0, 1) has been determined: Lutsko and Technau showed Poissonian gaps for {α(log n)A }n∈N , A >
+1, α ∈ R [41]. Other sequences where a nontrivial, but non-Poissonian gap distribution was de-
+                             √
+termined include notably { n}n∈N by Elkies and McMullen [14], and ({logb n})n∈N by Marklof
+and Strömbergsson [44].
+
+    Motivated especially by the Rudnick–Sarnak–Zaharescu Conjecture, various sequences of
+the form {an α}n∈N , where (an )n∈N is an increasing integer sequence and α is an irrational
+number, have been studied. Since finding explicit examples is considered very challenging, this
+happened so far only from a metric point of view: Poissonian correlations respectively gaps
+have been proven for {an α}n∈N for Lebesgue-almost every α for various integer sequences
+(an )n∈N . While Rudnick and Zaharescu [56] showed Poissonian gap distributions for almost
+all α whenever (an )n∈N is lacunary, most other results established so far consider only the
+most tractable case k = 2, i.e. Poissonian pair correlations: Rudnick and Sarnak proved that
+{nd α}n∈N , d ≥ 2 has PPC for almost all α [54]. A more general examination of the metric
+theory of {an α}n∈N was given by Aistleitner, Lewko and Larcher [4] who provided a sufficient
+criterion on the additive energy of (an )n∈N in order for {an α}n∈N to have almost surely PPC.
+In the appendix of the same article, Bourgain provided a necessary condition. For more results
+in this direction, we refer to e.g. [3, 8, 9, 35, 51]. Finally, we mention the work of Walker [65]
+who showed that the prime rotation {pn α}n∈N satisfies PPC for Lebesgue-almost no α. We
+remark that all these statements are of a metrical nature, or make assumptions on α where no
+explicit α is known to satisfy the assumed properties. To the best of the author’s knowledge,
+prior to this article no explicit sequence of the form {an α}n∈N with (an )n∈N ⊆ N was known
+to have Poissonian correlations even for k = 2, let alone Poissonian gaps.
+
+    In this article, the set of irrational numbers α considered is the set of badly approximable
+numbers, and thus coincides with the assumption of the Rudnick–Sarnak Conjecture in [54]. An
+irrational α is called badly approximable whenever lim inf n→∞ n∥nα∥ > 0 (where ∥.∥ stands
+for the distance to the nearest integer) or equivalently, the partial quotients of the continued
+fraction expansion of α are uniformly bounded. The set of badly approximable numbers has
+Lebesgue measure 0, but Hausdorff     √ √
+                                         dimension 1, and contains prominent explicit examples
+such as the Golden Ratio Φ = 1+2 5 , 2, or in general, all irrational solutions arising from a
+quadratic polynomial with integer coefficients. The assumption of α being badly approximable
+will be essential in our arguments and will be shown to be almost necessary.
+
+
+
+
+                                                2
+    The sequence (an )n∈N considered in this article arises from the classical generalization of
+prime numbers to rough numbers. We say that an integer n is z-rough if the smallest prime
+                                                               √
+divisor of n, denoted by P − (n), is larger than z. While for n < z < n, this is equivalent
+to saying that n is prime, the generalization to smaller z often allows to study denser sets
+of numbers that are “almost prime” in the sense that they have very few prime divisors, but
+the occurrence of such numbers is easier to detect or quantify, especially with sieve-theoretic
+considerations. Many famously open number-theoretic questions, including the Twin Prime
+conjecture [17], the Goldbach Conjecture [10, 57], and Diophantine approximation with prime
+denominator [20, 27], have been (partially) solved in the easier case when considering suitably
+rough numbers instead of primes themselves. This general philosophy will be continued in this
+article, albeit we remark that having some lower bound on the roughness condition is also
+necessary (mainly to ensure a certain growth rate on (an )n∈N ) to have a chance for {an α}n∈N
+to have any Poissonian property – after all, it is immediate to see that for an = n, {an α}n∈N
+does not have any Poissonian property, regardless of the choice of α. We define the sequence
+of rough numbers with roughness function f in the following way:
+Definition 1. For given f : N → [0, ∞), we define
+
+                                   Rf := {n ∈ N : P − (n) > f (n)}
+               (f )
+and let (an )n∈N be Rf written in increasing terms.
+                                          (f )
+Further, we define the triangular array (an,x )n≤x of (uniformly) rough numbers by
+                                                              −
+                          {a(f )
+                            n,x : 1 ≤ n ≤ x} := {1 ≤ n ≤ x : P (n) > f (x)}.
+
+We define the function that counts (uniformly) rough numbers by
+
+                                Φ(x, z) := #{1 ≤ n ≤ x : P − (n) > z}.
+
+
+    With this definition at hand, we state the main result of this article.
+
+Theorem 1. Let f (x) = xr(x) where r(x) decreases monotonically to 0, but satisfies r(x) ≫A
+(log log x)A                                                                      (f )
+    log x
+                for all A > 0. Then for any badly approximable α, the sequence (an α)n∈N (mod 1)
+                                                                           (f )
+has Poissonian correlations of all orders. Consequently, the sequence (an α)n∈N (mod 1) has
+Poissonian gaps.
+Furthermore, under the same assumptions on f , the triangular array of dilates of rough num-
+       (f )
+bers (an,x α)n≤x (mod 1) has Poissonian correlations of all orders, and thus also Poissonian
+gaps.
+
+                                                                               √
+    As concrete example,
+                  √
+                             we might choose in Theorem 1 those n that are exp( log n)-rough,
+and take α = 1+2 5 , providing an explicit example of such a sequence. Further, we note that
+knowing that all correlations are Poissonian, one can also recover that the k-th neighbour
+                (N )     (N )
+spacings (i.e. xn+k − xn , 1 ≤ n ≤ N ) are also Poissonian, for every fixed k ≥ 1. For a proof
+of this fact, we refer once more to [34, Appendix A].
+
+   As a converse result to Theorem 1, we show that the Diophantine property of α being
+badly approximable is not an artifact of the proof: If α is “slightly better approximable”, then
+the statement becomes false even for the simplest case k = 2:
+Theorem 2. Let f (x) = xr(x) where r(x) decreases monotonically to 0 and let α be an
+irrational number satisfying
+                             lim inf n∥nα∥ log(f (n)) = 0.                        (1)
+                                      n→∞
+       (f )
+Then (an α)n∈N     (mod 1) does not have Poissonian pair correlations.
+In particular, for Lebesgue-almost every α, the result of Theorem 1 fails.
+    The proof of Theorem 2 is a straightforward adaptation of Walker’s argument for primes
+                                                                      (f )
+[65]. We remark that it implies that the fine-scale statistics of {an α}n∈N indeed rely deli-
+cately on the Diophantine properties of α. This is in stark contrast to the real-valued sequences
+((log n)A )n∈N , (nθ )n∈N examined in [39, 40, 41, 50] where the Diophantine properties of α (as
+
+
+                                                  3
+maybe expected for real-valued sequences (an )n∈N ) do not play a role whatsoever, and can be
+chosen arbitrarily (even rational).
+
+    The combination of Theorems 1 and 2 further provides a warning remark to be very cautious
+in deducing that a result known for almost all α (such as the flurry of results mentioned above)
+implies anything for the Lebesgue null set of badly approximable numbers. Indeed, Larcher
+and Stockinger [36] conjectured the following:
+Conjecture (Larcher, Stockinger, 2018). Let (an )n∈N be an integer sequence. If for (Lebesgue)
+almost all α the pair correlations of {an α}n∈N are not Poissonian, then the pair correlations
+of this sequence are not Poissonian for any α.
+    A combination of Theorem 1 and (the “in particular” part of) Theorem 2 implies immedi-
+                                                                (f )
+ately that the Conjecture turns out to be false, witnessed by (an )n∈N with f as in Theorem 1.
+
+
+Remarks on the theorems, primes in short intervals, and related works
+We point out that the main novelty of Theorem 1 compared to earlier works on (an α)n∈N is
+the explicit construction of the sequence (an α)n∈N . Furthermore, the choice of various func-
+tions for the roughness allows us to take a family of different sequences (an )n , while the
+growth rate is provided by an /n ∼ r(n) log n, which allows for various growth rates, as long
+as (log log n)A ≪A ann = o(log n). We believe the lower bound on r in Theorem 1 to be sharp:
+This follows from the proof (see Section 2 for a proof sketch) where averages of multiplicative
+functions need to be considered (this is not due to the proof method, but equivalent to having
+Poissonian correlations). For the case k = 2, the necessary condition
+                                       1 X n
+                                                  ≪1                                        (2)
+                                      #B n∈B φ(n)
+
+(with φ the Euler totient function) arises where B = S(α, x) ⊆ [1, x] is a so-called Bohr set
+of cardinality ≈ r(x) log x. Assuming theS(reasonable) existence of badly approximable α with
+infinitely many n ∈ N such that n ∈ x∈N S(α, x) with φ(n)     n
+                                                                 ≫ log log n, such an averag-
+ing result becomes impossible when r(x) log x = o(log log x), since even one such exceptional
+n ∈ B would spoil (2). Similarly, correlations of higher order prevent us from considering
+r(x) log x < (log log x)A for any fixed A > 0.
+
+   On the other hand, the assumption of r(x) → 0 arises from a classical sieve-theoretic
+obstruction: if we knew a uniform version of the Hardy–Littlewood k-tuple Conjecture [19],
+that contains e.g. the Twin Prime Conjecture as a special case, the result would also be true
+without r(x) → 0. This leads us to the following Conjecture:
+Conjecture (Poissonian Prime rotation). Let α be a badly approximable number. Then the
+prime rotation sequence (pn α)n∈N mod 1 has Poissonian correlations of all orders, and con-
+sequently, has Poissonian gap distribution.
+     We remark that the convergence towards the Poissonian gap distribution appears numeri-
+cally to be very slow, both for the rough numbers covered by Theorem 1 and in the conjectured
+prime case. At computationally feasible finite cutoffs, the expected asymptotic behaviour is
+still strongly obscured by effects arising from the Three Gap Theorem, making the gap distri-
+bution look distinctly non-Poissonian at first sight. This is largely due to the comparatively
+high density of the primes and rough numbers: for instance, for the much sparser sequence
+of squares, a Poissonian-looking gap distribution is already visible at substantially smaller
+cutoffs. For a more detailed explanation of this finite-scale phenomenon, together with fur-
+ther numerical experiments supporting the Poissonian Prime rotation Conjecture, we refer the
+reader to the Appendix.
+
+   Note that there is a genuine obstruction for proving the Conjecture by our method with
+currently known estimates: We employ asymptotic sieve estimates to differences of rough
+numbers. In the case of prime numbers, these estimates could only be established if we knew
+a uniform version of the Hardy–Littlewood k-tuple Conjecture [19], that contains e.g. the
+asymptotic Twin Prime Conjecture as a special case. In order to circumvent such widely open
+
+
+                                               4
+conjectures, one would (already for k = 2) need to count the number of prime pairs p, p′ ≤ x
+with p − p′ = n on a weighted average over the Bohr set B(α, x) = {n ≤ x : ∥nα∥ ≤ logx x },
+see Section 2 for context. In the method employed for Theorem 1, we apply these estimates
+point-wise (in n), not making use of the averaging information at this stage of the proof. We
+can only establish this point-wise bound because of the roughness assumption f (x) = xo(1)
+instead of primes (i.e. f (x) = x1/2 ). Nevertheless, the Hardy–Littlewood k-tuple Conjecture
+is true for almost all integers (see [45, 47]), and thus there might be some hope to adapt the
+averaging techniques to also work on the corresponding Bohr sets. While Diophantine Bohr
+sets have some rigid additive structure (which is exploited very heavily in the proof of Theorem
+1 at a later step when averaging over the arising singular series) that might help to establish
+results “on average”, the exponential sparsity #B(α, x) ≍ log x of the Bohr sets is way too thin
+for even the most modern tools such as [45].
+
+    Poissonian correlations on the real line – related works. We note that so far, the
+focus of {an α}n concentrated, even from a metric perspective, on either monomial sequences,
+or arbitrary sequences, with the exception being Walker’s article [65] on primes. However,
+various sequences of number-theoretic interest have been studied on the real line: The notion
+of Poissonian correlations can also be transferred to the real line, by normalizing an increasing
+sequence (xn )n∈N ⊆ R at each step N by the xN − x1 ; e.g., one can study the primes, asking
+about the distribution of (pn+1 − pn )/ log N for 1 ≤ n ≤ N . Gallagher [16] showed that under
+a uniform version of the Hardy–Littlewood Conjecture (which coincides with the version we
+would need to assume to prove the Poissonian Prime rotation Conjecture) that the primes
+are Poissonian (as objects on the real line, as described above). Notably, Montgomery and
+Soundararajan [48] conjectured that on slightly longer ranges (i.e., counting correlations at
+scale H ≥ (log N )1+δ ), the primes are expected to converge to a Gaussian distribution, with
+variance H log(N/H) – see also recent advancements e.g. [32, 37] on related matters. Simi-
+larly, Freiberg, Kurlberg and Rosenzweig [15] showed Poissonian behaviour (on the real line)
+for sums of two squares, subject to an analogous Hardy–Littlewood-type Conjecture on the
+sums of two squares, mirroring the result of Gallagher [16].
+
+    We remark that the behaviour of Poissonian correlations on the real line is somewhat
+different to studying sequences in [0, 1]: First of all, the simple observation that the sequence
+is increasing implies that previous existing gaps are not split, but only marginally rescaled,
+while in the case of a fixed sequence in [0, 1), an earlier gap might be split at any time. Clearly,
+the re-normalizing factor allows these sequences to be interpreted as triangular arrays in [0, 1),
+a more general setup in which further results of number-theoretic interest are known, such as
+the works of Hooley [24, 25, 26] on Z∗q who showed Poissonian behaviour for q/φ(q) → ∞, as
+well as the works of Kurlberg and Rudnick [34, 33] on quadratic residues for highly-composite
+q.
+
+1.1     Equidistribution mod d
+In order to estimate the Poissonian correlations for rough numbers, after applying a sieve
+estimate (see Section 2 for a proof layout), it becomes evident that one has to control the
+average of the well-known singular series
+                                                Y        gh (p)
+                                                                 
+                           S(h) = Sk−1 (h) =          1−
+                                                            p
+                                                  p≤f (x)
+
+where gh (p) = #{0 (mod p), h1 (mod p), . . . , hk−1 (mod p)}, with the average taken over the
+Bohr set (B(α, x))k−1 where
+
+                            B(α, x) := {1 ≤ n ≤ x : {nα} ∈ [0, ρx ]},
+
+with xρx → ∞ at a very slow rate. This can be established by understanding the divisor prop-
+erties within B(α, x) very well in order to obtain an asymptotics for the averaging described
+above. This is provided by the following statement.
+Theorem 3 (Bohr set divisibility). Let α be badly approximable and let (Ix )x∈N be a sequence
+of intervals in [0, 1) of the form [0, ρx ] or [1 − ρx , 1] with limx→∞ xρx = ∞, and let B(x, Ix )
+
+
+
+                                                 5
+denote the Bohr set
+
+                       B(x, Ix ) := Bα (x, Ix ) := {1 ≤ n ≤ x : {nα} ∈ Ix }.
+
+Then for every d ∈ N and every a ∈ Zd := Z/dZ, we have
+
+                                #{n ∈ B(x, Ix ) : n ≡ a    (mod d)}       1
+                          lim                                         =     .                   (3)
+                         x→∞               #B(x, Ix )                     d
+
+    We remark that Theorem 3 (respectively the way it is applied later) might be of independent
+interest: Since Theorem 3 is very flexible (note that no speed of xρx → ∞ is necessary), it allows
+for averaging various multiplicative functions over Bohr sets. Thus, general de-correlating
+asymptotics such as
+                                                     
+                 X                        1  X          X
+                    g(n)Fx ({nα}) ∼             g(m)      Fx ({nα}), x → ∞,                   (4)
+                                          x
+                n≤x                        m≤x            n≤x
+
+where the mass of Fx is concentrated around 0, and g is a reasonably well-behaving multiplica-
+tive function, might become attainable for arbitrary badly approximable α. We deliberately
+decided against stating a more general technical statement that provides sufficient criteria for
+the functions g and Fx , such that (4) indeed holds true, but believe these techniques to be
+widely applicable, which might be of independent interest. We only note that (4) is (essen-
+tially) proven for g(n) = S1 (n) and Fx = 1[0,(log f (x))/x] , but we expect various other instances
+to work along the same lines of the proof. In that sense, the technical aspect can be related
+to the above-mentioned works on Poissonian correlations of primes or sums of two squares on
+the real line. A main technical ingredient there is to obtain asymptotic formulae for objects
+such as                                   X
+                                                    S1 (h)
+                                            h≤N
+                                         h≡a mod b
+
+where S1 (h) denotes the respective singular series. The technical advancement established in
+this paper is to obtain asymptotics for
+                                         X
+                                                  S1 (h),
+                                           h≤N
+                                       ∥hα∥≤log N/N
+
+
+as long as α is badly approximable, and the same holds for higher-order correlations.
+
+Acknowledgements
+The author would like to thank Emmanuel Kowalski and Julia Stadlmann for related dis-
+cussions concerning sieve theory, and Lorenz Frühwirth for discussions on Markov chains.
+Additionally, the author would like to thank Nick Rome for making him aware of the work
+of Mikawa. Further, he would like to thank Christoph Aistleitner, Sigrid Grepstad and Niclas
+Technau for comments on an earlier version of this article, and the latter for making him aware
+of the conjecture of Larcher and Stockinger.
+
+
+2     Proof strategy and notation
+Here we provide an overview and simplified heuristics for the proofs of the main theorems.
+We remark that our proof uses neither dynamical methods nor harmonic analysis and there-
+fore clearly differs from the methods used for most previous results on Poissonian correlations
+mentioned in the Introduction. Instead of this, we use a combination of sieve theory, averaging
+techniques from analytic number theory, Ostrowski expansions from the theory of Diophantine
+approximation, and Markov chains.
+
+    For the heuristics, we will focus on the case k = 2 with R = [−1, 1]. Up to mainly com-
+binatorial inconveniences, the cases where k ≥ 3 as well as taking arbitrary rectangles R
+follows along the same lines. The result of Theorem 1 is first proven with a uniform rough-
+                                                                   (f )
+ness parameter, i.e. for the triangular arrays of rough numbers (an,x α)n≤x . The sets of the
+
+
+                                                 6
+uniform respectively non-uniform variant only differ by a negligible proportion compared to
+all elements in the sequence, which will be made precise in the very last step (Section 5.3).
+                                                (f )
+Evaluating the pair correlations function for (an,x α)1≤n≤x directly, one needs to count
+
+                                                                         
+         1                                                        1
+                 # 1 ≤ n ̸= m ≤ Φ(x, f (x)) : ∥an α − am α∥ ≤               =
+     Φ(x, f (x))                                              Φ(x, f (x))
+         1           X
+                             w(h) · # n, m ≤ x : n, m f (x)-rough numbers, n − m = h ,
+                                     
+     Φ(x, f (x))
+                         1≤h≤x
+                               1
+                     ∥hα∥≤ Φ(x,f (x))
+
+
+where w(h) is a smooth weight function which will not cause too many problems and thus will
+be dropped here (see Section 5.2 for how to treat this function). Note that the expected (and
+in some cases provable) count differs for various h, depending on its arithmetical properties:
+As a simple showcase, observe that since n, m are rough, they are in particular odd integers,
+and thus h needs to be even in order to have any possible solutions n − m. A similar argument
+lets the count also vary for larger moduli, and one obtains for f (x) = xo(1) the conjectured
+asymptotics (p = 2 or in general p ≤ k will be treated differently)
+
+                                                                                                                                      
+                                                                                     Y                  2         Y                  1
+# n, m ≤ x : n, m f (x)-rough numbers, n − m = h ∼
+ 
+                                                                                                   1−                           1−
+                                                                                                        p                            p
+                                                                                   1≤p≤f (x)                    1≤p≤f (x)
+                                                                                      p∤h                          p|h
+                                                                    −1
+         Y                2         Y                  1             2
+ =                   1−                           1−            1−             .
+                          p                            p             p
+     1≤p≤f (x)                    1≤p≤f (x)
+                                     p|h
+                                                                                                                                         (5)
+
+    Indeed, by a reasonably standard procedure, using the Fundamental Lemma of Sieve The-
+ory, one can establish this asymptotic uniformly in h (see Section 3). We remark that one
+can easily adapt the method of proof used for Theorem 1 by deciding to not sift out certain
+primes, or, say, sifting out only primes with certain congruence conditions, without any serious
+necessary adaptations in the remainder of the proof.
+                                                                   
+    Since for f (x) = xo(1) , we have Φ(x, f (x)) ∼ x p≤f (x) 1 − p1 , and the Bohr set
+                                                     Q
+
+                                                                                                   
+                                                                                  1
+                                  B = B(α, x) :=           1 ≤ h ≤ x : ∥hα∥ ≤
+                                                                              Φ(x, f (x))
+
+satisfies for badly approximable α by discrepancy arguments (see Lemma 11)
+                                                      x                          x
+                                    #B ∼ 2                    = Vol([−1, 1])             ,
+                                                  Φ(x, f (x))                Φ(x, f (x))
+we get
+                                                                                    
+                   1                                                          1
+                           # 1 ≤ n ̸= m ≤ Φ(x, f (x)) : ∥an α − am α∥ ≤
+               Φ(x, f (x))                                               Φ(x, f (x))
+                                         
+                                        2
+                       Q
+                         1≤p≤f (x) 1 − p
+                                                                          −1
+                                             1 X Y                1        2
+             ∼ Vol(R) Q                 2                     1−       1−        .
+                                            #B                    p        p
+                                 
+                                      1
+                          p≤f (x) 1 − p        h∈B 1≤p≤f (x)
+                                                                           p|h
+
+                                                                                                                                               −1
+Hence we are done if we can prove the expected asymptotic constant for                                                    1 − p1         1 − p2
+                                                                                                    Q
+                                                                                                        1≤p≤f (x)
+                                                                                                           p|h
+averaged over B. Ignoring
+                          for the heuristic here a convergent Euler product, this equals
+g(h) := p≤f (x) 1 + p1 which is averaged over all h ∈ B(α, x) := {1 ≤ n ≤ x : {nα} ∈ [0, ρx ]}
+       Q
+             p|h
+for ρx ≈ (log f (x))/x. Put differently, we essentially need to establish (4) for this g and
+Fx (t) := 1[(log f (x))/x,(log f (x))/x] (t).
+
+
+
+
+                                                                     7
+    To do so, we first remove the contribution of large primes since they would cause problems
+later. Using g(h) ≪ φ(h)h
+                           ≪ log log x and the fact that it is rare that a number h is divisible
+                                                                                          
+by too many big primes simultaneously (see Lemma 15), we can replace p≤f (x) 1 + p1 by
+                                                                            Q
+                                                                             p|h
+Q              1         ˜
+                   with f much smaller than f . After this, the average is now rewritten as
+  p≤f˜(x) 1 + p
+    p|h
+
+                                        X         X            µ2 (d)
+                                                                 d
+                                        h∈B         d|h
+                                              d f˜(x)-smooth
+
+
+which allows us to exchange the order of summation, and we need to find asymptotics for
+                          X µ2 (d) #{n ∈ B(α, x) : n ≡ 0                (mod d)}
+                                                                                   ,
+                                  d                   #B(α, x)
+                            d
+                                                                                 P 2
+where d is summed over all f˜(x)-smooth numbers. We aim to get the convergence to d µ d(d)
+                                                                                       2 ,
+which would lead to the desired limit value. For constant d ∈ N, the result follows from
+Theorem 3, whereas for larger d, we use the structural information of Bohr sets developed
+mainly by Tao, Chow and Technau (see e.g.[11, 12, 61]) which allows to deduce the weaker
+estimate
+                           #{n ∈ B(α, x) : n ≡ 0 (mod d)}      1
+                                                            ≪
+                                       #B(α, x)                d
+on a much larger range of d (depending on x). This suffices to put the tail (meaning d > T for
+a fixed large integer T ) of the convergent series into the error term. This procedure is estab-
+lished in Section 5.1 by applying classical tools of analytic number theory. With this at hand
+and leaving the proof of Theorem 3 for the moment aside, the proof is completed by removing
+the smooth weights (see Section 5.2), as well as changing from the uniform roughness of the
+triangular array to actual sequences (Section 5.3), which follow from lengthy, but elementary
+computations.
+
+   For the proof of Theorem 3, we make use of the connection between Ostrowski expansions
+and elements in Diophantine Bohr sets. While this is a somewhat classical topic dating back
+almost 100 years [49], we employ the extensive theory developed more recently in the article of
+Beresnevich–Haynes–Velani [6]. For fixed α = [0; a1 , a2 . . . , ] written in its continued fraction
+expansion, we have a correspondence
+
+                            N ↔ (b1 (N ), . . . , bk (N )),     1 ≤ N < qk+1 ,
+
+where N = i≤k bi (N )qi , bi ∈ {0, 1, . . . , ai+1 }, and pk /qk denotes the k-th convergent of α.
+              P
+Oversimplifying some technical arguments, we have N ∈ B(α, x) if and only if (b1 (N ), . . . , bk (N ))
+starts with L(x) < k(x) many 0’s, and the assumption of xρx → ∞ ensures k(x) − L(x) → ∞
+(In fact, this would only work for x = qk+1 and ρP       x = ∥qL α∥. Therefore, we pass to a subse-
+quence (xn )n∈N where xn+1 /xn → 1 with xn = M                 bq        for arbitrarily slowly growing
+                                                           PM i kn −i
+                                                           i=0
+M (x), and approximate the corresponding ρx by                i=0 b i ∥qL+i α∥. As long as we can en-
+sure k(x) − L(x) − 2M (x) → ∞, we are essentially back in our simplified situation.) If we
+now view {1, . . . , qk+1 − 1} as a probability space with uniform probability measure, each bi
+(mod d), L(x) < i ≤ k(x) can be viewed as a random variable on {0, . . . , d − 1}. If these bi
+had a reasonably non-degenerated distribution with bi being stochastically independent of the
+other bj ’s, the question would almost reduce to asking for the probability that after K dice
+rolls, the sum of the dots shown being a (mod d), when a, d are fixed and K → ∞. Clearly, one
+expects an equidistribution for this question, and this can be proven by a standard application
+of the theory of Markov chains.
+
+    However, the random variables bi are not independent, but follow the Markov chain condi-
+tion bi = ai+1 ⇒ bi−1 = 0 (we remark that there are two different Markov chains here: One for
+the Ostrowski digits, and one coming from the random walk modulo d). The idea to circum-
+vent this obstruction is to observe that conditioned on the event bi+3 = bi = 0, the random
+variable (bi+1 , bi+2 ) is now independent of all the remaining bj , j ∈
+                                                                       / {i, i + 1, i + 2, i + 3}. The
+reason we take pairs is to exploit the fact that successive convergent denominators are always
+
+
+                                                     8
+coprime, and thus summing the independent random variables bi qi + bi+1 qi+1 (mod d) gives
+rise to a Markov chain that is irreducible (picking just an arbitrary collection of i’s might e.g.
+have resulted in qi always being even, destroying any hope of establishing equidistribution
+(mod d) for even d). It turns out that the occurrence of such a constellation (0, ∗, ∗, 0) for
+an unbounded number of i’s is generic among all tuples: This is essentially just arguing that
+flipping a coin infinitely often, we get almost surely infinitely often “heads”, since the event
+bi = 0 can be shown to have a positive probability, regardless of any given values for bj , j ̸= i.
+In that way, we get our desired independence assumption, and can thus appeal to the Markov
+chain convergence described above. This whole procedure is executed in Section 4.
+We remark that there might be a possibility to prove Theorem 3 by doing a lattice-point count-
+ing argument in a similar way as in [63] building upon the work of Skriganov [59], as remarked
+by N. Technau in private communication. However, we decided to opt for the approach using
+Markov chains sketched above, which provides a new perspective on the matter.
+
+    While the property of α being badly approximable is used on numerous occasions in the
+proof, the most important reason why Theorem 1 fails for well-approximable numbers (or in
+other words, why Theorem 2 holds) is that in this case, the cardinality of B(α, x) does not
+follow the expected asymptotic #B(α, x) ∼ Vol(R) Φ(x,fx (x)) : If pn /qn approximates α very
+well, then choosing x a suitable multiple of qn provides too many 1 ≤ h ≤ x to lie in B(α, x).
+    Note that                                           −1
+                                Y           1
+                                               
+                                                      2
+                                        1−        1−        ≫ 1,
+                                             p        p
+                                2<p≤f (x)
+                                   p|h
+
+which is of the same order as the expected value, making it unnecessary to execute the delicate
+averaging technique as applied for Theorem 1. Thus the desired limit is off by a factor of
+order Vol(R)
+          #B(α,x)
+                 x  , which along a subsequence is unbounded. This is essentially the proof of
+             Φ(x,f (x))
+Theorem 2.
+
+Notation
+We use the Vinogradov notation ≪ as well as the O- and o-notation. We use f ∼ g for
+limn→∞ fg(n)
+          (n)
+              = 1 and f ≍ g for f ≪ g and g ≪ f . We use the standard notations µ, τ, ω, φ for
+Möbius function, number of divisors function, number of (distinct) prime divisors function,
+and Euler’s totient function, respectively. When the summation respectively product is over
+p, we interpret this as a sum respectively a product over prime numbers. We denote by {x}
+the integer part of x and by ∥x∥ the distance to the nearest integer.
+We introduce some vector notation that will be used throughout this article: We write vectors
+n ∈ Zk in bold and integers n ∈ Z in normal font. For a product set S = A1 ×A2 ×. . .×Ak , we
+denote by S̸= the set of all tuples (a1 , a2 , . . . , ak ) ∈ S with pairwise distinct coordinates. For
+an integer vector n = (n1 , . . . , nk ) ∈ Zk , we denote by n+ := max1≤i≤k ni , n− := min1≤i≤k ni .
+Further, we denote by P − (n) := min1≤i≤k P − (ni ) where P − (n) denotes the smallest prime
+dividing n. Moreover, for t ∈ R, we let t>0 := max{t, 0} and t<0 := min{t, 0}.
+
+
+3     Sieve estimate
+In this section, we provide the sieve-theoretic application that allows to establish the ana-
+logue of the Hardy-Littlewood k-admissibility conjecture for rough numbers, provided that
+the roughness parameter is xo(1) :
+Lemma 4. Let f (x) = xr(x) where r(x) decreases monotonically to 0. Let k ≥ 2 be a fixed
+integer and for h ∈ Zk−1
+                     ̸= , let gh (p) = #{0 (mod p), h1 (mod p), . . . , hk−1 (mod p)}. Then we
+have
+                    #{(m, n) ∈ [1, x]k̸= : P − ((m, n)) > f (x), m1k−1 − n = h}
+                            +     −
+                                               Y          gh (p)
+                                                                  
+                   ∼ (x − (h>0 − h<0 ))>0              1−           + O(xo(1) ),
+                                                              p
+                                            1≤p≤f (x)
+
+
+with the convergence being uniform in h.
+
+
+
+                                                  9
+    For the proof, we will make use of the Fundamental Lemma of Sieve Theory in the form
+of [30, Theorem 18.11] which we state below for the reader’s convenience.
+Lemma 5. Let (bn )n≥1 beQnon-negative reals such that ∞
+                                                           P
+                                                              n=1 bPn < ∞. Let P be a finite set
+of primes, and write P = p∈P p. Set y = max P, and Bd = n≡0 mod d bn . Assume that
+there exists a multiplicative function g such that g(p) < p for all p ∈ P, a real number X, and
+positive constants κ, C such that
+
+                                                 g(d)
+                                      Bd =: X         + rd ,         d|P,                                 (6)
+                                                  d
+and
+                                            κ           
+               Y               g(p)     log y2          C
+                            1−       <             1+          ,                  3/2 ≤ y1 ≤ y2 ≤ y.      (7)
+                                p       log y1        log y1
+           p∈(y1 ,y2 ]∩P
+
+    Then, uniformly in u ≥ 1 we have
+                                                                                                 
+               X                       Y      g(p)
+                                                         X       
+                 bn = 1 + Oκ,C (u−u/2 ) X     1−        +O   |rd | .
+                                                                  
+                                          p∈P
+                                                  p        u      
+             (n,P )=1                                                                  d≤y
+                                                                                        d|P
+
+
+Proof of Lemma 4. First, we translate the above count into the setup of Lemma 5. We observe
+that in order to satisfy m1k−1 − n = h for some (m, n) ∈ [1, x]k̸= , we have
+
+                                 max{0, −h− } ≤ m ≤ x − max{h+ , 0}.
+
+Thus we define                                  X
+                            bn = b(h)
+                                  n   :=                    1[m Qk−1 (m+h )=n] ,
+                                                                      i=1         i
+                                           −h−        +
+                                             >0 ≤m≤x−h>0
+
+and observe that
+                                                                                              X
+            #{(m, n) ∈ [1, x]k̸= : P − ((m, n)) > f (x), m1k−1 − n = h} =                            bn
+                                                                                            n∈N
+                                                                                          (n,P )=1
+
+
+where P := p≤f (x) p. This approach itself is not novel, see e.g. [30, Example 18.2] or [28,
+           Q
+Theorem 6.7] for related setups.
+
+    We may assume that for p ≤ k we have gh (p) < p, since otherwise there are no solutions
+at all and the result follows trivially. In order to show (6), observeQthat on full periods Zd in
+the sieve range −(h− <0 ) ≤ m ≤ x − h>0 , we get precisely gh (d) :=
+                                        +
+                                                                        p|d gh (p) many solutions,
+which proves (6) with X = (x − (h+
+                                 >0 − h<0 ))>0 , g = gh , and |rd | ≤ gh (d) ≤ k
+                                       −                                         ω(d)
+                                                                                      .
+   Thus an application of Lemma 5 with κ = k, u = √    1
+                                                           , y = f (x) where f (x) = xr(x) , and
+                                                                 r(x)
+the well-known estimate kω(d) ≪ε,k dε shows that
+                                                                                               
+           X                          −
+                                                  Y                  gh (p)                √ 1 +1
+                    bn ∼ (x − (h+
+                                >0 − h<0 ))>0                   1−                + O f (x) r(x)    ,
+           n∈N
+                                                                       p
+                                                1<p≤f (x)
+         (n,P )=1
+
+with the convergence being uniform in h.
+
+
+4       Equidistribution mod d in Bohr sets
+4.0.1    Prerequisites - Ostrowski expansions
+For the convenience of the reader, we recall here some well-known facts on Diophantine approx-
+imation and continued fractions that are used in this paper. For a more detailed background,
+see the classical literature e.g. [5, 52, 58]. Furthermore, we make use of various results of
+[6] where Bohr sets in Diophantine approximation were developed, which we will recall and
+slightly generalize to the signed setup.
+
+
+
+                                                    10
+   Every irrational α has a unique infinite continued fraction expansion [a0 ; a1 , ...] with con-
+vergents pk /qk = [a0 ; a1 , ..., ak ] satisfying the recursive formulae
+
+        pk+1 = pk+1 (α) = ak+1 pk + pk−1 ,            qk+1 = qk+1 (α) = ak+1 qk + qk−1 ,   k⩾1
+
+with initial values p0 = a0 , p1 = a1 a0 + 1, q0 = 1, q1 = a1 . One can deduce from these
+recursions that qk grows exponentially in k; in particular, we have for any k, j ∈ N
+                                               qk+j
+                                                    ≫ (3/2)j ,                                    (8)
+                                                qk
+with an absolute implied constant. Defining
+
+                                          δk := qk α − pk ,       k ≥ 0,
+
+we have the following identities for any k ≥ 1 :
+
+
+                                            δ0 = {α},         δk = (−1)k ∥qk α∥,                  (9)
+                                       ak+1 δk = δk+1 − δk−1 ,                                   (10)
+                                             1
+                                               ≤ qk+1 |δk | ≤ 1,                                 (11)
+                                             2
+                                                   k
+                                       δm+k        2
+                                               ≪         ,                                       (12)
+                                         δm        3
+                                          |δk | = ak+2 |δk+1 | + |δk+2 |,                        (13)
+                                                    ∞
+                                                    X
+                                          |δk | =       ak+2i |δk+2i−1 |,                        (14)
+                                                    i=1
+                                                     X∞
+                               |δk | + |δk+1 | =            ai+1 |δi |.                          (15)
+                                                    i=k+1
+
+
+    We call an irrational number α badly approximable if C(α) := supn∈N an (α) < ∞. Fixing
+an irrational α = [a0 ; a1 , ...], the Ostrowski expansion of a non-negative integer N is the unique
+representation
+                   k
+                   X
+             N=          bi (N )qi ,   bk+1 ̸= 0, 0 ⩽ b0 < a1 , 0 ⩽ bi ⩽ ai+1 for i ⩾ 1,
+                   i=0
+
+with the additional rule that bi−1 = 0 whenever bi = ai+1 . If b0 (N ) = b1 (N ) = 0, we obtain
+the very useful identity
+                                            Xk
+                                    {N α} =    bi (N )δi ,                                 (16)
+                                                        i=0
+
+from which we can deduce that
+
+                 (bm − 1)|δm | + (am+2 − bm+1 )|δm+1 | ≤ ∥N α∥ ≤ (bm + 1)|δm |,
+
+where m is the smallest index such that bm (N ) ̸= 0, see [6, Lemma 4.1 and Lemma 4.2].
+
+    We now recall the classical Denjoy–Koksma inequality from Discrepancy theory (see e.g.
+[31, Chapter 2, Theorem 3.4]):
+Proposition 6 (Denjoy-Koksma inequality). Let f :P       R → R be a 1-periodic function with
+bounded total variation V ar(f ) on [0, 1) and let N = ki=0 bi qi be an integer written in Os-
+trowski expansion with respect to some irrational α. Then
+                                                                      
+                      X               Z 1                         k
+                                                                  X
+                          f (nα) = N       f (x) dx + O V ar(f )   bi  ,
+                         n≤N                  0                             i=0
+
+
+with an absolute implied constant.
+
+
+
+
+                                                        11
+        We say that a tuple (ci0 , . . . , cir ), it ∈ N is admissible (with respect to α) if there exists
+      N ∈ N such that2
+                                            X k
+                                   N=             bi qi , bit = cit , 1 ≤ t ≤ r,                     (17)
+                                               i=0
+
+      where N is written in its Ostrowski expansion. Given an admissible tuple (d0 , . . . , dm ), we
+      define the Ostrowski cylinder sets as
+
+
+      A(d0 , . . . , dm ) := {N ∈ N : bi (N ) = di    ∀1 ≤ i ≤ m},       AM (d0 , . . . , dm ) := A(d0 , . . . , dm )∩[1, M ].
+
+      We say (ci0 , . . . , cir ), it ∈ N is admissible in A(d0 , . . . , dm ) respectively in AM (d0 , . . . , dm ) if
+      there exists N ∈ A(d0 , . . . , dm ) respectively N ∈ AM (d0 , . . . , dm ) such that (17) holds.
+
+         We define the Ostrowski expansion for real numbers as follows: Fixing α, the real Ostrowski
+      expansion of a real number γ ∈ [−α, 1 − α) is the unique representation
+                              ∞
+                              X
+                         γ=         ci (γ)δi   where 0 ⩽ b0 < a1 , 0 ⩽ bi ⩽ ai+1 for i ⩾ 1,                           (18)
+                              i=0
+
+      with the additional rule that ci−1 = 0 whenever ci = ai+1 .
+      Proposition 7. Let α be an irrational number and let
+                                          X
+                                      x=      bi (x)qi , bn ̸= 0
+                                                     i≤n
+
+      be an integer  written in its Ostrowski P  expansion. For m ∈ N with m < n, let us denote
+      x−                                     +
+              P
+       m :=     n−m≤i≤n  b i (x)qi and let x m =   i≥n−m bi (xm )qi where xm = x + qm . Then we have
+      the following:
+        (i) The respective Ostrowski expansions of both x−    +
+                                                         m , xm have at most m + 2 non-zero digits.
+
+        (ii) x−        +
+              m ≤ x ≤ xm .
+             x+
+                          
+                           2 m
+       (iii) m− ≤ 1 + O    3
+                               , with an absolute implied constant.
+             xm
+
+      Proof. Since x−
+                    m , xm arise from truncations of Ostrowski expansions of x and xm respectively,
+                         +
+
+      and x < xm < qn+2 , (i) follows immediately. While x− m ≤ x is trivial, note that
+                                                     X
+                                     x+
+                                      m = x + qm −      bi (xm )qi > x,                       (19)
+                                                             i<m
+                                                             |     {z      }
+                                                                   <qm
+
+
+      thus (ii) follows. By the same argumentation, we obtain x−
+                                                               m > x − qm , and since x > qn ,
+
+                                  x+
+                                   m   x + qm                             
+                                                                            m
+                            1≤     − ≤        = 1 + O(qn−m /qn ) = 1 + O 23   ,
+                                  xm   x − qm
+      using (8).
+         We also need the “dual” of Proposition 7 that considers upper and lower bounds for trun-
+      cated real Ostrowski expansions.
+      Proposition 8. Let γ ∈ [−α, 1−α) with γ = ∞
+                                                      P
+                                                        i=m ci (γ)δi , cm (γ) ̸= 0 being its real Ostrowski
+      expansion and assume m ≥ 1. Further, let L ∈ N be given and define
+                                     X                    −
+                                                                   X
+                             +
+                            γL,m =       ci (γ + )δi , γL,m   =           ci (γ − )δi
+                                           i≤L+m                         i≤L+m
+
+
+      where γ + = γ + |δm+L |, γ − = γ − |δm+L |. Then we have the following:
+             −          +
+        (i) γL,m ≤ γ ≤ γL,m .
+   2 Note the abuse of notation: Formally, we would need to define ((c
+                                                                            i0 , i0 ), . . . , (cir , ir )) to be admissible but this
+rather clumsy notation is omitted for the sake of readability.
+
+
+
+
+                                                             12
+        +
+       γL,m
+(ii)    −     ≤ 1 + O(( 23 )L ), with an absolute implied constant.
+       γL,m
+                                   +      −
+(iii) The Ostrowski expansions of γL,m , γL,m are of the form (0, . . . , 0, dm−1 , . . . , dm+L ).
+                                                               | {z }
+                                                                           m−2
+
+Proof. From (14) and (15) we infer that
+
+                                        |δm+1 | ≤ |γ| ≤ |δm−1 |.                                       (20)
+                                              P∞
+From (14) we obtain that for any β =                          and any k ≥ 1 that
+                                                                                   P
+                                                 i=1 c̃i δi                            i>k c̃i δi   ≤ |δk |.
+Therefore, we obtain
+
+                              +
+                                                        X
+                             γL,m ≥ γ + |δm+L | −              ci (γ + )δi ≥ γ,
+                                                     i>L+m
+
+
+and analogously, γL,m
+                  −
+                      ≤ γ, showing (ii). By the same argumentation, we have
+
+                              +
+                                                        X
+                             γL,m ≤ γ + |δm+L | +               ci ≤ 2|δm+L |
+                                                      i>L+m
+
+
+as well as γL,m
+             −
+                  ≥ γ − 2|δm+L | which in view of (12) and (20) proves (ii). Since |γL,m
+                                                                                     ±
+                                                                                         | ≤
+|δm+L | + |δm−1 |, using again (20) shows (iii).
+
+4.1     Prerequisites - Markov chains and conditional probabilities
+We will make use of the very basic theory of Markov chains in order to obtain the equidistri-
+bution in Zd . For more details we refer the interested reader to the standard literature on this
+topic such as [46, 67].
+
+Definition 2. Given a probability space (Ω, A, P), a (time-homogeneous) Markov chain with
+finite state space X is a sequence of random variables (Zi )i∈N0 with Zi : Ω → X that satisfies
+the following properties:
+ (i) For all x0 , . . . , xn+1 ∈ X, n ∈ N0 such that P[Zn = xn , . . . , Z0 = x0 ] > 0, one has
+
+                  P[Zn+1 = xn+1 | Zn = xn , . . . , Z0 = x0 ] = P[Zn+1 = xn+1 | Zn = xn ].
+
+(ii) For all x, y ∈ X and all n, m ∈ N0 such that P[Zn = x] > 0, P[Zm = x] > 0, we have
+
+                             P[Zn+1 = y | Zn = x] = P[Zm+1 = y | Zm = x].
+
+We define the transition matrix P by P (x, y) := P[Zn+1 = y | Zn = x] and write P (k) (x, y) =
+P[Zn+k = y | Zn = x]. The initial distribution of (Zi )i∈N0 is the distribution ν on X defined
+by ν(x) := P[Z0 = x], x ∈ X.
+
+    We call a Markov chain irreducible when for all x, y ∈ X, there exists n ∈ N such that
+P (n) (x, y) > 0. We call a Markov chain aperiodic if for all x ∈ X
+
+                                  gcd({n > 0 : P n (x, x) > 0}) = 1.
+
+We call a distribution π on X stationary if (interpreted as vector πx := π(x), x ∈ X) we
+have πP = π.
+    With these definitions at hand, we can state the Markov chain convergence Theorem with
+finite state space for time-homogeneous chains in the form of [67, Theorem 3.28]:
+Proposition 9. Let (Zi )i∈N0 be an irreducible, aperiodic time-homogeneous Markov chain
+with finite state space X. Then there are k ∈ N and τ < 1 such that for the unique stationary
+distribution π one has          X (n)
+                                     P (x, y) − π(y) ≤ 2τ n                              (21)
+                                    y∈X
+
+for every x ∈ X and n ≥ k.
+
+
+                                                   13
+   We will apply this proposition to the random walk on the additive groups Zd in the following
+way:
+Corollary 10. Let d ∈ N, and µ a probability measure on Zd = {0, . . . , d − 1} that satisfies:
+ (i) µ(0) > 0.
+ (ii) There exists a, b ∈ Zd with µ(a) > 0, µ(b) > 0 such that gcd(a, b, d) = 1.
+Given a probability space (Ω, A, P), let (Yi )i∈N0 be a sequence of independent random variables
+                 d           d
+on Zd , with Y0 = θ and Yi = µ, i ≥ 1. Then we have the following: For all ε > 0, there exists
+K0 = K0 (µ, ε) ∈ N such that for all distributions θ on Zd , all a ∈ Zd and all n ≥ K0 , we have
+                                                
+                                        n
+                                       X              1
+                                   P      Yi = a −     < ε.
+                                       i=0
+                                                      d
+
+Proof. A routine computation shows that the partial sums Zn :=                 0≤i≤n Yi form a time-
+                                                                            P
+homogeneous Markov chain with initial distribution Y0 and transition probabilities P (x, y) :=
+µ(y − x). By employing Bezout’s identity on a, b, d, we find under (ii) the existence of k, ℓ ∈
+N such that ak + bℓ ≡ 1 (mod d). Thus P (k+ℓ) (0, 1) > 0, and hence the Markov chain is
+irreducible. Further, (i) immediately implies the aperiodicity. Note that the transition matrix
+P with P (i, j) := µ(j − i), i, j ∈ Zd is doubly stochastic, and thus the unique stationary
+measure is π = ( d1 , . . . , d1 ). An application of Proposition 9 now proves the claim.
+    Finally, we recall some standard notation for conditional probabilities that will be used in
+this section. We remark that we will restrict ourselves to random variables with finite state
+space. Given a probability space (Ω, A, P), and a random variable Z : Ω → S to some (finite)
+space S, we define for A ∈ A with P[A] > 0 the random variable Y = Z|A via
+
+                                                     P[(Z = a) ∩ A]
+                      P[Y = a] := P[Z = a|A] =                      ,   a ∈ S.
+                                                          P[A]
+
+For a Sigma-algebra B ⊆ A, we denote by E[Y |B] the conditional expectation, and for an event
+A ∈ A, we write P[A|B] := E[1A |B]. As usual, for random variables (X1 , . . . , Xn ) we write
+E[Y |(X1 , . . . , Xn )] := E[Y |σ((X1 , . . . , Xn ))] where σ(X) denotes the smallest Sigma-algebra
+generated by X.
+
+4.2      Proof of Theorem 3
+Lemma 11 (Bohr set cardinality). Let (Ix )x∈N a sequence of intervals in [0, 1] with limx→∞ xλ(Ix ) =
+∞, let α be badly approximable and define
+
+                        B(x, Ix ) = Bα (x, Ix ) := {1 ≤ n ≤ x : {nα} ∈ Ix }.
+
+Then we get
+                                 #B(x, Ix ) ∼ λ(Ix )Ix ,   x → ∞.                               (22)
+Proof.   Let x−
+              m ≤ x ≤ xm be defined as in Proposition 7 which we now apply. By (ii), we obtain
+                       +
+
+
+                          #B(x−                              +
+                                 m , Ix ) ≤ #B(x, Ix ) ≤ #B(xm , Ix ).
+
+By (iii), we observe that i bi (x+
+                                 m ) ≪α + , thus by the Denjoy–Koksma inequality (Propo-
+                                            m
+                         P
+                                              xm
+sition 6), we get                      X
+                      #B(x+
+                          m , Ix ) =          1[{nα}∈Ix ] = λ(Ix )x+
+                                                                   m + Oα (m),
+                                       n≤x+
+                                          m
+
+and the same argument shows
+
+                                 #B(x−                 −
+                                     m , Ix ) = λ(Ix )xm + Oα (m).
+
+Setting m = ⌊ xλ(Ix )⌋ and using qj−m /qj ≪ (2/3)m , (22) follows from (ii).
+             p
+
+
+
+
+                                                   14
+Proposition 12. Let Bα (x, ρ) = {1 ≤ n ≤ x : ∥nα∥ < ρ} and let d ∈ N and j ∈ Zd arbitrary.
+Then for any badly approximable α, we have
+                                       X                    #Bα (x, ρ) p
+                                                  1 ≪α                + #Bα (x, ρ),
+                                                               d
+                                   h∈B(x,ρ)
+                                 h≡j (mod d)
+
+with the implied constant depending only on α.
+Proof. This follows by obvious modifications from the proof of [21, Lemma 7.4], using crucially
+the fact that
+                            Bα (x, ρ) ⊆ {au + bv : |a| ≤ z, |b| ≤ z}
+for some z satisfying z 2 ≪α #Bα (x, ρ) (see e.g. the combination of [12, Lemmas 2.7 and
+Lemma 2.15], or [61] for a longer discussion on these Bohr set inclusions).
+   While Proposition 12 is a powerful tool for error terms, the implied constant is unavoidable,
+and thus there is no way that the employed method could provide an asymptotics as stated
+in Theorem 3. To this end, we need the following refinements of Proposition 12 in the two
+subsequent statements that become slightly technical.
+Proposition 13 (Approximating Bohr sets by Ostrowski cylinder sets). Let α be badly ap-
+proximable with C(α) = supi∈N ai < ∞ and I = [0, γ] or I = [1 − γ, 1], γ > 0 be an interval
+with |δm | ≤ γ < |δm+1 |, m ≥ 2. Let x, L ∈ N such that xγ > (C(α) + 1)L .Then we have the
+following:
+     There exists sets S + , S − with |S + |, |S − | ≪ LC(α)+1 such that
+                [                                                                      [
+                                   Ax (0, . . . , dm+L ) ⊆ Bα (x, I) ⊆                                    Ax (0, . . . , dm+L ),
+(0, . . . , 0,dm−1 ,...,dm+L )∈S −                                     (0, . . . , 0,dm−1 ,...,dm+L )∈S +
+ | {z }                                                                 | {z }
+   m−1                                                                              m−1
+
+                                                                                                                          (23)
+with
+
+                                                                                                                                   3 −L
+                [                                                               [                                                    
+                                      Ax (0, . . . , dm+L )\                                         Ax (0, . . . , dm+L ) ≪α xγ   2
+                                                                                                                                        .
+ (0, . . . , 0,dm−1 ,...,dm+L )∈S +                            (0, . . . , 0,dm−1 ,...,dm+L )∈S −
+  | {z }                                                        | {z }
+    m−1                                                           m−1
+
+                                                                                                                          (24)
+Proof. We will only prove the case where I = [0, γ]; the case I = [1 − γ, 1] works in the
+completely same fashion by alternating signs adequately. Furthermore, we may assume that ρ ∈
+[−α, 1−α) since we otherwise simply add a suitable integer. We now define the following partial
+order on integer-valued tuples respectively sequences: Let (b0 , . . . , bi ) ∈ Zi \ {(0, . . . , 0)}, i ∈
+N ∪ {∞} and let i0 = min{0 ≤ t ≤ i : bt ̸= 0}. Then
+
+                                   (0, . . . , 0) ⪯ (b0 , . . . , bi ) :⇔ (−1)i0 bi0 > 0.
+
+Letting (b0 , . . . , bi ), (b′0 , . . . , b′j ) be such tuples we define
+
+            (b0 , . . . , bi ) ⪯ (b′0 , . . . , b′j ) :⇔ (0, . . . , 0) ⪯ (b′0 − b0 , . . . , b′min{i,j} − bmin{i,j} ).
+
+Using (16) and the identities (9) - (15), it is immediate that
+
+             N ∈ Bα (x, I) ⇔ (0, 0, . . .) ⪯ (b0 (N ), b1 (N ), . . .) ⪯ (c0 (γ), c1 (γ), . . .) (25)
+            P∞                   P∞
+where N = i=0 bi (N )qi , γ = i=0 ci (γ)δi are both written in their respective Ostrowski
+expansions.
+
+    We now define γL,m  +      −
+                            , γL,m as in Proposition 8 and let
+      n                                                                                                           o
+S + := (d0 , . . . , dm+L ) admissible : (0, 0, . . .) ⪯ (d0 , . . . , dm+L ) ⪯ (c0 (γm+L
+                                                                                      +                     +
+                                                                                          ), . . . , cm+L (γm+L )) ,
+      n                                                                                                           o
+S − := (d0 , . . . , dm+L ) admissible : (0, 0, . . .) ⪯ (d0 , . . . , dm+L ) ⪯ (c0 (γm+L
+                                                                                      −                     −
+                                                                                          ), . . . , cm+L (γm+L )) .
+
+By (25) and Proposition 8 (i), we see that
+
+
+                                                               15
+                     [                                                               [
+                                   Ax (d0 , . . . , dm+L ) ⊆ Bα (x, I) ⊆                          Ax (d0 , . . . , dm+L ).
+             (d0 ,...,dm+L )∈S −                                            (d0 ,...,dm+L )∈S +
+
+
+      By Proposition 8 (iii), we have (d0 , . . . , dm+L ) = (0, . . . , 0, dm−1 , . . . , dm+L ) for all (d0 , . . . , dm+L ) ∈
+      S − ∪ S + . Since di ∈ {0, . . . , ai+1 } ⊆ {0, . . . , C(α)}, we conclude that |S + |, |S − | ≪ LC(α)+1 .
+      Furthermore, observe that by Proposition 8 (ii),
+                          [                                            [
+                                       AM (d0 , . . . , dm+L ) \                   AM (d0 , . . . , dm+L )
+                    (d0 ,...,dm+L )∈S +                             (d0 ,...,dm+L )∈S −
+
+
+      is an (inhomogeneous) Bohr set Bα (x, J) with λ(J) ≪ γ( 32 )L . An application of Lemma 11
+      now proves (24).
+          Proposition 13 reduces Theorem 3 to establishing equidistribution on Zd on Ostrowski
+      cylinder sets AM (d1 , . . . , dm ). This will be finally done in the subsequent technical key lemma.
+      Lemma 14. Let α be badly approximable. For x ∈ N, let k = k(x) be such that qk−1 ≤ x <
+      qk+1 and let m = m(x) ∈ N be such that limx→∞ k(x) − m(x) = ∞. Further, let L be a fixed
+      integer, let                                                         
+                                             k(x)                          
+                              ′       ′
+                                              X
+                      SL = x ∈ N : x =             bi qi , (bi )i admissible ,
+                                                                           
+                                                        i=k(x)−L+1
+
+      and let (xj )j∈N be the sequence that enumerates the elements of SL in ascending order. Then
+      for every d ∈ N, every a ∈ Zd , and any admissible sequence (di )i∈N ,
+
+                                                                               #Axj (d0 , . . . , dm )
+                #{N ∈ Axj (d0 , . . . , dm ) : N ≡ a          (mod d)} ∼                               ,    j → ∞,           (26)
+                                                                                       d
+      with the convergence being uniform in (di )i∈N .
+      Proof. We endow the finite set Axj (d0 , .P
+                                                . . , dm ) with thePuniform probability measure P =
+      Pj . By the Ostrowski expansion N =          i≤m(xj ) di qi +  m(xj )+1≤i≤k(xj ) bi qi we have the
+      correspondence
+
+                                               N ←→ (bm(xj )+1 , . . . , bk(xj ) ),
+      so we can interpret the Ostrowski digits bi as random variables on {0, . . . , ai+1 }. Note that
+      they are neither uniformly distributed nor independent - a fact that arises from the Ostrowski
+      rule bi = ai+1 =⇒ bi−1 = 0.
+
+          We now define the set of free indices 3 , denoted by F := Fj,L := {m(xj ) + 2, . . . , k(xj ) − L −
+      1}. Note that by the assumption of limx→∞ k(x) − m(x) = ∞, it follows that limj→∞ #Fj,L =
+      ∞.
+
+          We now claim to have the following three crucial facts for all i ∈ F :
+        (i) We have a uniform lower bound for the event of bi = 0, even after fixing an arbitrary
+            amount of other digits. Put formally, the random variable P[bi = 0|(b1 , . . . , bi−1 , bi+1 , . . .)]
+            satisfies with probability 1
+
+                                                                                              1
+                                           P[bi = 0|(b1 , . . . , bi−1 , bi+1 , . . .)] ≥        .
+                                                                                            C +1
+        (ii) Let Zi := (bi , bi+1 )|bi+2 = 0, bi−1 = 0, i.e., the random variable of (bi , bi+1 ) given the
+             event bi+2 = 0, bi−1 = 0. Further, let Si be the set of all admissible tuples for (bi , bi+1 ),
+             i.e.,
+                         Si := {(x, y) ∈ Z : 0 ≤ x ≤ ai+1 , 0 ≤ y ≤ ai+2 − 1} ∪ {ai+2 , 0}.
+             Then for all (x, y) ∈ Si , P[Zi = (x, y)] = |S1i | .
+   3 The term is motivated by the fact that the first m digits are fixed and there is also a restriction for the last L
+
+(by the Ostrowksi rule this might also restrict the choices at positions m + 1 and k(xj ) − L − 1), but the probability
+distribution for bi is non-degenerated for i ∈ F .
+
+
+                                                                 16
+(iii) Zi is independent of all digits bj , j ∈
+                                             / {i − 1, i, i + 1, i + 2}, i.e. formally: We have (almost
+      surely)
+                                                                                              1
+                  P[Zi = (x, y)|(b1 , . . . , bi−2 , bi+2 , . . .)] = P[Zi = (x, y)] =             ,   (x, y) ∈ Si .
+                                                                                             |Si |
+
+Indeed, we observe that if (d0 , . . . , dm , bm+1 , . . . , b, . . . , bk(xj ) ) is admissible, then so is (d0 , . . . , dm , bm+1 , . . . , 0, . . . , bk(xj ) ).
+Hence we find for all b ∈ {0, 1, . . . , ai+1 }, i ∈ F an injection
+
+                {N ∈ Axj (d0 , . . . , dm ) : bi (N ) = b} → {N ∈ Axj (d0 , . . . , dm ) : bi (N ) = 0}
+                                                          N 7→ N − bi qi ,
+
+and this property remains valid by considering restrictions on both sets by fixing an arbitrary
+amount of digits bj , j ̸= i, proving (i).
+
+    By the same arguments, we find for all (x, y), (x′ , y ′ ) ∈ Si , i ∈ F a bijection between
+
+          {N ∈ Axj (d0 , . . . , dm ) : (bi (N ), bi+1 (N )) = (x, y), bi−1 (N ) = bi+1 (N ) = 0} and
+          {N ∈ Axj (d0 , . . . , dm ) : (bi (N ), bi+1 (N )) = (x′ , y ′ ), bi−1 (N ) = bi+1 (N ) = 0}
+
+via N 7→ N − (xqi+1 + yqi ) + (x′ qi+1 + y ′ qi ). We remark that here the condition on bi−1 (N ) =
+bi+1 (N ) = 0, as well as the special form of xj is used; without that, this statement would
+not be true in general. For (iii), we again restrict both sets by fixing digits, still keeping the
+bijectivity property.
+
+   We now define F4 := {i ∈ N : {4i, 4i + 1, 4i + 2, 4i + 3} ∈ F } and define the random
+variables
+                            Xi := 1[b4i =b4i+3 =0] , i ∈ F4 .
+We observe that by (i), we have
+                                            1
+                     P[Xi = 1|E] >                       for any E ∈ σ({bj , j ∈
+                                                                               / {4i, 4i + 3}}).                         (27)
+                                         (C + 1)2
+Next, we define
+
+ G4 := {4i ∈ N : i ∈ F4 } ∪ {4i + 3 ∈ N : i ∈ F4 },                  H4 = {(hi )i∈G4 : (hi )i∈G4 is admissible }.
+
+This allows us to partition
+                                                                        ˙
+                                                                        [
+                                            Axj (d0 , . . . , dm ) =          Ah ,
+                                                                       h∈H4
+
+where
+                             Ah = {N ∈ Axj (d0 , . . . , dm ) : bi (N ) = hi ∀i ∈ G4 }.
+    Clearly, Xi is deterministic on Ah for all i ∈ F4 . We now focus on those h where i∈F4 Xi ≥
+                                                                                      P
+log log |F4 | =: R since this is a generic property: Indeed, we have by using (27) that
+                                            
+                                                                        |F4 |/2
+        X                 X         X                              1
+   P        Xi ≤ R ≤         P       Xi = 0 ≤ |F4 |R 1 −                      → 0, j → ∞.
+       i∈F
+                                                                (C + 1)2
+            4                 J⊆F4        i∈I\J
+                              |J|=R
+                                                                                                                         (28)
+Thus we can assume from now on that h is of the form such that                               i∈F4 Xi ≥ R. This allows
+                                                                                          P
+us to find for fixed h an index set I = Ih ⊆ F4 with |I| = R and
+
+                                                    Xi = 1         ∀i ∈ I.
+
+   By multiple applications of the pigeonhole principle, we obtain the existence of integers
+1 ≤ c, c′ ≤ C(α) such that there are R′ many i ∈ I with R′ ≫d,C(α) R such that:
+    • q4i+1 ≡ a (mod d),
+    • a4i+2 = c.
+    • q4i+2 ≡ b (mod d),
+    • a4i+3 = c′ .
+
+
+                                                              17
+Since successive denominators of convergents are always coprime, we observe that gcd(a, b, d) =
+1. Calling the index set where the above conditions hold Jh ⊂ Ih , we note that Jh ≫d,α
+log log |F4 | and is thus unbounded.
+    We will now prove equidistribution mod d on this set Ah , with the convergence rate being
+uniform in h. In order to do so, we define Ph as the uniform measure on Ah . Writing
+                                        X           X
+                                   N=       bi qi +    bi q i ,
+                                                        i∈Jh        i∈J
+                                                                     / h
+
+                    (h)
+we let Y0 (N ) = Y0 (N ) := i∈J   / h bi qi (mod d) and let νh be the distribution vector of Y0
+                              P
+(with respect to Ph ). Since for all i ∈ Jh we have q4i+1 ≡ a (mod d), q4i+2 ≡ b (mod d) as
+well as b4i = b4i+3 = 0, we get
+                                     X
+                      N ≡ Y0 (N ) +       ab4i+1 (N ) + bb4i+2 (N ) (mod d).
+                                                 i∈Jh
+
+   Now setting
+                                    (h)
+                Yi (N ) = Yi              (N ) := ab4i+1 (N ) + bb4i+2 (N )       (mod d),         i ∈ Jh ,
+
+we see that Yi is a random variable on Ah that is determined by (b4i+1 , b4i+2 ). Writing S :=
+S4i0 +1 for an arbitrary i0 ∈ Jh , we get by (ii), (iii), and our construction of Jh that
+                                                                                  1
+                                             Ph [(b4i+1 , b4i+2 ) = (x, y)] =                                               (29)
+                                                                                 |S|
+
+for all (x, y) ∈ S and all i ∈ Jh . Note that (b4i+1 , b4i+2 ) is (with respect to Ph ) independent of
+{(b4j+1 , b4j+2 )}j∈Jh \{i} , a fact arising from (ii). Thus (Yi )i∈Jh is a sequence of i.i.d. random
+variables satisfying the following:
+                          (h)       u
+ (I) Ph [Yi = j] = pj           = vjj ∈ Q with vj ≪C(α),d 1,               0 ≤ j ≤ d − 1.
+(II) Ph [Yi = a] > 0, Ph [Yi = b] > 0, Ph [Yi = 0] > 0.
+(III) (Yi )i∈Jh is independent of Y0 .
+Indeed, (I) follows from |S| ≪α 1 and (29), (II) from the fact that {(0, 1), (0, 0), (1, 0)} ⊆ Ai ,
+and (III) follows from (iii).
+                                                                                       d                   d   (h)           (h)
+   By relabeling, we get random variables (Xi )0≤i≤|Jh | with X0 = θh , and Xi = (p1 , . . . , pd ).
+                                                                                  (h)          (h)
+   Thus by applying Corollary 10, we obtain that for any ε > 0 there exists K0 ((p1 , . . . , pd ), ε)
+such that                                                
+                                     X                        1
+                           Ph Y0 +      Yi ≡ a mod d −         < ε,                          (30)
+                                    i∈J
+                                                              d
+                                                        h
+
+                                                                                       (h)           (h)
+provided that |Jh | ≥ K0 . We stress that K0 only depends on (p1 , . . . , pd ), and not on the
+initial distribution θh , and by (I), there are only a bounded number number of possibilities
+                   (h)      (h)
+for
+P the vector (p1 , . . . , pd ). Hence we obtain uniformity in (30) among all h that satisfy
+   i∈F4 Xi ≥ K0 , by choosing K0 maximal among         the finite number of distributions. Since
+by (28), the contribution from those h with i∈F4 Xi < R is negligible, summing over all h
+                                                P
+proves the statement since j → ∞ implies R → ∞.
+Proof of Theorem 3. Let m = m(x) such that |δm−1 | < ρx = λ(Ix ) ≤ |δm | and n(x) such that
+qn ≤ x < qn+1 . Note that by assumption of xρx → ∞ and α badly approximable, this means
+that n(x) − m(x) → ∞. Let L ∈ N be a fixed integer such that 2L < n(x) − m(x).
+   Taking x−L ≤ x ≤ xL defined as in Proposition 7, we obtain
+                      +
+
+
+                                                               x+
+                                          x−        +
+                                           L ≤ x ≤ xL ,
+                                                                L
+                                                                  = 1 + O(( 32 )L ).                                        (31)
+                                                               x−
+                                                                L
+
+By Proposition 13, we thus get
+
+           [                                                                      [
+                          Ax− (d0 , . . . , dm+L ) ⊆ Bα (x, Ix ) ⊆                               Ax+ (d0 , . . . , dm+L )
+                                L                                                                   L
+    (d0 ,...,dm+L )∈S −                                                    (d0 ,...,dm+L )∈S +
+
+
+
+                                                               18
+with |S ± | ≪ LC(α)+1 , and (with ∆ denoting the symmetric difference),
+                                                       
+                                                                                              3 −L
+                       [
+                                                                                                            (32)
+                                                                                                
+                                Ax± (d0 , . . . , dm+L ) ∆Bα (x, Ix ) ≪α xρx                      .
+                                                       
+              
+                                           L
+                                                                                              2
+                     (d0 ,...,dm+L )∈S ±
+
+
+Note that Ax+ (d0 , . . . , dm+L ) satisfies all conditions of Lemma 14 (with x+
+                                                                               L = xj , m = m +
+                 L
+L, k = n, γ = ρx ), which implies for all (d0 , . . . , dm+L ) ∈ S + ,
+
+                                                              #Ax+ (d0 , . . . , dm+L )
+                                                                   L
+#{N ∈ Ax+ (d0 , . . . , dm+L ) : d ≡ a         (mod d)} =                                 (1+o(1)),    n(x) → ∞.
+             L                                                           d
+By x → ∞, this implies together with (31), (32) and Lemma 11
+
+                         #{n ∈ B(x, Ix ) : n ≡ a (mod d)}
+              lim sup
+                 x→∞                   #B(x, Ix )
+                         P
+                           (d0 ,...,dm+L )∈S + #{n ∈ Ax+ (d0 , . . . , dm+L ) n ≡ a
+                                                                             :               (mod d)}
+                                                              L
+            ≤ lim sup
+                 x→∞                                  xρx (1 + o(1))
+             1
+            = + O(( 23 )−L ).
+             d
+
+                                L in place of S
+In the same way, using S − and x−               +
+                                                  and NL+ , we get
+                                #{n ∈ B(x, Ix ) : n ≡ a       (mod d)}       1
+                      lim inf                                            ≥     − O(( 32 )−L ).
+                       N →∞                #B(x, Ix )                        d
+With L → ∞, this concludes the proof of the theorem.
+
+
+5     Proof of Theorem 1
+5.1     Averaging multiplicative functions over Bohr sets
+In this part, we establish a version of (4) by applying Theorem 3, and various maneuvers from
+analytic number theory. This will be the most crucial step. We start with a tail estimate that
+will be useful in the proof of the main statement in this section (Lemma 16).
+Lemma 15 (Anatomy of integers on Bohr sets). Let α be badly approximable, let B = Bα (x, ρ)
+be a Bohr set with cardinality B ≫ (log log x)10 and let r ∈ R>0 with r < B 1/3 . Then for all
+h′ ∈ [0, x] we have
+                                                              
+                          
+                                                              
+                                                               
+                                    Y                       
+                     1                           1          1         1
+                                                              
+                       ·# h∈B :             1+       ≥1+ √       ≪ 1/3 .                 (33)
+                    B                           p           r      r
+                                   p|h−h′
+                                                              
+                                                               
+                                                              
+                                     p>r
+                                                              
+
+Proof. By straightforward Taylor estimates, it suffices to show
+                                                          
+                             
+                                                          
+                                                           
+                                                          
+                          1             X 1            1         1
+                                                          
+                            # h∈B:               ≥ √         ≪ 1/3 .
+                         B                    p     2   r     r
+                                       p|h−h′
+                                                          
+                                                           
+                                                          
+                                                   p>r
+                                                          
+
+Applying Markov’s inequality (after removing if necessary the h′ from B which is clearly
+negligible) yields
+
+                                          
+                                 √ X                        √ X
+        
+                                          
+                                           
+                                          
+    1         X 1        1        r                     1    r     1
+                                            X                          X
+      # h∈B:          ≥ √      ≪                          =                       1.
+    B              p  2   r     B                      p   B      p
+             p|h−h′
+                             
+       
+                            
+                                   h∈B h−h′ ≡0 (mod p)        p>r       h∈B
+               p>r                            p>r                    h≡h′ (mod p)
+                            
+
+
+                                                         19
+Applying Proposition 12, we get
+                                  1          X                  B     √
+                                                        1 ≪α      + O( B),
+                                  p                             p
+                                             h∈B
+                                      h≡h′    (mod p)
+
+which we apply for p < x, whereas for p > x, since B ⊆ [1, x], we trivially have for all h ̸= h′
+                                             1        X
+                                                                1 = 0.
+                                             p
+                                                     h∈B
+                                                 h≡h′ (mod p)
+
+Thus we obtain
+
+                                 
+                                           √                  √
+     
+                                 
+                                  
+                            1 √ X 1
+                                 
+1         X 1        1                       r X 1       1     r log log x    1
+                                 
+  # h∈B:          ≥ √      ≪ + r       2
+                                         + √           ≪ √  +     √        ≪ 1/3 ,
+B              p  2   r    B        p       B       p    r        B        r
+         p|h−h′
+                         
+   
+                        
+                                p>r           r<p<x
+           p>r
+                        
+
+where we used B ≫ (log log x)10 and r < B 1/3 in the last step.
+Lemma 16 (Key Lemma). Let k ≥ 2 be a fixed integer, R = [0, ±u1 ] × . . . × [0, ±uk−1 ], ui ∈
+R>0 and let
+
+              B = B(R, N, α) = ±Bα (x1 , ±u1 /N ) × . . . × ±Bα (xk−1 , ±uk−1 /N )
+
+where xi = xi (N ), x = x(N ) satisfies
+
+                    N 10 ≫ x ≥         max xi ≥           min     xi ≫A N (log log N )A
+                                      1≤i≤k−1           1≤i≤k−1
+
+for all A > 0. Then
+                         Y                                   Y               k
+                  X                     gh (p)                              1
+                                 1−                   ∼ #B             1−            ,   N → ∞.
+                                          p                                 p
+                 h∈B̸= p≤f (x)                               p≤f (x)
+
+
+Proof. We may assume that B = B(R, N, α) = Bα (x1 , ±u1 /N ) × . . . × Bα (xk−1 , ±uk−1 /N );
+the cases where some of the coordinates have negative entries only need obvious modifications.
+In the first step, we do a pre-sieving for primes p ≤ k. For given ℓ ∈ Zk−1
+                                                                        k! , we define
+
+                                 B(ℓ) := {h ∈ B : h ≡ ℓ            (mod k!)}.
+
+Since k is fixed throughout the proof, we remark for later reference that an application of
+Theorem 3 implies
+                                                #B
+                                       #B(ℓ) ∼ k−1 .                                        (34)
+                                               k!
+    Now we rewrite
+   X Y             gh (p)
+                           
+                1−           =
+                      p
+  h∈B̸= p≤f (x)
+
+                                                                                            (35)
+                                                               
+    X Y             gℓ (p)
+                             Y 
+                                          1
+                                            k Y         1 − kp    X        Y
+                 1−                    1−                      k                   fh (p),
+                       p                  p
+                                                       
+                                                            1
+  ℓ∈Zk−1 1≤p≤k               k<p≤f (x)        k<p≤f (x) 1 −       h∈B
+                                                                      (ℓ) k<p≤f (x)
+     k!                                                     p                            ̸=
+
+
+where fh is a multiplicative function that satisfies
+                                             k − gh (p)
+                     1 ≤ fh (p) ≤ 1 +                   + O(1/p2 ),         k < p ≤ f (x).        (36)
+                                                 p
+    Next, we remove the contribution of large primes. We let r1 = (log log x)C for suitably
+large C = C(k) determined later. We claim to have the upper-bound
+                      ! k−1Y Y            k−1 k−1 Y             
+                       1                   k Y Y                   k
+      fh (p) ≤ 1 + O                  1 +                      1 +      =: f˜h (p).    (37)
+                       p2    i=1
+                                           p i=1 j=i+1             p
+                                        p|hi                           p|hi −hj
+
+
+
+                                                        20
+                                                                                                        (p)     (p)
+Indeed, if p ∤ hi for all i and p ∤ hi − hj ∀i ̸= j, then gh (p) = #{0(p) , h1 , . . . , hk−1 } = k and
+thus fh (p) ≤ 1 + O( p12 ) by (36). In all other cases, we simply use gh (p) ≥ 0 in (36), which
+proves (37). Assuming for a fixed h ∈ B̸= and x sufficiently large that
+                                        Y                     1
+                                                fh (p) ≥ 1 + 1/3 ,
+                                    r1 ≤p≤f (x)             r1
+
+there must exist 1 ≤ i ≤ k − 1 or 1 ≤ i < j ≤ k − 1 such that
+                Y       k
+                           
+                                     1             Y         k
+                                                                
+                                                                        1
+                     1+      ≥ 1 + 3/5      or            1+      ≥ 1 + 3/5 ,
+                         p          r1                        p        r1
+                 p|hi                                                   p|hi −hj
+
+which implies
+                      Y          1
+                                      
+                                                     1                      Y        
+                                                                                         1
+                                                                                           
+                                                                                               1
+                            1+            ≥1+        1/2
+                                                                   or                 1+     ≥ 1/2 .                          (38)
+                                  p                 r1                                   p    r1
+                     p|hi                                                 p|hi −hj
+
+
+   An application of Lemma 15 together with (34) now implies that any fixed case in (38)
+                                  (ℓ)
+happens in B (ℓ) for at most ≪k B1/3 many elements. By employing the union bound, we
+                                               r1
+deduce                                                            
+                         1                                     1        1
+                                             Y                    
+                              #  h ∈ B (ℓ)
+                                           :     fh (p) ≥ 1 +        ≪k 1/3 .                                                 (39)
+                        #B (ℓ)              p≥r
+                                                               1/3 
+                                                              r1       r1
+                                                               1
+
+                                                                          (ℓ)
+   Let F1 ⊂ B (ℓ) denote the set of those h ∈ B̸= where                                                           1
+                                                                                                                           and set
+                                                                                        Q
+                                                                                             p≥r1 fh (p) ≥ 1 + r 1/3
+                                                                                                                  1
+        (ℓ)
+E1 := B̸= \ F1 . We start to estimate the contribution of F1 : Note that by (37), we obtain
+that for any h ∈ B̸=
+                                k−1
+                                Y Y                     k k−1
+                                                            Y k−1                            k
+            Y                                     1             Y                 Y         1
+                     fh (p) ≪                  1+                                        1+
+                                i=1 p|hi
+                                                  p            i=1 j=i+1 p|hi −hj
+                                                                                            p
+         k<p<f (x)
+                                                                                                                              (40)
+                                 k−1
+                                 Y                 k k−1
+                                                       Y k−1
+                                                           Y                                    k
+                                           hi                                    |hi − hj |                           k3
+                            ≪k                                                                        ≪k (log log x) ,
+                                 i=1
+                                          φ(hi )             i=1 j=i+1
+                                                                                φ(|hi − hj |)
+
+by the classical upper bound φ(m)
+                              m
+                                  ≪ log log m. In combination with (39), this shows
+                                                                                             3
+                         1      X          Y                                (log log x)k
+                                                         fh (p) ≪k                          = o(1),
+                        #B (ℓ) h∈F                                        (log log x)C(k)/3
+                                      1 k<p<f (x)
+
+when choosing C > 3k3 . For E1 , we have by definition that
+                                      Y                 1
+                                 1≤       fh (p) ≤ 1 + 1/3 ,
+                                     p≥r1             r1
+
+and an analogous calculation to the above shows
+                                                                      3
+                      1       1 X Y                      (log log x)k
+                                            f h (p) ≪k                   = o(1),
+                     #B (ℓ) r11/3 h∈E k<p<r            (log log x)C(k)/3
+                                           1             1
+
+since C > 3k3 . Thus we have shown that
+                          X      Y                                       X         Y
+                                                         fh (p) ∼                        fh (p),
+                                    (ℓ)
+                                h∈B̸= k<p<f (x)                         h∈E1 k<p<r1
+
+
+                            3
+where r1 = (log log x)3k +1 .
+                                                     ′
+    We now define r2 = (log log log x)C for some C ′ = C ′ (k) chosen later. Applying Lemma
+15, now to r2 , and arguing as in (38) shows that the set
+                                                                 
+                                                               1
+                                            Y                    
+                           F2 := h ∈ E1 :        fh (p) ≥ 1 + 1/3
+                                                            r 
+                                                              p>r2                       2
+
+
+
+                                                                   21
+satisfies
+                                                             #F2       1
+                                                                    ≪k 1/3 .
+                                                             #B (ℓ)   r2
+Note that on F2 ⊆ E1 , we have the sharper estimate
+
+                                                           3
+                                                          k
+                                                      
+   Y                          Y                  Y    1                3                   3
+            fh (p) ≪                 fh (p) ≪k     1+     ≪ (log r1 )k ≪k (log log log x)k = o(r21/3 ),
+                                                       p
+k<p<f (x)                   k<p<r1                        p≤r1
+
+
+when choosing C ′ > 3k3 . For E1 \ F2 , we again argue as before, showing that the error term
+   1/3
+1/r2 is also negligible. Thus we have removed the contribution of all primes p > r2 , i.e. we
+obtain                    X       Y                X     Y
+                                         fh (p) ∼              fh (p),                    (41)
+                                                                               h∈B̸= k<p<r2
+                                         (ℓ)                                       (ℓ)
+                                     h∈B̸= k<p<f (x)
+
+                                        3
+where r2 = (log log log x)3k +1 .
+    We now define sQh (p) := p(fh (p)−1) for p < k < r2 and extend this function multiplicatively
+via sh (d) := µ2 (d) p|d sh (p). This allows us to write
+                                                 Y                          X µ2 (d)sh (d)
+                                                          fh (p) =
+                                                                                   d
+                                             k<p≤r2                       d|P (r2 )
+
+where P (r2 ) =
+                        Q
+                            k<p<r2 p.
+
+
+    Note that sh (d) only depends on the residue classes of h (mod d). Thus we have
+                         X           Y                         X µ2 (d)               X                   X
+                                             fh (p) =                                      sj (d)                    1.
+                                                                   d
+                        h∈B̸= k<p<r2                                              j∈Zk−1
+                            (ℓ)                              d|P (r2 )                                      (ℓ)
+                                                                                     d                  h∈B̸=
+                                                                                                    h≡j    (mod d)
+
+
+    Next, we fix a large integer M that will be sent to ∞ after N → ∞. For d < M , we
+use equidistribution mod d in the form of Theorem 3: Note that we have #B̸= ∼ #B and
+therefore, by (note that gcd(P (r2 ), k!) = 1) Theorem 3 applied to every coordinate, we have
+for d | P (r2 )
+                                  X                            X                                   #B
+                                                 1=                          1 + o(#B) ∼                     .
+                                      (ℓ)
+                                                                                                dk−1 (k!)k−1
+                               h∈B̸=                    h∈B (ℓ)
+                                                      h≡j (mod d)
+                             h≡j (mod d)
+
+Consequently,
+              X µ2 (d)            X                          X                      #B        X µ2 (d)            X
+                                            sj (d)                         1∼                                             sj (d).   (42)
+                  d                                                               (k!)k−1        dk
+            d|P (r2 )           j∈Zk−1
+                                   d                   h∈B̸=
+                                                                 (ℓ)                        d|P (r2 )         j∈Zk−1
+                                                                                                                 d
+             d≤M                                                                             d≤M
+                                                     h≡j (mod d)
+
+    Next, we will show that
+                                                   X µ2 (d)               X
+                                                                                  sj (d) < ∞,                                       (43)
+                                                      dk
+                                                 d|P (r2 )             j∈Zk−1
+                                                                          d
+
+and consequently,
+                                       X µ2 (d)               X
+                                                                         sj (d) = o(1),      M → ∞.                                 (44)
+                                          dk
+                                     d|P (r2 )               j∈Zk−1
+                                                                d
+                                      d>M
+
+To show (43), we prove that
+                                                       X
+                                                                sj (d) ≪k,ε dk−2+ε .
+                                                     j∈Zk−1
+                                                        d
+
+
+
+
+                                                                          22
+This is obviously trivial for non-squarefree d, so we can focus on squarefree d. Note that from
+the multiplicative definition of sj (d) and the Chinese Remainder Theorem,
+                                   X              Y X
+                                         sj (d) =          sj (p).                          (45)
+                                          j∈Zk−1
+                                             d
+                                                           p|d j∈Zk−1
+                                                                      p
+
+
+Using again (37), we see that for j ∈ Zk−1
+                                        p   with p ∤ ji and p ∤ ji − jℓ for 1 ≤ i < ℓ ≤ k − 1,
+we have fj (p) ≤ 1 + O(p−2 ), so sj (p) = p(fj (p) − 1) ≪ p1 . Thus the contribution of these
+                        k−1
+j ∈ Zk−1
+       p    is ≪ p p . Note that there are at most k2 pk−2 many j ∈ Zk−1 p   such that p | ji or
+p | ji − jℓ for some 1 ≤ i < ℓ ≤ k − 1, in which case (37) provides an upper bound of the form
+                 k3
+sj (p) ≪ 1 + p1       . Thus
+                                        X
+                                            sj (p) ≪k pk−2 ,
+                                                 j∈Zk−1
+                                                    p
+
+so (45) shows
+                                     X
+                                          sj (d) ≪k dk−2 Ok (1)ω(d) ≪k,ε dk−2+ε .                                   (46)
+                                 j∈Zk−1
+                                    d
+
+Choosing ε = 1/2 finally shows (43), implying (44).
+
+    Next, we will treat
+              X µ2 (d) X                         X               X µ2 (d) X                         X
+                         sj (d)                           1≤                sj (d)                            1,
+                  d                                                  d
+            d|P (r2 )         j∈Zd          h∈B̸=
+                                                   (ℓ)         d|P (r2 )            j∈Zd           h∈B
+             d>M                                                d>M                             h≡j (mod d)
+                                          h≡j (mod d)
+
+
+which we split into different ranges: Let T =      min1≤i≤k−1 (xi /N ), which by assumption
+                                                 p
+
+satisfies T ≫A (log log N )A . We apply Lemma 11 to see that #B(xi , si ) ≫si T 2 . Thus applying
+Proposition 12 on each coordinate of B, we obtain for any M < d < T and any j ∈ Zk−1      d  ,
+                                                    X                 #B
+                                                              1 ≪k         .
+                                                                      dk−1
+                                                   h∈B
+                                             h≡j    (mod d)
+
+
+This shows
+  X         µ2 (d)      X        X                              X          µ2 (d)    X
+                                            sj (d) ≪k #B                                     sj (d) = o(#B),       M →∞
+              d                                                             dk
+d|P (r2 )            j∈Zk−1
+                        d
+                                 h∈B                          d|P (r2 )             j∈Zk−1
+                                                                                       d
+M <d<T                        h≡j (mod d)                     M <d<T
+                                                                                                                    (47)
+by using (44) once more.
+                                                   Q         k3
+   For d > T we use (37) again to deduce sj (d) ≪ p|d 1 + p1      ≪ τ ck (d) for some ck
+only depending on k. Furthermore, we observe the following immediate facts for squarefree
+numbers d | P (r2 ):
+    • d ≤ r2 !.
+                                                                     ω(d)
+    • Since d is r2 -smooth, for d > T , we have T < r2 , hence
+                                                                 
+                                                      log T
+                                τ (d) = 2ω(d) ≥ exp          log 2 =: U.
+                                                      log r2
+
+Thus we get by using Rankin’s trick
+
+                                                                                 ck +1
+  X µ2 (d)              X µ2 (d)τ ck (d)   1 X µ2 (d)τ ck +1 (d)   (r2 log r2 )2
+           sup sj (d) ≪                  ≪                       ≪                     ,
+      d j∈Zk−1                  d          U          d                    U
+d|P (r2 )               d            d|P (r2 )                            d≤r2 !
+ d>T                                  d>T
+
+
+
+
+                                                          23
+                                                                                                       τ (n)m                  m
+where we used Stirling’s formula and the well-known estimate                                                    ≪m (log x)2 .
+                                                                                            P
+                                                                                                 n≤x      n
+                                                                                                                ′
+Since by assumption T ≫A (log log x)A for all A > 0 and r2 = (log log log x)C , we get that
+                                                      ck
+U ≫A (log log x)A for all A > 0 and thus (r2 log r2 )2 +1 = o(U ). Hence we obtain
+                        X µ2 (d)               X          X
+                                                                   sj (d) = o(#B),               N → ∞.                       (48)
+                            d
+                      d|P (r2 )             j∈Zk−1
+                                               d
+                                                        h∈B
+                       d>T                           h≡j (mod d)
+
+
+   A combination of (41), (42), (44), (47) and (48) thus implies by N → ∞ and then M → ∞
+that
+                 X      Y                 #B       X      µ2 (d) X
+                              fh (p) ∼       k−1
+                                                                        sj (d).
+                                        (k!)               dk
+                      h∈B̸= k<p<r2                                  d∈N
+                    (ℓ)                                             k−1
+                                                                                           j∈Zd
+                                                                gcd(d,k!)=1
+
+Consequently, recalling (35), we have
+
+
+                  1                        X       Y          gh (p)
+                                                                         
+                                     k                   1−
+                                                                 p
+                        
+                            1 − p1
+          Q
+     #B       p≤f (x)
+                                          h∈B̸= p≤f (x)
+
+                                  
+                              Y 1− k
+                                                                                                                             (49)
+       X      Y      gℓ (p)             p      1                                     X          µ2 (d)    X
+   ∼              1−                    k      k−1
+                                                                                                                    sj (d),
+                        p                    (k!)                                                 dk
+                                   
+                                        1
+     ℓ∈Zk−1  1≤p≤k              p>k 1 −                                              d∈N                  j∈Zk−1
+        k!                              p                                        gcd(d,k!)=1                 d
+
+
+        1− k
+since     p
+          1 k
+               = 1 + Ok (1/p2 ) implies that
+       1− p
+
+                                                          
+                                Y      1 − kp     Y 1− p
+                                                           k
+
+                                            k →          k < ∞,                         x → ∞.
+                                          1               1
+                            k<p<f (x) 1 −         p>k 1 −
+                                          p               p
+
+
+   We prove
+        Q that the right-hand side of (49) ′ evaluates to        1Qby the following argument: Let
+                    ̸= . Since for all primes p ≤ f (x), p |        p≤f (x) p, we can follow all the
+                                                              ′
+V = [1, p≤f (x) p]k−1
+above steps (most steps without any error term at all) to deduce
+
+                     1             X Y             gh (p)
+                                                           
+                          k                    1 −
+                                                       p
+                  
+                        1
+         Q
+           p≤f (x) 1 − p     #V h∈V̸= p≤f (x)
+                                                   
+                     Y                Y 1− k                      X µ2 (d) X
+           X                  g ℓ (p)               p       1
+      ∼                   1−                       k       k−1
+                                                                                       sj (d).
+                                 p                       (k!)               dk
+                                             
+                                                   1
+         ℓ∈Zk−1   1≤p≤k                  p>k 1 −                  d|P (r2 )     j∈Zk−1
+            k!                                     p                               d
+
+
+On the other hand, we use the Chinese Remainder Theorem to write
+                                                     X               
+               1 X Y              gh (p)     Y     1             gh (p)
+                              1−           =                 1 −          ,
+             #V                     p            pk−1              p
+                        h∈V p≤f (x)                     k−1    p≤f (x)            h∈Zp
+
+
+claiming that
+                                               X                                       k−1
+                                      1                     gh (p)                    1
+                                                       1−                =       1−              .                            (50)
+                                     pk−1                     p                       p
+                                             h∈Zk−1
+                                                p
+
+
+
+
+                                                              24
+Indeed, this follows from a simple induction procedure, noting that for k ≥ 2,
+ X        gh (p)
+                          X       
+                                         gh (p)
+                                                        X        
+                                                                         gh (p)   1
+                                                                                    
+      1−            =                1−           +                  1−         −
+   k
+              p                k
+                                           p                 k
+                                                                           p      p
+h∈Zp                           (h,j)∈Zp                           (h,j)∈Zp
+                           gh (p)=g(h,j) (p)                 gh (p)=g(h,j) (p)−1
+                                                                                                 
+                                                                                           
+                             X          gh (p)     gh (p)     X        gh (p)       gh (p)   1 
+                         = p                    1−          +       1−           1−        −
+                                           p          p                   p            p      p
+                                                                                                  
+                                     k−1                        k−1
+                               h∈Zp                                h∈Zp
+                                                     
+                                    X            
+                                  1           gh (p) 
+                         = p 1 −          1−
+                            
+                                  p             p
+                                                      
+                                       k−1
+                                             h∈Zp
+                                   k
+                                  1
+                         = pk 1 −      ,
+                                  p
+
+where we used the induction hypothesis for k − 1 in the very last line. This proves (50), thus
+the proof of the lemma now follows from
+                                                                                 
+                       Y                                       Y            k
+            1     X               gh (p)           1                         1
+                              1−           ≪k Q           = o          1−        .
+          #V                        p           p≤f (x) p                    p
+                 h∈V \V̸= p≤f (x)                                                 p≤f (x)
+
+
+
+
+5.2     Step function procedure
+Given an axis-parallel rectangle R ⊂ Rk−1 , we may assume without loss of generality that
+R = [0, ±u1 ] × . . . × [0, ±uk−1 ] (where we understand [a, b] for b < a as [b, a]), since we can
+otherwise partition R into ≪k 1 many such rectangles. We have by the very definition of the
+k-th order correlations
+
+                                                                                                         
+ (f )             1                               k−1    −                                         R
+Rk (R, x) =               # n = (m, nk ) ∈ [1, x]̸=   : P (n) > f (x) {(nk · 1k−1 − m) α} ∈
+                                                                     :
+              Φ(x, f (x))                                                                     Φ(x, f (x))
+                  1        X    n
+                                                        k−1    −
+                                                                                                  o
+            =                 # n = (m, nk ) ∈ [1, x]       : P (n) > f (x) : (nk · 1k−1 − m) = h
+              Φ(x, f (x))
+                               h∈B̸̂=
+
+                                                                             u
+where B̂ = B̂(R, x, α) = B̂α (x, ± Φ(x,f
+                                      u1
+                                         (x))
+                                                                       k−1
+                                              ) × . . . × B̂α (x, ± Φ(x,f (x))
+                                                                               ) with
+                                 (
+                                     {−x ≤ n ≤ x : {nα} ∈ (0, ρ]} \ {0}                  for ρ > 0,
+                B̂α (x, ρ) :=
+                                     {−x ≤ n ≤ x : {nα} ∈ [1 − ρ, 1)} \ {0}              for ρ < 0.
+
+An application of Lemma 4 shows
+
+
+                  (f )
+                                     X                   −
+                                                                    Y                gh (p)
+                                                                                               
+    Φ(x, f (x))Rk (R, x) ∼                  (x − (h+
+                                                   >0 − h<0 ))>0                 1−                + O(xo(1) ).   (51)
+                                                                                        p
+                                   h∈B̸̂=                          p≤f (x)
+
+                                                                                                
+                                                                     j
+   Next, we fix a large integer T and let IT :=     t = jT1 , . . . , k−1
+                                                                       T
+                                                                            , j i ∈ [−T,  T ) ∩  Z  . We
+                                                                                  h              i
+say that an integer vector h ∈ [−x, x]k−1 satisfies h ∈ St = St (x) if hi ∈ xj      T
+                                                                                      i x(ji +1)
+                                                                                       , T         for all
+
+
+
+
+                                                        25
+1 ≤ i ≤ k − 1. In this notation, we observe that
+   X                   −
+                               Y        gh (p)
+                                                
+       (x − (h+>0 −  h   ))
+                       <0 >0         1 −
+                                           p
+    h∈B̸̂=                               p≤f (x)
+
+    X         X                    −
+                                                     Y    gh (p)
+                                                                  
+=                     (x − (h+
+                             >0 − h<0 ))>0              1−
+    t∈IT h∈B̸̂= ∩St
+                                                             p
+                                                   p≤f (x)
+
+    X         X                       −
+                                                                              Y    gh (p)
+                                                                                           
+=                     ((x − (xt+
+                               >0 − xt<0 ))>0 + O(x/T ))                         1−
+    t∈IT h∈B̸̂= ∩St
+                                                                                      p
+                                                                             p≤f (x)
+                                                                                                                         
+      X                   −
+                                          X            Y             gh (p)
+                                                                                 
+                                                                                         x X                Y          
+                                                                                                                   gh (p) 
+=x           (1 − (t+
+                    >0 − t<0 ))>0                                  1−                  +O                      1−        .
+     t∈IT
+                                                                        p                  T                         p
+                                       h∈B̸̂= ∩St p≤f (x)                                            h∈B̸̂= p≤f (x)
+
+                                                                                                                             (52)
+
+    Note that for every fixed t ∈ IT we can write by simple inclusion-exclusion arguments
+B̸̂= ∩ St as a linear combination of ≤ 2k−1 many B̸= ’s of the shape from Lemma 16, with
+min1≤i≤k−1 xi ≥ Tx . Thus we can apply Lemma 16 (since x/T ≫A (log log N )A ) which proves
+that
+                         X                −
+                                                   X   Y         gh (p)
+                                                                         
+                      x     (1 − (t+
+                                   >0 − t <0 )) >0            1 −
+                        t∈I
+                                                                    p
+                                   T                                 h∈B̸̂= ∩St p≤f (x)
+
+                             Y      k X
+                                   1                     −
+                          ∼x    1−          (1 − (t+
+                                                   >0 − t<0 ))>0 #(B̂ ∩ St ).
+                                   p    t∈I
+                               p≤f (x)                       T
+
+
+   Applying Lemma 11 to B̸̂= ∩St via another inclusion-exclusion argument proves B̸̂= ∩St ∼
+#B̂
+#IT
+    , which implies that the above is asymptotically equal to
+
+                                              Y      k
+                            Vol(R)                  1     1 X                 −
+                    xk                           1−              (1 − (t+
+                                                                        >0 − t<0 ))>0 .
+                         Φ(x, f (x))k−1             p    #IT t∈I
+                                             p≤f (x)                                   T
+
+
+Another application of Lemma 16 and Lemma 11 proves that the error term in (52) is
+                                                                         k
+                                            xk
+                                                           Y 
+              x X Y              gh (p)          Vol(R)                1
+          ≪                  1−           ≪                        1 −      ,
+              T                    p        T Φ(x, f (x))k−1           p
+                         h∈B̸̂= p≤f (x)                                                        p≤f (x)
+
+
+and that the error term from (51) is bounded above by
+                                                                                             !
+                                                   o(1)                       xk−1+o(1)
+                                       O(#B̂x             ) = OR                                 .
+                                                                            Φ(x, f (x))k−1
+                                                                                  
+Since f (x) = xo(1) , we have Φ(x, f (x)) ∼ x                                1 − p1 , and thus we get
+                                                                    Q
+                                                                  p≤f (x)
+                                                                                                 
+                       (f )                                 1 X            +     −
+                  lim R (R, x) = Vol(R)                            (1 − (t>0 − t<0 ))>0 + O(1/T ) .
+                 x→∞ k                                    |IT | t∈I
+                                                                        T
+
+
+     We note that with T → ∞, the above Riemann sum converges to its integral, i.e.
+                                                Z
+                 1 X                  −                                  −
+           lim           (1 − (t+
+                                >0 − t<0 ))>0 =
+                                                                   +
+                                                            (1 − (y>0 − y<0 ))>0 dy = 1,
+          T →∞ |IT |                              [−1,1]k−1
+                     t∈I       T
+
+
+with the last equality following from a longer, but elementary calculation (see [22, Lemma 6.2]
+for a rigorous proof). Hence we obtain
+                                                           (f )
+                                               lim Rk (R, x) = Vol(R),
+                                              x→∞
+                                                                                                                      (f )
+as claimed. This proves the statement of Theorem 1 for the triangular arrays ((an )n≤x )x∈N .
+
+
+                                                                    26
+5.3     From triangular arrays to sequences
+Let again w.l.o.g. R = [0, ±u1 ] × . . . × [0, ±uk−1 ] and let umax := max1≤i≤k−1 |ui |. For fixed
+k ≥ 2, we first claim that for T := (log x)
+                                          x
+                                            k+1 , the contribution of k-tuples that contain at least
+
+one element an ≤ T is negligible:
+   Indeed, we drop the roughness condition here completely, and find the upper bound
+                                                                                         
+             1                                                                   2umax
+                    # (m, n) ∈ [1, T ] × [1, x]k−1 : ∥(m1k−1 − n)α)∥∞ ≤                     ,
+        Φ(x, f (x))                                                           Φ(x, f (x))
+
+We can further upper-bound the above by
+
+                                                                         ) k−1
+                    (                                                     
+                                        
+         1      X
+                   # n ≤ x : {nα} ∈ mα −   2u max             2umax
+                                                      , mα −                   .
+    Φ(x, f (x))                           Φ(x, f (x))        Φ(x, f (x))
+                 m≤T
+
+
+Since the minimal gap of ({nα})n≤x for badly approximable numbers is of size ≫α 1/x, we
+get
+
+             (                                                        )
+                                        2umax              2umax                       x
+         # n ≤ x {nα} ∈ mα −
+                :                                 , mα −                    ≪α,R               ,
+                                      Φ(x, f (x))        Φ(x, f (x))               Φ(x, f (x))
+
+with the implied constant being uniform in m. This proves that the contribution of tuples with
+at least one element an ≤ T is bounded from above by
+                                                           k−1
+                                        T            x
+                           ≪α,R,k                                .
+                                    Φ(x, f (x)) Φ(x, f (x))
+                                            
+Observe that Φ(x, f (x)) ∼ x p≤f (x) 1 − p1 ≫ logx x , thus we have with the choice of T =
+                             Q
+     x
+(log x)k+1
+              that the above is o(1). Thus Rk is asymptotically equal to only counting the tuples
+(m1 , . . . , mk ) with min1≤i≤k mi > (log x)
+                                           x
+                                              k+1 .
+
+   We now write z − = f ( (log x)
+                               x
+                                  k+1 ) and z = f (x). Since by the preceding discussion we can
+
+remove the contribution of elements ≤ (log x) x
+                                                k+1 , we can bound
+
+
+            (                                                                              )
+   1                         k     −                                    R       Φ(x, z − )
+           # (m, n) ∈ [1, x]̸= : P ((m, n)) > z, m1k−1 − n ∈                  ·              + o(1)
+Φ(x, z − )                                                         Φ(x, z − ) Φ(x, z)
+                                                                                                 
+       1                                                                                    R
+≤           # (m, n) ∈ [1, x]k̸= : P − (m) > f (m), P − (ni ) > f (ni ), m1k−1 − n ∈                = Rk (s, N )
+  N (x, f )                                                                             N (x, f )
+                                                                                 
+      1                                                                   R
+≤           # (m, n) ∈ [1, x]k̸= : P − ((m, n)) > z − , m1k−1 − n ∈                 + o(1),
+  Φ(x, z)                                                              Φ(x, z − )
+
+where N (x, f ) = #{n ≤ x : P − (n) ≥ f (n)}. Observe that Φ(x, z) ≤ N (x, f ) ≤ Φ(x, z − ) and
+Φ(x, z) ∼ Φ(x, z − ) since log
+                            log z
+                               z−
+                                  → 1.
+   Applying Theorem 1 for triangular arrays (proven in Section 5.2 above), once with f (x)
+and once with f˜(x) := f (x/(log x)k+1 ), we obtain
+
+            (                                                                       )
+   1                         k    −                             R        Φ(x, z − )
+           # (m, n) ∈ [1, x]̸= : P ((m, n)) > z, m1k−1 − n ∈           ·              ∼ Vol(R),
+Φ(x, z − )                                                   Φ(x, z − ) Φ(x, z)
+
+as well as
+                                                                              
+         1                                                             R
+               # (m, n) ∈ [1, x]k̸= : P − ((m, n)) > z, m1k−1 − n ∈              ∼ Vol(R).
+       Φ(x, z)                                                      Φ(x, z − )
+
+This finally concludes the proof of Theorem 1.
+
+
+
+
+                                                 27
+    6      Proof of Theorem 2
+    For simplicity, we prove Theorem 2 again for triangular arrays ({an,x α})n≤x . The step to move
+    to the sequence ({an α})n∈N instead can be established as in Section 5.3. We adopt a simplified
+    version of the strategy employed by Walker [65]. By assumption (1), for any ε > 0, we have
+    infinitely many integers x such that
+                                                           ε
+                                            ∥xα∥ <                 ,                                     (53)
+                                                      x log f (x))
+    which trivially implies
+                                                 ε
+                                     ∥hxα∥ <       , 1 ≤ h ≤ log(f (x)).
+                                                 x
+        Using Φ(x, f (x)) ≍ log f (x) , we obtain for sufficiently large x (that satisfies (53)) and
+                                x
+
+    suitably chosen constants c1 , c2 , c3 , c4 > 0 that
+
+                                                                                                           
+                                                                                          ε
+    # 1 ≤ n ̸= m ≤ Φ(x log f (x), f (x log f (x))) : ∥(a(f
+                                                        n
+                                                           )
+                                                             − a (f )
+                                                                 m    )α∥ ≤
+                                                                            Φ(x log f (x), f (x log f (x)))
+                                                                                                                  
+                                                                                                              c2 ε
+    ≫ # 1 ≤ n ̸= m ≤ c1 x log f (x) : P − (n) > f (x log f (x)), P − (m) > f (x log f (x)), ∥(n − m)α∥ ≤
+                                                                                                               x
+        X              n                                                                                             o
+                                                         −                          −
+    ≫               # 1 ≤ n, m ≤ c1 x log f (x) : P (n) > f (x log f (x)), P (m) > f (x log f (x)), m − n = xh .
+c3 log(f (x))≤h≤c4 log(f (x))
+
+    Applying Lemma 4 with k = 2 implies for even h
+     n                                                                                            o             x
+    # 1 ≤ n, m ≤ c1 x log f (x) : P − (n) > f (x log f (x)), P − (m) > f (x log f (x)), m − n = xh ≫                  .
+                                                                                                            log f (x)
+
+    Thus along the subsequence that satisfies (53), we get
+
+     n                                                                                               o
+                                                        (f ) (f )
+    # 1 ≤ n ̸= m ≤ Φ(x log f (x), f (x log f (x))) : ∥(an − am )α∥ ≤ Φ(x log f (x),fε (x log f (x)))
+                                                                                                         ≫ 1,
+                                      Φ(x log f (x), f (x log f (x)))
+    with the implied constant independent of ε. Choosing ε sufficiently small now contradicts the
+    assumption that the above converges to 2ε, and thus concludes the first part of Theorem
+    2. For the statement on the Lebesgue measure, we observe that (1) holds for almost every
+    α: This fact can be recovered straightforwardly from Khintchine’s famous theorem in metric
+    Diophantine approximation   [29]: It states that for ψ : N → [0, ∞) a monotonically increasing
+    function P
+             with n∈N ψ(n) = ∞, we have for almost every α, ∥nα∥ < ψ(n) for infinitely many
+                  P
+    n. Since n∈N n logεf (n) = ∞ for all ε > 0, this concludes the proof.
+
+
+    Appendix: Numerical observations on rough and prime
+    rotations
+    We complement Theorem 1 with some numerical observations on the rough-number rotations
+    considered in the theorem and on the prime rotation conjectured to have the same Poissonian
+    behaviour. Throughout, we take
+                                                    √
+                                                1+ 5
+                              M = 108 ,     α=          = [1; 1, 1, . . .],
+                                                   2
+    and for the rough numbers use the concrete choice
+                                                   p
+                                       f (n) = exp( log n),
+
+    already mentioned after Theorem 1. Up to the cutoff M , this gives 13 137 988 rough numbers,
+    while there are π(M ) = 5 761 455 primes. We also include the square rotation {n2 α}, whose
+    conjectured Poissonian fine-scale behaviour was discussed in the Introduction in connection
+    with the Conjectures made by Rudnick–Sarnak–Zaharescu [54, 55] and Heath–Brown [23].
+    Figure 1 displays the normalized nearest-neighbour gap distributions of these three rotations.
+
+
+                                                      28
+     Each row is rescaled to unit height and vertically shifted, so that the figure emphasizes the
+     shape of the distributions at the finite cutoff.
+
+
+
+
+Figure 1: Finite gap distributions at M = 108 for the rough-number, prime, and square rotations,
+together with the exponential density e−s . Each row is individually rescaled to unit height.
+
+         At the cutoff M = 108 , the fine-bin gap histograms in Figure 1 still show pronounced
+     discrete structure, and in particular are not yet visually close to the limiting exponential law.
+     Before explaining this phenomenon more closely
+         We next turn to a more arithmetic finite-cutoff comparison for the prime rotation, and later
+     return to explain the origin of the structure visible in the gap histograms: We compare the
+     prime correlations with their finite Hardy–Littlewood predictions. This comparison is natural
+     from the structure of the proof: Lemma 4 supplies the uniform k-tuple asymptotic for the rough
+     numbers, while the corresponding prime input would require a sufficiently uniform form of the
+     Hardy–Littlewood k-tuple conjecture. This is the same type of uniform Hardy–Littlewood
+     input appearing in Gallagher’s conditional derivation of Poissonian statistics for the primes on
+     the real line [16]. Thus the numerical comparison below may be viewed as a finite-cutoff test
+     of the prime analogue of the sieve input in Lemma 4. Once the sieve input in circumvented,
+     the proof of Poissonian behaviour for the primes would follow along the lines of Theorem 1
+     since the respective singular series coincide, and the averaging technique of the Diophantine
+     Bohr set becomes only easier.
+         For the asymptotic discussion in the main part of the paper, the prime density 1/ log M
+     is sufficient. For the finite numerical comparison, we retain the variation of the logarithmic
+     density over [2, M ], which gives a more accurate prediction at the cutoff considered here. Using
+     the notation gh (p), h+>0 , and h<0 introduced above, for (0, h) ∈ Z̸= we set
+                                       −                                  k
+
+                                                   
+                                    Y 1 − gh (p)/p Z M −h+   >0           dt
+                     HLM (h) :=                                    Qk−1              ,
+                                     p
+                                         (1 − 1/p)k       −
+                                                       2−h<0    log t j=1 log(t + hj )
+
+     with value 0 if the integration interval is empty. Thus HLM (h) is the usual finite Hardy–
+     Littlewood main term for the number of prime tuples p, p + h1 , . . . , p + hk−1 contained in
+
+
+
+                                                    29
+[2, M ]. For N = π(M ), define
+                                                1              X
+                    RkHL ([−s, s]k−1 , N ) :=                                HLM (h).
+                                                N                      k−1
+                                                          h∈[−M,M ]
+                                                            (0,h)∈Zk
+                                                                   ̸=
+                                                     ∥hj α∥≤s/N (1≤j≤k−1)
+
+
+In other words, RkHL is obtained from the difference representation of Rk ([−s, s]k−1 , N ) by
+replacing the exact prime k-tuple count for each difference vector h by its finite Hardy–
+Littlewood prediction. The singular-series averaging established in the paper implies, for fixed
+k and s,
+                              RkHL ([−s, s]k−1 , N ) −→ (2s)k−1 .
+    Thus it remains to show that Rk ([−s, s]k−1 , N ) ∼ RkHL ([−s, s]k−1 , N ) which would be a
+consequence of the uniform Hardy–Littlewood Conjecture described above, but we also provide
+numerical support: Indeed, with M = 108 and α = [1; 1, 1, . . .], the respective values are as
+follows:
+               k      s     Rk ([−s, s]k−1 , N )          RkHL ([−s, s]k−1 , N )   (2s)k−1
+               2     0.5         0.854003                       0.853988               1
+                      1          1.937222                       1.937291               2
+                      2          3.701886                       3.701936               4
+                      3          5.935788                       5.936450               6
+                      5          9.873193                       9.874589              10
+               3     0.5         0.637084                       0.636127               1
+                      1          3.372202                       3.369405               4
+                      2         13.066014                      13.060035              16
+                      3         34.147779                      34.144958              36
+                      5         95.420110                      95.425003             100
+               4     0.5         0.400420                       0.399242               1
+                      1          5.176273                       5.163474               8
+                      2         43.703599                      43.655932              64
+                      3        189.972642                     189.881178             216
+                      5        902.295405                     902.142111            1000.
+
+At all displayed points the relative difference between Rk and RkHL is below 3 · 10−4 , whereas
+their common finite-cutoff value can still differ substantially from the Poissonian limit (2s)k−1 .
+This allows to isolate the unproven part of the conjecture from the dominating finite cutoff
+effect, providing numerical support for the Poissonian prime rotation conjecture across several
+correlation orders.
+    We finally explain the visible structure in Figure 1. For the Golden Ratio, the convergent
+denominators are the Fibonacci numbers and
+
+                           F39 = 63 245 986 < M < F40 = 102 334 155,
+
+so the full orbit {nα : 1 ≤ n ≤ M } has the three gap lengths
+
+                                      α−39 ,        α−38 ,    α−37 .
+
+After restriction to a subsequence with N retained points and normalization of the gaps by
+N , these elementary lengths are all of order N/M — which holds in general for α ∈ BAD.
+Local arithmetic restrictions amplify the effect of these elementary lengths causing spikes: they
+weight particular combinations of the three lengths. In particular α−38 + α−37 = α−36 and the
+corresponding Fibonacci displacement F36 is even, a requirement for prime differences (except
+the negligible p = 2). This produces the especially pronounced family of spikes at multiples
+of α−36 visible in Figure 2, together with secondary families arising from other admissible
+combinations.
+
+
+
+
+                                                     30
+Figure 2: Very fine gap histograms at M = 108 Top: primes. Bottom: rough numbers. The dominant
+arithmetic family generated by α−36 and several secondary combinations of the elementary Three
+Gap lengths are marked.
+
+
+
+
+                                             31
+        For the three index sets used in Figure 1, the normalized scales are
+                        index set           asymptotic normalized mesh scale       M = 108
+                                                  N (M, f )      e−γ
+               {n ≤ M : P − (n) > f (n)}                    ∼ √                     0.1314
+                                                     M           log M
+                                                    π(M )       1
+                   {p ≤ M : p prime}                        ∼                       0.0576
+                                                      M
+                                                      √       log M
+                                                     ⌊ M⌋        1
+                       {n2 ≤ M }                             ∼ √                    0.0001.
+                                                       M          M
+         Thus the normalized mesh is already very fine for the square rotation at M = 108 , whereas
+     for the rough-number and prime rotations it remains visible at the same cutoff. Figure 3 shows
+     the same prime and rough-number gap data after coarse-graining at bin widths chosen to be
+     approximately ten times their respective normalized mesh scales. At this coarser resolution,
+     the exponential envelope is much more clearly visible.
+
+
+
+
+Figure 3: The prime and rough-number gap distributions at M = 108 after coarse-graining. The
+bin widths 0.6 for the primes and 1.3 for the rough numbers are approximately ten times the
+corresponding normalized mesh scales N/M . The line gives the average of e−s over each bin.
+
+         While these bins look unusually big here, note that for the prime and rough-number se-
+     quences, any fixed multiple of the mesh scale still tends to 0 as M → ∞. This contrasts with
+     integer sequences of positive density, for which N/M stays away from zero, and thus the nor-
+     malized Three Gap structure remains even asymptotically visible. The convergence of N/M
+     to 0 for primes and rough numbers is, however, very slow.
+         At a bin size of order 10−2 , pronounced finite-size effects should remain visible as long as
+     the normalized mesh is comparable with this scale. Already the relation 1/ log M = 10−2 for
+     the primes corresponds to M = e100 ≈ 3 · 1043 while the analogous cutoff for the rough-number
+     rotation is of order 101369 . Thus reaching a regime in which the mesh is substantially finer than
+     the 10−2 plotting scale would require cutoffs far beyond reasonable direct computation. The
+     finite Hardy–Littlewood comparison of Rk and RkHL therefore provides the more meaningful
+     numerical stress-test of the Poissonian Prime rotation Conjecture.
+
+
+     References
+      [1] C. Aistleitner, M. Hauke, and A. Zafeiropoulos. On sequences with exponentially dis-
+          tributed gaps. Random Structures Algorithms, 66(1):Paper No. e21265, 15, 2025.
+      [2] C. Aistleitner, T. Lachmann, and F. Pausinger. Pair correlations and equidistribution.
+          J. Number Theory, 182:206–220, 2018.
+      [3] C. Aistleitner, T. Lachmann, and N. Technau. There is no Khintchine threshold for metric
+          pair correlations. Mathematika, 65(4):929–949, 2019.
+      [4] C. Aistleitner, G. Larcher, and M. Lewko. Additive energy and the Hausdorff dimension
+          of the exceptional set in metric pair correlation problems. Israel J. Math., 222(1):463–485,
+          2017. With an appendix by Jean Bourgain.
+
+
+                                                    32
+ [5] J.-P. Allouche and J. Shallit. Automatic sequences. Cambridge University Press, Cam-
+     bridge, 2003. Theory, applications, generalizations.
+ [6] V. Beresnevich, A. Haynes, and S. Velani. Sums of reciprocals of fractional parts and
+     multiplicative Diophantine approximation. Mem. Amer. Math. Soc., 263(1276):vii + 77,
+     2020.
+ [7] M. Berry and M. Tabor. Level clustering in the regular spectrum. Proc. of the Royal Soc.
+     of London. A. Math. and Phy. Sciences, 356(1686):375–394, 1977.
+ [8] T. F. Bloom, S. Chow, A. Gafni, and A. Walker. Additive energy and the metric Poisso-
+     nian property. Mathematika, 64(3):679–700, 2018.
+ [9] T. F. Bloom and A. Walker. GCD sums and sum-product estimates. Israel J. Math.,
+     235(1):1–11, 2020.
+[10] J. R. Chen. On the representation of a larger even integer as the sum of a prime and the
+     product of at most two primes. Sci. Sinica, 16:157–176, 1973.
+[11] S. Chow. Bohr sets and multiplicative Diophantine approximation. Duke Math. J., 167(9),
+     2018.
+[12] S. Chow and N. Technau. Littlewood and Duffin-Schaeffer-type problems in Diophantine
+     approximation. Mem. Amer. Math. Soc., 296(1475):v+74, 2024.
+[13] D. El-Baz, J. Marklof, and I. Vinogradov. The two-point correlation function of the
+                        √
+     fractional parts of n is Poisson. Proc. Amer. Math. Soc., 143(7):2815–2828, 2015.
+                                                √
+[14] N. D. Elkies and C. T. McMullen. Gaps in n mod 1 and ergodic theory. Duke Math.
+     J., 123(1):95–139, 2004.
+[15] T. Freiberg, P. Kurlberg, and L. Rosenzweig. Poisson distribution for gaps between sums
+     of two squares and level spacings for toral point scatterers. Commun. Number Theory
+     Phys., 11(4):837–877, 2017.
+[16] P. X. Gallagher. On the distribution of primes in short intervals. Mathematika, 23(1):4–9,
+     1976.
+[17] D. A. Goldston, S. W. Graham, J. Pintz, and C. Y. Yildirim. Small gaps between primes
+     or almost primes. Trans. Amer. Math. Soc., 361(10):5285–5330, 2009.
+[18] S. Grepstad and G. Larcher. On pair correlation and discrepancy. Arch. Math. (Basel),
+     109(2):143–149, 2017.
+[19] G. H. Hardy and J. E. Littlewood. Some problems of ‘Partitio numerorum’; III: On the
+     expression of a number as a sum of primes. Acta Math., 44(1):1–70, 1923.
+[20] G. Harman. On the distribution of αp modulo one. J. London Math. Soc. (2), 27(1):9–18,
+     1983.
+[21] M. Hauke and E. Kowalski. Rational approximation with chosen numerators. Int. Math.
+     Res. Not. IMRN, (23):1–28, 2025.
+[22] M. Hauke and A. Zafeiropoulos. Poissonian correlations of higher orders. J. Number
+     Theory, 243:202–240, 2023.
+[23] D. R. Heath-Brown. Pair correlation for fractional parts of αn2 . Math. Proc. Cambridge
+     Philos. Soc., 148(3):385–407, 2010.
+[24] C. Hooley. On the difference of consecutive numbers prime to n. Acta Arithmetica,
+     8(3):343–347, 1963.
+[25] C. Hooley. On the difference between consecutive numbers prime to n. II. Publ. Math.
+     Debr., 12:39–49, 1965.
+[26] C. Hooley. On the difference between consecutive numbers prime to n. III. Math. Z.,
+     90:355–364, 1965.
+[27] A. J. Irving. Diophantine approximation with products of two primes. J. Lond. Math.
+     Soc. (2), 89(2):581–602, 2014.
+[28] H. Iwaniec and E. Kowalski. Analytic number theory, volume 53 of American Mathematical
+     Society Colloquium Publications. American Mathematical Society, Providence, RI, 2004.
+[29] A. Khintchine. Einige Sätze über Kettenbrüche, mit Anwendungen auf die Theorie der
+     Diophantischen Approximationen. Math. Ann., 92(1-2):115–125, 1924.
+
+
+                                              33
+[30] D. Koukoulopoulos. The distribution of prime numbers, volume 203 of Graduate Studies
+     in Mathematics. American Mathematical Society, Providence, RI, [2019] ©2019.
+[31] L. Kuipers and H. Niederreiter. Uniform distribution of sequences. Pure and Applied
+     Mathematics. Wiley-Interscience [John Wiley & Sons], New York-London-Sydney, 1974.
+[32] V. Kuperberg. Odd moments in the distribution of primes. Algebra Number Theory,
+     19(4):617–666, 2025.
+[33] P. Kurlberg. The distribution of spacings between quadratic residues. II. Israel J. Math.,
+     120:205–224, 2000.
+[34] P. Kurlberg and Z. Rudnick. The distribution of spacings between quadratic residues.
+     Duke Math. J., 100(2):211–242, 1999.
+[35] T. Lachmann and N. Technau. On exceptional sets in the metric Poissonian pair corre-
+     lations problem. Monatsh. Math., 189(1):137–156, 2019.
+[36] G. Larcher and W. Stockinger. Pair correlation of sequences ({an α})n∈N with maximal
+     additive energy. Math. Proc. Cambridge Philos. Soc., 168(2):287–293, 2020.
+[37] S. Leung. Pseudorandomness of primes at large scales. The Quarterly Journal of Mathe-
+     matics, 76(1):251–263, 02 2025.
+[38] C. Lutsko. Long-range correlations of sequences modulo 1. J. Number Theory, 234:333–
+     348, 2022.
+[39] C. Lutsko, A. Sourmelidis, and N. Technau. Pair Correlation of the Fractional Parts of
+     αnθ . J. Eur. Math. Soc., online first, 2021.
+[40] C. Lutsko and N. Technau. Correlations of the Fractional Parts of αnθ . Amer. J. Math.,
+     to appear. Preprint, arXiv:2112.11524 (2021).
+[41] C. Lutsko and N. Technau. Full Poissonian local statistics of slowly growing sequences.
+     Compos. Math., 161(1):148–180, 2025.
+[42] J. Marklof. The Berry-Tabor conjecture. In European Congress of Mathematics, Vol. II
+     (Barcelona, 2000), volume 202 of Progr. Math., pages 421–427. Birkhäuser, Basel, 2001.
+[43] J. Marklof. Pair correlation and equidistribution on manifolds.          Monatsh. Math.,
+     191(2):279–294, 2020.
+[44] J. Marklof and A. Strömbergsson. Gaps between logs. Bull. Lond. Math. Soc., 45(6):1267–
+     1280, 2013.
+[45] K. Matomäki, M. Radziwiłł, and T. Tao. Correlations of the von Mangoldt and higher
+     divisor functions I. Long shift ranges. Proc. Lond. Math. Soc. (3), 118(2):284–350, 2019.
+[46] S. Meyn and R. L. Tweedie. Markov chains and stochastic stability. Cambridge University
+     Press, Cambridge, second edition, 2009. With a prologue by Peter W. Glynn.
+[47] H. Mikawa. On prime twins. Tsukuba J. Math., 15(1):19–29, 1991.
+[48] H. L. Montgomery and K. Soundararajan. Primes in short intervals. Commun. Math.
+     Phys., 252(1-3):589–617, 2004.
+[49] A. Ostrowski. Bemerkungen zur Theorie der Diophantischen Approximationen. Abh.
+     Math. Sem. Univ. Hamburg, 1(1):77–98, 1922.
+[50] M. Radziwiłł and A. Shubin. Poissonian pair correlation for αnθ mod 1. Int. Math. Res.
+     Not. IMRN, (9):7654–7679, 2024.
+[51] F. A. Ramírez. A note on sequences not having metric Poissonian pair correlations. Arch.
+     Math. (Basel), 116(6):659–665, 2021.
+[52] A. M. Rockett and P. Szüsz. Continued fractions. World Scientific Publishing Co., Inc.,
+     River Edge, NJ, 1992.
+[53] Z. Rudnick. What is. . . quantum chaos? Notices Amer. Math. Soc., 55(1):32–34, 2008.
+[54] Z. Rudnick and P. Sarnak. The pair correlation function of fractional parts of polynomials.
+     Comm. Math. Phys., 194(1):61–70, 1998.
+[55] Z. Rudnick, P. Sarnak, and A. Zaharescu. The distribution of spacings between the
+     fractional parts of n2 α. Invent. Math., 145(1):37–57, 2001.
+
+
+                                              34
+[56] Z. Rudnick and A. Zaharescu. The distribution of spacings between fractional parts of
+     lacunary sequences. Forum Math., 14(5):691–712, 2002.
+[57] A. Rényi. On the representation of an even number as the sum of a single prime and
+     single almost-prime number. Izv. Akad. Nauk SSSR Ser. Mat., 12:57–78, 1948.
+[58] W. M. Schmidt. Diophantine approximations and Diophantine equations, volume 1467 of
+     Lecture Notes in Mathematics. Springer-Verlag, Berlin, 1991.
+[59] M. M. Skriganov. Ergodic theory on SL(n), Diophantine approximations and anomalies
+     in the lattice point problem. Invent. Math., 132(1):1–72, 1998.
+[60] S. Steinerberger. Poissonian pair correlation and discrepancy. Indag. Math. (N.S.),
+     29(5):1167–1178, 2018.
+[61] T. Tao. Continued fractions, Bohr sets, and the Littlewood conjecture.
+     https://terrytao.wordpress.com/2012/01/03/continued-fractions-bohr-sets-and
+     -the-littlewood-conjecture/.
+[62] N. Technau and A. Walker. On the triple correlations of fractional parts of n2 α. Canad.
+     J. Math., 74(5):1347–1384, 2022.
+[63] N. Technau and M. Widmer. Counting lattice points and weak admissibility of a lattice
+     and its dual. Israel J. Math., 240(1):99–117, 2020.
+[64] J. L. Truelsen. Divisor problems and the pair correlation for the fractional parts of n2 α.
+     Int. Math. Res. Not. IMRN, (16):3144–3183, 2010.
+[65] A. Walker. The primes are not metric Poissonian. Mathematika, 64(1):230–236, 2018.
+[66] H. Weyl. Über die Gleichverteilung von Zahlen mod. Eins. Math. Ann., 77(3):313–352,
+     1916.
+[67] W. Woess. Denumerable Markov chains. EMS Textbooks in Mathematics. European
+     Mathematical Society (EMS), Zürich, 2009. Generating functions, boundary theory, ran-
+     dom walks on trees.
+
+
+   M. Hauke, Department of Mathematical Sciences, NTNU Trondheim,
+   Sentralbygg 2, 7034 Trondheim, Norway
+   E-mail address hauke@math.tugraz.at
+   Orcid: 0000-0002-6244-0285
+
+
+
+
+                                              35
+

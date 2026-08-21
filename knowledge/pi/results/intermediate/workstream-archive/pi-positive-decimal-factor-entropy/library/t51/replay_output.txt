@@ -1,0 +1,15 @@
+T51_FIBONACCI_TWO_BLOCK_AMPLIFICATION.md: OK
+T51DecimalChainRange.lean: OK
+SOURCE_MANIFEST.md: OK
+t51_checker.py: OK
+certificates.json: OK
+pi-positive-decimal-factor-entropy.txt: OK
+mignosi-pirillo-1992.pdf: OK
+mignosi-pirillo-1992.txt: OK
+verify.sh: OK
+verify_lean.sh: OK
+lean_output.txt: OK
+certificate replay: PASS
+{"contained": 520, "strictly_not_contained": 200, "total": 720}
+{"A": 0, "B": 1, "C": 6}
+{"denominator": 750, "numerator": 7}

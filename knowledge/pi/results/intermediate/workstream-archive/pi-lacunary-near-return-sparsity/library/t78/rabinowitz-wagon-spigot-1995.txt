@@ -1,0 +1,427 @@
+                                                                                             1
+
+           A Spigot Algorithm for the Digits of Pi
+                      Stanley Rabinowitz and Stan Wagon
+
+It is remarkable that the algorithm illustrated in Table 1, which uses no ﬂoating-point
+arithmetic, produces the digits of π. The algorithm starts with some 2s, in columns headed
+by the fractions shown. Each entry is multiplied by 10. Then, starting from the right, the
+entries are reduced modulo den, where the head of the column is num/den, producing a
+quotient q and remainder r. The remainder is left in place and q × num is carried one
+column left. This reduce-and-carry is continued all the way left. The tens digit of the
+leftmost result is the next digit of π. The process continues with the multiplication of the
+remainders by 10, the reductions modulo the denominators, and the augmented carrying.
+
+
+TABLE 1. The workings of an algorithm that produces digits of π. The dashed line
+indicates the key step: starting from the right, entries are reduced modulo the denominator
+of the column head (25, 23, 21, . . . , resp.), with the quotients, after multiplication by the
+                                                                           9
+numerator (12, 11, 10, . . .), carried left. For example, the 20 in the 19   ’s column yields a
+remainder of 1 and a left carry of 1 · 9 = 9. After the leftmost carries, the tens digits are
+3, 1, 4, 1. To get more digits of π one must start with a longer string of 2s.
+
+
+
+
+Reprinted from The American Mathematical Monthly, 102(1995)195–203
+                                                                                                                   2
+
+     This algorithm is a “spigot” algorithm: it pumps out digits one at a time and does not
+use the digits after they are computed. Moreover, the digits are generated without any use
+of high-precision (or low-precision) operations on ﬂoating-point real numbers; the entire
+algorithm uses only ordinary integer arithmetic on relatively small integers. For example,
+to obtain the ﬁrst 5,000 digits of π requires only arithmetic operations on integers less
+than 600,000,000. Although high-precision ﬂoating-point routines are built up from integer
+operations, the algorithms in this paper are quite simple and do not simulate ﬂoating-point
+computations.
+     In order to motivate the π-algorithm, we ﬁrst discuss the much simpler case of e, for
+which a spigot algorithm was discovered by Sale [Sale]. His algorithm is the basis of the
+discussion in §1.
+1. A NUMBER SYSTEM IN WHICH e’s DIGITS ARE PERIODIC. A real
+number’s decimal representation may be interpreted as an inﬁnitely nested expression; for
+example:
+                                                                                                     
+    √                              1                   1           1            1           1
+        2 = 1.41421356 . . . = 1 +                 4+          1+           4+          2+    (1 + · · ·)     .
+                                   10                 10          10           10          10
+
+    Some interesting and useful representations
+                                              1 1 1 may     beobtained if we change the base-
+                                                        1
+sequence, which
+     1 1 1 1         in  the case above is  10 10 10 10 . . . For example, using the base
+                                                ,  ,  ,   , .
+b = 2 , 3 , 4 , 5 , . . . yields the following form, called a mixed-radix representation (see
+[Knu, §4.1]):
+                                                                                    
+                        1            1            1            1           1
+                   a0 +         a1 +         a2 +         a3 +         a4 + (a5 + · · ·)     ,
+                        2            3            4            5           6
+
+where the ai (the digits) are nonnegative integers. If 0 ≤ ai ≤ i for i ≥ 1, the representation
+is called regular. Mixed-radix representations will be denoted by (a0 ; a1 , a2 , a3 , a4 , . . .)b .
+For base b, every positive real number has a regular representation and representations are
+unique provided we exclude representations that terminate with maximal digits (otherwise,
+for example, 12 = (0; 1, 0, 0, . . .)b = (0; 0, 2, 3, 4, 5, 6, . . .)b ); from now on and for all bases,
+we exclude such representations. The proof of the following Lemma is in Appendix 1.
+Lemma 1
+   (a) If i ≥ 1, (0; 0, 0, . . . , 0, ai , ai+1 , . . .)b < i!1 ; in particular, (0; a1 , a2 , a3 , a4 , . . .)b < 1.
+   (b) Representations using the mixed-radix base b are unique.
+   (c) The integer part of (a0 ; a1 , a2 , a3 , a4 , . . .)b is a0 and the fractional part is
+        (0; a1 , a2 , a3 , a4 , . . .)b .
+In this number system some irrationals become   periodic. For example e = (2; 1, 1, 1, 1, . . .)b ;
+                                                    1
+this is just a restatement of the inﬁnite series    i! as
+
+                                                                                
+                          1            1          1          1          1
+                       1+           1+         1+         1+         1 + (1 + · · ·)     .
+                          1            2          3          4          5
+                                                                                                             3
+
+Rational numbers in this system correspond to digit-sequences that terminate (Appendix
+1, Lemma 2).
+     The decimal digits of a real number x in [0, 10) can be obtained by taking the integer
+part of x, multiplying its fractional part by 10, taking the integer part of the result, multiply
+the resulting fractional part by 10, and so on. In some mixed-radix bases, this is espe-
+cially simple. If x = (a0 ; a1 , a2 , . . . , an )b , then 10x = (10a0 ; 10a1 , 10a2 , 10a3 , . . . , 10an )b .
+The latter may not be a regular expression: some digits may be too big. But we can de-
+crease digits by reducing them modulo i, where i is the denominator of the corresponding
+element of b. Starting these reductions at the right end, we carry the quotients left, even-
+tually getting the regular representation of 10x. Thus multiplying by 10 is algorithmically
+straightforward. Taking the integer and fractional parts for b-representations is also easy,
+thanks to Lemma 1(c).
+     We can now give the algorithm to get the ﬁrst n base-10 digits of e. A proof of
+correctness — the error analysis showing that n + 2 mixed-radix digits suﬃce1 to get n
+base-10 digits — is given as Lemma 3 in Appendix 1.
+Algorithm e-spigot
+ 1. Initialize: Let the ﬁrst digit be 2 and initialize an array A of length n + 1 to
+    (1, 1, 1, . . . , 1).
+ 2. Repeat n − 1 times:
+      Multiply by 10: Multiply each entry of A by 10.
+      Take the fractional part: Starting from the right, reduce the ith entry of A modulo
+          i + 1, carrying the quotient one place left.
+      Output the next digit: The ﬁnal quotient is the next digit of e.
+     The ﬁrst few steps of this algorithm, starting with an array of 10 1s (this corresponds
+to 11 mixed-radix digits, good for 9 digits of e; only 5 are shown), are displayed in Table
+2.
+
+
+
+
+  1
+     Any digit-producing algorithm for a presumed-normal number x suﬀers from a draw-
+back that, although unlikely, can impinge on the result. If x is between 1 and 10 and
+the algorithm says that the ﬁrst 100 digits of x are, say, 4, 6, 5, 0, 7, . . . , 3, 9, 9, 9, 9, 9 then
+one cannot be sure that the last 6 digits are correct. They will be the digits of a certain
+approximation to x that is within 5·10−100 of the true value. One cannot simply go farther
+until a non-9 is reached, because memory allocations must be made in advance. The user
+must realize that a terminating string of 9s is a red ﬂag concerning those digits and even
+with no 9s, the last digit might be incorrect. In practice, one might ask for, say, 6 extra
+digits, reducing the odds of this problem to one in a million.
+                                                                                                 4
+
+TABLE 2. The workings of a spigot algorithm for the digits of e (in bold). The reductions
+in the column headed 1i are performed modulo i. The leftmost base-10 real numbers are
+the values of the rows viewed as mixed-radix representations. Since only 11 mixed-radix
+digits start the algorithm, the ﬁrst base-10 number is only an approximation to e.
+
+
+
+
+2. A SPIGOT FOR DIGITS OF π. The ideas of §1 lead to a spigot algorithm for π,
+but there are additional complexities and additional interesting questions that distinguish
+π from e. Our starting point is the following moderately well-known series:
+                                             ∞
+                                              (i!)2 2i+1
+                                       π=                       .
+                                             i=0
+                                                   (2i + 1)!
+
+This series can be derived from the Wallis product for π; another approach uses an accel-
+eration technique called Euler’s transform applied to the series π = 4 − 43 + 45 − 47 + · · · .
+These proofs, together with three others and references to earlier sources, may be found
+in [Li]. We let k!! denote the product 1 · 3 · 5 · · · k for odd integers k; then the series is
+equivalent to
+                          ∞
+                    π           i!          1 1·2 1·2·3
+                      =                  =1+ +             +           + ··· ,
+                    2    i=0
+                             (2i +  1)!!     3      3  · 5   3 · 5 · 7
+
+which expands to become
+                                                                        
+                      π     1            2          3          4
+                        =1+           1+         1+         1 + (1 + · · ·)    .
+                      2     3            5          7          9
+                                                                               
+This last expression leads to the mixed-radix base c = 13 , 25 , 37 , 49 , . . . , with respect to
+which π is simply (2; 2, 2, 2, 2, 2, . . .)c . For a regular representation in base c, the digit in
+                                                                                                             5
+
+the ith place must lie in the interval [0, 2i]. Unfortunately, base c is less accommodating
+than b.
+
+Lemma 4 (Proof in Appendix 1). The base-c number with maximal digits, (0; 2, 4, 6, 8, . . .),
+represents 2; hence regular representations of the form (0; a, b, c, . . .)c lie between 0 and 2.
+      Lemma 4 implies that c-representations are not unique. For example, (0; 0, 4, 6, 8, . . .)c
+= 2 − 23 = 43 , whence (0; 0, 2, 3, 4, . . .)c = 23 = (0; 2, 0, 0, 0, . . .)c . More relevant algorithmi-
+cally, integer and fractional parts using c are not straightforward, as they are for b. The
+integer part of (a0 ; a1 , a2 , . . .)c is either a0 or a0 +1 according as (0; a1 , a2 , . . .) is in [0, 1) or
+[1, 2). This problem is surmounted by leaving the units digit of a0 in place during the next
+iteration and calling the tens digit of a0 a predigit. The predigits must be temporarily held
+because occasionally (once every 20 iterations, roughly) the next predigit is a 10; this will
+happen when the carry, which is between 0 and 19, is greater than 10 and, simultaneously,
+the leftover units digit of a0 is 9, which becomes 90 in the multiply-by-10 step. This event
+requires that the held number be increased by 1 before being released. Speciﬁc details
+of the algorithm follow; the presentation at the beginning of this paper sidestepped the
+problem of the occasional 10. The proof that 10n/3 mixed-radix digits suﬃce for n digits
+of π is in Appendix 1 (Lemma 5). Appendix 2 contains a Pascal implementation of this
+algorithm.
+
+Algorithm π-spigot
+  1. Initialize: Let A = (2, 2, 2, 2, . . . , 2) be an array of length 10n/3.
+  2. Repeat n times:
+        Multiply by 10: Multiply each entry of A by 10.
+        Put A into regular form: Starting from the right, reduce the ith element of A
+           (corresponding to c-entry (i − 1)/(2i − 1)) modulo 2i − 1, to get a quotient q and
+           a remainder r. Leave r in place and carry q(i − 1) one place left. The last integer
+           carried (from the position where i − 1 = 2) may be as large as 19.
+        Get the next predigit: Reduce the leftmost entry of A (which is at most 109[=
+           9 · 10 + 19]) modulo 10. The quotient, q, is the new predigit of π, the remainder
+           staying in place.
+        Adjust the predigits: If q is neither 9 nor 10, release the held predigits as true digits
+           of π and hold q. If q is 9, add q to the queue of held predigits. If q is 10 then:
+           • set the current predigit to 0 and hold it;
+           • increase all other held predigits by 1 (9 becomes 0);
+           • release as true digits of π all but the current held predigit.
+     This algorithm uses only integer arithmetic and is easy to program. The table at the
+beginning of the paper shows it in action, starting with 13 mixed-radix digits of π (good
+for 4 base-10 digits). To clarify the working of the algorithm, note that the (ﬁnite) ﬁrst
+row of Table 1 is a mixed-radix representation of 3.1414796 . . ., the second row represents
+31.414796 . . ., the ﬁfth row represents 1.414796 . . ., the sixth row is 14.14796 . . ., the ninth
+row is 4.14796 . . ., and so on. Table 3 shows the result of a computation using a larger
+initial array; the holding aspect does not become relevant until the 32nd digit.
+                                                                                                          6
+
+TABLE 3. The actual digits of π (bottom) compared to the sequence of leftmost base-c
+digits for 35 iterations with a starting array of 116 2s (good for 35 digits). At the 32nd
+iteration a 102 shows up, yielding a predigit of 10.
+
+
+
+
+    We repeat that the algorithm uses only integer operations. To get 5,000 digits of π
+requires only integer arithmetic on numbers less than 600,000,000. The algorithm leads
+naturally to the question of improving it to one that is essentially as simple as e-spigot.
+Question. Is there a base d of rationals such that π has a d-representation that is periodic,
+or an arithmetic progression, and such that a0 is always the integer part of (a0 ; a1 , a2 , . . .)d ?
+     Gosper [Gos, p. 32] has discovered a series for π that brings us tantalizingly close to
+spigot-perfection:
+         1     1 2·3             1 2·3          3·5          1 2·3          3·5          4·7
+π = 3+      8+              13+                          18+                                      23+· · · .
+         60    60 7 · 8 · 3     60 7 · 8 · 3 10 · 11 · 3     60 7 · 8 · 3 10 · 11 · 3 13 · 14 · 3
+He obtained this series by using a reﬁnement of the Euler transform on 4 − 43 + 45 − 47 + · · · .
+                                             1    6     15    28
+Gosper’s series leads to the base d = ( 60     , 168 , 330 , 546 , . . .), with respect to which π is
+(3; 8, 13, 18, . . .). A computation shows that (0; 59, 167, 329, 545, . . .)d = 1.092 . . ., a sub-
+stantial improvement over the 2 that arose for c. Under the usual randomness assumption
+for π’s digits, the odds of a bad predigit in base c are 1 in 20, while in base d they decrease
+to less than 1 in 110; this is because a d-predigit of 10 occurs only when the remainder is a
+9 (which becomes 90) and the carry is a 10. The former happens 10% of the time, while the
+latter happens no more than once in 11 iterations because the carry is the integer part of
+a real between 0 and 10.93. So base d is within 1% of spigot-perfection. Because Gosper’s
+series converges more quickly than the one we used, it has less memory requirements: n
+digits of π require an initial array of length n; however, the arithmetic on the array will
+involve integers larger than those in an array of the same size using base c.
+      One way to improve the Gosper-series approach is to reduce the fractions in d to lowest
+terms. Then the regular number with maximal digits is (0; 59, 27, 21, 38, . . .)d , which equals
+1.0000476468 . . . . It is not hard to see that the regular representation of π is unchanged
+in this new base. However, the work expended in reducing to lowest terms outweighs the
+gain made in reducing the number of times a 10 appears as a predigit. Thus it is likely that
+an aﬃrmative answer to the question above is of more theoretical than practical interest.
+      The spigot algorithm for π is by no means competitive with the recently discovered
+fast algorithms (due to the Borwein brothers, the Chudnovsky brothers, and others) that
+have been used to compute hundreds of millions of digits of π (see [BBB]). But the spigot
+algorithm does have the advantage of avoiding all ﬂoating-point computations; thus it is
+easily implemented on a home computer where it can produce thousands of digits in a
+few minutes. Moreover, it gives the result directly in base 10 (most other π-algorithms
+                                                                                                                    7
+
+produce the result in binary or some internal format and a second pass must be made to
+obtain decimal digits).
+     The algorithm given here can be made to run faster by outputting multiple digits at
+a time. For example, to get ﬁve decimal digits at a time, simply compute the digits of π
+using base 100,000. This can be done by multiplying by 100,000 instead of 10 in the main
+step. The integer part is then the next “digit” in base 100,000.
+     If one is working in base 100,000 and knows in advance that the portion of digits to
+be computed does not contain the string 00000, then one can omit the lengthy part of
+the algorithm that adjusts the predigits. This can lead to an exceedingly short computer
+program. For example, Rabinowitz [Rab] used this idea to exhibit a 14-line Fortran
+program that outputs 1,000 decimal digits of π.
+     Finally, we mention that the algorithm can be parallelized, in which case it becomes
+blindingly fast up to about 10,000 digits.
+     For examples of spigot algorithms for other functions, see [Abd].
+APPENDIX 1. FIVE LEMMAS
+Lemma 1
+    (a). If i ≥ 1, (0; 0, 0, . . . , 0, ai , ai+1 , . . .)b < 1i ; in particular, (0; a1 , a2 , a3 , a4 , . . .)b < 1.
+    (b). Representations using mixed-radix base b are unique.
+    (c). The integer part of (a0 ; a1 , a2 , a3 , a4 , . . .)b is a0 and the fractional part is
+         (0; a1 , a2 , a3 , a4 , . . .)b .
+                                               ∞
+Proof: (a). It suﬃces to prove that k=i+1 (k − 1)/k! = 1/i!, which follows from the fact
+that the series telescopes to:
+                                                                                       
+            1          1                   1              1               1           1
+              −                  +              −                 +            −                + ··· .
+           i! (i + 1)!                  (i + 1)! (i + 2)!              (i + 2)! (i + 3)!
+
+      (b). Suppose (a0 ; a1 , a2 , a3 , a4 , 
+                                             . . .)b and (c0 ; c1 , c2 , c3 , c4 , . . .)b represent the same real
+                                                 ∞
+number. Then, for some i, 0 =                   k=i dk /k!, where |dk | < k and di = 0. But then
+             ∞
+|di |/i! ≤ k=i+1 |dk |/k!, contradicting (a).
+      (c). This follows from (a).
+Lemma 2. A positive number is rational iﬀ its digits using the mixed-radix base b are
+eventually 0.
+Proof: The reverse direction is obvious. For the forward direction we use a sublemma.
+Sublemma. For any integers t and n, with 0 ≤ n < t!, there are integers di in [0, i] such
+that n = d1 t(t − 1)(t − 2) · · · 4 · 3 + d2 t(t − 1)(t − 2) · · · 5 · 4 + · · · + dt−3 t(t − 1) + dt−2 t + dt−1 .
+Proof: By induction on t. If n < t! write n as qt + r with 0 ≤ r < t and 0 ≤ q < (t − 1)!.
+By induction there is a sequence (d1 , d2 , . . . dt−3 , dt−2 ) that is a solution for q with respect
+to terms (t − 1)(t − 2) · · · 4 · 3, and the like, whence (d1 , d2 , . . . dt−3 , dt−2 , r) is a solution
+for n w.r.t. the terms t(t − 1)(t − 2) · · · 4 · 3, and the like.
+     Returning to Lemma 2’s proof, suppose a positive rational s/t is given. Use the
+sublemma to express s(t − 1)! in the form d1 t(t − 1)(t − 2) · · · 4 · 3 + d2 t(t − 1)(t − 2) · · · 5 ·
+                                                                                                    8
+
+4 + · · · + dt−3 t(t − 1) + dt−2 t + dt−1 . Dividing by t! then yields a representation of s/t as a
+sum of reciprocals of factorials with appropriately small coeﬃcients, which is the same as
+a terminating representation in the mixed-radix base b.
+Lemma 3. The algorithm for digits of e is correct.
+Proof: It must be shown that n + 2 mixed-radix digits of e suﬃce to get n base-10 digits of
+e. We ﬁrst prove that if n ≥ 28 (= 10e), then n mixed-radix digits suﬃce for n base-10
+digits. Using n mixed-radix   n digits means we are actually getting the base-10 digits of
+en = (2; 1, 1, 1, . . . , 1) = i=0 1/i!. Thus we must show that e − en ≤ 5 · 10−n (see footnote
+at beginning of paper). A geometric series estimation of the tail of the series shows that
+e − en < 2/(n + 1)!, and then Stirling’s formula yields
+                                                e n               n
+                                  2       1                      1
+                                        <    <        <                   .
+                               (n + 1)!   n!     n              10
+
+If n < 28 then a direct computation of the digits shows that n + 2 mixed-radix digits
+suﬃce.
+Lemma 4. The base-c number with maximal digits, (0; 2, 4, 6, 8, . . .), represents 2; hence
+regular representations of the form (0; a, b, c, . . .)c lie between 0 and 2.
+Proof: Instead of giving a formal proof, we show how some Mathematica computations led
+to the result (and a proof). In terms of series, the lemma states that
+                                        ∞
+                                             (2i)i!
+                                                       = 2.
+                                        i=0
+                                            (2i + 1)!!
+
+A rough calculation showed that the sum is near 2. Then a rational computation of the
+remainders — the diﬀerences between the partial sums and 2 — yielded the following
+sequence.
+                   4 4 16 16 32 32 256 256            512    512
+                    , , , ,       ,    ,     ,      ,      ,      .
+                   3 5 35 63 231 429 6435 12155 46189 88179
+The pattern in these remainders was found by dividing each by the preceding one, which
+yielded:
+                            3 4 5 6 7 8 9 10 11
+                             , , , , , , , , .
+                            5 7 9 11 13 15 17 19 21
+Induction proves the
+                   pattern
+                              to be valid in general; it follows that the remainders have the
+closed form 2n+1 / 2n+1
+                     n    , which converges to 0, as claimed.
+Lemma 5. The algorithm for digits of π is correct.
+Proof: As for e, we look at π − πm , where πm = (2; 2, 2, . . . , 2)c . This error is the tail of our
+                       ∞       2 i+1
+main series for π:     i=m (i!) 2    /(2i + 1)!. This tail is less than twice its ﬁrst term since
+each subsequent term is less than half its predecessor, leading us to study m!2 2m+2 /(2m +
+1)!. Splitting the denominator into evens and odds turns this into: m!22 /(3·5 · · · (2m+1)),
+                                                                                                 9
+
+which is less than 23 m!22 /(2 · 4 · · · (2m)), or 1/(3 · 2m−1 ). It is easy to see (using the fact
+      3
+that 10 < log10 2) that this last is less than 5 · 10−n when m = 10n/3, as claimed.
+APPENDIX 2. PASCAL CODE
+The following program, for which we are grateful to Macalester student Simeon Simeonov,
+implements the algorithm π-spigot. This code makes use of the fact that the queue of
+predigits always has a pile of 9s to the right of its leftmost member, and so only this
+leftmost predigit and the number of 9s need be remembered. The program computes 1000
+digits of π and requires a version of Pascal with a longint data type (32-bit integer).
+
+Program Pi Spigot;
+const n       = 1000;
+len           = 10*n div 3;
+var    i, j, k, q, x, nines, predigit : integer;
+       a : array[1..len] of longint;
+begin
+  for j := 1 to len do a[j] := 2;          {Start with 2s}
+  nines := 0; predigit := 0        {First predigit is a 0}
+  for j := 1 to n do
+  begin q := 0;
+     for i := len downto 1 do             {Work backwards}
+     begin
+       x := 10*a[i] + q*i;
+       a[i] := x mod (2*i-1);
+       q := x div (2*i-1);
+     end;
+     a[1] := q mod 10; q := q div 10;
+     if q = 9 then nines := nines + 1
+     else if q = 10 then
+          begin write(predigit+1);
+            for k := 1 to nines do write(0);       {zeros}
+            predigit := 0; nines := 0
+          end
+          else begin
+            write(predigit); predigit := q;
+            if nines <> 0 then
+            begin
+               for k := 1 to nines do write(9);
+               nines := 0
+            end
+          end
+  end;
+  writeln(predigit);
+end.
+                                                                                         10
+
+     ADDED IN PROOF. The latest version of Mathematica (2.3) can sum many of the
+series that occur in this paper. It takes only a second or so to get π/2 as the sum of the
+crucial series at the beginning of section 2, to get 1/i! for the series in Lemma 1’s proof,
+and to get 2 as the sum of the series in Lemma 4’s proof.
+REFERENCES
+
+[Abd] S. Kamal Abdali, Algorithm 393 — Special series summation with arbitrary preci-
+          sion, Comm. ACM 13 (1970) 570.
+[BBB] J. M. Borwein, P. B. Borwein, and D. H. Bailey, Ramanujan, modular equations,
+          and approximations to pi, or How to compute one billion digits of pi, this Monthly
+          96 (1989) 201–219
+[Gos] R. W. Gosper, Acceleration of series, Memo no. 304, M.I.T. Artiﬁcial Intelligence
+          Laboratory, Cambridge, Mass., 1974.
+[Knu] D. E. Knuth, The Art of Computer Programming, volume 2, Reading, Mass.,
+          Addison-Wesley, 1981.
+[Li] J. C. R. Li, Problem E854, this Monthly 56 (1949) 633–635.
+[Rab] S. Rabinowitz, Abstract 863-11-482: A spigot algorithm for pi, Abstracts Amer.
+          Math. Society 12 (1991) 30.
+[Sale] A. H. J. Sale, The calculation of e to many signiﬁcant digits, Comput. J. 11 (1968)
+          229–230.
+
+    MathPro Press
+    P.O. Box 713
+    Westford, MA 01886
+    72717.3515@compuserve.com
+
+    Department of Mathematics
+    Macalester College
+    St. Paul, MN 55105
+    wagon@macalstr.edu
+

@@ -1,0 +1,56 @@
+T137 self-contained exact-integer replay
+canonical statement SHA-256: cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+scope and unique-verdict markers: ok
+T132 witness: 22 < 38 < 44 < 47
+exhaustive sweep by mass:
+  N= 1 profiles=   1 pairs=     1 max=1/1 a=(1,) b=(1,) meet=(1,)
+  N= 2 profiles=   2 pairs=     3 max=4/4 a=(2,) b=(2,) meet=(2,)
+  N= 3 profiles=   3 pairs=     6 max=9/9 a=(3,) b=(3,) meet=(3,)
+  N= 4 profiles=   5 pairs=    15 max=16/16 a=(4,) b=(4,) meet=(4,)
+  N= 5 profiles=   7 pairs=    28 max=25/25 a=(5,) b=(5,) meet=(5,)
+  N= 6 profiles=  11 pairs=    66 max=18/14 a=(4, 1, 1) b=(3, 3) meet=(3, 2, 1)
+  N= 7 profiles=  15 pairs=   120 max=19/15 a=(4, 1, 1, 1) b=(3, 3, 1) meet=(3, 2, 1, 1)
+  N= 8 profiles=  22 pairs=   253 max=28/22 a=(5, 1, 1, 1) b=(4, 4) meet=(4, 2, 1, 1)
+  N= 9 profiles=  30 pairs=   465 max=27/21 a=(5, 1, 1, 1, 1) b=(3, 3, 3) meet=(3, 3, 1, 1, 1)
+  N=10 profiles=  42 pairs=   903 max=50/36 a=(7, 1, 1, 1) b=(5, 5) meet=(5, 3, 1, 1)
+  N=11 profiles=  56 pairs=  1596 max=41/29 a=(6, 1, 1, 1, 1, 1) b=(4, 4, 3) meet=(4, 3, 1, 1, 1, 1)
+  N=12 profiles=  77 pairs=  3003 max=54/38 a=(7, 1, 1, 1, 1, 1) b=(5, 5, 2) meet=(5, 3, 1, 1, 1, 1)
+  N=13 profiles= 100 pairs=  5050 max=55/39 a=(7, 1, 1, 1, 1, 1, 1) b=(5, 5, 3) meet=(5, 3, 1, 1, 1, 1, 1)
+  N=14 profiles= 133 pairs=  8911 max=98/68 a=(10, 1, 1, 1, 1) b=(7, 7) meet=(7, 4, 1, 1, 1)
+  N=15 profiles= 172 pairs= 14878 max=45/29 a=(6, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(3, 3, 3, 3, 3) meet=(3, 3, 2, 1, 1, 1, 1, 1, 1, 1)
+  N=16 profiles= 224 pairs= 25200 max=46/30 a=(6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(3, 3, 3, 3, 3, 1) meet=(3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=17 profiles= 285 pairs= 40755 max=47/31 a=(6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(3, 3, 3, 3, 3, 2) meet=(3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=18 profiles= 366 pairs= 67161 max=108/68 a=(10, 1, 1, 1, 1, 1, 1, 1, 1) b=(6, 6, 6) meet=(6, 5, 1, 1, 1, 1, 1, 1, 1)
+  N=19 profiles= 460 pairs=106030 max=73/45 a=(8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(4, 4, 4, 4, 3) meet=(4, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=20 profiles= 582 pairs=169653 max=100/62 a=(10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(5, 5, 5, 5) meet=(5, 5, 2, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=21 profiles= 725 pairs=263175 max=101/63 a=(10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(5, 5, 5, 5, 1) meet=(5, 5, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=22 profiles= 905 pairs=409965 max=148/94 a=(12, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(7, 7, 7, 1) meet=(7, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=23 profiles=1116 pairs=623286 max=177/109 a=(13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(8, 8, 7) meet=(8, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  N=24 profiles=1380 pairs=952890 max=180/110 a=(13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) b=(8, 8, 8) meet=(8, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+exhaustive total: 2693413 unordered pairs (self-pairs included)
+bounded maximum: 180/110 = 18/11 at N=24
+T132 profiles direct tensor powers (ambient coordinate cap 100000):
+  k= 1 coordinates=    3 numerator=44 meet_energy=38 ratio=44/38
+  k= 2 coordinates=    9 numerator=1936 meet_energy=1650 ratio=1936/1650
+  k= 3 coordinates=   27 numerator=85184 meet_energy=71510 ratio=85184/71510
+  k= 4 coordinates=   81 numerator=3748096 meet_energy=3159060 ratio=3748096/3159060
+  k= 5 coordinates=  243 numerator=164916224 meet_energy=140748938 ratio=164916224/140748938
+  k= 6 coordinates=  729 numerator=7256313856 meet_energy=5967647728 ratio=7256313856/5967647728
+  k= 7 coordinates= 2187 numerator=319277809664 meet_energy=255499068008 ratio=319277809664/255499068008
+  k= 8 coordinates= 6561 numerator=14048223625216 meet_energy=11102986702900 ratio=14048223625216/11102986702900
+  k= 9 coordinates=19683 numerator=618121839509504 meet_energy=488588179967156 ratio=618121839509504/488588179967156
+  k=10 coordinates=59049 numerator=27197360938418176 meet_energy=21678891694521946 ratio=27197360938418176/21678891694521946
+T132 tensor identity falsified: 1444 < 1650 at k=2
+T132 tensor ratios increase from k=2 to k=3, then decrease at k=4
+unbounded family direct tensor powers (ambient coordinate cap 100000):
+  k= 1 coordinates=    3 numerator=18 meet_energy=14 ratio=18/14
+  k= 2 coordinates=    9 numerator=324 meet_energy=234 ratio=324/234
+  k= 3 coordinates=   27 numerator=5832 meet_energy=4028 ratio=5832/4028
+  k= 4 coordinates=   81 numerator=104976 meet_energy=68490 ratio=104976/68490
+  k= 5 coordinates=  243 numerator=1889568 meet_energy=1112240 ratio=1889568/1112240
+  k= 6 coordinates=  729 numerator=34012224 meet_energy=18310644 ratio=34012224/18310644
+  k= 7 coordinates= 2187 numerator=612220032 meet_energy=311845830 ratio=612220032/311845830
+  k= 8 coordinates= 6561 numerator=11019960576 meet_energy=5463944616 ratio=11019960576/5463944616
+  k= 9 coordinates=19683 numerator=198359290368 meet_energy=90913596906 ratio=198359290368/90913596906
+  k=10 coordinates=59049 numerator=3570467226624 meet_energy=1493113287134 ratio=3570467226624/1493113287134
+all T137 replay checks passed

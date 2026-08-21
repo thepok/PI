@@ -1,0 +1,176 @@
+  204                         MA THEMA TICS: A. WEIIP                  PROC. N. A. S.
+
+    Suppose, if possible, that p is real. Then if +k(t) is defined, in terms of
+  the solution x(t) occurring in (3), by
+                                  x(t) = Ip'/To(t),
+  it is seen that
+                     4(t + 7r) = e +(t), where e = sgnp = =1.
+  Hence 4+(t) has 2wr as a period. Since f(t) is real, the real and imaginary
+  parts of x(t) are solutions of (2). Consequently, (2) possesses a non-
+  trivial solution of the form
+                                 x(t) = Ipii/w1P(t) 0,                       (4)
+  where A(t) is real and of period 2w.
+     Since the solution (4) is real, it follows from the inequalities (1), from
+  Sturm's comparison theorem, and from the assumption that f(t) is not
+  constant, that
+                               2n <N<2(n+1),                                (5)
+ where N denotes the number of zeros of the solution (4) on a half-open
+ interval of length 27r, say on 0 9 t < 27r.
+    On the other hand, (4) shows that x(t) and AI'(t) have the same zeros.
+ Since 4,(t) is periodic, the number N of zeros of 4/(t) on a period, 0 < t < 27r,
+ is even. Since this contradicts (5), the proof is complete.
+   1 Borg, G., Ark. f. Matemat., Astr. o. Fysik, 31, No. 1, p. 28.
+   2 StrUtt, M. J. O., Lame'sche, Mathieusche und Verwandte Funktionen in Physik und
+ Technik, Berlin, 1932, pp. 24 and 40.
+
+
+
+                   ON SOME EXPONENTIAL SUMS
+                             BY ANDRA WEIL
+              DEPARTMENT OF MATHEMATICS, UNIVERSITY OF CHICAGO.
+                    Communicated by Marshall Stone, March 9, 1948
+   It seems to have been known for some time' that there is a connection
+between various types of exponential sums, occurring in number-theory,
+and the so-called Riemann hypothesis in function-fields. However, as I
+was unable to find in the literature a precise statement for this relationship,
+I shall indicate it here, and derive from it precise estimates for such sums,
+including the Kloosterman sums.
+   Let k be a finite field of q elements; consider the field k(t) of rational
+functions in one transcendental element t, with coefficients in k; geo-
+VOL. 34, 1948            MATHEMATICS: A. WEIL                              205
+
+metrically, this is the function-field, over the ground-field k, of a projective
+straight line. On that straight line, we consider divisors, i.e., formal sums
+of points with integral (positive or negative) coefficients; and we limit
+ourselves, once for all, to divisors which are rational over k, i.e., such that
+conjugate points over k have the same coefficient. A divisor is called
+finite if it does not contain the point at infinity with a non-zero coefficient.
+Except for the notation, finite positive divisors are essentially the same as
+ideals in the ring k [t]; to every such divisor a, we attach the polynomial
+Pa(t) = tn + altn-1 + . . . + an which generates the corresponding ideal,
+i.e., whose zeros are the points in a, with multiplicities respectively equal
+to their coefficients in a; as a is assumed to be rational over k, Pa(t) has
+its coefficients in k; and n is the degree of a. Every finite divisor m can
+be written as m = a - b, where a, b are finite positive divisors; to m, we
+attach the function Rm(t) = Pa(t)/Pb(t); we have m - 0 if and only if a
+and b, i.e., Pa(t) and PN(t), are of the same degree, and then there is one
+and only one function in k(t) having m as its divisor and taking the value
+ 1 at infinity, viz., Rm(t) itself.
+    Let x be a character of the multiplicative group k* of the non-zero
+elements in k. Let b be a finite divisor, consisting of the points t, with the
+coefficients a,; if R(t) is in k(t), we shall write R(b) = H1,R(,)ap whenever
+ none of the R(%) is 0 or co; as b is rational over k, R(b) is in k. We shall
+ assume that no a, is a multiple of the order of x.
+    Furthermore, let w be a character of the multiplicative group of power
+ series in an indeterminate T with coefficients in k; we assume that w has
+ the value 1 for every series reduced to a monomial cT`z. According to the
+ usual definition, we say that co has the conductor (TN) if it has the value
+ 1 for every power-series which is = 1 mod. TN, and if N is the smallest
+ integer with that property. Then the values of X are ps-th roots of unity,
+ if p is the characteristic of k, and s is such that ps ) N. We shall write,
+ for x e k, X (x) = w(1 - xT). To every function R(t) in k(t), we can
+ attach a power-series R(1/T), arising from the expansion of the rational-
+ function R(1/T) according to increasing powers of T; this is no other
+ than the usual expansion of R(t) at infinity. Then w[R(1/T)]is defined;
+ in particular, as co(T) = 1, we have co[(I - xT)/T] = X(x). Now, for
+ every finite divisor m with no point in common with b, we write
+                        p((m) = ce[Rm(1/T)]*x[Rm(b)].                     (1)
+This depends multiplicatively upon m, i.e., p(im + n) = p(m) (n).
+Furthermore, if m 0, and.if there is a function R(t) in k(t), having m as
+its divisor, taking the value 1 at every point ,,, and such that R(1/T) = 1
+mod. TN, we have Sp(m) = 1; for R(t) can then be no other than R.(t).
+According to well-known definitions, this shows that p(m) is an Abelian
+character over the field k(t), whose conductor consists of the point at
+206                         26A THEMA TICS: A. WEIL               PROC. N. A. &
+
+infinity with the coefficient N, and of the, points (, with the coefficient 1 ;
+if d is the number of points {, in b, the degree of that conductor is therefore.
+N + d; hence, by a known theorem,2 the L-seres belonging to this charac-
+ter is a polynomial of degree N + d - 2; calling at its roots, we have thus,
+                                       N+a-2
+                       E(p(a) -u"(a
+                        a
+                                         ]aI (1 - tu),
+                                         i=i
+                                                                          (2),
+where the sum in the left-hand side is extended to all finite positive divisors
+a with no point in common with b, and where n(a) is the degree of a.
+Writing that the terms in u are equal on both sides, we get
+                            E(a) = -Eat,
+                            <
+                                               i
+                                                                         '(3)
+where the sum in the left-hand side is now extended only to the finite
+positive divisors of degree 1. These are in one-to-one correspondence with
+the polynomials P,(t) = t - x, with x e k. For such a divisor, we have
+                    RQ(1/T) = Pa(1/T) = (1 - xT)/T,
+hence w[R,(1/T)] = X(x), and also
+                    R (b) = II (t, - x)a =()Rb(x)
+                                                1
+with a = 2;a,. Then (3) can be written as
+                         EX(x)x[Rb(x)] = (-1)a+1aj,                      (4)
+where the sum in the left-hand side is over all the elements x of k, other
+than the t, if any of these is in k. We may extend that sum to all elements
+x of k by agreeing that x(O) = x( o ) = 0.
+  *By class-field theory, the character p(m) belongs to an Abelian extension
+of k(t), and its L-series divides the zeta-function of that extension. There-
+fore, by the Riemann hypothesis,3 all the a, have the absolute value Vq,
+hence
+       - ~            EX(X)X[Rb(X)] K, tN + d -2) q.(5)
+                    ~~~
+   For instance, we can define a character co, of conductor (T2), by putting,
+for every series of constant term 1:
+                     wo(l + xiT + x2T2 + ..)=-6(xi),
+where # is a character of the additive group of k, not everywhere equal to
+1. This gives
+                            EI
+                            +(X) X[Rb(X)]       d q
+If the characteristic p of k is not 2, we have d       2 for Rb(t)   =
+                                                                          - a,.
+a $ 0; hence, in that case,
+VOL. 34, 1948        MA THEMA TICS: G. W. WHITEHEAD                             207
+
+                         |E0(x)x(x2* a)l 42 Nq.
+If, in this, we take for x the character of k* of order 2 (equal to 1 for
+squares, and to -1 for non-squares, in k*), an elementary transformation4
+shows that the sum in the left-hand side is identical with the so-called
+Kloosterman sum Zo(cx + dx-1), for 4cd = a; hence
+                  -iZ^,(cx + dx1)
+                         xH'O
+                                               \2I",
+                                                2
+and, in the case of a prime field of p elements, with p 0 2:
+                         lZ,e2ni/p (cx + d/x)      2
+                           X=1
+  Furthermore, it is easily seen, e.g., by induction on n, that, if F(x) is'
+any polynomial in x of degree n, with coefficients in k, such that F(O) = O,
+there exists at least one character c, of conductor (TN) for some N < n + 1,
+such that, with the above notations, X(x) = O[F(x)]. Then (5) gives:
+                    E#[F(x)]X[Rb(x)] I (n + d - 1) .
+   1 Cf., for example, H. Rademacher's excellent report on analytic number theory,
+Bull. A. M. S., 48, 379-401 (1942).
+   2 Weissinger, J., Hamb. Abhandl., 12, 115-126 (1938).
+   3 Weil, A., Pub. Inst. Math. Strasbourg (N.S., no. 2), pp. 1-85 (1948).
+   4Davenport, H., Crelles J., 169, 158-176 (1933); cf. in particular Th. 5, p. 172.
+
+
+
+ON SPA CES WITH VANISHING LOW-DIMENSIONAL HOMOTOP Y
+                        GROUPS
+                 By GEORGE W. WHITEHEAD
+                 DEPARTMENT OF MATHEMATICS, BROWN UNIVERSITY
+                  Communicated by S. Lefschetz, Februarv 17, 1948
+  This note contains an investigation of the relationships between some of
+the homotopy and homology groups of an (n - l)-connected space (i.e.,
+a pathwise connected topological space whose homotopy groups of dimen-
+sions < n all vanish).
+   Let X be an (n - 1)-connected space, and let A be a set of generators
+for the nth homotopy group, 7rn(X). For each a e A, let Ealn+l be an
+(n + 1)-cell with boundary San; let ya be a fixed reference point of San;
+XO a fixed reference point in X; and letf.: (Sa", ya) -+ (X, xo) be a mapping
+representing the element a e 7rn(X). Suppose that u Ea"+' is topologized
+                                                       aeA
+so that the cells E:n+1 are mutually separated and let E be the topological
+space obtained from u E "n+ by identifying all the points ya to a single
+                        aeA
+

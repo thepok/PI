@@ -1,0 +1,738 @@
+Pacific Journal of
+Mathematics
+
+
+                 ON NORMAL NUMBERS
+
+                  W OLFGANG M. S CHMIDT
+
+
+
+
+Vol. 10, No. 2                            October 1960
+                           ON NORMAL NUMBERS
+                                 WOLFGANG SCHMIDT
+
+
+     l   Introduction* A real number ξ, 0 ^ ξ < 1, is said to the normal
+in the scale of r (or to base r), if in ξ = 0 aLa2       expanded in the
+          (1)
+scale of r every combination of digits occurs with the proper frequency.
+If bj)2     bk is any combination of digits, and ZN the number of indices
+i in 1 ^ ί ^ ΛΓ having
+
+
+then the condition is that
+(1)                        \\mZNN-λ ^ rk                .
+
+     A number f is called simply normal in the scale of r if (1) holds
+for k = 1. A number is said to be absolutely normal if it is normal to
+every base r. It is well-known (see, for example, [6], Theorem 8.11)
+that almost every number ξ is absolutely normal.
+     We write r ^ s, if there exist integers n, m with rn — sm. Other-
+wise, we put r Φ s.
+     In this paper we solve the following problem. Under what condi-
+tions on r, s is every number ξ which is normal to base r also normal
+to base s ? The answer is given by
+
+     THEOREM 1.    A Assume r ~ s. Then any number normal to base
+r is normal to base s.
+    B If r o° s, then the set of numbers ξ which are normal to base
+r but not even simply normal to base s has the power of the continuum.
+    The A-part of the Theorem is rather trivial, but I shall sketch a
+proof of it, since I could not find one in the literature.
+    Next, let I be an interval of length | I\ contained in the unit-interval
+U = [0, 1]. We write MN(ξ, r, I) for the number of indices i in lrgifg JV
+                                ι       %                             2
+such that the fractional part {r ξ} of r ξ lies /. A sequence ξ, rξ, r ξ,
+has uniform distribution modulo 1 if
+
+                    RN(ξ9 r, I) = MN(ξ, r,I)-N\I\=               o(N)
+
+for any J. It was proved by Wall | 8 | (the most accessible proof in [6|,
+                                                                   2
+Theorem 8.15) that ξ is normal to base r if and only if ξ, rξ, r ξ,
+has uniform distribution modulo 1.
+     Write TStt, where 1 < t < s, for the following mapping in U: If
+ξ = 0 aλa2     in the scale of t, then TSΛξ = 0*axa2    in the scale of s.
+    Received June 2, 1959.
+    1
+      In case of ambiguity we take the representation with an infinity of aι less then r — 1.
+But this does not affect the property of £ to be normal or not.
+
+                                            661
+662                        WOLFGANG SCHMIDT
+
+      THEOREM 2.   Assume r φ s. Then there exists a constant aλ =
+ax{r, s,t)>0   such that for almost every ξ there exists a N0(ξ) with
+
+(2)                               RN(TsJ,rfI)^N^
+for every N ^ N0(ξ) and any I.
+     Thus TSttξ is normal to base r for almost all ξ. Since TSttξ is not
+simply normal to base s part B of Theorem 1 follows. It does not follow
+immediately for s = 2, but instead of T2tt, which does not exist, we
+may take T4ιt.
+     We can interpret our results as follows. Write CSΛ for the image
+set TSιtU of the unit-interval U under the mapping TStt. CStt is es-
+ sentially a Cantor set. In CSιt we define a measure μStt by
+
+(3)
+
+where f(ξ) is any real-valued function such that the integral on the
+right hand side of (3) exists. Then it follows from Theorem 2 that
+with respect to μStt almost every ξ in Cs>t is normal in the scale of r.
+     Throughout this paper, lower case italics stand for integers. aλ =
+a^r, s, t)y a2, α 3 ,  will be positive constants depending on some or all
+the variables r, s, t.
+
+    l   The case r ~ s. First, it follows almost from the definition that
+any number normal to base s11 is normal to base s.
+    Next, assume ξ is normal to base r, we shall show it is normal in
+the scale of r m . If ξ = 0 aλa2 ••• in the scale of r, bλ     bmk is any
+                                 (
+combination of mk digits and Z JP is the number of indices i in 1 ^ i ^ N
+with i == 1 (mod m) satisfying
+
+                       b1 = aif       , bmk = ttj+j^fc-! ,
+
+then it was shown in [7] and in [3] that
+
+                          lim
+                          N-*oo
+
+
+and hence
+                         lim      ^            ()
+                         N->oe
+Thus I is normal to base rm.
+    Combining the above remarks we obtain the A-part of Theorem 1.
+   2. The measure μSιt.    We define numbers of order h to be the
+                                                                      h
+number Q ax     ah with 0 S α« < t in the scale of s. There are t
+                                                           h        {
+numbers of order h, we denote them in ascending order by θ[ \ •••, θ %\
+                                           ON NORMAL NUMBERS                                   663
+
+    LEMMA 1. Let f(ξ) be a step-function, having a finite number of
+steps. Then
+
+                 \           f(ξ)dμs,t - [f(TsJ)dξ                 = lim t~h Σ / ( ^ } ) .
+                 JG<.   I                    Jo                      Λ,->oo   fc   = l
+
+
+
+The integrals and the limit exist and are finite.
+
+    Proof. It will be sufficient to prove the lemma for f(ξ) = {1,7},
+where 0 ^ 7 ^ 1 and
+
+                                        { f f 7 } =   jl,        if if} < 7
+                                                        0        otherwise.
+                        Λ)
+ξ™ = I {Γs t^, ^ }d^ is the least upper bound of numbers § having
+       Jo
+            ι)                                                                               ( ft)
+Ts,tξ^Θ% .     Thus if 0ί'° = 0 αL ••• α ft in t h e scale of s, then | fc =
+                                                 Λ)             h
+O αi     ah in t h e scale of t and therefore |& == (k — l)t~ .
+      Hence if θΐ] ^ 7 ^ ^*+\> o r if ^*Λ) ^ 7 with k = t Λ , then
+
+                                      Jo
+                             Λ
+where 0 <£ ε ^ ί" .                We can rewrite this in the form
+
+
+
+and Lemma 1 follows.
+    Particularly, for
+
+                                       μ(Ύ,x) -              [{xT8.tξ9y}dξ
+                                                        Jo
+
+                                 μ(Ύ, x, y) = [{xTstξ, 7} {yTsJ,
+                                                  Jo
+we have
+
+(4)                                 μ(y, x) = l i m ί - Λ Σ
+
+( 5)                        //(7, x, 1/) = lim t~h 2 {^^fc713, 7} {y@ih), 7} .
+                                             Jl-*oo     Jc — 1
+
+
+     3 Exponential sums. Write e(ξ) for β2πί?. There exist ([5], pp. 91-
+92, 99) for any γ, 0 ^ γ g 1, and any η > 0 functions f1(ξ)ff2(t) periodic
+in I with period 1, such that fx{ξ) ^ {£,7} ^/ 3 (f), having Fourier ex-
+pansions
+664                          WOLFGANG SCHMIDT
+
+
+
+
+where the summation is over all u φ 0 and A^ is majorized by
+                                                        1
+(6 )                                     IA uI ^        2
+                                                       U 7]
+
+       Applying this to (5) we obtain
+
+       μ(y, x, y) S (Ύ + Ψ + lim t-             Z-4
+                                                u,υ
+                                            =7^0,0
+
+
+where we put A[2) = γ + η and take the sum over all pairs u, v of
+numbers not both being zero. Since
+
+
+
+and since the double sum over u, v is uniformly convergent in h, we
+may change the order of limit and summation and obtain
+
+                        Vf    Σ'                       ?> | lim t~h        , e((ux + vy)θ(kh})
+                              U, V
+
+
+
+       The numbers θίh) are the numbers
+
+                                     I      _     ~Γ   ' * * ~Γ    .   >
+
+
+
+where 0 ^ α^ < ί. Hence
+
+                n = ft
+If we keep w fixed, and if j is large, then
+                                                                                  t\w\
+
+
+Therefore
+
+(7)         /,(s,
+
+exists and
+(8 )       μ(j, x,           Vf + Σ ' I ^                   11 ^ 2 ) I Π(s, t ux + v y ) .
+                                          u,v
+       The next three sections will be devoted to finding bounds for sums
+like
+                             Σ            Π(s, t urn + vrm) .
+                              ON NORMAL NUMBERS                               665
+
+
+      4«. Two lemmas on digits*
+
+    LEMMA 2. Write w = cg               m the scale of s.        Assume     there
+are at least z pairs of digits clΛ.γci with
+
+(9)                                   l^cί+ιcί^s2~
+
+(Here ci+lct = sci+1 + c4).
+
+
+uhere a2 = α a (s, ί), 0 < α 2 < 1.
+
+      Proof.    There are at least 2 numbers ΐ having
+
+
+
+
+For such an i we have
+
+                                                                - 2 = to2
+
+and the Lemma is proved.
+    There exists an α3(s), 0 < α 3 < 1/4, such that
+
+
+
+
+      LEMMA      3. If k is large, k > aj^s), then the number of combinations
+of digits      c]cck.1  cx in the scale of s with less than a3(s)k indices i
+satisfying     (9) is not greater than 2(3/4)fc.
+
+    Proof. It will be sufficient to show that the number of combinations
+with less than a3(s)k indices i satisfying both (9) and i = 1 (mod 2) is
+not greater than 2(3/4)fc. We first assume k is even. There exist
+
+                                  2
+                                      ](s 2 - 2y2 f c / 2 " ί
+
+combinations ck     cλ with exactly I indices i having both (9) and i = 1
+(mod 2). Hence the number of combinations with less than a3(s)k
+indices i satisfying (9) and i = 1 (mod 2) does not exceed
+666                                       WOLFGANG SCHMIDT
+
+Using Stirling's formula for the binomial coefficient we obtain for large
+enough k the upper bound
+
+                                        /Q        3
+                                                      ((/)3)
+                        5V   ;
+                                      (2)β*(l         2)((1/2)^)fc
+Actually, the expression on the left hand side is < 2Λefc, where a6 < 3/4.
+This permits us to extend the result to odd k.
+
+       5* The order of r modulo p* as a function of k.
+
+           4. Assume p is a prime with p \ r.
+       LEMMA                                                                Then the order o(r, pk),
+of r modulo pk satisfies
+
+                                        o(r, pk) > a7(r, p)pJΰ .
+
+       COROLLARY.    Let n run through a residue system modulo p*. Then
+at most α 8 (r, p) of the numbers rn will fall into the same residue class
+modulo p*.
+
+       Proof.   Write
+
+                                 g = g i p ) = \P-l>      if V is odd
+                                                (
+                                                  2 , if p = 2.
+There exists an α 9 = oc9(r, p) such that
+
+(10)                                  rg = 1 + qp"*'1 (mod p**) ,
+
+where q Ξ£ 0 (mod p). We have necessarily α 9 > 1 and even α 9 > 2 if
+p = 2. If follows from (10) by standard methods (see, for instance, [4],
+§ 5.5) that
+
+                                 r
+                                     op* = 1 + qp«<j-1+e (mod           p^+e)
+
+for a n y e ^ 0.    T h u s f o r k ^> α:9 w e h a v e
+
+
+
+and
+                                  o(r, pk) ^ ^ p f c - ^ = aΊ{r,     p)pk   .
+
+       Assume r φ s.             Write
+
+
+
+
+where we may assume that never both dt = 0, β4 = 0. We also may
+assume that the primes pl9 , ph are ordered in such a way that
+                               ON NORMAL NUMBERS                                    bbY
+
+
+                               ^1   ^> ^2 ^> . , , ^>    fe
+
+                               dλ ~ d2 ~             ~ dh
+
+where we put (ejdt) = + oo if di = 0. Since r ^ s , we have
+                           r
+                                 rβl  X
+                             * = ΊΓ > *
+
+From now on, p = pL(r, s) is the prime defined above. We have p \ s
+but p\rλ.   For any x =£ 0, 7/ > 1 we define two new numbers x}J and
+α j by x = #„#£, where α^ is a power of 2/ and 2/<|Ό;£.
+
+     LEMMA 5. A. Assume r φ s, v Φ 0. Let m run through a system
+K(sk) of non-negative representatives modulo sk. Then at most
+                                            s
+                                           ί Y
+                                                     P
+                                           \2/
+of the numbers
+                                          v(rmγs
+are in the same residue class modulo sk.
+     B. Assume r Φ s, furthermore p\r.   Suppose u Φ 0, v Φ 0, n are
+fixed. Then, if m runs through K(sk), at most
+
+
+
+
+of the numbers
+
+                                        urn + vrm
+
+will fall into the same residue class modulo sfc.
+
+        Proof. A. Write m = m1e1 + m 2 , 0 ^ m 2 < eλ.           Then rm = rTOlβl+w*2 ==
+                                              2
+gί »idi r mi r i» 2 a n ( j ^( r ^)^ — 'yrf^r™ )^ The equation
+
+                                    rψι = α (mod pfc)
+has for fixed α at most e^a^r^ p) solutions in m = mxex + m2, if m runs
+                     fc                       k
+through a system if(p ) of residues modulo p . This follows from the
+corollary of Lemma 4. The equation
+
+                               av(rm*ys == δ(mod pk)
+
+has for fixed 6, m 2 at most
+
+                              g.c.d.(v(rm2Ys,      pk) ^ vpr™2
+
+solutions in α. Hence the number of solutions of
+668                                         WOLFGANG SCHMIDT
+
+                                             Ί lι   m2 r                            k
+                                           vr l (r ) s     = b (mod             p)
+
+in m = m^i + m2 e if(pfc) does not exceed
+
+
+
+      But this implies that the number of solutions of
+                                                                                    k
+                                           vr^r^Ys         ΞΞΞ 6 (mod s )
+in m = ra^i + m2 e iί(sfc) is not greater than
+
+                          <xlo(r, s)vp(—J                  ^       aw(r,
+
+
+      B.   The equation
+
+                                      urn + vrm = 6 (mod £>fc)
+
+has according to the corollary of Lemma 4 at most
+
+
+
+solutions in 7neK(pk), The result follows as before.
+     The following conjecture seems related to our results: Assume
+r q^ s. Then for any ε and k almost all the numbers r, r2,          are
+(ε, kynormal to the base s in the sense of Besicovitch |1] that is, the
+number of n <^ N for which rn is not (ε, k)-normal is o(N) as N—>oo
+for fixed e and k.
+
+      6.   Bounds for exponential sums.
+
+      LEMMA 6.       A.        Let r, s, v be as in Lemma 5A.                                     Then
+                                                               m                        (ι   )k
+                                 Σ           #(s, t        vr ) ^           a12vps ~^
+                                       k
+                               meκ(s )
+
+      B.   Let r, s, u, v, n be as in Lemma 5B.                                         Then
+
+                                      Π(s, t; urn + vrm)
+
+     Proof. A. Write v(rm)'s = cff            cΛ   cλ in the scale of s. Lemma
+                                                           c
+5A implies that any digit combination c^k-i '                i will occur at most
+             fc
+#io(Λ s)(s/2) vp times. According to Lemma 3, there are for large k not
+                (3/4)fc
+more than 2             digit-combinations ck    cλ with less than a^k indices i
+satisfying (9). Thus of all the numbers v{rm)rSJ meK(sk), and hence of
+all the numbers vrm there will be at most
+                           k      (   )k                                   1 4 fc                    (1   }
+           α l o (r, s)(sl2) vp2 ^              - α l o (r, s)^(s/2 / ) - α l o (r, s)v p s -" *
+                                         ON NORMAL NUMBERS                                   669
+
+having less than α3ft digits ct in their expansion in the scale of s satisfying
+(9). Thus Lemma 2 yields
+                                                          m         3
+                                          Π(s, t vr ) ^ αf
+for all but at most
+
+                                           alo(r,
+
+numbers meK{sk).                 This gives
+
+                  Σ        Π{s, t vrm) ^ s Λ αf
+              m6Jf(/)
+
+       B     is proved similarly, using Lemma 5B.
+
+       LEMMA          7.    A.   Assume r o 6 s, v =£ 0.
+
+(11)                         Σ    /?(β, t w w ) ^ α17(ΛΓ2 - Ntf-uv,          .
+
+       B.     Assume r rh s, u Φ 0, v ^ 0. Then
+
+(12)              Σ         Π(s9 t;urn    + w m ) ^ α19(iV2 - Ntf-** max
+
+
+    Proof. A. There exists a ft having s2k ^ N2- N,< s2(k+1\     hence
+there exists a w satisfying s w ^N2 — N±< s (w + 1), where s ^ w < sfc+2.
+                             k             k                k
+
+
+Thus if m runs from JVi to N2, then m runs through w systems K(sk)
+of residue classes modulo sk and at most sk other numbers. Hence by
+Lemma 6A
+                                   m                a   ai5)k      fc
+              Σ        Π(s, t    vr ) ^ II; a12vps ~            + s ^ cCi7(N2 — N^'^Vp   .
+           iV1<m^iV2
+
+
+    B. If p | r , then we proceed as in part A. We first take the sum
+over m and use Lemma 6B.
+    If p/r, then our argument is as follows. Consider, for example,
+the part of the sum with n ^ m. Changing the notation in n> m, we
+see that this part of the sum (12) equals
+
+                                                              n     m
+                                  v^ = 0 m =vN-.+l 77(s, t (ur + v)r ) .
+                                                                         n
+Except for possibly one exceptional n we have (ur )p Φ vp and therefore
+(urn + v)p ^ vp ^ max (up, vp). If n is not exceptional, then the al-
+ready proved Lemma 7A can be applied to the inner sum and we obtain
+the bound
+                                 ^17(^2 — Nλ — ^)1-*i8 m a x (upf vp) .
+Taking the sum over n we obtain (12).
+670                                     WOLFGANG SCHMIDT
+
+        7 A fundamental lemma. Generalizing MN(ξ, r, I) we write
+Nι
+   M N
+       .β, r, I) for the number of indices i in JVi < i S N2 such that {rιξ}
+lies in /. We put
+
+               Nl
+                    RNβf       r, I) = NιMN£ξ, r, I) - (N2 - NJ\ I\ .
+
+       Fundamental lemma.                   Assume r Φ s.                 Then
+
+                                   s
+                                       J, r, I)dξ ^ a2l(N2 - Ntf-*™ .
+
+
+    Proof.    It is enough to prove this for intervals of the type / = [0, γ).
+Then
+                                            δ γ    T) —         y         !rnt        yl
+                                            ,, I y 1 )          2-Λ       \l     b>   //
+
+and
+
+(13)              [ SlMN%(TtΛξ,             r, I)dξ =            Σ        μ(Ύ, rn)
+                  JO                                           i^1<W^^2
+
+                  Γ1
+                  JO                                           Λr1<ίi,w^i^2
+
+
+Now we combine (8) and Lemma 7.                                We obtain, together with (6),
+
+                           Σ       μ(γ, rnf rm) ^ (γ -
+
+                           + 2(γ +
+                                                   ηv
+                           +ΣΣ                  Ύ]UΎ]V
+
+
+Since the sums
+
+                               Σ— , 9
+                                                     ΣΣ        m a x
+
+                                   "                     φQ^
+
+
+are convergent, and since η was arbitrary, we have
+                                        m                             2
+              Σ        μ(Ύ, r\ r ) - (N2 - Nrfy ^ a23(N2 -
+
+       In the same fashion we can prove
+
+                                            m
+               Σ           μ(Ύ, r\ r ) - (N2 - Nlt
+
+                               n                                                           1
+              Σ        μ(y, r ) - (N2 - Nx                            a2b(N2 - NJ -** .
+
+ These two inequalities, together with (13) and (14), give the Fundamental
+ Lemma.
+                              ON NORMAL NUMBERS                     671
+
+    8. Proof of the theorems* Once the Fundamental Lemma is shown,
+we can prove Theorem 2 by the standard method developed in [2].
+    By JB, B > 0, we denote the set of intervals [β,i), 0 ^ β < γ < 1
+of the type β = a2r\ γ = (α + 1)2"\ where 0 ^ 6 ^ a22B\2. By P β we
+denote the set of all pairs of integers Nlf N2 having 0 ^ Nx < N2 ^ 2B
+of the type N± = α2&, iV2 = (α + l)2 δ for integers a and & ^ 0.
+
+  LEMMA     8. Assume r + s.         Then
+
+
+
+
+    Proof. Because of the Fundamental Lemma the left hand side is
+not greater than
+
+
+
+where 2*22BI2+1 is an upper bound for the number of intervals in JB and
+
+(15)                     Σ=          Σ    (JSΓf
+
+In (15) each value of N2 — Nx — 2b occurs 2B~b times, so that
+                              B
+
+
+                             &=0
+
+
+
+Hence Lemma 8 is true with a28 = α22/4.
+
+    LEMMA 9. For large B there exists a set EB of measure not greater
+than 2-"™B such that
+
+(16)                         RATsJ,      r, I) ^ 2*<1-"*>
+for all I, N <> 2B and all ξ in [0, 1) but not in EB.
+
+    Proof. We define EB to be the set consisting of all ξ in [0,1) for
+which it is not true that
+
+(17)                Σ         Σ Nβ2N2(Ts,tξ,      r, /) S
+                CNL,N2yePB    iejB
+
+
+       Lemma 8 assures that the measure of EB does not exceed
+
+
+for large B. We have to show that (16) is a consequence of (17).
+                                                               h
+     We first assume / to be of the type / = [0, γ), γ = a2~ , where
+0 g & ^ oc22B\2. Then the interval [0, γ), is the sum of at most b < B
+intervals /, IeJB, as may be seen by expressing a in the binary scale.
+672                             WOLFGANG SCHMIDT
+
+
+Expressing N in the binary scale we see that the interval [0, N) can
+be expressed as a union of at most B intervals [N19 N2), where the pair
+Nlf N2 € PB. Hence we can write RN(TSttξ, r, I) as a sum of NίRNt{TSttξ, r, I)
+over at most B2 sets N19 N2,1, where N19 N2ePB,         IeJB:
+
+                       RN(TsJ, r, I) = ΣNlRN%(T,J,         r, I) .
+Hence by (17) and Cauchy's inequality,
+                     RN(T,.£,   r, I)    ^
+
+for large B.
+                                            &               &
+     Next, let 1 = [0, γ) be of the type α2~ ^ γ S (a + 1)2" , where
+a22B/A < b ^ a22B/2. Then
+
+        I RAT.J, r, [0, γ))| = I MN(Ttttξ, r, [0, γ)) - jN\
+      £ I Λ^Γ., t f, r, [0, (a + 1)2"&)) | + | RN(TSJ, r, [0, a2~»)) \ + 2'»N
+
+
+      The Lemma now follows from
+            I RN( , , [/3, γ)) I ^ I RN( , , [0, β))\ + \ RN( , , [0, γ)) | .
+
+    Proo/ o/ Theorem 2. Since IE"* 3 0 8 is convergent, there exists for
+almost all ξ a Bo = £<,(£) such that f 0 JS7Λ for J5 ^ Bo. Iί N ^ 2B\ then
+we can find a i? ^ Bo satisfying 2B~λ < N <; 2B and Lemma 9 yields
+
+
+
+for large enough N.
+
+                                        REFERENCES
+1. A. S. Besicovitch, The asymptotic distribution of numerals in the decimal representation
+of squares of natural numbers, Math. Zeit. 39 (1934), 146-156.
+2. J. W. S. Cassels, Some metrical theorems in Diophantine approximation HI, Proc.
+Camb. Phil. Soc. 4 6 (1951), 219-225.
+3.          , On a paper of Niven and Zuckerman, Pacific J. Math, 2 (1952), 555-557.
+4. H. Hasse, Vorlesungen ύber Zahlentheorie, Springer Grundlehren LIX (1950).
+5. J. F. Koksma, Diophantische Approximationen, Ergebnisse der Math. u. ihrer Grenz-
+gebiete 4, 4 (1936).
+6. I. Niven, Irrational numbers, The Carus Math. Monographs 1 1 (1956).
+7. I. Niven and H. S. Zuckerman, On the definition of normal numbers, Pacific J. Math.
+1 (1951), 103-110.
+8. D. D. Wall, Normal numbers, Ph. D. thesis (1949), University of California, Berkeley.
+
+MONTANA STATE UNIVERSITY
+                  PACIFIC JOURNAL OF MATHEMATICS
+                                           EDITORS
+DAVID GILBARG                                             A.   L.   WHITEMAN
+
+Stanford University                                      University of Southern California
+Stanford, California                                     Los Angeles 7, California
+
+F.   H.   BROWNELL                                        L. J.     PAIGE
+
+University of Washington                                 University of California
+Seattle 5, Washington                                    Los Angeles 24, California
+
+
+                                  ASSOCIATE EDITORS
+E. F. BECKENBACH           E. HEWITT                 M. OHTSUKA                 E. SPANIER
+T. M. CHERRY               A. HORN                   H. L. ROYDEN               E. G. STRAUS
+D. DERRY                   L. NACHBIN                M. M. SCHIFFER             F. WOLF
+
+                             SUPPORTING INSTITUTIONS
+UNIVERSITY OF BRITISH COLUMBIA                     STANFORD UNIVERSITY
+CALIFORNIA INSTITUTE OF TECHNOLOGY                 UNIVERSITY OF TOKYO
+UNIVERSITY OF CALIFORNIA                           UNIVERSITY OF UTAH
+MONTANA STATE UNIVERSITY                           WASHINGTON STATE COLLEGE
+UNIVERSITY OF NEVADA                               UNIVERSITY OF WASHINGTON
+NEW MEXICO STATE UNIVERSITY                             *      *     *
+OREGON STATE COLLEGE                               AMERICAN MATHEMATICAL SOCIETY
+UNIVERSITY OF OREGON                               CALIFORNIA RESEARCH CORPORATION
+OSAKA UNIVERSITY                                   HUGHES AIRCRAFT COMPANY
+UNIVERSITY OF SOUTHERN CALIFORNIA                  SPACE TECHNOLOGY LABORATORIES
+                                                   NAVAL ORDNANCE TEST STATION
+
+    Mathematical papers intended for publication in the Pacific Journal of Mathematics should
+be typewritten (double spaced), and the author should keep a complete copy. Manuscripts may
+be sent to any one of the four editors. All other communications to the editors should be addressed
+to the managing editor, L. J. Paige at the University of California, Los Angeles 24, California.
+     50 reprints per author of each article are furnished free of charge; additional copies may be
+obtained at cost in multiples of 50.
+
+    The Pacific Journal of Mathematics is published quarterly, in March, June, September, and
+December. The price per volume (4 numbers) is $12.00; single issues, $3.50. Back numbers
+are available. Special price to individual faculty members of supporting institutions and to
+individual members of the American Mathematical Society: $4.00 per volume; single issues,
+$1.25.
+    Subscriptions, orders for back numbers, and changes of address should be sent to Pacific
+Journal of Mathematics, 2120 Oxford Street, Berkeley 4, California.
+    Printed at Kokusai Bunken Insatsusha (International Academic Printing Co., Ltd.), No. 6,
+2-chome, Fujimi-cho, Chiyoda-ku, Tokyo, Japan.
+
+   PUBLISHED BY PACIFIC JOURNAL OF MATHEMATICS, A NON-PROFIT CORPORATION
+     The Supporting Institutions listed above contribute to the cost of publication of this Journal,
+ but they are not owners or publishers and have no responsibility for its content or policies.
+                                  Pacific Journal of Mathematics
+                                  Vol. 10, No. 2                                  October, 1960
+
+Maynard G. Arsove, The Paley-Wiener theorem in metric linear spaces . . . . . . . .                                                        365
+Robert (Yisrael) John Aumann, Acceptable points in games of perfect
+     information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         381
+A. V. Balakrishnan, Fractional powers of closed operators and the semigroups
+     generated by them . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .               419
+Dallas O. Banks, Bounds for the eigenvalues of some vibrating systems . . . . . . . .                                                      439
+Billy Joe Boyer, On the summability of derived Fourier series . . . . . . . . . . . . . . . .                                              475
+Robert Breusch, An elementary proof of the prime number theorem with
+     remainder term . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .            487
+Edward David Callender, Jr., Hölder continuity of n-dimensional
+     quasi-conformal mappings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                      499
+L. Carlitz, Note on Alder’s polynomials . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                          517
+P. H. Doyle, III, Unions of cell pairs in E 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                          521
+James Eells, Jr., A class of smooth bundles over a manifold . . . . . . . . . . . . . . . . . . .                                          525
+Shaul Foguel, Computations of the multiplicity function . . . . . . . . . . . . . . . . . . . . . .                                        539
+James G. Glimm and Richard Vincent Kadison, Unitary operators in
+     C ∗ -algebras . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       547
+Hugh Gordon, Measure defined by abstract L p spaces . . . . . . . . . . . . . . . . . . . . . . .                                          557
+Robert Clarke James, Separable conjugate spaces . . . . . . . . . . . . . . . . . . . . . . . . . . .                                      563
+William Elliott Jenner, On non-associative algebras associated with bilinear
+     forms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   573
+Harold H. Johnson, Terminating prolongation procedures . . . . . . . . . . . . . . . . . . . .                                             577
+John W. Milnor and Edwin Spanier, Two remarks on fiber homotopy type . . . . . .                                                           585
+Donald Alan Norton, A note on associativity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                591
+Ronald John Nunke, On the extensions of a torsion module . . . . . . . . . . . . . . . . . . .                                             597
+Joseph J. Rotman, Mixed modules over valuations rings . . . . . . . . . . . . . . . . . . . . . .                                          607
+A. Sade, Théorie des systèmes demosiens de groupoï des . . . . . . . . . . . . . . . . . . . . .                                           625
+Wolfgang M. Schmidt, On normal numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                   661
+Berthold Schweizer, Abe Sklar and Edward Oakley Thorp, The metrization of
+     statistical metric spaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 673
+John P. Shanahan, On uniqueness questions for hyperbolic differential
+     equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       677
+A. H. Stone, Sequences of coverings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                          689
+Edward Oakley Thorp, Projections onto the subspace of compact operators . . . .                                                            693
+L. Bruce Treybig, Concerning certain locally peripherally separable
+     spaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    697
+Milo Wesley Weaver, On the commutativity of a correspondence and a
+     permutation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         705
+David Van Vranken Wend, On the zeros of solutions of some linear complex
+     differential equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .              713
+Fred Boyer Wright, Jr., Polarity and duality . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                             723
+

@@ -1,0 +1,50 @@
+{"at": "2026-07-21T09:49:30Z", "event": "formulated", "source": "removed-workflow-record://problem-formulator-1784627174458348580"}
+{"at": "2026-07-21T10:02:25Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-21T10:16:56Z", "event": "result", "item": "T1", "knowledge_added": 0, "todo": "todo:theory-pi-decimal-factor-complexity:t1", "verdict": "revise"}
+{"at": "2026-07-21T10:16:58Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-21T10:55:26Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-21T11:36:03Z", "event": "result", "item": "T1", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t1", "verdict": "accept"}
+{"at": "2026-07-21T11:36:07Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-21T11:55:31Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:08:01Z", "event": "result", "item": "T2", "knowledge_added": 0, "todo": "todo:theory-pi-decimal-factor-complexity:t2", "verdict": "reject"}
+{"at": "2026-07-22T04:08:03Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:10:54Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784693283760559853"}
+{"at": "2026-07-22T04:13:04Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:19:26Z", "event": "result", "item": "T2", "knowledge_added": 15, "todo": "todo:theory-pi-decimal-factor-complexity:t2", "verdict": "accept"}
+{"at": "2026-07-22T04:19:29Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:32:08Z", "event": "result", "item": "T3", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t3", "verdict": "accept"}
+{"at": "2026-07-22T04:32:10Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:36:27Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784694730815041691"}
+{"at": "2026-07-22T04:38:33Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T04:57:20Z", "event": "result", "item": "T4", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t4", "verdict": "accept"}
+{"at": "2026-07-22T04:57:23Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T05:01:24Z", "event": "director-revision", "new_items": 2, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784696243227683997"}
+{"at": "2026-07-22T05:03:33Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T05:20:06Z", "event": "result", "item": "T5", "knowledge_added": 2, "todo": "todo:theory-pi-decimal-factor-complexity:t5", "verdict": "accept"}
+{"at": "2026-07-22T05:20:08Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T05:30:32Z", "event": "result", "item": "T6", "knowledge_added": 9, "todo": "todo:theory-pi-decimal-factor-complexity:t6", "verdict": "accept"}
+{"at": "2026-07-22T05:30:34Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T05:34:38Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784698234738865438"}
+{"at": "2026-07-22T05:36:45Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T06:05:41Z", "event": "result", "item": "T7", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t7", "verdict": "accept"}
+{"at": "2026-07-22T06:05:43Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T06:09:32Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784700343313880716"}
+{"at": "2026-07-22T06:11:39Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T10:44:14Z", "event": "result", "item": "T8", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t8", "verdict": "accept"}
+{"at": "2026-07-22T10:44:17Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T10:47:23Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784717057416272930"}
+{"at": "2026-07-22T10:49:34Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T11:01:45Z", "event": "result", "item": "T9", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t9", "verdict": "accept"}
+{"at": "2026-07-22T11:01:47Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T11:04:43Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784718107971256544"}
+{"at": "2026-07-22T11:06:50Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T12:16:55Z", "event": "result", "item": "T10", "knowledge_added": 1, "todo": "todo:theory-pi-decimal-factor-complexity:t10", "verdict": "accept"}
+{"at": "2026-07-22T12:16:58Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T12:21:01Z", "event": "director-revision", "new_items": 1, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784722618380917893"}
+{"at": "2026-07-22T12:23:12Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T12:58:05Z", "event": "result", "item": "T11", "knowledge_added": 0, "todo": "todo:theory-pi-decimal-factor-complexity:t11", "verdict": "revise"}
+{"at": "2026-07-22T12:58:08Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T13:00:14Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T13:18:56Z", "event": "result", "item": "T11", "knowledge_added": 16, "todo": "todo:theory-pi-decimal-factor-complexity:t11", "verdict": "accept"}
+{"at": "2026-07-22T13:18:58Z", "event": "reconcile", "source": "ledger"}
+{"at": "2026-07-22T13:23:09Z", "event": "director-revision", "new_items": 0, "playbook_additions": [], "source": "removed-workflow-record://theory-director-pi-decimal-factor-complexity-1784726338698427804"}

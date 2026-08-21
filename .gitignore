@@ -1,0 +1,18 @@
+/.lake
+/.venv
+/tmp
+/__pycache__
+/.pytest_cache
+/.ruff_cache
+*.pyc
+__pycache__/
+.claude/settings.local.json
+
+# Re-creatable workflow runtime state and model outputs.
+/workflows/state/*
+!/workflows/state/OPERATOR_PAUSED
+/workflows/modelbench/results*/
+
+# Compiled numerical-workflow cache.
+/workflows/state/fastmath-cache/
+

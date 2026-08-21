@@ -1,0 +1,652 @@
+                                                 ON EXPONENTIAL SUMS OVER ORBITS IN Fdp
+arXiv:1606.03495v2 [math.NT] 23 Aug 2016
+
+
+
+
+                                                                              SARAH PELUSE
+
+
+
+
+                                                  Abstract. This paper proves a bound for exponential sums over
+                                                  orbits of vectors in Fdp under subgroups of GLd (Fp ). The main
+                                                  tool is a classification theorem for approximate groups due to Gill,
+                                                  Helfgott, Pyber, and Szabó.
+
+                                                                         1. Introduction
+                                             In [5], Bourgain, Glibichuk, and Konyagin used methods from ad-
+                                           ditive combinatorics to prove that, for every δ > 0, there exists an
+                                           ε = εδ > 0 such that if H ≤ F×             δ
+                                                                        p and |H| ≥ p , then
+
+                                                                               X
+                                           (1)                      max              ep (ξx) ≤ p−ε |H|.
+                                                                  ξ∈Fp \{0}
+                                                                               x∈H
+
+                                           Here ep (y) := e2πiy/p . Bounds similar to (1) were then shown for ex-
+                                           ponential sums over multiplicative subgroups in Z/qZ by Bourgain [1],
+                                           in Fp × · · · × Fp by Bourgain [2], and in general finite fields by Bour-
+                                           gain and Chang [4], and for sums of nontrivial additive characters over
+                                           multiplicative subgroups in finite commutative rings by Bourgain [3].
+                                           The purpose of this paper is to use recent progress on the classification
+                                           of approximate groups in linear algebraic groups to prove the following
+                                           general result, from which the bounds of [2] and [5] can be recovered
+                                           as special cases:
+                                           Theorem 1.1. For every d ∈ N and δ, β > 0, there exists an ε =
+                                           εd,δ,β > 0 such that the following holds. If H ≤ GLd (Fp ), v ∈ Fdp \ {0},
+                                           and the orbit O := Hv satisfies
+                                                  • |O| ≥ pδ and
+                                                  • |O ∩ P | ≤ |O|1−β for every hyperplane P ⊂ Fdp ,
+                                           then
+                                                                         X
+                                           (2)                    max        ep (ξ · x) ≤ p−ε |O|.
+                                                                 ξ∈Fdp \{0}
+                                                                              x∈O
+
+                                             Clearly, some condition on the intersection of O with hyperplanes is
+                                           necessary in Theorem 1.1. If we allowed O ∩ {x ∈ Fdp : ξ · x = c} to be
+                                                                                       1
+2                              SARAH PELUSE
+
+large for some nonzero ξ ∈ Fdp , then the sum in (2) could be quite big,
+due to having many summands equal to ep (c).
+   The proofs of [1], [2], [3], [4], and [5] all follow the same general
+strategy. If (1) or the corresponding bound fails to hold, one can use
+the Balog-Szemerédi-Gowers Theorem to construct a subset A of the
+ring R that grows slowly under addition and multiplication. Various
+properties of this A can be deduced from those of H; for example, a
+lower bound on |H| tells us that A cannot be almost all of R. In each
+of [1], [2], [3], [4], and [5], a sum-product theorem in R is shown, which
+places restrictions on A. These restrictions end up being incompatible
+with other properties of A, however, and so (1) must hold. The proof
+of Theorem 1.1 proceeds in the spirit of [5] and its descendants, but
+here a classification result of Gill, Helfgott, Pyber, and Szabó [10] plays
+the role of a sum-product theorem.
+   We now briefly review some results on growth in linear algebraic
+groups. See the surveys of Breuillard [6], Green [11], and Helfgott [14]
+for much more detailed descriptions of the history of this subject and
+its applications. The first major breakthrough was the work of Helf-
+gott [12] in SL2 (Fp ). Helfgott’s result essentially says that every ap-
+proximate group that is not contained in a proper subgroup of SL2 (Fp )
+is either very small or is almost all of SL2 (Fp ). The same classification of
+approximate groups was shown in SL2 (Fq ) by Dinai [9] and in SL3 (Fp )
+by Helfgott [13]. Following this, the result was extended to finite simple
+groups of Lie type of bounded rank over any finite field independently
+by Pyber and Szabó [16] and by Breuillard, Green, and Tao [7]. In [13],
+Helfgott also proved a classification result for all approximate groups in
+SL3 (Fp ), not just those that generate the whole group. More generally,
+the Helfgott-Lindenstrauss conjecture describes a qualitative classifica-
+tion of approximate groups contained in any group. This conjecture
+was proven by Breuillard, Green, and Tao [8], and a quantitative ver-
+sion for subgroups of GLd (Fp ) was shown by Helfgott, Gill, Pyber, and
+Szabó [10]:
+
+Theorem 1.2 (Gill, Helfgott, Pyber, and Szabó [10], Theorem 2). Let
+A be a subset of GLd (Fp ). Assume that I ∈ A and A = A−1 . Then for
+every C ≥ 1, either |A3 | ≥ C|A| or there are subgroups H1 ≤ H2 in
+GLd (Fp ) and an integer k ≪d 1 such that
+      • H1 , H2 E hAi and H2 /H1 is nilpotent,
+      • Ak contains H1 , and
+      • |Ak ∩ H2 | ≥ C −Od (1) |A|.
+
+    Theorem 1.2 will be essential in the proof of Theorem 1.1.
+              ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                    3
+
+  This paper is organized as follows. In Section 2, we recall some basic
+notions from arithmetic combinatorics. In Section 3, we construct a
+family of approximate groups that are closely connected to H and the
+orbit O. This connection and the structure of Aff d (Fp ) as a semidirect
+product will be key in Section 4, where we derive several properties of
+such approximate groups using Theorem 1.2. In Section 5, we show
+that if (2) does not hold, then there exists an approximate group with
+conflicting properties, proving Theorem 1.1.
+
+                         Acknowledgments
+  The author thanks Zeb Brady, Harald Helfgott, and Kannan Soundarara-
+jan for helpful comments on earlier drafts of this paper. This paper
+has its roots in a project from the 2016 Arizona Winter School, dur-
+ing which the author worked with Brendan Murphy, Vlad Petkov, and
+Lam Pham to use a result on growth in Aff 1 (Fp ) from [14] to prove
+the Bourgain-Glibichuk-Konyagin bound [15]. The author is grateful
+to Harald Helfgott for suggesting that project.
+  The author is supported by the National Science Foundation Grad-
+uate Research Fellowship Program under Grant No. DGE-114747 and
+by the Stanford University Mayfield Graduate Fellowship.
+
+                            2. Preliminaries
+  Let G be a group and let A, A′ ⊂ G be nonempty subsets. We can
+then form the product set of A and A′ ,
+                   AA′ = {aa′ : a ∈ A and a′ ∈ A′ },
+the restricted product of A and A′ over a subset E ⊂ A × A′ ,
+                      A · A′ = {aa′ : (a, a′ ) ∈ E},
+                        E
+and the set of inverses of elements in A,
+                         A−1 = {a−1 : a ∈ A}.
+For each m ∈ N, denote the m-fold product of A with itself by Am .
+Approximate groups are a particular type of set that grows slowly under
+taking products with itself:
+Definition 2.1 (Tao [17]). Let G be a group and K ≥ 1. We say that
+A ⊂ G is a K-approximate group if 1 ∈ A, A = A−1 , and there
+exists an X ⊂ G with |X| ≤ K such that A2 ⊂ XA.
+  It follows immediately from the definition that if A is a K-approximate
+group and m ∈ N, then Am ⊂ X m−1 A, and thus |Am | ≤ K m−1 |A|. In
+addition, A2m ⊂ X m Am , so that Am is a K m -approximate group. The
+4                              SARAH PELUSE
+
+Balog-Szemerédi-Gowers Theorem, which in the noncommutative set-
+ting is due to Tao [17], tells us that if a set grows slowly, then a large
+part of it is contained in a coset of an approximate group:
+Theorem 2.2 (Balog-Szemerédi-Gowers). Let G be any group and let
+A be a finite subset of G. If K ≥ 1 and there exists a subset E ⊂ A × A
+such that
+                  |E| ≥ K −1 |A|2 and |A · A| ≤ K|A|,
+                                            E
+                                           O(1)
+then there exists a g ∈ G and a O(K       )-approximate group B ⊂ G
+                   O(1)
+such that |B| ≪ K       |A| and |A ∩ gB| ≫ K −O(1) |A|.
+   There are many ways of formulating this result; see Theorem 5.4
+of [17] or Section 2.7 of [18].
+   We will also need a small amount of background on Fourier analysis
+on Fdp . For every 0 ≤ α ≤ 1 and A ⊂ Fdp , set
+                          (                                )
+                                     1  X
+             Specα (A) := ξ ∈ Fdp :          ep (ξ · x) > α .
+                                    |A| x∈A
+Rephrased using this notation, the goal of this paper is to prove that
+there exists an ε = εd,δ,β > 0 such that for all primes p and all O as in
+Theorem 1.1, Specp−ε (O) = {0}. Clearly, Specα (A) is symmetric and
+contains 0. The following lemma, due to Bourgain, says that Specα (A)
+is also approximately closed under taking differences:
+Lemma 2.3. Let A ⊂ Fdp . For every 0 ≤ α ≤ 1, we have
+                                                                 α2
+|{(ξ1, ξ2 ) ∈ Specα (A)×Specα (A) : ξ1 −ξ2 ∈ Specα2 /2 (A)}| ≥      | Specα (A)|2 .
+                                                                 2
+    See Section 4.6 of [18] for a proof.
+
+                3. A family of approximate groups
+  Suppose that H ≤ GLd (Fp ) and v ∈ Fdp \ {0}. For ease of notation,
+we would like for the action of H, not H T , on the ξ to preserve the
+value of the sum in (2). Thus, we will instead prove (2) for the orbit
+O := H T v = {M T v : M ∈ H}, assuming it satisfies the conditions
+stated in Theorem 1.1. This means that Specα (O) is preserved by the
+action of H for each α, a fact that will be important in the proof of
+Proposition 3.1 below, and also later in Section 4.
+  For each α, embed the set H × Specα (O) in G := Aff d (Fp ) as
+                                            
+                               H Specα (O)
+                       Aα :=                   .
+                                        1
+                   ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                            5
+
+Note that, since Specα (O) is symmetric and H-invariant, Aα = A−1 α for
+all α. In the following proposition, we show that Aα grows slowly for
+certain choices of α, and thus has large intersection with a coset of an
+approximate group. Our method of doing this is essentially identical
+to the one used in [15], which worked in Aff 1 (Fp ). The proof uses an
+iteration and pigeonholing argument that was inspired by the proof of
+the Bourgain-Glibichuk-Konyagin bound given in [18].
+Proposition 3.1. For every ε′ > 0, there exists a g ∈ G and a
+           ′
+Od,ε′ (pO(ε ) )-approximate group B ⊂ G satisfying
+                                                    ′
+                             |B| ≪d,ε′ pO(ε ) |Aφd (ε′ ) |
+and
+                                                          ′
+                      |Aφd (ε′ ) ∩ gB| ≫d,ε′ p−O(ε ) |Aφd (ε′ ) |,
+                               ′        ⌈2d/ε′ ⌉                               ′
+where φd (ε′ ) = 21−cd,ε′ p−ε cd,ε′ /2             for some 1 ≤ cd,ε′ ≤ 2⌈2d/ε ⌉ .
+Proof. Let J ∈ N and ε0 > 0, to be chosen later. Set α0 = p−ε0 and
+      α2                                      j   j
+αj = j−12
+            for each 1 ≤ j ≤ J, so αj = 21−2 p−2 ε0 . We will first show
+that, for every 0 ≤ j ≤ J − 1, there exists an Ej ⊂ Aαj × Aαj such that
+                           αj2
+                   |Ej | ≥     |Aαj |2 and Aαj · Aαj ⊂ Aαj+1 .
+                           2                   Ej
+
+Apply Lemma 2.3 to Specαj (O). This gives us a subset Fj of Specαj (O)×
+Specαj (O) such that
+                    Specαj (O) − Specαj (O) ⊂ Specαj+1 (O)
+                                   Fj
+
+              α2
+and |Fj | ≥ 2j | Specαj (O)|2 . For every (ξ1 , ξ2) ∈ Fj , define
+                                   M2 −M1−1 ξ2
+                                                             
+                     M1 ξ1
+    E(ξ1 ,ξ2 ) =                 ,                     : M1 , M2 ∈ H ,
+                           1                1
+so that if (N1 , N2 ) ∈ E(ξ1 ,ξ2 ) , then N1 N2 ∈ Aαj+1 . Since Specαj (O) is
+symmetric and H-invariant, E(ξ1 ,ξ2 ) ⊂ Aαj × Aαj . Note that we can
+recover (ξ1 , ξ2) by knowing any element of E(ξ1 ,ξ2 ) , so for (ξ1 , ξ2) 6=
+(η1 , η2 ), the sets E(ξ1 ,ξ2 ) and E(η1 ,η2 ) are disjoint. Take
+                                         a
+                                Ej =             E(ξ1 ,ξ2 ) .
+                                        (ξ1 ,ξ2 )∈Fj
+
+Then
+                                    αj2                       αj2
+            |Ej | = |Fj ||H|2 ≥         | Specαj (O)|2 |H|2 =     |Aαj |2 ,
+                                    2                         2
+6                                  SARAH PELUSE
+
+and since Aαj · Aαj ⊂ Aαj+1 by construction, we have our desired set
+                 Ej
+Ej for each 0 ≤ j ≤ J − 1.
+   Now, because αj decreases as j increases, | Specαj (O)| increases as
+j increases. Thus, because | Specα (O)| ≤ pd for all α, there must exist
+a 0 ≤ j ≤ J − 1 such that | Specαj+1 (O)| ≤ pd/J | Specαj (O)|. As a
+consequence, for this j we have the bounds
+                         αj2
+               |Ej | ≥       |Aαj |2 and |Aαj · Aαj | ≤ pd/J |Aαj |.
+                         2                    Ej
+
+Apply the Balog-Szemerédi-Gowers Theorem to Aαj with K = α22 pd/J .
+                                                                                j
+                                            2j 2j ε0 +d/J O(1)
+This yields a g ∈ G and a O((2 p                             )  )-approximate group
+                                        j  j
+B ⊂ G such that |B| ≪ (22 p2 ε0 +d/J )O(1) |Aαj | and |Aαj ∩ gB| ≫
+    j   j                                          j     j
+(22 p2 ε0 +d/J )−O(1) |Aαj |, since αj = 21−2 p−2 ε0 . Now take J = ⌈ 2d        ε′
+                                                                                   ⌉ and
+         ε′                         ′             1−cd,ε′ −cd,ε′ ε0
+ε0 = 2J . So, setting φd (ε ) := αj = 2                    p        where cd,ε′ = 2j ∈
+                                                ′
+[0, 2J ], we have that B is a Od,ε′ (pO(ε ) )-approximate group, |B| ≪d,ε′
+      ′                                                  ′
+pO(ε ) |Aφd (ε′ ) |, and |Aφd (ε′ ) ∩ gB| ≫d,ε′ p−O(ε ) |Aφd (ε′ ) |.                  
+
+             4. Properties of the approximate groups
+    For any subset A ⊂ G, set
+                                                        
+                                 M ξ                     d
+       L(A) := M ∈ GLd (Fp ) :         ∈ A for some ξ ∈ Fp ,
+                                   1
+and for any M ∈ L(A), set
+                                                        
+                                                   M ξ
+                      RM (A) :=       ξ ∈ Fdp :          ∈A .
+                                                     1
+Similarly, for any g ∈ G, write L(g) for the upper left-hand d × d block
+of g and R(g) for the upper right-hand d × 1 block of g. In this section,
+we use Theorem 1.2 and the structure of G as a semidirect product
+                              ′
+to show that any Od,ε′ (pO(ε ) )-approximate group B with a coset that
+is close to Aφd (ε′ ) must be of a certain form. There exists a D ≪d 1
+such that whenever Specφd (ε′ ) (O) 6= {0}, ε′ is small enough, p is large
+enough, and M ∈ L(B), we have that RM (B D ) is almost equal to a
+disjoint union of translates of some nontrivial subspace of Fdp . At the
+same time, each RM (B D ) is close to the image of Specφd (ε′ ) (O) under a
+linear map. These two facts will be combined to derive a contradiction
+in Section 5.
+   We will repeatedly use two simple observations about L and R. The
+first is that, if A, A′ ⊂ G and g ∈ A ∩ A′ , then L(g) ∈ L(A ∩ A′ ) and
+              ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                     7
+
+R(g) ∈ RL(g) (A ∩ A′ ). Thus,
+            |A ∩ A′ | ≤ |L(A ∩ A′ )|     max         |RN (A ∩ A′ )|.
+                                       N ∈L(A∩A′ )
+
+The second observation is that there exist at least |L(A)| elements
+M ∈ L(A2 ) for which |RM (A2 )| ≥ maxN ∈L(A) |RN (A)|. This is because,
+if |RN0 (A)| = maxN ∈L(A) |RN (A)| and N1 , N2 ∈ L(A) are distinct, then
+                                                                
+    N0 RN0 (A)       N1 RN1 (A)         N0 N1 N0 RN1 (A) + RN0 (A)
+                 ·                  =
+            1                1                           1
+and
+                                                     
+   N0 RN0 (A)    N2 RN2 (A)    N0 N2 N0 RN2 (A) + RN0 (A)
+               ·             =
+        1             1                       1
+are disjoint subsets of A2 , each of cardinality at least |RN0 (A)|. Thus,
+we have that
+                     |A2 | ≥ |L(A)| max |RN (A)|.
+                                    N ∈L(A)
+
+Similarly, if A = A , then |RM (A3 )| ≥ maxN ∈L(A) |RN (A)| for all
+                       −1
+
+M ∈ L(A). This is because the sets
+                                   −1              
+           M RM (A)     N0 RN0 (A)      N0    RN0−1 (A)
+                      ·               ·                   ,
+                 1               1                1
+which are contained in A3 , have size at least maxN ∈L(A) |RN (A)| for
+every M ∈ L(A).
+  The following lemma records some immediate consequences of these
+observations when an approximate group is involved.
+Lemma 4.1. Let A, B ⊂ G. Suppose that B is a K-approximate group
+such that |B| ≤ K|A| and |A ∩ B| ≥ K −1 |A|. Then,
+                        |L(B)| ≤ K 3 |L(A) ∩ L(B)|,
+                                   minN ∈L(A) |RN (A)|
+           |L(A) ∩ L(B)| ≥ K −1                        |L(A)|,
+                                   maxN ∈L(A) |RN (A)|
+            max |RN (B)| ≤ K 3      max       |RN (A) ∩ RN (B)|,
+           N ∈L(B)                N ∈L(A∩B)
+and
+            max       |RN (A) ∩ RN (B)| ≥ K −1 min |RN (A)|.
+          N ∈L(A∩B)                                  N ∈L(A)
+
+Proof. By the remarks above, we have
+         |A ∩ B| ≤ |L(A) ∩ L(B)|        max     |RN (A) ∩ RN (B)|,
+                                    N ∈L(A∩B)
+
+           |A ∩ B| ≥ K −1 |A| ≥ K −1 |L(A)| min |RN (A)|,
+                                                 N ∈L(A)
+8                                 SARAH PELUSE
+
+and
+              |A ∩ B| ≥ K −3 |B 2 | ≥ K −3 |L(B)| max |RN (B)|,
+                                                   N ∈L(B)
+
+since |A| ≥ K −1 |B| ≥ K −2 |B 2 |. The four inequalities follow by com-
+paring the upper and lower bounds for |A ∩ B|.                        
+   Note that the conditions on O listed in Theorem 1.1 imply that,
+for all ξ ∈ Fdp \ {0}, we have | StabH (ξ)| ≤ p−δβ |H| and, equivalently,
+|Hξ| ≥ pδβ . Indeed, if N ∈ StabH (ξ), then ξ · N T v = ξ · v, so that N T v
+is contained in the hyperplane P = {x ∈ Fdp : ξ · x = ξ · v}. Thus,
+
+    | StabH (ξ)| ≤ | StabH T (v)||O ∩ P | ≤ | StabH T (v)||O|1−β = |O|−β |H|.
+Since |O| ≥ pδ , this is bounded above by p−δβ |H|. The next lemma
+shows that if B is an approximate group that is close to a translate of
+Aα , then we also have a similar upper bound for |L(B) ∩ Stab(ξ)|:
+Lemma 4.2. Suppose that B ⊂ G is a K-approximate group satisfying
+|B| ≤ K|Aα | and |Aα ∩ gB| ≥ K −1 |Aα | for some g ∈ G. Then for all
+ξ ∈ Fdp \ {0}, we have
+
+                      |L(B) ∩ Stab(ξ)| ≤ p−δβ K 7 |L(B)|.
+Proof. First, we will show that at least pδβ K −1 cosets of Stab(ξ) have
+some representative in L(B). Let S ⊂ L(B) contain exactly one rep-
+resentative from each coset of Stab(ξ) that intersects L(B). By the
+remarks before the statement of the lemma, we have
+                             X
+       |L(g)−1H ∩ L(B)| =        |L(g)−1H ∩ M Stab(ξ) ∩ L(B)|
+                                  M ∈S
+                                  X
+                              ≤          |H ∩ L(g)M Stab(ξ)|
+                                  M ∈S
+                                   −δβ
+                              ≤p         |H||S|.
+On the other hand, by Lemma 4.1 applied to g −1 Aα and B, we also
+have that |L(g)−1 H ∩ L(B)| ≥ K −1 |H| since |L(g −1 Aα )| = |H| and
+|RM (g −1Aα )| = | Specα (O)| for all M ∈ L(g −1 Aα ). Comparing the
+upper and lower bounds for |L(g)−1 H ∩ L(B)| yields |S| ≥ pδβ K −1 .
+  Now, for each coset M Stab(ξ) intersecting L(B), we have
+        L(B 2 ) ∩ M Stab(ξ) ⊃ [L(B) ∩ M Stab(ξ)][L(B) ∩ Stab(ξ)],
+and as a consequence,
+                  |L(B 2 ) ∩ M Stab(ξ)| ≥ |L(B) ∩ Stab(ξ)|.
+               ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                      9
+
+Since there are at least pδβ K −1 distinct cosets of Stab(ξ) with a repre-
+sentative in L(B), this implies that
+                   |L(B 2 )| ≥ pδβ K −1 |L(B) ∩ Stab(ξ)|.
+By Lemma 4.1 applied to B and B 2 , which is a K 2 -approximate group,
+we also have |L(B 2 )| ≤ K 6 |L(B)|. Combining this with the lower
+bound for |L(B 2 )| completes the proof of the lemma.               
+   One of the key ideas from [5] is that, if Specα (O) contains one nonzero
+frequency ξ, then it must contain at least |H| = |Hξ| nonzero frequen-
+cies by the H-invariance of Specα (O). We, too, will use this fact in
+the proof of the following proposition, which is the main result of this
+section:
+Proposition 4.3. There exists a k ≪d 1 such that the following holds.
+Let 1 ≫d,δ,β ε′ > 0 and p ≫d,δ,β 1. Suppose that B ⊂ G is a
+           ′
+Od,ε′ (pO(ε ) )-approximate group satisfying
+                                           ′
+                          |B| ≪d,ε′ pO(ε ) |Aφd (ε′ ) |
+and
+                                                  ′
+                   |Aφd (ε′ ) ∩ gB| ≫d,ε′ p−O(ε ) |Aφd (ε′ ) |
+for some g ∈ G. If Specφd (ε′ ) (O) 6= {0}, then for every M ∈ L(B),
+there exists a TM ⊂ RM (B 4k ) equal to a union of cosets of some non-
+trivial subspace of Fdp such that RM (B 3k ) ⊂ TM and |RM (B 3k )| ≫d,ε′
+       ′
+p−Od (ε ) |TM |.
+Proof. Apply Theorem 1.2 to B. This yields subgroups H1 , H2 E hBi
+such that H1 ≤ H2 , H2 /H1 is nilpotent, B k ⊃ H1 , and |B k ∩ H2 | ≫d,ε′
+       ′                   ′
+p−Od (ε ) |B| ≫d,ε′ p−Od (ε ) |Aφd (ε′ ) |, where k ≪d 1. We now show that
+RI (H1 ) must contain a nontrivial subspace of Fdp if ε′ is sufficiently
+small and p is sufficiently large in terms of d, δ, and β. So, set
+                                           I Fdp
+                                                
+                                ′
+                              G :=                 ⊂ G,
+                                              1
+and assume that Specφd (ε′ ) (O) 6= {0} and H1 ∩ G′ is trivial.
+   First, we will show that H2 contains a nonidentity element of G′
+when ε′ is sufficiently small and p is sufficiently large. If H2 ∩ G′ were
+trivial, then clearly |RM (H2 )| ≤ 1 for every M ∈ GLd (Fp ) since H2 is
+a subgroup. This would imply that
+                                                          ′
+                   |B k ∩ H2 | ≤ |L(B k )| ≪d,ε′ pO(ε ) |H|
+by Lemma 4.1. On the other hand, since |Aφd (ε′ ) | = |H|| Specφd (ε′ ) (O)|,
+                                 ′
+we have |B k ∩ H2 | ≫d,ε′ p−Od (ε ) |H|| Specφd (ε′ ) (O)|. Comparing the
+10                              SARAH PELUSE
+                                                                              ′
+upper and lower bounds for |B k ∩H2 | yields | Specφd (ε′ ) (O)| ≪d,ε′ pOd (ε ) .
+However, we must have | Specφd (ε′ ) (O)| ≥ pδβ , for Specφd (ε′ ) (O) is H-
+invariant and contains a nonzero element ξ, and thus contains every
+                                                   ′
+element of Hξ. This implies that pδβ ≪d,ε′ pOd (ε ) , which is impossible
+for ε′ ≪d,δ,β 1 and p ≫d,δ,β 1.
+   Next, we will show that, when ε′ is sufficiently small and p is suf-
+ficiently large, there must exist an M ∈ L(H2 ) \ Stab(ξ) for every
+ξ ∈ Fdp \ {0}. If there were no such M for some nonzero ξ, then we
+would have L(H2 ) ⊂ Stab(ξ), and thus
+            |B k ∩ H2 | ≤ |L(B k ) ∩ Stab(ξ)| max |RN (B k )|.
+                                                N ∈L(B k )
+                                                ′
+By Lemma 4.2, the above is ≪d,ε′ p−δβ+Od (ε ) |L(B k )| maxN ∈L(Bk ) |RN (B k )|.
+On the other hand,
+                            ′                   ′
+ |B k ∩ H2 | ≫d,ε′ p−Od (ε ) |B 2k | ≫d,ε′ p−Od (ε ) |L(B k )| max |RN (B k )|,
+                                                             N ∈L(B k )
+                        ′
+since B is a Od,ε′ (pO(ε ) )-approximate group. Comparing the upper and
+                                                                         ′
+lower bounds for |B k ∩ H2 | again yields the inequality pδβ ≪d,ε′ pOd (ε ) .
+For ε′ ≪d,δ,β 1 and p ≫d,δ,β 1, this is impossible.
+   Now assume that ε′ is sufficiently small and p is sufficiently large
+so that H2 ∩ G′ contains a nonidentity element and L(H2 ) \ Stab(ξ) is
+nonempty for every ξ ∈ Fdp \ {0}. Then there exist
+                                         
+                              I ξ     N η
+                                    ,         ∈ H2
+                                1         1
+such that ξ 6= 0 and Nξ 6= ξ. The commutator of these two elements is
+                                            
+                   I ξ     N η        I (I − N)ξ
+                         ,          =                .
+                     1         1             1
+Thus, since (I − N)ξ 6= 0, the group [H2 , H2 ] contains a nonidentity
+element of G′ . There also exists an N ′ ∈ L(H2 ) such that (I − N ′ )(I −
+N)ξ 6= 0, so that [H2 , [H2 , H2 ]] contains a nonidentity element of G′
+for the same reason that [H2 , H2 ] does. Repeating this argument shows
+that every term in the lower central series for H2 contains a nonidentity
+element of G′ . Taking the quotient by H1 , which we assumed has trivial
+intersection with G′ , we see that the lower central series for H2 /H1
+never terminates. This contradicts the fact that H2 /H1 is nilpotent.
+   Hence, for 1 ≫d,δ,β ε′ > 0 and p ≫d,δ,β 1, if Specφd (ε′ ) (O) 6= {0},
+then RI (H1 ) 6= {0}, and in fact RI (H1 ) contains an entire nontrivial
+subspace V of Fdp since H1 is a subgroup. Because B k ⊃ H1 , we have
+that RI (B k ) contains V as well.
+              ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                    11
+
+  Let M ∈ L(B) and set TM := RM (B 3k ) + V ⊂ RM (B 4k ). Because
+k ≪d 1, Lemma 4.1 applied to B 4k and B tells us that
+                                                 ′
+              max4 |RN (B 4k )| ≪d,ε′ pOd (ε ) max |RN (B)|.
+            N ∈L(B k)                                N ∈L(B)
+
+
+We also have maxN ∈L(B) |RN (B)| ≤ |RM (B 3k )| since B = B −1 . Thus,
+                                                          ′
+           |TM | ≤      max |RN (B 4k )| ≪d,ε′ pOd (ε ) |RM (B 3k )|,
+                     N ∈L(B 4k )
+
+
+and clearly RM (B 3k ) ⊂ TM . This completes the proof of the proposi-
+tion.                                                               
+
+
+                        5. Proof of Theorem 1.1
+  In order to derive a contradiction when Specφd (ε′ ) (O) 6= {0}, we will
+need one last lemma.
+
+Lemma 5.1. For every 0 < α ≤ 1, if η ∈ Fdp and V ≤ Fdp is a nontrivial
+subspace, then
+
+                  | Specα (O) ∩ (η + V )| ≤ α−2 p−δβ |V |.
+
+Proof. Define f : V → C by
+                                    1 X
+                        f (v) =            ep (x · (η + v))
+                                   |O| x∈O
+
+for all v ∈ V . Then
+                 X
+                        |f (v)|2 ≥ α2 | Specα (O) ∩ (η + V )|.
+                 v∈V
+
+
+We have, for each ξ ∈ Fdp /V ⊥ ,
+                                                          !
+                    1           1
+           fˆ(ξ) =
+                        X           X
+                                         ep (x · (η + v)) ep (ξ · v)
+                   |V | v∈V |O| x∈O
+                      1 X                  X
+                 =              ep (x · η)       ep ((x + ξ) · v)
+                   |O||V | x∈O             v∈V
+                    1 X
+                 =          ep (x · η)1V ⊥ (x + ξ).
+                   |O| x∈O
+12                                       SARAH PELUSE
+
+Hence,
+                           1 X
+             |fˆ(ξ)|2 =
+ X                                                    X
+                                     ep ((x − y) · η)     1V ⊥ (x + ξ)1V ⊥ (y + ξ)
+                          |O|2 x,y∈O
+ξ∈Fdp /V ⊥                                            d ⊥  ξ∈Fp /V
+
+                        1 X
+                     =            ep ((x − y) · η)1V ⊥ (x − y)
+                       |O|2 x,y∈O
+                        1 X
+                     ≤    2
+                                |{y ∈ O : y ∈ x + V ⊥ }|
+                       |O| x∈O
+                     ≤ |O|−β
+by second condition on O in the statement of Theorem 1.1, because, as
+dim V > 0, the set {y ∈ O : y ∈ x+V ⊥ } is contained in the intersection
+of O with a hyperplane. By Parseval’s identity, it thus follows that
+                                                    |fˆ(ξ)|2 ≤ p−δβ |V |,
+                             X                 X
+α2 | Specα (O) ∩ (η + V )| ≤   |f (v)|2 = |V |
+                                         v∈V                   ξ∈Fdp /V ⊥
+
+since |O| ≥ pδ .                                                                   
+  Assume that ε′ > 0 is sufficiently small and p is sufficiently large
+                                                       ′
+so that Proposition 4.3 holds. Let B be the Od,ε′ (pO(ε ) )-approximate
+group given to us by Proposition 3.1. For each M ∈ L(B), write
+                                a
+                          TM =     (ξ + V )
+                                                 ξ∈F
+
+where F ⊂ Fdp and V ≤ Fdp with dim V > 0. Then by Lemma 5.1, we
+have
+                                     X
+   |L(g)−1 Specφd (ε′ ) (O) ∩ TM | =   | Specφd (ε′ ) (O) ∩ L(g)(ξ + V )|
+                                                  ξ∈F
+
+                                               ≤ φd (ε′ )−2 p−δβ |F ||V |.
+Thus, |L(g)−1 Specφd (ε′ ) (O)∩TM | ≤ φd (ε′ )−2 p−δβ |TM |. Applying Lemma 4.1
+to B and B 4k yields
+                                                                     ′
+        max |TN | ≤          max |RN (B 4k )| ≪d,ε′ pOd (ε ) max |RN (B)|,
+      N ∈L(B)              N ∈L(B 4k )                                   N ∈L(B)
+
+and applying Lemma 4.1 to g −1 Aφd (ε′ ) and B yields
+                                           ′
+        max |RN (B)| ≪d,ε′ pO(ε ) max |L(g)−1 Specφd (ε′ ) (O) ∩ TN |,
+      N ∈L(B)                                  N ∈L(B)
+
+since RM (B) ⊂ RM (B 3k ) ⊂ TM for all M ∈ L(B). However, because
+|L(g)−1 Specφd (ε′ ) (O) ∩ TM | ≤ φd (ε′)−2 p−δβ |TM | for all M ∈ L(B), we
+                ON EXPONENTIAL SUMS OVER ORBITS IN Fdp                          13
+
+thus have the bound
+                                                     ′
+              max |TN | ≪d,ε′ φd (ε′ )−2 p−δβ+Od (ε ) max |TN |.
+             N ∈L(B)                                     N ∈L(B)
+                           ′                                                    ′
+Since φd (ε′ )−1 ≪d,ε′ pε , this yields the inequality pδβ ≪d,ε′ pOd (ε ) ,
+which is impossible for 1 ≫d,δ,β ε′ > 0 and p ≫d,δ,β 1. Thus, there exists
+an ε′ > 0 depending only on d, δ, and β such that Specφd (ε′ ) (O) = {0}
+                                                            ′      ⌈2d/ε′ ⌉
+for all p sufficiently large. As φd (ε′ ) = 21−cd,ε′ p−ε cd,ε′ /2 for some
+              ⌈2d/ε ′⌉                                      ′′
+1 ≤ cd,ε′ ≤ 2          , this means that there exists an ε > 0 (depending
+only on d, δ, and β) such that Specp−ε′′ (O) = {0} for p large enough
+(depending only on d, δ, and β). The bound (2) is trivial for p smaller
+than a fixed constant depending at most on d, δ, and β, so this clearly
+implies Theorem 1.1.
+
+                                 References
+ [1] J. Bourgain. Exponential sum estimates over subgroups of Z∗q , q arbitrary. J.
+     Anal. Math., 97:317–355, 2005.
+ [2] J. Bourgain. Mordell’s exponential sum estimate revisited. J. Amer. Math.
+     Soc., 18(2):477–499, 2005.
+ [3] J. Bourgain. Exponential sum estimates in finite commutative rings and ap-
+     plications. J. Anal. Math., 101:325–355, 2007.
+ [4] J. Bourgain and M. Chang. A Gauss sum estimate in arbitrary finite fields. C.
+     R. Math. Acad. Sci. Paris, 342(9):643–646, 2006.
+ [5] J. Bourgain, A. A. Glibichuk, and S. V. Konyagin. Estimates for the number
+     of sums and products and for exponential sums in fields of prime order. J.
+     London Math. Soc. (2), 73(2):380–398, 2006.
+ [6] E. Breuillard. A brief introduction to approximate groups. In Thin groups and
+     superstrong approximation, volume 61 of Math. Sci. Res. Inst. Publ., pages
+     23–50. Cambridge Univ. Press, Cambridge, 2014.
+ [7] E. Breuillard, B. Green, and T. Tao. Approximate subgroups of linear groups.
+     Geom. Funct. Anal., 21(4):774–819, 2011.
+ [8] E. Breuillard, B. Green, and T. Tao. The structure of approximate groups.
+     Publ. Math. Inst. Hautes Études Sci., 116:115–221, 2012.
+ [9] O. Dinai. Growth in SL2 over finite fields. J. Group Theory, 14(2):273–297,
+     2011.
+[10] N. Gill and H. A. Helfgott. Growth in solvable subgroups of GLr (Z/pZ). Math.
+     Ann., 360(1-2):157–208, 2014.
+[11] B. Green. Approximate groups and their applications: work of Bourgain, Gam-
+     burd, Helfgott and Sarnak. preprint, 2009. arXiv 1008.5264.
+[12] H. A. Helfgott. Growth and generation in SL2 (Z/pZ). Ann. of Math. (2),
+     167(2):601–623, 2008.
+[13] H. A. Helfgott. Growth in SL3 (Z/pZ). J. Eur. Math. Soc. (JEMS), 13(3):761–
+     851, 2011.
+[14] H. A. Helfgott. Growth in groups: ideas and perspectives. Bull. Amer. Math.
+     Soc. (N.S.), 52(3):357–413, 2015.
+14                              SARAH PELUSE
+
+[15] B. Murphy, S. Peluse, V. Petkov, and L. Pham. Exponential sums over sub-
+     groups of F×
+                p and growth in groups. preprint, 2016.
+[16] L. Pyber and E. Szabó. Growth in finite simple groups of Lie type. J. Amer.
+     Math. Soc., 29(1):95–146, 2016.
+[17] T. Tao. Product set estimates for non-commutative groups. Combinatorica,
+     28(5):547–594, 2008.
+[18] T. Tao and V. Vu. Additive combinatorics, volume 105 of Cambridge Studies
+     in Advanced Mathematics. Cambridge University Press, Cambridge, 2006.
+
+  Department of Mathematics, Stanford University, Stanford, Cali-
+fornia 94305
+  E-mail address: speluse@stanford.edu
+

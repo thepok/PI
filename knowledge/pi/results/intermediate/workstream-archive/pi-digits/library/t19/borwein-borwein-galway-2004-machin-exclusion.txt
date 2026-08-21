@@ -1,0 +1,1637 @@
+                                            Canad. J. Math. Vol. 56 (5), 2004 pp. 897–925
+
+
+
+
+                                            Finding and Excluding
+                                            b-ary Machin-Type Individual Digit
+                                            Formulae
+                                            Jonathan M. Borwein, David Borwein and William F. Galway
+
+                                            Abstract. Constants with formulae of the form treated by D. Bailey, P. Borwein, and S. Plouffe (BBP
+                                            formulae to a given base b) have interesting computational properties, such as allowing single dig-
+                                            its in their base b expansion to be independently computed, and there are hints that they should be
+                                            normal numbers, i.e., that their base b digits are randomly distributed. We study a formally limited
+                                            subset of BBP formulae, which we call Machin-type BBP formulae, for which it is relatively easy to
+                                            determine whether or not a given constant κ has a Machin-type BBP formula. In particular, given
+                                            b ∈ N, b > 2, b notP a proper power, a b-ary Machin-type BBP arctangent formula for κ is a formula
+                                            of the form κ = m am arctan(−b−m ), am ∈ Q , while when b = 2, we also allow terms of the form
+                                            am arctan(1/(1 − 2m )). Of particular interest, we show that π has no Machin-type BBP arctangent
+                                            formula when b 6= 2. To the best of our knowledge, when there is no Machin-type BBP formula for a
+                                            constant then no BBP formula of any form is known for that constant.
+
+
+                                 1 Introduction
+                                 1.1      Preliminaries
+                                            Given b ∈ N, b > 1, we say that a constant κ ∈ R has a BBP formula to the base b, or
+                                            a b-ary BBP formula, if
+                                                                                             X p(k)
+                                            (1)                                         κ=                b−k ,
+                                                                                                   q(k)
+                                                                                             k≥0
+
+
+                                            where p ∈ Z[k], q ∈ Z[k].
+                                               BBP formulae are of interest because, for fixed b, the nth b-ary digit of a num-
+                                            ber with a BBP formula can be found without computing prior digits—using only
+                                            O(n ln n) operations on numbers with O(ln n) bits [BBP97]. For example, a BBP
+                                            formula has been used to compute the quadrillionth bit (1015 th bit) in the binary
+                                            expansion of π [Per00].
+                                               There are also recent results that relate BBP formulae to the behavior of a dynam-
+                                            ical system, and which suggest a “road-map” towards a proof that irrational numbers
+                                                Received by the editors January 8, 2003; revised January 30, 2004.
+                                                The first author’s research was supported by NSERC and the Canada Research Chair Programme,
+                                            while the second author’s research was supported by NSERC, and the third author’s research was per-
+                                            formed at the Centre for Experimental and Constructive Mathematics at Simon Fraser University, partially
+                                            supported as a Post Doctoral Fellow of the Pacific Institute for the Mathematical Sciences
+                                                AMS subject classification: Primary: 11Y99; Secondary: 11A51, 11Y50, 11K36, 33B1.
+                                                Keywords: BBP formulae, Machin-type formulae, arctangents, logarithms, normality, Mersenne
+                                            primes, Bang’s theorem, Zsigmondy’s theorem, primitive prime factors, p-adic analysis.
+                                                 c Canadian Mathematical Society 2004.
+
+                                                                                                                                               897
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 898                                                                J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            with BBP formulae must be normal in base b, i.e., their base b digits are randomly
+                                            distributed [BC01]. For example, setting z = 1/2 in the Taylor series expansion of
+                                            − ln(1 − z) yields the particularly simple binary BBP formula:
+                                                                                                   X       1
+                                                                                        ln(2) =                 2−k .
+                                                                                                         2k + 2
+                                                                                                   k≥0
+
+
+                                            In consequence the system with x0 := 0, and
+
+                                                                                 xn := (2xn−1 + 1/n) mod 1
+
+                                            for n > 0 has the property that if the sequence of xn is equidistributed in [0, 1) then
+                                            ln 2 is a normal number base 2.
+                                                While BBP formulae are interesting for these reasons, they are somewhat myste-
+                                            rious because there are few methods known for finding a formula for a given con-
+                                            stant, and even after a formula has been found experimentally it may be difficult
+                                            to rigorously prove its validity. A recent summary of work in the field is to be
+                                            found
+                                            P∞ in Chapter      Four of [BB03]. Consider for example, Catalan’s constant G :=
+                                                        k       −2
+                                               k=0 (−1) (2k+1)     which is not proven irrational. In a series of inspired computa-
+                                            tions using polylogarithmic ladders David Broadhurst has found—and proved—BBP
+                                            formulae for constants such as G, ζ(3), and ζ(5) [Bro98]. Broadhurst’s hexadecimal
+                                            BBP formula for G is:
+                                                           ∞                
+                                                           X         1              1           1         1
+                                                  G=3                                     −          +
+                                                                  2 · 16k       (8k + 1)2   (8k + 2)2 2(8k + 3)2
+                                                            k=0
+                                                                                                                                
+                                                                                             1            1            1
+                                                                                 −                 +             − 3
+                                                                                       22 (8k + 5)2 22 (8k + 6)2  2 (8k + 7)2
+                                                                  ∞                
+                                                                  X         1               1         1            1
+                                                            −2                                   +          +
+                                                                        8 · 163k        (8k + 1)2 2(8k + 2)2 23 (8k + 3)2
+                                                                  k=0
+                                                                                                                                      
+                                                                                                   1            1            1
+                                                                                         −                − 7          − 9                .
+                                                                                             26 (8k + 5)2  2 (8k + 6)2  2 (8k + 7)2
+
+                                               Given m ∈ N, a BBP formula to the base b can be rewritten as a BBP formula to
+                                            the base bm , since
+                                                                                                    !
+                                                                X p(k)     X m−1  X p(mk + j)
+                                                                        −k
+                                            (2)                        b =              j q(mk + j)
+                                                                                                      b−mk ,
+                                                                  q(k)            j=0
+                                                                                      b
+                                                                     k≥0                     k≥0
+
+
+                                            and the inner sum can be recast as a rational function in k. Although it is a minor
+                                            abuse of language, we shall also refer to formulaePto the base bm as base
+                                                                                                                   b, or b-ary,
+                                            BBP formulae. Under this convention the sum k (−1)k p(k)/q(k) b−k may also
+                                            be considered to be a b-ary BBP formula—a convention that lets one write some
+                                            “base b” formulae in a shorter form, although we shall avoid doing so in this paper.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                       899
+
+                                            Unless we mention otherwise, we shall now assume b is not a proper power, i.e., that b
+                                            does not have the form an , for any a ∈ N, n ∈ N, n > 1.
+                                               For fixed b, the set of numbers with b-ary BBP formulae is a vector space over Q .
+                                            To the best of our knowledge, nearly all research has focused on subspaces generated
+                                            by elements of the form
+                                                                                         X     1
+                                            (3)                         L(s, b, n, j) :=             b−k ,
+                                                                                           (nk + j)s
+                                                                                                 k≥0
+
+                                            with s, n, j ∈ N, 1 ≤ j ≤ n. Numbers within these spaces have been called polylog-
+                                            arithmic. We will show in Appendix B that it suffices to restrict the analysis of such
+                                            formulae to Q -linear combinations of L(s, b, n, j) in which only j is allowed to vary.
+                                               In his Compendium [Bai00], Bailey catalogues many polylogarithmic constants.
+                                            Bailey uses the notation
+                                                                                                          n
+                                                                                              X           X      aj
+                                            (4)                            P(s, b, n, A) :=         b−k                 ,
+                                                                                                          j=1
+                                                                                                              (nk + j)s
+                                                                                              k≥0
+                                                                                  n
+                                            where A = [a1 , . . . , an ] ∈ Z . In terms of our L(s, b, n, j) we have
+                                                                                                 n
+                                                                                                 X
+                                            (5)                                P(s, b, n, A) =         a j L(s, b, n, j).
+                                                                                                 j=1
+
+                                            Let span{αk } denote the vector space over Q spanned by the set {αk }. The spaces of
+                                            polylogarithmic constants explored by Bailey have the form
+                                                          span{P(s, b, n, A) : A ∈ Zn } = span{L(s, b, n, j) : 1 ≤ j ≤ n}
+                                            with s, b, n fixed, and with b allowed to be a power, such as 24 . Bailey has found many
+                                            “interesting” constants κ in these spaces by computing κ and a table of L(s, b, n, j),
+                                            1 ≤ j ≤ n, to high precision; and then using the PSLQ integer relation algo-
+                                            rithm [FBA99] to find a ∈ Z, A ∈ Zn such that aκ = P(s, b, n, A).
+
+                                 1.2      Our goals
+                                            In this paper we focus our attention on degree one, or “logarithmic”, BBP formulae,
+                                            i.e., those where s = 1 in (4). We further restrict ourselves to formulae of a special
+                                            form which we call Machin-type. Roughly speaking, we write κ has a Machin-type
+                                            BBP formula to the base b (or κ has a b-ary Machin-type BBP formula) if κ can be
+                                            written either as a Q -linear combination of real parts of logarithms, or of imaginary
+                                            parts of logarithms, where the logarithms are chosen so as to yield a BBP formula to
+                                            the base b.
+                                                The numbers whose logarithms we consider all lie in the multiplicative group
+                                            Q [i]× . Knowledge of how numbers factor into primes over Z[i] (the Gaussian in-
+                                            tegers) or over Z serves as a tool both for finding Machin-type BBP formulae and
+                                            for showing no such formula exists. Despite the restricted nature of Machin-type
+                                            BBP formulae, to the best of our knowledge when we can show that there is no b-ary
+                                            Machin-type formula for a constant then no b-ary BBP formula of any form is known
+                                            for that constant.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 900                                                         J. M.Borwein, D. Borwein and W. F. Galway
+
+                                 2 Machin-Type BBP Formulae for Arctangents
+                                 2.1      A Brief Survey of Machin-Type Formulae
+                                            The original Machin formula is the identity
+
+                                            (6)                 π/4 = 4 arctan(1/5) − arctan(1/239)                       (Machin, 1706).
+
+                                            Machin used this formula to compute 100 digits of π. Similar Machin-type formulae
+                                            for π, i.e., formulae which express π as a Z-linear combination of arctangents, have
+                                            been used in most other extended computations of π until around 1980 and a few
+                                            million digits. In recent years it has generally been believed that quite different for-
+                                            mulae for π, such as the “AGM formula”, are better suited for the computation of π.
+                                            These AGM methods have been used beyond 200 billion digits and are surely of lower
+                                            operational complexity, but involve full precision intermediate calculation.
+                                               However, in December 2002, Yasumasa Kanada announced the record computa-
+                                            tion of 1.24 trillion decimal digits of π, using the identities
+
+                                            (7)            π = 48 arctan(1/49) + 128 arctan(1/57) − 20 arctan(1/239)
+                                                                     + 48 arctan(1/110443),
+                                            (8)            π = 176 arctan(1/57) + 28 arctan(1/239) − 48 arctan(1/682)
+                                                                     + 96 arctan(1/12943).
+
+                                            Indeed, for the size of computation being undertaken, full precision floating point
+                                            operations again seem impracticable. (See [BB98, §11.1] and [BB03, Chapter 3] for
+                                            additional history on π computations.)
+                                               One way to “discover” Machin’s formula (6) is to observe that
+
+                                            (9)                            arctan(y/x) ≡ ℑ ln(x + i y) (mod π).
+
+                                            (We shall give our choice of branch-cut for arctan(ρ) and ln(z) below.) Equation (9),
+                                            and the fact that (5 + i)4 (239 + i)−1 = 2 + 2i imply
+
+                                            (10)           π/4 = arctan(1) ≡ 4 arctan(1/5) − arctan(1/239) (mod π).
+
+                                            True equality of the congruence is easily verified numerically, by computing both
+                                            sides to sufficient precision to ensure that they differ by less than π. Similarly, the
+                                            process of verifying Equations (7) and (8) can be reduced to verifying that the prod-
+                                            ucts
+                                                                (49 + i)48 (57 + i)128 (239 + i)−20 (110443 + i)48
+                                            and
+                                                                     (57 + i)176 (239 + i)28 (682 + i)−48 (12943 + i)96
+                                            both yield negative rational numbers.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                               901
+
+                                               This technique of formulating a question about arctangents in terms of Z[i] was
+                                            used by Størmer in 1897 to solve a problem of Gravé. Gravé’s problem asks if there
+                                            are only four non-trivial integral solutions to
+
+                                                                          m arctan(1/u) + n arctan(1/v) = kπ/4,
+
+                                            namely Machin’s formula (6), and
+
+                                            (11)                π/4 = arctan(1/2) + arctan(1/3)                               (Euler, 1738),
+                                            (12)                π/4 = 2 arctan(1/2) − arctan(1/7)                         (Hermann, 1706),
+                                            (13)                π/4 = 2 arctan(1/3) + arctan(1/7)                           (Hutton, 1776).
+
+                                            Further information on Størmer’s solution can be found in [BB98, §11.1, Exercise 6],
+                                            or, more completely, in [Rib94, §A.12].
+
+
+                                 2.2      Notational Conventions
+                                            Throughout, arctan(ρ) denotes the principal branch of the arctangent function, de-
+                                            fined so −π/2 < arctan(ρ) < π/2 for ρ ∈ R. We also allow ρ = ∞, and define
+                                            arctan(∞) := π/2 and tan(±π/2) := ∞. Given ρ 6= 0 we define ρ/0 := ∞, regard-
+                                            less of the sign of ρ. Similarly, ln(z) denotes the principal branch of the logarithm,
+                                            defined so ln(z) = ln(|z|) + iθ satisfies −π < θ ≤ π. In other words θ = ℑ ln(z)
+                                            satisfies eiθ = z/ |z|, −π < θ ≤ π. Given x, y ∈ R, our definitions of ln(z) and
+                                            arctan(ρ) ensure that
+
+                                                                                                         1  x + iy 
+                                                                     arctan(y/x) = ℑ ln(x + i y) =          ln        ,
+                                                                                                         2i    x − iy
+
+                                            provided x > 0. More generally, under our conventions we always have
+
+                                                                           arctan(y/x) ≡ ℑ ln(x + i y) (mod π),
+
+                                            even for x = 0, y 6= 0.
+
+
+                                 2.3      Using Group Homomorphisms
+                                            As with Machin’s formula in Section 2.1, we shall use some basic group theory to
+                                            guide our search for BBP formulae. We start with a set {κ1 , κ2 , . . . } of constants
+                                            with known BBP formulae, and a constant κ for which we wish to determine a BBP
+                                            formula. Provided κ ∈ span{κ1 , κ2 , . . . }, finding a BBP formula for κ in terms of
+                                            formulae for κ j is equivalent to finding a Q -linear relationship of the form
+                                                                                             X
+                                                                                        κ=       ajκj,
+                                                                                             j
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 902                                                                 J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            or, rearranging and multiplying through by a common denominator, to finding a
+                                            Z-linear relationship of the form
+                                                                                               X
+                                            (14)                                        nκ +          n j κ j = 0.
+                                                                                                 j
+
+
+                                            In other words, we ask if there is an n ∈ Z for which nκ lies in the additive Abelian
+                                            group G generated by {κ1 , κ2 , . . . }. Despite little knowledge of G, we can choose a
+                                            group homomorphism f : G → H where the target group H is well understood. (Note
+                                            f need not be surjective—in our applications we shall typically have img f  H.)
+                                               Given the homomorphism f , we seek a relationship
+                                                                            X                                        Y
+                                            (15)                n f (κ) +         n j f (κ j ) = 0    or    f (κ)n       f (κ j )n j = 1,
+                                                                              j                                      j
+
+
+                                            according to whether H is an additive group or an Abelian multiplicative group. If
+                                            there is no solution to (15) then there is no solution to (14), and κ cannot be rep-
+                                            resented in terms of {κ1 , κ2 , . . . }. Yet, a solution to (15) does not ensure a solution
+                                            to (14), but only ensures that
+                                                                                               X
+                                            (16)                                        nκ +         n j κ j = κ0
+                                                                                                 j
+
+
+                                            for some κ0 ∈ ker f . Thus, to verify that κ can be represented in terms of
+                                            {κ1 , κ2 , . . . }, it suffices to solve (15) and to verify either that ker f = {0} or to
+                                            further examine the left side of (16) (e.g., numerically) to verify κ0 = 0.
+                                               In our search for arctangent formulae there are two, nearly equivalent, choices
+                                            of target group that seem convenient, and we will use both. In some cases we shall
+                                            identify an angle θ ∈ R with the line of slope tan(θ). Writing members of group
+                                            quotients as explicit cosets, the corresponding homomorphism is essentially f : R →
+                                            C× /R× , f (θ) = eiθ R× . We shall call C× /R× the group of slopes. More precisely,
+                                            with f (θ) as above, we shall be using the homomorphism f | G, the restriction of f
+                                            to G. Since we are working with G < R generated by elements of the form arctan(ρ),
+                                            ρ ∈ Q we may take H = Q [i]× R× /R× ∼          = Q [i]× /Q × , a group with a rich number-
+                                            theoretical structure which will guide us in our search.
+                                               In other cases we shall identify an angle θ with the directed ray eiθ R+× , via the
+                                            homomorphism f : R → C/R+× , f (θ) = eiθ R+× , where R+× is the multiplicative group
+                                            of positive real numbers. By identifying the ray eiθ R+× with the point eiθ we see that
+                                            C/R+× is isomorphic to the unit circle group S := {z ∈ C : |z| = 1}. As before, in this
+                                            case we may take the target group to be H = Q [i]× R+× /R+× ∼       = Q [i]× /Q+× .
+
+                                            Remark Our group of slopes, C× /R× , can be considered as the real projective line
+                                            PR , endowed with a group structure. In more detail,
+
+                                                                         PR := {(y, x) ∈ R × R : (y, x) 6= (0, 0)} ,
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                                903
+
+                                            under the equivalence relation (y, x) ∼ (λy, λx) for all λ 6= 0, λ ∈ R. Writing
+                                            y/x to denote the equivalence class of (y, x), we can embed R ⊂ PR under the map
+                                            y 7→ y/1. Of course 1/0 denotes ∞: the point at infinity. In some earlier research
+                                            notes we have written (y 1 /x1 ) ⊗ (y 2 /x2 ) for multiplication in this group, where
+
+                                                                                    y1   y2   y 1 x2 + y 2 x1
+                                                                                       ⊗    ∼                 .
+                                                                                    x1   x2   x1 x2 − y 1 y 2
+
+                                            With this notation, PR has identity 0/1, and the (multiplicative) inverse of y/x is
+                                            −y/x.
+
+
+                                 2.4      Generators for Machin-Type BBP Arctangent Formulae
+                                            We now describe our Machin-type BBP generators and the resulting formulae. Given
+                                            b not a proper power, b > 2, these are generators of the form
+
+                                                                                                                  X (−1)k
+                                                            arctan(−b−m ) = ℑ ln(1 − ib−m ) = −b−m                               b−2mk
+                                                                                                                        2k + 1
+                                                                                                                  k≥0
+
+                                                                                 = b−3m P(1, b4m , 4, [−b2m , 0, 1, 0]).
+
+                                            Setting x = ±2−m in the series expansion for arctan(x/(1 + x)) yields a binary BBP
+                                            formula which is distinct from the generators above.
+                                               Thus, when b = 2 we use additional generators of the form
+
+                                                                      arctan 1/(1 − 2m ) = ℑ ln(1 − (1 + i)2−m ).
+                                                                                        
+
+
+                                            We call these generators Aurifeuillian because of their similarity to the Aurifeuillian
+                                            logarithmic generators defined in Section 3, where we also discuss Aurifeuille’s work.
+                                            The BBP formulae for these Aurifeuillian generators are given in Appendix A.
+
+                                            Definition 1 Given κ ∈ R, 2 ≤ b ∈ N, b not a proper power, we say that κ has a
+                                            Z-linear or Q -linear Machin-type BBP arctangent formula to the base b if and only if
+                                            κ can be written as a Z-linear or Q -linear combination (respectively) of generators
+                                            of the form described above. A non-Aurifeuillian formula is one which does not
+                                            use Aurifeuillian generators. (Note all formulae are non-Aurifeuillian when b > 2.)
+                                            More briefly, when κ has a Q -linear formula we say that κ has a b-ary Machin-type
+                                            BBP arctangent formula.
+
+                                            Remarks Although our Machin-type BBP formulae are in one sense more restricted
+                                            than the formulae considered by Bailey, they also appear to be more general, in that
+                                            we allow linear combinations of P(1, bm , n, . . . ) where both m and n may vary. How-
+                                            ever, in Appendix B we show that any Machin-type BBP formula may be reduced to
+                                            Bailey’s form.
+                                               We call the generators of Definition 1 the minimal set of arctangent generators,
+                                            although for fixed b this set is not necessarily linearly independent. When b = 2 it
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 904                                                           J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            is sometimes convenient when doing hand computations to use all elements of the
+                                            form ℑ ln(1 ± (1 + i)2−m ) = arctan(1/(1 ± 2m )) as generators. Note however that
+                                            both our minimal set of generators and the full set described above span the same
+                                            space, as can easily be shown using
+
+                                                        ℑ ln(1 + (1 + i)2−m ) = ℑ ln(1 − i21−2m ) − ℑ ln(1 − (1 + i)2−m ).
+
+                                               Note that (1 − ib−m )R× = (bm − i)R× . Hence, both sides of the equality
+                                            represent the same element in our group of slopes. Along the same lines we have
+                                            ℑ ln(1 − ib−m ) = ℑ ln(bm − i). Since it is generally easier to work with elements
+                                            of Z[i]× instead of Q [i]× , we will often write (bm − i)R× instead of (1 − ib−m )R× .
+                                            Similarly, we will often prefer (2m − 1 − i)R× to (1 − (1 + i)2−m )R× and prefer to
+                                            write the inverse of (x + i y)R× as (x − i y)R× . (We follow the corresponding practice
+                                            when working with elements of C× /R+× , with R+× replacing the role of R× .)
+
+                                 2.5      Finding Machin-Type BBP Arctangent Formulae
+                                            With these preliminary remarks out of the way, we almost immediately find a binary
+                                            Machin-type BBP formulae for π/4 by noting that
+
+                                            (17)                     π/4 = −ℑ ln(1 − i) = − arctan(−1)
+                                                                           = 2−4 P(1, 24 , 8, [8, 8, 4, 0, −2, −2, −1, 0]).
+
+                                            (This formula seems to have first been observed by Helaman Ferguson. See [Bai00,
+                                            Equation (13)] and also [FBA99, p. 352].)
+                                               Further binary formulae for π/4 can be found in much the same way as in our
+                                            development of Formula (10), and as in Størmer’s solution to Gravé’s problem, by
+                                            looking for products of the form
+                                                                                  Y              Y
+                                            (18)                           z :=    (2m j − i)n j  (2m j − 1 − i)n j
+                                                                                    j             j
+
+
+                                            which yield z ∈ (1 + i)R+× , and thus ℑ ln(z) ≡ π/4 (mod 2π). More generally, when
+                                            looking for Z-linear formulae for some multiple of π, we would consider products of
+                                            the form (18) yielding z ∈ (1 + i)n R+× , and thus ℑ ln(z) ≡ nπ/4 (mod 2π). Note
+                                            that when n ≡ 0 (mod 8) it is possible that ℑ ln(z) = 0.
+                                               A hand search for additional formulae soon reveals that
+
+                                            (19)                                    (2 − i)(3 − i) = 5 − 5i,
+                                            (20)                                   (2 − i)2 (7 + i) = 25 − 25i,
+                                            (21)                                  (3 − i)2 (7 − i) = 50 − 50i,
+
+                                            corresponding to the solutions (11)–(13) of Gravé’s problem. Since each factor on
+                                            the left-hand sides has one of the desired forms 2m − i or 2m − 1 − i for some m we
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                       905
+
+                                            see that (11), (12), and (13) all yield binary Machin-type BBP arctangent formulae
+                                            for π/4.
+                                               Similarly, a hand search gives binary Machin-type BBP arctangent formulae for
+                                            arctan(1/6), arctan(5/6), and arctan(1/11) via the factorizations
+
+                                                                                   6 + i = (5 + i)(31 − i)/26,
+                                                                      6 + 5i = (1 + i)(5 − i)(9 + i)(255 − i)/2132,
+                                                             11 + i = (1 + i)(6 − 5i), and then factor (6 − 5i) as 6 + 5i.
+
+                                            These factorizations give formulae in terms of our full set of generators:
+
+                                                                        arctan(1/6) = arctan(1/5) − arctan(1/31)
+
+                                            and
+
+                                                     arctan(5/6) = arctan(1) − arctan(1/5) + arctan(1/9) − arctan(1/255)
+
+                                            while
+                                                                         arctan(1/11) = arctan(1) − arctan(5/6).
+                                               No formulae for these three arctangents are listed in Bailey’s Compendium of
+                                            November 2000 [Bai00, §3]. However, the above results show that arctan(1/6),
+                                            arctan(5/6) and arctan(1/11) do indeed admit binary Machin-type BBP formulae.
+                                            (The process of converting such formulae to Bailey’s form is detailed in Appendix B.)
+                                            Among the values missing in Bailey’s list, the first arctangent for which we have been
+                                            unable to find a binary Machin-type BBP formula is arctan(2/7).
+                                               We can make the search for arctangent formulae more systematic by examining
+                                            how 2m − i and 2m − 1 − i factor into primes over Z[i]. Since primes in Z[i] are
+                                            only defined up to a factor of i n , we shall always take a “canonical” factorization of
+                                            z ∈ Z[i], of the form
+                                                                                         Y nj
+                                            (22)                                  z = in     pj ,
+                                                                                                  j
+
+
+                                            where p j runs through a subset of the primes of Z[i], and for each prime p we require
+                                            ℜp > 0 and −ℜp < ℑp ≤ ℜp, so that −π/4 < ℑ ln p ≤ π/4. These conditions
+                                            uniquely define n (mod 4), where n is the exponent appearing in i n . To make n
+                                            unique, we further require that −1 ≤ n ≤ 2.
+                                               The factorization of z ∈ Z[i] can easily be found in the computer algebra system
+                                            Maple using the GaussInt package, or in the system Mathematica using FactorInte-
+                                            ger[z, GaussianIntegers→True]. (However, in both cases additional work is needed
+                                            to get a canonical factorization in our sense.) Since, given z, w ∈ C, ℑ ln(zw) ≡
+                                            ℑ ln(z) + ℑ ln(w) (mod 2π), the factorization (22) gives
+                                                                                             X
+                                                                       ℑ ln(z) ≡ nπ/2 +           n j ℑ ln p j (mod 2π).
+                                                                                              j
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 906                                                           J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            In many cases, this equivalence modulo 2π corresponds to true equality, but the ex-
+                                            ample z = (2 + i)12 = 11753 − 10296i, ℑ ln(z) ≈ −0.7194 while 12ℑ ln(2 + i) ≈
+                                            5.5638, demonstrates that this is not always true.
+                                               More detailed discussion of such experimental and symbolic computational mat-
+                                            ters is to be found in [BB03] and on the associated website www.expmath.info.
+                                               To illustrate, we use this technique to more systematically find formulae for π. Let
+                                            βm := ℑ ln(2m − i) and αm := ℑ ln(2m − i − 1) denote our binary Machin-type BBP
+                                            arctangent generators. For the first few generators, factoring the arguments 2m − i of
+                                            ℑ ln( . . . ) into primes over Z[i] gives
+
+                                            (23)                                    21 − i = 2 − i
+                                            (24)                                    22 − i = 4 − i
+                                            (25)                                    23 − i = (2 + i)(3 − 2i),
+
+                                            while for the Aurifeuillian arguments 2m − 1 − i we find
+
+                                            (26)                                 21 − 1 − i = 1 − i
+                                            (27)                                 22 − 1 − i = i −1 (1 + i)(2 + i)
+                                            (28)                                 23 − 1 − i = (1 + i)(2 − i)2 .
+
+                                            Using ℑ ln(i) = π/2, ℑ ln(1 + i) = π/4, ℑ ln(p) = −ℑ ln(p); and checking that we
+                                            have the correct congruence class modulo 2π, the factorizations (23) through (25)
+                                            give
+
+                                            (29)                               β1 = −ℑ ln(2 + i)
+                                            (30)                               β2 = −ℑ ln(4 + i)
+                                            (31)                               β3 = ℑ ln(2 + i) − ℑ ln(3 + 2i),
+
+                                            while, by (26) through (28), our Aurifeuillian generators decompose as
+
+                                            (32)                                    α1 = −π/4
+                                            (33)                                    α2 = −π/4 + ℑ ln(2 + i)
+                                            (34)                                    α3 = π/4 − 2ℑ ln(2 + i).
+
+                                            (The presence of π/4 in our Aurifeuillian generators could have been predicted from
+                                            the fact that 1 + i | x + i y when x2 + y 2 is even.)
+                                               With these decompositions—essentially a change of basis in our vector space over
+                                            Q —we can easily spot Z-linear dependencies between β1 , α1 , α2 , and α3 . From these
+                                            dependencies we once again get formulae for π/4 corresponding to Equations (19)–
+                                            (21). Equivalently, we get two linearly independent zero relations such as
+
+                                            (35)                                        α1 + α3 − 2β1 = 0
+                                            (36)                                        α1 − 2α2 − α3 = 0.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                           907
+
+                                 2.6      Exclusion Criteria for Machin-Type BBP Arctangent Formulae
+                                            The type of reasoning above can also be used to exclude the possibility of a Machin-
+                                            type BBP formula, as illustrated in Theorems 1 and 2 below.
+                                               In the following discussion, νb (p) denotes the order of b in the multiplicative
+                                            group modulo a prime p. Given z ∈ Q , ord p (z) denotes the usual p-adic order of z,
+                                            which can be defined by stating that ord p (p) = 1, ord p (q) = 0 for any prime q 6= p,
+                                            and ord p (zw) = ord p (z)+ord p (w). We remark that we cannot have ord p (x2 + y 2 ) odd
+                                            when p ≡ 3 (mod 4). Note also that ord p : Q × → Z is a group homomorphism. For
+                                            more information on p-adic orders, see, for example, the book by Koblitz [Kob84].
+
+                                            Theorem 1 Given 2 ≤ b ∈ N, b not a proper power, and given x ∈ Z, y ∈ Z, suppose
+                                            there is a prime p ≡ 1 (mod 4) with ord p (x2 + y 2 ) odd, such that either p | b; or p ∤ b,
+                                            4 ∤ νb (p). Then arctan(y/x) does not have a Z-linear Machin-type BBP arctangent
+                                            formula to the base b.
+
+                                            Proof (a) We first consider the simpler case where b > 2, so that there are no Au-
+                                            rifeuillian generators to consider. In this case, if there were a formula for arctan(y/x),
+                                            we would have
+                                                                                        Y
+                                            (37)                        (x + i y)R× =      (bm j − i)n j R× ,
+                                                                                                j
+
+
+                                            m j ∈ N, n j ∈ Z. Since a real-valued product of elements of Q [i]× must lie in Q × ,
+                                            we conclude from Equation (37) that
+                                                                           Y
+                                            (38)                  (x + i y) (bm j − i)−n j = M/N ∈ Q × .
+                                                                                        j
+
+
+                                            Taking norms (multiplying each expression by its complex conjugate) in (38) yields
+                                                                             Y
+                                                                  (x2 + y 2 ) (b2m j + 1)−n j = M 2 /N 2 .
+                                                                                            j
+
+
+                                            Since ord p (x2 + y 2 ) is assumed odd but ord p (M 2 /N 2 ) must be even, we must have
+                                            p | b2m j + 1 for at least one j. Clearly this cannot happen if p | b. Now assuming that
+                                            p ∤ b, 4 ∤ νb (p), and letting m = m j we find
+
+                                            (39)                                        b2m ≡ −1 (mod p),
+
+                                            and so b4m ≡ 1 (mod p). Thus we conclude that νb (p) | 4m. But 4 ∤ νb (p), so
+                                            νb (p) | 2m, giving b2m ≡ 1 (mod p), contradicting (39).
+                                                (b) The argument when b = 2 is similar. Note that we cannot have p | b in this
+                                            case. Now, if there were a formula for arctan(y/x), we would have an identity of the
+                                            form
+                                                                           Y               Y
+                                            (40)             (x + i y)R× =   (2m j − i)n j  (2m j − (1 + i))n j R× .
+                                                                                        j           j
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 908                                                            J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            Arguing as before, and taking norms, we conclude that
+                                                              Y                Y
+                                                (x2 + y 2 )    (22m j + 1)−n j  (2m j − (1 + i))−n j (2m j − (1 − i))−n j = M 2 /N 2 .
+                                                               j                        j
+
+
+                                            Since p ≡ 1 (mod 4), there is an I ∈ Z satisfying I 2 ≡ −1 (mod p). As before,
+                                            since ord p (x2 + y 2 ) is assumed odd but ord p (M 2 /N 2 ) must be even, at least one of
+                                            p | 22m j + 1; p | 2m j − (1 + I); or p | 2m j − (1 − I) must hold.
+                                               The first case immediately leads to a contradiction, as when b > 2. The latter
+                                            two cases give 2m j ≡ 1 ± I (mod p). Raising both sides to the fourth power gives
+                                            24m j ≡ −4 (mod p), so, letting m = 2m j − 1, we have 22m ≡ −1 (mod p), which
+                                            again leads to a contradiction, as when b > 2.
+
+                                            Example 1 Using p = 5 and ord5 (22 +12 ) = 1 in Theorem 1, we conclude that there
+                                            is no b-ary Z-linear Machin-type BBP formulae for arctan(1/2) when 5 | b. Similarly,
+                                            using p = 13 and ord13 (52 + 12 ) = 1, we conclude that there is no b-ary Z-linear
+                                            Machin-type BBP formulae for arctan(1/5) when 13 | b.
+
+                                            Example 2 Using the second exclusion criterion of Theorem 1, with p = 13 and
+                                            noting 32 + 22 = 13 and ν3 (13) = 3, we conclude that arctan(2/3) has no 3-ary
+                                            Z-linear Machin-type BBP arctangent formula. More generally, no odd multiple of
+                                            arctan(2/3) has a 3-ary Z-linear Machin-type BBP arctangent formula.
+                                                Similarly, with b = 2 and p = 73, noting that 82 + 32 = 73, we conclude
+                                            that arctan(3/8) has no binary Z-linear Machin-type BBP arctangent formula, as
+                                            ν2 (73) = 9.
+                                                Correspondingly, with b = 2 and p = 89, noting that 82 + 52 = 89, we con-
+                                            clude that arctan(5/8) has no binary Z-linear Machin-type BBP formula. Similarly,
+                                            arctan(5/11) has no binary formula, since 146 = 2 · 73. Also 9/16 yields the prime
+                                            337 with ν2 (337) = 21, and 11/18 yields 445 which is divisible by the prime 89 with
+                                            ν2 (89) = 11. (See also Appendix C on density of arctans with or without Machin-
+                                            type formulae.)
+                                                The arguments above rule out formulae for 3/8 and 5/8. Binary Q -linear Machin-
+                                            type formulae are known for all other fractions with denominator less than 10, with
+                                            the exceptions of 2/7, 4/9, 5/9, which are presently in limbo. In these three cases the
+                                            exclusion criterion of Theorem 1 fails. We return to these orphans in Example 3.
+
+                                               We shall derive a stronger exclusion criterion for Machin-type BBP arctangent
+                                            formulae by looking at how (x + i y) factors in Z[i]:
+
+                                            Definition 2 Given z ∈ Q [i], and a rational prime p ≡ 1 (mod 4), let ϑ p (z) denote
+                                            ordp (z) − ordp (z), where p and p are the two conjugate Gaussian primes dividing p,
+                                            and where we require 0 < ℑp < ℜp to make the definition of ϑ p unambiguous.
+
+                                            Note that ϑ p is a group homomorphism, since
+
+                                            (41)                                    ϑ p (zw) = ϑ p (z) + ϑ p (w).
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                          909
+
+                                            Theorem 2 Given 2 ≤ b ∈ N, b not a proper power, and given x ∈ N, y ∈ N, suppose
+                                            there is a prime p not dividing b, with p ≡ 1 mod 4 and ϑ p (x + i y) 6= 0. Suppose
+                                            either (a) 4 ∤ νb (p), or (b) the prime p ≡ 1 (mod 4), such that 4 | νb (p), is unique,
+                                            and there is a prime q ≡ 1 (mod 4) with ϑq (x + i y) = 0 and νb (p) = νb (q).
+                                               Then in case (a) arctan(y/x) does not have a Q -linear Machin-type BBP arctangent
+                                            formula to the base b; and in case (b) arctan(y/x) has no non-Aurifeuillian Q -linear
+                                            Machin-type BBP arctangent formula to the base b.
+
+                                            Proof Our proof of (a) is similar to the proof of Theorem 1. Again, we first consider
+                                            the case b > 2, where there are no Aurifeuillian generators to consider. In this case,
+                                            if there were a Q -linear Machin-type BBP formula for arctan(y/x) then for some
+                                            n ∈ Z, n 6= 0 we would have
+                                                                                        Y
+                                                                         (x + i y)n      (bm j − i)−n j = M/N ∈ Q × .
+                                                                                             j
+
+
+                                            Our assumption that ϑ p (x + i y) 6= 0 implies ϑ p (x + i y)n 6= 0, which together
+                                                                                                           
+
+                                            with ϑ p (M/N) = 0 implies ϑ p (bm j − i) 6= 0 for at least one j. So, at least one of
+                                            p, p divides bm j − i. Thus, letting m = m j , assume that p | bm − i. (The argument
+                                            when p | bm − i is nearly identical.) Since p | bm − i we have p | bm + i, and thus
+                                            pp | b2m + 1. In other words, b2m ≡ −1 (mod p), which gives a contradiction, as in
+                                            the proof of Theorem 1.
+                                               We now consider the case when b = 2. In this case a formula for arctan(y/x)
+                                            would imply that we had an identity of the form
+                                                                                        Y              Y
+                                                                 (x + i y)R× =           (2m j − i)n j  (2m j − (1 + i))n j R× .
+                                                                                         j              j
+
+
+                                            Our assumption that ϑ p (x + i y) 6= 0 leads us to conclude that at least one of p, p
+                                            divides at least one of 2m j − i or 2m j − (1 + i) for some j. Again, without loss of
+                                            generality, assume that p is the divisor. If p | 2m j − i we get a contradiction, as when
+                                            b > 2. If p | 2m j − (1 + i) then, letting m = 2m j − 1, it follows that b2m ≡ −1
+                                            (mod p), which again gives a contradiction.
+                                               We defer the proof of part (b) until Section 3.4.
+
+                                            Example 3 Continuing Example 2, looking for a ternary arctangent formula for
+                                            arctan(2/3), we use p = 13 in Theorem 2 (a), still noting that ν3 (13) = 3, and using
+                                            ϑ13 (3 + 2i) = 1, to conclude that arctan(2/3) has no 3-ary Q -linear Machin-type
+                                            BBP arctangent formula. This can be applied to various of the other fractions in
+                                            Example 2 such as 3/8, 5/8, 5/11, 9/16, and 11/18.
+                                                We illustrate Theorem 2 (b), as follows. First it shows us that arctan(1/4) has no
+                                            3-ary Q -linear Machin-type BBP arctangent, since ν3 (17) = ν3 (193) = 16. Cor-
+                                            respondingly, we may rule out non-Aurifeuillian binary formulae for arctangents
+                                            of the fractions 2/7, 4/9 and 5/9. Indeed 22 + 72 = 53, 52 + 92 = 53 · 2 and
+                                            ν2 (53) = ν2 (157) = 52. Similarly, 42 + 92 = 97 and ν2 (97) = ν2 (673) = 48.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 910                                                            J. M.Borwein, D. Borwein and W. F. Galway
+
+                                                We can clarify the meaning of ϑ p by extending its definition to cover every prime
+                                            p. We define ϑ p (z) := 0 when p ≡ 3 (mod 4), since these primes do not factor
+                                            further over Z[i] and thus contribute nothing to ℑ ln(z). To deal with the case p = 2
+                                            we note that z ∈ Q [i]× can be rewritten as zR× = z0 R× with z0 ∈ Z[i], and so that
+                                            z0 factors over Z[i] as
+
+                                                                                              Y
+                                            (42)                           z0 = (1 + i)k                 pordp (z) p ordp (z) ,
+                                                                                           p≡1 (mod 4)
+                                                                                             p=pp
+
+
+
+                                            with 0 ≤ k < 8 and with 0 < ℑp < ℜp. (When z ∈ Z[i] we have k ≡ 2n + ord1+i (z)
+                                            (mod 8), where n is defined by the canonical factorization of z defined following
+                                            Equation (22). Similarly, when z ∈ Q [i], we can compute k (mod 8) from the
+                                            canonical factorizations of the numerator and denominator of z.) Now, let ϑ2 (z) :=
+                                            k, where k is given by Equation (42). (Note that ϑ2 (zw) ≡ ϑ2 (z) + ϑ2 (w) (mod 8).)
+                                               With this extended definition of ϑ p , we have
+
+                                                                                                 X
+                                                         ℑ ln(z) ≡ ϑ2 (z)ℑ ln(1 + i) +                       ϑ p (z)ℑ ln(p) (mod 2π).
+                                                                                              p≡1 (mod 4)
+
+
+
+                                            Thus, ϑ p (z) measures the contribution to ℑ ln(z) which can be attributed to 1 + i
+                                            (the single Gaussian prime dividing 2) and to the Gaussian primes p | p, p | p, p ≡ 1
+                                            (mod 4).
+                                               Given a finite set of generators of the form ℑ ln(z), z ∈ Q [i], we could, in prin-
+                                            ciple, use values of ϑ p to automate the process which we informally used to spot the
+                                            zero relations (35) and (36) given earlier. For each generator of the form ℑ ln(z) we
+                                            would compute a vector of ϑ p (z), indexed by p, where p runs through a finite subset
+                                            of {2} ∪ {p prime : p ≡ 1 (mod 4)}. (The ϑ2 component of the vectors should be
+                                            treated as an element of Z/(8Z).)
+                                               Given these vectors, the process of finding possible linear dependencies could be
+                                            automated by using the algorithms described in [Coh93, §2.4] for analyzing Z-mod-
+                                            ules, (i.e., Abelian groups). The dependencies found this way are only “potential”
+                                            dependencies, both because knowledge of ϑ p (z) for all p only determines ℑ ln z (mod
+                                            2π), and because we may choose to restrict ourselves to a small subset of primes, and
+                                            thus will get less than complete information about how the various z factor in Z[i].
+                                            (Consider the problem of completely factoring 21001 − i over Z[i].) we shall return to
+                                            this idea of using vectors when we discuss valuation vectors in Section 3, below.
+                                               At the conclusion of Section 3, we shall introduce another exclusion criterion for
+                                            Machin-type BBP arctangent formulae to show that any Machin-type BBP arctangent
+                                            formula for π must be a binary formula. In particular, there is no decimal Machin-
+                                            type BBP arctangent formula for π. This result is based on a technique which is also
+                                            useful for excluding Machin-type BBP “logarithm formulae”—the topic to which we
+                                            now turn.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                        911
+
+                                 3 Machin-Type BBP Formulae for Logarithms
+                                 3.1      Machin-Type Logarithmic Generators and Formulae
+                                            Our definition of a Machin-type BBP logarithm formula is analogous to our defini-
+                                            tion of a Machin-type BBP arctangent formula, with ℜ ln(z) = ln |z| replacing the
+                                            role of ℑ ln(z). Although group theory plays a less important role here, we note that
+                                            we are working with the multiplicative group C× /S. The group C× /S is isomorphic
+                                            to the additive group R, under the isomorphism that sends t ∈ R to the coset et S.
+                                            The inverse map is zS 7→ ℜ ln(z) = ln |z|. However, since C× /S is so readily identi-
+                                            fied with the isomorphic multiplicative group R+× , we usually prefer to treat the latter
+                                            group and its obvious isomorphism to the additive group R, ln(z) : R+× → R.
+                                                We begin by describing our logarithmic generators. (We give BBP formulae for
+                                            these generators in Appendix A.) Given b not a proper power, b > 2, these are gener-
+                                            ators of the form ln(1 − b−m ). In the case b = 2 we include additional Aurifeuillian
+                                            generators, of the form ln |1 − (1 + i)2−m |. We call these additional generators Au-
+                                            rifeuillian because some terms which appear in the equation
+                                                                                          1
+                                                          ln 1 ± (1 + i)2−m =               ln 21−2m (22m−1 ± 2m + 1)
+                                                                                                                     
+                                            (43)
+                                                                                          2
+                                                                                          1               1
+                                                                                        =     − m ln(2) + ln(22m−1 ± 2m + 1).
+                                                                                            2               2
+                                            correspond to factors in the equation
+                                            (44)                    24m−2 + 1 = (22m−1 + 2m + 1)(22m−1 − 2m + 1).
+                                            Such factorizations were discovered by Aurifeuille and Le Lasseurre but first described
+                                            in print in 1878 by Lucas (see [Wil98, p. 126]).
+
+                                            Definition 3 Given κ ∈ R, 2 ≤ b ∈ N, b not a proper power, we say that κ has a
+                                            Z-linear or Q -linear Machin-type BBP logarithm formula to the base b if and only if κ
+                                            can be written as a Z-linear or Q -linear combination (respectively) of generators of
+                                            the form described in the previous paragraph.
+                                               A non-Aurifeuillian formula is one which does not use Aurifeuillian generators.
+                                            More briefly, when κ has a Q -linear formula we shall say that κ has a b-ary Machin-
+                                            type BBP logarithm formula.
+
+                                            Remark We call the generators of Definition 3 the minimal set of logarithm genera-
+                                            tors. From the identities ln(1+b−m ) = ln(1−b−2m )−ln(1−bm ) and ln |1 ± ib−m | =
+                                            ln(1 + b−2m )/2 we find that our minimal set generates
+                                                                span ln(1 ± b−m ), ln 1 ± ib−m : m ∈ N .
+                                                                      
+
+                                            The Aurifeuillian identity (44) implies that when b = 2 our minimal set generates
+                                                     span ln(1 ± 2−m ), ln 1 ± i2−m , ln 1 ± (1 ± i)2−m : m ∈ N .
+                                                          
+
+                                            As in the arctangent case, for hand computations it is often convenient to use the “full
+                                            set” of generators implied by these relations.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 912                                                                J. M.Borwein, D. Borwein and W. F. Galway
+
+                                 3.2      Using Valuation Vectors and Factorizations
+                                            When searching for Machin-type BBP logarithm formulae, we take much the same
+                                            approach that we described for finding Machin-type BBP arctangent formulae for π.
+                                               Given a finite set of generators of the form {ln |z| : |z| ∈ G ⊂ Q [i]}, we begin by
+                                            computing a valuation vector for each |z|, |z| ∈ G. Let Q denote the algebraic closure
+                                            of Q . (We allow z ∈ Q so as to give a more general result, although we shall only
+                                            consider examples with z ∈ Q [i].) Given z ∈ Q , a valuation vector for z is a vector
+                                            with entries indexed by a fixed set of primes P, where the entry indexed by p ∈ P
+                                            gives ord p (z). Note that ord p (z) can be extended so as to be defined for z ∈ Q ;
+                                            see, for example, [Kob84, Chapter III]. For our purposes, it suffices to recall that
+                                            ord p (zw) = ord p (z) + ord p (w), and thus ord p (1 − b−m ) = ord p (bm − 1) − m ord p (b)
+                                            while, as in the derivation of Equation (43), we find
+                                                                                                          p
+                                                                1 − (1 + i)2−m              = ord p 21/2−m 22m−1 − 2m + 1
+                                                                                                                           
+                                            (45)      ord p
+                                                                                              1                 1
+                                                                                            =      − m ord p (2) + ord p (22m−1 − 2m + 1).
+                                                                                                2                 2
+
+                                            For example, indexing by the primes {2, 3, 5} (in that order) the valuation vector
+                                            for 1 − 2−4 = 15/16 is [−4, 1, 1], while the valuation vector for 1 − (1 + i)2−4 =
+                                            √ √
+                                              2 113/16 is [−3.5, 0, 0]. In contrast, if we use P = {2, 3, 5, 113}, the valuation
+                                            vector for 1 − (1 + i)2−4 is [−3.5, 0, 0, 1].
+                                               An important property of ord p is that |z| = p pordp (|z|) , where the product runs
+                                                                                              Q
+
+                                            through all primes p for which ord p (|z|) 6= 0. This implies that if we choose
+                                                                                            [ 
+                                                                                P=                p : ord p (|z|) 6= 0 .
+                                                                                        |z|∈G
+
+
+                                            then the vector space over Q generated by {ln |z| : |z| ∈ G} is isomorphic to the
+                                            space of valuation vectors indexed by P.
+                                               Thus, in principle, it should be possible to reduce the task of searching for Machin-
+                                            type BBP logarithm formulae (arising from a fixed set of generators) to doing Z-linear
+                                            algebra with valuation vectors, again using algorithms described in [Coh93, §2.4].
+                                               In practice, this might require finding the prime factorization of inordinately large
+                                            numbers, in which case we can use a smaller set P at the cost of losing some infor-
+                                            mation. Because of the nature of our generators, the task of finding Machin-type
+                                            BBP formulae for logarithms is closely related to the Cunningham Project [BLS88]:
+                                            an ongoing project to find factorizations of numbers of the form bm ± 1, for b ∈
+                                            {2, 3, 5, 6, 7, 10, 11, 12}.
+                                               As indicated above, one way to find the valuation vector for 1 − b−m is to fac-
+                                            tor b and bm − 1. Similarly, by Equation (45), we can find the valuation vector for
+                                            |1 − (1 + i)2−m | by factoring b and 22m−1 − 2m + 1. By the Aurifeuillian identity (44),
+                                            the task of factoring 22m−1 − 2m +1 is closely related to the task of factoring 24m−2 +1.
+                                            One technique used in the Cunningham Project has been to break bm −1 into smaller
+                                            factors by algebraically factoring bm − 1 into cyclotomic polynomials ψd (b), using the
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                     913
+
+                                            relationship
+                                                                                                   Y
+                                            (46)                                        bm − 1 =         ψd (b).
+                                                                                                   d|m
+
+                                            The cyclotomic polynomials can be defined by the inversion formula corresponding
+                                            to (46), namely
+                                                                               Y
+                                            (47)                      ψd (b) =     (bm − 1)µ(d/m) .
+                                                                                            m|d
+
+                                            where µ(d) denotes the Möbius function. (Cyclotomic polynomials are discussed in
+                                            many references, for example [NZM91].)
+                                               In the case b = 2, the Aurifeuillian identity (44) is also useful as an algebraic
+                                            factorization for 2m − 1. Further information about Aurifeuillian factorizations can
+                                            be found in [Rie94, Appendix 6] and [Bre93]. A paper by Chamberland gives further
+                                            discussion of the use of cyclotomic polynomials and Aurifeuillian factorizations to
+                                            find BBP formulae [Cha].
+
+                                 3.3      Using Bang’s Theorem as an Exclusion Criterion
+                                            Since formulae for ln(z), z ∈ Q , can be generated as Z-linear combinations of formu-
+                                            lae for ln(p), p prime, most of the search for BBP formulae has focused on the latter
+                                            case. However, as we shall show below, Machin-type BBP formulae for ln(p) often
+                                            fail to exist. Our main tool for excluding Machin-type BBP formulae for logarithms
+                                            is a theorem due to Bang.
+                                                We begin with a definition used in the statement of the theorem.
+
+                                            Definition 4 Given fixed b > 1, we shall say a prime p is a primitive prime factor
+                                            of bm − 1 if m is the least integer such that p divides bm − 1. In other words, p is a
+                                            primitive prime factor of bm − 1 provided νb (p) = m.
+
+                                            Theorem 3 (Bang, 1886) The only cases where bm −1 has no primitive prime factor(s)
+                                            are when b = 2, m = 6, bm − 1 = 32 · 7; and when b = 2N − 1, N ∈ N, m = 2,
+                                            bm − 1 = 2N+1 (2N−1 − 1).
+                                            Bang’s Theorem is often called “Zsigmondy’s Theorem”, since Zsigmondy generalized
+                                            Bang’s result to expressions of the form bm − am . A survey of Zsigmondy’s Theorem
+                                            and related results can be found in [Rib91], while a proof of Bang’s Theorem can be
+                                            found in [Roi97].
+                                               We shall call the cases where there is no primitive prime factor the “exceptional
+                                            cases” of Bang’s Theorem, and will let Mb denote the value of m, depending on b, for
+                                            which an exceptional case occurs, or Mb := 0 when there is no exceptional case. Thus
+                                                                          
+                                                                          6 when b = 2,
+                                                                          
+                                            (48)                   Mb := 2 when b = 2N − 1, N ∈ N,
+                                                                          
+                                                                             0 otherwise.
+                                                                          
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 914                                                                J. M.Borwein, D. Borwein and W. F. Galway
+
+                                               Bang’s Theorem can often be used to exclude the possibility of a constant having
+                                            a Machin-type logarithm formula. We illustrate this with an example due to Carl
+                                            Pomerance, first mentioned briefly in [BBP97, §5]:
+
+                                            Theorem 4 There is no non-Aurifeuillian binary Machin-type BBP logarithm for-
+                                            mula for ln(23) nor for ln(89).
+
+                                            Proof Suppose instead that ln(23) has a non-Aurifeuillian binary Machin-type for-
+                                            mula. This is equivalent to being able to write
+                                                                                                   M
+                                                                                                   Y
+                                            (49)                                        23n = 2t         (2m − 1)nm
+                                                                                                   m=1
+
+                                            with nm ∈ Z, nM 6= 0, n ∈ N, and t = − M
+                                                                                           P
+                                                                                             m=1 mnm . Since ν2 (23) = 11 we must
+                                            have M ≥ 11, so 2M − 1 has a primitive prime factor, say p. Since p cannot occur
+                                            as a factor of 2m − 1, m < M, we must have p = 23, for otherwise we would not be
+                                            able to cancel it out in (49). Since 23 is a primitive prime factor of 211 − 1 = 23 · 89
+                                            we must have M = 11. But 89 is also a primitive prime factor 211 − 1, and cannot be
+                                            cancelled out of (49).
+                                               The above argument also shows that ln(89) can not be obtained.
+
+                                                The same argument applies to many other pairs of primes having the property that
+                                            the first prime has a prime “friend” which is also a primitive prime factor of the same
+                                            2M −1. For example, two primes with logarithms having no non-Aurifeuillian binary
+                                            formula are 47 and 53, since 223 − 1 = 47 · 178481, and ν2 (47) = ν2 (178481) = 23.
+                                            Another such pair is 29 and 113, since 228 −1 = 3 · 5 · 29 · 43 · 113 · 127, and ν2 (29) =
+                                            ν2 (113) = 28.
+                                                If we exclude Aurifeuillian generators, then to say ln(z) has a b-ary Machin-type
+                                            BBP formula means ln(z) ∈ span{ln(1 − b−m ) : 1 ≤ m ≤ M} for some M < ∞. A
+                                            consequence of Bang’s Theorem is that, for fixed z, elements of the form ln(1 − b−m )
+                                            and ln(z) are likely to be linearly independent, which excludes the possibility of a
+                                            Machin-type BBP formula.
+                                                We now develop somewhat more technical tools for demonstrating linear inde-
+                                            pendence of logarithms. Lemma 5 below gives a general criterion for linear indepen-
+                                            dence for elements of the form ln(z), z ∈ Q . The idea behind Lemma 5 is to find
+                                            a sequence of valuation vectors, which, when arranged in a matrix, give a triangular
+                                            matrix with nonzero entries along the diagonal.
+
+                                            Lemma 5 Given z0 , z1 , . . . , zK , all elements of Q , then a sufficient condition that
+                                            ln(z0 ), . . . , ln(zK ) be Q -linearly independent is that there be distinct primes p0 , . . . , pK
+                                            with ord pk (zk ) 6= 0 and ord p j (zk ) = 0 when j > k.
+
+                                            Proof If there were a Q -linear dependence among the ln(zk ) then for some nk ∈ Z,
+                                            not all zero, we would have
+                                                                         m
+                                                                         X                                      m
+                                                                                                                Y
+                                            (50)                               nk ln(zk ) = 0,       and so       zknk = 1,
+                                                                         k=0                                    k=0
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                          915
+
+                                            where m denotes the largest k for which nk 6= 0. Writing n := nm and p := pm ,
+                                            our conditions give ord p (zk ) 6= 0 if and only if k = m, while Equation (50) gives the
+                                            contradiction                    Y m       
+                                                                                     nk
+                                                                     ord p          zk    = n ord p (zm ) = 0.
+                                                                                        k=0
+
+
+
+                                               Theorem 6, below, gives a fairly general exclusion criterion for Machin-type BBP
+                                            logarithm formulae. We shall make use of the facts that if ord p (bm − 1) 6= 0 then
+                                            ord p (b) = 0, and that ord p (1 − b−k ) = ord p (bk − 1), for any k ∈ Z.
+
+                                            Theorem 6 Given z0 ∈ Q and 2 ≤ b ∈ N, b not a proper power, assume that there is
+                                            at least one prime p such that ord p (z0 ) 6= 0 (equivalently, assume that z0 is not a root
+                                            of unity) and let p0 be the largest such prime. Let
+
+                                            (51)                                    M0 := max(Mb , p0 − 1),
+
+                                            where Mb is defined by Equation (48), and let
+
+                                                                         U := span ln(1 − b−m ) : 1 ≤ m ≤ M0
+                                                                                  
+
+
+                                            so that U has a basis of the form ln(zk ), 1 ≤ k ≤ dim(U ). Suppose there are distinct
+                                            primes p1 , . . . , pdim(U ) such that for 0 ≤ j, k ≤ dim(U ) we have ord pk (zk ) 6= 0 and
+                                            ord p j (zk ) = 0 when j > k.
+                                               Then there is no non-Aurifeuillian Q -linear Machin-type BBP logarithm formula for
+                                            ln(z0 ).
+
+                                            Proof Suppose, to the contrary, that there is a Machin-type BBP formula for ln(z0 ),
+                                            i.e., ln(z0 ) ∈ V := span{ln(1 − b−m ) : 1 ≤ m ≤ M} for some M < ∞. Without
+                                            loss of generality, we may assume M ≥ M0 , i.e., U ⊆ V . For k > dim(U ) let
+                                            mk := M0 + k − dim(U ), so mk ranges over M0 + 1 ≤ mk ≤ M as k ranges over
+                                            dim(U ) + 1 ≤ k ≤ dim(U ) + M − M0 . Let zk := 1 − b−mk , and let pk denote
+                                            a primitive prime factor of bmk − 1. (Note that pk exists since mk > M0 ≥ Mb .)
+                                            Clearly, V = span{ln(zk ) : 0 ≤ k ≤ dim(U ) + M − M0 }. We shall show that zk , pk ,
+                                            0 ≤ k ≤ dim(U ) + M − M0 satisfy the conditions of Lemma 5. This will establish
+                                            our result since the linear independence of ln(zk ) contradicts our assumption that
+                                            ln(z0 ) ∈ V .
+                                                To show our zk , pk satisfy the conditions of Lemma 5 we note that ord pk (zk ) 6= 0 by
+                                            our assumptions and that, for k > dim(U ), we have ord pk (1 − b−mk ) = ord pk (bmk −
+                                            1) 6= 0. It remains to show that ord p j (zk ) = 0 when j > k.
+                                                We first treat the case k = 0. By assumption, ord p j (z0 ) = 0 for 1 ≤ j ≤ dim(U ).
+                                            For j > dim(U ), p j is a primitive prime factor of bm j − 1, and m j > M0 . By
+                                            Fermat’s “Little Theorem”, we know that if p is a primitive prime factor of bm − 1
+                                            then m | p − 1 and thus p ≥ m + 1. Thus p j ≥ m j + 1 > M0 + 1 ≥ p0 , and
+                                            it follows that ord p j (z0 ) = 0 since, by definition, p0 is the largest prime such that
+                                            ord p0 (z0 ) 6= 0.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 916                                                                  J. M.Borwein, D. Borwein and W. F. Galway
+
+                                               We next treat the case 1 ≤ k ≤ dim(U ). Again, by assumption, ord p j (zk ) = 0
+                                            for 1 ≤ k < j ≤ dim(U ). Since ln(zk ) ∈ U , we know that ln(zk ) is a Q -linear
+                                            combination of elements of the form ln(1 − b−m ), 1 ≤ m ≤ M0 . Thus, there are
+                                            nm ∈ Z, not all zero, and some n 6= 0, such that
+                                                                                                M0
+                                                                                                Y
+                                            (52)                                        zkn =         (1 − b−m )nm .
+                                                                                                m=1
+
+                                            Now, when j > dim(U ) we have ord p j (1 − b−m ) = 0 for 1 ≤ m ≤ M0 , since p j is
+                                            a primitive prime factor of bm j − 1 and m j > M0 . From this and Equation (52) it
+                                            follows that
+                                                                                  M0
+                                                                                1X
+                                                                ord p j (zk ) =       nm ord p j (1 − b−m ) = 0.
+                                                                                n m=1
+                                               Finally, when dim(U ) < k < j, ord p j (zk ) = 0 follows from the fact that p j is a
+                                            primitive prime factor of bm j − 1.
+
+                                            Remark Theorem 6 implies that when searching for a non-Aurifeuillian Machin-
+                                            type BBP logarithm formula for ln(z0 ), one only need consider generators ln(1 −
+                                            b−m ), 1 ≤ m ≤ M0 , with M0 as in Equation (51).
+
+                                            Example 4 When Mb = 0 it follows that there is no Machin-type BBP logarithm
+                                            formula for ln(b) to the base b. In particular, there is no decimal Machin-type BBP
+                                            logarithm formula for ln(10). Here we use z0 = b, p0 the largest prime divisor of
+                                            b. For k > 0 we use zk := 1 − b−k and choose pk to be any primitive prime factor
+                                            of bk − 1, noting that pk exists since Mb = 0. Our result then follows immediately
+                                            from Theorem 6. Since, when Mb = 0, there is no b-ary formula for ln(b), it seems
+                                            unlikely in this case that there is a b-ary formula for any ln(n), n ∈ N, but we have
+                                            failed to prove this.
+
+                                            Example 5 When b = 7 = 23 − 1 we have Mb = 2, and the argument of the
+                                            previous example does not apply. However, again we find that there is no 7-ary
+                                            Machin-type BBP logarithm formula for ln(7). Here we have z0 = 7, p0 = 7. Since
+                                            M0 = max(Mb , p0 − 1) = 6, we need to find suitable zk , pk for 1 ≤ k ≤ 6. We begin
+                                            with z1 = 8/7, p1 = 2; z2 = 48/49 = 1 − 7−2 , p2 = 3. For k > Mb = 2 we can
+                                            simply use zk = 1 − 7−k , pk some primitive prime factor of 7k − 1. We can easily see
+                                            that the conditions for Theorem 6 are satisfied, and the result follows.
+
+                                            Remark In Example 5, when k = 1 we had to modify the “obvious” choice of basis
+                                            element, namely zk = 1 − 7−k , in order to make our pk satisfy the conditions of
+                                            Theorem 6. In particular, we require ord3 (z1 ) = 0. We accomplished this task by
+                                            using valuation vectors. Here, indexing by the primes {7, 2, 3} (in that order), the
+                                            valuation vector for 7 is v0 := [1, 0, 0], while the vectors for 1 − 7−1 = 6/7 and
+                                            1 − 7−2 = 48/49 are v1 := [−1, 1, 1] and v2 := [−2, 4, 1] respectively. Searching for
+                                            z1 such that ord3 (z1 ) = 0 leads us to find the valuation vector [−1, 3, 0] = v2 − v1 ,
+                                            and thus z1 = 7−1 · 23 = 8/7.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                           917
+
+                                            Example 6 To demonstrate the result of Theorem 4 in the language of Theorem 6,
+                                            we begin with z0 = 23, p0 = 23, z1 = 1 − 1/2, p1 = 2. Our rule of thumb starting
+                                            with k = 2 will be to use zk = 1 − 2−mk for an increasing sequence mk , and to
+                                            choose pk to be a primitive prime factor of 2mk − 1. Thus, z2 = 1 − 2−2 = 3/4,
+                                            p2 = 3, z3 = 1 − 2−3 = 7/8, p2 = 7, . . . . We let m6 = 7 rather than 6, since
+                                            ln(1 − 2−6 ) is linearly dependent on earlier ln(zk ). Continuing in this manner, letting
+                                            mk+1 = mk +1, we come to z10 = 1−2−11 . We have 211 −1 = 23·89, both factors being
+                                            primitive prime factors. Since 23 = p0 , we choose p10 = 89. For k > 10 we may
+                                            continue using our rule of thumb, with no complications, through mk = M0 = 22,
+                                            at which point we have established the necessary conditions for Theorem 6.
+                                               We again note that it is not always necessary to present pk explicitly. More specif-
+                                            ically, when mk > Mb we are assured that bmk − 1 has a primitive prime factor pk ,
+                                            and to guarantee that pk has not occurred earlier in our sequence we only need check
+                                            that gcd(z0 , bmk − 1) = 1.
+
+                                            Remarks (i) We have been unable to exclude the possibility that there might be a
+                                            binary Machin-type BBP logarithm formula for ln(23) that uses some Aurifeuillian
+                                            generators, although it seems unlikely. Using Equation (45), and some simple num-
+                                            ber theory, one can also show for odd primes p that
+
+                                                                                         1 − (1 + i)2−m
+                                                                                                          
+                                                                                 ord p                        6= 0
+
+                                            implies ν2 (p) ≡ 0 (mod 4). This restricts the possibilities for any Aurifeuillian binary
+                                            Machin-type BBP logarithm formula for ln(23) and suggests that any such represen-
+                                            tation must have truly “massive” generators, if it exists at all.
+                                                (ii) It is interesting to contrast ln(23) with ln(113), since the cases are similar, but
+                                            ln(113) does have an Aurifeuillian binary Machin-type BBP logarithm formula. Here
+                                            we have ν2 (113) = 28, and 228 − 1 = 3 · 5 · 29 · 43 · 113 · 127.
+                                                Since we also have ν2 (29) = 28 then, as illustrated immediately after the proof of
+                                            Theorem 4, we can conclude that ln(113) has no non-Aurifeuillian binary Machin-
+                                            type BBP logarithm formula. However, using Equation (44), we find that
+
+                                                                      228 − 1 = (214 − 1)(27 + 24 + 1)(27 − 24 + 1),
+
+                                            where 27 − 24 + 1 = 113. Using Equation (43), it follows that
+
+                                                                    ln(113) = 2 ln 1 − (1 + i)2−4 − 7 ln(1 − 2−1 ),
+
+                                            which is a linear combination of binary Machin-type logarithmic generators, the first
+                                            term being an Aurifeuillian generator.
+
+
+                                 3.4      Applications to Arctangent Formulae
+                                            We now apply Theorem 3 (Bang’s Theorem) to demonstrate that there are no b-ary
+                                            Machin-type arctangent formulae for π unless b = 2.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 918                                                             J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            Theorem 7 Given b > 2 and not a proper power, there is no Q -linear b-ary Machin-
+                                            type BBP arctangent formula for π.
+
+                                            Proof It follows immediately from the definition of a Q -linear Machin-type BBP
+                                            arctangent formula (Definition 1) that any such formula has the form
+                                                                                            M
+                                                                                         1X
+                                            (53)                                  π=           nm ℑ ln(bm − i),
+                                                                                         n m=1
+
+                                            where n ∈ N, nm ∈ Z, and M ≥ 1, nM 6= 0. This implies that
+                                                                               M
+                                                                               Y
+                                            (54)                                     (bm − i)nm ∈ eniπ Q × = Q × .
+                                                                               m=1
+
+                                            For any b > 2 and not a proper power we have Mb ≤ 2, so it follows from Bang’s
+                                            Theorem that b4M − 1 has a primitive prime factor, say p. Furthermore, p must be
+                                            odd, since p = 2 can only be a primitive prime factor of bm − 1 when b is odd and
+                                            m = 1. Since p is a primitive prime factor, it does not divide b2M − 1, and so p must
+                                            divide b2M + 1 = (bM + i)(bM − i). We cannot have both p | bM + i and p | bM − i,
+                                            since this would give the contradiction that p | (bM + i) − (bM − i) = 2i.
+                                                It follows that p ≡ 1 (mod 4), and that p factors as p = pp over Z[i], with exactly
+                                            one of p, p dividing bM − i. Referring to Definition 2, we see that we must have
+                                            ϑ p (bM − i) 6= 0. Furthermore, for any m < M neither p nor p can divide bm − i
+                                            since this would imply p | b4m − 1, 4m < 4M, contradicting the fact that p is a
+                                            primitive prime factor of b4M − 1. So for m < M we have ϑ p (bm − i) = 0. Referring
+                                            to Equation (54), using Equation (41) and nM 6= 0, we get the contradiction that
+                                                                                           M
+                                                                                           X
+                                                              0 6= nM ϑ p (bM − i) =             nm ϑ p (bm − i) = ϑ p (Q × ) = 0.
+                                                                                           m=1
+
+                                            Thus, our assumption that there was a b-ary Machin-type BBP formula for π must
+                                            be false.
+
+                                                We finish the section with our deferred proof.
+
+                                            Proof of Theorem 2b It again follows from the definition of a Q -linear Machin-
+                                            type BBP arctangent formula (Definition 1) that any such formula may be written
+                                            as
+                                                                                                    M
+                                                                                                    X
+                                            (55)                        n arctan(y/x) + tπ =              nm ℑ ln(bm − i),
+                                                                                                    m=1
+
+                                            where n ∈ N, nm , t ∈ Z, and M ≥ 1, nM 6= 0. This implies that
+                                                                M
+                                                                Y
+                                            (56)                      (bm − i)nm ∈ (x + i y)n (1 + i)4t Q × = (x + i y)n Q × .
+                                                                m=1
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                               919
+
+                                                It follows from Bang’s Theorem that b4M − 1 has a primitive prime factor, say p ′ .
+                                            Furthermore, p ′ must be odd, since p ′ = 2 can only be a primitive prime factor of
+                                            bm − 1 when b is odd and m = 1. Since p ′ is a primitive prime factor, it does not
+                                            divide b2M − 1, and so p ′ must divide b2M + 1 = (bM + i)(bM − i). Again, we cannot
+                                            have both p ′ | bM + i and p ′ | bM − i, since this would give the contradiction that
+                                            p ′ | (bM + i) − (bM − i) = 2i. It follows that p ′ ≡ 1(mod 4), and that p ′ factors as
+                                            p ′ = p ′ p ′ over Z[i], with exactly one of p ′ , p ′ dividing bM − i.
+                                                Referring to Equation (56), using Equation (41) and nM 6= 0, we have
+                                                                                         M
+                                                                                         X
+                                                             0 6= nM ϑ p ′ (bM − i) =          nm ϑ p ′ (bm − i) = ϑ p ′ (x + i y)n .
+                                                                                         m=1
+
+                                            In consequence p ′ = p, since p is the unique prime divisor of x2 + y 2 congruent to 1
+                                            modulo 4. It follows that 4M = νb (p) = νb (q) and hence, much as above, that
+                                                                                        M
+                                                                                        X
+                                                            0 6= nM ϑq (bM − i) =             nm ϑq (bm − i) = ϑq (x + i y)n = 0,
+                                                                                        m=1
+
+                                            where the final equality is by hypothesis. Thus, our assumption that there was a non-
+                                            Aurifeuillian b-ary Machin-type BBP formula for arctan(x/y) must be false.
+
+                                 A BBP Formulae for Machin-Type BBP Generators
+                                            For b not a proper power, b > 2 our arctangent generators are
+
+                                                      arctan(−b−m ) = ℑ ln(1 − ib−m ) = b−3m P(1, b4m , 4, [−b2m , 0, 1, 0]).
+
+                                            When b = 2, we also use the “Aurifeuillian” generators
+
+                                                arctan(1/(1 − 2m )) = ℑ ln(1 − (1 + i)2−m )
+                                                          = 2−7m+3 P(1, 28m−4 , 8, [−26m−3 , −25m−2 , −24m−2 , 0, 22m−1 , 2m , 1, 0]).
+
+                                                For b not a proper power, b > 2 our logarithmic generators are
+                                                                                                     X      1 −mk
+                                                                           ln(1 − b−m ) = −b−m                 b  .
+                                                                                                           k+1
+                                                                                                     k≥0
+
+                                            In terms of Bailey’s P(s, b, n, A), these generators are
+
+                                                                            ln(1 − b−m ) = −b−m P(1, bm , 1, [1]).
+
+                                            When b = 2, we also use the “Aurifeuillian” generators
+
+                                                ln 1 − (1 + i)2−m
+                                                       = 2−8m+4 P(1, 28m−4 , 8, [−27m−4 , 0, 25m−3 , 24m−2 , 23m−2 , 0, −2m−1 , −1]).
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 920                                                               J. M.Borwein, D. Borwein and W. F. Galway
+
+                                               Note that the BBP formulae for both the arctangent and logarithmic Aurifeuillian
+                                            generators may be derived by extracting imaginary and real parts (for arctangent and
+                                            logarithmic generators, respectively) from the formula
+                                                                                             8
+                                                                                             X                     X (1 + i)8k
+                                                            ln(1 − (1 + i)2−m ) = −                2−mr (1 + i)r                    2−8mk
+                                                                                             r=1
+                                                                                                                          8k + r
+                                                                                                                   k≥0
+
+                                                                                             8
+                                                                                             X                     X       1
+                                                                                        =−         2−mr (1 + i)r                2(4−8m)k .
+                                                                                             r=1
+                                                                                                                         8k + r
+                                                                                                                   k≥0
+
+
+
+                                 B Conversion to Polylogarithmic Formulae
+                                            In this Appendix we shall analyze vector spaces of constants with polylogarithmic BBP
+                                            formulae, i.e., constants κ which have the form
+                                                                       n
+                                                                      XX            aj
+                                            (57)                κ=                       s
+                                                                                           b−mk = P(s, bm , n, [a1 , . . . , an ]),
+                                                                             j=1
+                                                                                 (nk + j)
+                                                                       k≥0
+
+                                            with a j ∈ Q , s, b, m, n ∈ N, b > 1. Our main purpose is to demonstrate that any
+                                            constant with a Machin-type BBP formula also has a polylogarithmic BBP formula.
+                                            (Although our interest will be focused on the case where b is not a proper power we
+                                            allow any b ∈ N, b > 1.)
+
+                                            Definition 5 Recall that span{αk } denotes the vector space over Q spanned by the
+                                            set {αk }. Given s, b, m, n ∈ N, b > 1, let
+                                                                         X                               
+                                                                                   1      −mk
+                                                       V s,b,m,n := span                 b    :1≤ j≤n ,
+                                                                              (nk + j)s
+                                                                          k≥0
+                                                                         [                                 [        
+                                                        V s,b,m := span       V s,b,m,n ,     V s,b := span     V s,b,m .
+                                                                                  n≥1                                         m≥1
+
+                                               Referring to Appendix A, we see that our non-Aurifeuillian arctangent generators,
+                                            arctan(−b−m ), lie in V 1,b,4m,4 . The Aurifeuillian arctangent generators, arctan(1/(1−
+                                            2m )), lie in V 1,2,8m−4,8 . In the case of our logarithmic generators we have ln(1 −
+                                            b−m ) ∈ V 1,b,m,1 (non-Aurifeuillian generators), while
+                                                                               ln 1 − (1 + i)2−m ∈ V 1,2,8m−4,8
+                                            (Aurifeuillian generators).
+
+                                            Lemma 8          Given d ∈ N we have
+                                            (58)                                        V s,b,m,n ⊆ V s,b,m,dn ,
+                                            and
+                                            (59)                                        V s,b,m ⊆ V s,b,dm,dn .
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                               921
+
+                                            Proof To establish (58) we note that κ ∈ V s,b,m,n is equivalent to
+
+                                                                                 n X
+                                                                                 X              aj
+                                            (60)                          κ=                           b−mk
+                                                                                 j=1 k≥0
+                                                                                             (nk + j)s
+                                                                                 n X
+                                                                                 X              ds a j
+                                                                             =                            b−mk
+                                                                                 j=1 k≥0
+                                                                                             (dnk + d j)s
+
+                                                                                 dn X
+                                                                                 X                   a ′j
+                                                                             =                                   b−mk ∈ V s,b,m,dn ;
+                                                                                 j=1 k≥0
+                                                                                             (dnk + j)s
+
+                                            where we let                                    (
+                                                                                                ds a j/d        when d | j,
+                                                                                  a ′j :=
+                                                                                                0               otherwise.
+
+                                                Similarly, to establish (59) we proceed from Equation (60) to find
+
+                                                                               n XX
+                                                                                  d−1
+                                                                               X                   a j b−mr
+                                                                        κ=                                     s
+                                                                                                                 b−dmk
+                                                                               j=1 k≥0      r=0
+                                                                                                (dnk +  nr + j)
+
+                                                                               dn X
+                                                                               X                  a ′j ′
+                                                                           =                                    b−dmk ∈ V s,b,dm,dn ;
+                                                                                            (dnk + j ′ )s
+                                                                               j ′ =1 k≥0
+
+
+                                            where we let j ′ := nr + j, so that r = ⌊ j ′ /n⌋, j ≡ j ′ (mod n), 1 ≤ j ≤ n, and where
+                                            a ′j ′ := a j b−mr .
+
+                                            Theorem 9          Given κ ∈ V s,b,m then κ ∈ V s,b,m,n , where n depends on κ.
+
+                                            Proof Let κ = κ1 + κ2 where κ1 ∈ V s,b,m,n1 , κ2 ∈ V s,b,m,n2 . From (58), it follows
+                                            that both κ1 and κ2 are elements of V s,b,m,lcm(n1 ,n2 ) , and thus κ ∈ V s,b,m,lcm(n1 ,n2 ) .
+                                               By definition, κ ∈ V s,b,m means that
+                                                                                                     X
+                                            (61)                                             κ=                αq κq ,
+                                                                                                           q
+
+
+                                            where αq ∈ Q , κq ∈ V s,b,m,nq , and where the sum is finite. By using induction on
+                                            the number of terms on the right side of (61), applying the result of the previous
+                                            paragraph when summing two terms, the conclusion follows.
+
+                                            Theorem 10           Given κ ∈ V s,b then κ ∈ V s,b,m,n , where m, n depend on κ.
+
+                                            Proof Let κ = κ1 + κ2 where κ1 ∈ V s,b,m1 , κ2 ∈ V s,b,m2 . By Theorem 9 we
+                                            may assume that κ1 ∈ V s,b,m1 ,n1 , κ2 ∈ V s,b,m2 ,n2 . Applying (59) and then (58),
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 922                                                               J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            it follows that both κ1 and κ2 are elements of V s,b,lcm(m1 ,m2 ),lcm(N1 ,N2 ) , where N1 :=
+                                            n1 m2 / gcd(m1 , m2 ), N2 := n2 m1 / gcd(m1 , m2 ).
+                                                By definition, κ ∈ V s,b means that
+                                                                                      X
+                                            (62)                                  κ=       αq κq ,
+                                                                                                    q
+
+                                            where αq ∈ Q , κq ∈ V s,b,mq , and where the sum is finite. By using induction on
+                                            the number of terms on the right side of (62), applying the result of the previous
+                                            paragraph when summing two terms, the conclusion follows.
+
+                                               The above proofs implicitly give a constructive method for finding a polyloga-
+                                            rithmic BBP formula for any element of V s,b . In particular we may find a poly-
+                                            logarithmic BBP formula for any constant with a b-ary Machin-type BBP formu-
+                                            lae, since such constants lie within V 1,b . For example, in Section 2.5 we found that
+                                            arctan(1/6) = arctan(1/5) − arctan(1/31).
+                                               Referring to Appendix A, and using Bailey’s P(s, b, n, A), we have
+
+                                                   arctan(1/5) = 2−11 P(1, 212 , 8, [29 , −28 , 26 , 0, −23 , 22 , −1, 0]) ∈ V 1,2,12,8 ,
+                                                 arctan(1/31) = 2−32 P(1, 236 , 8, [227 , 223 , 218 , 0, −29 , −25 , −1, 0]) ∈ V 1,2,36,8 .
+
+                                            Note that Appendix A covers arctan(1/5) as it equals arctan(1/3) − arctan(1/8), by
+                                            the note at the end of Section 2.4. Applying (59) from Lemma 8, we can re-express
+                                            arctan(1/5) as an element of V 1,2,36,24 , giving
+
+                                              arctan(1/5) = 2−11 P(1, 236 , 24, [ 29 , −28 , 26 , 0, −23 , 22 , −1, 0,
+                                                                                             2−3 , −2−4 , 2−6 , 0, −2−9 , 2−10 , −2−12 , 0,
+                                                                                             2−15 , −2−16 , 2−18 , 0, −2−21 , 2−22 , −2−24 , 0 ]).
+
+                                            We then apply (58) in order to re-express arctan(1/31) as an element of V 1,2,36,24 ,
+                                            giving
+
+                                                      arctan(1/31) = 2−32 P(1, 236 , 24,
+                                                                                    [ 0, 0, 3 · 227 , 0, 0, 3 · 223 , 0, 0, 3 · 218 , 0, 0, 0,
+                                                                                        0, 0, −3 · 29 , 0, 0, −3 · 25 , 0, 0, −3, 0, 0, 0 ]).
+
+                                            Finally, taking the difference of these two results and factoring out the denominator
+                                            from the vector of coefficients, we get
+
+                                                    arctan(1/6) = arctan(1/5) − arctan(1/31)
+                                                                     = 2−35 P(1, 236 , 24, [ 233 , −232 , −231 , 0, −227 , −227 , −224 , 0,
+                                                                                                 −222 , −220 , 218 , 0, −215 , 214 , 213 , 0,
+                                                                                                 29 , 29 , 26 , 0, 24 , 22 , −1, 0 ]).
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                            923
+
+                                 C Density Results
+                                            We discuss the density of arctangents with Machin-type BBP arctangent formulae.
+                                            We begin by noting that if θ = arctan(ρ) has a Machin-type BBP formula then any
+                                            element of θ Q has a Q -linear arctangent formula. For a fixed base b, we have Machin-
+                                            type BBP arctangent formulae for ℑ ln(1 − ib−m ), so any one of these will generate
+                                            a dense set of θ ∈ R with base b Q -linear Machin-type BBP arctangent formula. If,
+                                            in order to be considered an “arctangent”, we prefer the convention that θ satisfies
+                                            −π/2 < θ < π/2, it remains clear that the set of θ ∈ (−π/2, π/2) with a Q -linear
+                                            Machin-type BBP arctangent formula is dense.
+                                                If we prefer to restrict ourselves to θ with Z-linear arctangent formulae, then the
+                                            set nθ, n ∈ Z, is not dense in R. On the other hand, if we write θ = ℑ ln(x + i y)
+                                            and define xn , y n to satisfy xn + i y n := (x + i y)n , n ∈ Z, then nθ ≡ ℑ ln(xn + i y n ) ≡
+                                            arctan(y n /xn ) (mod π). In other words tan(nθ) = y n /xn for all n ∈ Z. By [NZM91,
+                                            Theorem 6.16], θ cannot be a rational multiple of π unless tan(θ) ∈ {0, ±1, ∞}. In
+                                            particular, for fixed b ≥ 2, θ = ℑ ln(1 − ib−m ) = arctan(−b−m ) is not a rational
+                                            multiple of π for any m ∈ N, since −b−m 6∈ {0, ±1, ∞}.
+                                                It follows by Weyl’s theorem [HW79, Theorem 445] that for such θ the sequence
+                                            nθ is uniformly distributed modulo π. Thus, if there is a b-ary Z-linear Machin-
+                                            type BBP formula for π then the set n1 θ + n2 π, n1 , n2 ∈ Z, is dense in the interval
+                                            (−π/2, π/2), and clearly n1 θ + n2 π has a b-ary Z-linear Machin-type BBP arctangent
+                                            formula. If there is no b-ary Z-linear Machin-type BBP formula for π we may still
+                                            conclude {tan(nθ) : n ∈ Z} is dense in R.
+                                                Finally, suppose b and x + i y satisfy Theorem 2. That is, suppose there is a prime
+                                            p ∤ b, p ≡ 1 (mod 4), 4 ∤ νb (p), and ϑ p (x + i y) 6= 0. By Theorem 2, there is no Q -
+                                            linear Machin-type BBP formula for arctan(y/x). Furthermore, since ϑ p ((x+i y)n ) =
+                                            nϑ p (x + i y), there is no Q -linear Machin-type BBP formula for arctan(y n /xn ) for any
+                                            n 6= 0, n ∈ Z. Thus, provided x/y 6∈ {0, ±1, ∞}, the set {arctan(y n /xn )} is dense in
+                                            R, and no member has a b-ary Q -linear arctangent formula.
+
+
+                                 D Comments and Research Problems
+                                            We’ve tried to arrange these comments in increasing order of difficulty.
+                                                (1) Note that 3 + i = 2 + (1 + i) = 4 − (1 − i), gives two distinct binary Machin-
+                                            type BBP formulae for arctan(1/3). Should this count as a trivial zero relation, or is
+                                            it “interesting”?
+                                                (2) How many Q -linearly-independent binary Machin-type BBP arctangent zero
+                                            relations exist? Are there good upper bounds?
+                                                (3) The first BBP formula found for π in [BBP97] was
+                                                                 X 4               2         1          1
+                                                                                                             
+                                            (63)            π=                 −        −          −           2−4k .
+                                                                        8k + 1 8k + 4 8k + 5 8k + 6
+                                                                       k≥0
+
+                                            This does not appear to be a Q -linear combination of Machin-type BBP generators.
+                                            (Equation (64), below, is an aid in seeing this.) Is there a simple way to derive (63)
+                                            from a Machin-type formula?
+                                               (4) If infinitely many primes p ≡ 1 (mod 4) with 4 ∤ νb (p) exist, then Theorem 2
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 924                                                         J. M.Borwein, D. Borwein and W. F. Galway
+
+                                            gives infinitely many examples base b with no b-ary Machin-type BBP arctangent
+                                            formula. Does their existence follow from Chebotarëv’s density theorem, or another
+                                            well-known result?
+                                                (5) Our main tool has been group homomorphisms like z 7→ ord p (z) and z 7→
+                                            ϑ p (z). When ord p (z) = 0 can one similarly use the homomorphism z 7→ (z/p)
+                                            arising from the Jacobi symbol (z/p)? As (z/p) ∈ {−1, 1} when ord p (z) = 0, each
+                                            such homomorphism only gives a “bit” of information. It should be possible to get
+                                            more information by choosing many such p.
+                                                (6) Our use of ord p and ϑ p works best when we can factor numbers rapidly. Since
+                                            factorization is difficult in general, can we combine our approach with the use of
+                                            an integer relation algorithm such as PSLQ [FBA99]? The idea would be to find the
+                                            “easy” factors, and use the resulting information to help guide PSLQ.
+                                                (7) Zsigmondy’s theorem has been generalized to number fields [Sch74, BHV01],
+                                            in what Carl Pomerance calls a grand generalization of Bang’s theorem, with effec-
+                                            tive bounds on the exceptional cases. These should give an effective version of Zsig-
+                                            mondy’s theorem for Q [i], providing an exclusion criterion for Machin-type BBP
+                                            arctangent formulae analogous to Theorem 6.
+                                                (8) For the binary case, can we find exclusion criteria that deal with Aurifeuillian
+                                            generators in logarithm formulae?
+                                            P (9) We −k
+                                                        could generalize the definition of a BBP-formula to allow sums of the form
+                                                k≥0 b   p(k)/q(k), b ∈ Z[i], p, q ∈ Z[i, k]. Doing so should avoid the need to treat
+                                            arctangents and logarithms as separate cases. Could we get cleaner or more general
+                                            results this way?
+                                                (10) Let ζn denote a primitive nth root of unity, and recall that L(s, b, n, A) is
+                                            defined by Equation (3). It is clear that for 1 ≤ j ≤ n we have
+                                                                                            n−1
+                                                                                     1      X
+                                            (64)                    L(1, b, n, j) = − b j/n     ζn−r j ln(1 − ζnr b−1/n ).
+                                                                                     n      r=0
+
+                                            (In his answer to [Knu98, Exercise 4.3.1.39], Knuth gives a different version of an ex-
+                                            plicit formula for L(1, b, n, j).) Can our techniques be applied to determine whether
+                                            κ is a linear combination of L(1, bm , n, j), with b, and perhaps n, fixed? This would
+                                            probably require a good understanding of Q [ζn , b1/n ], among other things.
+                                               (11) How can we justify the idea that our limited set of “Machin-type” BBP gen-
+                                            erators gives all (or most) “interesting” arctans and logs?
+                                            Acknowledgements Carl Pomerance was the first to observe the importance of
+                                            Bang’s theorem as a tool for excluding the possibility of non-Aurifeuillian logarithm
+                                            formulae. Pomerance also provided references for some of the papers, cited above,
+                                            that generalize Zsigmondy’s Theorem. Imin Chen and Nils Bruin gave advice on var-
+                                            ious aspects of ord p and algebraic number theory. The material in Appendix B is
+                                            adapted from notes provided by David Bailey.
+
+                                   References
+                                            [Bai00]     David H. Bailey, A compendium of BBP-type formulas for mathematical constants. Manuscript
+                                                        available at http://www.nersc.gov/∼dhbailey/dhbpapers, March 2004.
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+                                 Machin-Type BBP Formulae                                                                                      925
+
+                                            [BB98]  Jonathan M. Borwein and Peter B. Borwein, Pi and the AGM, a study in analytic number theory
+                                                    and computational complexity. John Wiley & Sons, New York, 1998.
+                                            [BB03]  Jonathan M. Borwein and David H. Bailey, Mathematics by Experiment: Plausible Reasoning in
+                                                    the 21st Century. A K Peters, Nattick, MA, 2003.
+                                            [BBP97] David Bailey, Peter Borwein, and Simon Plouffe, On the rapid computation of various
+                                                    polylogarithmic constants. Math. Comp. 66(1997), 903–913.
+                                            [BC01]  David H. Bailey and Richard E. Crandall, On the random character of fundamental constant
+                                                    expansions. Experiment. Math. 10(2001), 175–190.
+                                            [BHV01] Yu. Bilu, G. Hanrot, and P. M. Voutier, Existence of primitive divisors of Lucas and Lehmer
+                                                    numbers. With an appendix by M. Mignotte. J. Reine Angew. Math. 539(2001), 75–122.
+                                            [BLS88] John Brillhart, D. H. Lehmer, J. L. Selfridge, Bryant Tuckerman, and S. S. Wagstaff, Jr.,
+                                                    Factorizations of bn ± 1, b = 2, 3, 5, 6, 7, 10, 11, 12 up to high powers. second ed., American
+                                                    Mathematical Society, Providence, RI, 1988, (Third ed. available at
+                                                    http://www.ams.org/online bks/conm22).
+                                            [Bre93] Richard P. Brent, On computing factors of cyclotomic polynomials. Math. Comp. 61(1993),
+                                                    131–149.
+                                            [Bro98] D. J. Broadhurst, Polylogarithmic ladders, hypergeometric series and the ten millionth digits of
+                                                    ζ(3) and ζ(5). Available at http://xxx.lanl.gov/abs/math/9803067, March 1998.
+                                            [Cha]   Marc Chamberland, Binary BBP-forumulas for logarithms, cyclotomic polynomials and
+                                                    Aurifeuillian identities. Draft of circa December, 2001, to appear.
+                                            [Coh93] Henri Cohen, A course in computational algebraic number theory. Graduate Texts in
+                                                    Mathematics, 138, Springer-Verlag, Berlin, 1993.
+                                            [FBA99] Helaman R. P. Ferguson, David H. Bailey, and Steve Arno, Analysis of PSLQ, an integer relation
+                                                    finding algorithm. Math. Comp. 68(1999), 351–369.
+                                            [HW79] G. H. Hardy and E. M. Wright, An introduction to the theory of numbers. Fifth ed., Oxford
+                                                    University Press, Oxford, 1979.
+                                            [Knu98] Donald E. Knuth, The art of computer programming. vol. 2: Seminumerical algorithms, third
+                                                    ed., Addison-Wesley, Reading, Mass., 1998.
+                                            [Kob84] Neal Koblitz, p-adic numbers, p-adic analysis, and zeta-functions. Second ed., Graduate Texts
+                                                    in Mathematics, 58, Springer-Verlag, New York, 1984.
+                                            [NZM91] Ivan Niven, Herbert S. Zuckerman, and Hugh L. Montgomery, An introduction to the theory of
+                                                    numbers. Fifth ed., John Wiley & Sons, New York, 1991.
+                                            [Per00] Colin Percival, The quadrillionth bit of pi is ’0’. See
+                                                    http://www.cecm.sfu.ca/projects/pihex/announce1q.html, September 2000.
+                                            [Rib91] Paulo Ribenboim, The little book of big primes. Springer-Verlag, New York, 1991.
+                                            [Rib94]         , Catalan’s conjecture: Are 8 and 9 the only consecutive powers? Academic Press, Boston,
+                                                    MA, 1994.
+                                            [Rie94] Hans Riesel, Prime numbers and computer methods for factorization. Second ed., Birkhäuser,
+                                                    Boston, MA, 1994.
+                                            [Roi97] Moshe Roitman, On Zsigmondy primes. Proc. Amer. Math. Soc. 125(1997), 1913–1919.
+                                            [Sch74] A. Schinzel, Primitive divisors of the expression An − Bn in algebraic number fields. J. Reine
+                                                    Angew. Math. 268/269 (1974), 27–33.
+                                            [Wil98] Hugh C. Williams, Édouard Lucas and primality testing, Canadian Mathematical Society Series
+                                                    of Monographs and Advanced Texts, 22, John Wiley & Sons., New York, 1998.
+
+
+                                            Computer Science                                     Mathematics
+                                            Dalhousie University                                 University of Western Ontario
+                                            Halifax, NS                                          London, ON
+                                            B3H 1W5                                              N6A 5B7
+                                            e-mail: jborwein@cs.dal.ca                           e-mail: dborwein@uwo.ca
+
+                                            Mathematics
+                                            Simon Fraser University
+                                            Burnaby, BC
+                                            V5A 1S6
+                                            e-mail: wfgalway@cecm.sfu.ca
+
+
+
+
+https://doi.org/10.4153/CJM-2004-041-2 Published online by Cambridge University Press
+

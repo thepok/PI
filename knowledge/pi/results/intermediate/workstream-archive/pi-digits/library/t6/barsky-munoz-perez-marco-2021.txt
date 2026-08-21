@@ -1,0 +1,1643 @@
+                                                                     ON THE GENESIS OF BBP FORMULAS
+arXiv:1906.09629v4 [math.NT] 13 Feb 2023
+
+
+
+
+                                                            DANIEL BARSKY, VICENTE MUÑOZ, AND RICARDO PÉREZ-MARCO
+
+
+
+                                                   Abstract. We present a general procedure to generate infinitely many BBP and BBP-like formu-
+                                                   las for the simplest transcendental numbers. This provides some insight and a better understanding
+                                                   into their nature. In particular, we can derive the main known BBP formulas for π. We can under-
+                                                   stand why many of these formulas are rearrangements of each other. We also understand better
+                                                   where some null BBP formulas representing 0 come from. We also explain what is the observed re-
+                                                   lation between some BBP formulas for log 2 and π, that are obtained by taking real and imaginary
+                                                   parts of a general complex BBP formula. Our methods are elementary, but motivated by transal-
+                                                   gebraic considerations, and offer a new way to obtain and to search many new BBP formulas and,
+                                                   conjecturally, to better understand transalgebraic relations between transcendental constants.
+
+
+
+
+                                                                                         1. Introduction
+
+                                              More than 20 years ago, D.H. Bailey, P. Bowein and S. Plouffe ([5]) presented an efficient algorithm
+                                           to compute deep binary or hexadecimal digits of π without the need to compute the previous ones.
+                                           Their algorithm is based on a series representation for π given by a formula discovered by S. Plouffe,
+                                                                       +∞                                
+                                                                       X   1    4      2      1      1
+                                                                    π=              −      −      −         .                                           (1)
+                                                                          16k 8k + 1 8k + 4 8k + 5 8k + 6
+                                                                         k=0
+
+                                           Formulas of similar form for other transcendental constants were known from long time ago, like the
+                                           classical formula for log 2, that was known to J. Bernoulli,
+                                                                                                   +∞
+                                                                                                   X  1 1
+                                                                                         log 2 =                .
+                                                                                                         2k k
+                                                                                                   k=1
+
+                                           The reader can find in [4] an illustration of the way to extract binary digits from this type of formulae.
+                                              Many new formulas of this type, named BBP formulas, have been found for π and other higher
+                                           transcendental constants in the last decades (see [1], [26]). Plouffe’s formula, and others for π, can
+                                           be derived using integral periods (as in [5]), or more directly using polylogarithm ladder relations
+                                           at precise algebraic values (as in [10]), which can be viewed as generalizations of Machin-Störmer
+                                           relations (see [24] and [25]) for rational values of the arctangent function, and taking its Taylor series
+                                           expansions. In particular, we can recover in that way Bellard’s formula (see Bellard’s webpage [9]),
+                                           that seems to be the most efficient one for the purpose of computation of deep binary digits of π
+
+
+                                             2010 Mathematics Subject Classification. 11K16, 11J99.
+                                             Key words and phrases. pi, log(2), normal numbers, BBP formula.
+                                                                                                   1
+2                             D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+(see Remark 1.2),
+           +∞
+         1 X (−1)k          25            28      26      22      22
+                                                                                                    
+                                   1                                       1
+    π=                −         −      +       −       −       −       +                                 .
+         26   210k        4k + 1 4k + 3 10k + 1 10k + 3 10k + 5 10k + 7 10k + 9
+           k=0
+                                                                                                         (2)
+   Many of these formulas are rearrangements of each other, or related by null BBP formulas that
+represent 0. The origin of null BBP formulas is somewhat mysterious. Most of the formulas of this
+sort have been found by extensive computer search over parameter space using the PSLQ algorithm
+to detect integer relations. So their true origin and nature remainded somewhat mysterious. As the
+authors of [5] explain:
+  We found the identity by a combination of inspired guessing and extensive searching using the
+PSLQ integer relation algorithm.
+    and in [3]
+    This formula (1) was found using months of PSLQ computations after corresponding but simpler
+n-th digit formulas were identified for several other constants, including log(2). This is likely the
+first instance in history that a significant new formula for π was discovered by a computer.
+    We note also the observed mysterious numerical relation of BBP formulas for π and log(2).
+   For the purpose of computation of all digits of π up to a certain order, there are more efficient
+formulas given by rapidly convergent series of a modular nature, initiated by S. Ramanujan ([23]),
+that are at the origin of Chudnoskys’ algorithm based on Chudnovskys’ formula (see [16])
+                                   +∞
+                                  X (−1)k (6k)!(545140134k + 13591409)
+                           1
+                             = 12                                      .
+                           π
+                                   k=0
+                                          (3k)!(k!)3 (640320)3k+3/2
+
+Other methods of algorithmic nature include the Borwein quartic algorithm for π (see [13]) that
+approximately quadruples the number of correct digits with each iteration, and the Borwein nonic
+algorithm for π that approximately yields nine-times the number of correct digits.
+    A general BBP formula as defined in [6] for the constant α is a series of the form
+                                                     +∞   m
+                                                     X  1 X              al
+                              α = Q(d, b, m, A) =                               ,
+                                                           bk         (km + l)d
+                                                     k=0        l=1
+
+where b, d, m, are integers, b ≥ 2, and A = (a1 , a2 , . . . , am ) is an integer vector. The integer d ≥ 1
+is the degree of the formula. The classical BBP formula (1) and Bellard formula (2) are of degree 1.
+We study in this article formulas of degree 1. It would be interesting to extend the present results
+to get higher degree formulas. The integer b is called the base of the BBP formula, and digits in
+base b can be computed efficiently. Particular attention has been given to base b = 2n formulas, as
+they are useful in computing binary digits. They are called binary BBP formulas. While there are
+both base 2 and base 3 BBP formulas for some constants like π 2 (see [14]), no base 3 formula for π
+is known.
+    More generally, we can define BBP-like formulas to be of the general form
+                                                                +∞   m
+                                                                X  1 X              al
+                       α = Q(r0 , r1 , d, b, m, A) = r0 + r1                               ,             (3)
+                                                                      bk         (km + l)d
+                                                                k=0        l=1
+                                 ON THE GENESIS OF BBP FORMULAS                                        3
+
+
+where r0 and r1 are rational numbers. These more general BBP-like formulas have potentially similar
+computational applications.
+   But the interest of these formulas is also theoretical. A normal number in base b ≥ 2 is an
+irrational number α such that its expansion in base b contains any string of n consecutive digits
+with frequency b−n . These numbers were introduced in 1909 by É. Borel in an article where he
+proved that Lebesgue almost every number is normal in any base b ≥ 2 ([11], and the survey [22]).
+This result is a direct application of Birkhoff’s Ergodic Theorem to the dynamical system given by
+the transformation T : T → T, multiplication by the base T (x) = bx modulo 1, where T = R/Z.
+The transformation T preserves the Lebesgue measure which is an ergodic invariant measure. It is
+not difficult to construct explicit normal numbers, and numbers that are not normal, but there is no
+known example of “natural” transcendental constant that is normal in every base. It is conjectured
+that this holds for π and other natural transcendental constants, but this remains an open question.
+It is not even known if a given digit appears infinitely often in the base 10 expansion for π. We
+note recent results [7, 12] where the normality of certain class of constants has been proved, yet not
+including π.
+   An approach to prove normality in base b for any transcendental constant which admits a BBP
+formula in base b is proposed in [6]. The criterion, named “Hypothesis A”, seems related to Fursten-
+berg’s “multiplication by 2 and 3” conjecture (see [17]). Only a very particular class of period-like
+numbers have BBP formulas (for instante, as mentioned before, π 2 does). It is also natural to
+investigate the class of numbers with a BBP or BBP-like representation.
+   The main goal of this article is to present a general procedure to generate the most basic BBP
+and BBP-like formulas of degree 1 that correspond to the simplest transcendental numbers log p
+and π. With this new procedure we derive the classical formulas, like Bailey-Borwein-Plouffe or
+Bellard formulas, and understand better their origin, in particular the origin of null formulas, and
+the relation of BBP formulas for log 2 and π that correspond to take the real or imaginary parts
+of the same complex formula. We also understand better the redundancy of rearrangements in
+these formulas, and the method provides a tool to search for more formulas with a more conceptual
+approach. Although we do not find new BBP formulas, we recover the most important ones and we
+believe that the method presented can be further developed to discover new ones. We plan to carry
+this out in the future.
+   The procedure to generate BBP formulas is elementary and is motivated by considering the bases
+for first order asymptotics at infinite of Euler Gamma function and higher Barnes Gamma functions
+and the transalgebraic considerations that play an important role in [20] (see also [19]). To construct
+these asymptotic bases, we consider the family iterated integrals of 1s defined by I0 (s) = 1s , and for
+n ≥ 0,
+                            Z s                     Z s Z un     Z u0
+                                                                      1
+                 In+1 (s) =     In (u) du = . . . =          ...          du0 . . . dun−1 dun .
+                             1                       1   1        1   u 0
+It is elementary to check by induction that
+                                     In (s) = An (s) log s + Bn (s),
+where An , Bn ∈ Q[s] are polynomials with rational coefficients, with deg An = deg Bn = n − 1, and
+                                                      sn−1
+                                          An (s) =            ,
+                                                     (n − 1)!
+we have
+4                             D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+Theorem 1.1. Let s ∈ C, |s − 1| < 1, or |s − 1| = 1 and n ≥ 2. We have
+                                      +∞
+                                      X   (1 − s)j+n    sn−1
+                           In (s) =                  =          log s + Bn (s),
+                                           n! j+n      (n − 1)!
+                                                  
+                                      j=0       n
+or
+                                               +∞
+                                      (1 − s)n X (1 − s)j (n − 1)!
+                            log s =                j+n
+                                                        − n−1 Bn (s).
+                                       nsn−1         j
+                                                           s
+                                               j=0
+
+
+   Since Bn (s) has rational coefficients, we can take s = 1 − 1b and we get a BBP-like formula for
+log s. Taking suitable complex values for s, and separating real and imaginary parts, we also obtain
+BBP and BBP-like formulas for π. We prove that formulas for different values of n provide non-
+obvious rearrangements of the summations, which in part explains the rich “rearrangement algebra”
+of BBP formulas.
+   We recover many formulas with this procedure. For instance, all the formulas of log 2 appearing
+in Wikipedia [27] are given in (6)–(16). We also get the following classical formulas:
+                           +∞                                 
+                      5 X 1 1             3        3        1
+              log 2 = −                −      +        −         ,
+                      6        2k k      k+1 k+2 k+3
+                           k=1
+                        +∞                                       
+                   2 X 1            2     1        1/2       1/4
+           log 2 = +                  +       +         +           ,
+                   3        16k 8k 8k + 2 8k + 4 8k + 6
+                        k=1
+                         +∞                   
+                   8     X         1        1
+               π = +4                  −         ,
+                   3           4k + 1 4k + 3
+                         k=1
+                    ∞                                                                 
+                    X    1       2        2         1        1/2       1/2       1/4
+               π=                     +       +         −          −         −           .
+                        16k 8k + 1 8k + 2 8k + 3 8k + 5 8k + 6 8k + 7
+                     k=0
+
+   Also combining our formulas we can get some null formulas representing 0, as for example the
+following one appearing in [5]
+
+              +∞                                                     
+              X   1   −8      8      4      8      2      2      1
+           0=              +      +      +      +      +      −         .                              (4)
+                 16k 8k + 1 8k + 2 8k + 3 8k + 4 8k + 5 8k + 6 8k + 7
+               k=0
+
+   This gives some explanations of the mysteries mentioned before. For example, formulas for log 2
+and π are related by taking real and imaginary parts of formulas for complex values for s, for example
+for s = 1+i
+          2 . Null formulas can appear when comparing our formulas for different complex values
+of s taking real or imaginary parts. For example for s = 1/2 and s = 1+i  2 we do get the previous
+null formula. It is natural to ask if all null BBP formulas of degree 1 can be obtaining combining
+formulas from Theorem 1.1 for different values of s.
+     Certainly, we also recover the classical BBP formula (1) and Bellard formula (2).
+Remark 1.2. We can measure the efficiency of a BBP-like formula (3) for computing a number α as
+m̄/ log b, where m̄ is the number of non-zero coefficients in A = (a1 , a2 , . . . , am ), as this measures
+the number of non-zero summands for going to the next step in the digit computation. Binary BBP
+formulas, that is when b = 2, are of special relevance, since they allow to compute α in binary form.
+                                   ON THE GENESIS OF BBP FORMULAS                                    5
+
+
+In that case, we can take the logarithm in base 2. The efficiency of (1) is 1, whereas the efficiency
+of (2) is 7/10, a 43% faster.
+
+   The techniques of this article extend to other bases of iterated functions that we will discuss in
+future articles. We hope that our approach can be useful in finding more efficient BBP-formulas for
+π by more powerful algebraic computer search algorithms.
+
+Acknowledgements. We are very grateful to the anonymous referee that has made a large number
+of interesting suggestions to improve the exposition. We thank also Tomohiro Yamada for pointing
+out several corrections. The second author was partially supported by Project MINECO (Spain)
+PGC2018-095448-B-I00.
+
+                    2. Laplace-Hadamard regularization of polar parts
+
+   The Laplace-Hadamard regularization is related to work in [19] and [20].
+   For each n ≥ 0 we define the polynomials P0 = 0, and for n ≥ 1,
+                                                      n−1
+                                                      X     (1 − s)k k
+                                        Pn (s, t) =                 t .
+                                                               k!
+                                                      k=0
+
+We also define the iterated primitives of 1/s defined by I0 (s) = 1s , and for n ≥ 0,
+                          Z s                     Z s Z un     Z u0
+                                                                    1
+               In+1 (s) =     In (u) du = . . . =          ...          du0 . . . dun−1 dun .
+                           1                       1   1        1   u 0
+
+We call the integrals In (s) the Laplace-Hadamard regularization or the Laplace-Hadamard transform
+of 1/tn . The functions In (s) are holomorphic functions in C−]−∞, 0] and have an isolated singularity
+at 0 with non-trivial monodromy when n ≥ 1. We have a single integral expression for In (s) as a
+Laplace-Hadamard regularization:
+Proposition 2.1. For n ≥ 0 and ℜs > 0, or ℜs = 0 and n ≥ 2, we have
+                                      Z +∞
+                                    n       1 −st
+                                                  − Pn (s, t)e−t dt .
+                                                                
+                       In (s) = (−1)         n
+                                               e
+                                       0   t
+
+Proof. For n = 0 we have
+                                            Z +∞
+                                                        1
+                                                   e−st dt =
+                                                          ,
+                                          0             s
+and by induction we get the result integrating on the variable s between 1 and s,
+                                   Z s Z +∞
+                                              1 −ut
+                                                     − Pn (u, t)e−t dt du ,
+                                                                   
+                       In+1 (s) =              n
+                                                 e
+                                    1   0    t
+and using that
+                                      Z s
+                                                    1
+                                         e−ut du = − (e−st − et ),
+                                                    t
+                                  Z s 1
+                                                    1
+                                     Pn (u, t)du = − (Pn+1 (s, t) − 1).
+                                   1                t
+                                                                                                    
+6                             D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+   Note that we have Pn (s, t) → e(1−s)t when n → +∞ uniformly on compact sets, and Pn (s, t) is
+the n-th order jet of e(1−s)t at t = 0. So for t → 0 we have
+                                          e−st − Pn (s, t)e−t = O(tn ).
+For n = 0 we get the elementary integral
+                                                     Z +∞
+                                                                        1
+                                          I0 (s) =          e−st dt =     .
+                                                      0                 s
+For n = 1 we get the old Frullani integral ([12] p.98)
+                                        Z +∞
+                                               1 −st
+                             I1 (s) = −          (e    − e−t ) dt = log s .
+                                         0     t
+
+    We have
+                        I1 (s) = log s,
+                        I2 (s) = s log s − (s − 1),
+                                 s2         1
+                        I3 (s) =    log s − (s − 1)(3s − 1),
+                                 2          4
+                                 s3          1
+                        I4 (s) =    log s − (s − 1)(11s2 − 7s + 2),
+                                 6          36
+                                 s4           1
+                        I5 (s) =    log s −     (s − 1)(25s3 − 23s2 + 13s − 3).
+                                 24         288
+
+    A simple induction shows
+Proposition 2.2. We have
+                                      In (s) = An (s) log s + Bn (s),
+where An , Bn ∈ Q[s] are polynomials, with deg An = deg Bn = n − 1, and
+                                                           sn−1
+                                              An (s) =             .
+                                                          (n − 1)!
+                                                                                              ✷
+
+                                                 ′
+    Regarding the polynomials Bn , the relation In+1 (s) = In (s) shows that we have
+
+                                           ′                      sn−1
+                                          Bn+1 (s) = Bn (s) −          .                     (5)
+                                                                   n!
+This equation with the condition Bn+1 (1) = 0 determines Bn+1 uniquely from Bn .
+    We have a formula for Bn (see [21], where In (s) = fn−1 (x) with x = s − 1, and [18]):
+Proposition 2.3. We have for n ≥ 0,
+                                            n  
+                                         1 X n
+                            Bn+1 (s) = −          (Hn − Hn−k )(s − 1)k ,
+                                         n!    k
+                                                k=1
+
+where H0 = 0 and Hn = 1 + 21 + 31 + . . . + n1 are the Harmonic numbers.
+                                     ON THE GENESIS OF BBP FORMULAS                                  7
+
+
+Proof. The formula holds for n = 0 and it satisfies Bn+1 (1) = 0 and the recurrence relation:
+                                 n     
+                             1 X n
+                 ′
+               Bn+1 (s) = −         k     (Hn − Hn−k )(s − 1)k−1
+                             n!        k
+                                k=1
+                                       n        
+                                 1    X    n−1
+                        =−                         (Hn − Hn−k )(s − 1)k−1
+                             (n − 1)!      k−1
+                                      k=1
+                                      n−1
+                                      X n − 1
+                                 1
+                        =−                         (Hn−1 − Hn−1−(k−1) )(s − 1)k−1
+                             (n − 1)!      k−1
+                                            k=1
+                                             n
+                                    1     1 X
+                           −                (Hn − Hn−1 )(s − 1)k−1
+                                 (n − 1)! n
+                                      k=1
+                                        n       
+                                    1 X n−1
+                         = Bn (s) −               (s − 1)k−1
+                                    n!       k−1
+                                               k=1
+                                    1
+                         = Bn (s) − ((s − 1) + 1)n−1
+                                    n!
+                                    sn−1
+                         = Bn (s) −      .
+                                     n!
+                                                                                                     
+
+
+  Now we prove:
+
+Lemma 2.4. For n ≥ 1,
+                                                                        (−1)n+1
+                                      In+1 (0) = Bn+1 (0) =                     .
+                                                                         n · n!
+
+  We first establish a useful integral representation for harmonic numbers
+
+Lemma 2.5.
+                                                Z +∞
+                                                           e−t − e−(n+1)t
+                                       Hn =                               dt .
+                                                   0           1 − e−t
+
+Proof. We have
+                           n             n Z +∞                         Z +∞
+                           X 1           X
+                                                           −kt                 e−t − e−(n+1)t
+                    Hn =             =                 e         dt =                         dt .
+                                 k             0                        0         1 − e−t
+                           k=1           k=1
+
+                                                                                                     
+
+
+  From this it follows
+
+Lemma 2.6.
+                                      n  
+                                      X  n              (−1)n+1
+                                           (−1)k Hn−k =         .
+                                         k                 n
+                                      k=0
+8                            D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+Proof.
+          n              Z +∞ Pn       n
+                                               k
+                                                   −t    Pn       n
+                                                                      k −(n−k)t
+                                                                                  −t
+             n                      k=0 k (−1)     e −       k=0 k (−1) e         e
+         X
+                   k
+               (−1) Hn−k =                                     −t
+                                                                                      dt
+             k              0                           1 −  e
+         k=0
+                           Z +∞        n                   n
+                                (1 − 1) e−t − (−1 + e−t ) e−t
+                         =                                        dt
+                            0               1 − e−t
+                                   Z +∞
+                         = (−1)n+1      (1 − e−t )n−1 e−t dt
+                                            0
+                                         Z 1
+                            = (−1)n+1           xn−1 dx
+                                            0
+                                (−1)n+1
+                            =           .
+                                   n
+                                                                                           
+
+    Now we can prove Lemma 2.4.
+
+Proof of Lemma 2.4. We have
+                                              n  
+                                          1 X n
+                           Bn+1 (0) = −              (Hn − Hn−k )(−1)k
+                                          n!       k
+                                             k=1
+                                                       n  
+                                                                        !
+                                          1           X    n      k
+                                      =−       −Hn −          (−1) Hn−k
+                                          n!               k
+                                                      k=1
+                                                        (−1)n+1
+                                                                   
+                                          1
+                                      =−       −Hn −            − Hn
+                                          n!               n
+                                        (−1)n+1
+                                      =          .
+                                         n · n!
+                                                                                           
+
+Corollary 2.7. For n ≥ 2,
+                                       ′                (−1)n
+                                      Bn+1 (0) =                    .
+                                                    (n − 1)(n − 1)!
+
+Proof. From (5) we have
+                                             ′
+                                            Bn+1 (0) = Bn (0),
+and the result follows from Lemma 2.4.                                                     
+
+    This is related to the following identity with harmonic numbers:
+Lemma 2.8. For n ≥ 2, we have
+                                n    
+                                X    n                        n
+                                  k     (−1)k Hn−k = (−1)n−1     .
+                                     k                       n−1
+                                k=0
+                                 ON THE GENESIS OF BBP FORMULAS                                   9
+
+
+Proof. For n ≥ 2, we have
+                   n    
+                   X    n                 d
+                     k     (−1)k an−k = x (a + x)n      = −n(a − 1)n−1 ,
+                        k                dx        x=−1
+                   k=0
+
+
+therefore
+              n                    Z +∞            n−1 −t              n−1 −t
+                                                       e + n (e−t − 1)
+                    
+             X      n                   −n (1 − 1)                        e
+                 k    (−1)k Hn−k =                                            dt
+                    k               0                   1 − e−t
+             k=0
+                                             Z +∞
+                                 = (−1)n−1 n      (1 − e−t )n−2 e−t dt
+                                                         0
+                                                        Z 1
+                                              n−1
+                                     = (−1)         n         xn−2 dx
+                                                         0
+                                                     n
+                                     = (−1)n−1          .
+                                                    n−1
+
+                                                                                                 
+
+
+
+
+                         3. Egyptian formulas for rational numbers
+
+  We start with the simplest case: an Egyptian formula for rationals. The following is an “infinite
+Egyptian fraction decomposition” for n1 .
+
+Proposition 3.1 (Infinite Egyptian fraction decomposition). For n ≥ 2, we have
+
+                                               +∞
+                                            1 X                1
+                                             =               j+n+1
+                                                                     .
+                                            n j=1             n+1
+
+
+
+Proof. Notice that from Proposition 2.1 we have
+                                            Z +∞
+                                        n            1 −st
+                                                           − Pn (s, t)e−t dt,
+                                                                         
+                            In (s) = (−1)              e
+                                             0      tn
+
+with
+                                                    n−1
+                                                    X         (1 − s)k tk
+                                      Pn (s, t) =                         ,
+                                                                  k!
+                                                    k=0
+
+hence
+                                                             n−1
+                                                             X k    t
+                                            Pn (0, t) =                .
+                                                                    k!
+                                                              k=0
+10                            D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+So for n ≥ 2, we can develop and exchange the integral and the summation:
+
+                                                                           n−1
+                                                Z +∞                                  !
+                                                          e−t              X k   t
+                               (−1)n In (0) =                     et −                    dt
+                                                 0         tn                    k!
+                                                                           k=0
+                                                Z +∞            +∞
+                                                                X      tj
+                                           =           e−t                   dt
+                                                 0              j=0
+                                                                    (j + n)!
+                                                +∞
+                                                X      j!
+                                           =
+                                                j=0
+                                                    (j +  n)!
+                                                     +∞
+                                                1 X         1
+                                           =               j+n
+                                                                 .
+                                                n! j=0      n
+
+
+
+     Now we have from Lemma 2.4,
+
+                                                               (−1)n
+                                   In (0) = Bn (0) =                       ,
+                                                           (n − 1)(n − 1)!
+
+thus
+                                                  ∞
+                                             n    X               1
+                                                =               j+n
+                                                                      ,
+                                           n − 1 j=0             n
+
+
+and the result follows.                                                                             
+
+
+     As one referee has pointed out to us, Proposition 3.1 follows also by a telescoping sum over
+
+                                      n          j +n+1 j+n+2
+                                   j+n+1
+                                           =      j+n+1
+                                                         − j+n+2 ,
+                                    n+1              n+1                 n+1
+
+
+which is found using Gosper’s algorithm. We show here that this formula results from our general
+approach.
+
+
+
+
+                                  4. BBP-like formulas for log s
+
+     In general we have
+
+Proposition 4.1. For |s − 1| < 1, or |s − 1| = 1 and n ≥ 2, we have
+
+                                                          +∞
+                                                (−1)n X (1 − s)j+n
+                                    In (s) =                j+n
+                                                                 .
+                                                  n! j=0     n
+                                   ON THE GENESIS OF BBP FORMULAS                                  11
+
+
+Proof. The condition ℜs > 0 ensures the convergence of the integrals and |s − 1| < 1, or |s − 1| = 1
+and n ≥ 2 ensures the convergence of the series,
+                                    Z +∞
+                          n                1 −st
+                                                      − Pn (s, t)e−t dt
+                                                                     
+                      (−1) In (s) =         n
+                                               e
+                                     0    t
+                                    Z +∞ −t 
+                                          e        (1−s)t
+                                                                      
+                                  =              e         − Pn (s, t)  dt
+                                     0     tn
+                                                             n−1
+                                    Z +∞ −t                                 !
+                                          e                   X (1 − s)k tk
+                                                    (1−s)t
+                                  =              e         −                  dt
+                                     0     tn                          k!
+                                                             k=0
+                                    Z +∞ −t X   +∞
+                                          e           (1 − s)j+n tj+n
+                                  =          n
+                                                                        dt
+                                     0     t j=0          (j + n)!
+                                        Z +∞          +∞
+                                                      X  (1 − s)j+n tj
+                                    =           e−t                      dt
+                                         0            j=0
+                                                            (j + n)!
+                                        +∞
+                                        X  (1 − s)j+n j!
+                                    =
+                                        j=0
+                                                (j + n)!
+                                             +∞
+                                        1 X (1 − s)j+n
+                                    =           j+n
+                                                     .
+                                        n! j=0   n
+
+                                                                                                   
+
+Remark 4.2. The formula in Proposition 4.1 also holds for |s − 1| = 1 and s 6= 0, but the convergence
+of the sum is only conditional. This can be checked by continuity of both sides making |s − 1| → 1.
+
+  Now, we have
+                                                   sn−1
+                                     In (s) =              log s + Bn (s),
+                                                  (n − 1)!
+and since Bn ∈ Q[s] we get,
+                                        +∞
+                                        X   (1 − s)j+n    sn−1
+                      In (s) = (−1)n                   =          log s + Bn (s).
+                                             n! j+n      (n − 1)!
+                                                    
+                                        j=0       n
+
+In particular, for s ∈ Q we have
+                                     +∞
+                                     X   (1 − s)j+n
+                                                  ∈ Q ⊕ Q log s .
+                                     j=0
+                                          n! j+n
+                                               n
+
+Theorem 4.3. Let |s − 1| < 1, or |s − 1| = 1 and n ≥ 2. Then we have
+                                                                   +∞
+                                 (n − 1)!               n (n − 1)!
+                                                                   X  (1 − s)j+n
+                     log s = −            B n (s) + (−1)                       .
+                                  sn−1                     sn−1 j=0 n! j+n  n
+
+                                                                                                   
+12                                 D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+     We get a group of formulas for log 2 by specializing at s = 2. We have
+                                                            +∞
+                               (n − 1)!           (n − 1)! X          (−1)j
+                   log 2 = −            B n (2) +                                        .
+                                2n−1               2n−1 j=0 (j + 1)(j + 2) . . . (j + n)
+
+Using the values B2 (2) = −1, B3 (2) = − 12 , B4 (2) = − 98 , B5 (2) = − 240
+                                                                         131               661
+                                                                             , B6 (2) = − 3600 , we get:
+                                        ∞
+                                   1 1 X (−1)j+1
+                         log 2 =    +                                                                      (6)
+                                   2 2 j=1 j(j + 1)
+                                        ∞
+                                   5 1X        (−1)j+1
+                         log 2 =    +                                                                      (7)
+                                   8 2 j=1 j(j + 1)(j + 2)
+                                     ∞
+                                2 3X           (−1)j+1
+                         log 2 = +                                                                         (8)
+                                3 4 j=1 j(j + 1)(j + 2)(j + 3)
+                                          ∞
+                                   131 3 X              (−1)j+1
+                         log 2 =      +                                                                    (9)
+                                   192 2 j=1 j(j + 1)(j + 2)(j + 3)(j + 4)
+                                            ∞
+                                   661 15 X                  (−1)j+1
+                         log 2 =       +                                                                (10)
+                                   960   4 j=1 j(j + 1)(j + 2)(j + 3)(j + 4)(j + 5)
+
+     Specializing at s = 1/2, we get the following formula for n ≥ 1.
+                                                             +∞
+                         (n − 1)!                 n
+                                                             X                   1
+             log 2 = −            B n (1/2) + (−1)  (n − 1)!                                        .
+                          2n−1                               j=0
+                                                                 2 j+1 (j + 1)(j + 2) . . . (j + n)
+
+
+Using the values B2 (1/2) = −2, B3 (1/2) = −1, B4 (1/2) = − 40               7                 47
+                                                            36 , B5 (1/2) = 18 , B6 (1/2) = − 225 , we
+get the formulas:
+                                 ∞
+                                X    1
+                      log 2 =         jj
+                                                                                                        (11)
+                                j=1
+                                    2
+                                      ∞
+                                      X         1
+                      log 2 = 1 −           j j(j + 1)
+                                                                                                        (12)
+                                      j=1
+                                          2
+                                         ∞
+                                   1    X           1
+                      log 2 =        +2      j
+                                                                                                        (13)
+                                   2    j=1
+                                            2 j(j + 1)(j + 2)
+                                         ∞
+                                   5    X                1
+                      log 2 =        −6       j j(j + 1)(j + 2)(j + 3)
+                                                                                                        (14)
+                                   6    j=1
+                                            2
+                                            ∞
+                                   7       X                    1
+                      log 2 =         + 24       j j(j + 1)(j + 2)(j + 3)(j + 4)
+                                                                                                        (15)
+                                   12      j=1
+                                               2
+                                             ∞
+                                   47       X                   (−1)j+1
+                      log 2 =         − 120                                                             (16)
+                                   60       j=1
+                                                2j j(j + 1)(j + 2)(j + 3)(j + 4)(j + 5)
+
+All these formulas appear in [27].
+                                  ON THE GENESIS OF BBP FORMULAS                                      13
+
+
+  It is customary to write the formulas above by splitting the denominators into simple fractions.
+For instance, the fourth formula can be written as
+                                    +∞                               
+                                5 X 1 1            3       3       1
+                         log 2 = −             −       +       −        .
+                                6 j=1 2j j       j+1 j+2 j+3
+If we group for j = 4k, 4k + 1, 4k + 2, 4k + 3, we get
+            +∞                                         X +∞                                       
+       5 X 1           1      3          3         1            1      1/2      3/2     3/2     1/2
+log 2 = −                −         +          −          −                  −        +       −
+       6        24k 4k 4k + 1 4k + 2 4k + 3                    24k 4k + 1 4k + 2 4k + 3 4k + 4
+           k=1                                             k=0
+          +∞                                             X +∞                                       
+          X    1      1/4       3/4       3/4       1/4            1     1/8      3/8     3/8     1/8
+        −                  −         +          −          −                  −        +       −
+              24k 4k + 2 4k + 3 4k + 4 4k + 5                     24k 4k + 3 4k + 4 4k + 5 4k + 6
+          k=0                                                k=0
+            +∞                                        
+       2 X 1           1     1/2        1/4      1/8
+      = +                +         +          +          .
+       3        24k 4k 4k + 1 4k + 2 4k + 3
+             k=1
+We rewrite it in more classical form:
+                                   +∞                            
+                            2 1X 1         8   4      2      1
+                    log 2 = +                +     +      +         .                               (17)
+                            3 4       16k 8k 8k + 2 8k + 4 8k + 6
+                                    k=1
+
+   We can obtain many more binary BBP-like formulas. Specializing at s = 3/2 we get the formula
+for n ≥ 1,
+                    n−1                                  +∞
+                    2                                      X             (−1)j
+      log(3/2) = −        (n − 1)!Bn (3/2) + 2(n − 1)!3n−1      j
+                                                                                              .
+                    3                                      j=0
+                                                               2 (j + 1)(j + 2) . . . (j + n)
+For instance, n = 4 gives
+                                                        +∞
+                                                65   1 X (−1)j
+                                  log(3/2) =       +               .
+                                                162 216 j=0 2j j+4
+                                                                j
+As before, the sum can also be written as
+                                          +∞
+                                    1 X (−1)k+1
+                                                                                   
+                               65                         1   3   3   1
+                   log(3/2) =     +                         −   +   −                   .
+                              162 27      2k              k k+1 k+2 k+3
+                                          k=1
+
+  In general, binary BBP formulas can be obtained from Theorem 4.3 by taking s = 1 ± 21N ,
+                                                            +∞
+       2N ± 1     −(n − 1)!             −N
+                                            (−1)n (n − 1)! X                    1
+ log          =               B n 1 ± 2     +                                                         .
+         2N     (1 ± 2−N )n−1                 (1 ± 2−N )n−1 j=0 2N (j+n) (j + 1)(j + 2) . . . (j + n)
+Formulas of this sort are also obtained by Chamberland [15].
+    The numbers 2 and 2N ± 1, N ≥ 1, generate a multiplicative subgroup of Q∗ , and for the elements
+k in that subgroup, we have binary BBP formulas for log k. The first prime that it is not in this
+subgroup is k = 23. Note that 211 − 1 = 23 · 89, but these two primes appear always together in the
+factor decomposition of 2N − 1 when N is a multiple of 11, and do not appear for other values of N .
+Also they do not appear at all in 2N + 1, for any natural number N . This can be checked as follows:
+first 211 ≡ 1 (mod 23), so the order of 2 in Z23 is 11. In particular it cannot be that 2N ≡ −1
+(mod 23), since otherwise 22N ≡ 1 (mod 23), and hence 2N |11, so N |11 and thus 2N ≡ 1 (mod 23).
+On the other hand, if 2N ≡ 1 (mod 23) then N is a multiple of 11, and then 23 ·89|(211 − 1)|(2N − 1).
+14                             D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+                                     5. BBP-like formulas for π
+
+   We may use Theorem 4.3 for a complex value of s, then we can get BBP-formulas for log k and
+also for π separating real and imaginary parts. For n = 1 (using Remark 4.2), we have
+                                                +∞               +∞
+                                                X   (1 − s)j     X   (1 − s)j
+                              log s = (s − 1)          j+1   = −              ,
+                                                                        j
+                                                           
+                                                j=0     1        j=1
+
+which is the classical series for log s. Make s = 1 + i. We have 0 < ℜ(1 + i) = 1 < 2 and
+                                                 √       π  1        π
+                                log(1 + i) = log 2 + i = log 2 + i ,
+                                                         4  2        4
+and
+                                                        +∞
+                                                        X   ij
+                                         log(1 + i) = i    j+1 .
+                                                               
+                                                              j=0     1
+
+Separating real and imaginary part and j = 2k or j = 2k + 1 we get two BBP formulas, one for log 2
+and the other one for π:
+                                        +∞            +∞
+                                        X  (−1)k+1    X    (−1)k+1
+                              log 2 = 2      2k+2
+                                                    =
+                                                            k+1
+                                                  
+                                            k=01                    k=0
+and
+                                                       +∞
+                                                       X  (−1)k
+                                             π=4                      .
+                                                             2k + 1
+                                                       k=0
+This last formula is just the first Machin formula for π, related to
+                                             π
+                                               = arctan 1 .
+                                             4
+     For general n ≥ 2, we take s = 1 + i, and we have
+                 1           π
+      log(1 + i) = log 2 + i
+                 2           4
+                                                          n−1            ∞
+                    (n − 1)!                     n (1 − i)     (n − 1)! X           (−i)j+n
+                =−        n−1
+                               B n (1 + i) + (−1)            n−1
+                                                                                                         .
+                   (1 + i)                                 2            j=0
+                                                                            (j + 1)(j + 2) . . . (j + n)
+
+Let                                                                      
+                                                     (n − 1)!
+                                    cn = −ℑ                    B n (1 + i)  ,
+                                                    (1 + i)n−1
+so that
+                                           n−1
+                                           X                                  (−1)(j+n+a+1)/2
+                                                       
+                              (n − 1)!              n−1         X
+              π = 4cn + 4(−1)n n−1                                                                      .
+                               2           a=0
+                                                     a                     (j + 1)(j + 2) . . . (j + n)
+                                                             j≡n+a+1 (2)
+
+
+     With this machinery at hand, we recover a number of known formulas.
+Proposition 5.1 (Leibniz). We have
+                                                 +∞                          
+                                      8   X               1      1
+                                   π = +4                     −                   .
+                                      3                 4k + 1 4k + 3
+                                                 k=1
+                                      ON THE GENESIS OF BBP FORMULAS                               15
+
+
+Proof. We apply the above to n = 2, where we have that B2 (1 + i) = −i and c2 = −ℑ(−i/(1 + i)) =
+1/2, thus
+                                                                          
+                               +∞            j        +∞            j
+                               X        (−1)          X        (−1)
+                   π = 2+2                         +                      
+                               j=0
+                                   (2j + 2)(2j + 3)   j=0
+                                                          (2j + 1)(2j + 2)
+                                     +∞                                            
+                                     X
+                                              j          1      1      1      1
+                          =2+2             (−1)             −      +      −
+                                     j=0
+                                                      2j + 2 2j + 3 2j + 1 2j + 2
+                                     +∞                              
+                                     X
+                                              j          1      1
+                          =2+2             (−1)             −
+                                     j=0
+                                                      2j + 1 2j + 3
+                                     +∞                                     
+                                     X 1      1        1   1
+                          =2+2             −       −     +
+                                    4k + 1 4k + 3 4k + 3 4k + 5
+                               k=0
+                                +∞                
+                           8    X      1      1
+                          = +4             −         .
+                           3         4k + 1 4k + 3
+                                     k=1
+
+                                                                                                   
+
+     The original BBP formula from [5] reads as follows:
+Theorem 5.2 (Bailey-Borwein-Plouffe). We have
+                       +∞                                 
+                       X    1       4       2   1     1
+                    π=                 −      −    −         .
+                           16k 8k + 1 8k + 4 8k + 5 8k + 6
+                               k=0
+
+
+Proof. Take s = 1+i               1           π
+                 2 , so log s = − 2 log 2 + i 4 . Using the formula for n = 1, we have
+                                             ∞               ∞
+                                     1+i    X   (1 − s)j    X   (1 − i)j
+                               log       =−              =−              .
+                                      2     j=1
+                                                   j        j=1
+                                                                  j2j
+
+Taking the imaginary part, and agroupping terms for j = 8k + r, r = 1, 2, . . . , 7, 8, we get
+                  ∞                                                                      
+           π     X     1       −8        8        4         2          2              1
+             =−                     −        −         +         +            +
+           4         16k+1 8k + 1 8k + 2 8k + 3 8k + 5 8k + 6 8k + 7
+                    k=0
+so
+                  ∞                                              
+                  X  1    2      2      1     1/2    1/2    1/4
+               π=             +      +      −      −      −         .                            (18)
+                    16k 8k + 1 8k + 2 8k + 3 8k + 5 8k + 6 8k + 7
+                   k=0
+Similarly, by taking the real part, we get
+                             ∞                                             
+          1           71    X     1     16   8    4      4      2      1
+       − log 2 = −       −                 +   −      −      −      +
+          2          210        16k+1 8k 8k + 1 8k + 3 8k + 4 8k + 5 8k + 7
+                               k=1
+so
+                        ∞                                          
+                        X  1   2   1     1/2    1/2    1/4    1/8
+                log 2 =          +     −      −      −      +         .                          (19)
+                          16k 8k 8k + 1 8k + 3 8k + 4 8k + 5 8k + 7
+                         k=0
+16                             D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+     Substracting (19) and our previous formula (17), we get a null formula
+               +∞                                                                   
+               X    1       1        1       1/2        1        1/4       1/4   1/8
+           0=                   −         −        −         −         −       +                 (20)
+                   16k 8k + 1 8k + 2 8k + 3 8k + 4 8k + 5 8k + 6 8k + 7
+                 k=0
+
+(note that the term k = 0 gives exactly 1/105 = 71/105 − 2/3). Adding (18) to twice this formula,
+we get
+                           +∞                                         
+                           X    1       4        2        1       1
+                      π=                    −        −        −          .
+                               16k 8k + 1 8k + 4 8k + 5 8k + 6
+                              k=0
+                                                                                                   
+
+     In the proof we have proved and used the following null BBP formula that appears in [5] :
+Proposition 5.3. We have
+        +∞                                                     
+        X   1     −8     8     4      8      2      2      1
+                       +    +      +      +      +      −         =0                             (21)
+           16k 8k + 1 8k + 2 8k + 3 8k + 4 8k + 5 8k + 6 8k + 7
+           k=0
+
+
+  Null BBP formulas are very interesting and useful for rewritting BBP formulas. They are obtained
+by comparing BBP formulas for the same number at different values of s.
+Proposition 5.4. We have
+                 ∞                                       
+                X   1    16     24     8      6      1
+                             −      −      −      +         = 0.
+                   26k 6k + 1 6k + 2 6k + 3 6k + 4 6k + 5
+                       k=0
+
+
+Proof. We use the formulas
+         ∞              ∞
+            1 (−1)k
+                                                                                   
+   3    X              X     1    1/2     −1/4     1/8     1/16      1/32     1/64
+log = −              =                 +       +        −         +        −          ,
+   2        2k k            26k 6k + 1 6k + 2 6k + 3 6k + 4 6k + 5 6k + 6
+        k=1            k=0
+         ∞            ∞                                    ∞                              
+   3    X   1 1      X    1     1/4     1/16    1/64        X    1     1/2      1/8     1/32
+log = −          = −                 +       +          = −                 +         +        ,
+   4        4k k         26k 3k + 1 3k + 2 3k + 3               26k 6k + 2 6k + 4 6k + 6
+        k=1          k=0                                    k=0
+         ∞              ∞                           ∞
+            1 (−1)k
+                                               X                         
+   9    X              X     1    1/8     1/64          1     3/8      3/64
+log = −              =                 −         =                 −          .
+   8        8k k            26k 2k + 1 2k + 2          26k 6k + 3 6k + 6
+            k=1              k=0                          k=0
+
+Adding the first two and substracting the third, we get
+                   ∞                                                
+                   X   1     1/2       3/4       1/4     3/16   1/32
+                                   −         −         −      +        = 0.
+                      26k 6k + 1 6k + 2 6k + 3 6k + 4 6k + 5
+                       k=0
+
+and multiplying by 32 we get the result.                                                           
+
+     Finally, we include a proof of Bellard’s formula.
+Theorem 5.5 (F. Bellard). We have
+       +∞
+     1 X (−1)k        25            28      26      22      22
+                                                                         
+                               1                                     1
+ π= 6             −        −      +      −       −       −       +          .
+     2     210k     4n + 1 4n + 3 10n + 1 10n + 3 10n + 5 10n + 7 10n + 9
+           k=0
+                                      ON THE GENESIS OF BBP FORMULAS                                     17
+
+
+Proof. We use the following factorization
+                                                               2             −1
+                                                        2+i              7+i
+                                          1+i=                                        ,
+                                                         2                8
+and taking imaginary parts
+                                    π
+                                      = 2ℑ log(1 + i/2) − ℑ log((7 + i)/8) .
+                                    4
+
+   For s = (7 + i)/8 and n = 1, we get
+                                    ∞
+                                    X (1 − i)j
+       ℑ log((7 + i)/8) = − ℑ
+                                    j=1
+                                            j8j
+                             ∞
+                                                  2/82   2/83    4/85   8/86   8/87
+                                                                                   
+                            X    1      1/8
+                          =                   +        +       −      −      −
+                                220k 8k + 1 8k + 2 8k + 3 8k + 5 8k + 6 8k + 7
+                            k=0
+                                 ∞
+                             1 X (−1)l
+                                                                
+                                              32       8      1
+                          =                        +      +        ,                                  (22)
+                            256     210l    4l + 1 4l + 2 4l + 3
+                                 l=0
+
+writing j = 8k + r, r = 1, 2, . . . , 8, and then 2k = l.
+   Now take s = 1 + i/2 and n = 1, to get
+                              ∞                   ∞
+                              X (−i)j             X       1     (−1)k
+      ℑ log(1 + i/2) = − ℑ                   =
+                              j=1
+                                      j2j               22k+1 2k + 1
+                                                  k=0
+                            ∞
+                         1 X (−1)l
+                                                                            
+                                       128     32       8       2      1/2
+                      =                     −       +       −       +          .                      (23)
+                        256   210l   10l + 1 10l + 3 10l + 5 10l + 7 10l + 9
+                              l=0
+                                                     8       8        4
+We substract twice (23) minus (22), and use that 2 10l+5 − 4l+2 = − 10l+5 . Then we get the result. 
+
+
+                                      6. On the classical BBP form
+
+   As defined in [6] the classical BBP form is
+                                                           +∞   m
+                                                           X  1 X                 al
+                                     Q(b, d, m, A) =                                     ,
+                                                                    bk         (km + l)d
+                                                           k=0           l=1
+
+where b, d, m are integers and A = (a1 , a2 , . . . , am ) is a vector of integers. The degree is d and the
+base is b. Let us check that with our formula from Theorem 4.3 we get BBP formulas of degree 1.
+Lemma 6.1. We have
+                                                                n
+                                                    1           X  cl
+                                                   j+n =          j+l
+                                                                      ,
+                                                      
+                                                    n           l=1
+
+where for l = 1, 2, . . . , n, cl is an integer given by
+                                                                           
+                                                              l−1      n−1
+                                              cl = (−1)             n         .
+                                                                        l−1
+18                                        D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+Proof. As usual, multiply by j + l and set j = −l to get
+                                                                                                
+                                       n!                                  l+1  n        l−1  n−1
+     cl =                                                            = (−1) l      = (−1) n         .
+          (n − l)(n − l − 1) · · · 2 · 1 · (−1)(−2) · · · (−(l − 1))            l              l−1
+                                                                                                                   
+
+  We have a general reorganization Lemma that shows that any sum of BBP form with more than
+m fractions can be reorganized into one with m terms.
+Lemma 6.2. We have
+                                +∞           n                        +∞          m
+                                                              !                                     !
+                                X            X       ci               X           X        al
+                                      b−j                         =         b−k                         ,
+                                j=0          i=1
+                                                 (mj  + i)d                             (km + l)d
+                                                                      k=0         l=1
+
+with                                                            X        i−l
+                                                         al =         ci b m .
+                                                                  i
+where the sum extends over indexes l + 1 ≤ i ≤ n such that mj + i = mk + l.
+
+Proof. For k = 0, 1, . . . and l = 1, . . . m group the fractions of the sum modulo m with mj + i =
+mk + l.                                                                                           
+
+  These two Lemma prove that the BBP formulas that we get from Theorem 1.1 are of type
+Q(1, b, 1, (a1 )).
+   We can apply this reorganization to the summation in the formula from Theorem 1.1 and get
+(regrouping the terms with j = k − l + 1 in the third equality),
+               +∞              +∞ n
+               X   (1 − s)j+n X X cl
+                       j+n   =            (1 − s)j+n
+                                    j + l
+                          
+               j=0      n      j=0            l=1
+                                          +∞ X
+                                             n
+                                          X          cl                             X        cl
+                                      =                 (1 − s)k+1+n−l −                        (1 − s)k+1+n−l
+                                                    k+1                                     k+1
+                                          k=0 l=1                                 0≤k≤l−2
+                                                                                    l≤n
+                                                                                  +∞
+                                              X       cl (1 − s)k+n+1−l X ak
+                                      =−                               +     (1 − s)k+1 .                        (24)
+                                                             k+1         k+1
+                                            0≤k≤l−2                               k=0
+                                              l≤n
+              n
+                    cl (1 − s)n−l . But we have
+              P
+with ak =
+              l=1
+       n                        n                        
+       X
+                      n−l
+                                X
+                                            l−1      n−1
+ak =         cl (1−s)       =         (−1)        n        (1−s)n−l = (−1)n−1 n(1−(1−s))n−1 = (−1)n−1 nsn−1 ,
+                                                      l−1
+       l=1                      l=1
+
+   Hence, we recognize in the last sum of (24) log s, so the formula in Theorem 1.1 for n ≥ 2 is a
+rearrangement of the formula for n = 1 that is the classical Taylor formula for log s
+                                                                ∞
+                                                                X (1 − s)k+1
+                                                    log s = −                       .                            (25)
+                                                                         k+1
+                                                                k=0
+                                     ON THE GENESIS OF BBP FORMULAS                                  19
+
+
+  We can use this rearrangement to recover directly the formula for the polynomials Bn directly:
+
+                                                                n
+                       (1 − s)n+m            (−1)n X
+                                                                        
+                                                                      k n  1
+              X                                                 X
+                                                            m+n
+                                           =         (1 − s)      (−1)
+                    m(m + 1) · · · (m + n)     n!                       k m+k
+              m≥1                                        m≥1              k=0
+                             n
+                           n X                                    k
+                                                                     (1 − s)i 
+                                           
+                        (−1)             k n
+                                                                X
+                    =                (−1)    (1 − s)n−k log(s) −
+                          n!               k                     i=1
+                                                                        i
+                               k=0
+
+
+but
+                              n
+                        (−1)n X                                       (−1)n n
+                                      
+                                    k n
+               An (s) =         (−1)    (1 − s)n−k = (1 − (1 − s))n =      s
+                          n!          k                                 n!
+                                 k=0
+
+
+and
+                                        n                     k
+                                  (−1)n X                        (1 − s)i
+                                                
+                                              k n
+                                                             X
+                                                         n−k
+                         Bn (s) =         (−1)    (1 − s)
+                                    n!          k            i=1
+                                                                    i
+                                            k=0
+
+
+which gives after some rearrangment the expression for Bn (s)
+    Formally, there is no extra content in the formulas for the same parameter s but different integers
+n ≥ 2. However, these rearrangements are computationally useful, and they are not easy to produce.
+The iterated integrals In (s) or Proposition 2.2 gives a systematic method to find a family of such
+resummations. The expression in terms of combinatorical coefficients in the denominator that arise
+by the iterated integrals in this type of sums can present sometimes some advantages. Of course one
+is inmediately reminded (even if it is a formula of higher degree) of the famous Apery sum for ζ(3)
+starting point of his proof of the irrationality of this number.
+
+
+
+
+                 Appendix. Location of the zeros of the polynomials Bn
+
+   The application of the formula in Theorem 4.3 to roots of Bn , in particular to real roots, gives
+BBP-like formulas of a special form. We study the location of the roots of Bn and the number of
+real roots.
+  To understand the polynomials Bn (s), we introduce the polynomials Cn (x) of degree n − 2, for
+n ≥ 2, defined by
+
+                                                     1
+                                     Bn (s) = −            (s − 1)Cn (s − 1),                     (26)
+                                                  (n − 1)!
+
+so that by Proposition 2.3
+
+                                          n−2
+                                          X          
+                                                  n−1
+                               Cn (x) =                (Hn−1 − Hn−k−2 ) xk .                      (27)
+                                                  k+1
+                                          k=0
+20                              D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+     We list the polynomials:
+
+     B1 (s) = 0,
+     B2 (s) = −(s − 1),
+                1
+     B3 (s) = − (s − 1)(3s − 1),
+                4                               
+                1             5         11     2
+     B4 (s) = − (s − 1) 1 + (s − 1) + (s − 1) ,
+                6             2         6
+                                                             
+                 1             7         13      2     25   3
+     B5 (s) = − (s − 1) 1 + (s − 1) + (s − 1) + (s − 1) ,
+                20             2          3            12
+                                                                              
+                  1              9        47       2    77    3   137        4
+     B6 (s) = −     (s − 1) 1 + (s − 1) + (s − 1) + (s − 1) +         (s − 1) ,
+                120              2         6            12        60
+                                                                                     
+                  1              11         37       2   57     3  87        4   49 5
+     B7 (s) = −     (s − 1) 1 + (s − 1) + (s − 1) + (s − 1) + (s − 1) + (s − 1) ,
+                740               2          3            4        10            20
+
+and accordingly,
+
+                      C2 (x) = x,
+                               1
+                      C3 (x) = (3x + 2),
+                               2
+                               1
+                      C4 (x) = (6 + 15x + 11x2 ),
+                               6
+                                1
+                                  12 + 42x + 52x2 + 25x3 ,
+                                                        
+                      C5 (x) =
+                               12
+                                1
+                                  60 + 180x + 470x2 + 385x3 + 137x4 ,
+                                                                   
+                      C6 (x) =
+                               60
+                                1
+                                  60 + 330x + 740x2 + 855x3 + 522x4 + 147x5 .
+                                                                           
+                      C7 (x) =
+                               60
+
+     We want to locate the zeros of Cn (x).
+
+Lemma 6.3. We have
+
+                                     Cn (0) = 1,
+                                                                (−1)n
+                                   Cn (−1) = (n − 1)!Bn (0) =         .
+                                                                n−1
+
+
+Proof. The value at x = −1 follows from Lemma 2.4. The value at x = 0 by (27).            
+
+
+     Let
+                                              n−1
+                                              X        
+                                                    n−1
+                        Dn (x) = x Cn (x) =              (Hn−1 − Hn−k−1 )xk .
+                                                     k
+                                              k=0
+                                      ON THE GENESIS OF BBP FORMULAS                                  21
+
+
+The zeros of Dn are those of Cn and an extra zero at x = 0. Now we have two interesting equalities:
+                          n−1      
+                          X    n−1
+              Dn′ (x) =         k     (Hn−1 − Hn−k−1 )xk−1
+                                 k
+                        k=1
+                        n−1             
+                        X           n−2
+                      =     (n − 1)        (Hn−1 − Hn−k−1 )xk−1
+                                     k−1
+                        k=1
+                        n−2                                     
+                        X           n−2       1
+                      =     (n − 1)               + Hn−2 − Hn−k−2 xk
+                                       k     n−1
+                        k=0
+                        n−2                                      n−2
+                                                                   X n − 2
+                        X           n−2                         k
+                      =     (n − 1)        (Hn−2 − H(n−1)−k−1 )x +          xk
+                                       k                                k
+                          k=0                                          k=0
+                      =(n − 1)Dn−1 (x) + (1 + x)n−2 ,                                            (28)
+
+and
+
+ (1 + x)Dn′ −(n − 1)Dn = (n − 1)(1 + x)Dn−1 − (n − 1)Dn + (1 + x)n−1
+              n−2                                      n−2             
+              X            n−2                       k
+                                                         X            n−2
+            =     (n − 1)         (Hn−2 − Hn−k−2 )x +        (n − 1)       (Hn−2 − Hn−k−2 )xk+1
+                             k                                         k
+              k=0                                        k=0
+                n−1               
+                X            n−1
+              −     (n − 1)         (Hn−1 − Hn−k−1 )xk + (1 + x)n−1
+                               k
+                k=0
+              n−2                                             
+              X            n−2                             1
+            =     (n − 1)           Hn−2 − Hn−k−1 +                xk
+                             k                         n−k−1
+              k=0
+                n−1               
+                X            n−2
+              +     (n − 1)         (Hn−2 − Hn−k−1 )xk
+                              k−1
+                k=1
+                n−1                                          
+                X            n−1         1
+              −     (n − 1)                  + Hn−2 − Hn−k−1 xk + (1 + x)n−1
+                               k      n−1
+                k=0
+              n−2
+              X n − 1 n − 2              n−1
+                                           X n − 1
+            =                        xk −              xk + (1 + x)n−1
+                   n−k−1        k                k
+              k=0                          k=0
+              n−2 
+              X n−1            n−1 
+                                X n − 1
+            =              xk −              xk + (1 + x)n−1
+                      k                 k
+             k=0                      k=0
+                    n−1         n−1
+           =(1 + x)       −x          = Qn (x).                                                  (29)
+
+  Using these equalities, we can prove the following:
+
+Proposition 6.4. For n ≥ 2 even, the polynomial Cn (x) has no real roots.
+  For n ≥ 3 odd, the polynomial Cn (x) has only one real root and it lies in the interval ]− 1, 0[.
+
+
+Proof. We want to prove by induction that:
+22                            D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+       • For n even, x = 0 is the only (simple) zero of Dn (x). And Dn (x) < 0 for x < 0 and
+         Dn (x) > 0 for x > 0.
+       • For n odd, Dn has two zeros, at some x0 ∈] − 1, 0[ and at x = 0. And Dn (x) > 0 for
+         x ∈]− ∞, x0 [ ∪ ]0, ∞[ and Dn (x) < 0 for x ∈]x0 , 0[.
+
+   Let n be even. We want to prove that Dn (x) has only a zero at x = 0. Note that Dn (0) = 0 and
+Dn′ (0) = 1, so Dn is increasing at x = 0. For n even we have Qn (x) > 0 everywhere.
+
+       • If x ≤ −1 then Dn−1 (x) < 0 by induction hypothesis. By (28) we have Dn′ (x) > 0, so it is
+         increasing there. By Lemma 6.3, Dn (−1) < 0 so there are no zeros on ]− ∞, −1].
+       • If x > 0 then Dn−1 (x) > 0 by induction hypothesis. By (28) we have Dn′ (x) > 0, so it is
+         increasing there. As Dn (0) = 0, there are no zeros on ]0, ∞[.
+       • If x ∈]− 1, 0] then Qn (x) > 0. If Dn (x) = 0 then (29) says that (1 + x)Dn′ (x) > 0. So Dn is
+         increasing at every zero. As x = 0 is a zero, then this implies that there is only one zero of
+         Dn .
+
+    Now let n be odd. We want to prove that Dn (x) has a zero at some x0 ∈]− 1, 0[ and at x = 0,
+it is positive on ]− ∞, x0 [ ∪ ]0, ∞[ and negative at ]x0 , 0[. Note that Dn (0) = 0 and Dn′ (0) = 1, so
+it is increasing at x = 0. Note that for n odd we have Qn (x) > 0 for x > −1/2, and Qn (x) < 0 for
+x < −1/2.
+
+       • If x ≤ −1 then Dn−1 (x) < 0 by induction hypothesis. By (28) we have Dn′ (x) < 0, so it is
+         decreasing there. By Lemma 6.3 Dn (−1) > 0, so there are no zeros on ]− ∞, −1].
+       • If x > 0 then Dn−1 (x) > 0 by induction hypothesis. By (28) we have Dn′ (x) > 0, so it is
+         increasing there. As Dn (0) = 0, there are no zeros on ]0, ∞[.
+       • If x ∈]− 1/2, 0[ then (29) says that (1 + x)Dn′ (x) > (n − 1)Dn (x). So if there is a zero, Dn
+         is increasing. As the last zero before x = 0 cannot be increasing, this last zero has to be
+         x0 ≤ −1/2.
+       • For x = −1/2, if it was a zero of Dn , then it is also a zero of Dn′ because of (29). Then we
+         write x = −1/2 + h, and develop (29) to see that Dn′ (−1/2 + h) > 0 for h > 0 small. But
+         this implies that there must be another zero of Dn in ]− 1/2, 0[ with decreasing slope, which
+         contradicts the previous item.
+       • If x ∈]− 1, −1/2[ then (29) says that (1 + x)Dn′ (x) < (n − 1)Dn (x). So if there is a zero, Dn
+         is decreasing. There must be at least one zero, but there cannot be two zeros, since there
+         cannot be two decreasing consecutive zeros.
+
+                                                                                                      
+
+
+   It is relevant to locate the complex zeros of Cn (x). The polynomial C4 has a pair of conjugate
+complex roots x ≈ −0.68182 ± 0.28386i. The polynomial C5 has one real root x0 ≈ −0.61852 and
+a pair of conjugate complex roots x ≈ −0.73074 ± 0.49200i. The polynomial C6 has 2 pairs of
+conjugate complex roots: x ≈ −0.18252 ± 0.39103i, x ≈ −1.2226 ± 0.9258i. We may expect that all
+roots of Cn (x) have ℜx ∈]− ∞, 0[.
+     To locate the complex roots of Cn (x), we rewrite the differential equation (29) as
+                                                      ′
+                                   (1 + x)−(n−1) Dn (x) = (1 + x)−n Qn (x).
+                                      ON THE GENESIS OF BBP FORMULAS                                                23
+
+
+Take fn (x) = (1 + x)−(n−1) Dn (x), hence dfn = (1 + x)−n (1 + x)n−1 − xn−1 dx. We make the
+                                                                             
+                                             n−1
+                         x
+change of variables w = 1+x to get dfn = 1−w
+                                           1−w dw = (1 + w + .... + w
+                                                                      n−2
+                                                                          )dw, and integrating
+                                           1              1
+                                 fn = w + w2 + .... +       wn−1 ,
+                                           2            n−1
+where we have used that for w = 0, it is x = 0 and hence fn = 0. Note that fn (w) is the truncation
+of the series − log(1 − w), which is convergent on |w| < 1.
+Proposition 6.5. The polynomial fn (w) has no roots in |w| ≤ 1 except w = 0.
+
+Proof. We will look at the polynomial
+                                                            n−2
+                                                            X        1           1
+                      Q(w) = fn (w)(1 − w)/w = 1 −                         wk −     wn−1 ,
+                                                                  k(k + 1)      n−1
+                                                            k=1
+
+for which we want to check that the only root in the disc |w| ≤ 1 is w = 1. For |w| ≤ 1, we have
+                    n−2                                     n−2
+                    X        1           1         X    1       1         1
+                                   wk +     wn−1 ≤           +      wn−1 = .
+                          k(k + 1)      n−1          k(k + 1) n − 1       2
+                    k=2                                     k=2
+
+Then if Q(w) = 0, we have
+                                              1      1
+                                          1− w ≤
+                                              2      2
+which implies |w − 2| ≤ 1. Combined with |w| ≤ 1, we have w = 1.                                                    
+
+                                            x
+  Undoing the change of variables w = 1+x      , we get that all roots of Cn (x) are in ℜx < − 21 .
+Therefore, with (26) we get that the roots of Bn (s) are s = 1 and the others lie in ℜs < 21 .
+
+                                                   References
+ [1] BAILEY,        D.H.;       A    compendium      of    BBP-type     formulas      for   mathematical     constants,
+     https://crd-legacy.lbl.gov/~ dhbailey/dhbpapers/bbp-formulas.pdf, accessed August 2017.
+ [2] BAILEY, D.H.; BORWEIN, P.B.; Experimental Mathematics: Recent Developments and Future Outlook, Math-
+     ematics Unlimited — 2001 and Beyond, Springer, p.51-66, 2001.
+ [3] BAILEY, D.H.; BORWEIN, P.B.; Experimental Mathematics: Examples, methods and implications, Notices
+     AMS, p.502-514, 2005.
+ [4] BAILEY, D.H.; BORWEIN, J.M.; MATTINGLY, A.; WIGHTWICK, G.; The computation of previously inac-
+     cessible digits of π 2 and Catalan’s constant, Notices Amer. Math. Soc. 60, 7, p. 844-855, 2013.
+ [5] BAILEY, D.H.; BORWEIN, P.B.; PLOUFFE, S.; On the Rapid Computation of Various Polylogarithmic Con-
+     stants, Mathematics of Computation, 66, 218, p. 903-913, 1997.
+ [6] BAILEY, D.H.; CRANDALL, R.E.; On the random character of fundamental constant expansions, Experimental
+     Mathematics, 10, 2, p. 175-190, 2001.
+ [7] BAILEY, D.H.; CRANDALL, R.E.; Random generators and normal numbers, Experimental Mathematics, 11,
+     p. 527-546, 2002.
+ [8] BAILEY, D.H.; MISIUREWICZ, M.; A strong hot spot theorem, Proc. Amer. Math. Soc. 134, p. 2495-2501,
+     2006.
+ [9] BELLARD, F.; Pi formulas, algorithms and computations, https://bellard.org/pi/, accessed March 2019.
+[10] BROADHURST, D.J.; Polylogarithmic ladders, hypergeometric series and the ten millionth digits of ζ(3) and
+     ζ(5), ArXiv:9803067, 1998.
+[11] BOREL, É.; Les probabilités dénombrables et leurs applications arithmétiques, Rend. Circ. Mat. Palermo, 27, p.
+     247-271, 1909.
+[12] BOROS, G.; MOLL, V.H.; Irresistible integrals, Cambridge Univ. Press., 2004.
+24                                    D. BARSKY, V. MUÑOZ, AND R. PÉREZ-MARCO
+
+
+[13] BORWEIN, J.M.; BORWEIN, P.B.; Pi and the AGM – A Study in Analytic Number Theory and Computational
+     Complexity, Wiley, 1987.
+[14] BORWEIN, J.M.; BORWEIN, D.; GALWAY, W.F.; Finding and excluding b-ary Machin-type individual digit
+     formulae, Canadian J. Math. 56, p. 897-925, 2004.
+[15] CHAMBERLAND, M.; Binary BBP-formulae for logarithms and generalized Gaussian-Mersenne primes, J.
+     Integer Seq., 6, 3, Article 03.3.7, 10 pp., 2003.
+[16] CHUDNOVSKY, D.V.; CHUDNOVSKY, G.V.; Approximation and complex multiplication according to Ra-
+     manujan, Ramanujan revisited: Proceedings of the centennial conference (G.E. Andrews et al., eds), Academic
+     Press, Boston, p. 375-472, 1988.
+[17] LAGARIAS, J.C.; On the normality of arithmetical constants, Experimental Math., 10, 3, p. 355-368, 2001.
+[18] MATHAR, R.; Series of reciprocal powers of k-almost primes, arXiv:0803.0900, 2008.
+[19] MUÑOZ, V.; PÉREZ-MARCO, R.; Unified Treatment of Explicit and Trace Formulas via Poisson-Newton
+     formula, Comm. Math. Phys., 336, 3, p. 1201-1230, 2015.
+[20] MUÑOZ, V.; PÉREZ-MARCO, R.; Weierstrass constants and exponential periods, in preparation, 2019.
+[21] MEDINA, L.A.; MOLL, V.H.; ROWLAND, E.S. Iterated primitives of logarithmic powers, International Journal
+     of Number Theory, 7, 3, p.623-634, 2011.
+[22] QUEFFÉLEC, M.; Old and new results on normality, IMS Lecture Notes, Monographs S., 48, p. 225-236, 2006.
+[23] RAMANUJAN, S.; Modular equations and approximations to π, Quart. J. Math. (Oxford), 45, p. 350-372, 1914.
+[24] STÖRMER, C.; Sur l’application de la théorie des nombres entiers complexes à la solution en nombres rationnels
+     x1 , x2 , . . . xn , c1 , c2 , . . . , cn , k de l’équation: c1 arctan x1 + c2 arctan x2 + . . . + cn arctan xn = k π4 , Arkiv for
+     Mathematik Og Naturvidenskab, XIX,3, p. 3-95, 1896.
+[25] STÖRMER, C.; Solution complète en nombres entiers de l’équation m arctan x1 + n arctan y1 = k π4 , Bull. Soc.
+     Math. France, 27, p. 160-170, 1899.
+[26] TAM, M.; BBP-type Formula Database, https://bbp.carma.newcastle.edu.au/, accessed March 2019.
+[27] WIKIPEDIA; Natural logarithm of 2, https://en.wikipedia.org/wiki/Natural_logarithm_of_2
+
+
+     7 rue La Condamine, 75017 Paris, France
+     Email address: barsky.daniel@orange.fr
+
+   Departamento de Algebra, Geometrı́a y Topologı́a, Universidad de Málaga, Campus de Teatinos, s/n,
+29071 Malaga, Spain
+     Email address: vicente.munoz@uma.es
+
+     CNRS, IMJ-PRG, Univ. de Paris, Bât. Sophie Germain, Case 7012, 75205-Paris Cedex 13, France
+     Email address: ricardo.perez-marco@math.imj-prg.fr
+

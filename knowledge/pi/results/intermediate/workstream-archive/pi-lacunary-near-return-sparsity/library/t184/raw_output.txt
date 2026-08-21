@@ -1,0 +1,7 @@
+PINS: PASS (canonical, primary PDF/text, T176/T180/T181 ledgers)
+SOURCE_ANCHORS: PASS (Definition 1, morphism, recurrence, Theorems 20-21)
+COMPARISONS: PASS (three accepted source/theorem/mechanism boundaries)
+RECURRENCE: PASS (d=2..9, k=1..34, exact endpoints and 16m bound)
+COLLISIONS: PASS (15 generated overlapping-prefix cases; diagonal included)
+STRUCTURE: PASS (one verdict, one named gap, endpoint and no-claim markers)
+T184_REPLAY: PASS (finite checks are experiment evidence only)

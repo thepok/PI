@@ -1,0 +1,6 @@
+T98 replay passed
+canonical SHA-256: cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+C_10: 17800/243
+Q linear coefficient before residual-long term: 18043/81
+bounded binary normalized maxima n=1..6: [Fraction(0, 1), Fraction(1, 1), Fraction(1, 1), Fraction(3, 1), Fraction(3, 1), Fraction(41, 8)]
+universal source: numbered paper proof, not finite enumeration

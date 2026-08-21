@@ -1,0 +1,2933 @@
+A NNALES DE L’ INSTITUT F OURIER
+
+
+
+
+ A LINE B ONAMI
+ Étude des coefficients de Fourier des fonctions de L p (G)
+ Annales de l’institut Fourier, tome 20, no 2 (1970), p. 335-402
+ <http://www.numdam.org/item?id=AIF_1970__20_2_335_0>
+
+
+
+
+    © Annales de l’institut Fourier, 1970, tous droits réservés.
+    L’accès aux archives de la revue « Annales de l’institut Fourier »
+    (http://annalif.ujf-grenoble.fr/) implique l’accord avec les conditions gé-
+    nérales d’utilisation (http://www.numdam.org/conditions). Toute utilisa-
+    tion commerciale ou impression systématique est constitutive d’une in-
+    fraction pénale. Toute copie ou impression de ce fichier doit conte-
+    nir la présente mention de copyright.
+
+
+
+
+                  Article numérisé dans le cadre du programme
+                Numérisation de documents anciens mathématiques
+                              http://www.numdam.org/
+Ann. Inst. Fourier, Grenoble
+20, 2 (1970), 335-402.
+
+
+
+
+        ÉTUDE DES COEFFICIENTS
+   DE FOURIER DES FONCTIONS DE I/(G)
+                           par Aline BONAMI
+
+
+
+
+                               Introduction.
+
+   Il a été établi depuis longtemps, par Riemann et Lebesgue,
+que les coefficients de Fourier d'une fonction 2n -périodique
+intégrable tendent vers 0 à l'infini. Il était dès lors naturel de
+s'attacher à déterminer la rapidité avec laquelle les coefficients
+de Fourier d'une telle fonction tendent vers 0, suivant qu'elle
+appartient à telle ou telle classe de fonctions intégrables. Deux
+cas sont bien connus : pour que la fonction f appartienne à
+L^T), il est nécessaire et suffisant que ï\f{n)\21 soit fini, si
+f(n) désigne son nième coefficient de Fourier :
+
+                       fW^^f^^e—dx^
+
+par contre, il existe dans L^T) des fonctions dont les coeffi-
+cients de Fourier ont une décroissance arbitrairement lente.
+Que peut-on dire de la décroissance des coefficients de Fourier
+des fonctions de L^T), 1 < p < 2? C'est là un problème
+classique, qui a été abordé de bien des manières ([10], cha-
+pitre 12). Nous citerons à ce sujet deux théorèmes, qui nous
+serviront de modèle : dans son étude sur les séries lacunaires,
+Banach a montré que, si ^ désigne une suite lacunaire
+d'entiers (lim ^c+i/^c > 1)? e^ si f appartient à L^T), p > 1.
+336                               ALINE BONAMI
+
+
+la série        ^ \f(tk)\2   es
+                               ^ convergente; Hardy et Littlewood
+                fc^o
+d'autre part, comme conséquence de la théorie de l'interpo-
+lation, ont montré que, si f appartient à L^T), 1 < p ^ 2,
+et si a ^ 1/2 — 1/p, Sl^n)! 2 ]^ 201 < oo.
+   Une manière d'étudier la décroissance à l'infini des coeffi-
+cients de Fourier des fonctions de L^T) consiste à chercher
+des suites X(7z) telles que, quel que soit f dans L^T),
+S| ^(n)! 2 )/'^)! 2 soit fini: les théorèmes cités donnent des
+exemples de telles suites. Lorsque la suite X(n) est la fonction
+caractéristique d'un ensemble E d'entiers, E est appelé,
+suivant la terminologie de Rudin [6], ensemble A (y), q
+désignant l'exposant conjugué de p. Soit, plus généralement,
+ G un groupe compact abélien, F son dual. Notre but sera
+ d'étudier et de chercher les fonctions X(y) sur F telles que,
+ pour tout f dans L^G), S| ^y)! 2 ]^) 2 soit fini. Nous utili-
+ serons tantôt, comme Banach dans sa théorie des séries lacu-
+ naires, des méthodes combinatoires, tantôt, comme Hardy et
+ Littlewood, des méthodes d'analyse fonctionnelle.
+    Après avoir, dans un premier chapitre, énoncé des conditions
+ nécessaires sur les suites ^(y)? nous donnons, dans le cha-
+ pitre 2, des exemples d'ensembles A(ç) particuliers. Le prin-
+ cipal résultat de cette partie est une généralisation du théo-
+ rème de Banach : soit t^ une suite lacunaire d'entiers telle
+ que tn+i ^ 3^. On appelle suite /c-lacunaire associée à la
+ suite t^ la suite 6^ formée de tous les entiers qui s'écrivent
+ sous la forme ± t^ ± t^ ± • • • ± ^ , °ù n! > ^2 > • • • > n^
+ Alors, quelle que soit la fonction f 27r-périodique telle que
+ P'I/'KLog+l/'j)^ 2 dx < oo, la série S|^(6^)| 2 est convergente
+(corollaire 4).
+   Nous étudions, dans le troisième chapitre, les produits de
+           00
+
+
+
+Riesz 1| (1 + r cos ^), ^ étant une suite lacunaire telle que
+       n=i
+<n+i ^ 3^. Soit Çr^) 1e nième coefficient de Fourier d'un tel
+produit de Riesz. Si la suite („ est suffisamment lacunaire,
+nous montrons que SlÇ^yi)! 2 !^^)] 2 est fini quel que soit f
+dans L^T) si et seulement si r2 ^ p — 1 (théorème 9).
+Nous considérons également les produits de Riesz dans
+D°° == { — 1, + 1}^ : soit {x, e^) la nième fonction de Rade-
+ÉTUDE DES COEFFICIENTS DE FOTJRIER   DES FONCTIONS DE L^G)    337
+
+
+mâcher, et    (Xp la mesure définie par le produit de Riesz
+ 00
+
+
+
+JJ[ (1 + r{^9 en))s   Nous montrons que    (JL^. * f appartient à
+n==l
+Lq(DW) quel que soit f dans L^D00) si et seulement si
+(q — l)r 2 ^ p — 1 (théorème 3).
+   Dans le chapitre 4 nous généralisons aux suites /c-lacunaires
+une propriété bien connue des suites lacunaires : nous mon-
+trons que toute série /c-lacunaire qui converge sur un ensemble
+de mesure positive est la série de Fourier d'une fonction de
+L^T) (corollaire 3).
+   Au moment d'achever ce mémoire, puisque la tradition m'y
+autorise, je me fais un plaisir d'exprimer ma reconnaissance
+envers Messieurs A. Zygmund, J.-P. Kahane, et Y. Meyer.
+Monsieur Yves Meyer m'a aidé à concevoir et à préciser l'objet
+de mes recherches, et j'ai largement bénéficié de sa collabo-
+ration confiante, continue, et particulièrement enrichissante.
+Monsieur A. Zygmund en m'encourageant de ses conseils à
+chacun de ses passages à Paris, Monsieur J.-P. Kahane en
+servant de guide à l'évolution de mon travail, m'ont beaucoup
+aidée et soutenue.
+   J'exprime aussi mes remerciements à Madame Dumas pour
+la compétence et la complaisance qu'elle a apportées à la
+frappe de mon manuscrit.
+s
+                        CHAPITRE 1
+  ENSEMBLES A{q) ET MULTIPLICATEURS DE ^
+                  DANS SL2.
+           CONDITIONS NÉCESSAIRES
+        POUR QU'UN ENSEMBLE SOIT A(g).
+
+
+  Soit G un groupe compact abélien, F son dual, dont on
+sait qu'il est discret. Nous cherchons les fonctions À(y) sur
+F telles que, pour toute fonction f appartenant à un certain
+espace de Banach B de fonctions intégrables sur G,
+ S \W\fW soit fini.
+Ter
+   II est sûrement fort difficile de caractériser ces fonctions
+X(y), sauf lorsque l'espace B est L^G) tout entier (ce sont
+alors les fonctions de carré sommable), ou bien si l'espace B
+est contenu dans L^G) (toute fonction bornée convient alors).
+Les espaces de fonctions considérés dans la suite correspondront
+à des cas « intermédiaires ». Ce seront, suivant les cas :
+   — L^G), 1 < p < 2, l'espace des fonctions de puissance
+p^ intégrable;
+   — L(Log "^"L)^ a > 0, l'espace des fonctions f telles que
+/l/1(Log +|/>|)a dx soit fini.
+   — Ip(F), où 1 ^ p < 2, F c F, l'idéal fermé de LP(G)
+formé des fonctions f telles que ^(y) = 0 si y n'appartient
+pas à F.
+   Dans le premier cas, on dira encore que X(y) est un multi-
+plicateur envoyant â^L^G) dans SïïL^G), dans le second cas
+un multiplicateur envoyant ^(Log'^L)01 dans ^PL^G).
+   Si, pour groupe G, on considère le tore, les multiplicateurs
+de ^PL^G) dans ^FL^G) sont particulièrement intéressants,
+car ils permettent d'obtenir des multiplicateurs de 9Ï^(G)
+dans lui-même : on sait que la suite \(n) est un multiplicateur
+de ^L^T) dans ^L^T) si et seulement si, pour presque
+340                           ALINE BONAMI
+
+toute suite s(n), s(n) e { — 1, 1}, z(n)Un) est un multiplica-
+teur de M^(T) dans lui-même ([9], p. 215).
+  Ensembles A(ç). — Un cas particulier du problème que
+nous nous sommes posé est la recherche des ensembles E de
+F tels que, pour toute fonction f appartenant à l'espace de
+Banach B, ^ |f(ï)| 2 soit fini. Considérons le cas où B est
+             Ï€E
+L^G), 1 < p < 2 : si q est l'exposant conjugué de p,
+ 1 1
+~~ + — =1, on sait que les multiplicateurs de 9LP{G) dans
+^L^G) et les multiplicateurs de ^L^G) dans 3?L^(G) sont
+les mêmes ([9], p. 177). Un ensemble E possède alors la
+propriété cherchée si, et seulement si, toute E-fonction f
+(fonction à spectre dans E, ou encore telle que /(y) = 0 si
+Y ^ E) de L^G) est dans L^G). D'après le théorème du
+graphe fermé, il existe alors une constante A telle que, pour
+toute fonction f dans L^G), \\f[\y ^ A.\\f[\^ On reconnaît ici
+les ensembles A (g) de Rudin [6].
+     Suivant Rudin, un ensemble E dans F est dit A (g) s'il
+existe un nombre réel q1 < g, et une constante Ay, telle que
+pour tout E-polynôme f (polynôme à spectre dans E) :
+\\f[\q ^ A^Hyil^. On montre alors qu'à tout r < q on peut
+faire correspondre Ap tel que pour tout E-polynôme
+f: [\f[\q ^ Arll/'Up. Citons deux propriétés élémentaires des
+ensembles A(g) que nous utiliserons dans la suite, et qu'on
+trouvera dans [6] :
+    — Si E est un ensemble A (g), alors E est A(^) quel
+que soit q' < g.
+    — Si q > 2, et si E^ et Ea sont A(g), il en est de même
+de EI u Eg. Nous nous intéresserons d'ailleurs uniquement au
+cas où q est supérieur à 2.
+  DÉFINITION       DE   LA   CONSTANTE   A(ç,   E).   —   Soit   E   UU
+ensemble    A(g), q > 2. On appelle A(g, E) la plus petite
+constante   A telle que, pour tout E-polynôme /*,
+
+                             un. ^ AU/L.
+A(g, E) est encore la norme de la fonction caractéristique de E
+en tantque multiplicateur de S^L^G) dans 9'L9'(G).
+  La croissance de la constante A(g, E) avec g, lorsque E
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)   341
+
+
+est A(ç) pour tout y, donne une idée de la lacunarité de
+l'ensemble E dans F. Deux questions se posent naturelle-
+ment : existe-t-il des ensembles A (g) pour tout q tels que la
+croissance de A(g, E) soit arbitrairement rapide? Nous prou-
+verons l'existence de tels ensembles dans le dual F d'un
+groupe compact quelconque (chapitre 2). Existe-t-il des
+ensembles A{q) pour tout q tels que la croissance de A(ç, E)
+soit lente? Un résultat classique de Rudin [6] montre que,
+pour tout ensemble infini, A(ç, E) croît au moins comme \/q.
+On sait d'autre part que les ensembles de Sidon (ensembles E
+tels que pour tout E-polynôme f: ^\f{^)\ ^ A[|/*|[<J donnent
+l'exemple d'ensembles A(ç) pour tout q tels que A(ç, E)
+ait une croissance en \/q exactement. Nous montrerons qu'il
+existe également, dans un groupe discret quelconque, des
+ensembles E tels que A(ç, E) ait une croissance en q^2
+exactement, k étant un entier positif.
+   En tous cas, la recherche d'ensembles A(g) semble plus
+aisée que la recherche générale des fonctions ^(y)? étant liée
+à des problèmes combinatoires : si q est un entier pair, on
+peut calculer les coefficients de Fourier de f^2 à partir de
+ceux de /*, et obtenir ainsi une expression explicite de Ufllg.
+Cet aspect combinatoire laisse espérer obtenir une caractéri-
+sation des ensembles A(ç), du moins pour certains groupes.
+
+
+              Description des groupes étudiés.
+
+   Nous nous intéresserons plus particulièrement aux cas où
+G est l'un des trois groupes suivants : T == R/27rZ, D°°
+produit dénombrable { — 1, + l^ muni de la topologie
+compacte produit des topologies discrètes sur { — 1, +1},
+T°° produit d'une infinité dénombrable d'exemplaires du tore.
+Ces trois groupes compacts admettent respectivement pour
+dual Z, l'anneau des entiers relatifs, la somme directe SZ(2),
+où Z(2) désigne les entiers module 2, la somme directe 2Z.
+Décrivons brièvement comment se font ces dualités : si x
+appartient à T, n à Z, (rc, n) est encore égal à e17^. De même,
+si x = (^°Li appartient à D°°, s = (ej^i, où e^e {0, 1},
+                               00
+
+
+
+appartient à SZ(2), {x, s) == JJ (^n)5"- Enfin, si x = {x^)^
+342                       ALINE BONAMI
+
+appartient à T°, v == (^)nli appartient à SZ, (^, ^) == e15^.
+Le dual de D00, SZ(2), possède une structure d'espace vectoriel
+sur Z(2), l'addition étant celle dont il est muni en tant que
+dual de D°°. On notera par e^ e^ . . ., e^ . . . la base cano-
+nique de SZ(2), formée des éléments dont toutes les coor-
+données sont nulles, sauf une. La fonction (x, e^) sur D°°
+est encore la nième fonction coordonnée, traditionnellement
+appelée nième fonction de Rademacher. De même SZ est
+un Z-module libre, et on notera fi, . . ., /*„, . . . sa base cano-
+nique.
+
+
+      Relations entre ensembles A(q) dans ces groupes.
+
+  Montrons tout d'abord qu'un ensemble A(ç) dans le dual
+de D°° peut être transporté dans le dual de T°° en restant
+A(ç). Plus précisément :
+
+   THÉORÈME 1. — On appelle respectivement e^ et f^ les
+éléments des bases canoniques de SZ(2) et 2Z. Soit E un
+ensemble A(gr) dans SZ(2), et soit F l^ensemble de SZ
+formé des éléments v == Se^ tels que e; soit égal à 0 ou 1,
+et Ss^i appartienne à E : F est alors A(ç), et
+
+                       A(î, F) ^ A(ç, E).
+   On considère, parmi les fonctions continues sur T30, l'idéal
+fermé des fonctions à spectre dans 2{0, 1} (ensemble formé
+des Se^ tels que s; e {0, 1}). Soit co quelconque dans
+D°° : la forme linéaire qui, à une fonction g de l'idéal,
+g{x) = Sg(S£^)(o;, S £„/„), tait correspondre
+                       Sg(Sc^)(œ, S^,),
+
+est une forme linéaire continue, de norme inférieure ou égale
+à 1. Elle se prolonge donc en une forme linéaire continue sur
+l'espace des fonctions continues sur T°°, qui définit une mesure
+^ telle que ||{iJ ^ 1, et M^n/n) = (^ Ss^).
+   Soit alors g une F-fonction : g{x) = ^ g^n/n)^ ^n/n)-
+                                          SenAeF
+g = [L^ * (^ * g ) , donc \\g\\q ^ [\^ * g||^.
+  Elevons cette inégalité à la puissance q1^8 et sommons
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)                  343
+
+sur D 00 :
+
+   11^ ^ f^f^                   S       g(Wn)(^ Ss^)(co, 2s^) ^ rfœ dx.
+                            SSn6»»6^
+
+Or, d'après l'hypothèse sur E, ce second membre est encore
+majoré par :
+                [A(î,E)]^ S |g(:Sc^)|^.
+  ^. ,                    \S£n^eE        /
+  r malement :
+                                ]|g||, ^ A(ç,E)||g|]2.
+   Remarque. — Nous avons énoncé le théorème 1 dans le cas
+de D 00 ; mais visiblement D°° peut être remplacé par tout
+groupe G compact abélien, le rôle de la suite e^ étant tenu
+par n'importe quelle suite Yn dans F, dual de G, telle
+que tout élément y de F s'écrive d'au plus une manière sous
+la forme Ss^Yn? ^n^ {O? 1} (en particulier la suite 2", pour
+les entiers, convient). Le théorème 1 montre donc que le dual
+de T00 possède « beaucoup » d'ensembles A(g).
+   Plus riche en applications, certainement, est le théorème
+suivant, qui permet au contraire de trouver des ensembles
+A(g) d'entiers à partir d'ensembles A(q) dans le dual de
+T°°, et que nous utiliserons au chapitre 3 :
+    THÉORÈME 2. — Soient t^ et A^ deux suites d'entiers. On
+ appelle F le sous-ensemble de SZ formé des suites {^n)^=i
+telles que, pour tout n, |vJ ^ A^; F( le sous-ensemble de Z
+formé des entiers s'écrivant sous la forme Sv^, [v^| ^ A^.
+ Soient f et g deux polynômes sur T et T°°, à spectre dans
+F( et F respectivement, tels que f^rfn) = g{^n)^=i)' Alors,
+si q est un entier pair, et si t^ > (q + 1)A^ pour tout n,
+les normes de f et g, dans L^T) et L^T00) respectivement,
+sont égales.
+  Posons q = 2s, et calculons explicitement f^dx = \\f[\^:
+
+   "m-s                                         fw .../W(^i) ...^J.
+             j 7.1 +••• +r,=r,-n -+-... + r,,
+
+Si r appartient à F(, r = 2v^, on note r == (vj^ l'élé-
+ment correspondant de SZ. Il suffit de montrer que
+r
+  ! + • • • + ^ = ^i + • " + ^2s s! et seulement si
+              fi + ^2 + • • • + r, = r^i + ... + r^,
+344                      ALINE BONAMI
+
+
+ou, ce qui revient au même, que Sv^ = Sv^, si v^ et v^
+sont bornés en module par sA.^, si et seulement si v^ = v^
+pour tout n. Mais il est aisé de voir que cette dernière impli-
+cation est une conséquence de Fhypothèse ^4.1 > (y + 1)A^.
+   Remarque. — Le théorème 2 est encore valable si Z est
+remplacé par un groupe discret quelconque F, ^ par une
+suite y^ d'éléments de F tels qu'un élément quelconque
+Y de F s'écrive d'au plus une manière sous la forme
+Sv^Yra? l^ral ^ s^•nf Le théorème 2 ne donne aucun résultat
+dans le cas où q n'est pas un entier pair : la démonstration
+combinatoire donnée ne s'applique évidemment pas. Le
+résultat, pour q quelconque, résulterait, s'il existait, d'un
+théorème d'interpolation pour les idéaux fermés Ip(F) ana-
+logue au théorème d'interpolation de Riesz-Thorin.
+   Citons le théorème suivant, dû à Y. Meyer ([4] p. 563),
+qui exige une condition plus forte sur la suite ^, mais est
+valable pour toute valeur de q :
+
+   THÉORÈME 3 (Y. Meyer). — Sous les hypothèses du théorème 2,
+si S(A^/^+i) est fini, il existe une constante K indépendante
+de f et g telle que, pour tout q,
+
+             i ^ q ^ ^,-^B^ç ^ uni. ^ KII^I,.
+  Conditions nécessaires pour qu^un ensemble soit A(q).
+
+   Dans les cas particuliers où G est l'un des groupes T ou
+ 00
+D , nous utiliserons une première méthode, valable également
+pour les multiplicateurs de 9^ dans S^L2, ou bien
+^(Log^'L)0^ dans 9L2 : si À(y) est un tel multiplicateur,
+d'après le théorème du graphe fermé il existe une constante A
+telle que, pour tout polynôme f:
+ ^1 ^(ïîPlAï)! 2 ^ ^ll/ll^ dans le premier cas, des constantes
+A et B telles que :
+  ^(ï^lAï)! 2 ^ A (/l/KLog+l/D^+B) 2 dans le second.
+Dès lors, on voit qu'on obtiendra des conditions nécessaires
+par la considération de familles de fonctions particulières.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)      345
+
+
+   Cas de T. — C'est le cas envisagé par Rudin dans [6] :
+en prenant pour famille de fonctions les noyaux de Fejer, il
+obtient des conditions portant sur les sommes S|X(M)| 2
+relatives aux entiers n d'une progression arithmétique.
+   THÉORÈME 4 (Rudin). — (1) Soit \{n) un multiplicateur
+envoyant ^L^T) dans S^L^T); il existe une constante A.
+telle que, pour tout entier N, et pour toute progression arithmé-
+tique VN de longueur N :
+            S \Un)\2 ^ A.2^        (-1- + -1- = i\
+           nevi
+            €VN                    \ P     q      /
+
+  (2) Soit X(7z) un multiplicateur envoyant ^(Log4'!^ dans
+â^L^T) : il existe une constante A. telle que, sous les mêmes
+hypothèses :
+                    S lX(n)| 2 ^ A^logN) 201 .
+                   neVN
+
+   (3) En particulier, si E est un ensemble A (g), (g > 2) il
+existe une constante A. telle que, sous les mêmes hypothèses :
+
+                    card (E n Vi,) ^ AW^.
+   Il suffit de calculer, si KN est le Nième noyau de Féjer,
+||KN||, ^ N^ /|K^|(Log+ K^ dx ^ B(Log N)^
+   Rudin, dans [6], a montré que les conditions (1) et (3) sont
+les meilleures possibles (N 2 ^ ne peut être remplacé par N?,
+P < 2/ç), tandis que nous montrerons au chapitre 2 que la
+condition (2) est la meilleure possible, du moins si 2oc est un
+entier. Ces conditions, par contre, ne sont pas suffisantes.
+   On aimerait connaître pour les ensembles A (g), comme dans
+le cas des ensembles de Sidon, des conditions portant sur le
+nombre d'éléments de l'ensemble contenus dans une maille
+ (une maille étant l'ensemble des entiers qui s'écrivent
+Q^i^i 4~ Q^^ + • • • + û^/c? n!? n^ • • • ? ^/c étant donnés, et
+ai, a2, . . . , a/, tels que |ai| +1^21 + • • - + |aJ < K, [3],
+ p. 146). Nous n'avons su trouver, dans cet ordre d'idées, qu'un
+ résultat qualitatif : si t^ est une suite lacunaire, t^+i ^ 3^,
+ un ensemble A(g) Çq > 2) ne peut contenir tous les éléments
+                   ( N                      )
+ de la maille ) S ^ni?l ^ <E { — l? 0, 1}(> pour N arbitraire-
+                   ( 1=1                    )
+ ment grand. Il suffit, en effet, de considérer la famille de
+346                        ALINE BONAMI
+
+                                N
+
+produits de Riesz Py(x) = TJ (1 + GOS t^x) : il est aisé de
+                               i==l
+calculer ||PN||I = 1, ||PN||2 = (S^)^2. On ne peut avoir, pour
+des valeurs de N arbitrairement grandes, (S/2)^2 ^ A.
+Nous donnerons plus loin des résultats quantitatifs, dans le
+cas où q est un entier pair.
+   Remarque. — Les conditions nécessaires du théorème 5
+permettent de répondre négativement à la question suivante :
+existe-t-il des conditions de croissance sur la suite À^, autres
+que lim (^n+i/^n) > l? ayant pour conséquence que la suite
+À^ forme un ensemble A(ç)? Si lim (^n+il^n) > l? ^a
+suite X^ est une suite de Hadamard, et constitue donc un
+ensemble de Sidon, dont on sait qu'il est A(q) pour tout ç.
+Mais il existe des suites croissantes À^ telles que '^n+il'^n tende
+vers 1 en décroissant arbitrairement lentement, et contenant
+des progressions arithmétiques arbitrairement longues.
+   Ce ne sont donc pas des conditions de croissance à l'infini
+qui permettront d'affirmer qu'un ensemble d'entiers est A(y)
+sans être un ensemble de Sidon, mais des conditions arithmé-
+tiques de répartition.
+  Cas de D°°. — II a déjà été étudié dans [1]. On prend, dans
+ce cas, pour famille de fonctions les produits de Riesz de la
+       N
+
+forme TT (1+(^? ïn))? Tra étant une suite d'éléments linéairement
+       n=l
+indépendants de SZ(2) : un tel produit admet pour transformée
+de Fourier la fonction caractéristique du sous-espace vectoriel
+de SZ(2) engendré par yi? Ï2? • • • ? ÏN- II est facile de calculer
+sa norme dans L^D^), égale à 2^. On obtient alors, pour
+un multiplicateur ^(y)? des conditions portant sur les sommes
+S|X(Y)| 2 relatives aux éléments y d'un sous-espace vectoriel
+de SZ(2).
+  THÉORÈME 5. — ( 1 ) Soit X(y) un multiplicateur de â^L^D00)
+dans S^L^D00) de norme égale à A : alors, pour tout sous-espace
+sectoriel V de SZ(2) :
+              S 1 X(y)| 2 ^ A^ dtm Y   (^-+-i-=l\
+             TGV                       \ P ?    /
+
+  (2) Soit     X(y)   un multiplicateur de   ^(Log4" L)01     dans
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)      347
+
+     00
+^L^D ) : il existe une constante A telle que, pour tout sous-
+espace sectoriel V de SZ(2) :
+                   5 |À(y)| 2 ^ A^dimV)2^
+                   ïev
+
+  (3) En particulier, si E est un ensemble A(ç), pour tout
+sous-espace sectoriel V de SZ(2) :
+              card (E n V) < [A(ç, E)]^ dim Y.
+   La condition (3) pour qu'un ensemble soit A(ç) est-elle
+suffisante? Elle est en tout cas moins forte, à priori, que la
+condition que nous donnerons au théorème 6. Toutefois nous
+ne connaissons pas d'exemple d'ensembles satisfaisant à la
+condition (3) et ne satisfaisant pas à la condition du théorème 6.
+Nous ne savons pas non plus si la condition (3) est la meilleure
+possible.
+   Il n'est en tout cas pas suffisant de se limiter, dans (3), aux
+conditions nécessaires relatives aux sous-espaces vectoriels
+engendrés par les éléments de la base canonique de SZ(2) :
+l'ensemble des éléments qui s'écrivent Se^, où s^ = e^+i
+pour tout n, n'est évidemment pas A(4) puisqu'il contient
+des sous-espaces vectoriels de dimension arbitrairement grande,
+tout en ayant au plus 2d(m v/2 éléments dans tout sous-espace
+vectoriel V engendré par des éléments de la base canonique.
+  Cas général. — Une méthode combinatoire permet, dans le
+cas général, d'obtenir des conditions nécessaires pour qu'un
+ensemble soit A (g) lorsque q est un entier pair. Suivant
+Rudin, si E est un sous-ensemble de F, s un entier positif,
+Y un élément quelconque de F, on appelle r^(E, y) le nombre
+de décompositions de y en somme de s éléments de E,
+chacune étant comptée un nombre de fois égal au nombre de
+permutations avec répétition des s éléments de E.
+   THÉORÈME 6. — Si E est un ensemble A(2s) dans le groupe
+discret F (s entier positif) toute partie finie E7 de E satisfait
+à l'inégalité :
+             S (^(E', y)) 2 ^ [A(2^, E)] 2 - (card E^.
+            Ter
+
+   II suffit de considérer la fonction     f(x) = ^ [x, y),     et
+d'écrire que \\f\^ ^ A(2^, E)||/'||,.            ^El
+348                          ALINE BONAMI
+
+  Or    H/•llj == card E',   et       f^x) = Ter
+                                              S ^(E', f){x, y) : donc
+nnij: = Ter
+         s (^(E', y))".
+  Le théorème 6 est difficilement utilisable sous cette forme.
+Le corollaire suivant est d'expression plus simple :
+   COROLLAIRE 1. — Soit E un ensemble A(2s) dans le groupe
+discret F. Quelle que soit la partie finie V de F :
+              card (E n V) ^ [A(2^ E^card ^V)^.
+  Posons E ' ^ E n V . Il est clair que (card E 7 )'== S ^(E^y).
+                                                               Ter
+Or ^(E', y) = 0 si y n'appartient pas à ^V. En vertu de
+l'inégalité de Schwarz :
+      (card ET = ( S ^(E7, y)\ 2 ^ (card .V) S [r.(E', y)p.
+                    v-rer               /
+On en déduit l'inégalité cherchée grâce au théorème 6.
+   Remarquons qu'en prenant pour V soit une progression
+arithmétique d'entiers, soit un sous-espace vectoriel de
+SZ(2), on retrouve ainsi les conditions (3) des théorèmes 4 et
+5 : dans le premier cas card (^V) = s card V, dans le second
+cas card (^V) = card V.
+   Soit YI? Ï2? • • • ? ïk ^ éléments quelconques de F, K un
+entier positif. Prenons maintenant pour sous-ensemble V de
+F la maille définie comme ensemble des éléments y qui
+                                  k
+
+s'écrivent sous la forme      ^ £^YO ou l^l ^ K po1111 tout i.
+                             1=1
+L'ensemble     s\    est alors formé des éléments de F qui
+                                  k
+s'écrivent sous la forme S ^ïi? °ù 1 ^l ^ ^K : il a au plus
+                         1=1
+                             . .
+(sK + i)^ éléments. Par application du corollaire 1, on obtient
+le théorème suivant :
+   THÉORÈME 7. — Soit E un ensemble A(2s) dans le groupe
+discret F, y^, yg, . . ., y^ k éléments quelconques de F, K un
+entier positif: le nombre d9 éléments de E s9 écrivant sous la
+          k
+                    ou
+forme     ^ S^YI?        l^l ^ K            pour tout   i,   ^ majoré par
+[A(2^, ÉTp(5K + 1)^.
+                          CHAPITRE II
+
+  CONSTRUCTIONS D^ENSEMBLES A(q) PARTICULIERS.
+          MÉTHODES COMBINATOIRES.
+
+
+   Dans ce chapitre, nous montrons qu'il est possible de
+construire, dans un groupe discret quelconque, des ensembles
+A (g) particuliers : ensembles A (g) pour certaines valeurs de
+q et non pour d'autres, ensembles A(ç) pour tout q tels
+que la constante A(g, E) correspondante (plus petite cons-
+tante A telle que, pour tout E-polynôme /*, ||/*||g ^ AH/'Ha)
+ait une croissance arbitrairement rapide, ensembles A(g)
+pour tout q tels que la constante A(g, E) croisse lentement.
+La croissance de la constante A(g, E), lorsque E est un
+ensemble A(g) pour tout g, donne en quelque sorte une
+mesure de la lacunarité de l'ensemble E dans le groupe
+discret dont il fait partie, mesure fondé sur des propriétés
+fonctionnelles de l'ensemble E. Plus la constante A(ç, E)
+croît lentement, et plus, bien sûr, l'ensemble E doit être
+lacunaire. Quel que soit l'entier /c, nous donnons, dans tout
+groupe discret, des exemples d'ensembles A(ç) pour tout q
+tels que la constante A(ç, E) correspondante ait une crois-
+sance en q^2 exactement, ensembles dont le modèle dans Z
+est l'ensemble des entiers
+          ±   ^ ±   X^ . . .   ±   X^, MI > 722 >   • • •   > U^
+
+
+\n étant une suite lacunaire, \n+i ^ 2À^.
+  On serait porté à relier cette notion fonctionnelle de lacu-
+narité d'un ensemble E à des propriétés arithmétiques de E.
+Le seul cas que l'on sache traiter est relatif aux groupes
+compacts G dont tous les éléments sont de même ordre r, r
+350                        ALINE BONAMI
+
+
+premier. Le dual F de G est alors un espace vectoriel sur
+Z(r), corps des entiers module r. On sait, dans ce cas, que
+si E est une réunion finie d'ensembles indépendants, E est
+un ensemble de Sidon, et par conséquent A (y, E) a une
+croissance en \/~q ([7], p. 124). Réciproquement, si E est
+A(ç) pour tout ç, et si A(ç, E) a une croissance en \/q,
+le corollaire 1 du premier chapitre permet d'affirmer l'existence
+d'une constante A telle que, quel que soit le sous-espace
+vectoriel V de dimension finie, card (E n V) ^ A dira V :
+en vertu du lemme de Rado [5], on sait alors que E est
+réunion finie d'ensembles linéairement indépendants. Remar-
+quons qu'on a en même temps démontré que, pour de tels
+groupes G, les ensembles A(g) pour tout q tels que A(ç, E)
+ ait une croissance en \/~q sont les ensembles de Sidon. On
+voudrait pouvoir, dans ces mêmes groupes, caractériser les
+ ensembles A(g) pour tout q tels que A(ç, E) ait une
+ croissance en qkl2^ k entier. Nous montrerons que toute
+ réunion finie d'ensembles E^, où chaque E^ est de la forme
+ liE[ = E^ + "• + E^, E^ étant un ensemble indépendant et
+ ^ e [1, /c], est de cette sorte. Est-ce que réciproquement tout
+ ensemble A(ç) pour tout q tel que A(ç, E) ait une crois-
+ sance en q^2, est contenu dans une réunion finie de tels
+ ensembles E^? Il faudrait, pour répondre, connaître un
+ équivalent du lemme de Rado, une caractérisation des
+ ensembles E tels que, pour tout sous-espace vectoriel V
+  de dimension finie, card (E n V) ^ A (dim V)\ k > 1.
+   Remarque. — Les ensembles E tels que A(^, E) ait une
+croissance en (f- sont particulièrement intéressants, car alors
+toute E-fonction f appartenant à L^G) est telle que, quel
+que soit À > 0, exp (^Ifj 1 ^) est intégrable (même démons-
+tration que dans [9], p. 214). C'est encore dire que la fonction
+caractéristique de E est un multiplicateur envoyant 9L2
+dans l'espace de Banach des transformées de Fourier des
+fonctions f telles que exp (^l/'f 1 ^) soit intégrable pour un
+certain À. Par dualité, la fonction caractéristique de E est
+encore un multiplicateur de S^Leg"*" L)0^ dans 9L2 : quel que
+                                    (x
+ soit f tel que                   ' dx < oo, S lAï)! 2 est fmL
+                    J f|/1(Log+ \f\)
+                                           ^ Ï€=E
+      La réciproque est également vraie : si la fonction caracté-
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)      351
+
+ristique de E est un multiplicateur de ^LÇLog4' L^ dans
+9ÏÏL2, E est A{q) pour tout ç, et A(ç, E) croît comme ç01.
+En effet, d'après le théorème du graphe fermé, il existe alors
+A et X tels que, quel que soit le E-polynôme f tel que
+H/lia = 1, on a l'inégalité f exp Wf^) dx ^ A, et donc,
+pour tout entier M, ^{{f^ ^ A.n ! ^ An71.
+
+
+
+                1. Constructions d'ensembles A (g)
+            pour tout q tels que la constante A (g, E)
+                    croisse arbitrairement vite.
+
+  Nous donnerons tout d'abord une condition suffisante pour
+qu'un ensemble soit A (g), lorsque q est un entier pair.
+
+   DÉFINITION. — Soit E un sous-ensemble du groupe discret
+F, s un entier positif, y un élément quelconque de F. Suivant
+Rudin ([7], p. 124), on appelle R,(E, y) le nombre de repré-
+sentations de y sous la forme y = ± ïi ± Ï2 • • • ± ï^? ^es
+Yi e(an( des éléments deux à deux distincts de E, et deux
+représentations étant considérées comme identiques si elles
+diffèrent seulement par l) ordre de y^, Y2? • • • ? ï^-
+
+  THÉORÈME 1. — Soit E un sous-ensemble du groupe discret
+F, s un entier supérieur à 1. S^il existe N tel que, pour tout
+       2s
+y e F, ^ Rj(E, y) ^ N, aîor5 E ^ un ensemble A(2s).
+       y=i
+  On peut toujours supposer que E n (— E) == 0 : si E est
+A(2^), il en est de même de — E, et donc de E u (— E).
+  Soit alors f un polynôme à spectre dans E :
+
+  (i) ii^j^/l/'l^^-sAïl)^)..^^)^^ .../W
+la sommation étant étendue au sous-ensemble W de E25
+formé des suites (y^, y2? • - - ? ^2s) telles que, pour tout i,
+y; appartienne à E, et yi + • • • + y. = ï.+i + • • • + Ï2.-
+   Soit l un entier inférieur à s, n^ n[, . . ., n^ n[ des entiers
+           i          i
+tels que ^ n, ^ 5, ^ n[ ^ 5, et pour tout i, ^ + ^ est
+             i=l       i==l
+352                         ALINE BONAMI
+
+
+un entier pair. On définit le sous-ensemble
+
+                      W(l, ni, Mi, . . ., ni, n'i)
+
+de W de la manière suivante: (yi, Ï2? . • • ? Ï2.0 appartient
+à W(7, ni, ni, . . ., T^, Tîî) s'il existe §1, Sa? • • • ? ^ distincts
+dans E tels que n^ des YJ? / == ^? 2, . . ., 5, et n'i des
+Yfc, k = s + i? . . ., 2^, soient égaux à 8;, les y./ restants
+étant deux à deux distincts. Il est clair que la réunion des
+W(Z, ni, n^ . . . , 7^, n'i) est W tout entier. Donnons un
+majorant du nombre de ces sous-ensembles de W, c'est-à-dire
+du nombre de suites (î, n^, n[, . . ., n^ n\) possibles : posons
+tout d'abord v; = n^ + ^- Le nombre de suites d'entiers
+                                                   i
+positifs (vi, vg? • • • ? ^f) telles que   ^ ^i ^ 2« est majoré
+                                          1=1
+par 225 (à chaque partie {/Ci, À-a? • • • 5 ^} de l'ensemble
+{1, 2, . . ., 2s} on peut faire correspondre la suite v, définie
+par v; = ki — À\-_i, /CQ étant pris égal à 0, et cette application
+est surjective). Les Vi étant ainsi choisis, il y a, pour chaque
+i, 1 + ^ choix possibles de n, et n[ de manière que
+                                               f
+n, + n^ == v,,   et donc,     au total,      U (1 + v ») ^ esvi ^ e2s
+                                             1=1
+choix possibles. On obtient finalement le majorant (2e)25.
+   Soit S(Z, MI, n^, . . . , ni, n[) la somme des termes de (1)
+relatifs aux suites (yi, Ï2? • • - 5 Ï2^) de W(?, ^i, ^, . . ., n^ n\}.
+Comme un même terme s'y retrouve au plus (s !)2 II (n^ \n^ !)~1
+fois, cette somme est majorée en module par :
+
+——(s^—— s \fw^... iA^)mAïi)i... if(ï2.)i,
+(2k)\l\Y[(n,\n[\)
+       1=1
+
+cette dernière sommation étant prise sur toutes les suites
+(§1, . . ., Si) d'éléments deux à deux distincts de E, et sur
+toutes les suites (yi, Ï2? • • - ? Ï2k) d'éléments distincts de E
+tels que ± Yi ± Ya • • • ± Ï2fc = ^(^i — ^O^r On a posé
+2k = 2s — 2(^1 + 7 ^)- Or, quels que soient yi? Ï2î • • • ? Ï2k
+distincts :
+
+iAïi)i •••i/(ï2.)i <rinAï2.-i)i2 +1^.)! 2 ]^ (^!)-lll^ll^
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)        353
+
+Supposons §1, Sa, . . . , S/ fixés : il y a au plus (2k) !N suites
+(ïi? • • • ? Ï2k) telles que ± yi ± yg • • • ± Ï2/c == ^(^ — ^)^.
+Donc
+|S(Î, ni, ni, . . ., n^ n;)|
+
+                 ^Hin^!.;!)^^^-""^---!^"""-
+Comme, pour tout i, n» + n'i est pair, et comme les 8^- sont
+deux à deux distincts,
+                                     ^ nv^ +2 ^ /\ !
+      si^(8i)i'•.+»'.... i^r^ < —^ — "'^ • - iinr-".
+Finalement
+S(Z, ni, ni,    . . . , n,, n;)l ^ ^ ^ ^       , ^W ^ 2- .!N||/*||r.
+                                           :
+                       11/L. ^ 4.N^^2||/ [|,.
+L'ensemble E est         A(2s), et A(2s, E) ^ 4e N^2' 51/2.
+   Remarque. — Les constantes R^(E, y) avaient déjà été
+utilisées par Rudin pour énoncer des conditions suffisantes
+pour qu^un ensemble soit de Sidon : on sait ([7], p. 124) que,
+si, pour tout s et pour tout y? P^E, y) ^ B5, E est un
+ensemble de Sidon. Le théorème 1 généralise en quelque sorte
+ce résultat, puisque, de la croissance en s de R,(E, y)? il
+permet de déduire la croissance en q de A(ç, E). En parti-
+culier, on retrouve grâce au théorème 1 que si, pour tout s
+et pour tout y, R,(E, y) ^ B5, E est A{q) pour tout g,
+et A(ç, E) a une croissance en \/~q. Cet exemple montre la
+précision de la majoration de la constante A(g, E) obtenue
+dans le théorème 1.
+   La construction d'un ensemble E de constante A(ç, E)
+arbitrairement croissante repose sur les deux lemmes suivants :
+   LEMME 1. — Soit F un groupe abélien discret infini. Pour
+tout élément y de F, on note d(y) Vordre de y. Il existe
+une suite y^ ^éléments de E telle que, pour tout /c, tout
+élément de F s " écrive d^au plus une manière sous la forme
+ S ^ïh ^ étant, pour tout l, un entier relatif majoré en module
+l^k
+par inf (2/c, d!(y^) — 1).
+354                          ALINE BONAMI
+
+
+   Considérons tout d'abord le cas où F possède une infinité
+d'éléments d'ordre p, tout en possédant au plus un nombre
+fini d'éléments d'ordre inférieur à p : il est alors facile de
+choisir par récurrence la suite y^ parmi les éléments d'ordre
+p. Supposons Yi? Ï2? • • • ? Tn-i choisis: quel que soit s
+inférieur à p, il existe au plus un nombre fini d'éléments y
+tels que $y a1^ une valeur donnée, et donc au plus un nombre
+                                       n-l
+
+fini d'éléments y   tels que 5y === ^ s^, où [ed < p. On
+                                    1=1
+choisit alors y/i parmi les éléments d'ordre p restants.
+   On construit encore la suite y» pâ1* récurrence dans le cas
+où, quel que soit p, F possède au plus un nombre fini d'élé-
+ments d'ordre pyi, . . . , y^-i ayant été choisis, onchoisit y^
+tel que, pour tout s^:k tel que ^y^O, ^y^ soit différent de
+                    n-l
+
+tous les éléments ^ s^, où |^[ ^ inf (2/c, dÇ^i) — 1).
+                    z==i
+
+   LEMME 2. — Soit F im groupe abélien discret contenant au
+plus un nombre fini (Vêlements d'ordre 2, s un entier positif,
+V un sous-ensemble fini de F contenant K éléments. Il
+existe une constante Y) indépendante de K telle quon peut
+trouver dans V un sous-ensemble E possédant au moins
+TjK1^ éléments et satisfaisant à la propriété : pour tout y e F,
+
+ S R/E, y) ^ 1.
+j=i
+  On construit E par récurrence : yi, y^, . . ., y^-i ayant été
+choisis, on veut choisir y^ tel que ni y^ ni 2y^ ne puissent
+                           w-l
+
+s'écrire sous la forme ^ ^ïi? °ù £ l e { — 2, — 1, 0, 1, 2} et
+                        i=i
+S|s^| < 45. Or le nombre des éléments qui s'écrivent sous cette
+forme est majoré par n45, et, si N est le nombre d'éléments
+d'ordre 2 dans F, le nombre d'éléments y tels que 2y
+s'écrive sous cette forme est majoré par (N 4" l)^45. On peut
+donc choisir y^ dans V tant que (N + 2)n45 ^ K.
+
+   THÉORÈME 2. — Soit F un groupe abélien discret infini,
+<p(y) une fonction croissante quelconque. Il existe un ensemble
+E dans F qui est A(g) pour tout q, et tel que A(g, E) ^ 9 (g)
+dès que q > 3.
+  Si F possède une infinité d'éléments d'ordre 2, il possède
+ÉTUDE   DES COEFFICIENTS DE F O U R I E R                DES FONCTIONS DE LP(G)       355
+
+
+alors un sous-groupe isomorphe à SZ(2), et la construction
+du sous-ensemble E a été faite dans [1]. Supposons donc que
+F possède un nombre fini d'éléments d'ordre 2. Soit N(/c)
+une suite croissante d'entiers, n(k) == N(/c +1-) — N(/c). Il
+existe, en vertu du lemme 1, une suite y^ telle que, quel que
+soit /c, tout élément de F s'écrive au plus d'une manière sous
+la forme S £^? avec, pour tout l, |^| ^ inf (2/c, d{^i) — 1).
+                 ^N(fc)
+On pourra supposer que y^ est, pour tout M, d'ordre supérieur
+à 2. Soit alors V^ le sous-ensemble de F formé des éléments
+qui s'écrivent
+                       S         ^ïn,          OÙ          £^e{—1,0,1},
+                 N(/c)^n<N(fc+l)
+
+
+et Efc un sous-ensemble de V^ construit conformément au
+lemme 2, avec s = k. Montrons que E = u E^ est un
+ensemble A(ç) pour tout ç. Il est facile de voir que l'ensemble
+E^ == 1 J E^- est A (2/c) : grâce aux propriétés de la suite
+        J'^-ft
+Yn et des ensembles Ey, on montre aisément que, quel que
+                     2/c
+
+soit  Y e r ? S Rf(E^ ï) ^ 1. Il suffit alors d'appliquer le
+              i==i
+théorème 1. Comme E diffère de E^ par un nombre fini
+d'éléments, E est également A(2/f), et ceci pour tout /c.
+   Il nous reste à chercher une minoration de la constante
+A(ç, E) : on utilise le théorème 7 du chapitre 1. Pour tout
+entier s :
+             ^n^k ^ ç^ (E n V,) ^ [A(25, E)]^)^.
+Prenons en particulier s == k2 ; on obtient la minoration
+                     fAf2/C 2   E)1 2   ^   ^3["(fc)/4/c-n(k)//c2-2n(fc)Log3/c//cî]
+
+
+cette dernière quantité pouvant être rendue arbitrairement
+grande par un choix convenable de n(/c) dès que k ^ 100.
+L'ensemble cherché est obtenu en ajoutant à E un ensemble
+fini F tel que A(3, F) > <p(2.10 4 ).
+   On aurait pu, grâce à la même méthode, construire des
+ensembles A(ç) pour certaines valeurs de q et non pour
+d'autres. Nous ne détaillerons pas cette construction.
+356                             ALINE BONAMI
+
+
+
+
+              2. Constructions (Pensembles A(q)
+          pour tout q tels que la constante A (g, E)
+      ait une croissance en q^2 exactement (k entier).
+
+    Nous allons tout d'abord donner une nouvelle condition
+suffisante pour qu'un ensemble soit A(2^), condition qui nous
+permettra de construire de tels ensembles dans le dual de
+T°°. Si E est un sous-ensemble du groupe discret F, s un
+entier positif, y un élément quelconque de F, on rappelle
+que y^(E, y) désigne le nombre de décompositions de y en
+somme de s éléments de E, chacune étant comptée un
+nombre de fois égal au nombre de permutations (avec répé-
+tition) des s éléments de E.
+   THÉORÈME 3. — Soit E un sous-ensemble du dual F d'un
+groupe compact G. Si, pour tout y e I\ r,(E, y) ^ N, E
+est de type A(2^), et A(2^, E) ^ N^2'.
+   Soit en effet f un E-polynôme, et
+
+        g=fsf-gw= ïi+T,+...+r,==T
+                        s         /WW... Ai.),
+et, grâce à l'hypothèse et à l'inégalité de Schwarz :
+       lg(ï)1 2 < N         S           lAïl)!2!^)!2 ...lAY,)! 2 .
+                      ïi+Tî+---+ï,==ï
+Donc
+      re-ii^iii ^ N ST 2 ^ iAïi)i 2 ...2 i/W
+                ^ N ^^l^y... i^)i = Nimir.
+                           Yl,Ï2,-,ï,
+
+
+
+Finalement ||/'|]^ ^ N^I/L.
+   Ce résultat, dans le cas des entiers positifs, avait déjà été
+énoncé par Rudin dans [6], mais avec la constante N1^
+au lieu de N^. La majoration A(25, E) ^ N^25 est ici
+la meilleure possible : on ne peut remplacer 1/2^ par un
+exposant inférieur. Il suffit, pour cela, de considérer le cas où
+E est un ensemble lacunaire d'entiers,
+                 E = {\\^il\ ^ 2^-1}:
+                                                               1     -1
+N est alors égal à s !. Or, d'après [6], A.{2s, E) ^ — ( 2 5 ) 2 -
+ÉTUDE DES COEFFICIENTS DE F O U R I E R DES FONCTIONS DE L^G)      357
+
+
+   Appliquons le théorème 3 à certains sous-ensembles du
+dual de T°°, SZ. On appellera U le sous-ensemble de SZ
+formé des suites {n^)^ telles que, pour tout i, n^ soit positif
+ou nul, Ufc le sous-ensemble de U formé des suites (rii)^
+telles que ST^ === k. En particulier Ui est encore l'ensemble
+{fn}^=i9 dont les éléments constituent la base canonique de
+SZ, et U , = U ^ + U i .
+
+   THÉORÈME 4. — Le sous-ensemble U/c de 2Z, formé des
+suites (n^i telles que n; ^ 0 pour tout i et Sy^ == k, est
+A(ç) pour tout q, et, si q est un entier pair, pour toute U^-fonc-
+tion: ||/1|, ^ (îOTl/^.
+   Montrons, pour pouvoir utiliser le théorème 3, que, pour
+tout y e U, ^(U,, y) est borné : dire que y s'écrit comme
+somme de s éléments de U/, revient à dire que y s'écrit
+comme somme de ks éléments de Ui. Or, Ui étant encore
+la base canonique, ceci ne peut avoir lieu que d'une seule
+manière : soit donc
+                                                  /
+       Y = r^fn, + r^ + ... + r//^,     avec    S r, = ks.
+                                                1=1
+II s'agit de déterminer de combien de manières on peut regrou-
+per ces différents termes pour obtenir s éléments (ordonnés)
+de U/c Or le nombre de permutations des ks termes, puisqu'il
+                                            (ks !)
+y a des répétitions possibles, est ,—.^ v         —-,—p.- Une
+telle permutation étant choisie, cherchons à combien de
+regroupements en blocs de k termes elle correspond : suppo-
+sons que dans le ième bloc se trouve (3} fois le terme /„..
+Ce nombre de regroupements est alors égal à
+                 ________(^________
+                 Pi!P|! ... ^! ... Pî! ... P?!'
+Comme     (^ + [32 + ... + p^ ^       ^ tp21   . . . ^ ! ^ ^. !,   et
+                                                 (k ^Y
+donc le nombre précédent est minoré par
+                                      r   7—TT}—T———;—.r-
+                                           ^\)(r^\) . . . (r,!)
+Le nombre de manières de regrouper les différents termes est
+donc majoré par {ks) !/(/c !)^. On obtiendra une majoration
+plus simple de A(25, E) en remarquant que {ks) ! ^ {k !)^.
+  La démonstration précédente est encore valable si on rem-
+358                              ALINE BONAMI
+
+
+place la base canonique par n'importe quel ensemble indé-
+pendant. En particulier, dans l'énoncé du théorème, on peut
+remplacer la condition Sn, == k par Sa,n, == k, ^ entiers.
+   Nous verrons dans la suite que la constante (g^)^ 2 est,
+en un certain sens, la meilleure possible.
+   D'après la remarque faite au début de ce chapitre, ce dernier
+théorème admet le corollaire suivant :
+  COROLLAIRE 1. — (1) Soit f une V^-fonction appartenant
+à L^T00) : pour tout À > 0, exp (^l/*) 2 ^) est intégrable.
+  (2) Pour toute fonction f sur T°° telle que         f l/Klog"1' \f\Y^ dx
+soit fini,         ^ lAï)! 2 < 00-
+                  T€=U^
+  C'est dire encore que la fonction caractéristique de U^ est
+un multiplicateur envoyant 3?L(Log+ L)^2 dans ^L2.
+  Avant de donner des exemples d'ensembles A(ç) pour
+tout q ayant la propriété requise dans un groupe discret
+quelconque, donnons-en d'autres exemples dans le dual de T°°.
+   COROLLAIRE 2. — Soit Tfc le sous-ensemble du dual SZ
+de T°° formé des suites (^)^i telles que, pour tout i,
+ni e {— 1, 0, 1}, et S|nf| = k: E^ est un ensemble A(y)
+pour tout q, et il existe une constante A(/c) ne dépendant que de
+k telle que, pour tout q, A{q, E,,) ^ A^)^2.
+  La démonstration repose sur le lemme suivant :
+  LEMME 3. — II existe une constante A(/c) telle que, quel que
+soit y = (î/J^Li dans T°°, on puisse trouver une mesure [Ly
+sur T°° ayant les deux propriétés suivantes :
+   (1) si         (M,)7^   appartient à T\, p.y((^)7==i) = e12'^.
+   (2) ||^|| ^ A(/c).
+  A(A') peut être pris à croissance exponentielle.
+  Les éléments de T/, sont encore tous les éléments de SZ
+qui peuvent s'écrire sous la forme ± f^ ± f^ . . . ± fn^
+n^ > n^ . . . > n^ si fn désigne la base canonique de SZ.
+La condition (1) peut également s'écrire :
+                  PL,(± ^ ± ^ . . . ± f j = ^+^+-+^.
+
+Soit a^ une suite de nombres réels, [aj ^ 1. Le produit de
+             00                        00
+
+
+Riesz JJ (1 + ^ ces x^) == ]~I (i + a^e[x, Q) définit une
+         n==l                         n=l
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE Li^(G)            359
+
+
+mesure (A de norme égale à 1, dont le spectre est la réunion
+des T,,, telle que p.( ± f^ ± f^ . . . ± /'J = a^ . . . a^. Nous
+aurons montré l'existence de [Ly si nous réussissons à écrire
+chaque produit e^^e^^ . . . e^k sous forme de somme de
+produits de la forme a^ . . . a^, où — 1 ^ a/, ^ 1, le
+nombre de termes de la somme étant majoré indépendamment
+de y. Or chaque terme du développement de
+
+                             f[ (ces y^ + i sin y^
+                             1=1               k
+
+est combinaison linéaire de produits ]^[ (cos y^ + ^ sm Vn^
+                                       i==i
+0 ^ / ^ A*. La mesure cherchée sera donc une combinaison
+linéaire des produits de Riesz correspondants, les coefficients
+de cette combinaison linéaire étant indépendants de y . Un
+calcul explicite montre que A(/c) peut être choisi à croissance
+exponentielle.
+   Le corollaire 2 découle du lemme 3, comme le prouve un
+argument de théorie de la mesure : soit g un T^-polynôme.
+Comme g = (g * [Ly) * [i_y, [\g\\q ^ A,(k)\\g * [Ly\\q. En élevant
+à la puissance q et en intégrant par rapport à y, on obtient
+l'inégalité: ||g||^ ^ [A^)]^ f I g * ^ ] 9 dx dy. Or, considérée
+comme fonction de î/, g * [Ly (x) est une U^-f onction et admet
+pour coefficient de Fourier en /n, + / ^ + " • + fnk ^
+quantité     ^       g^^/n.)612^"1- L'ensemble U^ étant A(y),
+          (£f)e|-i,i^
+et   A(g, U,) < ^2,
+
+     ||g||^ [A(/c)]V^/            S          S         ^(S^)^^2^2.
+                              \B»>--->B^ <epei—i,i!"           /
+Or
+                 S          ^(Se./J^V-.,2 < 2'CS|g(Ss,^,)|^.
+            <ei)ei   1>1!
+                            ||g|l, ^ A(/c)(2î)^l|g||,.
+   THÉORÈME 5. — Soit r un groupe abélien discret infini, B
+une constante positive, E un sous-ensemble dénombrable de F
+(ef que, pour tout entier s, R^(E, 0) ^ B^, YI? Y2? • • • ? ïra? • • •
+une énumération des éléments de E. Çuei que soit Ventier À-,
+V ensemble E^ formé des éléments de T s^ écrivant sous la forme
+Ss^Y^ où £„(= {— 1, 0, 1} et S|i^| = /c, e^ A(g) pour tout
+q. et A(ç, Efc) a une croissance en qkl2 exactement,
+360                            ALINE BONAMI
+
+
+  Nous voulons montrer, par dualité, qu'il existe une cons-
+tante A(/c) telle que, quel que soit le polynôme g sur le
+groupe G dual de F :
+       S lg(ï)1 2 ^ [A(/c)]viigii^ ( i - + A- = A
+      T€E^                           \p     q      ]
+Soit N suffisamment grand pour que tous les éléments de E/,
+qui appartiennent au spectre de g puissent s'écrire au moins
+                                       N
+d'une manière sous la forme ^ ^nïn? °ù ^n e { — l? 0, 1}, et
+                                   n==l
+S|sJ = k. Quel que soit y = (î/n)^i dans T°°, le polynôme
+
+               W = II (1 + B-l ^[e^x, y,)])
+                        n==l
+est positif, et
+
+              tlP,lli=^(0) < S (2B)-^(E,0) < 2.
+                                   s
+
+
+Donc [|Py*g||p ^ 2|[g|[p. Élevons cette dernière inégalité à
+la puissance pième, intégrons sur T°°, puis intervertissons
+l'ordre des sommations : Py * g, considéré comme fonction
+de y, est un polynôme sur T00, et, si s^ est une suite de
+nombres, s^e { — 1, 0, 1} et S[sJ = /c, le coefficient de
+Fourier de Py * g en Se^ est égal à (2B)- /c g(S£„Yn)(^ ^nïn)-
+Comme l'ensemble T^ est A(ç) et A(ç, T^) ^ A(/c)ç /c/2 5
+(SB)-^ 5 l^ï)!2^2 < A(/c)^l|g||,.
+      \YeE^       /
+   II nous reste à montrer que la croissance de A(ç, E^) est
+en q^2 exactement. Or un raisonnement analogue à celui qui
+nous a permis de passer des ensembles U/^ aux ensembles T^
+nous permettrait de passer des ensembles E^ aux ensembles
+I\ dans SZ(2), dual de D°°, définis comme ensembles des
+suites (sjn^i telles que s^e {0, 1} et Ss^ = k : on en déduit
+l'existence d'une constante A(/c) telle que
+                      A(ç, I\) < A(/c)A(î, E,).
+Or, d'après le théorème 5 du chapitre 1, et étant donné que
+pour tout sous-espace vectoriel V de SZ(2) engendré par
+des éléments de la base canonique card (E/ç n V) = Qimv?
+on a l'inégalité [A(ç, I\)]2 ^ 0^2-2^ pour tout N; et donc,
+ÉTUDE DES COEFFICIENTS DE FOURIER    DES FONCTIONS DE L^G)     361
+
+
+si q est entier, en prenant N == g, on obtient
+                       A(î, I\) ^ 7]V/^
+   Remarque. — Les ensembles E considérés dans le théorème
+5 sont des ensembles de Sidon particuliers ([7], p. 124). On est
+conduit à se demander si l'hypothèse sur E peut se remplacer
+par l'hypothèse plus faible que E soit de Sidon? Il n'en est
+rien : nous avons montré dans [1] l'existence dans SZ(2) de
+deux ensembles indépendants Ei, Eg dont la réunion est
+par conséquent de Sidon, mais tels que E^ + ES contienne
+des sous-espaces vectoriels de dimension arbitrairement grande.
+   COROLLAIRE 3. — Le sous-ensemble I\ de SZ(2), formé
+des suites (si)^ telles que Se^ == /c, est A(ç) pour tout y,
+et il existe une constante A(/c) telle que A(y, I\) ^ A^)^ 2 .
+   La fonction caractéristique de I\ est par conséquent un
+multiplicateur de 3?L(Log+ L)^2 dans S^L^D").
+   COROLLAIRE 4. — Soit À^ une suite lacunaire d'entiers,
+^n+i ^ 2À^. On appelle E^ Vensemble formé par la suite
+k-lacunaire correspondante, c'est-à-dire la suite des entiers qui
+s'écrivent sous la forme
+
+          ± X^ ± À^ . . . ± À^, ni > n^ > • • . > n^
+
+Uensemble E/( est A (g) pour tout ç, et il existe une constante
+A(/c) telle que A(ç, E^) ^ A^)^2.
+   Là encore, on en déduit que la fonction caractéristique de
+Efc est un multiplicateur de 3?L(Log+ L)^2 dans ^L2(T).
+   Le lemme suivant montre que la condition X^+i ^ 2x^ est
+indispensable dans l'énoncé du corollaire 4 :
+   LEMME 4. — Quel que soit po dans Vintervalle ]1, 2[, il
+existe un entier k et une suite lacunaire \n satisfaisant, pour
+tout n, à la condition \n+i > Po^-n? teUe que tout entier relatif
+puisse s'écrire au moins d'une manière sous la forme
+
+         ± ^ ± ^ ± •. • ± À^, ni > Ug > . • . > n^
+                                                             k-l
+  Puisque po < 2, il existe un entier k tel que pS < S Pô?
+                                    k-l                      1=1
+et donc p > po tel que p^ === S 91'       Soit u(r) une suite
+                              1=1
+362                         ALINE BONAMI
+
+
+ d'entiers satisfaisant aux conditions suivantes :
+   (1) pour tout r, u(r + 1) ^ u{r) + k',
+   (2) dès que l > u(0) - /c, p - 1/p^ > p^;
+  ^ (3) pour tout r, 1/p + (r - k + S)/?0^ < 1/p^.
+Ecrivons n sous la forme n == rk — r ' , 0 ^ r ' < k. Si
+r ' > 0, on choisit ^ égal à la partie entière de p"^-^. Si
+r ' = 0 on choisit X^ dans l'intervalle
+                      [P^p^+r^/c+l],
+                n—l
+
+tel que ^ —      ^      ^m=r^ ce qui est possible grâce au choix
+              m=n—k+l
+de p. Les conditions (1)(2) et (3) sur la suite u(r) garan-
+tissent la lacunarité de la suite 7^.
+                                                   f(
+  Remarque. l Si k et po sont tels que po ^ S Pô, la cons-
+truction précédente n'est plus possible. Mais alors on peut
+montrer, en utilisant la méthode de M. Yves Meyer ([4],
+p. 558) basée sur le théorème de Marcinkiewicz ([il], p. 231)^
+que la suite /c-lacunaire associée à une suite ^ telle que
+\+i > Po^n forme un ensemble A{q) pour tout g. Nous
+ne savons pas si, dans ce cas, la croissance en q de A(ç, E/,)
+est encore en ç^2.
+
+
+                   3. Évaluations précises
+              de certaines constantes A(g, E).
+
+   Nous allons étudier des méthodes combinatoires plus fines,
+qui nous permettront de montrer directement le corollaire 3
+sans passages par T°°, et de donner une meilleure majoration
+de la constante A(ç, I\), du moins en ce qui concerne sa
+croissance en k : comme F = UI\, nous pourrons en déduire,
+dans le chapitre suivant, des exemples de multiplicateurs.
+   Le théorème suivant avait déjà été établi, sous une forme
+affaiblie, dans [1].
+
+   THÉORÈME 6. — Pour tout F\-polynôme f sur D00 et pour
+tout entier pair q :
+                      11/11, < (ç - l)*/2!!/-!,.
+ ÉTUDE DES COEFFICIENTS DE F O U R I E R DES FONCTIONS DE LP(G)          363
+
+
+  II suffit de considérer le cas où f est un r\-polynôme réel,
+qu'on peut écrire sous la forme :
+
+                     fW=
+                             "<> S—> \a^^^L
+                                          \ »=iS e\/
+avec ^n,...»» == ^n^n^...,,^ quelle que soit la permuta-
+tion G de {1, 2, . . . , k}, et a,^,.,, = 0 si deux des n,
+sont égaux. Comme
+
+                     A6». + • • • + ej = A- ! a^^...,,,
+
+                    11^2==^!)^     S        K.J2^.
+                             \rai,n2,...,n^     /
+D autre part :
+fq{x} =
+          ^.\^ a—^...^ • • • ^-..... ^ (^ J^ ^.)
+
+ou,
+Icq
+    comme      v   /D^ (a;, y) dx = 0 si et seulement si y• == 0, et 7
+
+
+
+S ^ = 0 si et seulement si les n, sont deux à deux é^aux?
+1=1                                                 °
+          11^ = fr dx = Sa,,A,,., . . . ^,..^
+
+la sommation étant prise sur le sous-ensemble de N^ formé
+des suites (z^, n^ . . . ? ^g) telles que les n, soient deux à
+deux égaux. Comme on sait de plus que a^_^ = 0 si deux
+des rii, i = 1, 2, . . ., A-, sont égaux, on peut se restreindre aux
+suites (ni, n^ . . ., n^) telles que les n, soient tous différents
+dans chacun des blocs l e [kl + 1, /c(Z + 1)].
+   Soit donc précisément W le sous-ensemble de N^ formé
+des suites {n^ n^ . . . , n^q) telles que:
+  (a) lorsque i appartient à un bloc [kl + 1, A-^ + 1)], les
+ni correspondants sont tous distincts.
+  (6) si les n^ i = 1, 2, . . ., /cç, prennent l valeurs distinctes,
+chacune est prise un nombre pair de fois.
+  Nous aurons besoin, pour la démonstration du théorème 4,
+de deux lemmes combinatoires portant sur l'ensemble W.
+Donnons tout d'abord deux définitions : si q = 2s, on
+appelle E(/c, s) l'ensemble des applications a de
+           { 1 , 2 , ...,2/c5}     dans      {1,2, . . . , / c 5 }
+364                         ALINE BONAMI
+
+
+telles que :
+   ( a ' ) si i et / appartiennent a a même bloc [kl 4" l? k(l +1)],
+a(i) et a(/) sont différents;
+   { b ' ) pour tout l = 1, 2, . . ., /es, card oc-1^) == 2.
+   On appelle <p l'application de E(/c, s) X N^ dans N 2 ^
+définie par :
+         P^lî ^î   • • • ? ^5)5 a ] == (^0(1)? ^0(2)?   • • • ? ^û^))-
+
+
+II est aisé de voir que W appartient à l'image par <p                    de
+E;^ X N^. Plus précisément, on a le lemme suivant :
+
+   LEMME 5. — Pour tout v == (MI, n^ . . ., n^s) appartenant
+à W, card ç"1^) ^ (/es) !.
+   Supposons en effet que les n^ prennent l valeurs distinctes
+t
+ !? ^25 • • • ? ^? chacune un nombre de fois respectivement égal
+à 2pi, 2pg? • • • ? 2p^. La projection sur N^ de ^^(v) est
+alors formée des suites (r^, 7*2, . . . , r^) telles que les r,
+prennent les valeurs t^ t^ . . . , t^ chacune un nombre de
+fois respectivement égal à Pi, Pa? • • • ? P<- Le nombre de ces
+suites est :
+                                  (^)!
+                            Pi !?2 ! ... ^ !
+Ayant choisi une telle suite (ri, r^ . . ., r^), il nous reste à
+compter le nombre des applications a e E(/c, s) telles que,
+pour tout i, r^) = n^ Soit N, l'ensemble { / ; nj == sj,
+R, l'ensemble { / $ ry == sj : les applications cherchées sont
+toutes les applications a e E(/c, s) telles que pour tout
+i = 1, 2, . . ., l, a(Nf) = R,. Or la restriction à N, d'une telle
+application satisfait à l'unique condition que, pour tout
+/ e R^, a"1^') possède deux éléments : v appartenant à W, N(
+ne peut contenir deux éléments d'un même bloc. Il est aisé
+de voir que le nombre de telles applications de N( dans R,
+est égal à 2~Pt(2[3i) !. Le nombre d'applications a telles que,
+pour toute valeur de i, a(N;) == R( est donc égal à
+               2-P<(2(3i) !2-^(2(32) ! ... 2-^m !•
+Donc :
+         card,-(.)=(fo)!^-,...^,(fo)!
+ÉTUDE DES COEFFICIENTS DE FOXJRIER DES FONCTIONS DE L^G)                              365
+
+
+
+  LEMME 6. — Card E(/c, s} ^ f25-1^^^) !]2.
+                                   \ s     )
+  Card E(/c, s) est encore le nombre de choix possibles de ks
+couples a-^l), a-^), ..., a-1^) parmi les nombres
+{1, 2, . . ., 2ks}, étant entendu qu'un couple ne peut être formé
+de deux éléments d'un même bloc [k{l — 1) + 1-? kl].
+  Supposons avoir choisi a"^!), a"^), . . . . a""^), et
+montrons qu'il y a alors au plus ———— (ks — n)2 choix
+                                         s
+possibles pour a"1^ 4- 1). Supposons que dans le choix
+considéré de a"^!), . . . , a'^n), r^ des éléments constituant
+a"^!), . . . , a"1^) appartiennent au ième bloc
+
+                               [k{i— 1) + 1, ki].
+
+On a évidemment Sr^ == 2n. Si l'on choisit le premier élément
+de a-^n +1) parmi les k — r, éléments restants du ième
+bloc, il y a, pour le second élément, 2ks — 2n — k + ^i choix
+possibles, puisqu'il ne peut ni appartenir au ième bloc, ni
+être égal à l'un des în éléments précédemment choisis.
+Comme les deux éléments de a"1^ + 1) sont permutables,
+il y a donc, pour a""^ + 1), un nombre de choix égal à :
+
+                    1
+                           S (2/C5 - în - k + r,)(/c - r,).
+                    ^   i==l
+
+
+En tenant compte de ce que Sr, == 2n, par un calcul élémen-
+taire, on montre que :
+
+-^- S {2ks - în - k + r,) = {2s - l){ks - n)2 + n2 - -4- Sr2.
+^1=1                                                                              z
+Or 4n2 = (Sr,)2 ^ 2sïr2 grâce à l'inégalité de Schwarz. Ceci
+achève la démonstration du lemme 6.
+  Il est dès lors facile de terminer la démonstration du théo-
+rème 6. Grâce au lemme 5 :
+
+11/11^          5          K...J..Ja^_^.,,J
+         (ni,...."fcg)eW
+           j[
+     ^   {ks)\ C (r,, r.. ?. r^)eN^ ^ ara<l)ra(î) • • • ra^   • • • 1 ar^-^ ' • • ^(J •
+               ïaeEfc,
+                                                                             17
+366                                ALINE BONAMI
+
+
+Posons alors :
+      b(a) =           ^          1 ^0(1^0(2) ...ra( A)! - • • l a ra(fcç-k+^)...ra(kç)l•
+                (r^,...,r^)eN fct
+
+II est facile de montrer que pour tout a :
+                                                           2
+                         S(a)
+                          W < ^ ( S
+                                  2j               l^.-.nj
+                                                   l^n       )^
+                                      \ni,...,n.
+                                      \n^...,n^               /
+
+il suffit d'effectuer la sommation successivement par rapport à
+r r
+ !? ^ •••? r^? et d'utiliser à chaque étape l'inégalité de Schwarz,
+deux des facteurs ^ra^o... r^k) et deux seulement dépen-
+dant de l'une des variables r;. Donc :
+                  1
+      w     <
+      ll/llî<
+                           y       sfo»
+                                    ( )
+                                        < card E^s) (^\a                         |2v
+                (^)!aÀ.)                   ^         {ks)l         W——^ ) •
+
+Or on a vu que (S|a^,.J2)- == (k !)-1/'|[j.
+  Finalement Ufl]^ ^ f^zAY (^) t (/, !)-||^.
+                       \ ° /
+  La démonstration du théorème 6 s'achève en remarquant
+que {ks) ! < (/c !)^^.
+  Le théorème 6 peut être généralisé de la manière suivante :
+  COROLLAIRE 5. Soit E un ensemble de SZ(2) tel que pour
+tout n, 1 < n ^ 25/c, Rn(E, 0) soit borné : alors V ensemble
+kE est de type A{2s).
+  Nous ne ferons pas la démonstration, fort semblable à celle
+du théorème 6.
+   Remarque. — L'équivalence des normes dans L2 et L?
+des fonctions sur D°° à spectre dans I\ permet d'obtenir
+le résultat de théorie des probabilités suivant :
+   on considère, sur l'espace de probabilité (t2, (St, P), une suite
+Ci de variables aléatoires réelles, indépendantes, symétriques
+et équidistribuées, dont les moments d'ordre 2s soient bornés.
+Alors, il existe une constante A ne dépendant que de k,
+de s et de la loi de probabilité des Ç,, telle que, pour toute
+variable aléatoire de la forme
+
+                /•(<•>)= »»<•••<»»
+                            S ^...^(^•••U^
+on ait B/82, < A.IJ/'Ijg.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)           367
+
+
+   Le théorème 6 donne ce résultat lorsque les Ç^ sont des
+variables de Bernoulli. Considérons donc le cas général : il
+suffit de prendre pour f une combinaison linéaire finie, et
+l'on pose, lorsque x appartient à D°°,
+    F(œ, x) =      S        ^... n.Uœ)(^, x) . . . Ç^(co)(^, x).
+                "!<"-<»fc
+
+
+
+Or, pour tout a;eD°°, les variables aléatoires Ç»(ûï)(^, x)
+sont indépendantes et ont même distribution que les Ç». Donc
+j^ {¥{x, œ)) 2 ^ dP(cx)) ne dépend pas de x, et est égal à
+
+                            f^fWdP^).
+Donc :
+
+W=f^^ ^2S rfp(œ)
+                   ^ (25 -1)^ PK...J2^ • • • ^nJ ^P(^).
+              re ^ [(2. - inyiiy^]re.
+  On ne peut obtenir par contre l'équivalence des normes
+dans le kième chaos de Wiener, résultat qui a été obtenu
+indépendamment par M. Schreiber [8], par des méthodes
+combinatoires proches des nôtres.
+  Une amélioration de la méthode du théorème 6 va nous
+permettre d'obtenir le résultat suivant relatif au dual de T°° :
+   THÉORÈME 7. — Le sous-ensemble N/ç de SZ, formé des
+suites (n»)^ telles que S|n,| = k, est A{q) pour tout q,
+et, si q est un entier pair, pour toute N^-fonction f:
+
+                       m, ^ (q - im/ii2.
+   Posons encore q = 2s.
+   Nous allons définir une application ip de Z fc dans N/, de
+la manière suivante : à la suite ( = {Q^ on fait correspondre
+la suite v = {nj)^ telle que :
+   — s'il existe deux t^ opposés, v == 0.
+   — sinon, pour tout /, nj est égal soit au nombre des („
+égaux à /, soit à l'opposé du nombre des ^ égaux à — /.
+On appelle ê((), pour teZ^ la quantité k !(n|^| !)-1, si
+(^J^i == ^( ( )- O11 montre aisément que, pour tout v dans
+ ^^                                             ALINE BONAMI
+
+
+ N, v = (n,)^, card ^(v) = ————1 = ê{t), quel que soit
+ t tel que v = ç(().        "U"/))
+   Soit alors f un N^-polynôme : /• {x) == 5 «(v)^, où
+                                                                                 VGN
+ v.a;=Sre,a;( si v=(n;)^. Mais d'après ce qui pré'cède on peut
+ encore écrire: f{x) = ^ a^))^)]-!^)-2, si du moins
+                                               (6Zt
+ on a posé            a(0) = 0.                 Posons alors               b(t) = a(^{t)) [ê{t)]~1 :
+                                         f[x) = S b^e1^.
+                                                      teZ.k
+ D une part :
+                          11/111== 5 Kv))^ s ^)|^)|2,
+ „                                        ^k                       tSZA
+ d autre part :
+\f^==           ^               b{t^)b(^) ... b(t^)b(t^}
+        t(1), (<2),..., ((a»)    v   /    v     /
+                                                              \    /   \    /
+                                                                                  0
+                                                                  ... fe^^ )-^^ w)}.-i .r
+                                                                      _   i r
+                                                                           L=ls w
+              ll/'ll^== 2 ^(1)) • . . 6(^) b^W) . . . &(ï(2.)),
+
+la sommation étant prise sur le sous-ensemble W de Z2^
+formé des suites (t^\ ft\ . . . , ^)) d'éléments de Zk telles
+que :
+  (a) pour tout l la suite                                ^ ne possède pas deux t^
+                                                                                 n
+opposés ;
+
+  w                                      s w = S <K(<°).
+                                         ^=1                  s+l
+
+A une suite ((CD, fi\ . . . , ^)) on peut faire correspondre
+bmmvoquement une suite (61, Q^ . . ., Q^) par:
+      6, = ^0   si                       , = j + ^, 0 < / < k                    et    l < 5,
+      9, == - ^ si                       i=j+lk, 0 < f ^ k                       et    ^ > 5.
+La suite (^), . . ., ((2.)) appartient à W si et seulement si la
+suite (61, 63, . . . , 6^) appartient au sous-ensemble W
+défini par les conditions
+  (a7) pour tout l il ne peut exister deux 6, opposés apparte-
+nant au Même bloc i e [k(l — 1) + 1, kl].
+  (&') Pour tout n, le nombre des 6,, ^ = 1, 2, ... 2ks
+égaux à n est égal au nombre des 6; égaux à — yi. ?
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)                369
+
+   Nous allons montrer, comme pour le théorème 6, que W7
+appartient à l'image d'un ensemble produit par une application
+convenable.
+   On appelle E(/c, s) l'ensemble des bijections a de
+{1, 2, . . ., 2ks} dans { - ks, - ks + 1, . . ., - 1, 1, . . ., ks}
+telles que, si i et / appartiennent au même bloc
+[k(l — 1) + 1, kl], a(i) et — oc(/) soient différents. D'autre
+part, a étant fixé dans E(/c, s), on définit 8^ par 8^(1) = 1
+si a(i) > 0, 8^) = — 1 si a(^) < 0, i = 1, 2, . . ., 2fo?.
+On considère alors l'application cp de Z^ X E(/c, 5) dans
+W définie par :
+
+?[(^i? ^ • • • ? ^)? a]
+                    == (^(l^aa.)!?   8a(2)rja(2)|,   ..., 8a(2/C5)r|a(2^)|).
+
+Comme dans le lemme 1, 6 = (6,)2^ étant donné dans W,
+calculons card ^^(O). Nous ferons l'hypothèse, pour ce calcul,
+que les 6, prennent 21 valeurs distinctes, v^ — ^i, pg,
+— ^25 • • • ? ^î — ^? chacune un nombre de fois respectivement
+égal à Pi? Pi? • • • ? Pf? P< et que, dans le jième bloc,
+                          [k{j -!)+!, A-/],
+la valeur ^, ou son opposée, est prise (3? fois : 2p^ = ^ (B0^,
+2Sp, = 2/c5.                                                        ^
+   La projection de op""^) sur Z^ est alors formée de toutes
+les suites (r^, rg, . . . , r^) telles que les r» prennent les l
+valeurs ^ ou — ^i, ^3 ou — ^2? ^ ou — ^, chacune un
+nombre de fois respectivement égal à (3i, (âg? • - • ? Pz- Le
+nombre de telles suites est égal à :
+                                2^) !
+                           Pi ! ?2 ! ... ^ !
+  Ayant choisi une telle suite (ri, . . . , r^), il nous reste à
+compter le nombre d'applications a e E(/c, s) telles que pour
+tout i = 1, 2, .. ., 2/cs, 8a(^)r|a(i)| = 6^. Soient :
+
+         @i= { / 5 9 , - ^ L       ©^ {/;e,=-^},
+         ^ = {/'; Q =: ^L         Ri = { — / ; rj = — ^}.
+Les applications a cherchées sont toutes les applications
+telles que : a(0,) == R, u R;, a(Q^) = (- R,) u (- R;), et
+370                                 ALINE BONAMI
+
+
+ceci pour tout i. Leur nombre est égal à (^ ^(Pa O2 • • • (Pf O 2 -
+Donc :
+            card (p^e) = 2^/cs) !(^ !)(?, !) ... (P,!).
+
+Or (3. ! > TT ((3y) !)1^ puisque 2 PP = 2P,, et (3? ^ ?.. Donc
+            J                    J
+card ç-^O) ^ 2^(/cs) ! JJ fn (3^ îY^. Mais, si 6 corres-
+                                    S   \i              !
+pond à la suite (((1), ((2). . . . , ((2^), on reconnaît dans la
+quantité f[ ((3^ !) : k \[W\-1.
+  Posons alors c{t) == | b{t) \ [s{t)]1!2, et, pour a e E(/c,,?),
+                  S(a) ===              S         Pa(ri, Fa, . . . , r^),
+                              (ri. .... r^)€ZA»
+OÙ
+                         2^
+
+P^r^ .. .,r^)=F[c[8a(^—/c+l)naak-k+i)|, • •., 8a(^)ri^)|].
+                        <==!
+
+On montre, comme dans la démonstration du théorème 6,
+que, pour tout a es E(/c, ^),
+                               S(a)     ^ ( S l^)!2^
+                                          \(ez*    /
+
+Or, d'après ce qui précède,
+
+                    m< (ks}wk^ 5 s(a)-
+                                 ^Af5^ \L [K l )      aeE(A, ^)
+Donc
+       „         cardE(/c, s) , y |.M|2V^ cardE(fr,_s) ...,.^
+       11/
+             ^ ^ 2^(^)!(/c!)-(À 1 ( ) 1 ) ~2 f o (^)!(/c!) J / " 2 •
+La démonstration s'achève en montrant, comme dans le lemme
+6, que
+card E(/c, s) ^ 2^[(/cs) !]2 /2i-=-
+                                 s
+                                   l
+                                    Y' ^ 2^(/cs) ! (k ^(îs - 1)^.
+                             \       /
+  Remarque. — Le théorème 2 du chapitre 1 permet de déduire
+du théorème 6 un résultat analogue sur Z : si (Ai est une
+suite suffisamment lacunaire, (1,4.1 > (2s + I)A,(JL(, l'ensemble
+F^ défini par:
+               F^= {n==Sn^ |Vi, |n,| < A; 2|^| ==/c}
+est un ensemble A(2s), et A(2s, F^) ^ (2s — l)^2.
+ÉTUDE DES COEFFICIENTS DE FOURIEB DES FONCTIONS DE L^(G)    371
+
+
+  Ce résultat pourrait également s'obtenir directement, par
+une adaptation de la démonstration précédente : la seule pro-
+priété de F?° à utiliser est la suivante : si n°-\ n^\ . .., n^
+                              2s
+appartiennent à F^ et si 5 ^a) = 0, alors, pour tout i,
+Snp = 0.                     ^=1
+  Mais, comme on l'a fait pour le théorème 6, on peut alors
+obtenir la généralisation suivante du théorème 7, dont nous
+ne donnerons pas la démonstration :
+   COROLLAIRE 6. — Soit E un ensemble rentiers tel que,
+quel que soit l ^ ks il y ait au plus N décompositions de 0
+sous la forme Sa^- = 0, où les n^ appartiennent à E, et
+les a, sont des entiers relatifs bornés en module par 2s et tels
+que S[a,| = 21. Alors l'ensemble E^ des entiers s9 écrivant
+sous la forme ± n^ ± n^ . . . ± n^ où n^ .. ., n^ appar-
+tiennent à E, est A(2s).
+                        CHAPITRE III
+                 PRODUITS DE RIESZ
+            MULTIPLICATEURS DE NORME 1
+
+
+  Soit ^ une suite lacunaire d'entiers, ^4.1 ^ 3^. On sait
+                          00
+
+
+que le produit de Riesz JJ (1 + 2r cos t^x) définit une mesure
+                         n=l           4
+positive, de masse totale 1, si r < —. C'est donc un convo-
+                                       2i
+luteur de tous les L^ p ^ 1. Le but de ce chapitre est de
+répondre à la question suivante : la convolution par ce produit
+de Riesz envoie-t-elle L^T) dans un espace L^T) plus
+petit, q > p? Autrement dit a-t-elle un effet régularisant
+sur les fonctions de L^? Nous saurons montrer qu'il en est
+bien ainsi, et, dans le cadre général de produits de Riesz sur
+un groupe compact quelconque, nous saurons également
+répondre si r est suffisamment petit. Dans certains cas, nous
+saurons expliciter la liaison entre r, p et q.
+   De tels résultats sont évidemment à rapprocher des résultats
+classiques sur les noyaux de Riesz, de transformée de Fourier
+  1
+—-^ Dans les deux cas il s'agit de mesures positives de masse
+\n\
+totale 1, dans les deux cas il y a, par convolution, effet régula-
+risant sur les L^ Toutefois les noyaux de Riesz ont également
+un effet régularisant local : ils envoient, par convolution,
+une classe de Lipschitz dans une classe de Lipschitz plus
+restrictive. Les produits de Riesz ne possèdent pas cette pro-
+priété : leurs coefficients de Fourier sont constants sur les
+entiers { ± ^}, et la convolution par un produit de Riesz
+                                                    00
+
+
+conserve donc, à un facteur près, la fonction ^ t^ cos tjyjc,
+                                                   n=i
+dont on sait qu'elle appartient à Aa et non à A^+g.
+   Énonçons et démontrons tout d'abord le théorème suivant,
+qui s'applique en particulier aux produits de Riesz sur le
+tore.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)                   373
+
+
+   THÉORÈME 1. — Soit G un groupe compact abélien, F
+son dual, y; une suite d'éléments de F tels que tout y e r
+s'écrive d'au plus une manière sous la forme SsiYi? où e, e {0, 1}
+                                                                  1
+si   2y;=0, e,e { — 1 , 0, 1} si 2 y^O. 5oit            0^ r ^              et
+                                                                      2i
+                                                                 00
+
+
+50^ (Jir la mesure positive définie par le produit de Riesz ]~[ /^),
+
+ou f,{x) = 1 + r(^ Y.) ^ 2y, = 0, /:.(^) = 1 + 2r ^, y.)
+51 2 Y ^ 7 é O . Alors, si r est suffisamment petit, quel que soit p > 1,
+i^ eo^^ q > p tel que la convolution par la mesure [L^ envoie
+LP(G) dans L^(G).
+   Il suffit de montrer que, si r est suffisamment petit, il
+existe p < 2 tel que la convolution par (JL^ envoie L/(G)
+dans L^G) : le théorème s'en déduira par interpolation. Or
+ce dernier résultat est une simple conséquence du théorème 5
+du chapitre 2, et du fait que, dans l'énoncé de ce théorème,
+A(/c) peut être pris à croissance exponentielle : soit E^ le
+sous-ensemble de F formé des éléments y qui s'écrivent
+sous la forme Se^., avec S[^.| = k. On sait que, pour tout
+p < 2, et pour tout polynôme f:
+                     s IAY) 2
+                    Y6E»      ' ^ (—ST"^'
+                                    \P —— 1/
+
+
+où A est une constante absolue. Donc, si r2 < A-^p — 1),
+
+                     s ^ 5 iAï)i2 < mm.
+                     k     T€E^
+
+
+Or le premier membre de cette dernière inégalité est exacte-
+ment la norme dans L^G) de /** [L^ Ceci démontre le théo-
+rème pour r < A~112.
+   Nous nous intéresserons dans la suite au cas où G est l'un
+des groupes D°° ou T°°, Yi la base canonique de SZ(2) ou
+SZ. Les théorèmes obtenus au chapitre précédent pourraient
+nous permettre de préciser le théorème 1 dans ces deux cas.
+Mais, surtout, nous allons pouvoir tirer parti du fait que ces
+groupes sont des produits infinis. Considérons, par exemple,
+le cas de D°° : on s'intéresse alors aux mesures (ir? 0 ^ r < 1,
+                                         00
+
+
+définies par les produits de Riesz I~J (1 + r{x, ^)). La suite
+374                      ALINE BONAMI
+
+
+des coefficients de Fourier de ^r es^ donnée par :
+                                       00
+
+
+                       il,(Ss,A) = n r6".
+                                     n==l
+
+Nous allons voir que les propriétés de telles suites comme multi-
+plicateurs sont liées à des propriétés sur le groupe à deux élé-
+ments { — 1, 1}.
+  THÉORÈME 2. — Soit G un groupe compact abélien, F son
+dual, \ une fonction de F dans C telle que X(0) === 1. On
+                                                       00
+
+                                                 ===
+définit sur SF la fonction v par ^^1)1^=1)    jj[ ^(ïi)- Alors
+                                  00
+                                               i=i
+v e5< un multiplicateur de S^L^G ) rfaM5 ^L^G") 51 et seule'
+ment si À est un multiplicateur de â^L^G) dans â^L^G) rfe
+norme 1.
+   Supposons tout d'abord que v est un multiplicateur de
+M^G00) dans ^L^G00). D'après le théorème du graphe fermé,
+il existe une constante A telle que, pour tout polynôme g
+sur G 00 :
+                  ll^(ï)g(ï)(^ ï)ll^ A||g||,.
+On considère alors g de la forme g{x) == f[x-^)f[x^) . . . /'(^n)
+si x = (^)^, où /* est un polynôme sur G.
+
+g(ï) = Aïi) • • • f(ïn) si Y = (ïy)7=i      et
+                                                 ïy == 0 si 7 > n»
+g(y) == 0 dans le cas contraire.
+Donc
+
+^(ï^ïX^ ï)
+  ==       S       ^(ïl) . . • WfW      . . . Aïn)(^ ïl)    • • • (^ ïn)
+       (T^.-.ï^er"^                            .
+  - ( S Mïl^ïl)^ ïl)) • • . ( S ^(ïn)Aïn)(^ ïn))
+
+            BSv(ï)g(ï)(^ ï)U, = ||S^(r)^Y)(rr, r)^),
+et de même ||g||^ == U/'BS^G)- Donc, pour tout n,
+                l^WfM^ ï)U^(G) ^ AII/'U^);
+c'est dire que ^\^)f{^){x, T)II^(G) < !fll^(G).
+   Supposons maintenant que À est un multiplicateur de
+^L^G) dans ^L^G) de norme 1. Nous allons montrer qu'alors,
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)       375
+
+
+pour tout polynôme g sur G°°, [\^Mg('r}{x, y)^ ^ ||g||p.
+Or un polynôme ne dépend que d'un nombre fini de variables :
+on est donc amené à montrer, pour tout n, que la restriction
+de v à F" est un multiplicateur de ^L^G") dans ^L^G")
+de norme 1. On raisonne alors par récurrence, en utilisant le
+lemme suivant :
+   LEMME 1. — Soient (Xi, (JL^) et (Xg, (Jig) deux espaces mesurés,
+T^ (resp. T^) une application linéaire bornée de L^X^)
+dans L^(Xi) {resp. LP{X^) dans L^Xg)), de norme Ai
+(resp. Ag). On suppose q ^ p > 1. Alors l'application T
+définie sur les fonctions f de L^Xi X Xg) de la forme
+f(x, y) = g(x)h{y) par Tf{x, y) = T^g^T^Hy) se prolonge
+en une application linéaire bornée de L^Xi X Xg) dans
+L^Xi X X2), de norme inférieure ou égale à AiÀ^.
+   La démonstration est une simple application de l'inégalité
+de Minkowski. Soit f dans L^X^ X Xg). On définit encore
+Tf = T^[T^Y], T^y désignant l'image par TW de f consi-
+dérée comme fonction de x^ et T^[T^f] l'image par T^
+de la fonction T^f considérée comme fonction de x^ : cette
+dernière fonction appartient à L^Xi) pour presque tout x^
+puisque, grâce à l'inégalité de Minkowski relative à l'exposant
+Î/Z^
+
+[^(/xj^^-^i'^r^]^
+          ^ fM^^^T^ ^ ^f^j^^^^9
+Pour presque tout      ^, f^fV d^ ^ Aï [f^^fV ^i)^.
+Donc                d
+     . LxJ^ ^^ ^ ^(f^j^ ^1^2))^,
+ce qui termine la démonstration.
+   Remarquons qu'on a en même temps démontré que les
+fonctions v étudiées dans le théorème 2 ne peuvent définir
+que des multiplicateurs de norme 1.
+   Le théorème 2 pourra nous servir à deux usages : si, sur
+un groupe G on connaît un multiplicateur de norme égale
+à 1, on en déduira un multiplicateur sur G°°. Si, au contraire,
+on connaît un multiplicateur de la forme étudiée sur G00,
+on en déduira que le multiplicateur correspondant sur G
+est de norme 1.
+376                             ALINE BONAMI
+
+
+
+
+                   Application du théorème 2 à D°°.
+
+  En raisonnant comme dans la démonstration du théorème 1,
+nous pourrions montrer, grâce au théorème 6 du chapitre 2
+que la convolution par la mesure (JL^ définie par le produit de
+           00
+
+
+
+Riesz FI (1 + r{x, <?„))              envoie   LP(D°°)   dans   L^D")   si
+          n==l
+2
+r < p — 1, du moins dans le cas où l'exposant conjugué
+de p est un entier pair. Le théorème 2 va nous permettre
+d'améliorer et de généraliser ce résultat.
+
+    THÉORÈME 3. — La convolution avec la mesure [L^                définie
+                                 00
+
+
+par le produit de Riesz JJ[ (1 + r[x, e^)) envoie L^D00) dans
+
+L^D00)         si et seulement si      (q — l)r2 ^ p — 1.
+   D'après le théorème 2, la convolution avec (ip envoie
+L^D00) dans L^D00) si et seulement si la fonction X, définie
+sur Z(2) par X(0) = 1, X(l) == r, est de norme 1 en tant que
+multiplicateur de 9U{{— 1, 1}) dans M^— 1, 1}), c'est-à-
+dire si et seulement si, quels que soient a et b :
+                    ||a + br{x, e^[\y ^ [\a + b{x, e^[\p,
+ou encore
+               /|a + M ^ + I O - br\\1119
+                                       "'       /|a 4- b\r
+                                                /|a+       -\-\a—
+                                                       b\f +       MPV'P
+                                                              |a - b\P\
+    (i)        \           2              )    " [          2           ;
+Montrons tout d'abord que la condition (q — l)r 2 < p — 1
+est nécessaire : écrivons pour cela que (i) est réalisé si a == 1,
+b est réel et infiniment petit : le premier membre de (1) est
+alors égal à 1 + ^~T)— r^b2 -{- o{b2), le second membre à
+         \
+1 + ^—)— b2 + o(b2}. L'inégalité (1) pour tout b entraîne
+          Zi
+donc      (q — l)r2 ^ p — 1.
+  Le cas où p == 1 est complètement traité, puisque on sait,
+quel que soit r, que (JL^ est une mesure.
+  Nous montrerons tout d'abord que la condition
+                               {q ^ i)r2 < p - 1
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)                        377
+
+
+est suffisante lorsque 1 < p ^ q < 2. Nous aurons besoin
+du lemme suivant :
+   LEMME 2. — Soit G un groupe abélien localement compact,
+T un conwluteur de L^G) dans L^G) tel que, si f est une
+fonction réelle, il en est de même de Tf: la norme de T en
+tant que conwluteur de L/^G) dans L^G) est alors la borne
+inférieure des constantes A telles que, pour tout f réel :
+TO ^ All/tp.
+   Soit donc A tel que pour tout f réel \\Tf^q ^ Aj/'Hp. Si
+f n'est pas réel, f = g + ih, Tf = Tg + i^h, et :
+             \f\^\g\2+\h\2,\rîf\2=\^g\2+\^h\\
+On veut montrer que, quels que soient g et h réels,
+
+     (/(|Tg|2 + |T1W2 dx)^ < (/(|g| 2 + |/W2 dx)1'^
+II suffit de considérer, pour tout a e [0, 2n], la fonction réelle
+g cos a 4" h sln a :
+
+J- F" f |Tg cos a + T/i sin a|^ ^
+^TT^O   ^G
+
+                  == F 1          ^27C |Tg cos a + TA sin a^ Ax ^,
+                       ^ Gr 2TC •^O
+
+                  =^(|Tg|2 + IT/W2 d-r X ^^"Icos a|» dx.
+
+Or
+
+-1- r2" f |Tg cos a + Th sin a|î da; da
+
+                          ^ A^ /'2ît / f [ g cos a + À sin a^ rfa;)^ rfa
+                                                                         /
+                                A'TC - ®   \»/G
+
+
+ou, grâce à l'inégalité de Minkowski,
+
+ A? < f F ( i    f^ | g cos a + À sin a|î (iaV ^T^
+        L^G \27C ^0                                 /      J
+
+                = Aî       f" |cos a|^ rfa X (/ (|g|2 + l^l2)"'2 ^)î/p•
+                      Zin t7o                     Y^G                          /
+
+L'inégalité cherchée est obtenue en divisant chacun des mem-
+                                                    4   /^TC
+bres de l'inégalité par un même facteur ^— j                   |cos a] 9 da.
+378                        ALINE BONAMI
+
+   II nous suffit donc de montrer (1) pour tous a et b réels,
+et même positifs. Le second membre de (1) est symétrique par
+rapport à a et &. Or, si a > &,
+
+             a + br ^ b + ar, |a — fcrj ^ |è — ar[.
+
+On peut donc se restreindre à des choix de a et b tels que
+a > &. On veut donc finalement montrer que, pour tout
+ue[0,i]:
+
+  ^    /(i + ur)^ + (1 - ur}^Y ^ /(l + uy + (J - »)PM/P
+       \           2              7         \         2        /
+
+  LEMME 3. — Soient p et q deux nombres réels,
+
+                         1 < p < q < 2.
+
+Çueî gué soif   ue[0, 1]    l'inégalité'.
+
+  ^       r(i + ur)^ + (1 - ur)^i^ ^ r(l + uY + (i - u)^
+
+est satisfaite dès que   {q — l)r2 ^ p — 1.
+   Commençons la démonstration par quelques remarques : il
+suffit de montrer que (2) est réalisé si u e [0, 1[, et comme le
+premier membre de (2) est une fonction croissante de r, si
+{q — l)r 2 = p — i. D'autre part l'inégalité (2) a un caractère
+                                                    y _ j[
+transitif : si elle est réalisée pour po? ?o? r^ == ——.1 et UQ,
+                          p — 1                        ?o — 1
+et pour    pi, yi, r\ == r-1——p       Ui,   avec   pi == ^ ^i ^ ^o,
+                        ?i """ 1               D — 1
+elle est également réalisée pour po, ^i, r2 == r-0——.? ^o.
+                                                ?i — 1
+   L'ensemble de ces remarques va nous permettre de déduire
+(2) du résultat suivant : soit UQ < 1 donné, 1 < po < q^ ^ 2 :
+il existe s > 0 tel que pour tout p e [po, çry], pour tout
+r ^ 1 — e , g = = l 4 - —o~> et ue [0, Uo] l'inégalité (2) soit
+                        r
+réalisée.
+   L'inégalité (2) sera en effet obtenue pour UQ, po? îo?
+      y _ ^
+y == / v ——.L en utilisant n fois ce résultat, n étant tel que
+ 2
+
+      îo — -
+(1 — e)71 < 7-0, et la transitivité de (2).
+ÉTUDE DES COEFFICIENTS DE FOUBIER DES FONCTIONS DE L^G)     379
+
+
+  Démontrons donc le résultat sous sa nouvelle forme. Soit
+
+            ^ _ (i + ur^ + (1 - urY . y/,-i/,
+            TW - ^ _^_ ^ 4. (i _ u}t>
+
+f(Q) = 1, f'(u) est du signe de :
+
+g(u) - r[(l + ur)î-1 - (1 - u^-^l + uY + (1 - ")"]
+          - [(1 + u)P-1 - (1 - ^-^[(l + w)7 + (1 - "r)'].
+     = r[(l + ur)»-1 - (1 - Mr)»-1]^! + i*)^1 + (1 - i*)^1]
+      — [(1 + u)P-1 - (1 - ^-^[(l + w)»-1 + (1 - ur)»-1]
+
+g(0) = 0 et g'(u), en tenant compte de ce que
+                          (î - l)r2 = p - 1,
+est égal à :
+g'(u) ={p- !)[((! + ur)î-2 + (1 - ur)^)((l + u)^
+      + (1 _ u)P-i) _ ((1 + u)P-2 + (1 - ^"-^(l + ur)i-1
+      + (1 - ur)î-1) + r((l + u)"-2 — (1 - M)/"2)^! + ur)»-1
+
+       — (1 — Mr)»-1) — -1- ((1 + ur)'-2
+       — (1 — Mr)î-2)(l + u)P-1 — (1 — uY-1)].
+
+g ' ( u ) est du signe de :
+
+^ _ ^ r(J + u)"-2 - (i - u}"-^ r(i 4- ^)^-2 - (1 - ur^-j
+
+  +(l+,2)(i_,) p^- u^^-^l - u)^2- (i + ur)^(l + u)^2-!
+
+  _            r(l + ur)^-^! - uy-2 - (i + ^^(i -1^-2"!
+
+Si ç ^ 2, il est aisé de montrer que g'(u) ^ 0 pour tout
+u e [0, l], donc g(u) est négatif et f(u) décroissant :
+fW ^ f(0) = !• Ce cas étant traité, on pourra supposer
+îo < 2.
+  Considérons la quantité dont nous cherchons le signe comme
+fonction de r, soit Gn(r) :
+
+          G»(r) == G»(l) + G,(l)(r - 1) + G:(6r)(r - l)2.
+  OOA
+      '                     ALINE BONAMI
+
+  On calcule aisément Gn(l) == 0,
+
+             r(l + u)p-2 — (1 — i^-2-! ^ 8(2 - p)(l - ^p-3
+ r'f^\ == 2o [^———L_^——^_J
+ ^(1)
+
+            + 8(p - 1)(1 - u2)^-2 rLog(i + u) - Log(l - u)i
+
+ G^(l) ^ _ 0 [(i + ^p-1 - (1 - ^-1]F(l - U}P-^ - ( 1 -t-^P-2^
+                                            2
+                                        M       "   —   —   —   —   —
+
+                  + 4p(l _ ^2)p-2 rLog(l + M) -. Logfl — ^i
+ T^         •                       L                   U               J
+ Des deux inégalités :
+  (1 + up - (1 u)P-i ^ (p - l)[Log(l + u) - Log(l - u)]
+       (1 - ^-2 - (1 + uy-2 ^ 2(2 _ p^ _ ^,\         ^
+
+ on déduit l'existence d'une constante a > 0 ne dépendant
+ que de po,?o,u, telle que G:(l) > a si u e [0, u»], p e [?„, .„].
+ Un montre aisément d'autre part qu'il existe un majorant p
+ de G:(r) lorsque r e [-? lj, u e [0, u»], p e [?„, ^]. ^(r)
+est donc négatif dès que (3(1 - r) < y.             Du signe de g'^)
+on déduit, comme dans le cas où q = 2,               que /(u) < 1       si
+u s [0, uo], p s [po, ço], - r < —.
+                                 —r
+   Ceci termine la démonstration du lemme 3, et permet d'obte-
+nir le théorème 3 lorsque 1 < p ^ q ^ 2. Le cas où
+^ <S p < q < oo se déduit par dualité, le cas où p < 2 < q
+se déduit par combinaison des deux autres cas : si
+(q — l)r2 < p — 1, (A, == ^ „= ^ avec       rf ^ p — 1, rj ^        1
+                                                                    .
+                                                                q- 1
+La convolution avec (i,. envoie L" dans L2, puis la convo-
+lution avec (A^ envoie L2 dans L''.
+  ^marques. - a) Le théorème 3 montre que la constante
+    ^i7         ^eorème 6 du chapitre précédent est la meilleure
+possible : elle ne peut être remplacée par a*/2, où a > q — 1.
+   b) Le cas des mesures (i, sur D°° est, dans le cadre des
+produits de Riesz, particulièrement intéressant car les mesures
+(A. forment un semi-groupe de mesures positives de masse
+ÉTUDE DES COEFFICIENTS DE F O U R I E R DES FONCTIONS DE L^G)   381
+
+
+totale 1 : [AI est encore la masse de Dirac à l'origine,
+^ * pL^ == |ji^r,- L'analogie avec les noyaux de Riesz sur
+le tore est donc plus profonde. On pourrait se demander si
+le seul fait que les mesures (JL^ forment un semi-groupe explique
+leur effet régularisant sur les L^ : mais il est aisé de construire
+des semi-groupes n'ayant aucun effet régularisant. Les mesures
+V( définies par ^(y) = e-^-^o' ï», où XQ ^ 0 appartient
+à D°°, en fournissent un exemple.
+
+
+             Propriétés extrémales des mesures ((ir)»
+
+     Nous avons ainsi trouvé, dans le dual de D°°, des multi-
+plicateurs de 9^(0°°) dans ^(D00) de norme égale à 1
+et dont la valeur en 0 est 1. Considérons, dans l'ensemble
+des multiplicateurs envoyant 3^(0°°) dans ^L^D00), muni
+de la topologie faible, l'ensemble des multiplicateurs X de
+norme égale à 1, et tels que X(0) == 1. C'est un compact
+convexe. Il est donc naturel de se demander si les multipli-
+cateurs trouvés, suites des coefficients de Fourier des mesures
+(Ay.? sont extrémaux dans cet ensemble. Nous avons su montrer
+qu'il n'en est rien dans le cas où q = 2. Dans ce cas, si X
+est un point extrémal, quelle que soit la suite 9(y), ^^(y)
+définit un autre point extrémal. Nous avons obtenu le résultat
+précis suivant :
+     II existe s > 0 te] que la convolution avec la mesure :
+
+f[ (1 + (p - l)^ e^) + (p - l)1/2^, é^,)
+J'=°
+                                     + (p — 1 + e)(^, ^+1 + ^27+2))
+
+envoie L^D") dans L^D00).
+   Autrement dit, il a été possible d'augmenter (p — i)lïl/2 (i)
+dont on savait que c'était un multiplicateur de ^L^D") dans
+^L^D^), de la valeur s pour une infinité d'éléments de Fg,
+de e(p — l)112 pour une infinité d'éléments de IV.., et
+d'obtenir encore un multiplicateur de SïïL^D00) dans ^L^D00).
+   Ce résultat est encore une conséquence du théorème 2 :
+il suffit de montrer qu'il existe s tel que, quels que soient
+
+   (1) Si y == Se^, on pose |y| == SSn.
+382                      ALINE BONAMI
+
+a, u, v, w réels :
+a2 + (p - l)(u 2 + ^) + [{p - l)2 + ek2
+        ^ ||a + u(x, e^) + ^(a;, ^) + w(^, ^ + ^)||2.
+On montre aisément qu'il suffit que cette inégalité soit satis-
+faite si a = 1, 0 < u ^ 1, \w\ ^ inf (u, ^). Nous nous place-
+rons dans cette hypothèse par la suite. L'inégalité cherchée
+est alors obtenue à partir des deux remarques suivantes :
+   a) nous avons vu que quels que soient a et b :
+         a2 + {p - 1)&2 ^ ||a + b{x, ^)[|2   (lemme 3),
+l'égalité ayant lieu si et seulement si b = 0. Donc, grâce au
+lemme 1, quels que soient u, ^, w :
+1 + (P - l)(u 2 + ^2) + (P - l)2^2
+               < 111 + u{x, <?i) + v[x, 63) + w{x, ei + e^) [|2,
+l'inégalité étant stricte si u, v ou w est différent de 0.
+Quel que soit T) > 0 il existe donc 8 > 0 tel que, quels
+que soient M, ^, w vérifiant u2 + vï 4~ ^2 ^ 7] ^
+1 + (p - l)(u2 + ^2) + ((P - i)2 + 8)w 2
+               ^ ||1 + u(x, e^) + ^(^ ^2) + w{x, Ci + e2)||2.
+
+   (î)Il existe e tel que, dans un voisinage de 0 dans R3,
+l'inégalité :
+1 + (P - 1)(^2 + ^ + [(? - l)2 + ^
+               < |[1 + u{x, e^) + ^(.r, ^2) + w{x, e^ + ^112
+soit satisfaite. Nous sommes ramenés ici à un problème local :
+il suffit alors de former le développement de Taylor à l'ordre 4,
+au voisinage de 0, de la fonction :
+g(u, ^, w) = ||1 + u[x, 61) + v[x, ^2)
+
+      +^^l+^)ll^-(l-+(p-l)(^+^ 2 )+((p-l) 2 +^ 2 )^
+pour montrer que g(u, P, w) est positif au voisinage de 0
+si e est convenablement choisi. Nous n'expliciterons pas les
+calculs.
+   Il est naturel de se demander s'il est possible d'augmenter
+(p — l)lïl/ 2 non plus seulement sur les caractères de Fg de
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)               383
+
+
+la forme ^./-i 4" ^j? mais sur tous les caractères de Fg.
+Plus précisément, nous nous posons la question suivante :
+(p — l)lïl/ 2 est-il un point extrémal du compact convexe
+formé des multiplicateurs X de ^L^D00) dans ^(D00) de
+norme égale à 1, tels que X(0) == 1, et tels que X(y) soit
+constant sur chaque I\? La réponse est cette fois oui. C'est
+une conséquence immédiate du résultat suivant dont nous
+ébaucherons la démonstration :
+     Si X(y) est un multiplicateur de ^L^D00) dans ^L^D00)
+de norme égale à 1 tel que X(0) == 1 et tel que X(y) soit
+constant sur chaque I\, et si, pour i = 1, 2, . . ., n — 1,
+| X ( Y ) [ == (p — 1)W lorsque y e I\, alors | X ( Y ) | ^ (p — l)^2
+lorsque y 6E ^                                  N
+     On considère le produit de Riesz Py{x) == H (1 + N"^, ^)),
+                                               fc=i
+et on cherche des conditions nécessaires pour que pour tout N :
+                    si^ï)!2!^)!2 ^ IIPNll2.
+Or si a a été choisi dans l'intervalle             | —» ,.-———_ »
+      .    .                                       |_ 2i   Â{v Tt — 2i/ ) L
+on peut montrer que :
+||P^|[2 = l + (p - l)Ni-^ + ( p ^ l ) 2 N^
+
+                    4- ... + (P ~^)ra N^-2^ + a f1-) N^-2^,
+    S         l^ï)!2!^)!2
+ïeriu---uro
+  = 1 + y N^-201^ ^ "~ ^ 4- l x ( 7^ ) ^ N^-2^ + a (—-} N^-2^,
+          fc==i         A* !         n\                \N/
+si X(n) désigne encore la valeur de À(y) lorsque y appartient
+à I\. La condition 1^(^)1 ^ (p — l)^2 s'en déduit aussitôt.
+   Ainsi nous connaissons des points extrémaux du compact
+formé des multiplicateurs X de 9^(0°°) dans S^L^D00), de
+norme égale à 1, tels que X(0) == 1, et tels que X(y) soit
+constant sur chaque        I\ : ce sont toutes les suites
+^6dTl)^p — l)!^2, où Q{n) est une suite quelconque de
+nombres réels. Mais nous n'obtenons pas ainsi tous les points
+extrémaux du compact : nous allons le montrer dans le cas
+                       4
+particulier où p = —•          Supposons en effet qu'il n'y ait pas
+                   o
+384                          ALINE BONAMI
+
+
+d'autres points extrémaux : alors tous les multiplicateurs X
+du compact seraient tels que [ X(y)| ^ (p — l)'^2 pour tout
+Y. Nous allons donner l'exemple, dans le cas où p == 4/3,
+d'un multiplicateur qui ne satisfait pas à cette inégalité :
+considérons la suite À(y) égale à 1 si y == O? à t si y e ^
+à 0 dans les autres cas. C'est un multiplicateur de â^L^D00)
+dans â^L^D00) de norme 1 si, pour tout polynôme f à spectre
+dans r^ :
+                   li+tfh ^ (1 + II/1I)2,
+ou encore en développant :
+       i + e^nnij + 4^/t^[j + Wi < i + 211/ij + u/1124.
+Or au cours de la démonstration du théorème 6, chapitre 2,
+on a obtenu pour un F^-polynôme la majoration précise
+                3 \4
+        6
+            (
+\\f\\î ^ - -o")
+            2
+              /
+                ll/lll»   dîoù ron
+                                     déduit par interpolation
+
+                          ii/ti ^ \^(-^\\m
+On vérifie alors que, si t = 2112.3~5/4, X(y) est un multipli-
+cateur de norme 1. Or 21/2.3-5/4 > 3-1, valeur de (p — 1)W
+si p==4/3, |r| -2.
+
+                  Application du théorème 2 à T00.
+
+  On sait, grâce au théorème 2, que si À(n) est un multipli-
+cateur de ^L^T) dans ^L^T) de norme égale à 1 et tel que
+X(0) == 1, la suite v(y) sur SZ, définie par
+
+                          ^((^r^-Û^), î==l
+
+
+
+est encore un multiplicateur de ^L^T") dans ^^(T00) de
+norme égale à 1. Habituellement on ne connaît malheureuse-
+ment pas explicitement la norme d'un multiplicateur. L'emploi
+du théorème 2 en sera limité.
+   Nous avons pu toutefois trouver une condition nécessaire
+et suffisante pour que les suites X(^) telles que À(0) == 1,
+Â(l) == X(— 1) == r, X(n) ===0 si \n\ > 1 soient des muiti-
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)                           385
+
+
+plicateurs de ^L^T) dans â^L^T), et en déduire le théorème :
+  THÉORÈME 4. — la fonction \r définie sur 2Z par les
+deux conditions :
+  — ^.((^1)1^=1) = = 0 si Vun des n^ ^appartient pas à
+{ - 1, 0, 1}
+   — ^((^O^i) = y21"11 sinon
+est un multiplicateur de ^L^T00) dans ^L^T") si et seulement
+si {q — l)r2 ^ 1.
+             1
+     Si r < -T->              \r est la suite des coefficients de Fourier du
+              2i
+produit de Riesz
+        (1 4- 2r ces ^i)(l + 2r cos x^j ... (1 + 2r cos x^) ...
+
+             1
+Même si r > -7-? on pourra encore parler de produit de Riesz,
+                         Jt
+celui-ci ne définissant plus une mesure positive comme dans
+             ^
+le cas r ^ — mais un convoluteur de L^T00) dans L^T00),
+                   JL
+si    (q - l)r2 ^ 1.
+   En utilisant le théorème 2 et le lemme 2, on montre que Xr
+est un multiplicateur de ^(T00) dans ^L^T00) si et seulement
+si, quels que soient a et b réels :
+
+             ( /r^\ a +i 6r
+                         ^ cos x^i^V^ ^ la
+                                  ^-) ^ / 22 +« ^Y^
+                                                a-  •
+             \t/o                             27l;/           \          2/
+
+On peut même supposer a et & positifs, et a > b : en
+effet, dans cette hypothèse, pour tout x,
+                              | b + ar c0^ x\ < a -}- br cos x.
+On veut donc montrer que :
+                                                                              2
+                    /r^fA  i ur cos ^
+                        (1 +        \o .-
+                                       ^ ^ / 14 +
+                                                i ^V
+                                                  -. )
+                   •^0                          ZTT      \,            Zl y
+
+
+pour tout ue [0, l], si et seulement si {q — l)r 2 ^ 1.
+  Posons
+           ./ , / ^ ,, ,    . dx^ (\ , u^-112
+           f{u)=H   (1+urcos^,   i+y       •
+                              \^o                     ZTry        '<          ^y
+ 000
+                             ALINE BONAMI
+
+ f'{u) est du signe de :
+
+ g(u) = r j^ " (1 + ur cos a;)?-1 cos a; dx
+                                         U    r"tic ,.
+                                     ~~2~Jo       ( + Mr cos x)q~l dx-
+                                                     1
+
+
+
+ g'{u) ==(q- l)^2" (1 + ur cos a;)î-2 cos2 a; <to
+
+                       - y ^2" (1 + ur cos) a^-1 ^
+
+                       — (? — 1) ^ ^2TC (1 + ur cos a;)»-2 cos a; dx.
+
+ Pour que /•(u) < 1 si u s [0, l], il est nécessaire que f soit
+ décroissante au voisinage de l'origine, donc g négative, donc
+ encore g ' négative. Or g ' ( u ) == [(y - 1)/.2 - l]n + o(u)
+ il est donc nécessaire que (q - i)r2 < 1. Pour que s ' ( u )
+ soit négative, il suffit que pour tout pe[0, 1] et a > 0:
+
+ I(a, ^ = f^ (1 + ^ cos a;)2 [1 + (a + 2)p cos a; - 2 cos2 x] dx ï 0.
+
+Montrons donc cette inégalité :
+Supposons tout d'abord a < 1 : une intégration par parties
+donne encore :
+
+  I(a, ^ = ap^ (1 + p cos x)^ [(a + 2)? - cos x] sin2 x dx.
+
+Or (a + 2)p — cos a; est négatif dans un intervalle [— 6, + 6],
+             TC
+avec   6 <        et
+             2t
+
+f^ (1 + P cos aQ^cos x - (a + 2)^^ dx
+
+             ^ ^ (1 + ^ cos ^((a + 2)p - cos a^sin2^ dx,
+ce dernier membre étant encore égal à
+
+        f^ (1 - P cos a;)»-!^ + 2)(. + cos aOsin^ dx :
+
+on utilise les deux inégalités évidentes
+              (1 + v cos a;)"-1 < ( ! — ( , cos a;)"'-1,
+             cos x — (a + 2)p ^ cos x + (a + î)v.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)       387
+
+
+Donc, si a < 1, I(a, v) ^ 0. Supposons maintenant a ^ 1,
+et dérivons I(a, v) par rapport à v :
+
+J(^ ^) == -^ (^ ^
+    = f^ (1 + v cos xY-1 cos 42a + 2 — (a + 2)(a + 1) p cas a;
+                                                    — 2 cos2^] cte.
+
+Le crochet est cette fois négatif lorsque x appartient à un
+intervalle      [TT — 6, TC + 8]? 6 ^ -o-- La fonction à intégrer
+                                                     r           ^
+est donc négative dans chacun des intervalles | -7.-» TC — 6 j?
+r           3în
+| TC -4" 9? "7î~ I-   Un raisonnement analogue au précédent faisant
+intervenir les intervalles symétriques du cercle trigonométrique
+permettra de conclure que J(a, v) est positif, et donc
+I(a, ^) ^ 0.
+
+   COROLLAIRE 1. — Soit l < p < 2 ^ ç < o o : la fonction
+\r est un multiplicateur de ^L^T00) dans ^L^ÇT00) si et seule-
+ment si Çq — l)r2 ^ p — 1.
+   Par dualité, on déduit en effet du théorème 4 que X^ est
+un multiplicateur de ^L^T00) dans ^L^T") si et seulement
+si r2 ^ p — 1. Soit alors p < 2 < q : si r satisfait à
+l'inégalité (g — l)r 2 ^ p — 1, r = r^r^ avec r2 ^ p — 1,
+{q — l)r| ^ 1. Donc X,. = À^ envoie ^L^T00) dans
+^ÎL^T00). Réciproquement, si X^ est un multiplicateur de
+^(T00) dans ^L^T00), quel que soit u e [ 0 , l ] rinégalité
+    ( f ( l + ur cos r^ ^y^ ^ ( f (1 + u cos ^p cî.r)1^ est
+réalisée. Un développement limité des deux membres montre
+que nécessairement (g — l)r2 ^ p — 1.
+  Remarque. — Le théorème 4 est beaucoup moins complet
+que son analogue sur D00, le théorème 3 : c'est seulement
+dans le cas où p < 2 < q qu'il permet d'affirmer que le
+                         oo
+
+produit de Riesz JJ (1 + 2r cos x^) envoie, par convolution,
+L^T") dans L^T") si et seulement si (ç — l)r2 ^ p — 1.
+On ne peut, d'ailleurs, espérer généraliser ce résultat à d'autres
+valeurs de p et q : on peut montrer, du moins, que Xi
+388                        ALINE BONAMI
+
+
+n'est pas un multiplicateur de â^L^T00) dans lui-même, quel
+que soit p 1=- 2 : sinon, quel que soit u e [0, l], l'inégalité:
+
+          f (1 + cos ^Y àx ^ (1 + cos ^ + ^ cos 2^ cte
+
+serait satisfaite. Or le second membre est égal à
+
+     f (1 + cos ^ rfrr + pu j cos 2^(1 + cos x}^1 dx + uo(u),
+
+
+et y cos 2^(1 + cos rc)^"1 cîa? est différent de 0 si p ^ 2.
+L'inégalité n'est donc pas satisfaite pour un choix convenable
+de u.
+   Les analogues des mesures (A^ dans le cas de T00 sont peut-
+être, plutôt que les produits de Riesz considérés, les produits
+00                                                        -|-00
+
+
+n P,(^,), où P, est le noyau de Poisson, P,(a;) = S r^e1^ :
+i=i
+ces produits définissent des mesures positives de masse totale
+1, qui, cette fois, forment un semi-groupe. Nous n'avons su,
+malheureusement, calculer la norme de Pj. en tant que multi-
+plicateur, de manière à pouvoir utiliser le théorème 2. Les seuls
+résultats que nous possédons ont été obtenus à partir des
+résultats combinatoires du chapitre précédent :
+
+     THÉORÈME 5. — (1) Soit q un entier pair. Pj. désigne le
+                               -1-00
+
+
+noyau de Poisson,     Pr(^) = S r^e1^. La con^olution a^ec la
+                               ——00                 00
+
+
+mesure       v^
+              définie par le produit de Riesz \\ Pr(^) envoie
+                                              1=1
+L^T^)     dans L^T^) si et seulement si {q — l)r2 ^ 1.
+  (2) Soit q un entier pair, p son exposant conjugué. U iné-
+galité S l/*^)!2^21711 ^ 11/lljl est réalisée pour tout polynôme f
+         n
+si et seulement si (q — l)r 2 ^ 1.
+   D'après le théorème 2, (1) et (2) sont équivalents. Les
+coefficients de Fourier de v^ sont donnés par ^((^^i) ==r s l n » t .
+Or du théorème 7 du chapitre 2 on déduit, par dualité, que,
+si p est l'exposant conjugué de q et si f est un polynôme
+sur T00,
+                                2
+                      s
+                    ïeujk
+                          iAï)i   ^ (? - mm.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)        389
+
+
+donc, quel que soit r tel que {q — l)r2 < 1,
+             S ^ S lAï)! 2 ^ (s(? - 1)^)11^.
+              fc   TeUfc
+C'est dire que, quel que soit r tel que (g — l)r2 < 1, la
+convolution avec v^ envoie L^T^) dans L^T00). Donc,
+grâce au théorème 2, pour tout polynôme f sur T,
+                       S^Wr2!"' < I1/12.
+
+Mais, par continuité, cette inégalité est encore vraie si
+(q - l)r 2 = 1.
+   Il reste à montrer que la condition {q — l)r 2 ^ 1 est
+nécessaire : cela résulte de l'étude faite lors de la démonstration
+du théorème 4.
+   Le même raisonnement permet de déduire du théorème 4
+du chapitre 2 le résultat suivant :
+  THÉORÈME 6. — (1) Soit q un entier pair. La fonction Sy.
+définie sur SZ par ^((^i)^!) = 0 si Vun des n^ est négatif,
+8y.((7z^°Lj == r^i sinon, est un multiplicateur de ^L^T^)
+                                      o
+dans ^L^fT00) si et seulement si r2 ^ —•
+                                      ?
+  (2) Soit q un entier pair, p son exposant conjugué. L'iné-
+galité S \f{n)\2r2n ^ ||/'||2 est réalisée pour tout polynôme f
+        n 0
+         ^        .     2
+si et seulement si r2 ^ —•
+                           ?
+                                 .
+   Là encore (1) et (2) sont équivalents, et on déduit du théo-
+rème 4, chapitre 2, la condition suffisante comme dans la
+démonstration précédente. Pour montrer que la condition
+      2
+r2 ^ — est nécessaire, il suffit de remarquer que si la suite
+      ?
+égale à 0 pour n < 0, à r" pour n ^ 0, est un multipli-
+cateur de S^L^T) dans S^L^T) de norme égale à 1, alors,
+pour tout u e [0, l], l'inégalité ||1 + rue^Hj ^ 1 + u2 est
+réalisée. Or, lorsque u tend vers 0,
+
+             ||1 + rue-ll2 = 1 + J- r^2 + u^u).
+                                  2i
+
+Donc r2 s$ —
+390                       ALINE BONAMI
+
+   Remarque. — Les théorèmes 5 et 6 montrent la précision
+des théorèmes 4 et 7 obtenus au chapitre précédent grâce
+à des méthodes combinatoires. Toutefois les résultats décrits
+ne sont valables que lorsque l'exposant q est un entier pair,
+et les méthodes utilisées ne peuvent pas laisser espérer d'exten-
+sion à tout réel q supérieur à 2. D'autre part les méthodes
+d'interpolation classiques sont insuffisantes pour passer du
+cas où q est un entier pair au cas général : considérons par
+exemple la partie (2) du théorème 5 : elle revient à dire que,
+si q est un entier pair, l'application qui à une fonction fait
+correspondre la suite de ses coefficients de Fourier envoie L^T)
+dans l'espace à poids l^' où œp===(p—l)!"!/ 2 . Or si une méthode
+d'interpolation fait correspondre au couple L^, L^ l'espace
+L^ tel crue — = = — + — — — > elle fera correspondre au couple
+        *   P ^Po        Pi
+l^ , % l'espace à poids l^y où
+                co = (po - l)!"!^ - l)!^-^
+
+et on ne peut espérer mieux. Pour prouver les théorèmes 6 et
+7 dans leur généralité il faudrait donc d'autres méthodes de
+démonstration.
+   Le théorème suivant est une conséquence du théorème 6.
+   U désigne le sous-ensemble de SZ formé des suites (n;)r==i
+telles que, pour tout i, n^ soit positif ou nul; Ii(U) désigne
+l'idéal fermé de L^T^) formé des fonctions f telles que
+^(y) == 0 si y n'appartient pas à U.
+   THÉORÈME 7. (1) la fonction Sj. définie sur U par
+8,((n,)r=i) = r^i est un multiplicateur de Ii(U) dans M^T")
+                         1
+si et seulement si r2 < -7.--
+                         2t
+  (2) L'inégalité   ^/(n)}2^ ^ [\f\\î    est réalisée pour toute
+                                             1
+fonction f de H^T) si et seulement si r2 ^ -7.--
+                                             L
+                  ^                     ,
+  Supposons r2 ^ -T.- et montrons que, si T est le convolu-
+                     2s
+teur associé au multiplicateur r", [\'Tf[\z ^ ||/'||i pour tout f
+dans H^T). Il suffit même de montrer cette inégalité pour
+tout f dans H^T) tel que ^ ( 0 ) ^ 0 . Alors f == gh, où g
+et h appartiennent à H^T) et Hg||| = W = \\f^ Or
+ÉTUDE DES COEFFICIENTS DE FOXJRIER DES FONCTIONS DE L^(G)       391
+
+
+T/"== (Tg)(TA) car, pour tout n:
+
+   Tf(n) = r" S g{n - m)h(m) = S (r^n - m^r^m)).
+               m                     m
+
+Donc    ||iyh < IITgym, < BgVI^ = 1|/L,             par applica-
+                                                          1
+tion du théorème 6. La nécessité de la condition r2 ^ — est
+                                                           2i
+obtenue, comme dans le théorème 6, par la considération des
+fonctions f{x) = 1 + ue^.
+  Le théorème 2 peut s'adapter de manière à permettre de
+passer de (2) à (1) : L^T) et L^T") sont remplacés respecti-
+vement par H^T) et Ii(U).
+  Le théorème 7 admet le corollaire suivant :
+
+  COROLLAIRE 1. — Soit Ufc le sous-ensemble de U formé des
+suites (^)^i telles que Sn, == /c. Pour toute fonction f
+appartenant à Ii(U) :
+                                  2
+                        S
+                      ïeUfc
+                            lAï)!   < Wiî.
+   Donnons une dernière application du théorème 2 aux ensem-
+bles A(ç) dans T00, qui est en quelque sorte une généralisation
+du théorème 4 : du théorème 4 on déduit que le sous-ensemble
+de SZ formé des suites (^1)1^1 telles que n^ = 0, sauf
+pour k valeurs de i pour lesquelles n^ appartient à
+{ — 1, 1}, est un ensemble A(ç) pour tout q. Dans le théo-
+rème suivant, { — 1, 1} va être remplacé par un ensemble
+A(ç) symétrique par rapport à 0 quelconque.
+    THÉORÈME 8. — Soit q un entier pair, E un ensemble
+A (g) (Kentiers qui ne contienne pas 0 et qui soit symétrique par
+rapport à 0 : alors l'ensemble E^ dans SZ, formé des suites
+(^1)1^=0 telles que ni = 0 sauf pour k valeurs de i pour
+lesquelles ni appartient à E, est A (g).
+    Il suffit de montrer qu'il existe r > 0 tel que pour tout
+polynôme f réel à spectre dans E :
+
+                / ( 1 + r / V ^ ^ (1 + ||/1||)^2.
+
+Développons le premier membre de l'inégalité : tenant compte
+de ce que E est A (g) et ne contient pas 0, on en obtient un
+392                      ALINE BONAMI
+
+                         î/2
+majorant de la forme ^ A^r2"!!/*!!!", qui, grâce à un choix
+convenable de r, peut être majoré par (1 + ll/ll)^ 2 -
+  C'est dire que la suite ^{n) définie par X(0) = 1, X(yi) == r
+si n e E, À(n) = = 0 si n^ E u {0}, est un multiplicateur de
+norme 1 de MJ^T) dans ^L^T). On applique alors le
+théorème 2, et on fait agir le multiplicateur correspondant
+de SZ sur les fonctions à spectre dans E/ç.
+
+
+            Étude des produits de Riesz sur T.
+
+   Soit t^ une suite lacunaire d'entiers, ^+1 ^ 3^n- Grâce
+à l'étude précédente, nous allons pouvoir préciser les propriétés
+                                        00
+
+
+régularisantes des produits de Riesz H (1 + 2r ces t^x). Dans
+                                      n=l
+le cas général, un argument de théorie de la mesure, déjà
+utilisé au chapitre 2, nous permettra de donner des conditions
+suffisantes pour qu'un tel produit de Riesz envoie, par convo-
+lution, L^T) dans L^T). Lorsque la suite ^ est suffisam-
+ment lacunaire, la considération des isomorphismes entre
+idéaux fermés de L^T) et L^T") étudiés au chapitre 1
+nous permettra de donner des conditions nécessaires et suffi-
+santes.
+  COROLLAIRE 2. — Soit         t^
+                           une suite lacunaire Sentiers^
+                                                 ^
+^+1 ^ 3^, et r un nombre réel compris entre 0 et — La
+                                              00         2t
+
+
+mesure \L^ définie par le produit de Riesz JJ (1 + 2r cos ^),
+                                             n==l
+envoie, par conwlution, L^T) dans L^T) si 4(ç — l)r 2 ^ 1.
+  Soit y = (î/n)^=i dans T°°, et Vy la mesure sur T définie
+                          00
+
+
+par le produit de Riesz JJ (1 + cos{y^ 4- ^))- Quel que soit
+                         n=l
+le polynôme f sur T et y dans T°° : |)/'* ^\\q ^ ||/'* pir * vjg.
+Élevons chaque membre de cette inégalité à la puissance
+qième, et intégrons par rapport à y : f * p-r * ^y x, considéré
+comme fonction de y, est un polynôme sur T°° admettant
+pour coefficient de Fourier en (^JLi la quantité
+                      ^(S^,)(2r)sl^l^sTO^
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)          393
+
+
+si, pour tout /, rij appartient à { — 1, 0, 1}, 0 sinon. Sa
+norme dans L^T00) est donc majorée par (S^Sn/,)!2)^2 ^ \\f\\^
+grâce à la condition 4(ç — l)r2 < 1, et au théorème 4.
+   THÉORÈME 9. — Soient t^ une suite lacunaire d'entiers,
+tn+i < 3tn, et q un réel supérieur à 2. On suppose que Vune
+des deux conditions suivantes est satisfaite :
+  (1) q est un entier pair, et, pour tout n, ^+1 > (ç + l)^i-
+  (2) la série S((n/^»+i) est convergente.
+Alors la suite Çr(^) définie par :
+  — Ç^(n) == 0 si n ne peut pas s'écrire sous la forme Se^.,
+£^{-1, 0, 1}
+   — ^(n) = W si n= Ss^
+est un multiplicateur de â^L^T) dans ^L^T) si et seulement
+si {q — l)r2 ^ 1.
+  A toute fonction f à spectre dans l'ensemble
+                { n = = 2 k , ^ e { - 1,0,1}},
+on peut faire correspondre la fonction f sur T°°, à spectre
+dans l'ensemble {(nj)^', n y e { — l , 0, 1}} définie par
+/'((s^J^i) == fÇZejtj). D'après les théorèmes 2 et 3 du chapitre 1,
+si la suite („ et le réel q vérifient l'une ou l'autre des condi-
+tions (1) et (2), il existe une constante A telle que pour
+toute fonction f: \\f[\y ^ AU/H^T-), et [[/IL^T-) < A||/^.
+    Soit alors f un polynôme sur T, et F défini par :
+                         F{n) = Wf(n)
+pour tout n. La fonction F n'est autre que l'image par le
+multiplicateur X^, défini dans le théorème 4, de la fonction f.
+D'après le théorème 4, si (ç — l)r2 ^ 1, IF'UL^T 00 ) ^ H/lL'cr 00 ),
+et donc ||F||ç < A.[\f[\q: ^{n) est un multiplicateur de â^L^T)
+dans ^L^T).
+   Supposons réciproquement que Ç^(^) est un multiplicateur
+de ^L2(T) dans ^L^T) : il existe une constante B telle que,
+pour tout polynôme /*, \\¥\\q ^ B\\f\\^ On a alors:
+                       HFUL^T-) ^ \\fh\T^:
+
+c'est dire que À^, défini dans le théorème 4, est un multipli-
+cateur de ^L^T") dans M^T"). On a nécessairement:
+(q— l)r 2 ^ 1. Ceci termine la démonstration.
+                        CHAPITRE IV
+
+ENSEMBLES A(q) ET CONVERGENCE PRESQUE PARTOUT
+
+
+   Soit X^ une suite lacunaire d'entiers, telle que À^i ^ 3X^.
+Nous avons montré, dans les chapitres précédents, que la
+suite /c-lacunaire associée, formée des entiers qui s'écrivent
+sous la forme ± À^ ± À^ . . . ± X^, n^ > n^ > • • • > n&,
+possède, du point de vue de l'analyse harmonique, des pro-
+priétés voisines de celles de la suite 7^. Nous nous proposons,
+dans ce chapitre, de montrer que les suites /c-lacunaires
+jouissent d'une dernière propriété des suites lacunaires :
+toute série /c-lacunaire qui converge sur un ensemble de mesure
+positive est la série de Fourieï* d'une fonction de L^T). Nous
+verrons que d'autres ensembles A(4) jouissent de la même
+propriété, et nous examinerons le cas de groupes autres que
+le tore. La matière de ce chapitre, qui doit beaucoup à la
+contribution de M. Yves Meyer, a déjà fait l'objet d'une note
+aux comptes-rendus commune [2]. On trouvera tout ce qui
+concerne le cas classique des séries lacunaires dans [9], p. 204.
+  DÉFINITION. — Soit G un groupe compact abélien, F son
+dual, A un sous-ensemble de F, E un sous-ensemble de G
+de mesure positive. On dit que E est associé à A s9 il existe
+une constante r\ telle que, pour tout polynôme f à spectre dans
+A,   on ait   l|/1|j ^ ^ Jj/12 dx.
+   Montrons tout de suite l'existence, dans tout groupe discret,
+d'ensembles possédant des ensembles de mesure positive
+associés :
+   THÉORÈME 1. — Si A est un ensemble A{q) dans F {q > 2),
+il existe une constante positive e < 1 telle que tout sous-ensemble
+E de mesure supérieure a i — s soit associé à A.
+ÉTUDE DES COEFFICIENTS DE FOURIEB DES FONCTIONS DE LP(G)          395
+
+    A étant A (g), il existe une constante A telle que, pour
+tout polynôme f à spectre dans A, [\f\\y ^ A.\\f\^. Grâce à
+l'inégalité de Hôlder :
+
+f^dx ^ (f^dx)q~2\q(f\^dx)21q ^ A^mes [ E)^||/12,.
+
+Il suffit donc de choisir e tel que A2^-2^ < 1.
+   Le lemme suivant relève de la même démonstration :
+
+   LEMME 1. — Si A est un ensemble AÇq) dans F (g > 2),
+et possède Vensemble E pour ensemble associé, il existe une
+constante positive e telle que tout ensemble F contenu dans E,
+satisfaisant à Vhypothèse mes(E\F) ^ s, soit encore associé
+à A.
+   Là encore, soit f un polynôme à spectre dans A. Si F
+est contenu dans E,
+
+f^f^dx ^ ^[mes{E\¥)]^f\f^dx
+                               ^ A 2 7î 2 [mes(E\F)^- 2 ^y l |/•| 2 ^.
+   II suffit de choisir e tel que A2^2^-2^ < 1.
+  Le théorème suivant a pour but de montrer, dans le cas
+général, les rapports entre la notion d'ensemble associé et
+la convergence presque partout.
+  Soit G un groupe compact abélien, F son dual qu'on
+supposera dénombrable, yi? Ï2? • • • ? ïn? • • . une énumération
+des éléments de F. Soit T une suite double (3?, qu'on sup-
+posera posséder les propriétés suivantes :
+  (i) Pour tout i, p? = 1.
+  (ii) Pour tout n, (3? tend vers 1.
+  On dira que la série Sa^a;, yj est T-sommable au point
+                                               00
+
+
+x, si d'une part, pour tout       i, a^x) = ^ ^P?^? Yn)           ost
+                                              71=1
+
+convergent, d'autre part a^x) tend vers une limite lorsque i
+tend vers l'infini. Si G est le tore, et si l'ordre pris sur les
+entiers est l'ordre 0, 1, — 1, 2, — 2, . . ., la notion de T-som-
+mabilité est alors la notion de T*-sommabilité habituelle
+([9], p. 204). De même, si G = D°°, et si, lorsque n = Se,21,
+£ ( € { 0 , 1} Y n = se^? la T-sommabilité est également la
+ 396                      ALINE BONAMI
+
+
+ notion de T*-sommabilité habituelle des séries de Fourier-
+ Walsh.
+
+   THÉORÈME 2. — Soit A un ensemble A(q) {q > 2) dans F
+supposé dénombrable, E un ensemble de mesure positive associé
+à A : si la série Sa^, y^) a son spectre contenu dans A,
+et est T-sommable sur E, alors S|aJ2 est fini.
+   Nous ne ferons pas la démonstration, reposant sur le lemme 1,
+qui est tout à fait semblable à la démonstration de [9], p. 205,'
+utilisée pour passer du lemme 6-5 au théorème 6-4.
+
+   THÉORÈME 3. — F étant un groupe dénombrable, soit A
+un ensemble A (4) d'entiers dans F vérifiant la propriété
+suivante '.quelle que soit la partie finie FQ de F, il existe une
+partie finie AQ de A telle que, pour tous y et y' appartenant
+à A\Ao, y — y 7 n'appartienne pas à FQ : alors, quel que
+soit l'ensemble E de mesure positive dans G, il existe une
+partie finie AQ de A telle que A\AQ admette E pour ensemble
+associé.
+   Soit f une fonction à spectre dans A, E un ensemble de
+mesure positive: /J/p dx == ^ gWU- ï),              si g = j/p,
+5CE est la fonction caractéristique de E. Comme
+
+                g(ï) = S fWf(S - y), g(y)
+                        ôeA
+
+est non nul seulement si y s'écrit comme différence de deux
+éléments de A, y s A — A. D'autre part,
+                    g(0) = s|^(8)p = uyiii.
+       / 1/P dx = ll/'UKmes E) +      S      g(ï)N- y).
+                                   fï^o
+                                    (ïeA-A
+
+Or ce dernier terme est, grâce à l'inégalité de Schwarz, majoré
+en module par
+
+              (sig^lT/ Ï5éo   S IN-ï)!2^.
+                     \\ Î Ï(€ = A - A  /
+                                        )
+Puisque A est A(4), (S|g(y)|^ = ||/'[|| ^ A2]!/1!]!. D'autre
+part, grâce à l'hypothèse, et comme /E est dans L2(G),
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^G)      397
+
+
+il est possible, en enlevant à A un nombre fini de termes
+Ao, ne dépendant que de E, de rendre / ^ ^(y)!^2 infé-
+                                     1"^°
+                                     \ïeA-A
+                                                /
+                                                /
+rieur à A'^mes E)/2. On a alors la majoration :
+
+                f\f\2 dx ^ (mes E)12f\f\2 dx.
+   Le chapitre 2 donne des exemples d'ensembles A(4) satis-
+faisant aux hypothèses du théorème 3.
+   COROLLAIRE 1. — Si A satisfait aux hypothèses du théorème 3,
+toute série Sa^(rc, y^), à spectre dans A, qui est T-sommable
+sur un ensemble de mesure positive, est la série de Fourier d'une
+fonction de L^G).
+   La T-sommabilité, non plus que la convergence de S[aJ2,
+ne dépendent évidemment pas d'un nombre fini de facteurs.
+   La question se pose naturellement, grâce au théorème 3,
+de savoir si, lorsque A possède E pour ensemble associé,
+et Ao est une partie finie de F, A u Ao possède encore E
+pour ensemble associé.
+   THÉORÈME 4. — Soit A un ensemble A(ç) dans F{q > 2),
+admettant E pour ensemble associé : si Ao est une partie finie
+de F, A u Ao admet encore E pour ensemble associé si et
+seulement si il n'existe pas de polynôme, à spectre dans A u Ao,
+s'annulant presque partout sur E.
+   Cette condition est évidemment nécessaire. Montrons qu'elle
+est suffisante, en nous restreignant au cas où Ao est réduit
+à un élément de F, Ao = {^o} : le cas général s'en déduit
+aisément.
+   Appelons L^E) l'espace de Banach des fonctions f telles
+que f \f\2 dx < oo, L^(G) l'espace de Banach des fonctions
+de L2 à spectre dans A, L^(E) l'ensemble des restrictions
+à E des fonctions de Lj[(G) : puisque E est associé à A,
+LJ[(E) est fermé dans L^E). Définissons de même L^u|Xoî(G),
+Lj^j|Xo|(E) : Lj[y^(E), qui possède LJ[(E), sous-espace fermé
+de L^E), comme sous-espace de codimension 1, est lui-même
+fermé dans L^E). Si donc l'application continue de LJ[(J|^(G)
+dans LJ[y^(E), qui à toute fonction fait correspondre sa
+restriction à E, est injective, d'après un théorème de
+                                                        18
+398                         ALINE BONAM1
+
+
+Banach ([3] p. 140), cette application est bicontinue : c'est
+dire que E est associé à A u {Xo}.
+   Soit donc f dans L^Xo|(G) : f{x) = a^x, \o) + g(rc), où
+g[x) est à spectre dans A. Il s'agit de montrer que, d'après
+les hypothèses sur E, si f est nul sur E presque partout,
+f est identiquement nul. Considérons la fonction
+      f^ + k} - {h, ^}f{x) = Sg(Y)[(A, y) - (A, Xo)](,r, y).
+C'est une fonction à spectre dans A, qui s'annule sur l'ensem-
+ble E»i == E n (E — h). Or, si ^ est ^a fonction caractéris-
+tique de E, mes(E\Eh) ^ f2" \^{x + h} — ^{x)\ dx. Donc
+mes(E\Eyi) < s si h appartient à un voisinage de l'origine
+suffisamment petit, et, d'après le lemme 1, E/i est alors
+associé à A. La fonction f(x + h) — (A, Ào)/*(*r), qui s'annule
+sur Eyi, est identiquement nulle: pour tout y e ^?
+                     gME^r-^-il-o
+quel que soit h dans un voisinage de l'origine. Mais un tel
+voisinage contient un voisinage de la forme ([7], p. 31)
+      V = { / i e G ; | l ~ {h, y,)] ^ e   si   i = l , 2 , . . . . n}.
+                       E=
+Donc (A, y — ^o)      l? identiquement, dans V pour un
+nombre fini au plus d'éléments ^ e A. Donc f est un poly-
+nôme à spectre dans A u {Ào} : d'après l'hypothèse, f est
+identiquement nul.
+   COROLLAIRE 2. — On suppose G connexe : alors, si A est
+un ensemble A(ç) (g > 2), admettant E pour ensemble associé,
+pour toute partie finie AQ de F, A u Ao admet encore E
+pour ensemble associé.
+   II suffit de reprendre la démonstration précédente : le poly-
+nôme /*, qui est tel que f[x -{-h) — (A, Xo)/'(.r) soit nul dès
+que h appartient à un voisinage de l'origine, s'annule sur
+un ensemble non vide à la fois ouvert et fermé, et est donc
+identiquement nul.
+   Nous avons démontré en même temps que tout polynôme
+sur un groupe G connexe s'annule sur un ensemble de mesure
+nulle.
+   Le corollaire 2 s'applique en particulier au cas où G est
+l'un des groupes T ou T00.
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE LP(G)     399
+
+
+    THÉORÈME 5. — Si ^n+i ^ S^n? l^ suite k-lacunaire formée
+des entiers qui s'écrivent sous la forme Se^À^ où e^e {—1,0,1},
+^l 2 »! = ^5 admet pour ensemble associé tout ensemble de mesure
+positive.
+    Appelons A^ cette suite /c-lacunaire. Soit E un ensemble
+de mesure positive. Nous allons montrer, par récurrence, que
+E est associé à A^ : c'est évidemment vrai pour Ag. Sup-
+posons donc que E est associé à A^_i, et montrons, ce qui
+est suffisant d'après le théorème 4, que E est alors associé
+à un ensemble Aj^, différant de A^ par un nombre fini de
+termes : on prendra pour A^ l'ensemble des entiers qui
+s'écrivent sous la forme Se^X,, où s^e { — 1, 0, 1}, S|eJ = k
+       N
+e
+ ^     S \en\ < ^?    ou encore   ± À^ ± À^ . . .   ± X^,   avec
+       i
+MI > n^ > • • • > Ufc et Tîi > N. Tout polynôme f à spectre
+dans A^ s'écrit sous la forme :
+                   f{x)= S [gnW^ + h^x)e-^
+                         n>N
+
+où gn et An ont leur spectre dans l'ensemble des entiers qui
+             n—l
+s'écrivent S1 ^^j? avec s^e { — 1 , 0, 1} et S[e/| == /c — 1.
+            J=
+Les spectres de g^ et An sont donc contenus dans A^_i.
+D'après l'hypothèse de récurrence, il existe une constante Y]
+telle que, quel que soit 9 à spectre dans A^_i,
+
+                      f^dxï ^f\^dx.
+Donc :
+
+f^W + IW dx ^ ^/S(|g^ + |AJ2) dx = ^f\f\2 dx.
+
+Soit alors ¥{x} = |/'(a;)|2 - S(|gJ2 + |AJ 2 ), et soit K le
+spectre de F. Comme dans la démonstration du théorème 3,
+on fait les majorations suivantes :
+                                          i                  1
+    [/^F dx = |SF(^(~ n)| ^ (2|Ê(n)| 2 ) 2 (^\U-
+                                              ,E( ^)1 2 ) 2 .
+
+Comme A^ est un ensemble A (4), il existe A, indépendante
+de /*, telle que
+                     (si^n)!2^ < uni < A.WI.
+^w                         ALINE BONAMI
+
+
+Or il existe No tel que, puisque ^ appartient à L2,
+
+                 ( sjN-n)!2)2^2^,
+                 M"»^             /
+et le spectre K de F, dont les éléments sont minorés en
+module par ^ ~ 2X^ - ... ~ 2X^-^1 - ^, peut être
+rendu, par un choix convenable de N, extérieur à [— No, No] :
+si À^i ^ 3X^ la quantité ^ — 2X^-1 — 2X^.2 — ... — x^
+tend vers l'infini avec N. Finalement, N étant ainsi choisi,
+f^f?dx^ ^/2^|/p^.
+
+  COROLLAIRE 3. — Toute série k-lacunaire, qui est T-sommable
+sur un ensemble de mesure positive, est la série de Fourier d'une
+fonction de L2.
+   THÉORÈME 6. — Soit N,, le sous-ensemble de SZ formé des
+suites (n,)^ telles que 2|yi,i == A* : quel que soit k, N^ admet
+pour ensemble associé tout ensemble de mesure positive.
+   Nous ne ferons pas la démonstration, tout à fait analogue
+à celle du théorème 5.
+   Il est naturel de chercher, de la même manière, quels sont
+les ensembles E de D°° associés aux ensembles I\ de
+SZ(2) formés des suites (e^, e» s {0,1}, telles que Se; == k.
+Comme D00 est totalement discontinu, cette fois tous les
+ensembles de mesure positive ne conviennent pas : les poly-
+nômes s'annulent sur des ensembles de mesure positive.
+   Appelons intervalle dyadique dans D°°, par analogie avec
+la représentation classique de D00 par [0, l], tout ensemble
+1 de D00 défini par :
+         I = { ^ e D00; (w, ei) == w,, i = 1, 2, ..., N},
+N, w^ w^ ..., wy étant donnés.
+  THÉORÈME 7. — Soit E un sous-ensemble de D00 tel que
+son intersection avec tout intervalle dyadique soit de mesure
+positive : E est alors associé à I\ quel que soit k.
+  La condition sur E est une condition nécessaire et suffi-
+sante pour qu'il n'existe pas de polynôme s'annulant presque
+partout sur E : l'ensemble des zéros d'un polynôme est une
+reunion finie d'intervalles dyadiques, et réciproquement toute
+réunion finie d'intervalles dyadiques est contenue dans
+ÉTUDE DES COEFFICIENTS DE FOURIER DES FONCTIONS DE L^(G)           401
+
+
+l'ensemble des zéros d'un polynôme. Dès lors, on peut appli-
+quer le théorème 4, et la démonstration suit celle du théorème 5.
+Comme D00 possède un nombre dénombrable d'intervalles
+dyadiques, il est aisé de construire des ensembles satisfaisant
+aux hypothèses du théorème, et de mesure arbitrairement
+                                                   00
+
+
+petite : s étant donné, on peut l'écrire e == ^ £„, où e^ > 0.
+                                                  n==l
+On choisit alors un ensemble de mesure inférieure à e^ dans
+le nième intervalle dyadique, et on prend pour E la réunion
+de tous ces ensembles : la mesure de E est bien inférieure à e.
+   Remarque. — a) II n'est pas nécessaire, pour k donné,
+que E ne soit pas contenu (à un ensemble de mesure nulle
+près) dans l'ensemble des zéros de tous les polynômes : il
+suffit qu'aucun polynôme à spectre dans l'un des I\ ,
+i == 1, 2, ..., /c, ne s'annule presque partout sur E. En
+particulier, pour que E soit associé à l'ensemble formé des
+éléments de la base canonique, I\, il faut et il suffit qu'aucun
+             N
+polynôme ^ a^x, e^) ne s'annule presque partout sur E.
+            i=i
+Or, si un tel polynôme est nul sur l'ensemble défini par
+{xy e^) = Xi pour tout i = 1, 2, . . ., N, il est non nul sur
+l'ensemble {x, e^) = x^ {x, e^) = — x, pour i = 2, . . ., N.
+L'ensemble de ses zéros est donc de mesure inférieure ou
+         1                                     ^       1
+égale à -r^- Tout ensemble de mesure supérieure à -TT est
+donc associé à I\. Par contre, il existe des ensembles de
+        1
+mesure -nT qui ne sont pas associés à I\, comme l'ensemble
+des x tels que {x, e^) = {x, e^).
+  b) II existe des séries à spectre dans 1^, s'annulant sur un
+ensemble de mesure positive, et qui ne sont pas les séries de
+Fourier de fonctions de L2 : c'est le cas de
+                    S (^ en)[{x, e^) — {x, ^2)].
+                    n>2
+
+
+
+                          BIBLIOGRAPHIE
+
+ [1] A. BONAMI, Ensembles A(p) dans le dual de D00, Ann. Inst. Fourier,
+       tome 18, fascicule 2, p. 193.
+402                          ALINE BONAMI
+
+ [2] A. BONAMI et Y. MEYEB, Propriétés de convergence de certaines séries
+        trigonométriques, C.R. Acad. Se. Paris, tome 269, p. 68.
+ [3] J.-P. KAHANE et R. SALEM, Ensembles parfaits et séries trigonomé-
+        triques, Actualités scientifiques et industrielles n° 1301, 1962.
+ [4] Y. MEYER, Endomorphismes des idéaux fermés de L^G), Classes de
+        Hardy et Séries lacunaires, Ann. Sci, École Norm. Sup^ 4e série,
+        tome 1, 1968, p. 499.
+ [5] R. RADO, A combinatorial theorem on vector spaces, J. London Math.
+         Soc.. 37, p. 351.
+ [6] W. RUDIN, Trigonométrie séries with gaps, J. of Math, and Mech^ 9,
+        p. 203.
+ [7] W. RUDIN, Fourier Analysis on groups, Interscience tracts in pure and
+        applied mathematics n0 12, 1962.
+ [8] M. SCHREIBEB, Fermeture en probabilité des chaos de Wiener, C.R.
+         Acad. Soi., tome 265, p. 859.
+ [9] A. ZYGMUND, Trigonométrie séries, tome 1, Cambridge University
+         Press, 1959.
+[10] A. ZYGMUND, Trigonométrie séries, tome 2, Cambridge University
+        Press, 1959.
+                                       (Thèse, Fac. Sciences Orsay, 1970.)
+                                               Aline BONAMI,
+                                       Département de Mathématiques,
+                                            Faculté des Sciences,
+                                                 91-Orsay.
+

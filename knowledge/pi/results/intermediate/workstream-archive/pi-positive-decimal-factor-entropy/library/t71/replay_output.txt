@@ -1,0 +1,15 @@
+pi-positive-decimal-factor-entropy.txt: OK
+README.md: OK
+SOURCE_MANIFEST.md: OK
+T56LagSectorAudit.lean: OK
+T69FiveCaseCharging.lean: OK
+T71ConventionAudit.lean: OK
+baseline_table.csv: OK
+census_results.json: OK
+milla-chudnovsky-1809.00533v6.pdf: OK
+milla-chudnovsky-1809.00533v6.txt: OK
+pi-positive-decimal-factor-entropy.txt: OK
+t62_census.py: OK
+t71_census.py: OK
+verify.sh: OK
+T71 census: PASS; n=2..12; unresolved=0; boundary_witnesses=66; elapsed_seconds=61.679877; peak_rss_kib=283468

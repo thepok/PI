@@ -1,0 +1,429 @@
+{
+  "all_finite_replay_checks_passed": true,
+  "canonical_statement_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "cases": [
+    {
+      "case_id": "n1-full",
+      "checks": {
+        "all_ordered_cross_terms_retained": true,
+        "domain_endpoints": true,
+        "gcd_collision_parameterization": true,
+        "phi_ten_reduction": true,
+        "quadratic_coefficientwise_fiber_matrix_equality": true,
+        "quadratic_three_substitution_replay": true,
+        "rational_envelope_algebra": true,
+        "repunit_gcd": true,
+        "zero_mode_normalization": true
+      },
+      "coefficient_envelope_sum": "16/15",
+      "coefficient_pointwise_envelope": "abs(a_(H,h))<7/(3H)=7/15",
+      "complete_second_moment_formula": "integral(E_n^2)=(2*label_count/H_n)^2+2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "diagonal_index_pair_count": 0,
+      "direct_collision_pair_count": 0,
+      "direct_partition_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "distinct_phi_count": 0,
+      "envelope_quadratic_value": "0",
+      "fiber_envelope_bound": "0",
+      "gcd_generated_pair_count": 0,
+      "gcd_identity_cases": 0,
+      "gcd_pair_counts_equal": true,
+      "gcd_parameter_pair_count": 0,
+      "label_count": 0,
+      "mask_definition": "all T61 short-rectangle labels retained",
+      "matrix_symmetric": true,
+      "max_fiber_frequency": 0,
+      "max_fiber_witnesses_h_r_j": [],
+      "max_multiplicity": 0,
+      "multiplicity_histogram": {},
+      "normalized_zero_mode_by_L_n": "0",
+      "ordered_off_diagonal_pair_count": 0,
+      "orthogonality_symbolic_rule": "integral cos(2*pi*k*x)cos(2*pi*l*x)=delta_(k,l)/2",
+      "pairwise_envelope_bound": "0",
+      "parameters": {
+        "H_n": 5,
+        "L_n": 1,
+        "mask": "full",
+        "n": 1
+      },
+      "partitions_equal": true,
+      "per_lag_cardinalities": {},
+      "proved_fiber_bound": 0,
+      "quadratic_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "quadratic_sparse_monomial_count": 0,
+      "rational_substitution_checks": {
+        "alternating_signed_triangular": "0",
+        "ones": "0",
+        "triangular": "0"
+      },
+      "real_cosine_L2_factor": "2",
+      "record_count": 0,
+      "summed_zero_mode": "0",
+      "ten_reduced_partition_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "visible_quadratic_formula": "integral(S_n^2)=2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "zero_coefficient": "2/5"
+    },
+    {
+      "case_id": "n2-full",
+      "checks": {
+        "all_ordered_cross_terms_retained": true,
+        "domain_endpoints": true,
+        "gcd_collision_parameterization": true,
+        "phi_ten_reduction": true,
+        "quadratic_coefficientwise_fiber_matrix_equality": true,
+        "quadratic_three_substitution_replay": true,
+        "rational_envelope_algebra": true,
+        "repunit_gcd": true,
+        "zero_mode_normalization": true
+      },
+      "coefficient_envelope_sum": "98/75",
+      "coefficient_pointwise_envelope": "abs(a_(H,h))<7/(3H)=7/150",
+      "complete_second_moment_formula": "integral(E_n^2)=(2*label_count/H_n)^2+2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "diagonal_index_pair_count": 441,
+      "direct_collision_pair_count": 505,
+      "direct_partition_sha256": "149687ddea1553ca661cc9080aa10d0d42e3566d5dd9485f1a10f1818c2f8585",
+      "distinct_phi_count": 409,
+      "envelope_quadratic_value": "12566/28125",
+      "fiber_envelope_bound": "2401/1250",
+      "gcd_generated_pair_count": 505,
+      "gcd_identity_cases": 1,
+      "gcd_pair_counts_equal": true,
+      "gcd_parameter_pair_count": 505,
+      "label_count": 9,
+      "mask_definition": "all T61 short-rectangle labels retained",
+      "matrix_symmetric": true,
+      "max_fiber_frequency": 90,
+      "max_fiber_witnesses_h_r_j": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          10,
+          1,
+          0
+        ]
+      ],
+      "max_multiplicity": 2,
+      "multiplicity_histogram": {
+        "1": 377,
+        "2": 32
+      },
+      "normalized_zero_mode_by_L_n": "9/250",
+      "ordered_off_diagonal_pair_count": 64,
+      "orthogonality_symbolic_rule": "integral cos(2*pi*k*x)cos(2*pi*l*x)=delta_(k,l)/2",
+      "pairwise_envelope_bound": "4949/4500",
+      "parameters": {
+        "H_n": 50,
+        "L_n": 10,
+        "mask": "full",
+        "n": 2
+      },
+      "partitions_equal": true,
+      "per_lag_cardinalities": {
+        "1": 9
+      },
+      "proved_fiber_bound": 2,
+      "quadratic_sha256": "aa09d4c6b90ccc504330fb858128a64ff2c4555f10e4fbbe81be90a08d2c2b7b",
+      "quadratic_sparse_monomial_count": 53,
+      "rational_substitution_checks": {
+        "alternating_signed_triangular": "13913/100",
+        "ones": "505",
+        "triangular": "705/4"
+      },
+      "real_cosine_L2_factor": "2",
+      "record_count": 441,
+      "summed_zero_mode": "9/25",
+      "ten_reduced_partition_sha256": "149687ddea1553ca661cc9080aa10d0d42e3566d5dd9485f1a10f1818c2f8585",
+      "visible_quadratic_formula": "Q=9*sum(h=1..49,c_h^2)+16*(c_1*c_10+c_2*c_20+c_3*c_30+c_4*c_40); integral(S_2^2)=2*Q",
+      "zero_coefficient": "1/25"
+    },
+    {
+      "case_id": "n2-mu2_c1_q1",
+      "checks": {
+        "all_ordered_cross_terms_retained": true,
+        "domain_endpoints": true,
+        "gcd_collision_parameterization": true,
+        "phi_ten_reduction": true,
+        "quadratic_coefficientwise_fiber_matrix_equality": true,
+        "quadratic_three_substitution_replay": true,
+        "rational_envelope_algebra": true,
+        "repunit_gcd": true,
+        "zero_mode_normalization": true
+      },
+      "coefficient_envelope_sum": "98/75",
+      "coefficient_pointwise_envelope": "abs(a_(H,h))<7/(3H)=7/150",
+      "complete_second_moment_formula": "integral(E_n^2)=(2*label_count/H_n)^2+2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "diagonal_index_pair_count": 343,
+      "direct_collision_pair_count": 391,
+      "direct_partition_sha256": "edc698f8208a8d6ff3cf805a5cfef26af1f2aba1bf36126ad16aea394f9bff04",
+      "distinct_phi_count": 319,
+      "envelope_quadratic_value": "48568/140625",
+      "fiber_envelope_bound": "16807/11250",
+      "gcd_generated_pair_count": 391,
+      "gcd_identity_cases": 1,
+      "gcd_pair_counts_equal": true,
+      "gcd_parameter_pair_count": 391,
+      "label_count": 7,
+      "mask_definition": "mu=2,c=1,Q0=1: retain exactly q_(j,r)>10^n",
+      "matrix_symmetric": true,
+      "max_fiber_frequency": 9000,
+      "max_fiber_witnesses_h_r_j": [
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          10,
+          1,
+          2
+        ]
+      ],
+      "max_multiplicity": 2,
+      "multiplicity_histogram": {
+        "1": 295,
+        "2": 24
+      },
+      "normalized_zero_mode_by_L_n": "7/250",
+      "ordered_off_diagonal_pair_count": 48,
+      "orthogonality_symbolic_rule": "integral cos(2*pi*k*x)cos(2*pi*l*x)=delta_(k,l)/2",
+      "pairwise_envelope_bound": "19159/22500",
+      "parameters": {
+        "H_n": 50,
+        "L_n": 10,
+        "mask": "mu2_c1_q1",
+        "n": 2
+      },
+      "partitions_equal": true,
+      "per_lag_cardinalities": {
+        "1": 7
+      },
+      "proved_fiber_bound": 2,
+      "quadratic_sha256": "1c851f82be743e2d68bbd00fb636e5cdea024aeff9dc387addbd0d51bb8bdc4f",
+      "quadratic_sparse_monomial_count": 53,
+      "rational_substitution_checks": {
+        "alternating_signed_triangular": "10839/100",
+        "ones": "391",
+        "triangular": "13623/100"
+      },
+      "real_cosine_L2_factor": "2",
+      "record_count": 343,
+      "summed_zero_mode": "7/25",
+      "ten_reduced_partition_sha256": "edc698f8208a8d6ff3cf805a5cfef26af1f2aba1bf36126ad16aea394f9bff04",
+      "visible_quadratic_formula": "Q=7*sum(h=1..49,c_h^2)+12*(c_1*c_10+c_2*c_20+c_3*c_30+c_4*c_40); integral(S_2^2)=2*Q",
+      "zero_coefficient": "1/25"
+    },
+    {
+      "case_id": "n3-full",
+      "checks": {
+        "all_ordered_cross_terms_retained": true,
+        "domain_endpoints": true,
+        "gcd_collision_parameterization": true,
+        "phi_ten_reduction": true,
+        "quadratic_coefficientwise_fiber_matrix_equality": true,
+        "quadratic_three_substitution_replay": true,
+        "rational_envelope_algebra": true,
+        "repunit_gcd": true,
+        "zero_mode_normalization": true
+      },
+      "coefficient_envelope_sum": "499/375",
+      "coefficient_pointwise_envelope": "abs(a_(H,h))<7/(3H)=7/1500",
+      "complete_second_moment_formula": "integral(E_n^2)=(2*label_count/H_n)^2+2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "diagonal_index_pair_count": 8483,
+      "direct_collision_pair_count": 11609,
+      "direct_partition_sha256": "1a781736762be6d168416176486cc12ef90500973c98ddd750f05fcb34d984cb",
+      "distinct_phi_count": 7375,
+      "envelope_quadratic_value": "1500965753/14062500000",
+      "fiber_envelope_bound": "415667/375000",
+      "gcd_generated_pair_count": 11609,
+      "gcd_identity_cases": 4,
+      "gcd_pair_counts_equal": true,
+      "gcd_parameter_pair_count": 11609,
+      "label_count": 17,
+      "mask_definition": "all T61 short-rectangle labels retained",
+      "matrix_symmetric": true,
+      "max_fiber_frequency": 9900,
+      "max_fiber_witnesses_h_r_j": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          10,
+          2,
+          1
+        ],
+        [
+          11,
+          1,
+          2
+        ],
+        [
+          100,
+          2,
+          0
+        ],
+        [
+          110,
+          1,
+          1
+        ]
+      ],
+      "max_multiplicity": 5,
+      "multiplicity_histogram": {
+        "1": 6642,
+        "2": 414,
+        "3": 287,
+        "4": 8,
+        "5": 24
+      },
+      "normalized_zero_mode_by_L_n": "17/2500",
+      "ordered_off_diagonal_pair_count": 3126,
+      "orthogonality_symbolic_rule": "integral cos(2*pi*k*x)cos(2*pi*l*x)=delta_(k,l)/2",
+      "pairwise_envelope_bound": "568841/2250000",
+      "parameters": {
+        "H_n": 500,
+        "L_n": 10,
+        "mask": "full",
+        "n": 3
+      },
+      "partitions_equal": true,
+      "per_lag_cardinalities": {
+        "1": 9,
+        "2": 8
+      },
+      "proved_fiber_bound": 6,
+      "quadratic_sha256": "12d0aebd27619d7e62bb33f9728aaca0b40f7fb4c3eaf5c140b65e4de5b54cb7",
+      "quadratic_sparse_monomial_count": 650,
+      "rational_substitution_checks": {
+        "alternating_signed_triangular": "78113657/25000",
+        "ones": "11609",
+        "triangular": "105716917/25000"
+      },
+      "real_cosine_L2_factor": "2",
+      "record_count": 8483,
+      "summed_zero_mode": "17/250",
+      "ten_reduced_partition_sha256": "1a781736762be6d168416176486cc12ef90500973c98ddd750f05fcb34d984cb",
+      "visible_quadratic_formula": "integral(S_n^2)=2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "zero_coefficient": "1/250"
+    },
+    {
+      "case_id": "n3-mu2_c1_q1",
+      "checks": {
+        "all_ordered_cross_terms_retained": true,
+        "domain_endpoints": true,
+        "gcd_collision_parameterization": true,
+        "phi_ten_reduction": true,
+        "quadratic_coefficientwise_fiber_matrix_equality": true,
+        "quadratic_three_substitution_replay": true,
+        "rational_envelope_algebra": true,
+        "repunit_gcd": true,
+        "zero_mode_normalization": true
+      },
+      "coefficient_envelope_sum": "499/375",
+      "coefficient_pointwise_envelope": "abs(a_(H,h))<7/(3H)=7/1500",
+      "complete_second_moment_formula": "integral(E_n^2)=(2*label_count/H_n)^2+2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "diagonal_index_pair_count": 5988,
+      "direct_collision_pair_count": 8094,
+      "direct_partition_sha256": "f4399a4995b201f729fbda4c6852ca60cb8a2e3e308b731eaa0044077e4b5dad",
+      "distinct_phi_count": 5248,
+      "envelope_quadratic_value": "13880503/187500000",
+      "fiber_envelope_bound": "24451/31250",
+      "gcd_generated_pair_count": 8094,
+      "gcd_identity_cases": 4,
+      "gcd_pair_counts_equal": true,
+      "gcd_parameter_pair_count": 8094,
+      "label_count": 12,
+      "mask_definition": "mu=2,c=1,Q0=1: retain exactly q_(j,r)>10^n",
+      "matrix_symmetric": true,
+      "max_fiber_frequency": 990000,
+      "max_fiber_witnesses_h_r_j": [
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          10,
+          2,
+          3
+        ],
+        [
+          11,
+          1,
+          4
+        ],
+        [
+          100,
+          2,
+          2
+        ],
+        [
+          110,
+          1,
+          3
+        ]
+      ],
+      "max_multiplicity": 5,
+      "multiplicity_histogram": {
+        "1": 4769,
+        "2": 254,
+        "3": 205,
+        "4": 4,
+        "5": 16
+      },
+      "normalized_zero_mode_by_L_n": "3/625",
+      "ordered_off_diagonal_pair_count": 2106,
+      "orthogonality_symbolic_rule": "integral cos(2*pi*k*x)cos(2*pi*l*x)=delta_(k,l)/2",
+      "pairwise_envelope_bound": "66101/375000",
+      "parameters": {
+        "H_n": 500,
+        "L_n": 10,
+        "mask": "mu2_c1_q1",
+        "n": 3
+      },
+      "partitions_equal": true,
+      "per_lag_cardinalities": {
+        "1": 6,
+        "2": 6
+      },
+      "proved_fiber_bound": 6,
+      "quadratic_sha256": "c786a1cd82a066c4e243de4da8c60e3a19c3307eb975f7367be5eea9f8101e74",
+      "quadratic_sparse_monomial_count": 650,
+      "rational_substitution_checks": {
+        "alternating_signed_triangular": "10898241/5000",
+        "ones": "8094",
+        "triangular": "2932221/1000"
+      },
+      "real_cosine_L2_factor": "2",
+      "record_count": 5988,
+      "summed_zero_mode": "6/125",
+      "ten_reduced_partition_sha256": "f4399a4995b201f729fbda4c6852ca60cb8a2e3e308b731eaa0044077e4b5dad",
+      "visible_quadratic_formula": "integral(S_n^2)=2*sum_phi(sum_{records in fiber(phi)} c_h)^2",
+      "zero_coefficient": "1/250"
+    }
+  ],
+  "collision_classes": "v10(h1)+j1=v10(h2)+j2 and primitive(h1)*(10^r1-1)=primitive(h2)*(10^r2-1); equivalently primitive(h1)=V*t, primitive(h2)=U*t after the repunit gcd split",
+  "definitions": {
+    "H_n": "10^n//2",
+    "L_n": "10^(n//2)",
+    "phi": "h*10^j*(10^r-1)",
+    "positive_frequencies": "1<=h<H_n",
+    "short_labels": "0<r<n, r<L_n, 0<=j<L_n-r, residual mask",
+    "zero_mode": "2*label_count/H_n"
+  },
+  "external_kernel_source_pins_not_vendored": {
+    "T56LagSectorAudit.lean": "41e8ec69c4a113592b8f1de1dc5e02e815726c5a7e541ac7fd57afc6b181f1cc",
+    "T58TriangularFejerAudit.lean": "04b3808f208db000284cf369467f4d2ffb907b1af44b30fcada8451b8503016d",
+    "T61VaalerAnalytic.lean": "61bf75193b6581ef626fc2b061ea6ba39e4fc164ac9e49b3a0820528dc839993"
+  },
+  "finite_L2_identity": "integral_0^1 S_n(x)^2 dx=2*sum_{ordered i,i':phi(i)=phi(i')} c_hi*c_hi'",
+  "label": "experiment",
+  "prose_global_bound_using_replayed_finite_inequalities": "integral S_n^2 <= (98/9)*n*(n-1)^2*(H_n-1)*L_n/H_n^2 <=(196/9)*n^3*10^(-ceil(n/2))",
+  "prose_measure_conclusion_not_a_finite_experiment": "The displayed summable bound and Tonelli imply S_n(x)->0 a.e.; 2*label_count/H_n->0, hence E_n(x)->0 a.e.",
+  "runtime_check_mode": "mandatory require checks remain active under python -O",
+  "schema_version": "t82-symbolic-replay-v1",
+  "scope": "Metric sibling only. No estimate for the prescribed seed pi and no conclusion for C7, C2, or C1."
+}

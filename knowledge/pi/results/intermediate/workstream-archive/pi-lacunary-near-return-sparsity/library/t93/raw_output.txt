@@ -1,0 +1,7 @@
+T93 replay passed
+canonical hash: verified
+primary PDF hashes: 2 verified; source text derivative: verified
+orders ord_(7^q)(10)=6*7^(q-1): exact finite audit q=1..8
+skeleton multiplicity seven: exact finite audit q=0..4
+symbolic endpoint minimum: 54/19 > 2
+universal status: proof sketch in REPORT.md; finite checks are not proof

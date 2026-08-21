@@ -1,0 +1,929 @@
+                                           DIOPHANTINE APPROXIMATION WITH SUMS OF TWO
+                                                            SQUARES
+
+                                                             STEPHAN BAIER AND HABIBUR RAHAMAN
+arXiv:2504.09650v2 [math.NT] 29 Apr 2025
+
+
+
+
+                                                   Abstract. For any given positive definite binary quadratic form Q
+                                                   with integer coefficients, we establish two results on Diophantine ap-
+                                                   proximation with integers represented by Q. Firstly, we show that for
+                                                   every irrational number α, there exist infinitely many positive integers
+                                                   n represented by Q and satisfying ||αn|| < n−(1/2−ε) for any fixed but
+                                                   arbitrarily small ε > 0. This is an easy consequence of a result by Cook
+                                                   on small fractional parts of diagonal quadratic forms. Secondly, we give
+                                                   a quantitative version with a lower bound of this result when the ex-
+                                                   ponent 1/2 − ε is replaced by any fixed γ < 3/7. To this end, we use
+                                                   the Voronoi summation formula and a bound for bilinear forms with
+                                                   Kloosterman sums to fixed moduli by Kerr, Shparlinski, Wu and Xi.
+
+
+                                                                                Contents
+                                             1. Introduction and main results                                                  1
+                                             2. Preliminaries                                                                  5
+                                             3. Proof of Corollary 1                                                           9
+                                             4. Reduction of Theorem 4                                                        11
+                                             5. Evaluation of the main term T1                                                12
+                                             6. Evaluation of T2                                                              14
+                                             7. Proof of Theorem 4                                                            16
+                                             Acknowledgments                                                                  16
+                                             References                                                                       17
+
+
+
+                                                               1. Introduction and main results
+                                              Throughout this article, we denote by ||z|| the distance of z ∈ R to the
+                                           nearest integer. As usual, ε stands for an arbitrarily small positive number.
+                                           Moreover, we write
+                                                                                   x
+                                                     e(x) = e2πix and ek (x) = e          for x ∈ R and k ∈ N.
+                                                                                    k
+                                              A basic theorem in Diophantine approximation is the Dirichlet approxi-
+                                           mation theorem, which implies that for every irrational number α there are
+                                           infinitely many positive integers n such that ||αn|| < n−1 , where ||x|| is the
+                                           distance of x from the nearest integer. Beyond this classical result, mathe-
+                                           maticians have explored obtaining good approximations when n is restricted
+                                             2020 Mathematics Subject Classification. 11J25,11J54,11J71,11L05,11E25.
+                                             Key words and phrases. Diophantine approximation, binary quadratic forms, Voronoi
+                                           summation formula, average Kloosterman sums, Gauss sums.
+                                                                                      1
+2                     STEPHAN BAIER AND HABIBUR RAHAMAN
+
+to sparse subsets of the set of positive integers. Numerous results exist in
+this direction. Here we mention only a few of them. For example, when
+n varies over the set of primes, the best known approximation result says
+that ||αn|| < n−1/3+ε holds for infinitely many primes n. This is due to
+Matomäki [12]. In the case when n varies over the set of square-free positive
+integers, it was established by Heath-Brown [8] that ||αn|| < n−2/3+ε holds
+for infinitely many squarefree n ∈ N. In this article, we consider the case
+where n varies over positive integers which are represented by any given
+positive definite binary quadratic form with integer coefficients.
+   Let Q(x, y) = a1 x2 + b1 xy + c1 y 2 be a positive definite integral binary
+quadratic form (PBQF). In particular, the discriminant b21 − 4a1 c1 of Q is
+negative. We set
+                        ∆ := |b21 − 4a1 c1 | = 4a1 c1 − b21 .
+Let
+               AQ := {n ∈ N : Q(x, y) = n for some x, y ∈ Z}.                           (1.1)
+Let α be any fixed irrational number. We establish the following result.
+Theorem 1. There are infinitely many integers n ∈ AQ such that
+                                  ||αn|| < n−1/2+ε ,                                    (1.2)
+for any fixed but arbitrarily small ε > 0.
+  Theorem 1 improves the following theorem of Danicic for the binary qua-
+dratic case.
+Theorem 2 (Main Theorem, [7]). Let
+                                    s X
+                                    X s
+         Q(x1 , x2 , . . . , xs ) =     αij xi xj ,          (αij = αji ),
+                                      i=1 j=1
+be a real quadratic form in s variables x1 , x2 , . . . , xs . If N > 1 and ε > 0,
+then there exist integers x1 , x2 , . . . , xs , not all zero, satisfying
+      max |xi | ≤ N      and     ||Q(x1 , x2 , . . . , xs )|| < C(ε, s)N −s/(s+1)+ε .
+      1≤i≤s
+
+   For the case s = 2, taking n = Q(x1 , x2 ), this gives the exponent 1/3
+in (1.2) instead of 1/2. Though 1/2 is a strong improvement over 1/3,
+Theorem 1 can be deduced easily from the following theorem of Cook. To
+our knowledge, this has not been observed in the literature so far.
+Theorem 3 (Theorem 1, [5]). Let k ≥ 2 and K = 2k−1 . Let f (⃗x) = θ1 xk1 +
+θ2 xk2 + · · · + θs xks be an additive form of degree k, in s variables with 1 ≤ s ≤
+K, where θi are any real numbers and ⃗x = (x1 , x2 , · · · , xs ). Then for every
+ϵ > 0, N > 1, there are integers x1 , x2 , . . . , xs , not all zero, such that
+               max |xi | ≤ N      and     ||f (⃗x)|| < C(ε, k)N −s/K+ε .
+              1≤i≤s
+
+Proof of Theorem 1. Let α be any given irrational number. We have
+               αQ(x, 2a1 y) = α(a1 x2 + 2a1 b1 xy + 4a21 c1 y 2 )
+                               = αa1 (x + b1 y)2 + (4a1 c1 − b21 )y 2
+                                                                         
+
+                               = f (x1 , y1 ), say,
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                            3
+
+where f (x1 , y1 ) = θ1 x21 + θ2 y12 , with θ1 := αa1 , θ2 := α(4a1 c1 − b21 ), x1 :=
+x + b1 y and y1 := y. Taking k = s = K = 2 in Theorem 3, for any N > 1
+and ε > 0, the inequality
+               ||αQ(x, 2a1 y)|| = ||f (x1 , y1 )|| < D1 (ε, Q)N −1+ε
+has a solution (x, y) ∈ Z2 , where x, y ≤ N and D1 (ε, Q) > 0 is a suitable
+constant depending only on ε and Q. Now taking n = Q(x, 2a1 y) gives
+                 ||αn|| < D1 (ε, Q)N −1+ε ≤ D2 (ε, Q)n−1/2+ε/2
+for another constant D2 (ε, Q) > 0 since Q is positive definite. Note that
+||αn|| < D1 (ε, Q)N −1+ε does not hold for arbitrarily large N because α is
+irrational. Hence, there is an infinite sequence of natural numbers n such
+that
+                        ||αn|| < D2 (ε, Q)n−1/2+ε/2 ,
+and the result of Theorem 1 follows.                                                  □
+   Danicic [7] used lattices to establish Theorem 2, and Cook [5] used bounds
+for quadratic Weyl sums to establish Theorem 3. Both methods give only
+the existence of infinitely many good approximations but no bounds on the
+number of them. The main part of this article consists of establishing a
+lower bound which holds for certain ranges of n depending on Diophantine
+approximations of α. This comes at the cost of a weaker exponent of 3/7
+in place of 1/2, which still beats the exponent 1/3 coming from Theorem 2.
+Our method uses the Voronoi summation formula and bounds for bilinear
+sums with Kloosterman sums to a fixed modulus due to Kerr, Shparlinski,
+Wu and Xi [11]. We will deduce our result from the following asymptotic
+formula for the number of representations by Q in unions of residue classes,
+which is of independent interest.
+Theorem 4. Let q ∈ N and a ∈ Z such that (2∆a, q) = 1. Let ε > 0 and
+L = q β , X = Lq = q 1+β with 2/5 + 3ε ≤ β < 1. Let w : R → R≥0 be a
+smooth function which is compactly supported in [X, 2X] with w(x) = 1 in
+[5X/4, 7X/4] such that for any integer j ≥ 1, the j th derivative satisfies
+                                  w(j) (x) ≪j X −j .                               (1.3)
+Define
+                                X        X
+                        S :=                        rQ (n)w(n),                    (1.4)
+                                |b|≤L      n
+                                       na≡b mod q
+                               (b,q)=1
+
+where rQ (n) is the number of integral representations of n by the PBQF
+Q(x, y). Then for sufficiently large X, we have
+                    Y                       Z∞                            
+     4πφ(q)L                   GQ (p, 1)                               XL −ε
+  S=                        1−                      w(x)dx + Oε           q    ,   (1.5)
+      ∆1/2 q 2                   p2                                     q
+                     p|q                      0
+                  p prime
+
+where                                    X
+                       GQ (q, h) :=               eq (hQ(x, y)).
+                                      x,y mod q
+4                  STEPHAN BAIER AND HABIBUR RAHAMAN
+
+Moreover, S satisfies the lower and upper bounds
+                              XL           XL
+                                 2 ≪S ≪ q .
+                            q log q
+   We will use Theorem 4 above to deduce the following lower bound for
+Diophantine approximations with integers represented by Q, which is close
+to the expected bound.
+Corollary 1. Suppose that q ∈ N and a ∈ Z satisfy (2∆a, q) = 1 and the
+inequality
+                               a    24∆2
+                           α−     <      .
+                               q     q2
+Fix ε, η > 0 and assume that 2/5 + 3ε ≤ β < 1. Set X := q 1+β and
+γ := (1 − β)/(1 + β). Then
+       ♯{n ∈ AQ : n ≤ 2X, ||nα|| < C1 n−γ } ≫ε,η X 1−γ−C2 /(log log X)
+for suitable constants C1 , C2 > 0. Moreover, there are infinitely many ratio-
+nal numbers a/q satisfying the conditions above.
+Remark 1. We note that (1 − 2/5)/(1 + 2/5) = 3/7, and thus Corollary 1
+recovers Theorem 1 with a weaker exponent of 3/7 in place of 1/2, but coming
+with a lower bound for the number of n’s satisfying ||nα|| < n−3/7+ε .
+   In an earlier version of this article, we referred to [1, Theorem 3] by Balog
+and Perelli who stated that the above Theorem 4 holds for the particular
+form Q(x, y) = x2 + y 2 . They did not provide a proof, merely noting that
+this result follows by using their method developed in [1] to investigate
+Diophantine approximation with squarefree integers. For this problem, they
+established an exponent of 1/2−ε indeed. However, analyzing their method,
+the authors of this article only obtained an exponent of 1/3 − ε in place of
+1/2 − ε, which resembles Danicic’s result for the particular form Q(x, y) =
+x2 +y 2 . We would like to thank Professor Glyn Harman for making us aware
+of the results of Cook and Danicic mentioned above. Below, we add some
+details on our analysis of the method used by Balog and Perelli.
+   They started in a similar way as we do here, converting the Diophantine
+condition ||nα|| < δ into a condition of n lying in a union of residue classes
+modulo q. Then they proceeded by P        detecting the squarefreeness of n us-
+ing the convolution identity µ2 (n) =        µ(t) and the congruence condition
+                                       t2 |n
+using the orthogonality relations for Dirichlet characters. After isolating
+a main term, they were left with character sums which were treated using
+Hölder’s inequality and moment bounds for character sums. This yielded an
+exponent of 1/2−ε for the relevant Diophantine approximation problem. To
+handle Diophantine approximation with denominators represented by sums
+of two squares
+           P following their approach, one may use the convolution identiy
+r2 (n) = 4 χ4 (d) with r2 (n) being the number of representations of n as a
+          d|n
+sum of two squares and χ4 the non-trivial character modulo 4 . However,
+here we have a divisor condition of d|n in place of t2 |n. As a consequence
+(even if one uses the hyperbola trick), one gets only an exponent of 1/3 − ε
+instead of 1/2 − ε in the Diophantine approximation problem for sums of
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                      5
+
+two squares. We also note that their method does not extend to general
+quadratic forms Q because of the lack of a simple formula for the number
+of representations of n in the form n = Q(x, y).
+
+                               2. Preliminaries
+  We may write the quadratic form Q(x, y) as
+                                    1
+                           Q(x, y) = (x, y)A(x, y)T ,
+                                    2
+where A is an integral symmetric 2 × 2 matrix with even diagonal elements,
+and (x, y)T is the column vector of the indeterminates. Then the adjoint
+matrix A† of A is defined by A† A = ∆I2 , where ∆ is the determinant of the
+matrix A and I2 is the 2 × 2 identity matrix. Clearly, A† has also integer
+entries.
+  Our main tools are the Voronoi summation formula for quadratic forms
+and bounds for bilinear sums with Kloosterman sums to a fixed modulus.
+To state the Voronoi summation formula, let us first set up some notations.
+Let P be the set of primes. For a prime p and integer n ̸= 0, let ordp (n) be
+the largest k ∈ N0 such that pk divides n. For given positive integer q, we
+define
+                                       Y
+                    δ0 = δ0 (q) :=             pordp (∆)                (2.1)
+                                              p∈P
+                                       ordp (∆)≤ordp (q)
+
+and
+                                             Y
+                      δ1 = δ1 (q) :=                       pordp (q) .      (2.2)
+                                              p∈P
+                                       ordp (∆)>ordp (q)
+
+Clearly, one can write δ := (∆, q) = δ0 δ1 . Here, as in the following, (∆, q)
+denotes the gcd of ∆ and q. Let ∆0 = ∆/δ0 , q1 = q/δ1 . We note that
+(δ1 , q1 ) = (∆0 , q) = (δ0 , δ1 ) = 1. Also, for given coprime integers q and h,
+we define the Gauss sum associated to the form Q as
+                                         X
+                         GQ (q, h) :=           eq (hQ(x, y)).               (2.3)
+                                       x,y mod q
+
+More generally, for any vectors ⃗x, ⃗a ∈ Z2 , we define
+                                      X
+                   GQ (q, h, ⃗a) :=       eq (hQ(⃗x + ⃗a · ⃗x),             (2.4)
+                                       ⃗
+                                       x mod q
+
+where ⃗a · ⃗x denotes the standard inner product of vectors. The following
+lemma gives an evaluation of GQ (q, h, ⃗a).
+                                                                    ¯ 0 be the
+Lemma 1. Let ∆, q, h, δ0 , δ1 , ∆0 , q1 be defined as above and let ∆
+                                                      ¯
+multiplicative inverse of ∆ modulo q1 such that δ1 |∆0 . Let g be an integer
+such that
+                                gq1 ≡ 1(modδ1 ).                            (2.5)
+6                             STEPHAN BAIER AND HABIBUR RAHAMAN
+
+(i) Then for any vector ⃗a ∈ Z2 , we have
+                                                                   X
+                                      ¯ 0 δ −1 Q† (⃗a))
+    GQ (q, h, ⃗a) = Eδ0 (A†⃗a)eq1 (−h̄∆                                      eq (hQ(⃗x))eδ1 (⃗x · g⃗a),
+                                                                 ⃗
+                                                                 x( mod q)
+                                                                                                   (2.6)
+
+where Q† is the quadratic form associated to the adjoint matrix A† and
+                              (
+                               1 if ⃗x ≡ ⃗0(modm),
+                    Em (⃗x) =                                        (2.7)
+                               0 otherwise.
+
+(ii) For q odd, we have
+                                                            
+                                                     h
+                                GQ (q, h) =                      GQ (q, 1),                        (2.8)
+                                                  N (q, Q)
+                      
+                h
+where        N (q,Q)       is the Kronecker symbol with
+
+                           N (q, Q) := ♯{⃗x(modq) : A⃗x ≡ ⃗0(modq)}.                               (2.9)
+
+Proof. See [3, Theorem 1] or, [10, Theorem 1].                                                            □
+
+  We also note the following bound for the Gauss sum GQ (q, h) as it will
+be required later.
+Lemma 2. For given positive integer q and any integer h with (q, h) = 1,
+let GQ (q, h) be defined by (2.3). Then, we have
+
+                                     |GQ (q, h)| ≤ (N (q, Q))2 q,
+where N (q, Q) is given by (2.9).
+Proof. This bound follows by diagonalizing the quadratic form, writing the
+resulting sum as a product of two one variable Gauss sums and then using
+the standard bound for them (see [3, Lemma 2], or, [13, Lemma 1]).      □
+
+   Let A1 = (si δij ) be the Smith Normal form of A† , i.e., A1 is an integral
+diagonal matrix of the form
+                                            A1 = U A† V,                                         (2.10)
+where U, V ∈ SL2 (Z). Define further,
+                                δ0
+                       bi =              , B = (bi δij ), A∗ = δ0−1 BV T A† V B.                 (2.11)
+                              (δ0 , si )
+Let Q∗ be the quadratic form associated to the matrix A∗ and define
+                            X    X
+     r̃Q∗ (n, q, h) := q −1            eq (hQ(⃗y ))eδ1 (⃗y · gV B⃗x), (2.12)
+                                   Q∗ (⃗
+                                       x)=n ⃗
+                                            y ( mod q)
+
+where δ0 = δ0 (q), δ1 = δ1 (q), g be given in (2.1), (2.2), (2.5), respectively.
+Now we are ready to state the Voronoi summation formula for the quadratic
+form Q.
+        DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                                  7
+
+Lemma 3 (Voronoi summation formula). Let f (n) be a continuously dif-
+ferentiable function on R with compact support in R≥0 . Then for (h, q) = 1
+with q ≥ 1, we have
+ X                                           Z∞
+                              −1/2 −2
+     rQ (n)eq (nh)f (n) = 2π∆     q GQ (q, h) f (x)dx                (2.13)
+  n                                                           0
+
+        √                                                     Z∞           p      !
+               X                                                            nx/∆0
+ + 2π(q ∆)−1           r̃Q∗ (n, q, h)eq1 (−h̄∆¯0 δ −1 n)           J0   4π          f (x)dx,
+                   n
+                                                                             q
+                                                              0
+                                                                                       (2.14)
+                                         ¯ 0 is a multiplicative inverse of ∆0
+where r̃Q∗ (n, q, h) is given in (2.12), ∆
+modulo q1 and J0 (x) is the standard Bessel function.
+Proof. See the proof of [10, Equation (28)].                                               □
+   Our second main tool is the following theorem due Kerr et al. which
+estimates special bilinear forms with Kloosterman sums to a fixed modulus.
+Lemma 4. Let q be any positive integer and a be any integer with d =
+gcd(a, q). Suppose I, J be some finite intervals of natural numbers with
+|I| = M, |J| = N and let α = {αm } be a sequence of complex numbers
+supported in I. Define
+                                 XX
+                     Sq,a (α) :=      αm S(m, an; q),             (2.15)
+                                            m∈I n∈J
+where S(m, n; q) denotes the Kloosterman sum
+                                                   
+                                  X        mx + nx̄
+                   S(m, n; q) :=       e              .
+                                              q
+                                                1≤x≤q−1
+                                                 (x,q)=1
+
+Then we have
+                                         !1/2
+                       X
+                                     2
+      Sq,a (α) ≪             |αm |              M 1/2 N q 1/2+o(1) S1 (M, N, q, d),    (2.16)
+                       m∈I
+where one can take S1 (M, N, q, d) freely among
+              M −1/4 N −1 q 1/2 d−1/4 + M −1/2 N −1 q 1/2 + N −1/2 ,                   (2.17)
+                                 M −1/2 (N −3/4 q 1/2 + d1/2 ) + N −1/2 ,              (2.18)
+                               M −1/2 (N −1 q 1/2 + (qd)1/4 ) + N −1/2 .               (2.19)
+Proof. See the proof of [11, Theorem 2.1].                                                 □
+  The following Dirichlet approximation type lemma will allow us to choose
+the modulus q coprime to 2∆ (in fact coprime to any given non-zero integer).
+This will simplify our calculations when using Lemma 3.
+Lemma 5. Let d ∈ N and α ∈ R \ Q. Then there exist infinitely many pairs
+(b, r) ∈ Z × N such that
+                                                             b  6d2
+                         (r, bd) = 1            and     α−     ≤ 2 .
+                                                             r   r
+8                 STEPHAN BAIER AND HABIBUR RAHAMAN
+
+Proof. Fix d ∈ N and α ∈ R \ Q. We aim to find good approximations of α
+by fractions b/r with q odd and (r, bd) = 1. Take one of the infinitely many
+approximations of α by a/q with (a, q) = 1 and
+                                     a     1
+                                 α−     ≤ 2.                         (2.20)
+                                     q     q
+Now we aim to find integers b and r in such a way that r lies approximately
+in the range of q,
+                                a b        f
+                                  − =                                (2.21)
+                                q     r   qr
+with f ≥ 0 small and (r, bd) = 1. To ensure the coprimality, we simply
+demand that
+                               r ≡ 1 mod bd.                         (2.22)
+Let
+                                 (d, q) = e.
+For our method to work out, we take f ≥ 0 as small as possible so that
+                                 f ≡ a mod e.                         (2.23)
+We note that
+                                0 ≤ f ≤ e ≤ d.                        (2.24)
+The equation (2.21) holds if
+                                 ar ≡ f mod q                         (2.25)
+and
+                                   ar − f
+                                  b=      .
+                                      q
+The congruence (2.22) can be written in the form
+                                  r = 1 + kbd,                        (2.26)
+where k ∈ Z. Plugging this into (2.25) gives
+                          a(1 + kbd) ≡ f mod q,
+which is equivalent to
+                             kbd ≡ a(f − a) mod q,
+where a is a multiplicative inverse of a modulo q. Since we assumed (2.23),
+this congruence is equivalent to
+                               d       f −a      q
+                           kb · ≡ a ·         mod .                  (2.27)
+                               e         e       e
+Write
+                            d             f −a         q
+                      d1 := , f1 := a ·        , q1 := .
+                            e               e          e
+Then (d1 , q1 ) = 1, and (2.27) turns into
+                               kbd1 ≡ f1 mod q1 .
+This can be solved for 2kb, getting
+                               kb ≡ f1 d1 mod q1 ,
+where d1 is a multiplicative inverse of d1 modulo q1 . This may be written
+in the form
+                                kb = c + q1 l,
+        DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                 9
+
+where l ∈ Z and
+               q1        q1
+                − <c≤          such that       c ≡ f1 d1 mod q1 .
+                2        2
+Combining this with (2.26), we obtain
+                            r = 1 + d (c + q1 l) .
+To ensure that r is of a comparable size as q, we choose l = 1 and hence
+                            r = 1 + d (c + q1 ) .
+In this case,
+                 q   dq1            3dq1        3dq
+                   ≤     ≤r ≤1+            ≤1+       ≤ 2dq
+                 2    2               2          2
+if q ≥ 2. From the upper bound above, we have
+                                       r
+                                  q≥     .                            (2.28)
+                                      2d
+Combining (2.20), (2.21), (2.24) and (2.28), we obtain
+      b      a   a b     1  f        1          d         6d2
+ α−     ≤ α−   +   −   ≤ 2+    ≤          +             =     .
+      r      q   q   r  q   qr   (r/(2d))2 (r/(2d)) · r    r2
+                                                              □
+
+                       3. Proof of Corollary 1
+  We start the proof by the following lemma providing a bound for rQ (n).
+Lemma 6. For any given positive integer n, let rQ (n) be the number of
+integral representations of n by the PBQF Q(x, y). Then we have
+                           rQ (n) ≪Q nc/ log log n ,
+for some c > 0.
+                    √
+Proof. Let K := Q( −∆) and OK be the ring of algebraic integers in K.
+Then 4a1 Q(x, y) factors over OK in the form
+         4a1 Q(x, y) =4a1 (a1 x2 + b1 xy + c1 y 2 )
+                                       √                 √
+                     =(2a1 x + b1 y − −∆y)(2a1 x + b1 y + −∆y).
+Hence if n = Q(x, y) with x, y ∈ Z, then
+                               4a1 n = N (a) ,
+where N (a) is the norm of the principal ideal a ⊆ OK given by
+                                           √
+                       a = (2a1 x + b1 y + −∆y).
+If n = Q(x, y) is a representation of n by Q, then we say that a given above
+is the principal ideal belonging to this representation. We note that every
+principal ideal a ⊆ OK belongs to at most ω ≤ 6 representations of n by
+Q, where ω is the number of units in OK . Now for m ∈ N let f (m) be the
+number of integral ideals a ⊆ OK of norm m in OK , that is,
+                     f (m) := ♯{a ⊆ OK : N (a) = m}.
+Then we know that
+                              f (m) ≤ d(m)2 ,
+10                 STEPHAN BAIER AND HABIBUR RAHAMAN
+
+where d(m) is the number of divisors of m ∈ N (for a proof, see [4, Equa-
+tion (68)]). Moreover, it is well-known that
+                                d(m) ≪ mδ/ log log m ,
+for some constant δ > 0 (see [9, Theorem 317]). It follows that
+               rQ (n) ≤ 6f (4a1 n) ≤ 6d(4a1 n)2 ≪Q nc/ log log n ,
+where c = 2δ > 0. This completes the proof.                                    □
+   We are now ready to prove Corollary 1. Let an irrational number α be
+given. Then by Lemma 5, there are infinitely many pairs (a, q) ∈ N × Z such
+that
+                         a     24∆2
+                     α−     ≤        , (2a∆, q) = 1.                   (3.1)
+                          q     q2
+This proves the last part of Corollary 1. Now, fix such a pair (a, q) and
+suppose L, X to be parameters satisfying
+                              L = q β , X = Lq = q 1+β ,                  (3.2)
+with 2/5 + 3ε ≤ β < 1. Recall the definition of AQ from (1.1). If n ∈ AQ
+with n ≤ 2X satisfies one of the following congruences
+                               an ≡ b mod q, |b| ≤ L,                     (3.3)
+then writing an = b + n1 q for some integer n1 , it follows from (3.1) that
+                                        b θn
+                             αn = n1 + + 2 ,                             (3.4)
+                                        q   q
+where |θ| ≤ 24∆2 . In other words,
+                      L X            − 1−β
+          ||αn|| ≪Q + 2 = 2q β−1 = 2X 1+β = 2X −γ ≪ n−γ .                 (3.5)
+                      q    q
+Hence, such n lies in the set
+           {n ∈ AQ : n ≤ 2X, ||nα|| < C1 n−γ } =: AQ (α, X), say,
+where C1 > 0 is a suitable constant depending on Q. Thus, recalling
+               rQ (n) ≪ nc/(log log n)     for some constant c > 0
+from Lemma 6, and noting that
+                     b1 ̸≡ b2 (modq) =⇒ n1 ̸≡ n2 (modq)
+if q is large enough, we deduce from Theorem 4 that
+      XL              X     X
+          2  ≪  S =                rQ (n)w(n) ≪ X c/(log log X) |AQ (α, X)|,
+    q log q          |b|≤L   n
+                              na≡b mod q
+                    (b,q)=1
+
+that is,
+                                           X 1−γ−c/(log log X)
+                       |AQ (α, X)| ≫                           .
+                                                log2 q
+Since q = X 1/(1+β) , it follows that
+                       |AQ (α, X)| ≫ X 1−γ−C2 /(log log X)
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                               11
+
+if C2 > c. This completes the proof of Corollary 1.
+
+
+                           4. Reduction of Theorem 4
+  We detect the congruence condition on the right-hand side of (1.4) using
+the orthogonal property of additive characters, thus obtaining
+                   1 X X            X
+             S=          rQ (n)w(n)   eq (n − āb)g)                                   (4.1)
+                   q   n|b|≤L                       g mod q
+                       (b,q)=1
+                   1 X X            X X∗
+               =         rQ (n)w(n)      ek (n − āb)h) ,                              (4.2)
+                   q   n|b|≤L                       k|q h mod k
+                       (b,q)=1
+
+where aā ≡ 1 mod q and the asterisk above indicates that (h, k) = 1. As the
+weight function w(n) is compactly supported, all the summations in S run
+over finite ranges and so we can interchange the order of the summations.
+Hence,
+                 1 X X X∗            X
+            S=            ek (−ābh)   rQ (n)w(n)ek (nh).                              (4.3)
+                 q                   n
+                    |b|≤L k|q h mod k
+                   (b,q)=1
+
+Now applying Lemma 3 to the inner-most sum, we have
+            ∞         
+              Z
+        2π               X X 1 X∗
+  S=            w(x)dx                   GQ (k, h)ek (−ābh)
+      q∆1/2                        k2
+                   0                  |b|≤L k|q       h mod k
+                                     (b,q)=1
+          2π X X X∗              X
+                                                         ¯ 0 δ −1 n)w̃k (n)
+     +               e k (−ābh)   r̃Q∗ (n, k, h)ek1 (−h̄∆    1
+         q∆1/2                   n
+               |b|≤L k|q
+                h mod k
+              (b,q)=1
+     =: T1 + T2 (say),                                                                 (4.4)
+
+where
+                                     Z∞             p           !
+                              1                         nx/∆0
+                   w̃k (n) :=             J0   4π                   w(x)dx.            (4.5)
+                              k                          k
+                                     0
+
+  Recall (2.12), which says that
+                           X                   X
+     r̃Q∗ (n, k, h) = k −1                            ek (hQ(⃗y ))eδ1 (⃗y · gV B⃗x),   (4.6)
+                                 Q∗ (⃗
+                                     x)=n   ⃗
+                                            y mod k
+
+where δ0 = δ0 (k), δ1 = δ1 (k), g are given in (2.1), (2.2), (2.5), respectively
+and Q∗ is the quadratic form associated to the matrix (2.11). Recall also
+our assumption (2∆, q) = 1. As k|q, it follows that δ = δ0 δ1 = (∆, k) = 1,
+i.e., δ0 = δ1 = 1. Thus, the matrices B, V have integer entries. Since, ⃗x, ⃗y
+are integer vectors, we notice that eδ1 (⃗y · gV B⃗x) = 1. Therefore, by (4.6),
+12                   STEPHAN BAIER AND HABIBUR RAHAMAN
+
+(2.3) and (2.8), we have
+                                         X            X
+               r̃Q∗ (n, k, h) = k −1                        ek (hQ(⃗y ))
+                                       Q∗ (⃗
+                                           x)=n   ⃗
+                                                  y mod k
+                                         X
+                                 −1
+                            =k                    GQ (k, h)
+                                       Q∗ (⃗
+                                           x)=n
+                                                   
+                                 −1
+                                         X    h
+                            =k                        GQ (k, 1)
+                                           N (k, Q)
+                                  Q∗ (⃗
+                                      x)=n
+                                                           
+                               −1                     h
+                            = k GQ (k, 1)rQ∗ (n)              .             (4.7)
+                                                   N (k, Q)
+
+Lemma 7. Let q be given as in (3.1) and N (q, Q) be as in (2.9). Assume
+that (2∆, q) = 1. Then for k|q, we have
+
+                                  N (k, Q) = 1.                             (4.8)
+
+Proof. Recall that
+
+                   N (k, Q) = ♯{⃗x mod k : A⃗x ≡ 0 mod k},
+
+where Q = 21 (x, y)A(x, y)T . Now as Q(x, y) = a1 x2 + b1 xy + c1 y 2 , we have
+                                (
+                                 2a1 x + b1 y ≡ 0 mod k
+               A⃗x ≡ 0 mod k ⇐⇒                                             (4.9)
+                                 b1 x + 2c1 y ≡ 0 mod k,
+
+where ⃗x = (x, y). Observe that the determinant of the coefficient matrix
+                                                     
+                                       2a1 b1
+                                        b1 2c1
+
+equals ∆. Since (∆, k) = 1, it follows that the above system of congruences
+has only the trivial solution x = y = 0 and hence N (k, Q) = 1.          □
+
+     By the above Lemma 7, we have
+
+                       r̃Q∗ (n, k, h) = k −1 GQ (k, 1)rQ∗ (n)              (4.10)
+
+from (4.7).
+
+
+
+                  5. Evaluation of the main term T1
+  Observe that q is odd since we assumed that (2∆, q) = 1. Since k|q, by
+Lemma 1(i) and Lemma 7, we have
+
+                              GQ (k, h) = GQ (k, 1).                        (5.1)
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                                   13
+
+Therefore, the main term T1 in (4.4) turns into
+             ∞         
+               Z
+        2π                 X X 1                   X∗
+ T1 =            w(x)dx                 G Q (k, 1)    ek (−ābh)
+      q∆1/2                           k2
+                   0                      |b|≤L k|q                 h mod k
+                                         (b,q)=1
+             ∞        
+              Z
+        2π              X X µ(k)
+     =          w(x)dx           GQ (k, 1)
+       q∆1/2                  k2
+                   0                      |b|≤L k|q
+                                         (b,q)=1
+              ∞       
+               Z                             X
+        2π                φ(q)                  µ(k)
+     =           w(x)dx        · 2L + O(d(q))        GQ (k, 1), (5.2)
+       q∆ 1/2               q                     k2
+                   0                                                    k|q
+
+where d(q) denotes the number of divisors of q. From the first line to the
+second line, we used the fact that the Ramanujan sum
+                                     X∗
+                          ck (āb) =     ek (−ābh)                  (5.3)
+                                                 h mod k
+satisfies ck (āb) = µ(k) if (āb, k) = 1.
+Lemma 8. The function GQ (k, 1) is multiplicative on the set of odd positive
+integers, that is, for odd k = k1 k2 with (k1 , k2 ) = 1, we have
+                             GQ (k, 1) = GQ (k1 , 1)GQ (k2 , 1).
+Proof. We have
+                       X
+   GQ (k, 1) =                 ek (a1 x2 + b1 xy + c1 y 2 )
+                  x,y mod k
+                   X                 X               
+           =                                      ek a1 (x1 k2 + x2 k1 )2 +
+               x1 ,y1 mod k1 x2 ,y2 mod k2
+                                                                                          
+                                                                                      2
+                          b1 (x1 k2 + x2 k1 )(y1 k2 + y2 k1 ) + c1 (y1 k2 + y2 k1 )
+
+                                            a1 k2 x21 a1 k1 x22 b1 k2 x1 y1
+                  X             X         
+           =                             e           +           +             +
+                                               k1         k2            k1
+             x1 ,y1 mod k1 x2 ,y2 mod k2
+
+                          b1 k1 x2 y2 c1 k2 y12 c1 k1 y22
+                                                             
+                                      +           +
+                               k2          k1         k2
+                  X                                          
+                                        2                  2
+           =              ek1 k2 (a1 x1 + b1 x1 y1 + c1 y1 ) ×
+               x1 ,y1 mod k1
+                   X                                                   
+                               ek2       k1 (a1 x22 + b1 x2 y2 + c1 y22 )
+               x2 ,y2 mod k2
+           = GQ (k1 , k2 )GQ (k2 , k1 ) = GQ (k1 , 1)GQ (k2 , 1),
+where the last line is due to (5.1).                                                          □
+  Now, by Lemma 8,
+              X µ(k)              Y   GQ (p, 1)
+                                                 
+                      GQ (k, 1) =   1−             ,                                      (5.4)
+                   k2                    p2
+                       k|q                            p|q
+14                        STEPHAN BAIER AND HABIBUR RAHAMAN
+
+and by Lemma 2,
+
+              Y   1
+                        Y    GQ (p, 1)
+                                            Y   1
+                                                    
+                1−     ≤    1−             ≤   1+     ,                 (5.5)
+                   p             p2               p
+              p|q                      p|q                    p|q
+
+where the products are restricted to prime divisors p of q. This, together
+with (5.2) gives
+
+                            Y               Z∞              ε
+           4πφ(q)L                GQ (p, 1)                   Xq
+      T1 =                     1−     2
+                                                 w(x)dx + Oε      .     (5.6)
+            ∆1/2 q 2                p                          q
+                             p|q                        0
+                          p prime
+
+Therefore, using Mertens formula, from (5.5), (5.6) and
+                                            
+                           φ(q) Y          1
+                               =       1−      ,
+                            q              p
+                                              p|q
+
+we deduce the following lemma.
+
+Lemma 9. We have
+                                         XL            XL
+                                              2
+                                                ≪ T1 ≪    .
+                                      q(log q)          q
+
+
+                                     6. Evaluation of T2
+     Inserting the formula (4.7) of r̃Q∗ (n, k, h) in (4.4), we have
+             2π X X −1         X                X∗
+     T2 =     1/2
+                   k GQ (k, 1)   rQ∗ (n)w̃k (n)       ek (−ābh − h̄n)
+            q∆ b≤L             n              h mod k
+                           k|q
+           2π X GQ (k, 1) X X
+        =                       rQ∗ (n)w̃k (n)S(n, āb; k).             (6.1)
+          q∆1/2    k      n b≤L
+                    k|q
+
+  In order to bound w̃k (n), we use the following facts about the Bessel
+functions, which are available in many places (see [2, equations (9) and
+(10)]). For any β > 0 and positive integer j, by repeated integrations by
+parts, we have
+             Z∞                     j Z∞
+                                 √  2                        √
+                  w(x)J0 (β x)dx =         w(j) (x)xj/2 Jj (β x)dx.     (6.2)
+                                    β
+              0                                     0
+
+Also, for any non negative integer j, we have
+                                                 1     1
+                                     Jj (x) ≪ε √    + j−ε               (6.3)
+                                                1+x  x
+for arbitrarily small ε > 0. Using the trivial bound Jj (x) ≪ε xε together
+with the fact that wj (x) ≪ x−j , and recalling that w(x) has compact support
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                               15
+
+in [X, 2X], we infer from (4.5) and (6.2) that
+                                                   j Z2X
+                                    1          k
+                       w̃k (n) ≪j,ε           √              x−j xj/2 xε dx
+                                    k           n
+                                                         X
+                                                   j
+                                      1 k
+                               ≪j,ε    √     X −j/2+1+ε
+                                      k  n
+                                              j
+                                 X 1+ε
+                                       
+                                           k
+                               =         √                                             (6.4)
+                                   k       Xn
+for any j ≥ 1. Thus, taking j sufficiently large, we see that w̃k (n) is negligible
+(that is, say w̃k (n) ≪ X −20250 ) unless
+                            k                          k2
+                        √      ≥ X −ε/2 , that is, n ≤ 1−ε .                           (6.5)
+                            Xn                        X
+Using this, it follows from (6.1) that
+        2π X GQ (k, 1)            X           X
+T2 =                                                rQ∗ (n)w̃k (n)S(n, āb; k) + O(X −2025 ).
+       q∆1/2    k
+             k|q              n≤k2 /X 1−ε b≤L
+                                                                                       (6.6)
+
+Lemma 10. Set γ(n) := rQ∗ (n)w̃k (n) if 1 ≤ n ≤ k 2 /X 1−ε and γ(n) := 0
+otherwise, where rQ∗ (n), w̃k (n) are given as in (6.6). Then we have
+                                         !1/2
+                            X
+                                       2
+                 ||γ|| :=       |γ(n)|        ≪ε (kX)2ε X 1/2 .       (6.7)
+                                 n
+
+Proof. Taking j = 0 in (6.4), we have
+                                                     X 1+ε
+                                     |w̃k (n)| ≤           .                           (6.8)
+                                                       k
+Since |rQ∗ (n)| ≪ε nε for any ε > 0, it follows that
+
+                                 ||γ|| ≪ (kX)2ε X 1/2 .                                (6.9)
+                                                                                          □
+
+  Now we are ready to bound the term T2 in the following lemma.
+
+Lemma 11. Let T2 be given in (6.1). Then we have
+
+                   T2 ≪ε q ε (X 1/2 L1/4 + X 1/2 q −1/2 L + q 1/2 L1/2 )              (6.10)
+for any ε > 0.
+
+Proof. Applying the second bound of Lemma 4 with γ(n) = rQ∗ (n)w̃k (n) to
+                      X     X
+                               rQ∗ (n)w̃k (n)S(n, āb; k),
+                       n≤k2 /X 1−ε b≤L
+16                   STEPHAN BAIER AND HABIBUR RAHAMAN
+
+we obtain
+        X         X
+                         rQ∗ (n)w̃k (n)S(n, āb; k)
+       n≤k2 /X 1−ε b≤L
+                                      n                                   o
+     ≪X ε ||γ||(k 2 /X)1/2 Lk 1/2+o(1) (k 2 /X)−1/2 L−3/4 k 1/2 + 1 + L−1/2
+                    n                                 o
+     ≪(kX)ε ||γ|| kL1/4 + k 1/2 L + k 3/2 L1/2 X −1/2
+                n                                     o
+     ≪(kX)3ε X 1/2 kL1/4 + X 1/2 k 1/2 L + k 3/2 L1/2 ,
+
+where the last line is due to the bound of ||γ|| from Lemma 10. Combining
+this with (6.6) and using the bound |GQ (k, 1)| ≤ k from Lemma 2, we obtain
+
+               T2 ≪ (Xq)4ε (X 1/2 L1/4 + X 1/2 q −1/2 L + q 1/2 L1/2 ).
+As X is a power of q, changing ε in a suitable way, the bound in Lemma 11
+follows.                                                               □
+
+
+                              7. Proof of Theorem 4
+     From (4.4), we have
+                                      S = T1 + T2 ,                        (7.1)
+where T1 is the main term and T2 the error term. The main term satisfies
+the asymptotic formula (5.6) and the bounds
+                                    XL            XL
+                                         2
+                                           ≪ T1 ≪
+                                 q(log q)          q
+from Lemma 9. An upper bound for the error term comes from Lemma 11
+as
+                 T2 ≪ q ε (X 1/2 L1/4 + X 1/2 q −1/2 L + q 1/2 L1/2 ).
+
+Recall the choices L = q β , X = qL = q 1+β with 0 < β < 1. We calculate
+that
+                                             
+                                        XL
+                              T2 = Oε                              (7.2)
+                                        q 1+ε
+if β ≥ 2/5 + 3ε. This completes the proof of Theorem 4.
+
+
+                                 Acknowledgments
+   We thank Prof. Harman for bringing Cook’s and Danicic’s results in [5]
+and [7] to our attention, which we had overlooked in an earlier version of
+this paper. The first-named author would like to thank the Ramakrishna
+Mission Vivekananda Educational and Research Insititute for an excellent
+work environment. The research of the second-named author was supported
+by a Prime Minister Research Fellowship (PMRF ID- 0501972), funded by
+the Ministry of Education, Govt. of India.
+         DIOPHANTINE APPROXIMATION WITH SUMS OF TWO SQUARES                           17
+
+                                    References
+ [1] A. Balog, A. Perelli, Diophantine approximation by square-free numbers, Ann. Scuola
+     Norm. Sup. Pisa Cl. Sci. (4) 11 (1984), no.3, 353–359.
+ [2] V. Blomer, The average value of divisor sums in arithmetic progressions, Quart. J.
+     Math. 59 (2008), 275-286.
+ [3] T. Callahan, R.A. Smith, L-functions of a quadratic form, Trans. Amer. Math. Soc.
+     217 (1976), 297-309.
+ [4] K. Chandrasekharan, R. Narasimhan, The approximate functional equation for a class
+     of zeta-functions, Mathematische Annalen. 152 (1963), no.1, 30-64.
+ [5] R. J. Cook, The fractional parts of an additive form, Math. Proc. Camb. phil. Soc.
+     72 (1972) 209-212.
+ [6] D. A. Cox, Primes of the form x2 + ny 2 —Fermat, class field theory, and complex
+     multiplication, 3rd ed. AMS Chelsea Publishing, Providence, RI, [2022] ©2022, with
+     contributions by Roger Lipsett.
+ [7] I. Danicic, An extension of a theorem of Heilbronn, Mathematika. 5 (1958), 30-37.
+ [8] D.R. Heath-Brown, Diophantine approximation with square-free numbers, Math. Z.
+     187 (1984), no. 3, 335–344.
+ [9] G.H. Hardy, E.M. Wright, An introduction to the theory of numbers. Edited and
+     revised by D.R. Heath-Brown and J.H. Silverman. With a foreword by Andrew Wiles,
+     6th ed., Oxford: Oxford University Press. xxi, 621 p. (2008).
+[10] M. Jutila, Exponential sums connected with quadratic forms, Number theory (ed.
+     Richard A. Mollin, Walter de Gruyter & Co, Berlin/New York, 1990), 271–286.
+[11] B. Kerr, I. E. Shparlinski, X Wu, P. Xi Bounds on bilinear forms with Kloosterman
+     sums, J. Lond. Math. Soc. 108 (2023), 578-621.
+[12] K. Matomäki, The distribution of αp modulo one, Math. Proc. Cambridge Philos.
+     Soc. 147 (2009), no. 2, 267–283.
+[13] R. A. Smith, The average order of a class of arithmetic functions over arithmetic
+     progressions with applications to quadratic forms, J. Reine Angew. Math. 317 (1980),
+     74–87.
+
+   Stephan Baier, Ramakrishna Mission Vivekananda Educational and Research
+Institute, Department of Mathematics, G. T. Road, PO Belur Math, Howrah,
+West Bengal 711202, India
+   Email address: stephanbaier2017@gmail.com
+
+   Habibur Rahaman, Indian Institute of Science Education & Research Kolkata,
+Department of Mathematics and Statistics, Mohanpur, West Bengal 741246,
+India
+   Email address: hr21rs044@iiserkol.ac.in
+

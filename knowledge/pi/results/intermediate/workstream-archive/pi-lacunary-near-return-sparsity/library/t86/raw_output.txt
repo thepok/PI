@@ -1,0 +1,8 @@
+hashes: PASS (11 pinned inputs)
+canonical quantifiers: PASS
+primary-source text anchors: PASS
+accepted-frontier anchors: PASS
+transfer constants: PASS (Hata exponent ratio 0.875250201)
+Wallis exact arithmetic: PASS (s=1..30; experiment)
+caps, fingerprints, labels, and unique terminal endpoint: PASS
+ALL T86 REPLAY CHECKS PASSED

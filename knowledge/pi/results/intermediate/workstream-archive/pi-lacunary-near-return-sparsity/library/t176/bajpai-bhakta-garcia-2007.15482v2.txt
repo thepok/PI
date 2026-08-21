@@ -1,0 +1,1813 @@
+                                             EXPONENTIAL SUMS IN PRIME FIELDS FOR MODULAR FORMS
+
+                                                          JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+
+                                                   Abstract. The main objective of this article is to study the exponential sums associated
+arXiv:2007.15482v2 [math.NT] 23 Nov 2020
+
+
+
+
+                                                   to Fourier coefficients of modular forms supported at numbers having a fixed set of prime
+                                                   factors. This is achieved by establishing an improvement on Shparlinski’s bound for
+                                                   exponential sums attached to certain linear recurrence sequences over finite fields.
+
+
+
+
+                                                                                        Contents
+                                             1. Introduction                                                                                    1
+                                             2. Exponential sums with linear recurrence sequences                                               7
+                                             3. Exponential sums for modular forms                                                             13
+                                             4. Exponential sums for modular forms : beyond eigenforms                                         19
+                                             5. Exponential sums for modular forms : the inverse case                                          23
+                                             6. Impact on Waring-type problems                                                                 26
+                                             Acknowledgements                                                                                  30
+                                             References                                                                                        30
+
+
+
+                                                                                    1. Introduction
+                                             Let f be a modular form of weight k ∈ 2Z and level N such that it has a Fourier
+                                           expansion
+                                                                           ∞
+                                                                           X
+                                                                   f (z) =    a(n)e2πinz , ℑ(z) ≥ 0,
+                                                                            n=1
+                                                             th
+                                           with a(n) be the n Fourier coefficient.      In this article, we shall restrict to the family of
+                                           modular forms with rational coefficients, that is, f (z) with a(n) ∈ Q for every n. We first
+                                           consider Hecke eigenforms or simply eigenforms in the space of cusp forms of weight k for
+                                           the congruence subgroup Γ1 (N ) with trivial nebentypus. When f is an eigenform with
+                                           integer Fourier coefficients, it follows from Deligne-Serre that for any prime ℓ, there exist
+                                           a corresponding Galois representation
+                                                                             (ℓ)           
+                                                                            ρf : Gal Q/Q −→ GL2 (Zℓ )
+                                                          (ℓ)
+                                           such that tr(ρf (Frobp )) = a(p), for any prime p ∤ N ℓ. For quick reference on the Deligne-
+                                           Serre correspondence, we refer the interested reader to [7, Chapter 3]. In particular, a(p)
+
+                                             Date: November 24, 2020.
+                                             2010 Mathematics Subject Classification. Primary 11F30, 11L07; Secondary 11P05, 11B37, 11F80.
+                                             Key words and phrases. Exponential Sums, Korobov’s Bound, Modular Forms.
+                                                                                              1
+2               JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+(mod ℓ) is determined by the trace of the corresponding Frobenius element in
+                                 GL2 (Zℓ /ℓZℓ ) = GL2 (Z/ℓZ).
+In certain cases, Chebotarev’s density theorem implies that given any λ ∈ Fℓ , there exists
+a prime p such that a(p) ≡ λ (mod ℓ). However, the set of such primes comes with density
+strictly less than 1. Now one may naturally ask, whether there is an absolute constant s
+such that for any given primes p and ℓ, and any element λ ∈ Fℓ , the equation
+                                  s
+                                  X
+                                           a (pn(i,p) ) ≡ λ (mod ℓ)
+                                     i=1
+                                 
+is solvable for some tuple n(i,p) 1≤i≤s of positive integers? In other words, does there exist
+an absolute constant s such that, given primes p and ℓ, any element of Fℓ can be written
+as sum of at most s elements of the set {a(pn )}n≥0 ?
+   Let τ (n) be the Ramanujan function, which is defined by the identity
+                          Y                X
+                 ∆(z) = q   (1 − q n )24 =     τ (n)q n , with q = exp(2πiz).
+                         n≥1                    n≥1
+
+In [25], Shparlinski proved that the set {τ (n)} is an additive basis modulo any prime ℓ,
+that is there is an absolute constant s such that the Waring-type congruence
+                               τ (n1 ) + · · · + τ (ns ) ≡ λ (mod ℓ)
+is solvable for any residue class λ (mod ℓ). In [9], Garaev, García and Konyagin proved
+that for any λ ∈ Z, the equation
+                                      Xs
+                                          τ (ni ) = λ
+                                             i=1
+always has a solution for s = 74, 000.
+  Later García and Nicolae [11] extended this result for coefficients a(n) of normalized
+Hecke eigenforms of weight k in Sknew (Γ0 (N )). More precisely, they proved that for any
+λ ∈ Z, the equation
+                                       s
+                                       X
+                                          a(ni ) = λ
+                                             i=1
+always has a solution for some s ≤ c(f ) and c(f ) satisfying
+                                             k−1      3
+                       c(f ) ≪ (2N 3/8 ) 2 +ε k 16 k+O(1)+ε log(k + 1).
+  The proof of the above two results are connected to the identity a(p2 ) = a2 (p) − pk−1
+with the solubility of the equation
+                      p1k−1 + · · · + psk−1 = N,          for primes p1 , . . . , ps .
+   We are actually studying a closely related problem over finite fields, and our main tool
+is Theorem 1 which provides a nontrivial bound for exponential sums with coefficients
+of modular forms. In other words, in Theorem 2 and Theorem 3 we are generalizing
+Shparlinski’s result to a wider class of modular forms. We shall mainly see in which cases
+the ni ’s can be taken to be the powers of a given prime, and we record this in Corollary 14
+                    EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                    3
+
+and Corollary 15. To study this problem, we shall primarily focus on the exponential sums
+of type
+                                       X
+                                  max∗     eℓ (ξa(pn ))
+                                       ξ∈Fℓ
+                                              n≤τ
+where p, ℓ are primes, and τ is a suitable parameter which we shall specify later. Moreover,
+we shall also study such exponential sums for certain cusp forms which are not necessarily
+eigenforms.
+   When f is a normalized eigenform, it is well known that a(n) is a multiplicative function
+and for any prime p ∤ N satisfies the relation
+(1)                      a(pn+2 ) = a(p)a(pn+1 ) − pk−1 a(pn ),        n ≥ 0.
+Moreover, we have a(pn ) = a(p)n for any prime p | N . These facts come from the properties
+of Hecke operators, see [5, Proposition 5.8.5]. If a(p) ∈ Q, then we can consider a(p)
+(mod ℓ) ∈ Fℓ naturally. We shall shortly give a brief review of linear recurrence sequences.
+On the other hand, any cuspform can be uniquely written as a C-linear combination of
+pairwise orthogonal eigenforms with Fourier coefficients coming from C. See [5, Chapter
+5] for a brief review of the Hecke theory of modular forms. Here we are concerned with
+all such eigenforms having rational coefficients. In this case, the sequence {a(pn )} is still
+a linear recurrence sequence of possibly higher degree.
+1.1. Linear recurrence sequences and Shparlinski’s bound. We now provide a quick
+overview of the basic theory of linear recurrence sequences. Let r ≥ 1 be an integer and p
+be an arbitrary prime number. A linear recurrence sequence {sn } of order r in Fp consists
+of a recursive relation
+(2)           sn+r ≡ ar−1 sn+r−1 + · · · + a0 sn (mod p),         with n = 0, 1, 2, . . . ,
+and initial values s0 , . . . , sr−1 ∈ Fp . Here a0 , . . . , ar−1 ∈ Fp are fixed. The characteristic
+polynomial ω(x) associated to {sn } is
+                            ω(x) = xr − ar−1 xr−1 − · · · − a1 x − a0 .
+  Under certain assumptions, linear recurrence sequences become periodic modulo p, see [14,
+Lemma 6.4] and [16, Theorem 6.11].
+  Let p be a prime number and ω(x) be the characteristic polynomial of a linear recurrence
+sequence {sn } defined by equation (2). If (a0 , p) = 1 and at least one of the s0 , . . . , sr−1
+are not divisible by p, then the sequence {sn } is periodic modulo p, that is for some T ≥ 1,
+                           sn+T ≡ sn (mod p),            n = 0, 1, 2, . . . .
+The least positive period is denoted by τ. Moreover, τ ≤ pr − 1 and τ divides T for any
+period T ≥ 1 of the sequence {sn }.
+   In 1953, Korobov [13] obtained bounds for rational exponential sums involving linear
+recurrence sequences in residue classes. In particular, for the fields of order p, if {sn } is a
+linear recurrence sequence of order r with (a0 , p) = 1 and period τ , it follows that
+                                        X
+(3)                                           ep (sn ) ≤ pr/2 .
+                                        n≤τ
+4                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+  Note that such a bound is nontrivial if pr/2 < τ and asymptotically effective only if
+pr/2 /τ
+      → 0 as p → ∞. Estimate (3) is optimal in general terms, indeed Korobov [14]
+showed that there is a linear recurrence sequence {sn } with length r satisfying
+
+                                        1 r/2 X
+                                          p <   ep (sn ) ≤ pr/2 .
+                                        2
+                                                 n≤τ
+
+In turn, it has been proved that there exists a class of linear recurrence sequences with a
+better upper bound
+                                   X
+                                      ep (sn ) ≤ τ 1/2+ε .
+                                           n≤τ
+However, the proof of the existence is ineffective in the sense that we do not know any
+explicit characteristics of such family, see [6, Section 5.1].
+
+   The case when the associated polynomial ω(x) is irreducible in Fp [x], was widely studied.
+For instance, from a more general result due to Katz [12, Theorem 4.1.1.] it follows that
+if ω(0) = 1 then
+                                  X
+                                     ep (sn ) ≤ p(r−1)/2 .
+                                          n≤τ
+Shparlinski [24] improved Korobov’s bound for all nonzero linear recurrence sequences with
+irreducible characteristic polynomial ω(x) in Fp [x]. From [24, Theorem 3.1] we get
+                             X
+                      max∗         ep (ξsn ) ≤ τ p−ε/(r−1) + r 3/11 τ 8/11 p(3r−1)/22 ,
+                      ξ∈Fp
+                             n≤τ
+
+with period τ satisfying that
+(4)                                     max gcd(τ, pd − 1) < τ p−ε .
+                                         d<r
+                                         d|r
+
+In particular, if r is fixed then the upper bound is non trivial for τ ≥ pr/2−1/6+ε . We would
+like to point out that the condition (4) above is essential if τ ≤ pr/2+ε , for details see the
+example in [24, Section 1]. Moreover, we consider the general case when the associated
+polynomial ω(x) is not necessarily irreducible, and we deduce the following key result.
+Theorem 1. Let p be a large prime number and ε > ε′ > 0. Suppose that {sn } is a
+nonzero linear recurrence sequence with positive order and period τ in Fp such that its
+characteristic
+        Q      polynomial ω(x) has distinct roots in its splitting field, and (ω(0), p) = 1. Set
+ω(x) = νi ωi (x) as a product of distinct irreducible polynomials in Fp [x], and for each i, αi
+denotes a root of ωi (x). If all polynomials ωi (x) have the same degree, i.e. deg ωi (x) = r > 1,
+and the system τi = ord αi , satisfies
+(5)       a) max gcd(τi , pd − 1) < τi p−ε ,           at least for one 1 ≤ i ≤ ν,
+                d<r
+                d|r
+
+          b) gcd(τi , τj ) < pε , for some pair i 6= j along with Fp (αi ) ∼
+                                    ′
+                                                                           = Fp (αj ),
+                     EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                             5
+
+then there exists a δ = δ(ε, ε′ ) > 0 such that
+
+                                              X
+(6)                                   max∗          ep (ξsn ) ≤ τ p−δ .
+                                      ξ∈Fp
+                                              n≤τ
+
+   This generalizes [2, Corollary] due to Bourgain, where all of the irreducible factors have
+degree r = 1 while Theorem 1 deals with the case r ≥ 2. This will be of immense use
+in what follows, roughly because the characteristic polynomial associated to {a(pn )} have
+degree two.
+   Theorem 1 will be essential to establish Theorem 2 and Corollaries 12 and 16. Our
+approach, which relies on the sum-product phenomenon, provides an improvement over
+Shparlinski’s Theorem 3.1 of [24] for the same class of linear recurrence sequences, obtaining
+non trivial exponential sums in a larger range. To be more precise, if p(r) denotes the least
+prime divisor of r then any τ > pr/p(r)+ε satisfies
+                                τ p−ε > pr/p(r) ≥ max gcd(τ, pd − 1).
+                                                        d<r
+                                                        d|r
+
+In particular, our result works for any τ > pr/p(r)+ε , while Shparlinski’s bound in [24] is
+nontrivial if τ > pr/2−1/6+ε . This is an improvement if p(r) > 2, more precisely when r is
+odd.
+
+1.2. Main results. We now quickly discuss the main results obtained in this article. In
+the list, our first result is the following:
+Theorem 2. Let f (z) be an eigenform with rational coefficients a(n). Let P be the set of
+primes p such that a(pu ) 6= 0 for any u ∈ N. Then the following is true.
+    (i) The set of primes P satisfies that given p ∈ P, for any 0 < ε < 1/2 there exists a
+        δ = δ(ε) > 0 such that the following estimate
+
+                                             X
+(7)                                max∗            eℓ (ξa(pn )) ≤ τ ℓ−δ ,
+                                   ξ∈Fℓ
+                                             n≤τ
+
+           holds for π(y) + O(y 2ε ) many primes ℓ ≤ y, where the least period τ of the linear
+           recurrence sequence {a(pn )} (mod ℓ), depends on both p and ℓ. Here π(y) denotes
+           the number of primes up to y, which is asymptotically equivalent to logy y .
+      (ii) For the exceptional set of primes p ∈
+                                               / P, let u be the least natural number such that
+               u
+           a(p ) = 0. Then for any 0 < ε < 1/2, there exists a δ = δ(ε) > 0 such that the
+           following estimate
+                                X                          τ
+(8)                      max∗         eℓ (ξa(pn )) =          + O(τ ℓ−δ + u).
+                         ξ∈Fℓ                             u+1
+                                n≤τ
+
+          holds for π(y) + O(y 2ε ) many primes ℓ ≤ y.
+   Roughly speaking, a newform of level N is a normalized eigenform which is not a cusp-
+form of level N ′ for any proper divisor N ′ of N. For details and basics on modular forms,
+6                  JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+we refer the reader to [5]. A newform is said to have complex multiplication (CM ) by a
+quadratic Dirichlet character φ if f = f ⊗ φ, where we define the twist as
+                                          ∞
+                                          X
+                                 f ⊗φ=        a(n)φ(n)q n .
+                                                      n=1
+In part (i) of Theorem 2, the condition a(pu ) 6= 0 holds for almost all prime p provided
+that f is a newform without CM. This is a consequence of Sato-Tate conjecture and we
+shall discuss this again in the proof of Lemma 11. In particular, we have a non trivial
+estimate for the following exponential sum
+                                                    X
+(9)                                       max∗            eℓ (ξa(pn )) .
+                                          ξ∈Fℓ
+                                                    n≤τ
+
+Let us recall that any general cusp form f can be uniquely written as C-linear combination
+of eigenforms. We call these eigenforms as components of f . We then have the following
+result.
+Theorem 3. Let f (z) be a cusp form which is not necessarily an eigenform, and can be
+written as a Q-linear combination of newforms with rational coefficients. Suppose that
+there are r2 many components with CM, then under the assumption of GST hypothesis1
+there exist a set of primes p with density at least 2−r2 such that for any 0 < ε < 1/2 there
+exists a δ = δ(ε) > 0 for which the following estimate
+                                              X
+(10)                                max∗             eℓ (ξa(pn )) ≤ τ ℓ−δ ,
+                                    ξ∈Fℓ
+                                              n≤τ
+
+holds for cf π(y) + O(y 2ε ) many primes ℓ ≤ y, where cf > 0 is a constant.
+   In both of the theorems above, we took a fixed prime p and looked for primes ℓ for which
+a non trivial estimate to (9) holds. However, these results are valid for almost all prime
+ℓ, and we do not know explicitly which of the primes are being excluded in this process.
+So one may now naturally ask, what if we now fix a prime ℓ and find out for how many
+primes p the sum at (9) is non trivial. In this regard, we have the following results.
+Theorem 4. Let f (z) be a newform of weight k, without CM, and with integer Fourier
+coefficients. Consider the set P = {ℓ prime | (k − 1, ℓ − 1) = 1} . Then for any fixed ε > 0
+and any large enough ℓ ∈ P, the set of primes p satisfying
+                                               X
+(11)                                max∗             eℓ (ξa(pn )) ≤ τ ℓ−δ
+                                    ξ∈Fℓ
+                                               n≤τ
+                                    1
+                                          
+have density at least 1 + Oε      ℓ1−3ε
+                                              , where δ = δ(ε) is same as in Theorem 1.
+  Intuitively, we can regard this theorem as the inverse of Theorem 2, and in this analogy,
+we have the following result which can be regarded as the inverse of Theorem 3. Just for
+the sake of simplicity we are assuming (k − 1, ℓ − 1) = 1, which can be easily avoided and
+we will make it evident from the proof of the following theorem.
+    1See Section 4.1 for the discussion about GST hypothesis.
+                     EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                         7
+
+Theorem 5. If f (z) is a cuspform, and can be written as Q linear combination of r
+many newforms without CM and with integer coefficients, such that all of these components
+satisfies GST hypothesis. Then for any fixed ε > 0 and large enough ℓ, the set of primes p
+satisfying
+
+                                                 X
+(12)                                    max∗           eℓ (ξa(pn )) ≤ τ ℓ−δ
+                                        ξ∈Fℓ
+                                                 n≤τ
+
+                                           1
+                                                 
+have density at least 2−r + Oε           ℓ1−2ε       , where δ = δ(ε) is same as in Theorem 1.
+
+            2. Exponential sums with linear recurrence sequences
+   In this section, our main goal is to prove Theorem 1, which is one of our key tool in
+establishing several important results of this article. We already noticed, in Section 1.1,
+that condition a) of Theorem 1 is essential. Now, we illustrate with an example that all of
+the gcd(τi , τj )′ s cannot be too large. For example, let r = 2 and g be a generator of F∗ℓ2 .
+Then, consider the sequence
+                                                2
+                                                            
+                                   sn = Tr gn(ℓ +1)/2 − g n ,
+                                                                          2                 2
+with characteristic polynomial (x − g)(x − g ℓ )(x − g(ℓ +1)/2 )(x − gℓ(ℓ +1)/2 ). Note that
+                                                                      2                2
+               τ2 = ord g = ℓ2 − 1 and τ1 = ord g (ℓ +1)/2 = gcd(ℓ2 −1,(ℓ
+                                                                     ℓ −1
+                                                                          2 +1)/2) .
+
+
+It is easy to see that gcd(ℓ2 − 1, (ℓ2 + 1)/2) = 1 or 2, therefore
+                                 (
+                                  ℓ2 − 1      if gcd(ℓ2 − 1, (ℓ2 + 1)/2) = 1
+                 gcd(τ1 , τ2 ) =                                             .
+                                  (ℓ2 − 1)/2 if gcd(ℓ2 − 1, (ℓ2 + 1)/2) = 2
+Then, one can show that
+                          2 −1                 2 −1
+                         ℓX                   ℓX              2
+                                                                            
+                                 eℓ (sn ) =           eℓ Tr gn(ℓ +1)/2 − gn
+                         n=1                  n=1
+                                                          (ℓ2 −1)/2
+                                          ℓ2 − 1             X                         
+                                        =        +                    eℓ Tr −2g2n+1         .
+                                             2
+                                                             n=1
+
+Noting that ord g2 = (ℓ2 − 1)/2 and using [15, Theorem 3.2], we have
+             (ℓ2 −1)/2                                           (ℓ2 −1)/2
+               X                                                 X                       
+                                         2n+1
+                         eℓ Tr −2g                     ≤ max
+                                                           ∗
+                                                                              eℓ Tr ξg2n        = O(ℓ).
+                                                         ξ∈F 2
+               n=1                                           ℓ     n=1
+
+Therefore, the linear recurrence sequence {sn } satisfies
+                                         2 −1
+                                        ℓX
+                                                             ℓ2 − 1
+                                                eℓ (sn ) =          + O(ℓ).
+                                        n=1
+                                                                2
+8                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+We now need to discuss some necessary background. Let K be a finite field of characteristic
+p and F be an extension of K with [F : K] = r. The trace function TrF/K : F → K is
+defined by
+                                                                     r−1
+                         TrF/K (z) = z + z p + · · · + z p                 ,           z ∈ F.
+The following properties of TrF/K (z) are well known.
+
+(13)        TrF/K (az + w) = a TrF/K (z) + TrF/K (w),                              for all a ∈ K, z, w ∈ F.
+(14)              TrF/K (a) = ra,          for any       a ∈ K.
+                          p
+(15)             TrF/K (z ) = TrF/K (z),               for any      z ∈ F.
+
+Throughout this section, F = Fq , K = Fp with q = pr and we will simply write Tr (z)
+instead TrF/K (z).
+   Let {sn } be a linear recurrence sequence of order r ≥ 1 in Fp with characteristic polyno-
+mial ω(x) in Fp [x]. It is well known that nth -term can be written in terms of the roots of
+the characteristic polynomial, see Theorem 6.21 in [16]. Therefore, if the roots α0 , . . . , αr−1
+of ω(x) are all distinct in its splitting field, then
+                                      r−1
+                                      X
+(16)                           sn =         βi αni ,     for n = 0, 1, 2, . . . ,
+                                      i=0
+
+where β0 , . . . , βr−1 are uniquely determined by initial values s0 , . . . , sr−1 , and belong to
+the splitting field of ω(x) over Fp .
+  If the characteristic polynomial ω(x) is irreducible and α is a root, then its r distinct
+conjugates are
+                                                            r−2          r−1
+                                       α, αp , . . . , αp         , αp         .
+Hence, the coefficients sn are given by
+                                     r−1
+                                     X            i
+                              sn =         βi αp n ,        n = 0, 1, 2, 3, . . . .
+                                     i=0
+
+  One of our main tools is the bound for Gauss sum in finite fields given by Bourgain and
+Chang [3, Theorem 2]. This will be required to prove Theorem 1. Assume that for a given
+α ∈ Fq such that t = ord α satisfies
+
+(17)                      t > pε      and         max gcd(t, pd − 1) < tp−ε .
+                                               1≤d<r
+                                                 d|r
+
+Then there exists a δ = δ(ε) > 0 such that for any nontrivial additive character ψ of Fq ,
+we have
+                                            X
+                                                  ψ(αn ) ≤ tp−δ .
+                                            n≤t
+
+Here, we note that the second assumption in (17) implies the first one whenever r ≥ 2.
+                        EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                                        9
+
+2.1. Proof of Theorem 1. We proceed by induction over ν. Before that, following prop-
+erties (13) and (14) of trace function we get
+                                                                                    !
+                                     ν
+                                      X                                     ti −1               X  i −1
+                                                                                                ν tX                j
+                                                                                                                       
+  sn = Tr r   −1
+                   sn = r   −1
+                                 Tr         (βi,0 αni + · · · + βi,ti −1 αpi      n
+                                                                                    )   = r−1             Tr βi,j αpi n .
+                                      i=1                                                       i=1 j=0
+                                                  r
+ Set r  = [Fp (α1 , . . . , αν ) : Fp ], then z p
+                                             = z for any z ∈ Fp (α1 , . . . , αν ), in particular
+       u                                                                       j
+Tr z p    = Tr (z) . Then for each pair (i, j), raising each argument βi,j αip n to the power
+pr−j
+                    j
+                             r−j j r−j              r−j r             r−j 
+                                p
+          Tr βi,j αip n = Tr βi,j  αpi n·p      = Tr βi,jp
+                                                             αpi n = Tr βi,j  p
+                                                                                   αni .
+This implies that
+                                                                              
+                            ν tX
+                            X  i −1        r−j           ν
+                                                           X       tX
+                                                                    i −1
+                                            p                             pr−i  n 
+              sn = r −1                 Tr βi,j αni = r −1   Tr        βi,j   αi
+                         i=1 j=0                                        i=1             j=0
+
+(18)               = Tr (γ1 αn1 ) + · · · + Tr (γν αnν ) ,
+                P i −1 pr−i
+where γi = r −1 tj=0     βi,j , for each 1 ≤ i ≤ ν.
+   The case ν = 1 follows by Bourgain and Chang [3, Theorem 2]. We shall now proceed
+inductively, and ν = 2 will be the base case. We start by denoting h = gcd(τ1 , τ2 ). It is
+clear that lcm(τ1 , τ2 ) = τ1 τ2 /h is a period of sn , then
+
+                                  X                           τ         X
+                                        ep (ξsn ) =                             ep (ξsn ) .
+                                                          τ1 τ2 /h      τ τ
+                                  n≤τ                                 n≤ 1h 2
+
+Hence, it is enough to prove that
+
+                                 X                         τ1 τ2 −δ
+                                        ep (ξsn ) ≤             p ,        with (ξ, p) = 1,
+                               τ τ                          h
+                             n≤ 1h 2
+
+for some δ = δ(ε) > 0. We have
+
+              X                          h−1
+                                         X        X                              h−1
+                                                                                 X       X
+                        ep (ξsn ) =                       ep (ξsnh+u ) ≤                        ep (ξsnh+u )
+              τ τ                        u=0 n≤ τ1 τ2                            u=0 n≤ τ1 τ2
+            n≤ 1h 2
+                                                 h2                                      h2
+
+                                                                 X
+(19)                                  ≤h×         max                      ep (ξsnh+u ) .
+                                                0≤u≤h−1
+                                                             n≤τ1 τ2 /h2
+
+Let (n1 , n2 ) be a tuple with ni ≤ τhi . Since gcd( τh1 , τh2 ) = 1, by Chinese remainder theorem,
+there exist integers m1 , m2 with gcd(m1 , τh1 ) = gcd(m2 , hτ22 ) = 1, such that
+        n                            τ1 τ2 o
+(20)      n (mod τh1 τ22 ) : 1 ≤ n ≤ 2        =
+                                      h n
+                                                                                            τi o
+                                        = n1 m1 τh2 + n2 m2 τh1 (mod τh1 τ22 ) : 1 ≤ ni ≤        .
+                                                                                            h
+10                         JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Moreover, the pair (m1 , m2 ) has the following property: given (n1 , n2 ), with 1 ≤ ni ≤ τi /h,
+then n = n1 m1 τh2 + n2 m2 τh1 satisfies
+
+                                         n ≡ n1 (mod τh1 ) and n ≡ n2 (mod τh2 ),
+
+and n is unique modulo τh1 τ22 . Since τh1 = ord αh1 and τh2 = ord αh2 then
+
+                                                        τ         τ
+                                                h(n1 m1 h2 +n2 m2 h1 )
+(21)                               αhn
+                                    i = αi                                  = αhn
+                                                                               i ,
+                                                                                  i
+                                                                                            1 ≤ i ≤ 2.
+
+Combining (20) and (21) we have
+
+              X                               X                                          X                        
+                     ep (ξsnh+u ) =                     ep Tr ξγ1 α1n1 h+u    ×                      ep Tr ξγ2 α2n2 h+u
+           τ1 τ2                                 τ                                             τ
+         n≤ h 2                              n1 ≤ h1                                       n2 ≤ h2
+
+
+                                              X                                     X                        
+(22)                                     =              ep Tr γ1′ αn1 1 h    ×                   ep Tr γ2′ αn2 2 h    ,
+                                                 τ                                         τ
+                                             n1 ≤ h1                                   n2 ≤ h2
+
+
+
+ with γ1′ = ξγ1 αu1 , γ2′ = ξγ2 αu2 in Fp (α1 , α2 ). Since {sn } is a nonzero sequence then γi′ 6=
+0, at least for some 1 ≤ i ≤ 2. We may assume that all of them are nonzero. Each
+ep ( Tr (ξγi′ z)) corresponds to a nontrivial additive character, say ψi (z), in Fp (αi ) = Fpr .
+                                                                                ′
+In order to satisfy condition (17) we first recall assumptions h < pε , ε > ε′ > 0 and
+maxd<r gcd(τi , pd − 1) < τi p−ε for some i ∈ {1, 2}. Then, for any d|r with 1 ≤ d < r and
+       d|r
+some i = 1, 2 we have
+                                                                                                  τi −(ε−ε′ )
+                                      τi d
+                            gcd       h,p − 1           ≤ gcd(αi , pd − 1) < τi p−ε <                 p         .
+                                                                                                    h
+
+Therefore, by Bourgain and Chang [3, Theorem 2] it follows that
+
+               X                                         X                          τi −δ
+                         ep Tr γi′ αni i h    =                        ψ(αni i h ) ≤      p ,        for some 1 ≤ i ≤ 2.
+                                                                                        h
+             ni ≤τi /h                                     ni ≤τi /h
+
+
+Thus, combining above equation with (19) and (22) we get
+
+                                             X                                τ1 τ2 −δ τ1 τ2 −δ
+                               max∗                 ep (ξsnh ) ≤ h ×               p =      p .
+                                  ξ∈Fp        τ τ                              h2       h
+                                          n≤ 1h 2
+
+
+This conclude the case ν = 2. Now we proceed by induction over ν, and assume Theorem
+1 to be true up to ν − 1. We follow the idea due to Garaev [8, Section 4.4]. Considering
+                              EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                                                               11
+
+(18) and periodicity, for any t ≥ 1 we get
+                                 2t                                            2t
+             X                            X X
+        τ          ep (ξsn )          =                  ep (ξsm+n )
+             n≤τ                          m≤τ n≤τ
+                                                                                                                                       2t
+                                          X X                                                                                    
+                                      =                  ep ξ( Tr            γ1 αm+n
+                                                                                 1             + · · · + Tr          γν αm+n
+                                                                                                                         ν   )
+                                          m≤τ n≤T
+
+                                                                                      ν
+                                                                                                                                            !
+                                          X              X X                          X
+                                                                                                           n1           n2t
+                                      ≤           ···                    ep ξ                  Tr (γi αm
+                                                                                                       i (αi + · · · − αi ))                     .
+                                          n1 ≤τ         n2t ≤τ m≤τ                    i=1
+
+Raising to the power 2t, and applying Cauchy–Schwarz, we have
+                          4t2                                                                                                                        ! 2t
+       X                                            X               X X                            ν
+                                                                                                   X                 n1           n2t
+τ 2t         ep (ξsn )          ≤ τ 2t(2t−1)                  ···                     ep       ξ         Tr (γi αm
+                                                                                                                 i (αi + · · · − αi ))                        .
+       n≤τ                                          n1 ≤τ           n2t ≤τ m≤τ                     i=1
+
+Given (λ1 , · · · , λν ) ∈ Fνq , let Jt (λ1 , · · · , λν ) denote the number of solutions of the system
+                            n                               nt+1
+                                  1
+                           α1 + · · · + α1 = α1
+                                                 nt
+                                                                  + · · · + αn1 2t + λ1
+                                    ..     ..                     ..      ..    ..
+                                    .      .                      .       .     .
+                            n1                              n
+                              αν + · · · + αnν t = αν t+1 + · · · + αnν 2t + λν
+
+with 1 ≤ n1 , · · · , n2t ≤ τ. Therefore,
+                                4t2                                                                                                          ! 2t
+             X                                       X               X                                   X                ν
+                                                                                                                          X
+                                            2
+(23)              ep (ξsn )           ≤ τ 4t −4t              ···            Jt (λ1 , · · · , λν )             ep     ξ         Tr (γi λi αm
+                                                                                                                                           i )       .
+            n≤τ                                     λ1 ∈Fq          λν ∈Fq                               m≤τ              i=1
+
+
+ Note that writing Jν (λ1 · · · , λν ) in terms of character sums it follows that
+                                                                                                                2t
+                              1 X     X X
+        Jt (λ1 · · · , λν ) = ν   ···     ψ1 (αn1 ) · · · ψν (αnν )                                                  × ψ1 (λ1 ) · · · ψν (λν )
+                             q
+                                          ψ1 ∈F̂q        ψν ∈F̂q n≤τ
+                                                                                                                2t
+                                   1 X     X X
+                                 ≤ ν   ···     ψ1 (αn1 ) · · · ψν (αnν )
+                                  q
+                                          ψ1 ∈F̂q        ψν ∈F̂q n≤τ
+                                 ≤ Jt (0, . . . , 0) =: Jt,ν .
+
+In particular, we note that Jt,ν ≤ Jt,ν−1 . From (23) it follows that
+                   4t2                                                                                                                                   !
+ X                                              X              X       X               X                 ν
+                                                                                                         X
+                                 2
+       ep (ξsn )         ≤ τ 4t −4t Jt,ν                ···                     ···            ep              Tr (ξβi λi (αm
+                                                                                                                            i
+                                                                                                                              1
+                                                                                                                                + · · · − αm
+                                                                                                                                           i
+                                                                                                                                             2t
+                                                                                                                                                ))
+ n≤τ                                            m1 ≤τ         m2t ≤τ λ1 ∈Fq           λν ∈Fq             i=1
+12                  JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+ Note that aγλ, with aγ 6= 0, runs over λ ∈ Fq , then ep ( Tr (aθλz)) runs through all
+additive characters ψ in F̂q , evaluated at z. Then the above expression can be written as
+                                                                                   
+                     4t2
+       X                                 X     X Y Xν
+                               2                                                m2t 
+           ep (ξsn )     ≤ τ 4t −4t Jt,ν   ···               ψi (αm1
+                                                                   i + · · · − αi  )
+        n≤τ                                          m1 ≤τ        m2t ≤τ i=1    ψi ∈F̂q
+                                     4t2 −4t ν    2         2
+(24)                          ≤τ               q Jt,ν ≤ τ 4t −4t q ν Jt,ν−1
+                                                                      2
+                                                                            .
+We now require an estimate for Jt,ν−1 . Writing it as the sum of characters
+                                                                                                       2t
+                   1       X              X         X                                             
+       Jt,ν−1 =                    ···                    ep Tr       λ1 αm                 m
+                                                                          1 + · · · + λν−1 αν−1
+                  q ν−1
+                          λ1 ∈Fq         λν−1 ∈Fq m≤τ
+                                                                                                          2t 
+                   τ 2t                           X                                   
+(25)          =     ν−1
+                        + O           max           ep Tr λ1 αm                 m
+                                                                1 + · · · + λν−1 αν−1     .
+                  q                             ν−1
+                               (λ1 ,...,λν−1 )∈Fq
+                                                                m≤τ
+                                          (λ1 ,...,λν−1 )6=0
+                                                              
+ Finally, we note that s′m = Tr λ1 αm                     m
+                                        1 + · · · + λν−1 αν−1 defines a linear recurrence se-
+quence with period τ ′ dividing τ, which in particular satisfies induction hypothesis. There-
+fore
+                       X                                             ′
+                           ep Tr λ1 αm                    m
+                                       1 + · · · + λν−1 αν−1    ≤ τ p−δ ,
+                             m≤τ
+
+for some δ′ = δ′ (ε) > 0. Now, taking t > d(ν − 1)/2δ′ (where d = [F                              q : Fp ]) and combining
+with (25) we get
+                                              τ 2t
+                                                   .    Jt,ν−1 ≪
+                                             q ν−1
+We conclude the proof combining the above estimate with (24) to get
+
+                                                       X
+                                               max∗            ep (ξsn ) ≤ τ p−δ ,
+                                               ξ∈Fp
+                                                       n≤τ
+
+with δ = − d(ν−2)
+              4t2 .
+                   2
+
+   The following is an immediate corollary of this theorem which will be quite handy in
+establishing several results in Section 3 and in Section 6.
+Corollary 6. Suppose that {sn } is a nonzero linear recurrence sequence of order r ≥ 2
+such that its characteristic polynomial ω(x) is irreducible in Fp [x]. If its period τ satisfies
+
+                                              max gcd(τ, pd − 1) < τ p−ε ,
+                                               d<r
+                                               d|r
+
+
+   2To get a non trivial estimate, we must have a non zero δ. This is true when ν > 2. Hence our induction
+step starts from ν = 2.
+                   EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                              13
+
+then there exists a δ = δ(ε) > 0 such that
+                                          X
+                                   max∗         ep (ξsn ) ≤ τ p−δ .
+                                   ξ∈Fp
+                                          n≤τ
+
+                      3. Exponential sums for modular forms
+   In this section, we study the effect of linear recurrence sequence and Theorem 1 in the
+behaviour of the exponential sums attached to certain Fourier coefficients of modular forms.
+As a consequence, we obtain interesting results which have been summarized earlier in the
+form of Theorem 2 and Theorem 3.
+3.1. Order of the roots of the characteristic polynomial. In the case of normalized
+eigenforms, the sequence {a(pn )} defines a linear recurrence sequence of order two when
+p ∤ N, and otherwise it is of order one. This is one of the tools for Theorem 2. However, we
+do not need to assume that the form is normalized because the normalizing factor is in Q,
+and we can realize that to be an element of F∗ℓ for any large enough prime ℓ. Before going
+into the proof of this theorem, we develop a tool which will be quiet useful throughout.
+We state it in the form of following lemma.
+Lemma 7. Let ω(x) = x2 + ax + b ∈ Z[x] be a quadratic polynomial with b 6= 0 and let α, β
+be its roots such that none of α, β or αβ −1 is a root of unity. For any prime ℓ, let αℓ , βℓ be
+its roots in the splitting field of ω(x) over Fℓ . Then, given 0 < ε < 1/2, for π(y) + O(y 2ε )
+many primes ℓ ≤ y, we have
+                   ord αℓ > ℓε ,      ord βℓ > ℓε       and    ord (αℓ βℓ−1 ) > ℓε .
+Proof. For notational convenience, throughout the proof we will simply write ω, GT instead
+of ω(x), GT (x) respectively, and ω (mod ℓ), GT (mod ℓ) for the reduced polynomials ω(x)
+(mod ℓ), GT (x) (mod ℓ) respectively. It is clear that ω (mod ℓ) has distinct roots for all but
+finitely many primes ℓ, since a2 − 4b 6= 0. For any such prime ℓ, let αℓ and βℓ be the distinct
+roots in its splitting field. Given a large positive parameter T, consider the polynomial
+                                       Y
+                              GT (x) =    (xt − 1)(x2t − bt ) ∈ Z[x].
+                                      t≤T
+
+We first consider the resultant Res(ω, GT ), and note that
+                                               Y
+                     Res(ω, GT ) (mod ℓ) =         (αℓ − µi )(βℓ − µi ),
+                                                   1≤i≤3T
+where µi are the roots of GT in its splitting field over Fℓ .
+   In particular Res(ω, GT ) ≡ 0 (mod ℓ) if and only if ω (mod ℓ) and GT (mod ℓ) have
+common roots in some finite extension of Fℓ . Additionally, since αℓ βℓ = b, it follows that
+ord (αℓ βℓ−1 ) ≤ T if and only if α2t  t         2t   t
+                                   ℓ −b = 0 (or βℓ −b = 0), for some t ≤ T. Therefore, αℓ or
+βℓ are common roots of ω (mod ℓ) and GT (mod ℓ) if ord αℓ , ord βℓ or ord (αℓ βℓ−1 ) are less
+than T. Now, the Sylvester matrix of ω and GT is a square matrix of order 2+deg GT ≪ T 2 ,
+and entries bounded by an absolute constant M (which depends on a, b and not on ℓ or
+the parameter T ). Then, the determinant
+                                                         2            2
+                           Res(ω, GT ) ≤ T 2 ! × M T ≪ M 2T log T .
+14                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Note that Res(ω, GT ) is zero if and only if αt = 1, β t = 1 or (αβ −1 )t = 1 for some t ≤ T,
+which following our assumption can not happen. In particular, the resultant has at most
+O T 2 many distinct prime divisors. This shows that
+              |{ℓ | ord αℓ ≤ T     or ord βℓ ≤ T         or ord αℓ βℓ −1 ≤ T }| = O(T 2 ).
+Choosing T = y ε the number of primes ℓ ≤ y such that
+                     ord αℓ ≤ ℓε    or     ord βℓ ≤ ℓε       or    ord (αℓ βℓ−1 ) ≤ ℓε
+         
+is O y 2ε .                                                                                      
+
+     Let us now proceed to prove the main result of this section.
+
+3.2. Proof of Theorem 2. If p | N, then we only need to consider
+
+                                                X
+(26)                                   max∗           eℓ (ξa(p)n ) .
+                                         ξ∈Fℓ
+                                                n≤τ
+
+Note that, if p ∈/ P then a(p) = 0, and the problem is trivial in this case because, we
+have τ = 1. On the other hand, if p ∈ P, then for any large enough prime ℓ, τ is simply
+the order of a(p) (mod ℓ) in F∗ℓ . Due to Lemma 7, we may assume that τ > pε holds for
+π(y) + O(y 2ε ) many primes ℓ < y. Hence, this case is settled down by [4, Theorem 6].
+  Let us now consider the case p ∤ N . The characteristic polynomial of (1) is
+(27)                                ω(x) = x2 − a(p)x + pk−1 ,
+and has discriminant a2 (p) − 4pk−1 . We note that in our case the discriminant does not
+vanish, otherwise |a(p)| = 2p(k−1)/2 is absurd, with a(p) being integer and p(k−1)/2 irra-
+tional. Now, let P be the set of all primes. We divide the proof for primes p ∈ P and
+p ∈ P \ P. Since a2 (p) − 4pk−1 6= 0, for any p ∈ P, we write a2 (p) − 4pk−1 = u2 Dp , with
+Dp < 0 square-free and u 6= 0. We now split the cases according to Dp (mod ℓ) is quadratic
+residue, zero or non quadratic residue modulo ℓ. Set
+                                                                     
+                                                              Dp
+                 P = P0 ∪ P1 ∪ P−1 , where Pν = ℓ ∈ P :              =ν .
+                                                               ℓ
+For ν = 0, 1, −1, we also define
+                                                                                    πν (x)
+               Pν (x) = Pν ∩ [1, x],     πν (x) = |Pν (x)|        and κν = lim               .
+                                                                              x→∞ π(x)
+
+It is clear that πν (x) = π(x)(κν + o(1)), and κ0 + κ1 + κ−1 = 1.
+   Note that for a given prime p, the associated polynomial ω(x) (mod ℓ) has a single root
+in Fℓ if and only if u2 Dp ≡ 0 (mod ℓ). Since such equation has finitely many solutions for ℓ,
+we get κ0 = 0. On the other hand, Chebotarev’s density theorem implies that the uniform
+distribution of primes ℓ such that ω(x)      ℓ) is irreducible or has distinct roots in Fℓ .
+                                        (mod
+                                         Dp
+Equivalently, the primes ℓ satisfying ℓ = ±1 are distributed in the same proportion,
+therefore κ−1 = κ1 = 1/2. We now turn to establish nontrivial exponential sums for {a(pn )}
+(mod ℓ) with ℓ ∈ Pν for ν = ±1.
+                   EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                              15
+
+
+Case 1. ℓ ∈ P−1 : we want to show that the inequality (7) is satisfied by π(y)              2ε
+                                                                                    2 + O(y )
+many primes ℓ ≤ y in P−1 . In this case the associated polynomial (27) is irreducible modulo
+ℓ, then the idea is to employ Corollary 6. Let α and β = αℓ be the conjugate roots of (27)
+in its splitting field Fℓ (α). For a given ε > 0, from Lemma 7 it follows that for π(y)+O(y 2ε )
+many primes ℓ ≤ y, the following inequalities
+
+(28)               ord αℓ = ord α > ℓε      and      ord αβ −1 = ord α1−ℓ > ℓε
+
+hold. Combining the identity
+                                                      ord α
+                                ord αℓ−1 =
+                                                gcd( ord α, ℓ − 1)
+
+with the second inequality of (28), we get
+
+                                          ord α      ord α
+                  gcd( ord α, ℓ − 1) =        ℓ−1
+                                                  =          < ( ord α)ℓ−ε .
+                                         ord α      ord α1−ℓ
+Now applying Corollary 6 we complete the proof of this case.
+
+Case 2. ℓ ∈ P1 : let α, β be the roots of ω(x) (mod ℓ) inside F∗ℓ . From (16) it follows that
+for n ≥ 0, a(pn ) ≡ cαn + dβ n (mod ℓ), for some constants c, d in Fℓ , with (α, β) 6= (0, 0).
+It is clear that ℓ − 1 is a period of the sequence a(pn ) (mod ℓ), and hence τ divides ℓ − 1.
+We have
+          X                    τ    X                    τ   X
+              eℓ (ξa(pn )) =             eℓ (ξa(pn )) =           eℓ (ξ(cαn + bβ n )) .
+                             ℓ−1                        ℓ−1
+        n≤τ                      n≤ℓ−1                          n≤ℓ−1
+
+
+From Lemma 7, there is a subset of P1 with π(y)            2ε
+                                               2 + O(y ) many primes ℓ ≤ y such that
+ord α, ord β and ord (αβ −1 ) are bigger than ℓε . It follows from [2, Corollary] that there
+exists a δ = δ(ε) > 0 such that
+
+                                         X
+                             max                eℓ (cαn + dβ n ) ≤ ℓ1−δ .
+                          (c,d)∈Fℓ ×Fℓ
+                           (c,d)6=(0,0) n≤ℓ−1
+
+Hence, (i) of Theorem 2 holds. Now, assume that p belongs to the exceptional set P \ P,
+that is a(pu ) = 0 for some u ≥ 1. We consider u = u(p) to be the least such integer. Since
+the discriminant is nonzero (the roots α and β of (27) are distinct), we get
+
+                                             αu+1 − β u+1
+                                 a(pu ) =                 = 0.
+                                                α−β
+
+Set b(u + 1) = a(pu ), then it follows that for all n ≥ 1 we have
+
+                                                       αn(u+1) − β n(u+1)
+                   b(n(u + 1)) = a(pn(u+1)−1 ) =                          = 0.
+                                                            α−β
+16                    JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Therefore,
+                                                                                              
+                               τ −1                     ⌊τ /(u+1)⌋ u
+      X                        X                            X X
+            eℓ (ξa(pn )) =            eℓ (ξb(n + 1)) =                     eℓ (ξb(n(u + 1) + e)) + O(u)
+      n≤τ                      n=0                         n=0        e=0
+                                                                               
+                                           Xu ⌊τ /(u+1)⌋
+                                                    X
+                                    τ
+(29)                       =               +              eℓ (ξb(n(u + 1) + e)) + O(u).
+                                   u+1         e=1   n=0
+
+First of all observe that u is odd. As otherwise, if u is even then we would get
+                                                                         (u+1)(k−1)
+                                      αu+1 + β u+1 = 2αu+1 = ±2p             2        ,
+
+which is absurd as αu+1 +β u+1 is an integer but (u+1)(k−1)
+                                                     2      is not. Now, for any 0 < e < u+1
+we have
+                                            e    e      (u+1)(k−1) n
+                                   (u+1)n (α − β )
+              b((u + 1)n + e) = α                   = ±p        2      a(pe−1 ),
+                                            α−β
+where the sign on the right hand side above depends on the sign of αu+1 . Without loss of
+generality, we are assuming that this sign is negative. Moreover, it is easy to see that our
+next argument applies to the positive sign case as well. Since u is fixed, so are all the e’s
+up to u − 1. In particular, we may consider large ℓ’s for which all of the a(pe ) 6≡ 0 (mod ℓ)
+for any 1 ≤ e ≤ u − 1. Then, we have
+               τ /(u+1)                              τ /(u+1)       (u+1)(k−1) n         
+                X                                      X
+                          eℓ (ξb(n(u + 1) + e)) =               eℓ ξ −p   2         a(pe−1 ) .
+                n=0                                    n=0
+
+Due to Lemma 7, we may assume that tu = ord (−p(k−1)(u+1)/2 ) > ℓε holds for π(y)+O(y 2ε )
+many primes ℓ ≤ y. Now, by [4, Theorem 6] it follows that
+
+              X          (u+1)(k−1) n         
+(30)                 eℓ ξ −p   2         a(pe−1 ) ≤ tu ℓ−δ ,                for some δ = δ(ε/2) > 0.
+              n≤tu
+
+     Writing [τ /(u + 1)] = qtu + r, with 0 ≤ r < tu it follows that
+                   X                               X                       
+                          eℓ ξα(u+1)n a(pe−1 ) = q        eℓ ξα(u+1)n a(pe−1 ) +
+                  n≤τ /(u+1)                                    n≤tu
+                                                                X                        
+                                                           +          eℓ ξα(u+1)n a(pe−1 ) .
+                                                                n≤r
+               P                          
+                           (u+1)n a(pe−1 ) ≤ t ℓ−δ follows from (30). If r ≤ ℓε/2 , then we
+The estimate     n≤tu eℓ ξα                    u
+              P                         
+                         (u+1)n a(pe−1 ) ≤ ℓε/2 . If ℓε/2 ≤ r < t , then from (30) it follows
+get trivially   n≤r eℓ ξα                                        u
+that
+                            X                       
+                                eℓ ξα(u+1)n a(pe−1 ) ≤ tu ℓ−δ .
+                                        n≤r
+                        EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                        17
+
+Therefore,
+                           X                             n             o
+                                 eℓ ξα(u+1)n a(pe−1 ) ≤ max ℓε/2 , tu ℓ−δ .
+                           n≤r
+
+Recalling that tu ≥ ℓε , we can also assume that tu ℓ−δ ≥ ℓε/2 by taking small enough δ.
+Thus,
+                       X                                                           τ
+                               eℓ ξα(u+1)n a(pe−1 ) ≤ (qtu + tu )ℓ−δ ≪                  ℓ−δ .
+                                                                                    u+1
+                  n≤τ /(u+1)
+
+Finally, combining the above inequality with (29) we obtain
+                          X                                       
+                                      n           τ
+                    max∗      eℓ (ξa(p )) =            + O τ ℓ−δ + u
+                    ξ∈Fℓ                       u+1
+                          n≤τ
+                                                τ                 
+                                          =         + O τ ℓ−δ + u .
+                                             u+1
+This conclude the proof for all exceptional set of primes p ∈ P \ P.
+3.3.
+P Consequences         of Theorem 2. Let us consider an exponential sum of type S(p, x, α) =
+               n
+   pn ≤x e(αa(p )), for α ∈ [0, 1]. As one of the consequences of Theorem 2, we want to study
+this exponential sum when α is a rational whose denominator is a prime. In this regard,
+we have the following result.
+Corollary 8. Let f be an eigenform of weight k and level N with rational coefficient. Then
+                                                                                 x)1−δ/(2+δ)
+for a given 0 < ε < 1/2, there exists a δ(ε) > 0 such that for at least ≫ (log log  log x
+many primes ℓ, we have the following estimates:
+                                                                               
+              X                                   O (log x/ log p)1−δ/(2+δ)                 if   p∈
+                                                                                                   /P
+       max∗           eℓ (ξa(pn )) =                                                                   .
+       ξ∈Fℓ                                   1 log x
+              pn ≤x                           u+1 log p + O    (log x/ log p)1−δ/(2+δ)       if   p∈P
+Proof. Consider the same δ := δ(ε) as in Theorem 2 and any prime
+                    h                                                       i
+                ℓ ∈ (log x/ log p)1/2−δ/(4+2δ) , 2(log x/ log p)1/2−δ/(4+2δ) .
+Following Theorem 2, we have
+                                                 X                        τ
+(31)                                    max∗             eℓ (ξa(pn )) ≤
+                                        ξ∈Fℓ                              ℓδ
+                                                 pn ≤τ
+                                  1−δ/(2+δ)
+holds, for at least ≫ (log log
+                           x)
+                               log x           primes ℓ. For these primes, we also have τ ≤ ℓ2 < log x
+                                                                                                 log p .
+In particular,
+                  X                            log x                                        
+          max∗           eℓ (ξa(pn )) ≤                + O ℓ 2
+                                                                 = O  (log x/ log p)1−δ/(2+δ)
+                                                                                                .
+          ξ∈Fℓ                                ℓδ log p
+                 pn ≤x
+18                      JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+     On the other hand, let p ∈ P be a prime, then by Theorem 2 we have
+
+                                            X                                τ    τ   
+                                  max∗              eℓ (ξa(pn )) =              +O δ +u ,
+                                  ξ∈Fℓ                                      u+1    ℓ
+                                           pn ≤τ
+
+                                                                                                      1−δ/(2+δ)
+holds, for some u depending on p, and for at least ≫ (log log   x)
+                                                                   log x   primes ℓ. Due to
+                                          δ
+Lemma 7, we can assume that τ > ℓ holds by choosing small enough δ, for at least
+       x)1−δ/(2+δ)
+≫ (log log log x     primes ℓ. Arguing similarly as in the previous case, we get the desired
+main term, and the error term that we get
+                                                                           
+                   log x    u log x         log x
+             O δ         +            =O δ           = O (log x/ log p)1−δ/(2+δ) ,
+                  ℓ log p τ log p          ℓ log p
+
+where the last equality holds because τ > ℓδ .                                                                                                   
+
+Corollary 9. Let f be an eigenform of weight k and level N with rational coefficients. For
+π(y) + O(y 2ε ) many primes ℓ ≤ y we have the following property. Given 0 < ε < 1/2 and
+p1 , · · · , pν be any set of distinct primes such that a(pui ) 6= 0 for all u ≥ 1 and 1 ≤ i ≤ ν,
+there exists a δ = δ(ε) > 0 such that
+
+                                        X            X
+                          max∗               ···             eℓ (ξa(pn1 1 · · · pnν ν )) ≤ τ1 · · · τν ℓ−δ .
+                           ξ∈Fℓ
+                                    n1 ≤τ1          nν ≤τν
+
+Proof. Set
+                                                     X              X
+                                   Sν (ξ) =                  ···            eℓ (ξa(pn1 1 · · · pnν ν )) .
+                                                    n1 ≤τ1         nν ≤τν
+
+We proceed by induction. Case ν = 1 is done by Theorem 2. Now, by multiplicativity it
+follows that
+
+                   X      X              X
+     |Sν (ξ)| ≤                   ···            eℓ (ξa(pn1 1 )a(pn2 2 · · · pnν ν ))
+                  n1 ≤τ1 n2 ≤τ2         nν ≤τν
+
+                                           X                       X               X              X
+                      ≤ τ2 · · · τν                   1+                                   ···            eℓ (ξa(pn1 1 )a(pn2 2 · · · pnν ν ))
+                                         n1 ≤τ1             n1 ≤τ1       n2 ≤τ2                  nν ≤τν
+                                     n                  n
+                                  a(p1 1 )≡0 (mod ℓ) a(p1 1 )6≡0 (mod ℓ)
+
+
+   By induction hypothesis, the second term on the right hand side of the above equation
+is
+P  bounded   by τ1 τ2 · · · τν ℓ−δ , for some δ > 0 depending on ε. On the other hand, note that
+       n1 ≤τ1    1 counts the number of solutions of the congruence
+        n
+     a(p1 1 )≡0 (mod ℓ)
+
+                                             a(pn1 ) ≡ 0 (mod ℓ),                       n 1 ≤ τ1 .
+                         EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                          19
+
+Writing it as exponential sum we get
+                                X                          ℓ−1
+                                                 1X X
+                                              1=       eℓ (x(a(pn1 1 )))
+                                                 ℓ x=0
+                           n1 ≤τ1                                n1 ≤τ1
+                       n
+                    a(p1 1 )≡0 (mod ℓ)
+                                                                                                       
+                                                       τ1                       X
+                                                   =      + O max∗                    eℓ (x(a(pn1 1 )))  .
+                                                        ℓ      x∈Fℓ
+                                                                              n1 ≤τ1
+
+  We can bound the error term by Theorem 2 and without loss of generality assuming
+δ < 1, we get the sum above is simply τℓ1 + O(τ1 ℓ−δ ). This is further bounded by 2τ1 ℓ−δ ,
+because the explicit constant in Theorem 2 is exactly 1. Therefore,
+                                                    
+                       |Sν (ξ)| ≤ τ2 · · · τv 2τ1 ℓ−δ + τ1 τ2 · · · τν ℓ−δ ,
+for some δ = δ(ε) > 0. This shows that the inequality
+                                    X              X
+                        max∗                ···            eℓ (ξa(pn1 1 · · · pnν ν )) ≤ 3τ1 · · · τν ℓ−δ
+                         ξ∈Fℓ
+                                   n1 ≤τ1         nν ≤τν
+
+holds for almost all prime ℓ and this completes the proof because we can remove the extra
+factor 3 by taking large enough ℓ’s.                                                   
+
+         4. Exponential sums for modular forms : beyond eigenforms
+  We shall now prove Theorem 3. Write
+                                                                   r
+                                                                   X
+                                                           n
+                                                   af (p ) =              ai afi (pn ),
+                                                                   i=1
+
+for some ai ∈ Q, where fi ’s are newforms with rational coefficients. Let ω (i,p) to be the
+characteristic polynomial of afi (pn ) and Di (p) to be its discriminant.
+   Consider                                                       
+                                            Di (p)
+                         S1 = ℓ prime |              = 1, ∀1 ≤ i ≤ r. .
+                                              ℓ
+It is clear that Q
+                 S1 has positive density. One can verify this by considering
+                                                                            primes2 congruent
+                   r                                                    −1
+to
+ 1 modulo    8 i=1 Di (p). This works well because, we then have ℓ = 1, ℓ = 1 and
+     ℓ
+ odd(Di (p))   = 1, ∀1 ≤ i ≤ r, where odd(.) denotes odd part of the corresponding number.
+These conditions altogether implies ℓ ∈ S1 . Let α(i,p) and β (i,p) be the roots of ω (i,p) . So
+for any ℓ ∈ S1 , we can write
+                                          Y          (i,p)
+                                                            
+                                                                    (i,p)
+                                                                          
+                    ω (i,p) (x) (mod ℓ) =      x − αℓ         x − βℓ        ,
+                                                               1≤i≤r
+                (i,p)      (j,p)
+where all of αℓ          ’s are all in Fℓ . Now, we consider the set of primes
+                        , βℓ
+                       n                                                      o
+                   S2 = p | α(i,p) (β (j,p) )−1 are not root of unity, ∀ i, j
+                         n                                                      o
+                       ∪ p | α(i,p) (α(j,p) )−1 are not root of unity, ∀i 6= j .
+20                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Lemma 10. For any prime p ∈ S2 , the following inequalities are true for π(y) + O(y 2ε )
+many primes ℓ ≤ y.
+               (i,p)     (j,p)                                (i,p)                      (j,p)
+     (1) ord (αℓ (βℓ )−1 ) > ℓε , ord (αℓ ) > ℓε and ord (βℓ                                     ) > ℓε , for all 1 ≤ i, j ≤
+         r, and
+                (i,p) (j,p)
+     (2) ord (αℓ (αℓ )−1 ) > ℓε , for all 1 ≤ i 6= j ≤ r,
+Proof. It is enough to    prove the result only for i, j ∈ {1, 2}. Consider the Galois extension
+K=Q α      (1,p) ,α(2,p)  . Let L be a prime ideal lying over ℓ in OK . It is clear that
+               (1,p)      (2,p)       (1,p)      (2,p)
+(32)        {αℓ        , αℓ       , βℓ        , βℓ       } = {α(1,p) , α(2,p) , β (1,p) , β (2,p) } (mod L),
+   because both of these sets serve as a set of roots of the equation ω(x) (mod ℓ) and
+ω(x) (mod L) respectively. Note that ω(x) (mod L) coincides with ω(x) (mod ℓ). It follows
+from (32) that the right hand side does not depend on the choice of prime L lying over ℓ,
+so there is no problem in working with a fixed L lying over ℓ. It is now clear that,
+              n              o          n                   o
+                 (i,p) (j,p)
+                αℓ (βℓ )−1            = α(i,p) (β (j,p) )−1          (mod L).
+                                              1≤i,j≤2                                1≤i,j≤2
+                                                                            
+Consider R(T ) = Res (ω1 (x), gT (x)) , where ω1 (x) = x − α(1,p) x − β (1,p) and
+                                  Y                            
+                       gT (x) =         xt − α(2,p)t xt − β (2,p)t .
+                                                 t≤T
+
+It is clear that R(T ) 6= 0 for any T ∈ N as p ∈ S2 by assumption. Now consider the set of
+primes,
+          n                                                                    o
+                    (i,p) (j,p)            (i,p) (j,p)
+(33)       ℓ | ord αℓ (βℓ )−1 , ord αℓ (αℓ )−1 ≤ T for some i 6= j ∈ {1, 2} .
+
+For any prime ℓ in the set above, and for any prime L in OK lying over ℓ, ω1 (x) (mod L)
+and gT (x) (mod L) have a common root, Therefore, R(T ) (mod L) = 0. Since both ω1 and
+gT (x) are in Z[x], it is clear that R(T ) ∈ Z, and so R(T ) (mod ℓ) = 0 as well. Now one
+can estimate the number of prime divisors of R(T ) similarly as in Lemma 7. This shows
+that                                                              
+                         (i,p) (j,p)                    (i,p) (j,p)
+                 ord αℓ (βℓ )−1 > ℓε , and ord αℓ (αℓ )−1 > ℓε
+holds for all i 6= j ∈ {1, 2}, and π(y) + O(y 2ε ) many primes ℓ ≤ y. Rest of the cases can
+be dealt using Lemma 7.                                                                   
+
+4.1. GST: Beyond Sato-Tate. We shall now give a short overview of Sato-Tate dis-
+tribution. When f is a newform without CM , then Sato-Tate conjecture says that the
+normalized coefficients a(p)
+                         k−1 are equidistributed in [−1, 1] with respect to the measure
+                                 2p   2
+                                                                      Z
+                                                         2
+                                               µnon−CM =                  sin2 (θ) dθ.
+                                                         π
+On the other hand, if f is with CM , then the corresponding Sato-Tate distribution is
+                                     Z                 Z
+                                  1        dx        1
+                           µCM =        √        =       1 dθ,
+                                 2π       1 − x2    2π
+                      EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                              21
+
+on [0, π] − { π2 }. Moreover at θp = π2 , a(p) becomes zero and it is known that the set of
+such primes p have density exactly 12 . Now consider the L-function defined by
+                                                 m
+                                                YY
+                                     m
+                                                                              −1
+                         L(s, Sym f ) =                   1 − αip βpm−i p−s         ,
+                                                p∤N i=0
+
+                                                               ep , βep be the roots of (27),
+where αp , βp are normalized roots of (27). In other words, if α
+                          α
+                          ep              e
+                                          βp
+then we define αp =       k−1   , βp =    k−1   . Serre in [22] showed that if for all integer m ≥
+                         p 2             p 2
+0, L(s, Symm (f )) extends analytically to Re(s) ≥ 1 and does not vanish there, then the
+Sato–Tate conjecture holds true for f. Note that Barnet-Lamb et al. have proved the
+conjecture in [1] working with this L-function.
+   However, in the next lemma we will have more than one newform to play with, and it
+will be helpful to have their distributions independent. We are stating this indepen-
+dency as Generalized Sato-Tate (GST) hypothesis. It can be shown that if we have
+newforms f1 , f2 , · · · , fr , then their Sato-Tate distributions are independent to each other
+provided that the Rankin-Selberg L-function (see [23] for a definition)
+                                  L(s, Symm1 f1 ⊗ · · · Symmr fr )
+extends to Re(s) ≥ 1 and does not vanish for all non negative integers m1 , · · · , mr . If one
+of the fi is with CM, then we know due to Ribet [20] that L-function of fi comes from
+L-function associated to a Hecke character. Now suppose that at most one of the fi is
+without CM , say f1 . Then without loss of generality we can write
+     L (s, Symm1 f1 ⊗ · · · Symmr fr ) = L (s, Symm1 f1 ⊗ Symm2 ψ2 ⊗ · · · ⊗ Symmr ψr ) ,
+where ψi ’s are the corresponding Hecke characters. It follows from [1, Theorem B.3] that for
+any odd m, there exists a Galois extension K over Q such that the base change Symm f1 |K
+is automorphic. Following the arguments given on the page 643 of [19] one can write,
+           L (s, Symm1 f1 ⊗ Symm2 ψ2 ⊗ · · · ⊗ Symmr ψr ) =
+                 Y
+              =     (L(s, (Symmi f1 )|K Hi ⊗ χi ⊗ Symm2 ψ2 ⊗ · · · ⊗ Symmr ψr )ai ,
+                  i
+
+where Hi ’s are nilpotent subgroups of Gal (K/Q) and ai ’s are integers. In particular, we
+now have a meromorphic continuation to Re(s) ≥ 1. It is known that any automorohic
+L-function is non vanishing on Re(s) = 1, in particular we now have the desired analytic
+continuation to Re(s) ≥ 1 for any odd m1 . Now if m1 is even, we argue inductively as
+in [19]. The point is, similar to [19, pages 643 − 644], we need to study non vanishing of a
+Rankin-Selberg L-function on Re(s) = 1, which can be done by using Shahidi’s result on
+Rankin-Selberg L-function. See (e) at page 418 of [23].
+   In particular, when there is at most one component without CM, then their corre-
+sponding Sato-Tate distributions are independent to each other. In other words, the GST
+hypothesis is true in this particular case.
+Lemma 11. Suppose that there are r1 many components without CM and r2 many com-
+ponents with CM in f. Then under the GST hypothesis, density of S2 is 2−r2 .
+22                   JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Proof. We start by writing
+                                       k−1                           k−1
+                         α(j,p) = p 2 eiθj,p , β (j,p) = p 2 e−iθj,p , ∀1 ≤ j ≤ r.
+So, the problem reduced to study the set of primes
+(34)                         {p | θi,p ± θj,p ∈ Q × π, for some 1 ≤ i, j ≤ r} .
+  It follows from the discussion above that the density of this set is bounded by
+             r 1  r 2 Z         Z
+              2       1
+(35)                           · · · sin2 (θ1 ) sin2 (θ2 ) · · · sin2 (θr1 ) dθ1 dθ2 · · · dθr ,
+              π      2π
+                                        S
+
+where S = {(θ1 , θ2 , · · · , θr ) ∈ [0, π]r | θi ± θj ∈ Q × π for some 1 ≤ i, j ≤ r} . Just for the
+sake of simplicity and to have a feel of what is going on, let us first do the case when there
+is only one component.
+                                                                                                       (1,p) −(1,p)
+Case 1, r = 1 : suppose that the given component is without CM. If αp βp              is a
+root of unity then this implies that θ1,p ∈ π × Q. By Sato-Tate, density of such primes is
+bounded by                          Z
+                                     2
+                                               sin2 (θ) dθ.
+                                    π
+                                                      θ∈π×Q
+Since the integral above runs over a set of measure zero, the integral is zero, and this
+particular case density of S2 is indeed 1. Now suppose the given component is with CM .
+In this case, the density of S2 is
+                                      Z
+                                 1                         1
+                                              sin2 (θ) dθ = .
+                                2π                         2
+                                                 θ∈[0,π]\π×Q
+
+Case 2, r ≥ 2 : for this general case, it is enough to show that the integral over S at (35)
+is zero. This is because, due to GST, we are now working with the measure
+             r 1  r 2 Z             Z
+              2         1
+(36)                               · · · sin2 (θ1 ) sin2 (θ2 ) · · · sin2 (θr1 ) dθ1 dθ2 · · · dθr ,
+              π        2π
+                                                                     r                          S
+and with respect to this measure, [0, π]r has measure 12 2 . We can write S = 1≤i,j≤r Si,j
+where the set Si,j is defined to be the tuples for which θi ± θj ∈ Q × π. It is now enough
+to show thatRR each of Si,j ’s have zero measure. Note that, the integral over Si,j is crudely
+bounded by       1 dθi dθj . It is evident that
+              Si,j
+                      ZZ                         ZZ                           ZZ
+                             1 dθi dθj =                    1 dθi dθj +                  1 dθi dθj ,
+                      Si,j                    θi +θj ∈Q×π                  θi −θj ∈Q×π
+
+as Q × Q has zero measure. We now note that,
+                                  ZZ                         Zπ Zb
+(37)                                          1 dθi dθj ≤             1 dt dθ ≪ |b − a|,
+                              θi −θj ∈(a,b)                  0   a
+                       EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                 23
+
+for any b > a. In particular, for any ε > 0,
+                                 ZZ                ∞
+                                                   X  ε
+                                       1 dθi dθj ≪      = ε.
+                                                     2k
+                                  θi −θj ∈Q×π             k=1
+
+The last implication above follows from the standard argument to show a countable set
+always has zero measure. In particular, the second integral of (37) is zero. On the other
+hand, just by replacing θj with π − θj , we get
+                            ZZ                  ZZ
+                                  dθi dθj = −         1 dθi dθj .
+                           θi +θj ∈Q×π                θi −θj ∈Q×π
+
+This just shows that the integral over Si,j at (37) is zero, which completes the proof.
+                                                                                                    
+
+4.2. Proof of Theorem 3. Let p ∈ S2 be a prime, then we can write
+              Xr                        r
+                                        X                                   
+                                           (ℓ)
+                 ai afi (pn ) (mod ℓ) =   ai c(i,ℓ )αn(i,ℓ) + d(i,ℓ) β n(i,ℓ) ,
+                 i=1                            i=1
+         (ℓ)
+where ai , c(i,ℓ) and d(i,ℓ) are all in Fℓ . On the other hand all α(i,ℓ) and β (i,ℓ) ’s are in Fℓ , as
+ℓ ∈ S1 . The proof now follows by [2, Corollary] joint with Lemma 10 and Lemma 11. 
+
+           5. Exponential sums for modular forms : the inverse case
+  One may now ask that for a given prime ℓ and small enough ε, how many primes p
+are there for which an estimate like (7) holds. Our attempt to answer this question is
+summarized in the form of Theorem 4 and Theorem 5. Let us begin with the proof of
+Theorem 4.
+
+5.1. Proof of Theorem 4. For any prime p, let us denote the roots of x2 − a(p)x + pk−1
+             (ℓ) (ℓ)
+(mod ℓ) by αp , βp . Recall that from Deligne-Serre correspondence, we have the associated
+Galois representation
+                               (ℓ)           
+                              ρf : Gal Q/Q −→ GL2 (Zℓ ) ,
+                                  
+                        (ℓ)
+such that a(p) = tr ρf (Frobp ) for any prime p ∤ N ℓ. It is clear that the charac-
+                            (ℓ)
+teristic polynomial of ρf (Frobp ) (mod ℓ) is same as x2 − a(p)x + pk−1 (mod ℓ). Fol-
+lowing
+        Ribet [21, Theorem 3.1], it is known that the image of this representation is
+  A ∈ GL2 (Zℓ ) | det(A) ∈ (Z∗ℓ )k−1 , except possibly for finitely many primes ℓ. In par-
+ticular, the condition (k − 1, ℓ − 1) = 1 implies that the induced Galois representation
+                                              
+                                ρf,ℓ : Gal Q/Q −→ GL2 (Fℓ ) ,
+is surjective for any large prime ℓ, and the eigenvalues of the matrix ρf,ℓ (Frobp ) ∈ GL2 (Fℓ )
+      (ℓ)       (ℓ)
+are αp and βp . From the proof of Theorem 2, we know that an estimate of type (7) holds
+provided that,
+                 ord (α(ℓ)    ε        (ℓ)    ε            (ℓ) (ℓ) −1   ε
+                       p ) > ℓ , ord (βp ) > ℓ , and ord (αp (βp ) ) > ℓ .
+24                   JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+     Let us define,
+                   n                                                               o
+             C = A ∈ GL2 (Z/ℓZ) | ord (λ1,A ), ord (λ2,A ), ord (λ1,A λ−1
+                                                                       2,A ) > ℓ ε
+                                                                                     ,
+
+where λ1,A , λ2,A are the eigenvalues of A in Fℓ2 . Now the problem is about computing
+the density of primes p for which the corresponding ρf,ℓ (Frobp ) is in C. Note that C is a
+subset of GL2 (Fℓ ) stable under conjugation. Hence, by Chebotarev’s density theorem, the
+required density is at least |GL|C|
+                                  2 (Fℓ )|
+                                           . For each a 6= b ∈ F∗ℓ , let Ca,b be the conjugacy class
+        
+of a0 0b . It is known that |Ca,b | = (ℓ + 1)ℓ. For any element λ in Fℓ2 \ Fℓ , we denote cλ
+to be the conjugacy class of matrices in GL2 (Fℓ ) having eigenvalue λ. It is known that
+|Cλ | = ℓ(ℓ − 1). Now, we consider the following sets:
+                    
+                S1 = a, b ∈ F∗ℓ | ord (a) > ℓε , ord (b) > ℓε , ord (ab−1 ) > ℓε ,
+                    n                                                               o
+                S2 = λ ∈ F∗ℓ2 \ F∗ℓ | ord (λ) = ord (λℓ ) > ℓε , ord (λℓ−1 ) > ℓε ,
+
+and realize that |C| = 12 ((ℓ + 1)ℓ|S1 | + ℓ(ℓ − 1)|S2 |). This boils down to the problem of
+estimating S1 and S2 . Let us first estimate S1 . For any divisor d of ℓ − 1, the set of all
+                                                            ℓ−1
+elements of F∗ℓ having order exactly d is of the form σ d i with (i, d) = 1. In particular,
+the number of elements of F∗ℓ with order greater than ℓε is given by
+                                          
+              X                   X                                        
+                     φ(d) = ℓ + O 
+                                    φ(d)           ε                    2ε
+                                          = ℓ + O (ℓ d(ℓ − 1)) = ℓ + Oε ℓ ,
+             d|ℓ−1                   d|ℓ−1
+             d>ℓε                    d<ℓε
+
+where d(·) is the divisor function, and here we are using the well known upper bound   on
+divisor function (see [18]) for any large enough prime ℓ. Now note that ord ab−1 < ℓε
+                                                    P
+implies that ab−1 belongs to a set with only           k|ℓ−1,k<ℓε φ(k) many elements. By the
+                                           2ε
+                                              
+argument above, this set has only Oε ℓ          many elements. This observation implies that
+               
+              | a, b ∈ F∗ℓ | ord (a), ord (b), or ord (ab−1 ) < ℓε | = Oε (ℓ2ε+1 ).
+In particular, we then have |S1 | = ℓ2 + Oε (ℓ2ε+1 ).
+   Let us now estimate |S2 |. Take τ to be a generator of F∗ℓ , then any λ ∈ S2 is of the form
+ ℓ2 −1
+τ d i , with (i, d) = 1. Moreover, we also have an order restriction on λℓ−1 , which implies
+        d
+that (d,ℓ−1) > ℓε . Hence,
+                               X                     X             
+                                              2
+                       |S2 | =        φ(d) = ℓ + O              φ(d) .
+                                   d|ℓ2 −1                   d|ℓ2 −1
+                                    d                         d
+                                 (d,ℓ−1)
+                                         >ℓε               (d,ℓ−1)
+                                                                   <ℓε
+
+                            d
+Note that, the condition (d,ℓ−1) < ℓε implies that d < ℓε+1 . Therefore,
+                         X                                        
+                                 φ(d) ≤ ℓε+1 d(ℓ2 − 1) = Oε ℓ1+3ε .
+                             d|ℓ2 −1
+                              d
+                           (d,ℓ−1)
+                                   <ℓε
+                                 EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                                        25
+
+   Therefore, the required density is at least
+                                                                                                                            
+                     1             |S1 |     1            |S2 |                                                       1
+                       (ℓ − 1)ℓ             + (ℓ + 1)ℓ              = 1 + Oε                                                     .
+                     2          |GL2 (Fℓ ) | 2         |GL2 (Fℓ ) |                                                  ℓ1−3ε
+                                                                                                                                     
+                                                                                   
+5.2. Proof of Theorem 5. Let ρf,ℓ : Gal Q/Q → GL2r (Fℓ ) be the map defined by
+                              ρf (σ)              
+                                                               1,ℓ
+
+                                                                        ρf2,ℓ (σ)                          
+                                          σ 7→                                       ..                    .
+                                                                                           .
+                                                                                               ρfr ,ℓ (σ)
+
+It is clear that the image of this representation is contained in ∆r (ℓ), where
+                        ( g1          !                                     )
+                                           g2
+                     ∆r (ℓ) =                   ..                | det(g1 ) = det(g2 ) = · · · = det(gr ) .
+                                                     .
+                                                         gr
+                                                                                               (k−1)                  (k−1)
+It is in fact the case that the image is contained in ∆r   (ℓ), where ∆r    (ℓ) denotes the
+                                                                         th
+set of matrices in ∆r (ℓ) in which determinant of each block is a (k − 1) power in F∗ℓ . Due
+to [21, Theorem 3.1], we may assume that for any large enough prime ℓ, image of each ρfi,ℓ
+       (k−1)
+is ∆1     (ℓ), which also coincides with the set of matrices in GL2 (Fℓ ) whose determinant is
+                                                                   (k−1)
+a (k − 1, ℓ − 1)th power in F∗ℓ . If image of ρf,ℓ is not exactly ∆r        then by [17, Lemma
+                                                                         (ℓ),
+5.1] we get a set of quadratic characters {χi,j,ℓ }1≤i,j≤r of Gal Q/Q such that
+                  ρfi ,ℓ (Frobp ) is conjugate to χi,j,ℓ (Frobp ) ρfj ,ℓ (Frobp ) in GL2 (Fℓ ),
+for all 1 ≤ i, j ≤ r. In particular, ai (p) = ±aj (p) (mod ℓ), for all 1 ≤ i, j ≤ r, and any
+                                   (i,p)    (i,p)      (j,p)     (j,p)
+prime p ∤ N ℓ. This implies αℓ           + βℓ     = ±(αℓ     + βℓ ). Moreover, we also know
+  (i,p) (i,p)    (j,p) (j,p)
+αℓ βℓ         = αℓ βℓ        = pk−1 (mod ℓ). In particular, this means
+                  (i,p)      (i,p)          (j,p)             (j,p)
+(38)           {αℓ        , βℓ       } = ±{αℓ        , βℓ             }, ∀1 ≤ i, j ≤ r, and for any prime p ∤ N ℓ.
+   Due to the assumption regarding GST, for a positive density of primes p, none of the
+{α(i,p) β −(j,p) }1≤i,j≤2 or ±{α(i,p) , α−(j,p) }1≤i6=j≤2 is a root of unity. For those primes p,
+following the arguments in the proof of Lemma 10, and considering the set at (33), each
+                           (i,p) −(j,p)
+element of the set {αℓ βℓ               }1≤i,j≤2 have order larger than 4 except for finitely many
+primes ℓ. We then have a contradiction to (38), and hence we may assume the image of
+                    (k−1)
+ρf,ℓ is indeed ∆r         (ℓ) for any large enough prime ℓ.
+                                                                        |Crk−1 (ℓ)|
+   Hence the required density is at least                                (k−1)          , where Crk−1 (ℓ) is the conjugacy classes
+                                                                       |∆r       (ℓ)|
+                             (k−1)
+of elements in ∆r         (ℓ) whose eigenvalues satisfy the conditions of Theorem 1. Note
+that any tuple (a1 , a2 , · · · , a2r ) ∈ (F∗ℓ )2r with ord (ai ) > ℓε , ord (ai a−1     ε
+                                                                                  j ) > ℓ , ∀i 6= j and
+                                                   Q
+ai ai+1 = aj aj+1 , ∀i, j odd, satisfies that i, odd Cai ,ai+1 ⊆ Crk−1 (ℓ). We call these tuples
+nice and we want to count them. First of all note that,
+                                                                                                                   (ℓ − 1)r+1
+               {(a1 , a2 , · · · , a2r ) ∈ (F∗ℓ )2r | ai ai+1 = aj aj+1 , ∀i, j odd} =                                          .
+                                                                                                                 (ℓ − 1, k − 1)
+26               JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+On the other hand, for any (k − 1)th power λ in F∗ℓ , note that ab = λ and ord (ab−1 ) < ℓε
+implies ord (a2 λ−1 ) < ℓε . From the proof of Theorem 4, for a fixed λ the number of such
+a is Oε (ℓ2ε ). Moreover, ord (a) < ℓε or ord (b) < ℓε holds for only Oε (ℓ2ε ) many a or b’s.
+In particular, the number of tuples that does not come into our consideration are
+                            X                                           
+                                          r−1+2ε              ℓr+2ε
+                                    Oε (ℓ        ) = Oε                    .
+                             th
+                                                          (k − 1, ℓ − 1)
+                     λ, (k−1)      power
+
+In particular, we then have
+                                                                        !
+                                    X               Y
+(39)         |Crk−1 (ℓ)| ≥                                   |Cai ,ai+1 |
+                             (a1 ,a2 ,··· ,ar ) nice i odd
+                                              r                              
+                                ℓ(ℓ + 1)      (ℓ − 1)r+1              ℓr+2ε
+                             =                             + Oε                     .
+                                    2       (ℓ − 1, k − 1)        (k − 1, ℓ − 1)
+                              r
+The extra factor ℓ(ℓ+1)      2    is coming because each conjugacy class Cai,i+1 has ℓ(ℓ + 1)
+many elements and taking into consideration that Cai ,ai+1 = Cai+1 ,ai , ∀i odd, the extra
+                                                                                      (k−1)
+factor 21 is coming for each component. The proof is now complete because |∆r               (ℓ)| =
+             r
+  |GL2 (Fℓ )|       ℓ−1
+    ℓ−1          (ℓ−1,k−1) .                                                                     
+
+
+                             6. Impact on Waring-type problems
+   Given a sequence of integers {xn } one of the classical questions in additive number
+theory consists of deciding whether {xn } is an additive basis in Z or over finite fields.
+More precisely, is there an absolute constant k ≥ 1 such that any residue class λ modulo
+ℓ can be represented as
+                                     xn1 + · · · + xnk ≡ λ (mod ℓ),
+for infinitely many primes ℓ? For instance, it is easy to see that the Fibonacci sequence
+
+                         Fn+2 = Fn+1 + Fn ,              with F0 = 0, F1 = 1,
+
+is not an additive basis in Z, however the third author proved in [10, Theorem 2.2], that
+given a parameter N → ∞, for π(N )(1 + o(1)) primes ℓ ≤ N, every residue class modulo
+ℓ can be written as
+                                    Fn1 + · · · + Fn16 ≡ λ (mod ℓ),
+provided that n1 , . . . , n16 ≤ N 1/2+o(1) . The method is based on distribution properties of
+sparse sequences for almost all primes and particular identities of Lucas sequence. It does
+not seem easy to extend such ideas for general linear recurrence sequences.
+   In the present section we combine Theorem 1 with classical analytical tools to prove
+that a linear recurrence sequence {sn } is an additive basis over prime fields, under some
+assumptions. Moreover, we discuss about the advantages of getting nontrivial exponential
+sums to prove it.
+                   EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                        27
+
+6.1. Waring-type problems with linear recurrence sequences. Let {sn } be a nonzero
+linear recurrence sequence modulo ℓ as in (2) with order r, (a0 , ℓ) = 1 and period τ . Given
+an integer k ≥ 2, for any residue class λ modulo ℓ we denote by Tk (λ) the number of
+solutions of the congruence
+                 sn1 + · · · + snk ≡ λ (mod ℓ),                     with 1 ≤ n1 , . . . , nk ≤ τ.
+Then writing Tk (λ) in terms of exponential sums we get
+                                   ℓ−1
+                                  1X X     X
+                  Tk (λ) =             ···   eℓ (ξ(sn1 + · · · + snk − λ)) .
+                                  ℓ
+                                   ξ=0 n1 ≤τ          nk ≤τ
+
+Taking away the term ξ = 0 and using triangle inequality it is clear that
+                                          ℓ−1
+                             τk 1 X X     X
+                Tk (λ) =        +     ···   eℓ (ξ(sn1 + · · · + snk − λ))
+                              ℓ   ℓ
+                                          ξ=1 n1 ≤τ         nk ≤τ
+                                          ℓ−1
+                                       ′′ X       X             X
+                             τk θ
+                         =      +                         ···           eℓ (ξ(sn1 + · · · + snk ))
+                              ℓ   ℓ
+                                           ξ=1 n1 ≤τ            nk ≤τ
+                                                                                                
+                                         ℓ−1
+                             τk       θ′ X      
+                                                    X                            X
+                         =        +                         eℓ (ξsn1 ) · · ·            ep (ξsnk ) 
+                              ℓ       ℓ
+                                          ξ=1       n1 ≤τ                       nk ≤τ
+                                                                        k
+                             τk           X
+(40)                     =      + θ max∗   eℓ (ξsn )  ,
+                              ℓ      ξ∈Fℓ
+                                                    n≤τ
+
+where θ, θ ′ and θ ′′ are complex numbers with |θ|, |θ ′ |, |θ ′′ | ≤ 1. Assume that we have an
+exponential sum bound of the type
+
+                                                    X
+(41)                                       max∗           eℓ (ξsn ) ≤ R .
+                                           ξ∈Fℓ
+                                                    n≤τ
+
+Then, combining (40) and (41) we get
+                                          τk         τk                
+                             Tk (λ) =        + θRk =     1 + θ (R/τ )k ℓ .
+                                           ℓ          ℓ
+Now, if (R/τ )k ℓ goes to zero as ℓ → ∞, we obtain an effective asymptotic formula for
+Tk (λ). In particular Tk > 0 for ℓ large enough. For instance, if τ ≥ ℓr/2+ε we employ
+Korobov’s bound (3) with R = ℓr/2 to get
+                                   τk                     τk           
+                     Tk (λ) =           1 + θ(ℓr/2 /τ )k ℓ =    1 + θℓ1−kε ,
+                                    ℓ                        ℓ
+                     k
+therefore Tk (λ) = τℓ (1 + o(1)) for k > 1/ε in the range τ ≥ ℓr/2+ε . If the characteristic
+polynomial ω(x) of {sn } is irreducible with deg(ω) ≥ 2 and the least period τ satisfies
+28                   JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+gcd(τ, ℓd − 1) < τ ℓ−ε for any divisor d < r of r, then by Corollary 6 we choose R = τ ℓ−δ
+for some positive δ = δ(ε), to get
+                             τk                      τk              
+                    Tk (λ) =      1 + θ(τ ℓ−δ /τ )k ℓ =    1 + θ(ℓ1−kδ ) .
+                              ℓ                          ℓ
+Thus, Tk (λ) > 0 when k > 1/δ and maxd<r gcd(τ, ℓ − 1) < τ ℓ−ε . In particular, we now
+                                                        d
+                                                 d|r
+need τ > pr/p(r)+ε , where p(r) is the least prime factor of r. Let us summarize the above
+discussion in the form of following corollary.
+Corollary 12. Let ℓ be a prime number, ε > 0 and {sn } be a linear recurrence sequence
+of order r ≥ 2 in Fℓ . If the characteristic polynomial ω(x) in Fℓ [x] is irreducible with
+(ω(0), ℓ) = 1, and the least period τ satisfies
+                                       max(τ, ℓd − 1) < τ ℓ−ε ,
+                                       d<r
+                                       d|r
+
+then there exists an integer k0 > 0 such that for any k ≥ k0 and every integer λ, if Tk (λ)
+denotes the number of solutions of the congruence
+                     sn1 + · · · + snk ≡ λ (mod ℓ),       with   1 ≤ n1 , . . . , nk ≤ τ,
+                τk
+then Tk (λ) = ℓ (1 + o(1)).
+     In particular, we can now extract out the following
+Corollary 13. Let {sn } be a linear recurrence sequence in Z, whose characteristic polyno-
+mial ω(x) ∈ Z[x] is monic, separable, irreducible, and having prime degree. Then for a set
+of primes ℓ with positive density, the sequence {sn } is an additive basis modulo ℓ.
+Proof. We start with writing Qf to be the splitting field of f and Gf be Gal (Qf /Q) . It is
+clear that deg(ω) | |Gf | and Gf is contained in the symmetric group Sdeg(ω) . In particular
+there is a deg(ω)-cycle in Gf because deg(ω) is prime. By Chebotarev’s density theorem,
+(see [27] for instance) the set of such primes ℓ for which ω(x) (mod ℓ) is irreducible, have
+positive density.
+   Writing
+                                          deg(ω)−1
+                                             Y            i
+                                   ω(x) =          (x − αℓ ) ,
+                                                 i=0
+                       2       deg(ω)−1
+we get ω(0) = (−α)1+ℓ+ℓ +···+ℓ          . We can make (ω(0), ℓ) = 1, for all but finitely many
+ℓ’s. We now need to verify the condition of Corollary 6 for d = 1 because the Galois group
+                                                   ord α
+has prime degree. We have gcd(ord α, ℓ − 1) = ord    αℓ−1
+                                                          . Fix any 0 < ε < 1/2, and now the
+                           ℓ−1
+                                   ε
+proof is complete if ord α       > ℓ holds for almost all primes ℓ. Note that
+                                            r−1
+                                                    !t
+                                            Y i
+                  α(ℓ−1)t = 1 =⇒ αrt =          αℓ       =⇒ α2rt = ω(0)2t .
+                                                  i=0
+                                            Q                         
+We now consider R(T ) = Res ω(x), t≤T                  x2rt − ω(0)2t
+                                                              , and counting the number of
+distinct prime factors of the resultant as in the proof of Lemma 7, we see that there exists
+                     EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                               29
+
+a δ such that
+                                           X
+                                    max∗         eℓ (ξsn ) ≤ τ ℓ−δ
+                                    ξ∈Fℓ
+                                           n≤τ
+                      1
+holds, for at least deg(ω) π(y) + O(y 2ε ) many primes ℓ ≤ y. Once we have the estimate as
+above, the proof follows immediately following the discussion in the previous page.     
+
+6.2. Waring-type problems for modular forms. Let us recall our discussion from the
+introduction on Waring problem for modular forms. In this section, we are assuming the
+modular form is a newform without CM . Fix any 0 < ε < 12 , say ε = 31 . Then taking
+δ := δ(ε) as in Theorem 2, the following estimate
+
+                                         X
+                                  max∗         eℓ (ξa(pn )) ≤ τ ℓ−δ ,
+                                  ξ∈Fℓ
+                                         n≤τ
+
+holds for almost all primes p and ℓ. The discussion in Section 6.1 shows that Ts (λ) > 0 for
+any λ ∈ Fℓ , and s > 1/δ, where Ts (λ) is the number of solutions of the congruence
+                a(pn1 ) + · · · + a(pns ) ≡ λ (mod ℓ),     with 1 ≤ n1 , . . . , ns ≤ τ.
+Moreover, this s does not depend on the choice of the eigenform because δ does not. More
+precisely, we have the following result.
+Corollary 14. Let f be a newform without CM and with rational Fourier coefficients. We
+say, a proposition Qf (p, ℓ, s) is true if and only if, any element of Fℓ can be written as
+a sum of at most s elements of the set {a(pn )}n≥0 . Then there is an absolute constant s0
+such that Qf (p, ℓ, s0 ) is true for almost all primes p and ℓ. Moreover, s0 does not depend
+on the choice of f.
+   Moreover, it follows from Theorem 4 that
+Corollary 15. Suppose the newform is without CM and with integer Fourier coefficients.
+Then there exists an absolute constant s0 such that, for any large prime ℓ satisfying the
+coprimality condition (ℓ − 1, k − 1) = 1, the proposition Qf (p, ℓ, s0 ) is true for a set of
+primes p with density at least 1 + O       √1      . Moreover, s0 does not depend on the choice of
+                                             ℓ
+f.
+6.3. Bound of non-linearity of a linear recurrence sequence. Let {sn } be a linear
+recurrence sequence modulo ℓ as in (2) with order r, (a0 , ℓ) = 1 and period τ . For 0 ≤ b ≤
+ℓr − 1, let us define the sum
+                                       X
+                              W (b) =      eℓ (sn + hb, ni) ,
+                                               n≤τ
+
+where hb, ni denotes the inner product hb, ni = b0 n0 + · · · + br−1 nr−1 assuming that 0 ≤
+b, n ≤ ℓr − 1 are written in its ℓ–ary expansion
+             b = b0 + b1 ℓ + · · · + br−1 ℓr−1 ,       n = n0 + n1 ℓ + · · · + nr−1 ℓr−1 .
+30                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+Bounds for W (b) have cryptographic significance, see [26] and references therein. Shpar-
+linski and Winterhof [26, Theorem 1] proved that
+                                     max       |W (b)| ≪ τ 3/4 r 1/4 ℓr/8 ,
+                                   0≤b≤ℓr −1
+
+whenever the characteristic polynomial of {sn } is irreducible. Such bound is asymptotically
+effective if rℓr/2 /τ → 0. Combining Corollary 6 and the ideas of Shparlinski and Winterhof
+we are able to improve such bound for a large class of linear recurrence sequences in
+the range τ > ℓε . For example, assuming hypothesis of Corollary 6, if r is fixed then
+                 ′                                                                       ′
+|W (b)| ≪ τ ℓ−δ as ℓ → ∞ for some δ′ > 0. In general we get |W (b)| = o(τ ) if r log ℓ/ℓδ → 0
+as ℓ → ∞. More precisely
+Corollary 16. Let ℓ be a prime number, ε > 0 and {sn } be a linear recurrence sequence
+of order r ≥ 1. If the characteristic polynomial f (x) in Fℓ [x] is irreducible polynomial with
+(f (0), ℓ) = 1, and the least period τ satisfies
+                               τ > ℓε ,    and     max(τ, ℓd − 1) < τ ℓ−ε ,
+                                                    d<r
+                                                    d|r
+
+then there exists a δ = δ(ε) > 0 such that
+                      X                                                                         
+                                                     −δ/4           1/4        −δ/4          1/4
+            max             eℓ (sn + hb, ni) ≤ τ ℓ          (r log ℓ)      1+ℓ      (r log ℓ)      .
+          0≤b≤ℓr −1
+                      n≤τ
+
+Proof. The proof follows the same steps given by Shparlinski and Winterhof [26, Theorem
+1]. We just need to employ the bound given by Corollary 6 instead of Korobov’s bound. 
+Note. we have an improvement on the bound due to Shparlinski and Winterhof if
+                                          ℓr/2+δ
+                                                 τ≤
+                                                 .
+                                           log ℓ
+Clearly there are many such cases, for instance, one can consider any element in F∗ℓ of
+                     1
+order smaller than ℓ 2 .
+
+                                          Acknowledgements
+   Authors would like to thank Igor Shparlinski, through personal communications, and
+Will Sawin, through MathOverflow, for useful suggestions during the writing of the article.
+   In addition, authors would like to thank University of Göttingen, where most of the
+discussion and work took place, for its hospitality and extend their thanks to Harald
+Helfgott for the support and encouragement.
+   The work of the first author is supported by the ERC Consolidator grants 648329 and
+681207 and the second author is supported by the ERC Consolidator grant 648329.
+
+                                               References
+ [1] T. Barnet-Lamb, D. Geraghty, M. Harris, and R. Taylor. A family of Calabi-Yau varieties and potential
+     automorphy II. Publ. Res. Inst. Math. Sci., 47(1):29–98, 2011. 21
+ [2] J. Bourgain. Mordell’s exponential sum estimate revisited. J. Amer. Math. Soc., 18(2):477–499, 2005.
+     5, 15, 23
+                      EXPONENTIAL SUMS ASSOCIATED TO MODULAR FORMS                                       31
+
+ [3] J. Bourgain and M.-C. Chang. A Gauss sum estimate in arbitrary finite fields. C. R. Math. Acad. Sci.
+     Paris, 342(9):643–646, 2006. 8, 9, 10
+ [4] J. Bourgain, A. A. Glibichuk, and S. V. Konyagin. Estimates for the number of sums and products
+     and for exponential sums in fields of prime order. J. London Math. Soc. (2), 73(2):380–398, 2006. 14,
+     16
+ [5] F. Diamond and J. Shurman. A first course in modular forms, volume 228 of Graduate Texts in
+     Mathematics. Springer-Verlag, New York, 2005. 3, 6
+ [6] G. Everest, A. van der Poorten, I. Shparlinski, and T. Ward. Recurrence sequences, volume 104 of
+     Mathematical Surveys and Monographs. American Mathematical Society, Providence, RI, 2003. 4
+ [7] A. Ferraguti. Galois representation attached to type (1, χ) modular forms. 2011. 1
+ [8] M. Z. Garaev. Sums and products of sets and estimates for rational trigonometric sums in fields of
+     prime order. Uspekhi Mat. Nauk, 65(4(394)):5–66, 2010. 10
+ [9] M. Z. Garaev, V. K. Garsiya, and S. V. Konyagin. The Waring problem with Ramanujan’s τ -function.
+     Izv. Ross. Akad. Nauk Ser. Mat., 72(1):39–50, 2008. 2
+[10] V. C. García. On the distribution of sparse sequences in prime fields and applications. J. Théor.
+     Nombres Bordeaux, 25(2):317–329, 2013. 26
+[11] V. C. García and F. Nicolae. Additive bases with coefficients of newforms. Forum Math., 30(5):1079–
+     1087, 2018. 2
+[12] N. M. Katz. Gauss sums, Kloosterman sums, and monodromy groups, volume 116 of Annals of Math-
+     ematics Studies. Princeton University Press, Princeton, NJ, 1988. 4
+[13] N. M. Korobov. The distribution of non-residues and of primitive roots in recurrence series. Doklady
+     Akad. Nauk SSSR (N.S.), 88:603–606, 1953. 3
+[14] N. M. Korobov. Exponential sums and their applications, volume 80 of Mathematics and its Applica-
+     tions (Soviet Series). Kluwer Academic Publishers Group, Dordrecht, 1992. Translated from the 1989
+     Russian original by Yu. N. Shakhov. 3, 4
+[15] E.      Kowalski.     Exponential     sums     over      finite    fields:       elementary   methods.
+     https://people.math.ethz.ch/ kowalski/exp-sums.pdf, 2018. 7
+[16] R. Lidl and H. Niederreiter. Introduction to finite fields and their applications. Cambridge University
+     Press, Cambridge, 1986. 3, 8
+[17] D. W. Masser and G. Wüstholz. Galois properties of division fields of elliptic curves. Bull. London
+     Math. Soc., 25(3):247–254, 1993. 25
+[18] M. R. Murty. Problems in analytic number theory, volume 206 of Graduate Texts in Mathematics.
+     Springer, New York, second edition, 2008. Readings in Mathematics. 24
+[19] M. R. Murty and V. K. Murty. The Sato-Tate conjecture and generalizations. Math. Newsl., 19(Sp.
+     Number 1):247–257, 2010. 21
+[20] K. A. Ribet. Galois representations attached to eigenforms with Nebentypus. In Modular functions of
+     one variable, V (Proc. Second Internat. Conf., Univ. Bonn, Bonn, 1976), pages 17–51. Lecture Notes
+     in Math., Vol. 601, 1977. 21
+[21] K. A. Ribet. On l-adic representations attached to modular forms. II. Glasgow Math. J., 27:185–194,
+     1985. 23, 25
+[22] J.-P. Serre. Abelian l-adic representations and elliptic curves, volume 7 of Research Notes in Math-
+     ematics. A K Peters, Ltd., Wellesley, MA, 1998. With the collaboration of Willem Kuyk and John
+     Labute, Revised reprint of the 1968 original. 21
+[23] F. Shahidi. Automorphic L-functions: a survey. In Automorphic forms, Shimura varieties, and L-
+     functions, Vol. I (Ann Arbor, MI, 1988), volume 10 of Perspect. Math., pages 415–437. Academic
+     Press, Boston, MA, 1990. 21
+[24] I. E. Shparlinski. Bounds of Gauss sums in finite fields. Proc. Amer. Math. Soc., 132(10):2817–2824,
+     2004. 4, 5
+[25] I. E. Shparlinski. On the value set of the Ramanujan function. Arch. Math. (Basel), 85(6):508–513,
+     2005. 2
+[26] I. E. Shparlinski and A. Winterhof. On the nonlinearity of linear recurrence sequences. Appl. Math.
+     Lett., 19(4):340–344, 2006. 30
+32                JITENDRA BAJPAI, SUBHAM BHAKTA AND VICTOR C. GARCÍA
+
+[27] P. Stevenhagen and H. W. Lenstra, Jr. Chebotarëv and his density theorem. Math. Intelligencer,
+     18(2):26–37, 1996. 28
+
+     J. Bajpai : Mathematisches Institut, Georg-August-Universität Göttingen, Germany.
+     Email address: jitendra@math.uni-goettingen.de
+     Current address: Institut für Geometrie, Technische Universität Dresden, Germany
+     Email address: jitendra.bajpai@tu-dresden.de
+
+     S. Bhakta: Mathematisches Institut, Georg-August-Universität Göttingen, Germany.
+     Email address: subham.bhakta@mathematik.uni-goettingen.de
+
+     V. C. García : Universidad Autónoma Metropolitana, México.
+     Email address: vcgh@azc.uam.mx
+

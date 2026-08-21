@@ -1,0 +1,1679 @@
+                                                       SPECTRAL AND TOPOLOGICAL PROPERTIES OF
+                                                 A FAMILY OF GENERALISED THUE-MORSE SEQUENCES
+
+                                                              MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+arXiv:1201.1423v1 [math-ph] 6 Jan 2012
+
+
+
+
+                                                Abstract. The classic middle-thirds Cantor set leads to a singular continuous measure via a
+                                                distribution function that is know as the Devil’s staircase. The support of the Cantor measure
+                                                is a set of zero Lebesgue measure. Here, we discuss a class of singular continuous measures
+                                                that emerge in mathematical diffraction theory and lead to somewhat similar distribution
+                                                functions, yet with significant differences. Various properties of these measures are derived.
+                                                In particular, these measures have supports of full Lebesgue measure and possess strictly
+                                                increasing distribution functions. In this sense, they mark the opposite end of what is
+                                                possible for singular continuous measures.
+                                                    For each member of the family, the underlying dynamical system possesses a topological
+                                                factor with maximal pure point spectrum, and a close relation to a solenoid, which is the
+                                                Kronecker factor of the system. The inflation action on the continuous hull is sufficiently
+                                                explicit to permit the calculation of the corresponding dynamical zeta functions. This is
+                                                achieved as a corollary of analysing the Anderson-Putnam complex for the determination of
+                                                the cohomological invariants of the corresponding tiling spaces.
+
+
+
+                                                     Dedicated to Robert V. Moody on the occasion of his 70th birthday
+
+
+
+                                                                                   1. Introduction
+                                            The probably most widely known singular continuous measure emerges as the unique in-
+                                         variant probability measure for the iterated function system [30] of the classic middle-thirds
+                                         Cantor set. The construction and the distribution function F of the resulting measure are
+                                         illustrated in Figure 1. Due to its shape, F is known as the Devil’s staircase. It is a non-
+                                         decreasing continuous function that is constant almost everywhere, which corresponds to the
+                                         fact that the underlying measure gives no weight to single points, but is concentrated on an
+                                         uncountable set of zero Lebesgue measure (the Cantor set). The Cantor measure is thus both
+                                         continuous and singular, hence purely singular continuous.
+                                            Singular continuous measures occur in a wide range of physical problems, most notably
+                                         in the theory of non-periodic Schrödinger operators; see [19, 22] and references therein for
+                                         examples. In particular, it is an amazing result that singular continuous spectra are in a
+                                         certain sense even generic here; compare [49, 37]. One would also expect the appearance
+                                         of singular continuous measures in mathematical diffraction theory [21, 29, 7], where the
+                                         Thue-Morse sequence provides one of the few really explicit examples. Recent experimental
+                                         evidence [52] indicates that this spectral type might indeed be more relevant to diffraction
+2                     MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+                 F(x)
+             1
+
+
+
+           3/4
+
+
+
+           1/2
+
+
+
+           1/4
+
+
+
+
+                     0             1/3           2/3             1               x
+
+       Figure 1. The distribution function F of the classic middle-thirds Cantor
+       measure. The construction of the Cantor set is sketched in the inset.
+
+
+than presumed so far. This case has not yet received the theoretical attention it deserves,
+though partial results exist in the dynamical systems literature; compare [43, 31].
+   The Thue-Morse system is an example of a bijective substitution of constant length [43].
+This class has a natural generalisation to higher dimensions, and is studied in some detail
+in [25, 26]; see also [53] and references therein for related numerical studies. Bijective sub-
+stitutions form an important case within the larger class of lattice substitution systems. For
+the latter, from the point of view of diffraction theory, a big step forward was achieved in
+[34, 35, 36], where known criteria for pure pointedness in one dimension [23] were generalised
+to the case of Zd -action. Moreover, a systematic connection with model sets was established
+(see [39, 40] for detailed expositions), and there are also explicit algorithms to handle such
+cases; compare [27] and references therein. Nevertheless, relatively little has been done for
+the case without any coincidence in the sense of Dekking [23] or its generalisation to lattice
+substitution systems [34, 35]. Although it is believed that one should typically expect singu-
+lar continuous measures for bijective substitutions without coincidence, explicit examples are
+rare.
+   As a first step to improve this situation, we investigate a class of generalised Thue-Morse
+sequences in the spirit of [33]. They are defined by primitive substitution rules and provide
+a two-parameter family of systems with purely singular continuous diffraction. Below, we
+formulate a rigorous approach that is constructive and follows the line of ideas that was
+originally used by Wiener [51], Mahler [38] and Kakutani [31] for the treatment of the classic
+                               GENERALISED THUE-MORSE SEQUENCES                                          3
+
+
+Thue-Morse case. Some of the measures were studied before (mainly by scaling arguments
+and numerical methods) in the context of dimension theory for correlation measures; compare
+[33, 53] and references therein.
+   The paper is organised as follows. We begin with a brief summary of the Thue-Morse
+sequence with its spectral and topological properties, where we also introduce our notation.
+Section 3 treats the family of generalised Thue-Morse sequences from [5], where the singular
+continuous nature of the diffraction spectra is proved and the corresponding distribution
+functions are derived. Here, we also briefly discuss the connection with a generalisation of
+the period doubling sequence. The latter has pure point spectrum, and is a topological factor
+of the generalised Thue-Morse sequence. This factor has maximal pure point spectrum. The
+diffraction measure of the generalised Thue-Morse system is analysed in detail in Section 4,
+and its Riesz product structure is derived. In Section 5, we construct the continuous hulls of
+the generalised Thue-Morse and period doubling sequences as inverse limits of the substitution
+acting on the Anderson-Putnam cell complex [2], and employ this construction to compute
+and relate their Čech cohomologies. The substitution action on the Čech cohomology is then
+used in Section 6 to derive the dynamical zeta functions of the corresponding substitution
+dynamical systems. Finally, we conclude with some further observations and open problems.
+
+                   2. A summary of the classic Thue-Morse sequence
+  The classic Thue-Morse (or Prouhet-Thue-Morse, abbreviated as TM below) sequence [1]
+can be defined via a fixed point of the primitive substitution
+(1)                                 ̺ = ̺TM :       1 7→ 11̄ ,     1̄ 7→ 1̄1
+on the binary alphabet {1, 1̄}. The one-sided fixed point starting with 1 reads
+(2)                                 v = v0 v1 v2 . . . = 11̄1̄11̄111̄ . . . ,
+while v̄ is the fixed point starting with 1̄. One can now define a two-sided sequence w by
+                                             (
+                                              vi ,    i ≥ 0,
+(3)                                   wi =
+                                              v−i−1 , i < 0.
+It is easy to check that w = . . . w−2 w−1 |w0 w−1 . . . = . . . v1 v0 |v0 v1 . . . defines a 2-cycle under
+̺, and hence a fixed point for ̺2 , with the central seed 1|1 being legal. An iteration of ̺2
+applied to this seed converges to w in the product topology, which is thus a two-sided fixed
+point of ̺2 in the proper sense.
+   The sequence w defines a dynamical system (under the action of the group Z) as follows.
+Its compact space is the (discrete) hull, obtained as the closure of the Z-orbit of w,
+                                         XTM = {S i w | i ∈ Z},
+where S denotes the shift operator (with (Sw)i = wi+1 ) and where the closure is taken in the
+local (or product) topology. Here, two sequences are close when they agree on a large segment
+around the origin (marked by |). Now, (XTM , Z) is a strictly ergodic dynamical system (hence
+4                     MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+uniquely ergodic and minimal [43, 50]). Its unique invariant probability measure is given via
+the (absolute) frequencies of finite words (or patches) as the measures of the corresponding
+cylinder sets, where the latter then generate the (Borel) σ-algebra. Its minimality follows
+from the repetitivity of the fixed point word w, which also implies that XTM = LI(w), the
+latter consisting of all elements of {1, 1̄}Z that are locally indistinguishable from w.
+   Here, we are interested, for a given w ∈ XTM , in the diffraction of the (signed) Dirac comb
+                                                     X
+(4)                                ω = w δZ :=             wn δn ,
+                                                     n∈Z
+
+
+where the symbols 1 and 1̄ are interpreted as weights 1 and −1. This defines a mapping from
+XTM into the signed translation bounded measures on Z (or on R). Since this mapping is a
+homeomorphism between XTM and its image, we use both points of view in parallel without
+further mentioning.
+   Given any w ∈ XTM , the autocorrelation measure of the corresponding ω exists as a conse-
+quence of unique ergodicity. It is defined as the volume-averaged (or Eberlein) convolution
+
+                                                    ωN ∗ ωf
+                                                          N
+                                      e = lim
+                                γ = ω⊛ω                     ,
+                                                N →∞ 2N + 1
+
+                                                 e is the ‘flipped-over’ version of the measure
+where ωN is the restriction of ω to [−N, N ] and µ
+             e(g) := µ(e
+µ defined by µ          g) for continuous functions g of compact support, with ge(x) = g(−x).
+We use this general formulation to allow for complex weights later on. A short calculation
+shows that the autocorrelation is of the form
+                                              X
+                                        γ =         η(m) δm
+                                              m∈Z
+
+with the autocorrelation coefficients
+                                              N
+                                              X
+                                         1
+(5)                         η(m) = lim          wn wn−m .
+                                  N →∞ 2N + 1
+                                                      n=−N
+
+
+Note that γ applies to all sequences of XTM , by an application of the ergodic theorem, as
+η(m) is the orbit average of the continuous function w 7→ w0 w−m and our dynamical system
+is uniquely ergodic.
+
+Remark 1 (Alternative approach). Without the diffraction context, it is possible to directly
+define the function η : Z −→ C by (5). It is then a positive definite function on Z, with a
+representation as the (inverse) Fourier transform of a positive measure µ on the unit circle, by
+the Herglotz-Bochner theorem [45]. Which formulation one uses is largely a matter of taste.
+We follow the route via the embedding as a measure on R, so that we get γ  b = µ ∗ δZ together
+with its interpretation as the diffraction measure of the Dirac comb ω.                        ♦
+                             GENERALISED THUE-MORSE SEQUENCES                                     5
+
+
+  We can now employ the special structure of our fixed point w to analyse γ. One finds that
+η(0) = 1, η(−m) = η(m) for all m ∈ Z and
+                                                            N −1
+                                                    1 X
+(6)                                 η(m) = lim            vn vn+m
+                                               N →∞ N
+                                                      n=0
+
+for all m ≥ 0. Here, the structure of w and its relation to v was used to derive (6) from (5).
+Observing that v satisfies v2n = vn and v2n+1 = v̄n for all n ≥ 0, one can employ (6) to infer
+the linear recursion relations
+                                                                        
+(7)               η(2m) = η(m)           and η(2m+1) = − 1 η(m) + η(m+1) ,
+                                                         2
+which actually hold for all m ∈ Z. These well-known relations [31] will also follow from our
+more general results in Section 3 as a special case. One finds η(±1) = −1/3 from solving the
+recursion for m = 0 and m = −1 with η(0) = 1, while all other values are then recursively
+determined.
+                                      b of the TM sequence (following [38, 31]), one can start
+   To analyse the diffraction measure γ
+                                              P             2
+with its pure point part. Defining Σ(N ) = N                                          3
+                                                 n=−N η(n) , one derives Σ(4N ) ≤ 2 Σ(2N )
+                                                                                         N →∞
+from the recursion (7); see [4] for the detailed estimate needed. This implies N1 Σ(N ) −−−−→ 0.
+                                               
+By Wiener’s criterion [51], this means b      γ pp = 0, so that γb is a continuous measure (see
+Wiener’s Corollary in [32, Sec. I.7.13] or Wiener’s Lemma in [41, Sec. 4.16] for details).
+                                                                                                 
+   Defining the (continuous and non-decreasing) distribution function F via F (x) = γ    b [0, x] ,
+another consequence of (7) is the pair of functional relations
+                                                                   
+                                x
+                                              x+1
+                                                              1
+                           dF   2       ± dF    2        =            dF (x).
+                                                           − cos(πx)
+
+Splitting F into its sc and ac parts (which are unique and must both satisfy these relations)
+now implies backwards that the recursion (7) holds separately for the two sets of autocor-
+relation coefficients, ηsc and ηac , with yet unknown initial conditions at 0. Since this means
+ηac (1) = − 13 ηac (0) together with ηac (2m) = ηac (m) for all m ∈ N, an application of the
+Riemann-Lebesgue lemma forces ηac (0) = 0, and hence ηac (m) = 0 for all m ∈ Z, so that
+        
+also b γ ac = 0; compare [31]. This shows that γ      b is a singular measure. With the previous
+argument, since γ  b 6= 0, we see that it is a purely singular continuous measure. Figure 2 shows
+an image, where we have used the uniformly converging Volterra-type iteration
+                                Z 2x
+                              1                   
+                 Fn+1 (x) =          1 − cos(πy) Fn′ (y) dy      with     F0 (x) = x
+                              2 0
+
+to calculate F with sufficient precision (note that F (x + 1) = F (x) + 1, so that displaying F
+on [0, 1] suffices). In contrast to the Devil’s staircase, the TM function is strictly increasing,
+which means that there is no plateau (which would indicate a gap in the support of γ       b); see
+[4] and references therein for details.
+6                     MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+           1
+
+
+
+
+         0.5
+
+
+
+
+           0
+               0                                     0.5                            1
+
+       Figure 2. The strictly increasing distribution function of the classic, singular
+       continuous TM measure on [0, 1].
+
+
+   Despite the above result, the TM sequence is closely related to the period doubling sequence,
+via the (continuous) block map
+
+(8)                             φ:     11̄, 1̄1 7→ a ,     11, 1̄1̄ 7→ b ,
+
+which defines an exact 2-to-1 surjection from the hull XTM to Xpd , where the latter is the
+hull of the period doubling substitution defined by
+
+(9)                                  ̺pd :   a 7→ ab ,      b 7→ aa.
+
+Viewed as topological dynamical systems, this means that (Xpd , Z) is a factor of (XTM , Z).
+Since both are strictly ergodic, this extends to the corresponding measure theoretic dynamical
+systems, as well as to the suspensions into continuous dynamical systems under the action
+of R. The dynamical spectrum of the TM system then contains Z[ 12 ] as its pure point part
+[43], which is the entire dynamical spectrum of the period doubling system. We thus are in
+                             GENERALISED THUE-MORSE SEQUENCES                                      7
+
+
+the nice situation that a topological factor with maximal pure point spectrum exists which is
+itself a substitution system.
+    The period doubling sequence can be described as a regular model set with a 2-adic internal
+space [15, 14] and is thus pure point diffractive. As another consequence, there is an almost
+everywhere 1-to-1 mapping [48, 15] of the continuous hull (see below) onto a (dyadic) solenoid
+S that emerges via an inverse limit construction (under iterated multiplication by 2) from the
+unit circle. This type of construction will reappear in our generalisations below.
+    The discrete hull XTM of the TM sequence has a continuous counterpart (its suspension),
+which we call YTM . Instead of symbolic TM sequences, one considers the corresponding
+tilings of the real line, with labelled tiles of unit length. Such tilings are not bound to have
+their vertices at integer positions, and the full translation group R acts continuously on them.
+The continuous hull of a TM tiling is then the closure of its R-orbit with respect to the local
+topology. Here, two tilings are close if, possibly after a small translation, they agree on a
+large ball around the origin. For the same reasons as in the case of the discrete hull, the
+corresponding topological dynamical system (YTM , R) is minimal and uniquely ergodic, so
+that every TM tiling defines the same continuous hull. Similarly, a continuous hull is defined
+for the period doubling sequence.
+    According to [2], the continuous hull of a primitive substitution tiling can be constructed as
+the inverse limit of an iterated map on a finite CW-complex Γ, called the Anderson-Putnam
+(AP) complex. The cells of Γ are the tiles in the tiling, possibly labelled to distinguish different
+neighbourhoods of a tile within the tiling. Each point in Γ actually represents a cylinder set
+of tilings, with a specific neighbourhood at the origin. The substitution map on the tiling
+induces a continuous cellular map of Γ onto itself, whose inverse limit is homeomorphic to
+the continuous hull of the tiling.
+    Let Γn be the CW-complex of the nth approximation step. It is a nice feature of the
+corresponding inverse limit space Y = lim Γn that its Čech cohomology H k (Y) can be com-
+                                           ←−
+puted as the direct (inductive) limit of the cohomologies of the corresponding approximant
+spaces H k (Γn ). In our case, we have a single approximant space Γ, and a single map (the
+substitution map ̺) acting on it. Consequently, H k (Y) is the inductive limit of the induced
+map ̺∗ on H k (Γ). Analogous inverse limit constructions also exist for the hull of the period
+doubling tiling, Ypd , and for the dyadic solenoid, S.
+    As a consequence of the above, there is a 2-to-1 cover φ : YTM → Ypd , and a surjection
+ψ : Ypd → S which is 1-to-1 almost everywhere. These maps induce well-defined cellular maps
+on the associated AP complexes; see also [47] for a general exposition. We represent these
+maps by the same symbols, φ and ψ. They induce homomorphisms on the cohomologies of
+the AP complexes, so that we have the following commutative diagram:
+                                       ψ∗                φ∗
+                          H k (Γsol ) −−−−→ H k (Γpd ) −−−−→ H k (ΓTM )
+                                                                
+(10)                       ×2y
+                                                                ̺∗
+                                             ̺ ′∗ y               y
+                                       ψ∗                φ∗
+                          H k (Γsol ) −−−−→ H k (Γpd ) −−−−→ H k (ΓTM )
+8                      MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+All these maps are explicitly known. The inductive limits along the columns not only give
+the cohomologies of the continuous hulls, but also determine the embeddings under the maps
+φ∗ and ψ ∗ . Although H 1 (Ypd ) and H 1 (YTM ) are isomorphic, the former embeds (under φ∗ )
+in the latter as a subgroup of index 2, which reflects YTM being a two-fold cover of Ypd .
+Furthermore, we get H 1 (Ypd )/ψ ∗ (H 1 (S)) = Z. By an application of [17, Prop. 4], compare
+also [17, Ex. 7], this corresponds to the fact that there are exactly two orbits on which the
+map ψ fails to be 1-to-1. These two orbits are merged into a single orbit.
+   The action of the substitution on the cohomology of the AP complex H k (Γ), more precisely
+the eigenvalues of this action, can be used [2] to calculate the dynamical zeta function of
+the substitution dynamical system, thus establishing a connection between the action of the
+substitution on H k (Γ) and the number of periodic orbits of the substitution on the continuous
+hull. We skip further details at this point because they will appear later as a special case of
+our two-parameter family, which we discuss next.
+
+                  3. A family of generalised Thue-Morse sequences
+   The TM sequence is sometimes considered as a rather special and possibly rare exam-
+ple, which is misleading. In fact, there are many systems with similar properties. Let us
+demonstrate this point by following [33, 5], where certain generalisations were introduced. In
+particular, we consider the generalised Thue-Morse (gTM) sequences defined by the primitive
+substitutions
+
+(11)                           ̺ = ̺k,ℓ :   1 7→ 1k 1̄ℓ ,   1̄ 7→ 1̄k 1ℓ
+
+for arbitrary k, ℓ ∈ N. Here, the one-sided fixed point starting with v0 = 1 satisfies
+                                          (
+                                            vm , if 0 ≤ r < k,
+(12)                          vm(k+ℓ)+r =
+                                            v̄m , if k ≤ r < k+ℓ,
+
+for m ≥ 0, as can easily be verified from the fixed point property. A two-sided gTM sequence
+w can be constructed as above in Eq. (3). Also analogous is the construction of the discrete
+hull Xk,ℓ as the orbit closure of w under the Z-action of the shift, where X1,1 = XTM . We will
+drop the index when it is clear from the context.
+
+Proposition 1. Consider the substitution rule ̺ = ̺k,ℓ of Eq. (11) for arbitrary, but fixed
+k, ℓ ∈ N. The bi-infinite sequence w that is constructed from the one-sided sequence v of
+(12) via reflection as in Eq. (3) is a fixed point of ̺2 , as is w′ = ̺(w). Both sequences are
+repetitive and locally indistinguishable.
+   Moreover, w is an infinite palindrome and defines the discrete hull X = {S i w | i ∈ Z} under
+the action of the shift S. This hull is reflection symmetric and minimal, and defines a strictly
+ergodic dynamical system. Similarly, when turning w into a tiling of R by two intervals of
+length 1 that are distinguished by colour, the closure Y of the R-orbit of this tiling in the local
+topology defines a dynamical system (Y, R) that is strictly ergodic for the R-action.
+                            GENERALISED THUE-MORSE SEQUENCES                                     9
+
+
+Proof. Most claims are standard consequences of the theory of substitution dynamical systems
+[43], as applied to ̺. The fixed point property includes the relation ̺2 (w) = w together with
+the legality of the central seed w−1 |w0 around the marker. Note that each fixed point of ̺n ,
+with arbitrary n ∈ N, is repetitive and defines the same hull X. The latter is minimal due to
+repetitivity, and consists precisely of the LI class of w. Since w and w′ coincide on the right of
+the marker, but differ on the left in every position, neither can have a non-trivial period (this
+would contradict their local indistinguishability). This is an easy instance of the existence of
+distinct proximal elements [16]. Consequently, X = LI(w) cannot contain any element with a
+non-trivial period, so that w and hence ̺ is aperiodic.
+   The action of the shift is clearly continuous in the product topology. Unique ergodicity
+follows from the uniform existence of all pattern frequencies (or from linear repetitivity).
+This means that (X, Z) defines a topological dynamical system that leads to a strictly ergodic
+dynamical system (X, Z, ν), where the unique measure ν is defined via the frequencies of
+patches as the measures of the corresponding cylinder sets. The claim about the extension
+to the R-action on Y follows from the suspension of the discrete system, which is easy here
+because the constant length of the substitution ̺ implies that the canonically attached tiling
+is the one described.                                                                           
+
+   Let us mention in passing that the discrete hull X is a Cantor set, while the local structure
+of the continuous hull Y is a product of an interval with a Cantor set; compare [19] and
+references therein.
+   Since each choice of k, ℓ leads to a strictly ergodic dynamical system, we know that all
+autocorrelation coefficients (as defined by Eq. (5), with 1̄ = b − 1) exist. Clearly, we always
+have η(0) = 1, while several possibilities exist to calculate η(±1) = k+ℓ−3
+                                                                       k+ℓ+1 .
+   As before, we turn a gTM sequence w = (wn )n∈Z into the Dirac comb
+                                              X
+(13)                                     ω =       wn δn ,
+                                              n∈Z
+
+which is a translation bounded measure. Its autocorrelation is of the form
+                                          X
+(14)                                γ =       η(m) δm
+                                             m∈Z
+
+with the coefficients η(m), which can alternatively be calculated via the one-sided fixed point
+v as in Eq. (6). Let us now derive a recursion for η(m). Since this will be the ‘golden key’ for
+almost all spectral properties, we provide a detailed proof.
+
+Lemma 1. Consider the gTM sequence defined by the primitive substitution ̺ of (11), for
+fixed k, ℓ ∈ N. When realised as the Dirac comb of Equation (13), each element of the
+corresponding hull X = Xk,ℓ possesses the unique autocorrelation γ of (14), where the auto-
+correlation coefficients satisfy η(0) = 1 and the linear recursion
+                                                                       
+                   η (k+ℓ)m + r = 1 αk,ℓ,r η(m) + αk,ℓ,k+ℓ−r η(m+1) ,
+                                      k+ℓ
+10                     MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+       Table 1. Conditions on r and t for the splitting of the sum in Eq. (15), and
+       the resulting term for the sum from the recursion relation (12).
+
+                                    Conditions                               Term
+                                              0 ≤ t < k−r               vn vn+m
+                                            k−r ≤ t < min(k, k+ℓ−r)     vn v̄n+m
+                0≤r<k          min(k, k+ℓ−r) ≤ t < k                    vn vn+m+1
+                                              k ≤ t < max(k, k+ℓ−r) v̄n v̄n+m
+                               max(k, k+ℓ−r) ≤ t < k+ℓ                  v̄n vn+m+1
+                                              0 ≤ t < min(k, k+ℓ−r)     vn v̄n+m
+                               min(k, k+ℓ−r) ≤ t < k                    vn vn+m+1
+               k ≤ r < k+ℓ                    k ≤ t < max(k, k+ℓ−r) v̄n v̄n+m
+                               max(k, k+ℓ−r) ≤ t < 2k+ℓ−r               v̄n vn+m+1
+                                     2k+ℓ−r ≤ t < k+ℓ                   v̄n v̄n+m+1
+
+with αk,ℓ,r = k + ℓ − r − 2 min(k, ℓ, r, k + ℓ − r), valid for all m ∈ Z and 0 ≤ r < k + ℓ. In
+                              
+particular, one has η (k+ℓ)m = η(m) for m ∈ Z.
+
+Proof. Existence and uniqueness of γ are a consequence of Proposition 1, via an application
+of the ergodic theorem. The support of the positive definite measure γ is obviously Z, so that
+γ = ηδZ .
+   Since η(0) = 1 is immediate from Eq. (5), it remains to derive the recursion. We begin
+with m ≥ 0 and use formula (6). When r = 0, one finds
+                        N −1                                  k+ℓ−1 N ′ −1
+                   1 X                                   1      X X
+η (k+ℓ)m = lim             vn vn+(k+ℓ)m = lim                  ′
+                                                                          v(k+ℓ)n+t v(k+ℓ)(n+m)+t
+              N →∞ N                         N ′ →∞ (k + ℓ)N
+                       n=0                                       t=0 n=0
+                               k+ℓ−1 N ′ −1 (                            )
+         (12)           1       X X vn vn+m , if 0 ≤ t < k
+          = lim
+             N ′ →∞ (k + ℓ)N ′                v̄n v̄n+m , if k ≤ t < k+ℓ
+                                t=0 n=0
+                                 k+ℓ−1  ′
+                                       −1
+                          1       X NX
+              = lim                       vn vn+m = η(m),
+               N ′ →∞ (k + ℓ)N ′
+                                  t=0 n=0
+
+where the penultimate step follows because v̄n v̄n+m = vn vn+m due to vi ∈ {±1}.
+  For general r, one proceeds analogously and finds
+                                           k+ℓ−1 −1     ′
+                                   1       X NX
+(15)       η (k+ℓ)m + r = lim                       v(k+ℓ)n+t v(k+ℓ)(n+m)+r+t .
+                         N ′ →∞ (k + ℓ)N ′
+                                                  t=0   n=0
+One now has to split the sum over t according to the ten cases of Table 1. In each row, the
+condition for t is formulated in such a way that the difference of the bounds gives the proper
+multiplicity of the resulting term to the sum, which may be zero in some cases.
+                           GENERALISED THUE-MORSE SEQUENCES                                 11
+
+
+   Observing v̄n = −vn , one simply has to add the terms of the form vn vn+m with their signed
+multiplicities, which contribute to η(m), and those of the form vn vn+m+1 , which contribute
+to η(m+1). For instance, when 0 ≤ r < k, one finds the multiplicity of vn vn+m as
+                                                                     
+          (k−r) − min(k, k+ℓ−r) − (k−r) + max(k, k+ℓ−r) − k
+                                                         
+                 = k + ℓ − r − 2 min(k, k+ℓ−r) − k + r = k + ℓ − r − 2 min(r, ℓ)
+                = k + ℓ − r − 2 min(k, ℓ, r, k+ℓ−r) = αk,ℓ,r
+
+where we used min(a, b)+max(a, b) = a+b and, in the last line, the inequality 0 ≤ r < k. The
+required denominator (k + ℓ) in the claimed recursion emerges from the splitting as shown
+above in Eq. (15). Likewise, the multiplicity for vn vn+m+1 calculates as
+                                                            
+           k − min(k, k+ℓ−r) − (k+ℓ) − max(k, k+ℓ−r)
+                     = −ℓ + max(k, k+ℓ−r) − min(k, k+ℓ−r)
+                     = 2k − r − 2 min(k, k+ℓ−r) = r − 2 min(r, ℓ) = αk,ℓ,k+ℓ−r ,
+
+where we used that min(r, ℓ) = min(k, ℓ, r, k +ℓ−r) holds in this case. The remaining cases
+(for k ≤ r < k+ℓ) follow from similar calculations; see Table 1. This completes the argument
+for η(m) with m ≥ 0.
+   Finally, we know that η(−n) = η(n) for all n ∈ Z. Let m < 0 be fixed, so that m = −|m|
+with |m| > 0. If r = 0, one simply has
+                                                 
+                       η (k+ℓ)m = η (k+ℓ)|m| = η(|m|) = η(m).
+
+When 1 ≤ r < k +ℓ, set m′ = |m| − 1 and s = k + ℓ − r, so that m′ ≥ 0 and 1 ≤ s < k +ℓ.
+Then, one finds
+                                                  
+ η (k+ℓ)m + r = η (k+ℓ)|m| − r = η (k+ℓ)m′ + s
+                                                                                   
+    = 1 αk,ℓ,s η(m′ ) + αk,ℓ,k+ℓ−s η(m′ +1) = 1 αk,ℓ,r η(m) + αk,ℓ,k+ℓ−r η(m+1)
+       k+ℓ                                      k+ℓ
+due to the reflection symmetry of η together with the recursion for positive arguments.     
+
+   Note that the recursion in Lemma 1 uniquely determines all coefficients η(m) once η(0) is
+given. Moreover, the recursion is linear, which will have strong consequences later.
+   Since, for any given k, ℓ ∈ N, every member of the corresponding hull of weighted Dirac
+combs has the same autocorrelation measure, we speak, from now on, of the autocorrelation
+                                                                              P             2
+measure of the gTM system (for parameters k, ℓ ∈ N). Let us define Σ(N ) = N    n=−N η(n) ,
+where we suppress the parameters k and ℓ. For k = ℓ = 1, we know a bound on the growth
+rate of Σ(N ), namely Σ(4N ) ≤ 32 Σ(2N ), from [31, 4]. For k + ℓ > 2, we formulate a similar
+result (with a technically more involved but structurally slightly simpler proof) as follows.
+
+Lemma 2. Let k, ℓ ∈ N with k+ℓ > 2 be fixed, and let η(n) with n ∈ Z be the corresponding
+autocorrelation coefficients from Lemma 1. Then, there is some positive number q < k + ℓ
+                      
+such that Σ (k+ℓ)N ≤ qΣ(N ) for all N ∈ N.
+12                      MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+Proof. Using the recursions of Lemma 1, one finds
+                       (k+ℓ)N                                          k+ℓ−1 −1
+                        X             2                    2        X NX                     2
+       Σ (k+ℓ)N =                  η(n) =         η (k+ℓ)N         +              η (k+ℓ)m + r
+                      n=−(k+ℓ)N                                        r=0 m=−N
+                                              k+ℓ−1
+                                               X NX −1
+                                      1                                                    2
+                     = Σ(N ) +                              αk,ℓ,r η(m) + αk,ℓ,k+ℓ−r η(m+1)
+                                   (k + ℓ)2    r=1 m=−N
+                                      k+ℓ−1
+                                        X                          
+                     Σ(N )          2         2        2
+                                                                         A
+                 ≤         2
+                             (k + ℓ) +       αk,ℓ,r + αk,ℓ,k+ℓ−r     +
+                    (k + ℓ)             r=1
+                                                                       (k + ℓ)2
+           PN −1                    Pk+ℓ−1                    
+with A =     m=−N 2 |η(m)η(m+1)|       r=1 |αk,ℓ,r αk,ℓ,k+ℓ−r | being a sum of non-negative
+terms only. Noting that
+              N
+              X −1                               N
+                                                 X −1
+                                                            2       2
+                      2 |η(m)η(m+1)| ≤                  η(m) + η(m+1) ≤ 2 Σ(N ) ,
+             m=−N                              m=−N
+                         Pk+ℓ−1
+one obtains A ≤ Σ(N )        r=1    2 |αk,ℓ,r αk,ℓ,k+ℓ−r |. Employing the binomial formula results in
+                                                        k+ℓ−1
+                                                          X                                
+                               Σ(N )                 2
+                                                                                        2
+             Σ (k+ℓ)N        ≤                 (k + ℓ) +       |αk,ℓ,r | + |αk,ℓ,k+ℓ−r |     .
+                               (k + ℓ)2
+                                                            r=1
+
+Our claim follows if we show that the term in the large brackets is smaller than (k + ℓ)3 . For
+1 ≤ r ≤ k + ℓ − 1, we know that 1 ≤ min(k, ℓ, r, k + ℓ − r) ≤ min(r, k + ℓ − r), which implies
+|αk,ℓ,r | ≤ k + ℓ − r and hence
+(16)                                |αk,ℓ,r | + |αk,ℓ,k+ℓ−r | ≤ k + ℓ .
+Since k + ℓ > 2 by assumption, the stronger inequality |αk,ℓ,1 | + |αk,ℓ,k+ℓ−1 | ≤ k + ℓ − 2 holds
+for r = 1, so that at least one term in the sum is smaller than k + ℓ. This means that a
+                                    
+q < k+ℓ exists such that Σ (k+ℓ)N ≤ qΣ(N ) holds for all N ≥ 1.                                 
+
+   The recursion derived in Lemma 1 can now be used to show the absence of pure point
+components (by Wiener’s criterion, which will rely on Lemma 2) as well as that of absolutely
+continuous components (by the Riemann-Lebesgue lemma, which will rely on the special
+                    
+relation η (k + ℓ)m = η(m) from Lemma 1), thus establishing that each sequence in this
+family leads to a signed Dirac comb with purely singular continuous diffraction.
+
+Theorem 1. Let k, ℓ ∈ N. The diffraction measure of the gTM substitution ̺ = ̺k,ℓ is
+                      b of the autocorrelation measure γ of Lemma 1. It is the diffraction
+the Fourier transform γ
+measure of every element of the hull of weighted Dirac combs for ̺. Moreover, b
+                                                                              γ is purely
+singular continuous.
+
+Proof. Since the statement is clear for k = ℓ = 1 from Section 2 together with [31, 4], let
+k + ℓ > 2 be fixed. The corresponding autocorrelation is unique by Lemma 1. Since it is
+positive definite by construction, its Fourier transform exists [20], and then applies to each
+                            GENERALISED THUE-MORSE SEQUENCES                                    13
+
+
+element of the hull again. Since the underlying Dirac comb is supported on Z, we know from
+                 b is Z-periodic, hence it can be written as
+[3, Thm. 1] that γ
+
+(17)                             b
+                                 γ = µ ∗ δZ       with     b |[0,1) .
+                                                         µ=γ
+
+Here, µ is a positive measure on the unit interval (which is a representation of the unit
+circle here), so that the inverse Fourier transform µ̌, by the Herglotz-Bochner theorem, is
+a (continuous) positive definite function on Z (viewed as the dual group of the unit circle).
+Since γ = µ̌ δZ by the convolution theorem together with the Poisson summation formula
+δbZ = δZ , we see that this function is
+                                           Z 1
+                                    η(m) =     e2πimx dµ(x).
+                                                  0
+
+Let us now use the recursion for η to infer the spectral nature of µ and thus of b  γ.
+                       1        N →∞                       
+   Lemma 2 implies N Σ(N ) −−−−→ 0, which means b         γ pp = 0 by Wiener’s criterion [51]; see
+                                                   
+also [32, 41]. We thus know that γ  b= γ   b sc + b
+                                                  γ ac is a continuous measure, where the right-
+hand side is the sum of two positive measures that are mutually orthogonal (in the sense that
+they are concentrated on disjoint sets). Each is the Fourier transform of a positive definite
+measure with support Z, hence specified by autocorrelation coefficients ηsc and ηac which
+clearly satisfy ηsc (m) + ηac (m) = η(m) for all m ∈ Z. The recursion relations for η imply a
+corresponding set of functional relations for the non-decreasing and continuous distribution
+                                          
+function F defined by F (x) = γ   b [0, x] for 0 ≤ x ≤ 1. Due to the mentioned orthogonality,
+the same relations have to be satisfied by the ac and sc parts separately. This in turn implies
+that ηsc and ηac must both satisfy the recursion relations of Lemma 1, however with a yet
+undetermined value of ηac (0), and ηsc (0) = 1 − ηac (0).
+   The recursion of Lemma 1 with m = 0 and r = 1 gives
+                                                  k+ℓ−3
+                                      ηac (1) =            η (0),
+                                                  k + ℓ + 1 ac
+                                  
+while r = 0 leads to ηac (k+ℓ)m = ηac (m) for all m ∈ Z. Since we have limn→∞ ηac (n) = 0
+from the Riemann-Lebesgue lemma, compare [32], we must have ηac (m) = 0 for all m > 0.
+When k + ℓ > 3, ηac (1) = 0 forces ηac (0) = 0, and then ηac (m) = 0 for all m ∈ Z by the
+                            
+recursion, which means b  γ ac = 0. When k + ℓ = 3, we have ηac (1) = 0, but the recursion
+relation for m = 0 and r = 2 leads to ηac (2) = − 13 ηac (0), hence again to ηac (0) = 0 with the
+same conclusion.
+                                                                      
+   As a consequence, ηsc (0) = 1 and η = ηsc . We thus have γ  b= γ b sc as claimed.           
+
+Remark 2 (Diffraction with general weights). If an arbitrary gTM sequence is given, the
+diffraction of the associated Dirac comb with general (complex) weights h± can be calculated
+as follows. If h is the function defined by h(1) = h+ and h(1̄) = h− , one has
+                                X                     h+ + h−     h − h−
+                        ωh :=         h(wn )δn =              δZ + +     ω
+                                                         2           2
+                                n∈Z
+14                    MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+with the ω from Equation (13). The autocorrelation of ωh clearly exists and calculates as
+                                   |h+ + h− |2     |h − h− |2
+                             γh =              δZ + +         γ
+                                        4               4
+with γ from (14). This follows from δeZ = δZ together with δZ ⊛ ω = δZ ⊛ ω    e = 0, which
+is a consequence of the fact that 1 and 1̄ are equally frequent in all gTM sequences. The
+diffraction is now obtained as
+                                   |h + h− |2      |h − h− |2
+                             γh = +
+                             c                 δZ + +         b
+                                                              γ
+                                        4               4
+by an application of the Poisson summation formula δb = δ . Since b
+                                                          Z        Z    γ is purely singular
+continuous, this is a diffraction measure with singular spectrum of mixed type.              ♦
+
+  This diffraction does not display the full dynamical spectrum of the gTM system, which is a
+well-known phenomenon from the classic TM system [24]. In the latter case, this is ‘rectified’
+by the period doubling system as a topological factor. We will return to this question for the
+gTM systems in Remark 4.
+
+                  4. The diffraction measure of the gTM system
+  Let us consider the diffraction measure in more detail, which we do via the distribution
+function F . The Z-periodicity together with µ([0, 1]) = η(0) = 1 means that F extends to the
+                                                            e = γ, we know that γ
+entire real line via F (x + 1) = 1 + F (x). Moreover, since γ                   b is reflection
+symmetric. With F (0) = 0, this implies F (−x) = −F (x) on R.
+
+Proposition 2. Let k, ℓ ∈ N be fixed. The distribution function F of the corresponding
+diffraction measure is non-decreasing, continuous, skew-symmetric and satisfies the relation
+F (x+1) = 1 + F (x) on the real line. Moreover, it possesses the series expansion
+                                          X η(m)
+                             F (x) = x +            sin(2πmx),
+                                               mπ
+                                           m≥1
+
+which converges uniformly on R.
+
+Proof. By construction, F is non-decreasing, and is continuous by Theorem 1. So, F (x) − x
+defines a 1-periodic continuous function that is skew-symmetric and the difference of two
+continuous, non-decreasing functions, hence it is of bounded variation. By standard results,
+see [42, Cor. 1.4.43], it has thus a uniformly converging Fourier series expansion
+                                             ∞
+                                             X
+                               F (x) − x =         bm sin(2πmx).
+                                             m=1
+The Fourier coefficient bm (for m ∈ N) is
+                   Z 1                                  Z 1
+                                                1
+          bm = 2       sin(2πmx) F (x) − x dx =      +2     sin(2πmx) F (x) dx
+                   0                            mπ        0
+                     Z 1                       Z 1
+                 1                           1                     η(m)
+              =          cos(2πmx) dF (x) =        e2πimx dF (x) =       .
+                mπ 0                        mπ 0                    mπ
+                             GENERALISED THUE-MORSE SEQUENCES                                    15
+
+
+The first step in the second line follows from integration by parts, while the next is a conse-
+quence of the symmetry of dF together with its periodicity (wherefore the imaginary part of
+the integral vanishes). Recalling the relation between F and µ completes the argument. 
+
+   It is interesting that the autocorrelation coefficients occur as Fourier coefficients this way.
+In preparation of a later result, let us look at this connection more closely. A key observation
+is that the recursion relations for η from Lemma 1 (which have a unique solution once the
+initial condition η(0) = 1 is given, with |η(n)| ≤ 1 for all n ∈ Z) can also be read as a recursion
+as follows. Let β ∈ [−1, 1]N be a sequence and define a mapping Ψ via
+                                 
+                                 
+                                  α       + αk,ℓ,k+ℓ−r βn+1 ,    if n = 0 and 1 ≤ r < k + ℓ,
+                                 
+                                  k,ℓ,r
+              
+(18)       Ψβ (k+ℓ)n+r := 1        (k + ℓ) βn ,                   if n ∈ N and r = 0,
+                           k+ℓ  
+                                 
+                                 α
+                                     k,ℓ,r βn + αk,ℓ,k+ℓ−r βn+1 , if n ∈ N and 1 ≤ r < k + ℓ,
+
+which completely defines the sequence Ψβ. This mapping derives from the recursion for η
+with positive arguments when η(0) = 1.
+
+Lemma 3. The mapping Ψ maps [−1, 1]N into itself, with kΨβk∞ ≤ kβk∞ . Moreover,
+for any β (0) ∈ [−1, 1]N , the iteration sequence β (N ) defined by β (N +1) = Ψβ (N ) for N ≥ 0
+                                     
+converges pointwise towards η(n) n∈N .
+
+Proof. The first claim follows from |αk,ℓ,r | + |αk,ℓ,k+ℓ−r | ≤ k + ℓ, which was used earlier in
+the proof of Lemma 2, via the triangle inequality. When r = 0 or when k = ℓ = r, one has
+equality here, so that Ψ is not a contraction on [−1, 1]N for the supremum norm.
+  Observe that the iteration for β1 is closed and reads
+
+                                  β1′ = k + ℓ − 3 − 1 β1 ,
+                                          k+ℓ      k+ℓ
+                                                      1
+which is an affine mapping with Lipschitz constant k+ℓ   and hence a contraction. The iteration
+                                              k+ℓ−3
+for β1 thus converges exponentially fast (to k+ℓ+1 ) by Banach’s contraction principle.
+   What happens with the iteration for β1 determines everything else, because the components
+βn with (k + ℓ)m ≤ n < (k + ℓ)m+1 and m ≥ 0 emerge from β1 in m steps of the iteration.
+In particular, the iteration also closes on any finite block with 1 ≤ n < (k + ℓ)m and fixed
+m ∈ N, and shows exponentially fast convergence. Note though that the iteration is only
+non-expanding as soon as m > 1, while Ψ induces an affine mapping with Lipschitz constant
+                             
+                        max |αk,ℓ,k+ℓ−r | 1 ≤ r < k + ℓ       k+ℓ−1
+                   L =                                     ≤            < 1,
+                                       k+ℓ                      k+ℓ
+on the components βn with 1 ≤ n < k + ℓ.
+   Pointwise convergence is now clear, and the limit is the one specified by the original recur-
+sion, which proves the claim.                                                                 
+16                        MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+   The recursion relations for η can also be used to derive a functional equation for the
+distribution function F . Observe first that
+                            Z 1                          Z k+ℓ
+                                                                           rx        
+         η (k+ℓ)m + r =         e2πi((k+ℓ)m+r)x dF (x) =       e2πimx e2πi k+ℓ dF k+ℓ
+                                                                                   x
+                                   0                                    0
+(19)                              Z 1                     k+ℓ−1
+                                                     rx    X            rs        
+                              =         e2πimx e2πi k+ℓ           e2πi k+ℓ dF x+s
+                                                                              k+ℓ .
+                                   0                       s=0
+On the other hand, we know from Lemma 1 that
+                                                                       
+               η (k+ℓ)m + r = 1 αk,ℓ,r η(m) + αk,ℓ,k+ℓ−r η(m+1)
+                                k+ℓ
+(20)                            Z 1
+                                          α
+                                     2πimx k,ℓ,r
+                                                 + αk,ℓ,k+ℓ−r e2πix
+                              =     e                               dF (x) .
+                                 0                  k+ℓ
+A comparison of (19) and (20) leads to the following result.
+
+Proposition 3. The distribution function F for k, ℓ ∈ N satisfies the functional equation
+                Z (k+ℓ)x                                         k+ℓ−1
+                                                                   X
+             1              y 
+   F (x) =              ϑ k+ℓ   dF (y) with ϑ(x) = 1 + 2               αk,ℓ,r cos(2πrx) .
+           k+ℓ 0                                          k+ℓ
+                                                                                      r=1
+This relation holds for all x ∈ R, and ϑ is continuous and non-negative.
+
+Proof. Equations (19) and (20), which hold for all m ∈ Z, state the equality of the Fourier
+coefficients of two 1-periodic Riemann-Stieltjes measures, which must thus be equal (as mea-
+sures). For 0 ≤ r < k+ℓ, we thus have
+              k+ℓ−1
+               X           rs                            rx   αk,ℓ,r + αk,ℓ,k+ℓ−r e2πix
+                      e2πi k+ℓ dF x+s
+                                  k+ℓ           = e−2πi k+ℓ                                 dF (x) .
+               s=0
+                                                                        k+ℓ
+Fix an integer t with 0 ≤ t < k + ℓ and multiply the equation for r on both sides by
+                       Pk+ℓ−1                 
+           rt
+exp −2πi k+ℓ     . Since r=0   exp 2πi r(s−t)
+                                          k+ℓ    = (k+ℓ) δs,t , a summation over r followed by a
+division by (k + ℓ) leads to
+                             k+ℓ−1
+                              X                                                      !
+                                    α                     α              (k+ℓ−r)x−rt
+               = 1
+                                                  r(x+t)
+         x+t                           k,ℓ,r −2πi k+ℓ       k,ℓ,k+ℓ−r 2πi
+    dF k+ℓ               1+                  e           +           e        k+ℓ        dF (x)
+                    k+ℓ              k +   ℓ                 k+ℓ
+                              r=1
+                                                                               
+                                     k+ℓ−1
+                                      X                                  x+t
+                                                                          ϑ k+ℓ
+              = 1             1+  2                    r(x+t)
+                                          αk,ℓ,r cos 2π k+ℓ      dF (x) =         dF (x)
+               k+ℓ               k+ℓ                                       k+ℓ
+                                               r=1
+
+which is valid for all x ∈ [0, 1).
+  To derive the functional equation, we need to calculate F (x) and hence to integrate the
+previous relations with an appropriate splitting of the integration region. When [y] and {y}
+denote the integer and the fractional part of y, one finds
+                    Z x            Z {(k+ℓ)x}                  [(k+ℓ)x]−1Z 1
+                                                                  X
+                                                 y+[(k+ℓ)x]                    y+t 
+(21)       F (x) =       dF (y) =             dF    k+ℓ       +              dF k+ℓ   ,
+                      0                    0                                  t=0       0
+                            GENERALISED THUE-MORSE SEQUENCES                                   17
+
+
+which holds for all x ∈ [0, 1). Observe next that
+           Z 1                     Z 1                   Z t+1
+                     y+t       1         y+t         1          z
+                                                                     
+               dF k+ℓ =                ϑ k+ℓ dF (y) =          ϑ k+ℓ   dF (z) .
+             0                k+ℓ 0                   k+ℓ t
+holds for any 0 ≤ t ≤ k + ℓ, where we used that dF (z − n) = dF (z) for all n ∈ Z as a
+consequence of the relation F (z + 1) = 1 + F (z) for z ∈ R. Similarly, one obtains
+                 Z {(k+ℓ)x}                          Z (k+ℓ)x
+                                 y+[(k+ℓ)x]      1               z
+                                                                     
+                            dF      k+ℓ       =                ϑ k+ℓ   dF (z) .
+                   0                            k + ℓ [(k+ℓ)x]
+We can now put the pieces in (21) together to obtain the functional equation as claimed,
+which clearly holds for all x ∈ R.
+   The continuity of ϑ is clear. Its non-negativity follows from the functional equation, because
+we know that F is non-decreasing on [0, 1] (as it is the distribution function of the positive
+measure µ). If we had ϑ(a) < 0 for some a ∈ [0, 1], there would be some ε > 0 such that
+ϑ(y) < −ε in a neighbourhood of a, which would produce a contradiction to the monotonicity
+of F via the functional equation.                                                              
+
+Remark 3 (Properties of the integration kernel). The non-negative function ϑ of Propo-
+sition 3 has various interesting and useful properties. Among them are the normalisation
+relations
+                         Z 1                     Z 1
+                                                       ϑ(x) dx = 1 ,
+                                                     2
+                              ϑ(x) dx = 1 and
+                           0                       0             2
+                   R1
+which follow from 0 cos(2πrx) dx = 0 for r 6= 0 together with the 1-periodicity of ϑ and its
+symmetry (whence we also have ϑ(1 − x) = ϑ(x)). Another is the bound
+                                          kϑk∞ ≤ q ,
+where q is the number from Lemma 2 (when k + ℓ > 2) or q = 2 (when k = ℓ = 1). This
+bound is proved by another use of Eq. (16) and the lines following it.           ♦
+
+  The functional equation of Proposition 3 provides the basis for the calculation of F by a
+Volterra-type iteration. To this end, one defines F0 (x) = x (so that dF0 (x) = dx) together
+with the recursion
+                                            Z (k+ℓ)x
+                                         1               y 
+(22)                      Fn+1 (x) =                ϑ k+ℓ    dFn (y)
+                                       k+ℓ 0
+for n ≥ 0. It is clear that each Fn defines an absolutely continuous Riemann-Stieltjes measure,
+so that one can define densities fn via dFn (x) = fn (x) dx. This gives
+                     Z x                            Z x
+                                                                        
+                         fn+1 (z) dz = Fn+1 (x) =       ϑ(z) fn (k + ℓ)z dz ,
+                     0                                 0
+                                             
+which results in fn+1 (z) = ϑ(z) fn (k + ℓ)z , and hence in the continuous function
+                                             n−1
+                                             Y                 
+(23)                              fn (z) =         ϑ (k + ℓ)j z .
+                                             j=0
+18                    MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+   To put this iteration into perspective, let us introduce the space D of non-decreasing and
+continuous real-valued functions G on R that satisfy G(−x) = −G(x) and G(x+1) = 1+ G(x)
+for all x ∈ R. In particular, this implies G(q) = q for all q ∈ 12 Z. We equip this space with
+the k.k∞ -norm, and thus with the topology induced by uniform convergence, in which the
+space is closed and complete. Each G ∈ D defines a positive Riemann-Stieltjes measure on
+R that is reflection symmetric and 1-periodic. Also, G(x) − x always defines a continuous,
+skew-symmetric and 1-periodic function of bounded variation. Our distribution functions F
+from above are elements of D.
+   Let k, ℓ ∈ N be fixed. Define a mapping Φ by G 7→ ΦG, where
+                                             Z (k+ℓ)x
+                                         1               y 
+(24)                        ΦG(x) =                   ϑ k+ℓ  dG(y) .
+                                       k+ℓ 0
+Clearly, our previous Volterra iteration (22) can now be written as Fn+1 = ΦFn with the
+initial condition F0 (x) = x, where F0 ∈ D.
+
+Lemma 4. The operator Φ maps D into itself. Moreover, for arbitrary F (0) ∈ D, the
+iteration sequence defined by F (n+1) := ΦF (n) for n ≥ 0 converges uniformly to the continuous
+distribution function F of Proposition 2.
+
+Proof. Let G ∈ D. It is clear that ΦG is again continuous (since ϑ and G are continuous)
+and non-decreasing (since ϑ is non-negative by Proposition 3). The skew-symmetry follows
+from dG(−y) = − dG(y) by a simple calculation. Finally, one has
+                                   Z (k+ℓ)(x+1)
+                                                   y 
+              ΦG(x + 1) = 1                     ϑ k+ℓ  dG(y) = ΦG(x) + I ,
+                              k+ℓ 0
+where the remaining integral I, using ϑ from Proposition 3 and the periodicity of dG, is
+                      Z (k+ℓ)x+(k+ℓ)                       Z k+ℓ
+                  1                      y             1           y 
+           I =                       ϑ k+ℓ dG(y) =               ϑ k+ℓ  dG(y)
+                k + ℓ (k+ℓ)x                          k+ℓ 0
+
+                     X Z t+1
+                    k+ℓ−1                       X Z 1
+                                               k+ℓ−1
+                 1              y          1            y+t 
+              =              ϑ k+ℓ dG(y) =             ϑ k+ℓ   dG(y)
+                k+ℓ       t                k+ℓ       0
+                        t=0                                  t=0
+                              k+ℓ−1
+                               X           Z 1 k+ℓ−r
+                                                X
+                        2                                         
+              = 1+          2       αk,ℓ,r           cos 2π ry+rt
+                                                             k+ℓ dG(y) = 1 .
+                     (k + ℓ) r=1            0   t=0
+The last step follows because the sum under the integral vanishes as a consequence of the
+         P                 
+relation m−1            rt
+            t=0 exp 2πi m = 0 for 1 ≤ r < m.
+   To see the convergence, we observe that Φ is related to the mapping Ψ of Lemma 3. Indeed,
+every F ∈ D has a uniformly converging Fourier series of the form
+                                             ∞
+                                             X βn
+                               F (x) = x +            sin(2πnx),
+                                             n=1
+                                                 nπ
+where |βn | ≤ 1 by an application of [54, Thm. II.4.12]. It is clear from the construction of
+the functional equation from the η-recursion that ΦF , which is also in D and hence has an
+                              GENERALISED THUE-MORSE SEQUENCES                                     19
+
+
+expansion of the same form, possesses the coefficients βn′ = (Ψβ)n . One can also verify this
+by a direct computation. Moreover, when f denotes the mapping from a distribution function
+in D to its coefficient series β, we have the commutative diagram
+                                                        Φ
+                                              D      −−−−→      D
+                                                               
+                                              
+                                             fy
+                                                                f
+                                                                y
+                                                        Ψ
+                                       [−1, 1]N −−−−→ [−1, 1]N
+where one should note that f is not a surjection.
+   By Lemma 3, we know that the Ψ-iteration, defined by β (N +1) = Ψβ (N ) with initial
+                                                               
+condition β (0) = f (F (0) ), converges pointwise to η(n) n∈N . This limit represents (in line
+with [45, Thm. 1.9.2]) our distribution function from Proposition 2. By construction, we have
+β (N ) = f (F (N ) ), and each β (N ) defines a translation bounded measure ω (N ) on Z via
+                                                  X iβn(N )           
+                                      (N )
+                                  ω          =                δ−n − δn ,
+                                                        2nπ
+                                                  n∈N
+which can also be viewed as a tempered distribution on R. Its inverse Fourier transform is
+a tempered distribution on R as well, which is regular and of the form hN λ, where hN (x) =
+F (N ) (x) − x defines a continuous and 1-periodic function on R as explained earlier. Now,
+                      
+the sequence ω (N ) n∈N of tempered distributions converges to a tempered distribution ω,
+as follows from the pointwise convergence result of Lemma 3. By continuity of the Fourier
+transform on the space of tempered distributions [44, Thm. IX.2], this implies convergence
+of hN λ to hλ, with h(x) = F (x) − x, again viewed as tempered distributions. Since F and
+all F (N ) are continuous, this means limN →∞ F (N ) (x) = F (x) pointwise for all x ∈ R, with F
+and all F (N ) being elements of D.
+   Uniform convergence on R now follows from that on [0, 1], which can be shown via the
+‘stepping-stone’ argument from the proof of [18, Thm. 30.13] as follows. Given ε > 0, there
+are numbers 0 = x0 < x1 < · · · < xm = 1 such that
+                           |F (xi ) − F (xi−1 )| = F (xi ) − F (xi−1 ) < ε
+for 1 ≤ i ≤ m. Also, for all sufficiently large N ∈ N, one has
+                                        |F (N ) (xi ) − F (xi )| < ε
+for all 0 ≤ i ≤ m. Since F (N ) (1) = F (1) = 1, consider now an arbitrary x ∈ [0, 1), so
+that xi−1 ≤ x < xi for precisely one i ∈ {1, 2, . . . , m}. Using monotonicity, this implies the
+inequalities
+                         F (xi−1 ) ≤ F (x) ≤ F (xi ) < F (xi−1 ) + ε
+and
+      F (xi−1 ) − ε < F (N ) (xi−1 ) ≤ F (N ) (x) ≤ F (N ) (xi ) < F (xi ) + ε < F (xi−1 ) + 2ε.
+Together, they give |F (N ) (x) − F (x)| < 2ε, which holds for all x ∈ [0, 1], and then uniformly
+for all x ∈ R, as F (N ) − F is 1-periodic for all N ∈ N0 .                                    
+20                         MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+     1                                                     1
+
+
+
+
+0.5                                                      0.5
+
+
+
+
+     0                                                     0
+         0                  0.5                     1           0                        0.5    1
+
+             Figure 3. The continuous and strictly increasing distribution functions of the
+             generalised Thue-Morse measures on [0, 1] for parameters (k, ℓ) = (2, 1) (left)
+             and (5, 1) (right).
+
+   Due to our convergence results, Equation (23) means that the measure b      γ has a (vaguely
+                                                        Q                 
+convergent) representation as the infinite Riesz product n≥0 ϑ (k+ℓ)n x . The entire analysis
+is thus completely analogous to that of the original TM sequence and shows that the latter
+is a typical example in an infinite family. Two further cases are illustrated in Figure 3.
+
+Remark 4 (Pure point factors). The block map (8) applies to any member of the gTM
+family, and always gives a 2-to-1 cover of the hull Xpd
+                                                     k,ℓ of the generalised period doubling
+(gpd) substitution
+
+(25)                        ̺ ′ = ̺k,ℓ
+                                   ′
+                                       :   a 7→ bk−1 abℓ−1 b,       b 7→ bk−1 abℓ−1 a.
+
+Since we always have a coincidence (at the kth position) in the sense of Dekking [23], they all
+define systems with pure point spectrum (which can be described as model sets in the spirit
+of [15, 14]) – another analogy to the classic case k = ℓ = 1. Also, for given k, ℓ ∈ N, the
+dynamical system (Xpd                                        TM
+                       k,ℓ , Z) is a topological factor of (Xk,ℓ , Z).
+                                                                            1
+   Moreover, the dynamical spectrum of the gTM system contains Z[ k+ℓ          ] as its pure point
+part, which happens to be the entire spectrum of the gpd system. The latter fact can be
+derived from the support of the gpd diffraction measure, via the general correspondence
+between the dynamical and the diffraction spectrum for pure point systems [35, 11]. The
+detailed calculations can be done in analogy to the treatment of the period doubling system
+in [14, 6], after an explicit formulation of the one-sided fixed point of the gpd substitution,
+                                              1
+which results in the Fourier module Z[ k+ℓ       ]. Consequently, the gpd system is a topological
+factor of the gTM system with maximal pure point spectrum.
+                            GENERALISED THUE-MORSE SEQUENCES                                    21
+
+
+   The gpd system can be described as a model set (with suitable p-adic type internal space).
+From [12], we know that there exists an almost everywhere 1-to-1 ‘torus’ parametrisation via
+a solenoid. Here, the inflation acts as multiplication by k + ℓ. In fact, the solenoid provides
+the maximum equicontinuous (or Kronecker) factor of the gTM system.                          ♦
+
+                                5. Topological invariants
+  The formulation via Dirac combs embeds the symbolic sequences into the class of translation
+bounded measures on R, as described in a general setting in [11]. It is thus natural to (also)
+consider the continuous counterpart of the discrete hull X in the form
+
+                                      Y = {δt ∗ ω | t ∈ R},
+
+where ω is an arbitrary element of X (which is always minimal in our situation) and the
+closure is now taken in the vague topology. Here, Y is compact, and (Y, R) is a topological
+dynamical system. Note that the continuous tiling hull mentioned earlier is topologically
+conjugate, wherefore we use the same symbol for both versions. The discrete hull X, in this
+formulation, is isomorphic with the subset
+
+                                  Y0 = {ν ∈ Y | ν({0}) 6= 0},
+
+while (Y, R) is the suspension of the system (Y0 , Z).
+   We are now going to construct the continuous hulls of the generalised Thue-Morse and
+period doubling sequences as inverse limits of the inflation map acting on an AP-complex
+[2], and use this construction to compute their Čech cohomology. At first sight, there are
+infinitely many cases to be considered. We note, however, that the AP complex Γ depends
+only on the atlas of all r-patterns occurring in the tiling, for some bounded r. In the original
+AP construction [2], Γ consists of 3-patterns – tiles with one collar tile on the left and one
+on the right. How these collared tiles are glued together in the complex is then completely
+determined by the set of 4-patterns occurring in the tiling. Therefore, there are only finitely
+many different AP complexes Γ to be considered.
+                                                                                pd
+   For obvious reasons, we want to extend the factor map φ : YTM       k,ℓ → Yk,ℓ between the
+continuous hulls to the cell complexes approximating them, compare (10). We therefore
+choose the cell complex ΓTM k,ℓ to consist of tiles with one extra layer of collar on the right,
+compared to the cell complex Γpd
+                              k,ℓ , so that we obtain, for each pair (k, ℓ), a well-defined factor
+                    pd
+map φ : ΓTMk,ℓ → Γk,ℓ , which we denote by the same symbol.
+   While the extra collar seems to complicate things, we can compensate this by a simplifica-
+tion compared to the original AP construction, at least for the cohomology computation. It
+is not difficult to show [28] that for a correct computation of the Čech cohomology it suffices
+to consider AP complexes with one-sided collars, say collars on the left, even though the
+resulting inverse limit space is not necessarily homeomorphic to the continuous hull [28].
+   The minimal setup therefore consists of AP complexes ΓTM     k,ℓ with tiles having two-sided
+collars, and complexes Γpd
+                        k,ℓ having tiles with left collars only. All collars have thickness one.
+22                     MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+
+
+                                     ¯1                1 1̄
+                                   11                       1̄
+                                                     a b
+                                       ba
+          111 bb                      1̄1 1̄ aa aa 1 1̄1                      bb 1̄ 1̄ 1̄
+                                         ab               ba
+                                   1̄1
+                                      1                    ¯1¯11
+
+
+       Figure 4. The universal complex for the gTM system. Edges are labelled
+       both with the corresponding collared tile of the gTM tiling and its image in
+       the gpd tiling.
+
+
+A straight-forward analysis shows that only three cases have to be distinguished: k = ℓ = 1
+(the classical case), either k = 1 or ℓ = 1 (but not both), and k, ℓ ≥ 2. The complexes ΓTM   k,ℓ
+are all sub-complexes of the complex shown in Figure 4. If k = ℓ = 1, the two loops on the
+left and right have to be omitted, because the corresponding patterns 111 and 1̄1̄1̄ do not
+occur in the classic TM sequence. Likewise, in the case k, ℓ ≥ 2, the lens in the centre has to
+be omitted, whereas the full complex has to be used in all remaining cases.
+   For the gpd sequences, an approximant complex that includes all different cases as sub-
+complexes can be constructed in a similar way. This complex is shown in Figure 5. As we
+have labelled the edges in Figure 4 with both the 3-pattern in the gTM sequence and the
+corresponding image under φ in the gpd sequence, it is easy to see how the factor map φ maps
+the complex of Figure 4 to that of Figure 5: the loops on the left and right of Figure 4 are
+both mapped onto the right loop of Figure 5, the central lens in Figure 4 is wrapped twice
+around the left loop in Figure 5, and the rhombus in Figure 4 is wrapped twice around the
+central loop in Figure 5. Therefore, Γpdk,ℓ consists of the left and the central loop of Figure 5
+in the case k = ℓ = 1 (the classical case), the central and the right loop of Figure 5 in the
+case k, ℓ ≥ 2, and of all three loops in the remaining cases. It is obvious that the map φ is
+uniformly 2-to-1 also at the level of the approximant complexes.
+                                                            pd
+   The cohomology of the continuous hulls YTM    k,ℓ and Yk,ℓ is now given by the direct limit
+of the induced maps ρ∗k,ℓ and ρ′∗                                                    ∗ TM
+                                  k,ℓ on the cohomology of the AP complexes, H (Γk,ℓ ) and
+H ∗ (Γpd
+      k,ℓ ). While there are only 3 different cell complexes in each case, there is an infinite
+family of maps ρ∗k,ℓ , respectively ρ′∗
+                                     k,ℓ , but these can be parametrised by k and ℓ.
+   We first define a basis of the homology of the full complexes of Figures 4 and 5, subsets
+of which shall be used for all k and ℓ, and pass later to the corresponding dual basis for the
+cohomology. The homology of the full complex ΓTM      k,ℓ is generated by the basis
+
+
+               cTM
+                1  = 11̄1,    cTM
+                               2  = 1̄11̄,    cTM
+                                               3  = 11̄1̄1,   cTM
+                                                               4  = 1,   cTM
+                                                                          5  = 1̄,
+                           GENERALISED THUE-MORSE SEQUENCES                                   23
+
+
+                                                 ba
+
+
+                         aa                                             bb
+
+
+                                                 ab
+
+       Figure 5. The universal complex for the gpd system. Its edges correspond
+       to tiles with one-sided (left) collar.
+
+
+where the words on the right have to be thought of as being repeated indefinitely. Likewise,
+the homology of Γpd
+                 k,ℓ is generated by the cycles
+
+
+                                cpd
+                                 1 = a,        cpd
+                                                2 = ab,    cpd
+                                                            3 = b.
+
+Clearly, we have
+                           pd   pd                  pd   pd                       pd
+               φ∗ (cTM
+                    1 ) = c1 + c2 ,     φ∗ (cTM
+                                             2 ) = c1 + c2 ,         φ∗ (cTM
+                                                                          3 ) = 2c2 ,
+                                          pd                      pd
+                              φ∗ (cTM
+                                   4 ) = c3 ,         φ∗ (cTM
+                                                           5 ) = c3 .
+
+Here, the lower asterisk in φ∗ denotes the induced action on homology, whereas φ∗ denotes
+the action on cohomology.
+   In order to go into more detail, we have to distinguish the three different cases. We begin
+with the classical case, k = ℓ = 1. Here, the relevant basis elements are cTM1 , c2
+                                                                                   TM and cTM
+                                                                                           3
+               pd      pd
+for TM, and c1 and c2 for pd. On these, the substitution acts as
+
+     ρ∗ (cTM     TM
+          1 ) = c1  + cTM
+                       2 ,     ρ∗ (cTM     TM
+                                    2 ) = c1  + cTM
+                                                 2 ,         ρ∗ (cTM       TM
+                                                                  3 ) = 2(c1  + cTM     TM
+                                                                                 2 ) − c3 ,
+
+                            ρ′∗ (cpd     pd
+                                  1 ) = c2 ,     ρ′∗ (cpd      pd   pd
+                                                       2 ) = 2c1 + c2 ,
+
+where ρ∗ and ρ′∗ again denote the induced action on homology. If we express these maps
+as matrices ATM and Apd acting from the left on column vectors, with respect to the basis
+above, and likewise define a matrix P for the action of φ∗ , we obtain
+                                                     
+                              !             1 1 2                          !
+                         0  2                                    1   1 0
+(26)            Apd =           , ATM = 1 1 2  , P =                       .
+                         1 1                                       1 1 2
+                                            0 0 −1
+
+The corresponding action on the dual basis of cohomology is simply given by the transposed
+matrices, or the same matrices, but regarded as acting from the right on row vectors. We adopt
+the latter viewpoint here. It is easy to verify that the matrices (26) satisfy Apd P = P ATM .
+In other words, the substitution action commutes with that of φ. Apd and ATM have left
+24                    MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+eigenvectors and eigenvalues
+                                                                
+                                      !               1 1 0 | 2
+                        1 2 | 2                                 
+(27)                                       and      0 0 1 | −1 .
+                        1 −1 | −1
+                                                      1 −1 0 | 0
+
+  Next, we look at the case k, ℓ ≥ 2, which is still relatively simple. Here, we have to work
+with the basis elements cTM    TM and cTM for gTM, and cpd and cpd for gpd. The action of
+                          3 , c4       5                     2       3
+the substitution is then given by
+                       ρ∗ (cTM      TM
+                            3 ) = 3c3  + (2(k + ℓ) − 6)(cTM
+                                                         4  + cTM
+                                                               5 ),
+
+                       ρ∗ (cTM     TM
+                            4 ) = c3  + (k − 2)cTM
+                                                4  + (ℓ − 2)cTM
+                                                             5 ,
+
+                       ρ∗ (cTM     TM
+                            5 ) = c3  + (ℓ − 2)cTM
+                                                4  + (k − 2)cTM
+                                                             5 ,
+
+                        ρ′∗ (cpd      pd               pd
+                              2 ) = 3c2 + 2(k + ℓ − 3)c3 ,
+
+                        ρ′∗ (cpd      pd              pd
+                              3 ) = 2c2 + (k + ℓ − 4)c3 .
+
+The corresponding matrices Apd     TM
+                            k,ℓ , Ak,ℓ and Pk,ℓ read
+                                                          
+                            !                   3    1   1                            !
+              3         2                                                     2 0 0
+ Apd
+  k,ℓ =                         , ATM
+                                   k,ℓ = 2(k+ℓ)−6 k−2 ℓ−2  , Pk,ℓ =                   ,
+          2(k+ℓ−3) k+ℓ−4                                                        0 1 1
+                                           2(k+ℓ)−6 ℓ−2 k−2
+
+and satisfy Apd               TM                  pd       TM
+             k,ℓ Pk,ℓ = Pk,ℓ Ak,ℓ . The matrices Ak,ℓ and Ak,ℓ have left eigenvectors and
+eigenvalues
+                                                                          
+                                     !               4     1    1 | k+ℓ
+                  2      1 | k+ℓ                                          
+(28)                                    and k + ℓ − 3 −1 −1 | −1  .
+             k + ℓ − 3 −2 | −1
+                                                     0     1 −1 | k−ℓ
+
+  Finally, the case where min(k, ℓ) = 1, but k + ℓ > 2, requires the full AP complex. For
+notational ease, we consider the case k = 1, ℓ ≥ 2. The case ℓ = 1, k ≥ 2 is completely
+analogous. The substitution then acts as follows on our basis:
+                    ρ∗ (cTM     TM
+                         1 ) = c2  + cTM
+                                      3  + (ℓ − 1)cTM
+                                                   4  + (2ℓ − 3)cTM
+                                                                 5 ,
+
+                    ρ∗ (cTM     TM
+                         2 ) = c1  + cTM
+                                      3  + (ℓ − 1)cTM
+                                                   5  + (2ℓ − 3)cTM
+                                                                 4 ,
+
+                    ρ∗ (cTM     TM
+                         3 ) = c1  + cTM
+                                      2  + cTM
+                                            3  + (2ℓ − 3)(cTM
+                                                           4  + cTM
+                                                                 5 ),
+
+                    ρ∗ (cTM     TM
+                         4 ) = c2  + (ℓ − 2)cTM
+                                             5 ,
+
+                    ρ∗ (cTM     TM
+                         5 ) = c1  + (ℓ − 2)cTM
+                                             4 ,
+
+                     ρ′∗ (cpd     pd          pd
+                           1 ) = c2 + (ℓ − 1)c3 ,
+
+                     ρ′∗ (cpd     pd    pd           pd
+                           2 ) = c1 + 2c2 + (2ℓ − 3)c3 ,
+
+                     ρ′∗ (cpd     pd   pd          pd
+                           3 ) = c1 + c2 + (ℓ − 2)c3 .
+                               GENERALISED THUE-MORSE SEQUENCES                                   25
+
+
+The corresponding matrices are
+                                                                     
+                                                 0    1    1  0   1
+                  0      1     1                 1     0    1  1   0 
+                                                                     
+                                                                   
+       Apd
+        k,ℓ =    1      2     1    , A  TM
+                                          k,ℓ =   1    1    1  0   0 ,
+                                                                     
+                ℓ − 1 2ℓ − 3 ℓ − 2               ℓ−1 2ℓ−3 2ℓ−3 0  ℓ−2
+                                                 2ℓ−3 ℓ−1 2ℓ−3 ℓ−2  0
+                                                    
+                                         1 1 0 0 0
+                                                    
+                                Pk,ℓ = 1 1 2 0 0 ,
+                                         0 0 0 1 1
+                        pg
+In this case, ATM
+               k,ℓ and Ak,ℓ have left eigenvectors and eigenvalues
+                                                                              
+                                              3     3      4     1 1  | ℓ + 1
+            1   2    1 | ℓ+1                1−ℓ 1−ℓ 2−ℓ 1 1 | −1 
+                                                                              
+                                                                            
+(29)       ℓ ℓ−2 −2 | −1  and  1                  −1      0     1 −1 | 1 − ℓ .
+                                                                              
+            1 1−ℓ 1 |         0             2−ℓ 2−ℓ 2−2ℓ 1 1 |             0 
+                                              2−ℓ ℓ−2        0     1 −1 |   0
+   As the cohomology of the continuous hull is given by the direct limit of the action of the
+substitution on the cohomology of the AP approximant complexes, it is determined by the
+                                                  pd
+non-zero eigenvalues of the matrices ATM k,ℓ and Ak,ℓ . For all k and ℓ, these eigenvalues are k + ℓ
+and −1 for the gpd case, and k + ℓ, −1 and k − ℓ in the gTM case, where the last eigenvalue
+is relevant only if k 6= ℓ. Since H 0 (Γ) = Z if Γ is connected, and the substitution action on
+H 0 (Γ) is trivial, with eigenvalue 1, we can summarise our cohomology results as follows.
+
+Theorem 2. The Čech cohomology of the continuous hull of the gTM sequences is given by
+H 0 (YTM
+      k,ℓ ) = Z and
+                                  
+                                       1              1
+                                  Z[ k+ℓ ] ⊕ Z ⊕ Z[ |k−ℓ| ], if |k − ℓ| ≥ 2,
+                                  
+                    H 1 (YTM
+                          k,ℓ ) =
+                                        1
+                                    Z[ k+ℓ ] ⊕ Z2 ,           if |k − ℓ| = 1,
+                                  
+                                  
+                                  Z[ 1 ] ⊕ Z,                if k = ℓ.
+                                       k+ℓ
+
+The Čech cohomology of the continuous hull of the generalised period doubling sequences is
+given by
+                        H 0 (Ypd
+                              k,ℓ ) = Z, H 1 (Ypd          1
+                                               k,ℓ ) = Z[ k+ℓ ] ⊕ Z,
+valid for any pair k, ℓ ∈ N.                                                                      
+
+  Since the cohomology of the hulls is given by the direct limit of the columns of the diagram
+                                       ψ∗                φ∗
+                         H k (Γsol ) −−−−→ H k (Γpd    ) −−−−→ H k (ΓTM  )
+                              k,ℓ                k,ℓ              k,ℓ
+                                                                  ̺∗
+(30)                   ×(k+ℓ)y              ̺ ′∗ y                  y
+                                       ψ∗                φ∗
+                          H k (Γsol   −−−→ H k (Γpd
+                                k,ℓ ) −                −−−→ H k (ΓTM
+                                                 k,ℓ ) −          k,ℓ )
+26                      MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+(compare (10)), we now have access also to the homomorphisms in the sequence
+                                       ψ∗                   φ∗
+(31)                     H ∗ (Sk+ℓ ) −−−−→ H ∗ (Ypd    −−−→ H ∗ (YTM
+                                                 k,ℓ ) −          k,ℓ ).
+
+For all three spaces, H 0 = Z, and the maps φ∗ and ψ ∗ acting on them are isomorphisms.
+                                                             1
+Further, it is easy to see that ψ ∗ embeds H 1 (Sk+ℓ ) = Z[ k+ℓ ] non-divisibly in H 1 (Ypd
+                                                                                         k,ℓ ); it is
+                                                  1
+simply mapped isomorphically onto the summand Z[ k+ℓ ] in H 1 (Ypd
+                                                                k,ℓ ). The same cannot be
+said of the second map, however. For all pairs k, ℓ, the matrix P maps the eigenvector of Apd k,ℓ
+with eigenvalue −1 to twice the corresponding eigenvector of ATM k,ℓ . As a result, the quotient
+                    pd                                                              pd
+H 1 (YTM     ∗  1                                                               1
+      k,ℓ )/ρ (H (Yk,ℓ )) has a torsion component Z2 ; the summand Z of H (Yk,ℓ ) coming from
+the eigenvalue −1 is mapped to 2Z in H 1 (YTM   k,ℓ ). This result was already known for the classic
+period doubling and Thue-Morse sequences [17], and extends to the generalised sequences.
+Therefore, in the case k = ℓ, where the cohomologies of gTM and gpd are isomorphic as
+groups, we should rather regard H 1 (Ypd                                     1    TM
+                                         k,ℓ ) as subgroup of index 2 of H (Yk,ℓ ).
+
+
+                                6. Dynamical zeta functions
+   The continuous hull permits to employ the Anderson-Putnam method [2] for the calculation
+of the dynamical zeta function of the inflation action on Y. The dynamical zeta function [46]
+of a substitution can be viewed as a generating function for the number of fixed points a(n)
+under n-fold substitution via
+                                              X∞
+                                                    a(n) n 
+(32)                              ζ(z) = exp            z .
+                                               n=1
+                                                     n
+
+Knowing the fixed point counts a(n), one can calculate the number c(n) of cycles of length n
+from the formula
+                                          1X n
+                                 c(n) =        µ( d ) a(d),
+                                          n
+                                                 d|n
+
+where µ is the Möbius function from elementary number theory.
+   Anderson and Putnam [2] showed how the dynamical zeta function of a substitution tiling
+can be expressed by the action of the substitution on the cohomology of the AP complex Γ.
+In the one-dimensional case, the zeta function is given by
+                                               det(1 − zA0 )
+                                      ζ(z) =                 ,
+                                               det(1 − zA1 )
+where Ak is the matrix of the substitution action on H k (Γ). In our case, A0 is a 1 × 1 unit
+matrix, and A1 is diagonalisable, so that we can rewrite the zeta function as
+                                                     1−z
+                                       ζ(z) = Q                ,
+                                                  i (1 − zλi )
+where λi are the eigenvalues of A1 . For the gTM and gpd tilings, these eigenvalues have been
+derived above, so that we arrive (after a simple calculation) at the following theorem.
+                            GENERALISED THUE-MORSE SEQUENCES                                    27
+
+
+Theorem 3. Let k, ℓ ∈ N. The generalised Thue-Morse sequence defined by the inflation ̺k,ℓ
+of (11) possesses the dynamical zeta function
+
+                         TM                         1−z
+                        ζk,ℓ (z) =                                       ,
+                                     (1 + z)(1 − (k + ℓ)z)(1 − (k − ℓ)z)
+                                                                       ′
+while the induced generalised period doubling sequence, as defined by ̺k,ℓ of (25), leads to
+
+                                 pd                  1−z
+                                ζk,ℓ (z) =                         .
+                                             (1 + z)(1 − (k + ℓ)z)
+
+In particular, when k = ℓ, one has ζ TM = ζ pd .                                                
+
+  For our two systems, the corresponding fixed point counts can now be calculated from
+Eq. (32) to be
+                                                 
+(33)        apd               n
+             k,ℓ (n) = (k + ℓ) − 1 − (−1)
+                                         n
+                                                      and aTM         pd
+                                                           k,ℓ (n) = ak,ℓ (n) + (k − ℓ)
+                                                                                       n
+
+
+for n ∈ N.
+                                                                           pd
+   There is an interesting connection between the inflation on YTM k,ℓ or Yk,ℓ and the multiplica-
+tion by (k +ℓ) on the (matching) solenoid Sk+ℓ , which emerges from the torus parametrisation
+[9, 48, 12]. This solenoid is a set on which the multiplication is invertible. It is constructed
+via a suitable inverse limit structure (under iterated multiplication by (k + ℓ)), starting from
+the 1-torus (or unit circle), represented by the unit interval [0, 1) with arithmetic taken mod
+1. Together with the above, we obtain the following commutative diagram
+                                             φ             ψ
+                                 YTM  −−−→ Ypd
+                                  k,ℓ −           −−−−→ Sk+ℓ
+                                            k,ℓ        
+                                                       ×(k+ℓ)
+(34)                             ̺y        ̺′y           y
+                                             φ             ψ
+                                 YTM  −−−→ Ypd
+                                  k,ℓ −     k,ℓ −
+                                                −−−→ Sk+ℓ
+
+where ψ denotes the torus parametrisation for the generalised period doubling sequence, in
+the spirit of [48, 12, 15]. The mapping ψ is 1-to-1 almost everywhere. Like for the classic
+period doubling sequence, it fails to be 1-to-1 on exactly two translation orbits, which are
+mapped to a single orbit.
+   Counting finite periodic orbits under the multiplication action on the solenoid, however,
+means that the inverse limit is not needed, so that the corresponding dynamical (or Artin-
+Mazur) zeta functions coincides with that of the toral endomorphism represented by multi-
+plication by m = k + ℓ ≥ 2. This, in turn, is given by
+
+                                          sol          1−z
+                                         ζm   (z) =
+                                                      1 − mz
+
+by an application of [10, Thm. 1]. The number of fixed points is given by asol      n
+                                                                           m (n) = m − 1,
+where m = k + ℓ as before for a comparison with (33).
+28                       MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+                                      7. Further directions
+   A natural question concerns the robustness of the singular continuous spectrum under
+simultaneous permutations of positions in ̺(1) and ̺(1̄), as considered in [53]. For k = ℓ = 1,
+the two possible rules are the Thue-Morse rule (11̄, 1̄1) and its partner (1̄1, 11̄), written in
+obvious shorthand notation. Since the squares of these two rules are equal, they define the
+same hull, and hence the same autocorrelation.
+   There are three possible rules for k = 2 and ℓ = 1, namely (111̄, 1̄1̄1), (11̄1, 1̄11̄) and
+(1̄11, 11̄1̄). The first is our ̺2,1 from above, while the third results in a fixed point that is
+the mirror image, and hence possesses the same autocorrelation. The middle rule, however,
+has the periodic fixed point . . . 11̄11̄11̄ . . . and hence autocorrelation γ = (δ0 − δ1 ) ∗ δ2Z . Its
+Fourier transform reads
+                                                b = δZ+ 1 ,
+                                                γ
+                                                         2
+
+which is a periodic pure point measure. By general arguments on the basis of [25, 26], it
+seems clear that, given a permutation, the diffraction is either pure point or purely singular
+continuous. It remains an interesting question to decide this explicitly for general k and ℓ,
+and a general permutation.
+   Moreover, it is clear that similar structures exist in higher dimensions. Indeed, starting from
+the treatment of bijective lattice substitution systems in [25, 26], it is possible to demonstrate
+the singular continuous nature for bijective substitution with trivial height lattice, and to
+calculate it explicitly in terms of Riesz products. Details will be explained in a forthcoming
+publication [8].
+
+                                        Acknowledgement
+  We are grateful to Michel Dekking, Xinghua Deng, Natalie Frank and Daniel Lenz for
+helpful discussions. This work was supported by the German Research Council (DFG), within
+the CRC 701, and by a Leverhulme Visiting Professorship grant (MB).
+
+                                             References
+ [1] Allouche J-P and Shallit J, Automatic Sequences: Theory, Applications, Generalizations, Cambridge Uni-
+     versity Press, Cambridge (2003).
+ [2] Anderson J E and Putnam I F, Topological invariants for substitution tilings and their associated
+     C ∗ -algebras, Ergodic Th. & Dynam. Syst. 18 (1998) 509–537.
+ [3] Baake M, Diffraction of weighted lattice subsets, Can. Math. Bulletin 45 (2002) 483–498;
+     arXiv:math.MG/0106111.
+ [4] Baake M and Grimm U, The singular continuous diffraction measure of the Thue-Morse chain, J. Phys.
+     A: Math. Theor. 41 (2008) 422001; arXiv:0809.0580.
+ [5] Baake M and Grimm U, Surprises in aperiodic diffraction, J. Physics: Conf. Ser. 226 (2010) 012023;
+     arXiv:0909.5605.
+ [6] Baake M and Grimm U, Diffraction of limit periodic point sets, Phil. Mag. 91 (2011) 2661–2670;
+     arXiv:1007.0707.
+ [7] Baake M and Grimm U, Kinematic diffraction from a mathematical viewpoint, Z. Kristallogr. 226 (2011)
+     711–725; arXiv:1105.0095.
+                                GENERALISED THUE-MORSE SEQUENCES                                           29
+
+
+ [8] Baake M and Grimm U, Squirals and beyond: Substitution tilings with singular continuous spectrum, in
+     preparation.
+ [9] Baake M, Hermisson J and Pleasants P A B, The torus parametrization of quasiperiodic LI classes, J.
+     Phys. A: Math. Gen. 30 (1997) 3029–3056; mp arc/02-168.
+[10] Baake M, Lau E and Paskunas V, A note on the dynamical zeta function of general toral endomorphisms,
+     Monatsh. Math. 161 (2010) 33–42; arXiv:0810.1855.
+[11] Baake M and Lenz D, Dynamical systems on translation bounded measures: Pure point dynamical and
+     diffraction spectra, Ergodic Th. & Dynam. Syst. 24 (2004) 1867–1893; arXiv:math.DS/0302231.
+[12] Baake M, Lenz D and Moody R V, Characterization of model sets by dynamical systems, Ergodic Th. &
+     Dynam. Syst. 27 (2007) 341–382; arXiv:math.DS/0511648.
+[13] Baake M and Moody R V (eds.), Directions in Mathematical Quasicrystals, CRM Monograph Series vol.
+     13, AMS. Providence, RI (2000)
+[14] Baake M and Moody R V, Weighted Dirac combs with pure point diffraction, J. reine angew. Math.
+     (Crelle) 573 (2004) 61–94; arXiv:math.MG/0203030.
+[15] Baake M, Moody R V and Schlottmann M, Limit-(quasi)periodic point sets as quasicrystals with p-adic
+     internal spaces, J. Phys. A: Math. Gen. 31 (1998) 5755–5765; arXiv:math-ph/9901008.
+[16] Barge M and Olimb C, Asymptotic structure in substitution tiling spaces, preprint arXiv:1101.4902.
+[17] Barge M and Sadun L, Quotient cohomology for tiling spaces, preprint arXiv:1101.3369.
+[18] Bauer H, Measure and Integration Theory, de Gruyter, Berlin (2001).
+[19] Bellissard J, Herrmann D J L and Zarrouati M, Hulls of aperiodic solids and gap labeling theorems, in:
+     [13], pp. 207–258.
+[20] Berg C and Forst G, Potential Theory on Locally Compact Abelian Groups, Springer, Berlin (1975).
+[21] Cowley J M, Diffraction Physics, 3rd ed., North-Holland, Amsterdam (1995).
+[22] Damanik D, Gordon-type arguments in the spectral theory of one-dimensional quasicrystals, in: [13], pp.
+     277–305.
+[23] Dekking F M, The spectrum of dynamical systems arising from substitutions of constant length, Z.
+     Wahrscheinlichkeitsth. verw. Geb. 41 (1978) 221–239.
+[24] van Enter A C D and Miȩkisz J, How should one define a weak crystal? J. Stat. Phys. 66 (1992) 1147–1153.
+[25] Frank N P, Multi-dimensional constant-length substitution sequences, Topol. Appl. 152 (2005) 44–69.
+[26] Frank N P, Spectral theory of bijective substitution sequences, MFO Reports 6 (2009) 752–756.
+[27] Frettlöh D and Sing B, Computing modular coincidences for substitution tilings and point sets, Discr.
+     Comput. Geom. 37 (2007) 381–407; arXiv:math.MG/0601067.
+[28] Gähler F and Maloney G R, A note on the cohomology of one-dimensional substitution tilings, in prepa-
+     ration.
+[29] Hof A, On diffraction by aperiodic structures, Commun. Math. Phys. 169 (1995) 25–43.
+[30] Hutchinson J E, Fractals and self-similarity, Indiana Univ. Math. J. 30 (1981) 713–743.
+[31] Kakutani S, Strictly ergodic symbolic dynamical systems, Proc. 6th Berkeley Symposium on Math. Sta-
+     tistics and Probability eds L M LeCam, J Neyman and E L Scott, Univ. of California Press, Berkeley
+     (1972), pp. 319–326.
+[32] Katznelson Y, An Introduction to Harmonic Analysis, 3rd ed., Cambridge University Press, New York
+     (2004).
+[33] Keane M, Generalized Morse sequences, Z. Wahrscheinlichkeitsth. verw. Geb. 10 (1968) 335–353.
+[34] Lee J-Y and Moody R V, Lattice substitution systems and model sets, Discr. Comput. Geom. 25 (2001)
+     173–201; arXiv:math.MG/0002019.
+[35] Lee J-Y, Moody R V and Solomyak B, Pure point dynamical and diffraction spectra, Ann. H. Poincaré
+     3, 1003–1018; arXiv:0910.4809.
+30                         MICHAEL BAAKE, FRANZ GÄHLER, AND UWE GRIMM
+
+
+[36] Lee J-Y, Moody R V and Solomyak B, Consequences of pure point diffraction spectra for multiset sub-
+     stitution systems, Discr. Comput. Geom. 29 (2003) 525–560; arXiv:0910.4450.
+[37] Lenz D and Stollmann P, Generic sets in spaces of measures and generic singular continuous spectrum for
+     Delone Hamiltonians, Duke Math. J. 131 (2006) 203–217; arXiv:math-ph/0410021.
+[38] Mahler K, The spectrum of an array and its application to the study of the translation properties of a
+     simple class of arithmetical functions. Part II: On the translation properties of a simple class of arithmetical
+     functions, J. Math. Massachusetts 6 (1927) 158–163.
+[39] Moody R V, Meyer sets and their duals, in The Mathematics of Long-Range Aperiodic Order, Moody R
+     V (ed.), NATO ASI Series C 489, Kluwer, Dordrecht (1997), pp. 403–441.
+[40] Moody R V, Model sets: A Survey, in From Quasicrystals to More Complex Systems, Axel F Dénoyer
+     F and Gazeau J P (eds.), EDP Sciences, Les Ulis, and Springer, Berlin (2000), pp. 145–166;
+     arXiv:math.MG/0002020.
+[41] Nadkarni M G, Basic Ergodic Theory, 2nd ed., Birkhäuser, Basel (1995).
+[42] Pinsky M A, Introduction to Fourier Analysis and Wavelets, Brooks/Cole, Pacific Grove, CA (2002).
+[43] Queffélec M, Substitution Dynamical Systems – Spectral Analysis, LNM 1294, 2nd ed., Springer, Berlin
+     (2010).
+[44] Reed M and Simon B, Methods of Modern Mathematical Physics. I. Functional Analysis, 2nd ed., Academic
+     Press, San Diego, CA (1980).
+[45] Rudin W, Fourier Analysis on Groups, reprint, Wiley, New York (1990).
+[46] Ruelle D, Dynamical Zeta Functions for Piecewise Monotone Maps of the Interval, CRM Monograph
+     Series, vol. 4, AMS, Providence, RI (1994).
+[47] Sadun L, Topology of Tiling Spaces, AMS, Providence, RI (2008).
+[48] Schlottmann M, Generalised model sets and dynamical systems, in: [13], pp. 143–159.
+[49] Simon B, Operators with singular continuous spectrum. I. General operators. Ann. Math. (2) 141 (1995)
+     131–145.
+[50] Walters P, An Introduction to Ergodic Theory, reprint, Springer, New York (2000).
+[51] Wiener N, The spectrum of an array and its application to the study of the translation properties of a
+     simple class of arithmetical functions. Part I: The spectrum of an array, J. Math. Massachusetts 6 (1927)
+     145–157.
+[52] Withers R L, Disorder, structured diffuse scattering and the transmission electron microscope, Z. Krist.
+     220 (2005) 1027–1034.
+[53] Zaks M A, On the dimensions of the spectral measure of symmetric binary substitutions, J. Phys. A:
+     Math. Gen. 35 (2002) 5833–5841.
+[54] Zygmund A, Trigonometric Series, 3rd ed., Cambridge University Press, Cambridge (2002).
+
+     Fakultät für Mathematik, Universität Bielefeld,
+     Postfach 100131, 33501 Bielefeld, Germany
+     E-mail address: {mbaake,gaehler}@math.uni-bielefeld.de
+
+     Department of Mathematics and Statistics, The Open University,
+     Walton Hall, Milton Keynes MK7 6AA, United Kingdom
+     E-mail address: u.g.grimm@open.ac.uk
+

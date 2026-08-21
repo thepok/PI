@@ -1,0 +1,93 @@
+item,verification,source_boundary,mechanism_or_fingerprint,T181_disposition
+T89,LC/PS,readable accepted report,"Kempner/Fredholm representation; decimal Thue-Morse",exclude representation
+T90,LC/PS,readable accepted report,"Stoneham and explicit normal/discrepancy points",exclude Stoneham and representation
+T91,PS,unverified note,"substitution and paperfolding synchronization",exclude finite-state/substitution
+T92,MC plus PS note,Lean declaration readable,"constant-run exact-word charging",exclude recorded charging branch
+T93,PS,unverified note,"Stoneham repeated prime-power residues",exclude Stoneham
+T94,PS,unverified note,"paperfolding tensor collision recurrence",exclude finite-state and tensorization
+T95,PS,unverified note,"exact-word overlap-period charging",exclude recorded charging branch
+T96,PS,unverified note,"non-Poisson Stoneham family",exclude Stoneham
+T97,PS,unverified note,"paperfolding collision envelope",exclude finite-state
+T98,PS,unverified note,"exact-word-to-metric transport and Vaaler reversal",exclude recorded transport branch
+T99,PS,unverified note,"exceptional-prime Stoneham repetition",exclude Stoneham
+T100,MC plus PS note,Lean declaration readable,"universal finite-word equality charging",exclude recorded charging branch
+T101,PS,unverified note,"paperfolding successor-splitting obstruction",exclude finite-state
+T102,PS,unverified note,"coprime Stoneham order profiles",exclude Stoneham
+T103,LC/PS,readable accepted report,"positive-entropy Toeplitz invariant model",exclude invariant-measure and finite-state
+T104,LC/PS,12 pinned tuples,"Mahler; restricted denominator; fractal Fourier; metric lacunary",exclude fixture T104/T138 and broad ambient Fourier
+T105,LC/PS,readable accepted report,"additive energy; BSG; flattening; sum-product; modular sums",exclude additive-energy and broad Fourier
+T106,MC,Lean declaration readable,"finite branching resonance tree",exclude recorded resonance-tree interface
+T107,MC,Lean declaration readable,"averaged triangular Fejer boundary criterion",target interface only
+T108,MC,Lean declaration readable,"literal exact-word-to-metric transport",exclude recorded transport branch
+T109,PS rejected,recovered comparator only,"Markov shadowing and Wasserstein robustness",exclude failed-certificate replay
+T110,LC/PS,readable accepted report,"fixed-order Gowers; q-multiplicative phases; metric correlations",exclude broad Fourier/fixed-order uniformity
+T111,LC/PS,readable accepted report,"de Bruijn synchronization and remote labels",exclude specification/de Bruijn
+T112,LC/PS,readable accepted report,"carry local limits and twisted finite-state operators",exclude carry and finite-state
+T113,PS,unverified note,"Peres-Sclag orbit avoidance",exclude avoidance
+T114,LC/PS,readable accepted report,"Pade/interpolation determinant occupancy",exclude determinant
+T115,LC/PS,readable accepted report,"substitution Riesz recursion and persistent Fourier ray",exclude finite-state and broad Fourier
+T116,LC/PS,readable accepted report,"computable orbit-avoidance selectors",exclude avoidance
+T117,LC/PS,readable accepted report,"Legendre subset-product and Weil cancellation",exclude broad Fourier
+T118,LC/PS,readable accepted report,"prime powers; exact order; logarithmic modular orbit",exclude recorded modular representation
+T119,PS incomplete,recovered comparator only,"predictive/Hankel/Prony rank",exclude finite-state/rank
+T120,LC/PS,readable accepted report,"renewal and inducing tails",exclude renewal and invariant-measure
+T121,LC/PS,readable accepted report,"global Parseval/Walsh L2",exclude global-L2 and broad Fourier
+T122,PS rejected,recovered comparator only,"nested necklaces and vector balancing",exclude balancing and specification
+T123,LC/PS parked,recovered comparator only,"de Bruijn/Euler and explicit-point specification",exclude specification
+T124,PS,unverified note,"arithmetic monodromy and expander walk",exclude finite-state/quotient walk
+T125,LC/PS,readable accepted report,"multiplicative all-subset correlations",exclude broad Fourier/fixed-order correlation
+T126,PS,unverified note,"H1 coefficient orbit and LTE collisions",exclude representation
+T127,LC/PS,readable accepted report,"Mahler lifting; symbolic rigidity; reciprocal sums",exclude representation and finite-state
+T128,LC/PS,readable accepted report,"effective specification and de Bruijn prefixes",exclude specification
+T129,unavailable,no direct report or theorem tuple,"agenda/status unavailable; A1/C1 correction only",availability boundary; infer nothing
+T130,LC/PS,readable accepted report,"equal blocks to S-unit equations",exclude S-unit
+T131,LC/PS,readable accepted report,"integral circulation and Euler ordering",exclude balancing and global-L2
+T132,LC/PS,readable accepted report,"multi-modulus projections and Lorenz meet",exclude tensorization/projection
+T133,PS,readable accepted note-level report,"factorial valuation transducer",exclude carry and finite-state
+T134,LC/PS,readable accepted report,"single zero-cylinder/heavy-fiber occupancy",exclude heavy-fiber and occupancy
+T135,LC/PS,readable accepted report,"Renyi-2 projection tensorization",exclude tensorization
+T136,LC/PS,6 pinned tuples,"regular/Mahler; ambient Fourier; structured sums",exclude fixture T136/T146 and broad Fourier
+T137,PS,unverified note,"tensor powers of Lorenz meets",exclude tensorization
+T138,rejected/unavailable,no readable artifact,"reported exact replay of T104",hard duplicate fixture; infer no extra content
+T139,unavailable,no report/result,"no readable mechanism",availability boundary; infer nothing
+T140,LC/PS,readable accepted report,"hypergraph containers for collision census",exclude container and census
+T141,PS,unverified note,"factorial-ratio multiplication carries",exclude carry
+T142,unavailable,metadata only,"four-source direction scout unavailable",availability boundary; infer nothing
+T143,PS,unverified note,"weighted-transducer residual and cycle lifting",exclude finite-state and carry
+T144,PS,unverified note,"overlap-to-disjoint residue extraction and type census",exclude census
+T145,PS,unverified note,"Landau nonnegativity and positive carry cycle",exclude carry
+T146,rejected/unavailable,no readable artifact,"reported exact replay of T136",hard duplicate fixture; infer no extra content
+T147,PS,unverified accepted note,"shared-prefix counterfamily against additive census savings",exclude census; conditional comparator only
+T148,PS,unverified accepted note,"Landau atom without cycle drift",exclude carry; conditional comparator only
+T149,LC/PS,readable accepted report,"Terwilliger PSD and block diagonalization",exclude global-L2/PSD
+T150,LC/PS,readable accepted report,"pressure large deviations and multidepth Lipschitz census",exclude census and invariant-measure
+T151,PS,unverified accepted note,"integrality to carry drift",exclude carry; conditional comparator only
+T152,PS,unverified accepted note,"maximal-depth localization and fractional-cover census",exclude census; conditional comparator only
+T153,LC/PS/EXP,readable accepted report,"logarithmic locality to occupancy; k-Abelian/Euler-flow census",exclude locality-to-occupancy and repeated-de-Bruijn boundary
+T154,PS/EXP,readable unverified note,"finite reuse-capacity entropy LP",exclude entropy-LP; no claim imported
+T155,LC/PS/EXP,readable accepted report,"marked local-dependence Poisson diagnostic",exclude local-dependence random-model lane
+T156,rejected LC/PS/EXP,rejected report recovered from supplied proof-ledger snapshot,"inverse stability and interval-periodic coordinate-core templates",exclude template-stability fingerprint; import no rejected claim
+T157,LC/PS/EXP,readable pinned literature artifact,"inverse Littlewood-Offord for literal block-difference vectors",exclude inverse-concentration fingerprint
+T158,LC/PS/EXP,readable pinned literature artifact,"empirical transition pseudo-gap and short-census occupancy",exclude transition-gap occupancy; import only source pins
+T159,LC plus PS/EXP,readable unverified note,"marked Palm-Stein overlapping-block Poisson audit",exclude marked local-dependence; conditional comparator only
+T160,accepted LC/PS/EXP,readable pinned literature artifact,"Dębowski maximal repetition; Kosolobov closed repeats; Champernowne pair multiplicity; expanding recurrence; sliding/trace sums",reserve all six source/theorem tuples; import no proof-sketch deduction
+T161,LC plus PS/EXP,readable unverified note,"maximal same-lag chain declumping and compound-Poisson cumulants",exclude same-lag declumping; conditional comparator only
+T162,accepted LC/PS/EXP,readable pinned literature artifact,"Rote return maxima; Sturmian derivated words; automatic-sequence rational-phase sums",reserve all three source/theorem tuples; import no proof-sketch deduction
+T163,accepted LC/PS/EXP,readable pinned literature artifact,"multiplicative gcd exceptional sets; denominator-shell Fourier measure; Renyi-2 cross-match",reserve all five source/theorem tuples; import no proof-sketch deduction
+T164,accepted sketch note,readable unverified note,"primitive-substitution power-freeness and effective return separation",hard agenda exclusion; import no note deduction
+T165,accepted sketch note,readable unverified note,"Champernowne alignment/carry arithmetic-fiber counting",hard agenda exclusion; import no note deduction
+T166,machine-checked,Lean artifact readable in refreshed knowledge library,"finite-word power-free separation and collision-packing theorem",exclude recorded finite-word separation and packing mechanism
+T167,accepted pinned literature,readable accepted artifact,"four-source cross-domain scout; residue interleaving entropy; algebraic-power repulsion",reserve all four source/theorem tuples; extend ledger only
+T168,accepted sketch note,readable unverified note,"iid mixed-lag collision-cluster rank and intensity",hard agenda exclusion iid collision-cluster lane; import no note deduction
+T169,accepted sketch note,readable unverified note,"sharp finite Champernowne collision counting and centered energy",hard agenda exclusion Champernowne counting; import no note deduction
+T170,accepted sketch note,readable unverified note,"iid overlapping-block ordinary third cumulant",hard agenda exclusion iid cumulant lane; import no note deduction
+T171,accepted pinned literature,readable accepted artifact,"automatic functional equations; metric restricted denominators; algebraic-conjugate self-similar Fourier decay",reserve all three source/theorem tuples; exclude functional/Mahler repeated-offset and generic metric/ambient Fourier mechanisms
+T172,accepted sketch note,readable unverified note,"iid fourth cumulant and occupancy-only clique absorption",hard agenda exclusion routine higher-cumulant and occupancy mechanisms; import no note deduction
+T173,accepted sketch note,readable unverified note,"finite prime-concatenation sparse census",hard agenda exclusion census mechanism; import no note deduction
+T174,rejected pinned attempt,recent result metadata and skeptic disposition readable,"trace-product/Kifer cluster corrections; Burgess/trace-function comparators",rejected; hard agenda exclusion; import no rejected claim
+T175,accepted pinned literature,readable accepted artifact,"effective exceptional covers for restricted denominators, self-conformal Fourier decay, and Mahler constants",reserve all three source/theorem tuples; exclude generic metric/ambient Fourier and functional/Mahler mechanisms
+T176,accepted pinned literature,readable accepted artifact,"Cantor/Mahler heavy fiber; automatic block collision; short Kloosterman and finite-field recurrence sums",reserve all four source/theorem tuples; exclude representation finite-state occupancy recurrence and structured-sum mechanisms
+T177,accepted sketch note,readable unverified note,"effective Martin-Lof test for logarithmic-depth iid decimal block energy",exclude algorithmic-randomness mechanism; import no note deduction
+T178,accepted pinned literature,readable accepted artifact,"fixed-dilation nested-interval maximal gap; simultaneous power-denominator limsup dimension; complete finite-group orbit Fourier saving",reserve all three source/theorem tuples and retained maximal-gap fingerprint
+T179,accepted pinned literature,readable accepted artifact and six-tuple source ledger,"full-heavy-return-lag additive structure; Freiman small-doubling classification; popular-difference independent dimension; pronil return sets; large spectra; geometric-progression triple sums",exclude complete T179 branch and every tuple/fingerprint in PRIOR_EXCLUSIONS.csv; import no proof-sketch deduction
+T180,accepted pinned literature,readable accepted artifact and four-tuple source ledger,"quadratic-form represented denominators; alternating rational-power diameter; maximal gapped-repeat descriptors; p-adic analytic B-process",exclude complete T180 branch and every tuple/fingerprint in PRIOR_EXCLUSIONS.csv; import no proof-sketch deduction

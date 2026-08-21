@@ -1,0 +1,21 @@
+{
+  "boundary_thresholds": {
+    "nine": true,
+    "nine_ninety_nine": true,
+    "ninety_nine": true
+  },
+  "classification_cases": 3310,
+  "count_cases": 32,
+  "cutoff": "J_n=floor(125*n/763)",
+  "early_asymptotic_coefficient": "175125/1164338",
+  "envelope_square": "16641/400",
+  "envelope_sum": "129/20",
+  "grouped_square_strict_upper_integer": 42,
+  "hashes": {
+    "pi-positive-decimal-factor-entropy.txt": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+    "zeilberger-zudilin-2020.pdf": "3b11c4bf3e25927227ac8f7f4e49d7f1d3efeb42beecd7f3b8c64efb162d20b5",
+    "zeilberger-zudilin-2020.txt": "49ca4907538e4ccea23cee27f051f5b33832ed2cf3e3093b4aab58a13c814a68"
+  },
+  "lambda": "763/125",
+  "status": "experiment"
+}

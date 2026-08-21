@@ -1,0 +1,39 @@
+CANONICAL QUESTION
+Let pi = 3.d_1 d_2 d_3 ... be its unique nonterminating decimal expansion, with d_i in D = {0,...,9}. For integers i >= 0 and m >= 1 define B_pi(i,m) = (d_(i+1),...,d_(i+m)). For integers m,N >= 1 define the ordered long-lag collision count
+
+R_pi(m,N) = |{(i,j) in {0,...,N-1}^2 : |i-j| >= m and B_pi(i,m) = B_pi(j,m)}|.
+
+Is the following true? For every real s with 0 < s < 1, there exists a real C_s >= 1 such that, for every pair of integers m,N >= 1,
+
+R_pi(m,N) <= C_s * (N + N^2 * 10^(-s*m)).
+
+Pairs are ordered. The lag condition excludes the diagonal and all overlapping length-m blocks. The constant may depend on s but not on m or N. Status: OPEN pending a source-pinned audit; an affirmative answer is expected to be hard.
+
+PROVENANCE
+Formulated by this system on 2026-07-23 as a successor to the accepted T23-T26 developments of pi-positive-lower-block-density. T23 formalized a full-dimensional cylinder-energy criterion; T25 separated effective-irrationality exclusions from residual pairs; T26 separated short and long residual lags and machine-checked a conditional implication to positive lower block density. The present question promotes the remaining long-lag two-point estimate to a self-contained program. It is not claimed by those conditional reductions. The additive N term repairs finite-sample granularity that was absent from the first candidate formulation. Relevant fixed-point lacunary, collision, discrepancy, and effective irrationality sources from the T3 and T24 audits must be pinned for this exact statement before external use.
+
+The feedback path to local:pi-digits is direct and checkable: compare total equal-block energy with R_pi plus the diagonal and at most 2*N*m ordered short-lag pairs; then import the forbidden-language entropy machinery of T13-T16 and the energy criterion of T23. If a decimal word were absent, its forbidden language would have entropy strictly below log(10), contradicting the proposed bounds for s sufficiently close to 1. Thus the intended formal bridge is canonical bound -> positive lower block density -> every finite decimal word occurs. This bridge is an agenda target, not asserted here as already proved for the repaired predicate.
+
+RECORDED AMBIGUITIES
+A1 (CANONICAL): every 0 < s < 1 has one C_s working simultaneously for all positive m and N, with the additive N term. Status: OPEN.
+A2: one fixed exponent s > 0 works. This is weaker and cannot by itself exclude forbidden languages with entropy arbitrarily close to log(10). Status: OPEN for pi.
+A3: the endpoint s = 1 works. This is stronger and is not required. Status: OPEN for pi.
+A4: some exponent s > 1 works. This is stronger than the natural random collision scale and is not the target. Status: OPEN for pi.
+A5: fix m first and allow the constant to depend on m. TRUE trivially from R_pi(m,N) <= N^2 after enlarging the constant; it carries no uniform entropy information.
+A6: allow C to depend on m or N. TRUE trivially and excluded.
+A7: require only a favorable N=N(m), or infinitely many N for each m. This is weaker; taking N <= m even makes R_pi(m,N)=0. Status: TRUE in that vacuous reading and not the target.
+A8: require the estimate only for all N >= N_0(s). With the additive N term this is equivalent to A1 after increasing C_s to cover finitely many N, because m < N whenever R_pi(m,N) is nonzero. Status: TRUE equivalence.
+A9: omit the additive N term. This is strictly stronger at sparse finite scales and can be defeated by one collision when N^2*10^(-s*m) is tiny. Status: OPEN for pi and not canonical.
+A10: replace N by N*m in the additive term. This is weaker than A1 and corresponds more directly to retaining all short lags. Status: OPEN for pi.
+A11: count every unequal pair i != j instead of only |i-j| >= m. This includes overlapping short-lag blocks and is a stronger, different finite-prefix assertion. Status: OPEN for pi.
+A12: count only the T25-T26 residual pairs after effective-irrationality exclusions. This is a weaker reduction target and the principal intended middlegame, not the canonical count. Status: OPEN.
+A13: replace exact block equality by ||(10^i-10^j)*pi||_(R/Z) < 10^(-m). Decimal-boundary and neighboring-cylinder effects make this a different near-return problem. Status: OPEN for pi.
+A14: count unordered pairs, or only j-i >= m. Either convention is equivalent to A1 up to a factor of two. Status: TRUE equivalence; ordered pairs remain canonical.
+A15: include diagonal pairs. With the additive N term this is equivalent after changing C_s, but it obscures the long-lag target. Status: TRUE equivalence.
+A16: use |i-j| > m rather than |i-j| >= m. The omitted lag-m pairs number at most 2*N, so the formulations are equivalent after changing C_s. Status: TRUE equivalence.
+A17: use another base. This is a sibling problem and does not replace the decimal mission. Status: OPEN for pi in general.
+A18: use a terminating-versus-repeating-9 decimal convention. Pi is irrational, so its expansion is unique under either convention. Status: TRUE invariance.
+A19: count prefixes only, noncontiguous subsequences, or occurrences involving the integer digit 3. These are different problems and are excluded.
+
+VERIFICATION RULES
+This problem is subject to VERIFICATION.md in full. A proof must pin the decimal expansion, ordered-pair convention, lag cutoff, additive finite-sample term, and quantifier dependence of C_s. Finite computation is heuristic evidence only and cannot prove the universal claim. Results for normal numbers, almost every real number, Champernowne-type constants, other bases, fixed m, fixed s, residual pairs, or near-return counts are sibling or conditional results and must be labeled as such. Lean artifacts must expose all hypotheses and may not turn an unproved fixed-pi estimate into an unconditional theorem.

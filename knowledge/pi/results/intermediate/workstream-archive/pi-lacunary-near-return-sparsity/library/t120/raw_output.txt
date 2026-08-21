@@ -1,0 +1,11 @@
+T120 replay: PASS
+hashes checked: 10
+candidates checked: 4
+LSV scaled collision exponent: 0.333333333333
+Farey n=10: n*tail=1.255308820839
+Farey n=100: n*tail=1.421385921970
+Farey n=1000: n*tail=1.440534359215
+Farey n=10000: n*tail=1.442478670291
+Isola d=1/4 scaled collision exponent: 0.500000000000
+Jordan-Sahlsten eta_1=0.111111111111; 3*eta_1=0.333333333333
+labels: literature-checked / proof sketch / experiment / conjectural transfer

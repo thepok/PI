@@ -1,0 +1,12 @@
+{
+  "claim_label_suggestion": "literature-checked",
+  "evidence": [
+    "removed-workflow-record://todo-theory-pi-lacunary-near-return-sparsity-t109-1786332150-r1/theory_artifacts/REPORT.md",
+    "removed-workflow-record://todo-theory-pi-lacunary-near-return-sparsity-t109-1786332150-r1/theory_artifacts/SOURCE_PINS.md",
+    "removed-workflow-record://todo-theory-pi-lacunary-near-return-sparsity-t109-1786332150-r1/theory_artifacts/SEARCH_LOG.md",
+    "removed-workflow-record://todo-theory-pi-lacunary-near-return-sparsity-t109-1786332150-r1/theory_artifacts/raw_output.txt",
+    "removed-workflow-record://todo-theory-pi-lacunary-near-return-sparsity-t109-1786332150-r1/theory_artifacts/SHA256SUMS"
+  ],
+  "notes": "theory attempts exhausted (2, cause=mathematical): The caps, exclusions, locators, perturbation bounds, pi-specific premises, unique close verdict, and zero successors are inspectable, and replay plus all hashes pass. One focused revision is needed: KILL-F1/F2/F3 only detect failure of sufficient upper-bound certificates; they do not refute the actual transfers. In particular F3-ROW is one-sided, so W1 above T107-W1 cannot be a decisive rejection. Relabel these as certificate-applicability tests, replace 'exact/decisive/requires' necessity language, and describe PI-F3 as a stronger sufficient surrogate rather than literally T107's premise.",
+  "verdict": "escalate"
+}

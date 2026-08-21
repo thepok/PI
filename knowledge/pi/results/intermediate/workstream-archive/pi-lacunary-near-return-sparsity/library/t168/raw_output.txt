@@ -1,0 +1,22 @@
+T168 finite completeness replay: PASS
+canonical_sha256: cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+pattern_rows_reached: 10/10
+row_witnesses:
+  M2-D: N=4,m=2,F=((0, 3), (1, 2))
+  M2-W: N=3,m=1,F=((0, 1), (0, 2))
+  M3-M-K: N=6,m=2,F=((0, 2), (1, 4), (3, 5))
+  M3-M-P: N=6,m=2,F=((0, 1), (2, 4), (3, 5))
+  M3-P-K: N=4,m=2,F=((0, 1), (0, 2), (1, 3))
+  M3-P-P: N=4,m=1,F=((0, 1), (0, 2), (1, 3))
+  M3-S: N=4,m=1,F=((0, 1), (0, 2), (0, 3))
+  M3-T: N=3,m=1,F=((0, 1), (0, 2), (1, 2))
+  M3-WD-K: N=5,m=2,F=((0, 1), (0, 3), (2, 4))
+  M3-WD-P: N=5,m=2,F=((0, 1), (0, 2), (3, 4))
+classified_bounded_embeddings: 5430
+rank_probability_binary_checks: 10
+triangle_exact_count_and_rank_checks: 60
+uniform_comparison_grid_checks: 5
+same_lag_cases_excluded: PASS
+scoped_endpoint_count: 1 (counterfamily)
+pi_transfer: explicitly unproved
+claim_firewall: no fixed-pi/A1/C1/C2 claim

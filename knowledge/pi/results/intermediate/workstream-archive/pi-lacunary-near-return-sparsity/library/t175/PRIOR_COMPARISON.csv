@@ -1,0 +1,11 @@
+item,available_level,comparison,used_as_premise
+T3,literature-checked bounded source audit,"Almost-everywhere lacunary pair and shrinking-target results do not identify a prescribed point; T175 requires an independent point-membership test.",no
+T45,literature-checked source audit plus unverified proof-sketch regrouping,"Mixed or averaged lacunary inequalities do not control the genuine prescribed coefficient uniformly; T175 does not import the T45 proof sketch.",no
+T90,literature-checked sources plus proof-sketch transfers,"Constructed fixed points can solve siblings, but changing the point does not certify the prescribed point in T175.",no
+T104,literature-checked sources plus proof-sketch deductions,"Already audits adjacent restricted-denominator, fractal-Fourier, and Mahler cells; T175 uses three different exact source/theorem tuples and asks specifically for effective covers plus independent nonmembership.",no
+T113,unverified note readable at notes/t113/REPORT.md SHA 30ff535624185d37981311d2f1e2a072d300221bec3f049351e5cae1026ed445,"The note argues variable-H avoidance for an unnamed sibling point; nonemptiness does not certify that a prescribed constant avoids T175's bad set. No note claim is imported.",no
+T116,literature-checked sources plus proof-sketch deductions,"Effective selectors name new sibling points; winning, nonempty, or selected sets do not certify that a prescribed constant avoids T175's bad set.",no
+T167,literature-checked sources plus proof-sketch deductions,"Effective algebraic-power repulsion fails to match decimal linear multiples; T175's grid cover makes the missing nonmembership certificate explicit.",no
+T171,literature-checked bounded audit,"The same three source-native domains were searched with different exact tuples and no survivor; T175 adds the exceptional-cover arithmetic-complexity test rather than reusing those tuples.",no
+T173,active unavailable,"No readable artifact exists in the refreshed snapshot; identifier reserved and no content inferred.",no
+T174,active unavailable,"No readable artifact exists in the refreshed snapshot; identifier reserved and no content inferred.",no

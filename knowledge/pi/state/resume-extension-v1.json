@@ -1,0 +1,947 @@
+{
+  "canonicalSource": {
+    "path": "ultrapi.md",
+    "sha256": "49299073e53c3949ab77f5d9bdb97cd89cd8b24d5c4cbad5f5c97c00121f22fc"
+  },
+  "corpusId": "corpus:local:pi-digits:ultrapi-resume-extension:v1",
+  "edges": [
+    {
+      "from": "corpus:local:pi-digits:ultrapi-resume-extension:v1",
+      "relation": "derived-from",
+      "to": "corpus:local:pi-digits:ultrapi:v1"
+    }
+  ],
+  "externalNodeIds": [
+    "corpus:local:pi-digits:ultrapi:v1"
+  ],
+  "pathsRelativeTo": "../..",
+  "records": [
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:bbp-selected-limit-shell-series-20260813-4ce5e62784",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813.md",
+          "role": "unlinked-resume-report",
+          "sha256": "3a5b5c8604b21e9ff960c4b33933731d16eb7fec83d862dda0075df9da4c4664"
+        }
+      ],
+      "statement": "Audit date: **2026-08-13 UTC**",
+      "title": "The selected BBP three-adic limit as an explicit shell series"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:fixed-modulus-adversarial-7c342134fa",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/fixed_modulus_adversarial.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/fixed_modulus_adversarial.md",
+          "role": "unlinked-resume-report",
+          "sha256": "160ca79beb32c813b88f95dad10568ab97f40481b8b29967da1530435c0a8b22"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Artifact audited: [`fixed_modulus_attack.md`](fixed_modulus_attack.md) Artifact SHA-256 at audit: `2cc89a692b291894257ec6b90c7aa6c38a0d65cc27c100f062774a67b0c4a699` Experiment script SHA-256: `e9e006d3f92881be9b144551a6183f89a4ced0db7d1ed355bf838e9464706906`",
+      "title": "Adversarial audit of the fixed-modulus Machin separator"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:machin-recurrence-report-106186ef07",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/machin_recurrence_report.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/machin_recurrence_report.md",
+          "role": "unlinked-resume-report",
+          "sha256": "452659f784984233e0029fd658a9ff3d1a2c8ca472bb238043df982b5e1f2de6"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Route: the actual twelve-term forcing in T40, equation (11w) of [`ultrapi.md`](../../ultrapi.md)",
+      "title": "Actual Machin numerator: recurrence, prime survival, and the remaining archimedean gap"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:maynard-alias-regrouping-attack-48c93fc21d",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/maynard_alias_regrouping_attack.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/maynard_alias_regrouping_attack.md",
+          "role": "unlinked-resume-report",
+          "sha256": "06a94f78ddaa1e4b3abff888c89a3e68010774ca7beb9ed8facdb5a061752690"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Provenance: Marcel's immutable local question has no external source URL; none is invented here. Route: the exact shifted-grid reconstruction in [`actual_shift_resonance_attack.md`](actual_shift_resonance_attack.md), T52's complete three-primary factor, and the applicability boundary for Maynard's Lemma 8.2 recorded in [`three_primary_resonance_literature.md`](three_primary_resonance_literature.md).",
+      "title": "Maynard aliases under exact mixed-modulus regrouping"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:multiprime-pulse-attack-3530b2006f",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/multiprime_pulse_attack.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/multiprime_pulse_attack.md",
+          "role": "unlinked-resume-report",
+          "sha256": "6bb01b4714e85118f2b31d83c0dc91508e92a451f6e29bd9b1eb82aef9135c5e"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Inputs: T38, T45, equations (11af)--(11ai) of [`ultrapi.md`](../../ultrapi.md), and [`machin_recurrence_report.md`](machin_recurrence_report.md). The separator extends, rather than replaces, the stronger same-denominator construction in [`fixed_modulus_attack.md`](fixed_modulus_attack.md).",
+      "title": "Simultaneous Machin prime pulses: scale, CRT collapse, and separator"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:t62-prime-product-report-646c041c07",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t62_prime_product_report.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t62_prime_product_report.md",
+          "role": "unlinked-resume-report",
+          "sha256": "89297fe19e89d10eefa86e422010f8b80e2d099f83842a7aab4166388be2366b"
+        }
+      ],
+      "statement": "Status: `machine-checked` for the finite claims below. This is not a proof of V1 and contains no asymptotic estimate.",
+      "title": "T62 eligible-prime product report"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:t63-hutton-five-adic-transient-6173c99660",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t63_hutton_five_adic_transient.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t63_hutton_five_adic_transient.md",
+          "role": "unlinked-resume-report",
+          "sha256": "ac4b58ba1f1ded06d888bf3020d15e8a6877a5468f530c084a29d3c18ae1aec8"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC**",
+      "title": "T63 exact five-adic transient audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:t64-one-third-prime-product-report-cc9c9edd65",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t64_one_third_prime_product_report.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t64_one_third_prime_product_report.md",
+          "role": "unlinked-resume-report",
+          "sha256": "71bd67d0526bfddaf221c7a3e96e5be6aa898d65dce463ee4b14bcf098b041e4"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC",
+      "title": "T64 one-third-band Hutton prime product"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:t65-one-fifth-prime-product-report-dad95c02e3",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t65_one_fifth_prime_product_report.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t65_one_fifth_prime_product_report.md",
+          "role": "unlinked-resume-report",
+          "sha256": "248de89eb8bd3ac85d115bc53015d12f8d017ad56ee15231e8648668a8e0d30b"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC",
+      "title": "T65 one-fifth-band Hutton prime product"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:three-primary-automaton-separator-05009cb714",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/three_primary_automaton_separator.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/three_primary_automaton_separator.md",
+          "role": "unlinked-resume-report",
+          "sha256": "8d548ec377f6ef083a1872d2e36f24b1ba4c53ce65a60112dd162bddedba243e"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Provenance: Marcel's immutable local question has no external source URL; none is invented here.",
+      "title": "Three-primary quotient automaton and epoch separator"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:three-primary-resonance-attack-64bf536af0",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/three_primary_resonance_attack.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/three_primary_resonance_attack.md",
+          "role": "unlinked-resume-report",
+          "sha256": "754dc0a54f551a1824c62bba41f238167706c3ede6bd61ba55fce4173ab29012"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Provenance: Marcel's immutable local source contains no external source URL, so none is invented here. Route: [T52's exact three-primary denominator](../../TheoryLib/PiQuantitativeBlockHitting/T52T52MachinSeedThreePrimaryPersistence.lean), equations (23)--(28) of [`actual_shift_resonance_attack.md`](actual_shift_resonance_attack.md), and T38/T46's exact forced Machin recurrence.",
+      "title": "Nested three-primary resonance and threshold aliases"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:three-primary-resonance-literature-f8294008fc",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/three_primary_resonance_literature.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/three_primary_resonance_literature.md",
+          "role": "unlinked-resume-report",
+          "sha256": "80569b4e0d4c00803c8b76156e30be6ed1ce5dfaf2a175c4a74eb176b3dd16f8"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC**",
+      "title": "Nested 3-primary resonance: primary-literature audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi-extension:three-primary-unit-report-f33f2d9aef",
+      "kind": "result",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/three_primary_unit_report.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/three_primary_unit_report.md",
+          "role": "unlinked-resume-report",
+          "sha256": "a6b915e8fa2d9aa10a761c04b7270000c337736a4c62614f864f45cb5dd7b1a5"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC Target: canonical V1, every finite decimal word occurs contiguously in the decimal expansion of \\(\\pi\\) Source: `problems/local/pi-digits.txt` Original source URL: none recorded; the canonical source is a local, human-authored root Source SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825`",
+      "title": "Three-primary leading-unit attack"
+    },
+    {
+      "claimLevel": null,
+      "id": "result:local:pi-digits:ultrapi:unlinked-resume-artifact-inventory-v1",
+      "kind": "result",
+      "scope": {
+        "inventoryRemainder": 75,
+        "resumeFiles": 418,
+        "unlinkedResumeFiles": 98
+      },
+      "sources": [
+        {
+          "kind": "lean-source",
+          "path": "work/ultrapi-resume/OneThirdScratch.lean",
+          "role": "unlinked-resume-artifact",
+          "sha256": "2ec4bf2f074cc2ecbc8c40c2036fdd4d7c26f7e31be7a1f5837c56cde7adb895"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/actual_fine_residual_sunit_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "67831ce9d74e9eeaa40b24ad23bc5fca170862a9bbc6f54b07d1f8a47c2df0b7"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/actual_numerator_phase_experiment.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "d9fcbe540bb148739d836af673451dd62a1cc3e9b0f3704df804c19303229764"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/actual_shift_resonance_audit_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "772d8f460cff9d272dfc104b3fe3d5c5a66e6e2df57c6923c018c7f2f76c0e9a"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/actual_shift_resonance_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "9933571acab5536921b646e02398d541877d5778817835fceaca92c4bf111ed4"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/alternate_machin_identity_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "c33fd951ecf8e8bab72972538a9d2185c115d41fcc4a95ae8173588c3f805b5f"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/bbp_all_stratum_dyadic_mixing_20260813_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "8a71e6b3d337c4fe848978d600411f8735b3fd1e533eeb8f0a913c041338ad73"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/bbp_even_depth_dyadic_mixing_20260813_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "0ec0eef61677f5d963d936ad8e52e2ee285f998de50b8a90b7876b8f474ac29b"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/bbp_exceptional_path_actual_complement_20260813_independent_record.txt",
+          "role": "unlinked-resume-artifact",
+          "sha256": "1e4ee83a41804238b32656d3ebf8466179c69583f7464fca22f977f3a39342f6"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "2959de8d8952fa2255d4f725f3bba9eea813fdc497d85951ef7a2c655b63c764"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "aaff536e09620bca406b5f02fde2bc459d586ebc38854902bc4e86c7f055b8b6"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813_independent_record.txt",
+          "role": "unlinked-resume-artifact",
+          "sha256": "6d7757acc1124362e39cdf2b23dca19bd07837cd7a1c54fd065d761771926ef9"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/bbp_selected_limit_shell_series_20260813_record.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "3dd091a46e5f363e5c50f289c0c47ab932ab95c376a3287445acc1f23d9f4a8f"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/cross_index_quotient_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "9dbc89af57b4f157d8d0d930882a643cc9cec4c2ca2a9e636f58b48302335e9a"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/cyclotomic_language_product_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "ba3c0be9ebc42af0c9ea7ffac681455bc954906e0db2a09823a3d8f42dbfe440"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/cyclotomic_language_product_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "ac851c1012227de63c7f54008940fd07c80270b630a26187e649818f165e69aa"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/euler_two_three_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "088a3d06607bbb4177872a755b6fd4f57e2272775289c20906ce09099aa2ccfb"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/experiments/analyze_results.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "eb04d4254f01a189446eda702181d87195a172bcc86b3e2b9fe08a47bcc1d7be"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/analysis.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "a7a5a344ad3155a989378fdf8213f525c4c9e06bdc79e018fa0be994e801d42c"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/criterion_mismatches.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e5aa46cdf5e9dc6352f4248f73435902d65a1ff18ac89f04a761d9048b01969a"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/gcd_events.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "22473ed4d8a2f701627150ba8756add557c5ab6354af63f171569c0caf17b6c4"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/reference.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "03d071d7c7fa7422f70c58af5e394025cd506d68a079d34c55eb696ded205ac0"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/rows.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "c8d4d2587eba904954d85730c3332531f3a3305104d8c9a12e8f0198143ade48"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/small_exact.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "189dbe327e0ec9f29dd498eba58c88a127c9594391434ce5195ddf6a9a8dd85f"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-1000/summary.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "132a764b506e508f161b122e94c60bf2cb7c9e096b0b0d1f6e9a88d9796119d8"
+        },
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/experiments/data-5000/SHA256SUMS",
+          "role": "unlinked-resume-artifact",
+          "sha256": "898dc05ff026c1acc3c362262df0da11f2f65d5b697b58f22dd0ea17b7178dae"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/analysis.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "68cc70751f91e6e65472e68b089426674533b3be5abce58d590e3112284916e0"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/criterion_mismatches.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e5aa46cdf5e9dc6352f4248f73435902d65a1ff18ac89f04a761d9048b01969a"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/gcd_events.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "4191a9ff5e8bf83a1e5d8118be32d1d2d203ba2cc374860182161f1cecec3ac5"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/reference.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "03d071d7c7fa7422f70c58af5e394025cd506d68a079d34c55eb696ded205ac0"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/rows.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "41f208d7483a3a621af959451ceebb7eac5c48b30b8530b9e5c4c4f3d74d36f4"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/small_exact.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "189dbe327e0ec9f29dd498eba58c88a127c9594391434ce5195ddf6a9a8dd85f"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-5000/summary.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "a11832aa7ba4faf8a8af7d666a327fb5085bf532857f3940d612da7c84db551c"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/analysis.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "95e3716c960632a04c9e867b932caa5d74acc4905e992eaf79c13cf54704af26"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/criterion_mismatches.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e5aa46cdf5e9dc6352f4248f73435902d65a1ff18ac89f04a761d9048b01969a"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/gcd_events.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "5e0b9c4672331ec9a38b9595f30211d9404839641207511580107c511fd245f2"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/reference.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "03d071d7c7fa7422f70c58af5e394025cd506d68a079d34c55eb696ded205ac0"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/rows.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e0c55e772d818c4bfe5a1b6b98c784ec283adef7a8bc1da8d6f811f328b37d48"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/small_exact.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "189dbe327e0ec9f29dd498eba58c88a127c9594391434ce5195ddf6a9a8dd85f"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/experiments/data-smoke/summary.json",
+          "role": "unlinked-resume-artifact",
+          "sha256": "852bdf9ade2dfae0528b11f6eac0e7a9c873b6c4072430efaae3f6d5b7491f09"
+        },
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/experiments/machin_forcing_gmp.cpp",
+          "role": "unlinked-resume-artifact",
+          "sha256": "1c2581f8f1b9191dedb20902df920e042f95fdb65796898e0c041d5e8b76b1b5"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/experiments/machin_forcing_reference.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "9c43e2a5a3d6ff42458ce27677ee7ca757708c11cf3eb967c938ba94f559697a"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/fixed_modulus_attack_experiment.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e9e006d3f92881be9b144551a6183f89a4ced0db7d1ed355bf838e9464706906"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/fixed_multiplier_return_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "c194f0dd78d6f091ed93fcfc03af2cc0bdfdf72b65a8e9692fb8ee29eeb1e232"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/general_seed_band_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "4eb38877b1f1685ef33c2703986c2fff6d02afd6c494995d1134d06233f9acf8"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_global_crt_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "e8ae5f6c975d55082e2223a30343d955115296c09506bcdd2328fc15e29473a0"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_periodic_orbit_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "c7d1484ccfa9df668e4fc00d26c2ebd790046d3025b31274cc3897655b3ff6e5"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_prefix_sum_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "ed2d0ad126b879d64cd24882b171e74485137f1dd40436beb464b0a81da24661"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_primary_phase_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "4a5e56c4799cbfce132a229601700b66be94e07eb21395a62c53bd114c9c48af"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_prime_character_phase_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "3a9ff832735bcb705a3ac6b90a30a9b233b95626d3c4e9e41587d41dfa1a62a0"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/hutton_prime_character_phase_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "7e26966384d59cd3b59ccc8eb7389044c0fbee620172c720ef156620e850cbcb"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/integer_chebyshev_survivor_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "f03e9f5affb008e0a4b8557355c6bc80adfc2e49d1f11e6ee16937701d8ad4fd"
+        },
+        {
+          "kind": "literature",
+          "path": "work/ultrapi-resume/library/chen-ye-zheng-2604.14036v1.pdf",
+          "role": "unlinked-resume-artifact",
+          "sha256": "a17f776537f415e4f0b0508024cf95389b1ed4da05a347efda6b149bb2e4924d"
+        },
+        {
+          "kind": "literature",
+          "path": "work/ultrapi-resume/library/mahler-1973-digits-multiples.pdf",
+          "role": "unlinked-resume-artifact",
+          "sha256": "263facae776cfc081d99eafc3ab93e29ebc4b213482c0a9adc97342aa99b7288"
+        },
+        {
+          "kind": "literature",
+          "path": "work/ultrapi-resume/library/rivoal-2008-bits-counting.pdf",
+          "role": "unlinked-resume-artifact",
+          "sha256": "060032757c32e146078c542e72c793aaaf854b48cf264517493ff7d77a3a690e"
+        },
+        {
+          "kind": "literature",
+          "path": "work/ultrapi-resume/library/shallit-1979-simple-continued-fractions.pdf",
+          "role": "unlinked-resume-artifact",
+          "sha256": "592a08ecf6df04414fe7bf5083d56898139b5d553679b244296833a1e2f1f981"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/machin_angle_splitting_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "c36ebe182109cc0f4cf5394fbc6f448d5d6ee55fd60b6f9c70223f7a6de126f5"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/machin_selector_multiscale_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "293122cb1533dccb0b1c59ba1c79b56c5adf4abeb119bab5dc593c87d791c0a5"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/machin_synchronized_return_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "b423b4dbf9663a4ae9373da3091913b0f00ff1865fc13ba56f5a756dbb061bfc"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/machin_three_adic_coarse_correlation_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "24d7356b42333917d85a6c1d55b679f4224faed92d91fcaaa8b7deafca085225"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/maynard_alias_regrouping_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "8b765066e6be4cd8b1401fbc59d1ba94d190ecbddf0829815374665467cd40c2"
+        },
+        {
+          "kind": "dataset",
+          "path": "work/ultrapi-resume/multiprime_orbit_den_1000.tsv",
+          "role": "unlinked-resume-artifact",
+          "sha256": "708e7ab78fdf08523ac3a6a1579f9d1859eabcee851b30839fd176f1a0726668"
+        },
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/multiprime_orbit_den_gmp.cpp",
+          "role": "unlinked-resume-artifact",
+          "sha256": "ba4d09c2abd3cd91b65b5de60d0f94a4ad569ae28649308f337ede158989c0b7"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/multiprime_pulse_stats.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "92d56aa6082afec13d46cb2246adde4b9ec3dcf62c8e73c63fabdb8e9512dae4"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/multiprime_same_modulus_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "dfab08de96dde371a11a4cb5027f5b07243250a2cf2eb6c7849239d5f0e2d635"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/restricted_denominator_iyer_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "1789ae5f83be97b3479f57008d3d0af23fc6f35cbeee3ae9504b79967ebadea1"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/signed_depth_machin_independent_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "83eeedc5d531a9727359cb14adc5db6796684713dcaf8a95d69df7814972977b"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/subexponential_candidate_avoidance_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "1b82ef984a4ef1ff9300a472b2995a5f0e49caf7950e03a69d029685ef3581bb"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/t53_quotient_carry_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "8e7e067473e2c1bdd695429f6565a8c372897d10005ab4efb43208856b3c5e9b"
+        },
+        {
+          "kind": "lean-source",
+          "path": "work/ultrapi-resume/t62_independent_checks.lean",
+          "role": "unlinked-resume-artifact",
+          "sha256": "51e88925d7e9d959ed5450bd2985645e0e5edfb4d27631c0da28aa4e53cd2a11"
+        },
+        {
+          "kind": "lean-source",
+          "path": "work/ultrapi-resume/t66_independent_checks.lean",
+          "role": "unlinked-resume-artifact",
+          "sha256": "3a65d04e04b1465757078c443ad350c940a370b9c83ab9399a30593ac00f6c73"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/t70_empirical_rigidity_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "5a1cb47805f50b1d5a177717418173faf3f02ed16c75e5f02a3a4ebc48cd593d"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/three_primary_automaton_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "9ea7b072a7dd36a07e2b83d4cb63613d65ea2f955777867f184a39f2e834bf16"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/three_primary_resonance_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "5e1d861fe4a0e72e57f0a8e02d35bc07f69bcfc938cf77019c4ff701bdedff25"
+        },
+        {
+          "kind": "test",
+          "path": "work/ultrapi-resume/three_primary_unit_check.py",
+          "role": "unlinked-resume-artifact",
+          "sha256": "7002b39381a6eadd9251dce40b1616641b3deb3ce6584c85a9d9fde1b33868f1"
+        }
+      ],
+      "statement": "Every non-cache file under work/ultrapi-resume that is not linked by the pinned dossier is preserved here by exact SHA-256. Presence does not establish acceptance, correctness, or a claim level.",
+      "title": "Status-neutral inventory of unlinked UltraPi resume artifacts"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:bbp-all-stratum-dyadic-mixing-20260813-independent-audit-f396d22384",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/bbp_all_stratum_dyadic_mixing_20260813_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/bbp_all_stratum_dyadic_mixing_20260813_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "3bc52a90be2b6379c43218520b0c1a1d86a5418a98c7eafab56ef6df751b14f4"
+        }
+      ],
+      "statement": "Audit date: **2026-08-13 UTC**",
+      "title": "Independent audit: all-stratum BBP dyadic mixing"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:bbp-even-depth-dyadic-mixing-20260813-independent-audit-3179aa6cf9",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/bbp_even_depth_dyadic_mixing_20260813_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/bbp_even_depth_dyadic_mixing_20260813_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "6b23b2dd6789141611373be5f41218b07136dc7401f0e8ca6f2387e836700a5c"
+        }
+      ],
+      "statement": "Audit date: **2026-08-13 UTC**",
+      "title": "Independent audit of even-depth BBP dyadic mixing"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t49-independent-audit-b92164bbde",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t49_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t49_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "e0d86f26a7dce782f4b35d0ad836e114f95dc32383cc010d6c2c9e1a929aaca7"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC Target: `TheoryLib/PiQuantitativeBlockHitting/T49T49MachinEndpointPulse.lean` Target SHA-256: `a5ee98d8842508eb81b8d8fd660441b5e0e5a4cef407318ad125d43d40249077` Problem source: `problems/local/pi-digits.txt` Problem-source SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825`",
+      "title": "T49 independent audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t50-independent-audit-0830030ccf",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t50_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t50_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "548f9015c2f1bc18e2a65c4aee1f7cfaeaad0db247dd1a157a75fab95440754f"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC Target: `TheoryLib/PiQuantitativeBlockHitting/T50T50MachinSeedLowerBandPrimeSurvival.lean` Target SHA-256: `931a50d0203ca0aa9c9d92eacf684d8d45022f8bf233dde00408a2ea25ff256c` Problem source: `problems/local/pi-digits.txt` (human-authored local root; no source URL) Problem-source SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825`",
+      "title": "T50 independent audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t51-independent-audit-52c82b03ff",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t51_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t51_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "4a9b692d97bde11f7cfb21b44ff775d7823db7ae4b84f5e6c8c299b1ce481391"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC Target: `TheoryLib/PiQuantitativeBlockHitting/T51T51MachinSeedThirdBandPrimeSurvival.lean` Target SHA-256: `62d481ff6d7f0e10db8462fb439c8579f9d1cf75679f5fea1a840fa4366682d1` Problem source: `problems/local/pi-digits.txt` (Marcel's local source; no external source URL) Problem-source SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825`",
+      "title": "T51 independent audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t51-third-band-audit-d6592d7e4b",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t51_third_band_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t51_third_band_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "b6fb61ea974cce907f0378685d690e1c32c6612c32929fa80033a5761a1aa02a"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Status: `machine-checked` for the local theorem stated below; **not** a proof that every finite decimal word occurs in \\(\\pi\\).",
+      "title": "T51 third-band fixed-seed audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t52-independent-audit-710c2fda98",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t52_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t52_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "2e54932e801df9fc76b26a989c3e9685d0555c82e934a93a350702512d119e28"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Module: [`T52T52MachinSeedThreePrimaryPersistence.lean`](../../TheoryLib/PiQuantitativeBlockHitting/T52T52MachinSeedThreePrimaryPersistence.lean) Module SHA-256: `5ba17b604338ca283144223c0a284858669cd38b9025413ca674162ec673d4a0`",
+      "title": "T52 independent audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t52-three-adic-audit-3e2cbd55eb",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t52_three_adic_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t52_three_adic_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "4ccc63c54f6dfd43ecc0f975c116d447ebeec092ff0876e3ee010ea352d01cd3"
+        }
+      ],
+      "statement": "Audit date: **2026-08-12 UTC** Target: [`problems/local/pi-digits.txt`](../../problems/local/pi-digits.txt) Target SHA-256: `2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825` Provenance: Marcel's immutable local question has no external source URL; none is invented here.",
+      "title": "T52 three-primary seed audit"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:t53-independent-audit-ce577c209f",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/t53_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/t53_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "a64aa83ea82b707e14d12ceb78c8f2bd75dcbd590cdf7320dd80de8ac24eba9f"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC",
+      "title": "T53 independent audit: factored quotient and decimal carry"
+    },
+    {
+      "claimLevel": null,
+      "id": "review:local:pi-digits:ultrapi-extension:three-primary-unit-independent-audit-e90a3e1e2e",
+      "kind": "review",
+      "scope": {
+        "inventoryClass": "unlinked-resume-report",
+        "program": "UltraPi",
+        "sourcePath": "work/ultrapi-resume/three_primary_unit_independent_audit.md"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/ultrapi-resume/three_primary_unit_independent_audit.md",
+          "role": "unlinked-resume-report",
+          "sha256": "86026aaf509da499e9028ca9c3357e47b27f95468a9ad306d4bfada380c577fe"
+        }
+      ],
+      "statement": "Date: 2026-08-12 UTC",
+      "title": "Independent audit: three-primary leading-unit attack"
+    }
+  ],
+  "rootId": "local:pi-digits",
+  "schemaVersion": "allmath-knowledge-corpus/v1",
+  "title": "UltraPi unlinked resume-artifact extension"
+}

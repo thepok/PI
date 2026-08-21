@@ -1,0 +1,811 @@
+                                                           On non-repetitive complexity of Arnoux–Rauzy wordsI
+
+                                                                  Kateřina Medkováa,∗, Edita Pelantováa , Élise Vandommeb
+                                             a
+                                                 Department of Mathematics, FNSPE, Czech Technical University in Prague, Trojanova 13, 120 00 Praha 2,
+                                                                                           Czech Republic
+                                                     b
+                                                       Department of Mathematics, University of Liege, Alle de la dcouverte 12, 4000 Liege, Belgium
+
+
+
+
+                                           Abstract
+arXiv:2002.12593v1 [math.CO] 28 Feb 2020
+
+
+
+
+                                           The non-repetitive complexity nrCu and the initial non-repetitive complexity inrCu are functions
+                                           which reflect the structure of the infinite word u with respect to the repetitions of factors of a given
+                                           length. We determine nrCu for the Arnoux–Rauzy words and inrCu for the standard Arnoux–Rauzy
+                                           words. Our main tools are S-adic representation of Arnoux–Rauzy words and description of return
+                                           words to their factors. The formulas we obtain are then used to evaluate nrCu and inrCu for the
+                                           d-bonacci word.
+                                           Keywords: Arnoux–Rauzy word, directive sequence, factor complexity, non-repetitivity
+                                           2000 MSC: 68R15
+
+
+
+                                           1. Introduction
+                                               Variability of an infinite word u = u0 u1 u2 · · · over a finite alphabet can be judged from distinct
+                                           points of view depending on applications or combinatorial properties one is interested in. The
+                                           factor complexity of u, here denoted Cu , is a function which to any n ∈ N assigns the number of
+                                           distinct factors of length n occurring in u. More formally, Cu (n) = #{ui ui+1 · · · ui+n−1 : i ∈ N}.
+                                               For the simplest infinite words, namely the eventually periodic words, the factor complexity is
+                                           bounded from above by a constant. In [12], Morse and Hedlund showed that the factor complexity
+                                           of an infinite word which is not eventually periodic satisfies Cu (n) ≥ n + 1 for each n ∈ N. If the
+                                           equality takes place for each n, the word u is called Sturmian. Sturmian words represent the most
+                                           intensively studied class of infinite words. To measure the regularity of an infinite word, Morse
+                                           and Hedlund introduced the recurrence function Ru . The value Ru (n) is defined to be the minimal
+                                           integer m such that any factor of u of length n occurs at least once in ui ui+1 ui+2 · · · ui+m−1 for
+                                           every i ∈ N. In the same paper [12], the authors evaluated Ru (n) for any Sturmian word.
+                                               A dual function to Ru was recently introduced by Moothathu [13] under the name non-repetitive
+                                           complexity function nrCu . The value nrCu (n) is defined as the maximal m such that for some i ∈ N
+                                           any factor of u of length n occurs at most once in ui ui+1 ui+2 · · · ui+m+n−2 . He also considered
+                                           a “prefix variant” of this function called the initial non-repetitive complexity function inrCu . By
+
+                                              I
+                                                The research received funding from the Ministry of Education, Youth and Sports of the Czech Republic through
+                                           the project no. CZ.02.1.01/0.0/0.0/16 019/0000778 and from the Czech Technical University in Prague through
+                                           the project SGS17/193/OHK4/3T/14. The last author acknowledges partial funding via a Welcome Grant of the
+                                           University of Liege.
+                                              ∗
+                                                Corresponding author
+                                                Email address: katerinamedkova@gmail.com (Kateřina Medková)
+
+                                           Preprint submitted to Discrete Applied Mathematics                                                March 2, 2020
+definition, inrCu (n) is the maximal length m of a prefix of u such that each factor of u of length
+n occurs in u0 u1 · · · um+n−2 at most once. Obviously,
+                inrCu (n) ≤ nrCu (n) ≤ Cu (n) ≤ Ru (n) − n + 1            for each n ∈ N.
+Moothathu’s concept of the initial non-repetitive complexity function was developed in [14] by
+Nicholson and Rampersad. They described some general properties of inrCu and evaluated inrCu
+for the Fibonacci, Tribonacci and Thue–Morse words. Note that the Fibonacci word and the
+Tribonacci word belong to the class of standard binary and ternary, respectively, Arnoux–Rauzy
+words. The Arnoux–Rauzy words represent one of the generalizations of Sturmian words to multi-
+letter alphabets. The recurrence function Ru for Arnoux–Rauzy words was determined in [7]. The
+initial non-repetitive complexity function for Sturmian sequences was recently studied by Bugeaud
+and Kim [5]. Their motivation for this study comes from the connection between the irrational
+exponent of a number x and inrCu , where u corresponds to the expansion of x in a given base.
+    In the present article we focus on the non-repetitive complexity of Arnoux–Rauzy words. Using
+the S-adic representation of a given Arnoux–Rauzy word u, we provide in Theorem 13 a formula
+for computing nrCu (n) for each n ∈ N. In particular, we show (Theorem 5) that any Sturmian
+word (i.e., binary Arnoux–Rauzy word) u satisfies nrCu (n) = Cu (n) for each n ∈ N. It is interesting
+that this phenomenon can be observed also among the words with the maximal factor complexity.
+In [14], the authors constructed a word over q letter alphabet such that q n = Cu (n) = nrCu (n).
+    For standard Arnoux–Rauzy words we determine in Theorem 21 also inrCu and thus we gene-
+ralize Nicholson and Rampersad’s result on the Fibonacci and the Tribonacci words.
+
+2. Preliminaries
+     An alphabet A is a finite set of symbols called letters. Here we fix the alphabet A = {0, 1, . . . , d−
+1}, where d is a positive integer. A word w = w0 · · · wn−1 over A is a finite sequence of letters from
+A. The number of its letters is called the length of w and it is denoted by |w| = n. The notation
+|w|a is used for the number of occurrences of the letter a in w. The empty word, i.e., the unique
+word of length zero, is denoted by ε. The concatenation of words v = v0 · · · vk and w = w0 · · · w`
+is the word vw = v0 · · · vk w0 · · · w` . The set of all finite words over A equipped with the operation
+concatenation of words is a free monoid and it is denoted A∗ . The Parikh vector of a word w ∈ A∗
+is the vector V~ (w) = (|w|0 , |w|1 , . . . , |w|d−1 )> . Obviously, |w| = (1, 1, · · · , 1) · V
+                                                                                               ~ (w).
+     An infinite sequence of letters u = (ui )i≥0 in A is called infinite word. The set of all infinite
+words over A is denoted AN . The word u ∈ AN is said to be eventually periodic if it is of the form
+u = vz ω , where v, z ∈ A∗ , z 6= ε and z ω = zzz · · · . Otherwise, u is aperiodic.
+     A factor of a (finite of infinite) word w is a finite word v such that w = svt for some words
+s, t ∈ A∗ . Moreover, if s = ε, then v is called a prefix of w and if t = ε, then v is called a suffix of
+w. The set of all factors of an infinite word u is called the language of u and denoted by Lu . By
+Lu (n) we denote the set of factors of u of length n, i.e., Lu (n) = Lu ∩ An . Using this notation,
+the factor complexity of u can be expressed as Cu (n) = #Lu (n) for every n ∈ N. In this paper, we
+focus on the (initial) non-repetitive complexity.
+Definition 1. The non-repetitive complexity nrCu and the initial non-repetitive complexity inrCu
+of an infinite word u are functions defined for each n ∈ N as follows
+nrCu (n) := max{m ∈ N : ∃k ∈ N s.t. ui · · · ui+n−1 6= uj · · · uj+n−1 ∀i, j with k ≤ i < j ≤ k+m−1},
+      inrCu (n) := max{m ∈ N : ui · · · ui+n−1 6= uj · · · uj+n−1 ∀i, j with 0 ≤ i < j ≤ m − 1} .
+                                                     2
+     A factor w of u is right special if there exist two distinct letters a, b ∈ A such that wa and
+wb belong to Lu . Analogously, w is left special if aw and bw belong to Lu for two distinct letters
+a, b ∈ A. A factor which is both left and right special is called bispecial. If u is aperiodic, then for
+any length n at least one factor w ∈ Lu (n) is left special and at least one factor v ∈ Lu (n) is right
+special.
+     Factors of an infinite word u can be visualized by the so-called Rauzy graphs Γu (n), n ∈ N.
+The set of vertices of Γu (n) is Lu (n) and the set of its edges is Lu (n + 1). An oriented edge
+e ∈ Lu (n + 1) starts in u ∈ Lu (n) and ends in v ∈ Lu (n) if u is a prefix of e and v is a suffix of e.
+If w ∈ Lu (n), we denote
+
+         N+ (w) = {v ∈ Lu (n) : w is a prefix and v is a suffix of an edge e ∈ Lu (n + 1)} ,
+         N− (w) = {v ∈ Lu (n) : v is a prefix and w is a suffix of an edge e ∈ Lu (n + 1)} .
+
+Any factor v ∈ Lu (n + m) with a prefix u ∈ Lu (n) corresponds to an oriented path of length m in
+Γu (n) starting with the vertex u.
+    The occurrence of the word w in u = u0 u1 u2 · · · is every index i ∈ N such that w is a prefix of
+the word ui ui+1 ui+2 · · · . The factor of length n which occurs at the position i is denoted by fn (i).
+Hence, fn (i) = w if w ∈ Lu (n) and w is a prefix of ui ui+1 ui+2 · · · . An infinite word u is said to
+be recurrent if each of its factors has at least two occurrences in u. If i < j are two consecutive
+occurrences of w in u, then the word ui ui+1 · · · uj−1 is called the return word to w in u. If the
+set of all return words to w in u is finite for each factor w of u, the word u is called uniformly
+recurrent.
+    A morphism of the free monoid A∗ is a map ψ : A∗ → A∗ such that ψ(vw) = ψ(v)ψ(w) for
+all v, w ∈ A∗ . The incidence matrix of ψ is d × d matrix Mψ given by [Mψ ]ab = |ψ(b)|a . The
+incidence matrix of ψ can be used to compute the Parikh vector of the image of a word w under
+ψ:
+                                          ~ (ψ(w)) = Mψ · V
+                                          V                ~ (w) .                                   (1)
+    The domain of a morphism ψ of A∗ can be naturally extended to AN by putting ψ(u) =
+ψ(u0 u1 u2 · · · ) = ψ(u0 )ψ(u1 )ψ(u2 ) · · · . An infinite word u is called a fixed point of the morphism
+ψ if u = ψ(u).
+
+3. Arnoux–Rauzy words
+    The Sturmian words can be described by many equivalent properties, for their list (which
+is far from being complete) see for example [2]. These properties offer several possibilities for
+generalization. One of them was used by Arnoux and Rauzy in [1] to introduce the words today
+known under their names.
+Definition 2. A recurrent infinite word u ∈ AN is a d-ary Arnoux–Rauzy word if for all n it has
+(d − 1)n + 1 factors of length n with exactly one left and one right special factor of length n.
+    Over the binary alphabet the Arnoux–Rauzy words coincide with the Sturmian words. The
+Arnoux–Rauzy words belong to a broader family of episturmian words (e.g., see [11]). They are
+also embedded in the very general concept of tree sets introduced in [4] which comprises several
+generalizations of Sturmian words to multi-letter alphabet. The Arnoux–Rauzy words share many
+properties with the Sturmian words (e.g., see [15, 8, 10]). Here we recall some of them. If u is a
+d-ary Arnoux–Rauzy word, then
+                                                    3
+   • there exists a dominant letter a ∈ A such that a occurs in each factor from Lu (2);
+
+   • Lu is closed under reversal, i.e., w = w0 w1 · · · wn−1 ∈ Lu implies w̄ = wn−1 · · · w1 w0 ∈ Lu ;
+
+   • each bispecial factor w of u is a palindrome, i.e., w = w̄;
+
+   • u is uniformly recurrent;
+
+   • any factor of u has exactly d return words in u.
+
+    On the other hand, some properties of Sturmian words are not present in d-ary Arnoux–Rauzy
+words when d ≥ 3. An example of such a property is the so-called balancedness. Already Hedlund
+and Morse [12] proved that a binary aperiodic word u is Sturmian if and only if for any pair
+v, w ∈ Lu of factors of the same length the inequality |v|a − |w|a ≤ c = 1 holds for any letter a ∈ A.
+This property is not preserved in Arnoux–Rauzy words, even if the constant c = 1 is allowed to
+depend on d. For a detailed study of this problem, see [3].
+    If each prefix of an Arnoux–Rauzy word u is left special, then u is called standard. For each
+Arnoux–Rauzy word v, there exists a unique standard Arnoux–Rauzy word u such that Lu = Lv .
+We will work with the S-adic representation of the Arnoux–Rauzy words as described in [10].
+Therefore we define the set S of elementary morphisms over the alphabet A = {0, 1, . . . , d − 1}.
+                                                             
+                                                                i → i;
+                    For i = 0, 1, . . . , d − 1 we put ϕi :                                        (2)
+                                                                j → ij for j 6= i .
+
+   Any standard Arnoux–Rauzy word u is an image of a standard Arnoux–Rauzy word u0 under
+a morphism ϕi , where the letter i coincides with the dominant letter of u. This property enables
+us toassign to any standard Arnoux–Rauzy word a sequence (in )n≥0 of indices and a sequence
+ u(n) n≥0 of standard Arnoux–Rauzy words such that
+
+                         u = u(0) and u(n) = ϕin u(n+1)
+                                                             
+                                                                 for each n ∈ N.                      (3)
+
+The sequence (in )n≥0 is called the directive sequence of u.
+    For any standard Arnoux–Rauzy word u, both sequences (in )n≥0 and u(n) n≥0 are uniquely
+                                                                                 
+
+given. Moreover, every letter i ∈ A occurs in (in )n≥0 infinitely many times. On the other hand,
+a sequence (in )n≥0 which contains each letter of A infinitely     many times determines a unique
+                                                      (n)
+                                                          
+Arnoux–Rauzy word and thus the unique sequence u            n≥0
+                                                                , cf. [15].
+
+Example 3. The most famous Sturmian word is the Fibonacci word which is the fixed point of
+so-called Fibonacci morphism defined as τ : 0 → 01, 1 → 0. Analogously, for every integer d ≥ 2
+we define the d-bonacci word t as the fixed point of the d-bonacci morphism
+                          
+                               a      → 0(a + 1) for a = 0, . . . , d − 2 ,
+                     τ :
+                            (d − 1) → 0 .
+
+It is a d-ary standard Arnoux–Rauzy word. By simple computations we get τ d = ϕ0 ϕ1 · · · ϕd−1 and
+so its directive sequence (in )n≥0 is (0 1 2 · · · d − 1)ω , i.e., its nth element in ∈ A satisfies in ≡ n
+mod d for any n ∈ N. Over a ternary alphabet the word and the corresponding morphism is usually
+called Tribonacci word and morphism, respectively.
+
+                                                    4
+4. Special factors and non-repetitive complexity
+
+    First we show the role that special factors play in the evaluation of non-repetitive complexity.
+Let us recall that for a given infinite word u we denoted by fn (i) the factor of length n occurring
+in u at the position i.
+
+Lemma 4. Let u = u0 u1 u2 · · · be a recurrent aperiodic infinite word, n ∈ N and m = nrCu (n).
+Then there exists h ∈ N such that
+
+   • the set L = {fn (h), fn (h + 1), . . . , fn (h + m − 1)} contains m distinct factors of Lu (n);
+
+   • the factor fn (h − 1) is right special and belongs to L;
+
+   • the factor fn (h + m) is left special and belongs to L.
+
+Proof. Let k be an integer such that the factors from L0 = {fn (k), fn (k + 1), . . . , fn (k + m − 1)}
+are pairwise distinct. As u is recurrent, we can assume k ≥ 1. Since m is the maximal number of
+distinct consecutive factors, there exist integers i and j such that
+
+               k ≤ i, j ≤ k + m − 1,     fn (k − 1) = fn (i)     and      fn (k + m) = fn (j) .
+
+    We discuss two cases.
+Case I: Assume k < j and i < k + m − 1. As fn (k + m) = fn (j), the factors fn+1 (k + m − 1)
+and fn+1 (j − 1) of length n + 1 have a common suffix of length n. It follows that uk+m−1 6= uj−1 .
+Otherwise fn (k + m − 1) and fn (j − 1) would coincide, which is a contradiction with our choice of k.
+It means that uk+m−1 fn (j) and uj−1 fn (j) both belong to the language Lu . Thus fn (k +m) = fn (j)
+is a left special factor. Analogously one can show that fn (k − 1) is a right special factor. Thus we
+can choose h = k and L = L0 .
+Case II: Assume k = j or i = k + m − 1. Without loss of generality we may assume k = j, i.e.,
+fn (k) = fn (k + m). Aperiodicity of u guarantees that there exists ` ∈ N such that
+
+ fn (k + q) = fn (k + m + q) for each q = 0, 1, . . . , `      and     fn (k + ` + 1) 6= fn (k + m + ` + 1).
+
+Therefore {fn (k + ` + 1), fn (k + ` + 2), . . . , fn (k + ` + m)} = L0 . We set h = k + ` + 1 and we show
+that the factor fn (h − 1) = fn (k + `) is right special and the factor fn (h + m) = fn (k + ` + m + 1)
+is left special.
+     Since fn (k + `) = fn (k + ` + m) and fn (k + ` + 1) 6= fn (k + ` + m + 1), the letters uk+`+n and
+uk+`+m+n differ. Hence, the factor fn (k + `) is right special. Since m is the maximal number of
+distinct consecutive factors, fn (k+`+m+1) ∈ L0 . By definition of `, fn (k+`+m+1) 6= fn (k+`+1),
+and so fn (k + ` + m + 1) = fn (k + ` + p) for some 1 < p ≤ m. We conclude that fn (k + ` + m + 1)
+is left special using the same arguments as in Case I.
+
+Theorem 5. Let u be a Sturmian word. Then nrCu (n) = n + 1 for every n ∈ N.
+
+Proof. Let n ∈ N. Any Sturmian word u has exactly one left and one right special factor of length
+n. Let us denote them α and β, respectively. Therefore, in the Rauzy graph Γu (n) the vertex
+α has indegree 2 and all other vertices have indegree 1 and the vertex β has outdegree 2 and all
+others vertices have outdegree 1. Thus Γu (n) is a union of two cycles C0 and C1 which have a
+
+                                                     5
+                                               ···
+
+                                       ζ                               γ
+                                                     C0
+
+                                 α                   ···                   β
+
+
+                                                     C1
+                                           η                       δ
+                                                      ···
+
+
+                          Figure 1: The Rauzy graph Γu (n) of the Sturmian word u.
+
+
+common part, namely the path from α to β (see Figure 1). Denote by γ, δ, ζ, η the vertices such
+that (β, γ), (β, δ), (ζ, α) and (η, α) are edges in Γu (n).
+    By Lemma 4, let h, m ∈ N be such that m = nrCu (n), L = {fn (h), fn (h+1), . . . , fn (h+m−1)},
+#L = nrCu (n), α = fn (h + m) ∈ L and β = f (h − 1) ∈ L. Hence in the Rauzy graph Γu (n), there
+exists a path starting in a vertex of N+ (β), passing through α and β, and ending in a vertex of
+N− (α). Moreover, this path cannot pass twice through the same vertex. The only possible paths
+are the
+
+       γ → · · · → α → · · · → β → δ → · · · → η and δ → · · · → α → · · · → β → γ → · · · → ζ.
+
+Both paths are hamiltonian, i.e., they are passing through all vertices of Γu (n) exactly once. It
+follows that nrCu (n) = Cu (n) = n + 1.
+
+    The previous theorem states that the factor complexity and the non-repetitive complexity
+coincide for Sturmian words. In the next section we prove that this property is not preserved in
+d-ary Arnoux–Rauzy words with d ≥ 3. Nevertheless, the equality nrCu = Cu we observed in
+binary aperiodic words with the smallest factor complexity can take place also in a word with the
+maximal factor complexity, as shown in [14]. The next corollary of Lemma 4 illustrates that the
+equality nrCu = Cu forces the Rauzy graphs of a word u to have a very special form.
+Corollary 6. Let u be a recurrent aperiodic word, n ∈ N, w ∈ Lu (n) and m = nrCu (n). Let h ∈ N
+be such that fn (h − 1) and fn (h + m) are respectively the right and left special factors from Lemma
+4. Assume nrCu (n) = Cu (n).
+   1. If w 6= fn (h − 1), then N+ (w) contains at least #N+ (w) − 1 left special factors.
+   2. If w 6= fn (h + m), then N− (w) contains at least #N− (w) − 1 right special factors.
+Proof. If the factor w is not right special, then the set N+ (w) consists of one element and the
+statement is trivial. Let w 6= fn (h − 1) be a right special factor. We write it in the form w = as,
+where a ∈ A and s ∈ Lu (n − 1). We denote q = #N+ (w) and find distinct letters b1 , b2 , . . . , bq
+such that N+ (w) = {sb1 , sb2 , . . . , sbq }. Obviously, asbk ∈ Lu (n + 1) for each k = 1, 2, . . . , q. The
+assumption nrCu (n) = Cu (n) implies that sbk occurs in the set L described in Lemma 4. It means
+that fn (h + jk ) = sbk for some index jk , 0 ≤ jk ≤ m − 1. Moreover, there exists an index p,
+0 ≤ p ≤ m − 1 such that fn (h + p) = w = as.
+    Let us look at the letter which precedes fn (h + jk ) = sbk , i.e., at the letter uh+jk −1 :
+                                                     6
+   – if h = h + jk , then uh+jk −1 6= a as w = as 6= fn (h − 1);
+
+   – if h 6= h+jk 6= h+p+1, then uh+jk −1 6= a, otherwise the factor as = fn (h+p) = fn (h+jk −1)
+     occurs twice in L, which is a contradiction.
+
+We showed that for all k = 1, 2, . . . , q (up to one possible exception when h + jk = h + p + 1), the
+factors asbk and uh+jk −1 sbk belong to the language of u and uh+jk −1 6= a. It means that sbk is a
+left special factor.
+    The proof of the second part of the statement is analogous.
+
+5. Non-repetitive complexity of Arnoux–Rauzy words
+
+    For every Arnoux–Rauzy word u, there exists at most one bispecial factor of u of length n.
+Thus we can order the bispecial factors by their lengths: for k ∈ N we denote Bu (k) the k th
+bispecial factor of u. In particular, Bu (0) = ε, Bu (1) = u0 (the first letter of u), etc.
+    Now we can formulate the link between the lengths of the return words to the bispecial factors
+and the values of non-repetitive complexity. Let us recall that any factor of a d-ary Arnoux–Rauzy
+word u has exactly d return words, cf. [8].
+
+Proposition 7. Let u be a d-ary Arnoux–Rauzy word and let n, k ∈ N be such that Bu (k − 1) <
+n ≤ Bu (k). Denote by r0 , r1 , . . . , rd−1 the return words to Bu (k) in u.
+  1. If n = |Bu (k)|, then
+
+                     nrCu (n) = max{|ri rj | : ri rj ∈ Lu , 0 ≤ i, j ≤ d − 1, i 6= j} − 1 .
+
+  2. If |Bu (k − 1)| < n < |Bu (k)|, then
+                                                         
+                                 nrCu (n) = nrCu |Bu (k)| − |Bu (k)| + n .
+
+Proof. Let u be a d-ary Arnoux–Rauzy word. Its nth Rauzy graph Γu (n) contains exactly one
+vertex α with the indegree d and all other vertices have indegree 1. It also contains exactly one
+vertex β with the outdegree d, all other vertices have outdegree 1. It means that Γu (n) is composed
+of d cycles C0 , C1 , . . . , Cd−1 which only have in common the path from α to β (see Figure 2). For
+every i ∈ {0, . . . , d − 1}, we denote by `i the number of vertices in the cycle Ci and by γi , ζi the
+vertices from the cycle Ci such that (β, γi ), (ζi , α) are edges in Γu (n). Let p be the number of
+vertices on the minimal path from α to β.
+    Let h ∈ N be such that L = {fn (h), fn (h + 1), . . . , fn (h + m − 1)} is the set from Lemma 4 with
+m = #L = nrCu (n). Then fn (h − 1) = β, fn (h + m) = α and α, β ∈ L. Hence the path in Γu (n)
+corresponding to L is of the form:
+
+                           γ i → · · · → ζi → α → · · · → β → γ j → · · · → ζj
+
+for some i, j ∈ A, i 6= j, and it contains nrCu (n) = `i + `j − p vertices. So it suffices to compute
+the numbers `i , `j and p.
+     (1): If n = |Bu (k)|, then α = β = Bu (k), p = 1 and the Rauzy graph Γu (n) contains d cycles
+C0 , C1 , . . . , Cd−1 with only the vertex Bu (k) in common. Clearly, these cycles correspond with
+the return words to Bu (k): if we start in Bu (k) and concatenate the first letters of all vertices
+                                                    7
+                                                     ···
+                                         ζ2          C2              γ2
+
+                                                     ···
+                                              ζ0                γ0
+                                                     C0
+
+                                     α               ···                  β
+
+
+                                                     C1
+                                              ζ1                γ1
+                                                     ···
+
+
+                     Figure 2: The Rauzy graph Γu (n) of a ternary Arnoux–Rauzy word u.
+
+
+of Ci , we get ri for all i ∈ A. Thus the number `i of vertices in Ci is equal to |ri |. Hence
+nrCu (n) = `i + `j − 1 = |ri | + |rj | − 1 for some i 6= j. By definition of nrCu (n), we have to choose
+i 6= j such that the word ri rj is a factor of u and its length is maximal possible.
+    (2): If |Bu (k − 1)| < n < |Bu (k)|, then α 6= β and p > 1. Observe that if p > 1, then
+Γu (n + 1) has also cycles of lengths `i for all i ∈ A and the minimal path from the left special
+factor to the right special factor contains p − 1 vertices. It follows that Γu (n + p − 1) contains
+the bispecial factor Bu (k) and so |Bu (k)| = n + p − 1. By the Rauzy graph Γu (|Bu (k)|) we have
+nrCu (|Bu (k)|) = `i + `j − 1, as the lengths of the cycles are preserved. So
+ nrCu (n) = `i + `j − p = nrCu (|Bu (k)|) + 1 − (|Bu (k)| − n + 1) = nrCu (|Bu (k)|) − |Bu (k)| + n .
+
+
+
+   In the introduction we stated the inequality between the recurrence function Ru and the non-
+repetitive complexity. It is worth mentioning that Ru is also linked to return words, as stated by
+Cassaigne in [6].
+Proposition 8 ([6]). Let u be a recurrent infinite word. Then for each n ∈ N,
+                    Ru (n) − n + 1 = max{|r| : r is a return word to w ∈ Lu (n)}.
+
+    To transform Proposition 7 into an explicit formula for nrCu , we have to compute the lengths of
+the return words to the bispecial factors in u and also decide which return words are neighbouring
+in u. For this purpose we will essentially use the directive sequence (in )n≥0 of a standard Arnoux-
+Rauzy word u introduced in Section 3. Let us emphasize that the non-repetitive complexity of u
+depends only on the language Lu and not on the word u itself. Since for every Arnoux-Rauzy word
+u there exists a unique standard Arnoux-Rauzy word v such that Lu = Lv , we can restrict our
+considerations only to standard Arnoux–Rauzy words. Note that if u is standard Arnoux–Rauzy
+word, all its bispecial factors are prefixes of u.
+    The following notion of derived word which codes the order of the return words in u will be
+also useful.
+Definition 9. Let w be a prefix of a uniformly recurrent word u and let r0 , r1 , . . . , r`−1 be the
+return words to w in u. If we write u as a concatenation u = rj0 rj1 rj2 · · · , then the word j0 j1 j2 · · ·
+is called the derived word to w in u and is denoted du (w).
+                                                     8
+    We do not specify the order of the return words and thus the derived word is determined
+uniquely up to a permutation of letters. Clearly, the derived word to the empty word ε in u is the
+word u itself. The simple form of the morphisms ϕi defined by (2) gives immediately the following
+claim, which can be also deduced from the results in [8] or [9].
+
+Claim 10. Let u and v be standard d-ary Arnoux–Rauzy words such that v = ϕi (u) with i ∈ A.
+Then for any k ∈ N it holds:
+                           
+   • Bv (k + 1) = ϕi Bu (k) i;
+
+   • if r0 , r1 , . . . , rd−1 are the return words to Bu (k) in u, then ϕi (r0 ), ϕi (r1 ), . . . , ϕi (rd−1 ) are the
+     return words to Bv (k + 1) in v;
+                                         
+   • du Bu (k) = dv Bv (k + 1) up to permutation of letters.
+
+Corollary   11. Let u be a standard Arnoux–Rauzy word with the directive sequence (in )n≥0 and
+ u(n) n≥0 be the sequence satisfying (3). Then the derived word to Bu (k) in u is (up to permutation
+     
+
+of letters) the word u(k) and the corresponding return words are ψ(0), ψ(1), . . ., ψ(d − 1), where
+ψ = ϕi0 ϕi1 · · · ϕik−1 .
+
+Proof. Obviously, the bispecial factor ε has in the word u(k) the return words 0, 1, . . . , d−1 and the
+derived word (up to permutation of letters) to Bu(k) (0) = ε in u(k) is u(k) . By repeated application
+of Claim 10 we get
+
+                    du (Bu (k)) = du(1) (Bu(1) (k − 1)) = · · · = du(k) (Bu(k) (0)) = u(k)
+
+and
+                   {r0 , . . . , rd−1 } = {ϕi0 ϕi1 · · · ϕik−1 (0), . . . , ϕi0 ϕi1 · · · ϕik−1 (d − 1)} .
+
+
+    Corollary 11 enable us to express the return words to the k th bispecial factor Bu (k). However,
+we also need to know which return words are neighbouring, i.e., for which i 6= j the word ri rj is a
+factor of u. Corollary 11 transforms this question to the description of neighbouring letters in the
+Arnoux–Rauzy word u(k) with the directive sequence (in+k )n≥0 , which is trivial.
+
+Claim 12. Let u be a standard Arnoux–Rauzy word with the directive sequence (in )n≥0 . Then i0
+is the dominant letter in u and the factors of length 2 in u are the words i0 a, ai0 for all a ∈ A.
+
+     For every k ∈ N and every letter a ∈ A we define Sa (k) = sup{` : 0 ≤ ` < k, i` = a}. As usual,
+if the set is empty, i.e., i` 6= a for all ` < k, then Sa (k) = −∞. Let us emphasize that Sa (k) = Sb (k)
+for two distinct letters a and b if and only if Sa (k) = Sb (k) = −∞.
+
+Theorem 13. Let u be a d-ary Arnoux–Rauzy word. For every integer n ≥ 1 we take the unique
+k such that |Bu (k − 1)| < n ≤ |Bu (k)|. Then we have
+
+                           nrCu (n) = |ϕi0 ϕi1 · · · ϕik−1 ϕik (a)| − 1 − |Bu (k)| + n ,
+
+where (in )n≥0 is the directive sequence of the standard Arnoux-Rauzy word with the language Lu
+and a ∈ A is any letter different from ik such that Sa (k) = inf{Sb (k) : b ∈ A, b 6= ik }.
+                                                             9
+Proof. Since the function nrCu depends only on the language Lu and not on the word u itself, we
+can work with the standard Arnoux-Rauzy word v such that Lv = Lu instead of u. We denote
+(in )n≥0 the directive sequence of v and to simplify the notation we also denote ψ = ϕi0 ϕi1 · · · ϕik−1 .
+     We start from Proposition 7 and using the previous claims we express nrCv (|Bv (k)|) more
+explicitly. By Corollary 11 and Claim 12 the admissible pairs of return words to Bv (k) are
+
+               {|ri rj | : ri rj ∈ Lv , 0 ≤ i, j ≤ d − 1, i 6= j} = {|ψ(ik a)| : a ∈ A, a 6= ik } .
+
+It suffices to determine for which letter a 6= ik the image |ψ(a)| is the longest possible. Let us
+emphasize that for every i ∈ {0, . . . , d − 1} and every words x, y ∈ A∗ we have
+
+  (i) ϕi (xa) = ϕi (x)ia if i 6= a and ϕi (xa) = ϕi (x)i if i = a;
+
+ (ii) if x is a proper prefix of y, i.e., y = xz for some non-empty word z, then ϕi (x) is a proper
+      prefix of ϕi (y) = ϕi (x)ϕi (z).
+
+For two distinct letters a, b ∈ A we discuss two cases.
+    – If Sa (k) = Sb (k), then the morphisms ϕa , ϕb are not included in the decomposition of ψ. Thus
+by application of Item (i) we get ψ(a) = x0 a and ψ(b) = x0 b for some non-empty word x0 ∈ A∗ and
+so |ψ(a)| = |ψ(b)|.
+    – If Sa (k) < Sb (k), then we split ψ = σϕb θ such that the decomposition of the morphism θ
+contains neither ϕa nor ϕb . Then by Item (i) we have θ(a) = x0 a and θ(b) = x0 b for some non-
+empty word x0 ∈ A∗ and since ϕb (x0 a) = ϕb (x0 )ba and ϕb (x0 b) = ϕb (x0 )b, the word ϕb (θ(b)) is a
+proper prefix of ϕb (θ(a)). By Item (ii) it means that also σ(ϕb (θ(b))) = ψ(b) is a proper prefix of
+σ(ϕb (θ(a))) = ψ(a) and so |ψ(b)| < |ψ(a)|.
+    We may conclude that
+
+nrCv (|Bv (k)|) = max{|ri rj | : ri rj ∈ Lv , 0 ≤ i, j ≤ d − 1, i 6= j} − 1 = |ψ(ik a)| − 1 = |ψϕik (a)| − 1 ,
+
+where a is any letter different from ik such that Sa (k) = inf{Sb (k) : b 6= ik }. By Proposition
+7 it concludes the proof, since for all n, k ∈ N we clearly have Bu (k) = Bv (k) and nrCu (n) =
+nrCv (n).
+
+6. Initial non-repetitive complexity of standard Arnoux–Rauzy words
+
+   The following lemma uses again the notation fn (i) for the factor of length n occurring in u at
+the position i.
+
+Lemma 14. Let u = u0 u1 u2 · · · be a recurrent infinite word, n ∈ N and m = inrCu (n). Then the
+set L = {fn (0), fn (1), . . . , fn (m − 1)} contains m distinct factors of Lu (n) and the factor fn (m) is
+either left special and fn (m) = fn (i) for some i, 0 < i < m, or fn (m) = fn (0).
+
+Proof. The proof of Case I of Lemma 4 immediately gives this statement.
+
+Theorem 15. Let u be a standard d-ary Arnoux–Rauzy word with the directive sequence (in )n≥0 .
+For every integer n ≥ 1 we take the unique k such that |Bu (k − 1)| < n ≤ |Bu (k)|. Then we have
+
+                                     inrCu (n) = |ϕi0 ϕi1 · · · ϕik−1 (ik )| .
+
+                                                        10
+Proof. Let u be a standard d-ary Arnoux–Rauzy word and n ∈ N. We denote m = inrCu (n) and
+L = {fn (0), . . . , fn (m − 1)} the set from Lemma 14. Then fn (m) = fn (0), since the word fn (0)
+is the only left special factor of u of length n. It means that m is equal to the length of the first
+return word to fn (0). We now determine its length.
+    If n = |Bu (k)| for some k ∈ N, it means that fn (0) = Bu (k) is bispecial factor. Then by
+Corollary 11 the first return word to fn (0) is equal to the word ϕi0 ϕi1 · · · ϕik−1 (ik ), since the word
+u(k) is standard and so it starts with its dominant letter, which is by Claim 12 the letter ik . Thus
+m = |ϕi0 ϕi1 · · · ϕik−1 (ik )|.
+    If |Bu (k − 1)| < n < |Bu (k)|, then Bu (k) = fn (0)w for some non-empty word w ∈ A∗ since all
+prefixes of u are left special factors. Moreover, the word fn (0) is in u always followed by the word
+w. Indeed, since fn (0) is not right special, there is a unique letter a ∈ A such that fn (0)a ∈ Lu
+and we can repeat the same process until we reach Bu (k). But it means that the words fn (0) and
+Bu (k) have the same return words and derived words and so the first return word to fn (0) is equal
+to the word ϕi0 ϕi1 · · · ϕik−1 (ik ). Thus m = |ϕi0 ϕi1 · · · ϕik−1 (ik )|.
+
+   Let us emphasize that for non-standard Arnoux–Rauzy words the evaluating of the initial non-
+repetitive complexity is much more complicated, as, unlike the standard case, we do not have the
+control over the positions of the vertices corresponding to prefixes in the respective Rauzy graphs.
+
+Corollary 16. Let u be a standard Sturmian word. Then inrCu (n) = n + 1 for infinitely many
+n ∈ N.
+
+Proof. Let (i` )`≥0 denote the directive sequence of u. We will prove that inrCu (n) = n + 1 for
+every n such that n = |Bu (k)| + 1 for some k ∈ N and ik 6= ik+1 . Since the directive sequence
+(i` )`≥0 contains both letters 0 and 1 infinitely many times, it implies the statement of the corollary.
+     We take n = |Bu (k)| + 1 such that ik 6= ik+1 and denote r0 the more frequent return word to
+Bu (k) and r1 the other return word. By Corollary 11 and Claim 12 we have r0 = ϕi0 ϕi1 · · · ϕik−1 (ik )
+and r1 = ϕi0 ϕi1 · · · ϕik−1 (ik+1 ). It also implies that r1 is always followed by r0 , while r0 can be
+followed both by r0 and r1 .
+     As explained before, the Rauzy graph Γu (n − 1) is composed of two cycles C0 and C1 with only
+the vertex Bu (k) in common (see Figure 3). Moreover, these cycles correspond with the return
+words r0 and r1 : if we start in Bu (k) and concatenate the first letters of vertices from C0 , we get
+the return word r0 . Thus the number of vertices of C0 is equal to |r0 |. It is analogous for C1
+and r1 . This connection also means that the cycle C1 is always followed by C0 , while C0 can be
+followed by both C0 and C1 .
+     We denote α the edge from the cycle C0 outcoming from the vertex Bu (k) and β the edge from
+C0 incoming to Bu (k) (see Figure 3). Then α is the left special factor of u of length n and β is the
+right special factor of u of length n. It means that the Rauzy graph Γu (n) is composed of the cycle
+with |r0 | + |r1 | vertices and one extra edge going from the vertex β to the vertex α (see Figure 3).
+It follows that |r0 | + |r1 | = n + 1. Moreover, the return words to the factor α are r0 and r0 r1 and
+|r0 r1 | = |r0 | + |r1 | = n + 1. Finally, it suffices to apply Theorem 15 for Bu (k) < n < Bu (k + 1)
+such that ik 6= ik+1 :
+
+           inrCu (n) = |ϕi0 ϕi1 · · · ϕik (ik+1 )| = |ϕi0 ϕi1 · · · ϕik−1 (ik ik+1 )| = |r0 r1 | = n + 1.
+
+
+
+
+                                                        11
+                                      γ2
+                          ···
+                    γi
+                                                γ1
+                                C0                                                     ···
+                                                                       δj                            δ1
+
+                          β                α
+                                      Bu (k)                  α              γ1        ···      γi         β
+                          δj               δ1
+
+                                C1
+                         δj−1              δ2
+                                ···
+
+Figure 3: The Rauzy graphs Γu (n − 1) (left) and Γu (n) (right) of the standard Sturmian word u for n = |Bu (k)| + 1.
+
+
+    Recently, Bugead and Kim [5] proved the new characterization of Sturmian words using the
+initial non-repetitive function: an infinite word u is Sturmian if and only if inrCu (n) ≤ n + 1 for
+all n ∈ N with the equality for infinitely many n. So their result is more general than the previous
+corollary.
+
+7. Enumeration of non-repetitive complexity for d-bonacci word
+    In this section we demonstrate the usefulness of Theorems 13 and 15 on the d-bonacci words.
+Let us recall that the d-bonacci word t (see Example 3) is the fixed point of the morphism
+                                                                                                
+                                                                             1 1 1 ··· 1
+                                                                          1 0 0 · · · 0
+           a      → 0(a + 1) for a = 0, . . . , d − 2
+                                                                                                
+τ :                                                   with the matrix M = 0 1 0 · · · 0 .
+                                                                                                
+        (d − 1) → 0                                                         ..    .    .      .
+                                                                           .        ..   . . .. 
+                                                                                                 
+                                                                             0 0 ··· 1 0
+    In the sequel, we will use so-called d-bonacci numbers, which are the natural generalizations of
+the famous Fibonacci numbers. The sequence of the d-bonacci numbers (Dk )k≥0 is defined by the
+linear recurrence:
+                         d
+                         X
+                Dk =            Dk−j for k ≥ d          and       Dk = 2k for all k = 0, 1, . . . , d − 1 .
+                         j=1
+
+Equivalently, the d-bonacci numbers can be expressed using the matrix recurrence. To simplify
+the notation we put D−1 = 1 and D−k = 0 for all k = 2, . . . , d. We also denote the vector
+~
+D(n) = (Dn , Dn−1 , . . . , Dn−d+1 )> for all n ≥ −1. Then the recurrence relation for the d-bonacci
+numbers can be rewritten in the following vector form:
+              ~
+              D(n)     ~ − 1)
+                   = M D(n                       for all n ∈ N         and        ~
+                                                                                  D(−1) = (1, 0, . . . , 0)> =: ~e ,
+
+where M is the matrix of the d-bonacci morphism τ . Obviously, we can write
+                                                      ~
+                                                      D(n) = M n+1~e .                                                 (4)
+                                                                  12
+    The simple form of the morphism τ gives us immediately the relation between the consecutive
+bispecial factors in the d-bonacci word t (compare with Claim 10), which allows us to express the
+lengths of the bispecial factors of t.
+Claim 17. For every k ≥ 1 the bispecial factors of the d-bonacci word t fulfil the equation
+                                          Bt (k) = τ (Bt (k − 1))0 .
+Lemma 18. For every k ∈ N the k th bispecial factor Bt (k) of the d-bonacci word t has the length
+                         d−1
+                     1 X                 d
+       |Bt (k)| =       (d − i)Dk−i−1 −     ,               where Dj is the j th d-bonacci number.
+                    d−1                 d−1
+                         i=0
+
+                                                                ~ (k). Then using Claim 17 and
+Proof. We denote the Parikh vector of the k th bispecial factor V
+Relation (1) we may write:
+      ~ (k) = M V
+      V         ~ (k − 1) + ~e       and so      ~ (k) = M k V
+                                                 V           ~ (0) + (M k−1 + M k−2 + · · · + M 0 )~e .
+                        ~ (0) = (0, . . . , 0)> and
+Since Bt (0) = ε, it is V
+                                 ~ (k) = (M k−1 + M k−2 + · · · + M 0 )~e .
+                                 V
+If we multiply this equality by the matrix (M − I), where I is the identity matrix, we get:
+                 ~ (k) = (M k + M k−1 + · · · + M 1 − M k−1 − · · · − M 0 )~e = M k~e − ~e .
+          (M − I)V
+Finally, the application of Equation (4) gives us:
+                                                                     
+                  V                                          ~ − 1) − ~e .
+                   ~ (k) = (M − I)−1 M k~e − ~e = (M − I)−1 D(k
+
+Now we can express the length of the k th bispecial factor as:
+                                                                                           
+                                             ~ (k) = (1, . . . , 1) · (M − I)−1 D(k
+                 |Bt (k)| = (1, . . . , 1) · V                                   ~ − 1) − ~e .
+
+It suffices to compute the inverse matrix (M − I)−1 . One can verify that it is
+                                                                               
+                                         1 d − 1 d − 2 ···      2         1
+                                       1
+                                            0   d − 2 ···      2         1    
+                           −1      1 1     0    −1 · · ·      2         1 
+                  (M − I) =            .    ..    ..                     .. 
+                                                                                
+                                 d − 1  ..             ..
+                                             .     .      .               .   
+                                       1    0    −1 · · · −d + 3         1 
+                                         1   0    −1 · · · −d + 3 −d + 2
+
+and thus (1, . . . , 1) · (M − I)−1 = d−1
+                                       1
+                                          (d, d − 1, d − 2, . . . , 1). Consequently,
+
+                                    1                              ~ − 1) − d
+                        |Bt (k)| =     (d, d − 1, d − 2, . . . , 1)D(k
+                                   d−1                                     d−1
+                                       d−1
+                                    1 X                             d
+                                 =         (d − i)Dk−i−1 −             .
+                                   d−1                            d−1
+                                           i=0
+
+
+
+                                                       13
+    To find the simple expression for the lengths of the return words to Bt (k), we state one more
+auxiliary lemma. Let us remind that the d-bonacci word has the directive sequence (0 1 2 · · · d−1)ω ,
+as explained in Example 3.
+
+Lemma 19. For the d-bonacci word with the directive sequence (in )n∈N = (0 1 2 · · · d − 1)ω and for
+every integer k ≥ 1 we have
+
+           |ϕi0 ϕi1 · · · ϕik−1 (ik )| = |τ k (0)| = Dk ,           where Dk is the k th d-bonacci number.
+
+Proof. One can simply verify that τ = ϕ0 ◦ P , where P is a permutation such that P (a) ≡ a + 1
+mod d for all a ∈ {0, 1, . . . , d − 1}. It is also easy to realize that P ◦ ϕa = ϕb ◦ P for every
+a, b ∈ {0, 1, . . . , d − 1} such that b ≡ a + 1 mod d. These two facts give us
+
+  τ k = (ϕ0 ◦ P )k = ϕ0 ◦ (P ◦ ϕ0 )k−1 ◦ P = ϕ0 ◦ (ϕ1 ◦ P )k−1 ◦ P = ϕ0 ϕ1 ◦ (P ◦ ϕ1 )k−2 ◦ P 2 = · · ·
+                                                                                                          = ϕj0 ϕj1 · · · ϕjk−1 P k ,
+
+where jn ∈ A and jn ≡ n mod d. But since the sequence (jn )n∈N is exactly the directive sequence
+of the d-bonacci word, i.e., jn = in for every n ∈ N, we may conclude that
+
+                τ k (0) = ϕj0 ϕj1 · · · ϕjk−1 P k (0) = ϕj0 ϕj1 · · · ϕjk−1 (jk ) = ϕi0 ϕi1 · · · ϕik−1 (ik ) .
+
+   It remains to prove that |τ k (0)| = Dk . We will prove that both sequences (|τ n (0)|)n∈N and
+(Dn )n∈N fulfil the same linear recurrence with the same initial conditions. In fact, we will show
+that for every a ∈ A the following equalities hold:
+                d−a
+                X
+  |τ k (a)| =         |τ k−j (0)| for all k ≥ d − a          and         |τ k (a)| = 2k for all k = 0, . . . , d − a − 1 . (5)
+                j=1
+
+We will proceed by induction on k. Simple computations verify the initial conditions. Now we
+suppose that the equality is true for k − 1 and every letter a ∈ A and we prove that it is true also
+for k. If a = d − 1, it is clear since τ k (d − 1) = τ k−1 (0). If a 6= d − 1, we rewrite as follows:
+                                                                                 d−a−1
+                                                                                  X                            d−a
+                                                                                                               X
+           k              k−1               k−1                   k−1                         k−1−j
+        |τ (a)| = |τ            (0)| + |τ         (a + 1)| = |τ         (0)| +           |τ           (0)| =         |τ k−j (0)| .
+                                                                                  j=1                          j=1
+
+   If we consider the relations (5) for the letter a = 0, we get exactly the same recurrence as in
+the case of d-bonacci numbers. Thus these two sequences are the same and |τ k (0)| = Dk .
+
+Theorem 20. Let t be the d-bonacci word and let n, k be positive integers such that
+                         d−1                                                      d−1
+                  1 X                  d       1 X                  d
+                      (d − i)Dk−i−2 −     <n≤      (d − i)Dk−i−1 −     .
+                 d−1                  d−1     d−1                  d−1
+                          i=0                                                     i=0
+
+Then
+                                                                   d−1
+                                                           1 X                  d
+                         nrCt (n) = Dk+1 − 1 −                 (d − i)Dk−i−1 +     + n.
+                                                          d−1                  d−1
+                                                                   i=0
+
+                                                                  14
+Proof. It follows directly from Theorem 13. It suffices to replace the lengths of the bispecial factors
+by the expressions from Lemma 18 and determine the value of
+
+                                               |ϕi0 ϕi1 · · · ϕik−1 (ik a)| ,
+
+where a ∈ A is any letter such that Sa (k) = inf{Sb (k) : b ∈ A, b 6= ik }. Since t has the directive
+sequence (in )n≥0 given by in ≡ n mod d, it is easy to realize that the desired letter a is the letter
+ik+1 (note that for k < d − 2 there are also other possible choices of a). Then using Lemma 19 we
+get
+
+   |ϕi0 ϕi1 · · · ϕik−1 (ik a)| = |ϕi0 ϕi1 · · · ϕik−1 (ik ik+1 )| = |ϕi0 ϕi1 · · · ϕik (ik+1 )| = |τ k+1 (0)| = Dk+1 .
+
+
+
+Theorem 21. Let t be the d-bonacci word and let n, k be positive integers such that
+                       d−1                                                d−1
+                 1 X                  d       1 X                  d
+                     (d − i)Dk−i−2 −     <n≤      (d − i)Dk−i−1 −     .
+                d−1                  d−1     d−1                  d−1
+                       i=0                                                i=0
+
+Then inrCt (n) = Dk .
+
+Proof. It follows directly from Theorem 15. It suffices to realize that by Lemma 18 we know the
+lengths of the bispecial factors of t and by Lemma 19 we have |ϕi0 ϕi1 · · · ϕik−1 (ik )| = |τ k (0)| =
+Dk .
+
+   Note that for d = 2 and d = 3 the previous theorem gives the results stated in [14] as Theorems
+10 and 16.
+
+Corollary 22. Let f and t be the Fibonacci and the Tribonacci word, respectively.
+
+   • Let n, k be positive integers such that Fk − 2 < n ≤ Fk+1 − 2. Then inrCf (n) = Fk , where Fk
+     is the k th Fibonacci number.
+                                                        T +Tk−2 −3       T  +T    −3
+   • Let n, k be positive integers such that k              2      < n ≤ k+1 2 k−1 . Then inrCt (n) = Tk ,
+     where Tk is the k th Tribonacci number.
+
+References
+ [1] P. Arnoux, G. Rauzy: Représentation géométrique de suites de complexité 2n + 1. Bull. Soc. Math. France 119
+     (2) (1991), 199–215.
+ [2] L’. Balková, E. Pelantová, Š. Starosta: Sturmian Jungle (or Garden?) on Multiliteral Alphabets. RAIRO -
+     Theoret. Inf. Appl. 44 (2010), 443–470.
+ [3] V. Berthé, J. Cassaigne, W. Steiner: Balance properties of Arnoux–Rauzy words. Int. J. of Algebra and Com-
+     putation, Vol. 23, No. 04, (2013), 689–703.
+ [4] V. Berthé, C. De Felice, F. Dolce, J. Leroy, D. Perrin, Ch. Reutenauer, G. Rindone: Acyclic, connected and
+     tree sets. Monatshefte fr Mathematik 176 (4) (2015).
+ [5] Y. Bugeaud, D. H. Kim: A new complexity function, repetitions in Sturmian words, and irrationality exponents
+     of Sturmian numbers. Trans. Amer. Math. Soc. 371 (2019), 3281–3308.
+ [6] J.Cassaigne: Limit values of the recurrence quotient of Sturmian sequences. Theoretical Computer Science 218
+     (1999), 3–12.
+
+
+                                                            15
+ [7] J. Cassaigne, N. Chekhova: Fonctions de récurrence des suites d’ Arnoux–Rauzy et réponsé a une question de
+     Morse et Hedlund. Annales de l’Institut Fourier 56 (2006) (7), 2249–2270.
+ [8] J. Justin, L. Vuillon: Return words in Sturmian and episturmian words. RAIRO-Theoret. Inf. Apppl. 34 (2000),
+     343–356.
+ [9] K. Medková: Derived sequences of Arnoux–Rauzy sequences. In: R. Mercas and D. Reidenbach (eds.), Proceed-
+     ings WORDS 2019, Lecture Notes in Computer Science 11682 (2019), Springer, pp. 251–263.
+[10] N. Pytheas Fogg: Substitutions in dynamics, arithmetics and combinatorics, Lecture Notes in Math. 1794
+     (2002), Springer-Verlag.
+[11] A. Glen, J. Justin: Episturmian words: a survey. Theor. Inform. Appl. 43 (3) (2009), 403–442.
+[12] M. Morse, G. A. Hedlund: Symbolic dynamics II: Sturmian trajectories. Amer. J. Math. 61 (1940), 1–42.
+[13] T. K. S. Moothathu: Eulerian entropy and non-repetitivity subword complexity. Theoretical Computer Science
+     420 (2012), 80–88.
+[14] J. Nicholson, N.Rampersad: Initial non-repetitivity complexity of infinite words. Discrete Appl. Math. 208 (C)
+     (2016), 114–122.
+[15] R. N. Risley and L. Q. Zamboni: A generalization of Sturmian sequences: Combinatorial structure and tran-
+     scendence. Acta Arith. 95 (2000), 167–184.
+
+
+
+
+                                                        16
+

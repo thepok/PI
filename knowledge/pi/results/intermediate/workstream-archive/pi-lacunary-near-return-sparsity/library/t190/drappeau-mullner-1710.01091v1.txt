@@ -1,0 +1,835 @@
+                                                      EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES
+
+                                                                              S. DRAPPEAU AND C. MÜLLNER
+
+
+                                                  Abstract. We show that automatic sequences are asymptotically orthogonal to periodic
+                                                  exponentials of type eq (f (n)), where f is a rational fraction, in the Pólya-Vinogradov range.
+                                                  This applies to Kloosterman sums, and may be used to study solubility of congruence equations
+                                                  over automatic sequences. We obtain this as consequence of a general result, stating that sums
+                                                  over automatic sequences can be bounded effectively in terms of two-point correlation sums
+                                                  over intervals.
+arXiv:1710.01091v1 [math.NT] 3 Oct 2017
+
+
+
+
+                                                                                      1. Introduction
+                                             A complex-valued sequence (an ) is called automatic, if there is a finite deterministic au-
+                                          tomaton such that for each n, the value an is given by a function of the final state of the
+                                          automaton, when the automaton is given as input the digital representation of n. There has
+                                          been strong interest recently on understanding correlation of automatic sequences with other
+                                          types of arithmetical functions. Much of this interest has stemmed from the Sarnak conjec-
+                                          ture: it was recently shown by the second author [Mül17] that all automaticP
+                                                                                                                            sequences are
+                                          asymptotically orthogonal to the Möbius function µ(n), in the sense that n≤x an µ(n) = o(x)
+                                          as x → ∞.
+                                             In the present paper, we are interested in asymptotic orthogonality of automatic sequences
+                                          with oscillating functions given by periodic exponentials of rational fractions. The prototype
+                                          of correlations we wish to study are the incomplete Kloosterman sums
+                                                                  X        n
+                                          (1.1)                        an e    ,    (e(z) = e2πiz , nn = 1 (mod q))
+                                                                  n∈I
+                                                                            q
+                                                                   (n,q)=1
+
+                                          for an interval I of integers. Our goal is to find conditions on q and on the size of the interval |I|
+                                          which ensure that we have asymptotic orthogonality of (an ) with (e(n/q)), in the sense that
+                                          the sum in (1.1) is o(|I|) as |I| → ∞.
+                                              When (an ) is constant, a classical result of Weil [Wei48] shows that the condition |I| ≥
+                                          q 1/2+ε suffices: we will refer to this condition as the Pólya-Vinogradov range (in reference
+                                          to the Pólya-Vinogradov bound for sums of Dirichlet characters). This may be improved in
+                                          specific circumstances [Kor00, Irv15], however, the range obtained by the Weil bound remains
+                                          unsurpassed in general.
+                                              Our main result, which we will describe shortly, shows that asymptotic orthogonality for (1.1)
+                                          holds in the Pólya-Vinogradov range for all automatic sequences.
+                                          Statement of results. Let us now describe the precise setting of our study. Given k ≥ 2
+                                          a base, Σ = {0, . . . , k − 1}, A = (Q, Σ, δ, q0 , τ ) a deterministic finite automaton with output
+                                          function τ : Q → C, we define the associated automatic sequence (an )n≥0 = (τ (δ(q0 , (n)k )))n≥0 ,
+                                          where (n)k denotes the representation of n in base k without leading zeros. When we refer
+                                          to an automatic sequence in what follows, it will always be one given by such a construction.
+                                            Date: September 23, 2018.
+                                            2010 Mathematics Subject Classification. Primary: 11L07, 11B85; Secondary: 11L05, 11L26.
+                                            Both authors acknowledge support by the project MuDeRa (Multiplicativity, Determinism and Randomness),
+                                          which is a joint project between the ANR (Agence Nationale de la Recherche) and the FWF (Austrian Science
+                                          Fund). Moreover, the second author was supported by the Austrian Science Foundation FWF, project F5502-
+                                          N26, which is a part of the Special Research Program “Quasi Monte Carlo Methods: Theory and Applications”.
+                                          The authors thank C. Mauduit for helpful discussions.
+                                                                                                1
+2                                   S. DRAPPEAU AND C. MÜLLNER
+
+In particular, we assume without loss of generality that δ(q0 , 0) = q0 . For a more detailed
+treatment of automatic sequences see for example [AS03].
+   Given a rational fraction f = P (X)/Q(X) ∈ Q(X), n ∈ Z and q ∈ N>0 , we define eq (f (n))
+following the definition of section 4A of [CFH+ 14]; we describe this in detail below (Section 2)
+and simply note for now that whenever (Q(n), q) = 1, we have
+                                                             P (n)Q(n) 
+                                      eq (f (n)) = e                                  .
+                                                                    q
+Definition 1. Let f ∈ Q(X), which we write in reduced form f = P/Q with P, Q ∈ Z[X] and
+coprime. Let also an integer q ≥ 1 be given.
+   (i) We denote by (q, Q) the greatest common divisor of q and Q in Z[X].
+  (ii) We will say that f is well-defined (mod q) if (q, Q) = 1.
+ (iii) We define a subset of the primes by
+                  Qf = {p : f reduces to a quadratic polynomial modulo p}.
+(iv) We will say that f has total degree d if deg P + deg Q = d.
+    Our main result is the following bound.
+Theorem 1. Let (an ) be an automatic sequence, f ∈ Q[X] be a rational function of total
+degree at most d ≥ 1, and q ≥ 1 such that f is well-defined (mod q). Let q1 be the largest
+squarefree divisor of q, coprime to k and having no prime factor in Qf :
+                                                              Y
+                                                   q1 :=                p.
+                                                              pkq:
+                                                           p6∈Qf ,p∤k
+
+Then there exists c > 0, depending at most on d and the underlying automaton A, such that
+                          X                                             1                  q 2 c
+(1.2)                           an eq (f (n)) ≪ε,A,d |I|1+ε                       +                ,
+                          n∈I
+                                                                             q1           q1 |I|2
+for any interval of integers I =
+                               6 ∅.
+   If f (X) is polynomial of degree exactly 2 and leading coefficient u/v with (v, q) = 1, then
+                           X                                                 1             q c
+(1.3)                            an eq (f (n)) ≪ε,A,u,v |I|1+ε                        +          ,
+                           n∈I
+                                                                                  q        |I|2
+where the implied constant may now also depend on u and v.
+  In particular, if q = p is prime, and f does not reduce to a linear function (mod p), we
+obtain
+                            X                               1   p c
+                                  an ep (f (n)) ≪ε,A,f x1+ε    + 2 .
+                         y<n≤y+x
+                                                             p x
+As mentioned earlier, this bound is non-trivial in the whole Pólya-Vinogradov range |I| ≥
+q 1/2+ε . As an example, if s2 (n) denotes the sum of digits of n in base 2, then for some c > 0,
+                              X            n
+                                           e         ≪ε x1−cε                (y ≥ 0, x ≥ 1)
+                           y<n≤y+x
+                                               q
+                          s2 (n) is even
+
+for q prime and xε ≤ q ≤ x2−ε .
+Remarks.
+1- Note that the bound (1.2) is trivial when f is a linear or constant polynomial. This is clear
+   for constant f , and when f (X) = X for instance, it is easy to see that the stated bound
+   fails with I = [0, q/2] ∩ Z and an = 1 for all n.
+                          EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                         3
+
+2- As mentioned, we will prove a general statement (Proposition 1 below) showing P
+                                                                                    that for a
+   bounded sequence of coefficients (K(n))n≥1 , we obtain a non-trivial bound for n∈I an K(n)
+   as soon as we have non-trivial bounds on two-point correlations sums of the kind
+                                            X
+                                                       K(n + r)K(n)
+                                           n∈I
+                                        n≡a (mod q)
+
+   with some mild uniformity in q and r. For instance, this offers the possibility to take K(n)
+   to be a more general algebraic trace function [FKM14, FKM15], or Fourier coefficients of a
+   GL2 holomorphic cusp form [Blo04].                                       P
+3- The case when the automatic sequence is sparse, in the sense that n∈I |an | = o(|I|)
+   as |I| → ∞, is more delicate as, then, the “trivial bound” obtained from the triangle
+   inequality is possibly smaller than the right-hand
+                                                P
+                                                       sides of our bounds (1.2) and (1.3). Our
+   bounds yield a non-trivial saving as long as n∈I |an | ≫ |I|1−η and η > 0 is small enough,
+   in the range |I|O(η) ≤ q ≤ |I|2−O(η) . For instance, our results apply for numbers with one
+   missing digit in a large enough base k ≥ k0 . Obtaining a good estimate for the smallest
+   such k0 is a challenging question, which we do not address here; see [May16] for recent
+   progress on the corresponding question for primes.
+   Bounds of the type of Theorem 1 can be used to answer additive problems, see [FM98]. We
+illustrate this by the following statement, concerning solutions to congruence equations.
+Theorem 2. Let S ⊂ N be a set of integers with the property that (an ) = (1n∈S ) is an
+automatic sequence; such a set is called automatic set. There exists r ∈ N and δ > 0, depending
+only on the automaton A underlying (an ), such that the following holds. For all rational
+fractions f1 , . . . , fr none of which is a linear or constant polynomial, all m ∈ Z and all prime q,
+the number NS ((fj ), q) of solutions to the congruence equation
+                                  f1 (n1 ) + · · · + fr (nr ) ≡ m (mod q)
+with each nj ∈ S ∩ [1, q], is asymptotically
+                                         |S ∩ [1, q]|r 
+(1.4)                          NS ((fj ), q) =           1 + O(q −δ ) .
+                                                 q
+The implied constant may depend on f1 , . . . , fr and S.
+Remark. As we have already remarked, constant sequences are automatic, so the above does
+not hold in general for small values of r. It is however an important aspect that r does not
+grow with q, and does not depend on (fj ).
+Context and overview. There has been many works on correlations of automatic sequences
+with other arithmetic objects. Some of this interest has stemmed from questions of diophantine
+approximations and normality of numbers constructed from automatic sequences. For instance,
+Mauduit [Mau86] obtains non trivial bounds on sums of the kind
+                                                 X
+(1.5)                                                  an e(αn)
+                                                 n≤x
+
+for irrationnal α. See the references in [Mau86] for more on the history of this question.1
+   The method presented here, however, is related to partial progress on Sarnak’s conjec-
+ture [Sar12]. For automatic sequences of the kind of (−1)s2 (n) (where we recall that s2 (n) is
+the sum of base-2 digits of n), Mauduit and Rivat [MR10] point out a certain property (which
+was later called “carry property”), and show how it can be exploited in conjunction with the
+differencing method of Weyl and van der Corput together with strong estimates for the L1
+norm of the discrete Fourier transform of this sequence, to obtain Sarnak’s conjecture for this
+case; they also apply this method to show orthogonality to Λ(n) which gives a prime number
+  1We emphasize that in these works, the case when P        |an | = o(x) is particularly important. As we have
+                                                        n≤x
+already remarked, we do not focus on sparse sequences in this work.
+4                                    S. DRAPPEAU AND C. MÜLLNER
+
+theorem. Their approach was further formalized and generalized in [MR15] (see also [Han17]),
+but the estimates on the L1 norm were replaced by a so called “Fourier property” (L∞ -bounds
+on the discrete Fourier transform). Finally, the second author recently showed Sarnak’s con-
+jecture for automatic sequences [Mül17], generalizing in particular results for synchronizing
+automatic sequences [DDM15] and invertible automatic sequences [Drm14, FKPLM16].
+   The present work shows that both Mauduit-Rivat’s “carry property”, and the second au-
+thor’s structure theorems for automatic sequences, can be successfully combined with van der
+Corput differencing when handling algebraic exponential sums. At the heart of the bounds (1.2)
+and (1.3) lies Weil’s bounds on exponential sums [Wei48].
+   In Section 2, we state the precise version of Weil’s bounds which we will use, and in Section 3
+we quote auxiliary results on automata, mainly from [DDM15, DM12, Mül17]. In Section 4,
+we prove a general statement (Proposition 1) linking generic sums over automatic sequence
+into differentiated sums over intervals. In Section 5, we prove Theorem 1 in a particular case,
+and in Section 6 we deduce the general case.
+
+                                              2. Weil bounds
+   We begin by recalling from [CFH+ 14] the convention regarding eq (f (n)). Write in reduced
+form f (X) = P (X)/Q(X), with P, Q ∈ Z[X]. Given a prime power pν with Q 6≡ 0 (mod pν ),
+reduce P/Q ≡ P1 /Q1 (mod pν ). For n ∈ Z, we define a function of the pair (f, n) by
+                                                         
+                                            e P1 (n)Q1 (n) ,          (Q1 (n), p) = 1
+                          epν (f ; n) =               pν
+                                            0                         otherwise.
+We will denote this by the slight abuse of notation epν (f (n)). We extend this definition to
+arbitrary moduli q ≥ 1 with (q, Q) = 1 by the Chinese remainder theorem,
+                                                        Y             f (n) 
+(2.1)                                 eq (f (n)) :=            epν               .
+                                                       pν kq
+                                                                      q/pν
+
+    The purpose of this section is to justify the following bound on particular exponential sums.
+Lemma 1. Let x, s ≥ 1, y ≥ 0, q ≥ 2, (a, r) ∈ Z2 , and f ∈ Q[X] of total degree at most d,
+which is well-defined (mod q). Then we have
+                      X                                                        Y          − 1  x     
+                                eq (f (n + r) − f (n)) ≪ε,d q ε
+                                                                                              2
+(2.2)                                                                                  p              +q .
+                   y<n≤y+x                                                  pkq,p∤rs
+                                                                                                  s
+                  n≡a (mod s)                                                p6∈Qf
+             u 2
+If f (X) =     X with (uq, v) = 1, then
+             v
+                      X                                                 nx                 2uvrs −1 o
+(2.3)                           eq (f (n + r) − f (n)) ≪ min                    + 1,                 .
+                   y<n≤y+x
+                                                                            s                q   R/Z
+                  n≡a (mod s)
+
+   The bound claimed in (2.2) corresponds to square-root cancellation in the part of the mod-
+ulus which is squarefree, has no factor in Qf and is coprime to rs. We have assumed square-
+freeness because it usually suffices in applications, and greatly simplifies the argument; the
+contribution of higher powers of primes could be studied in specific cases by elementary argu-
+ments (see lemmas 12.2 and 12.3 of [IK04]).
+   The proof of Lemma 1 is based on the following Weil bound, which is a slightly weaker form
+of [CFH+ 14, proposition 4.6].
+Lemma 2 (Weil [Wei48], Proposition 4.6 of [CFH+ 14]). Let q ≥ 1 be squarefree, and f ∈ Q(X)
+of total degree ≤ d, which is well-defined (mod q). Then
+                                   X
+                                            eq (f (n)) ≪ε,d q 1/2+ε (q, f ′ )1/2 .
+                                n (mod q)
+                         EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                                   5
+
+  To deal with the factor (q, f ′ ), we will use the following lemma.
+Lemma 3. Let f ∈ Q(X), which is not a polynomial of degree ≤ 2. Let q ≥ 2 be squarefree
+and such that for all p|q, p 6∈ Qf , we have Q 6≡ 0 (mod p). Then
+                                                                     Y
+                    (q, f ′ (X + r) − f ′ (X) + ℓ) ≪ (q, r)                   p   (r, ℓ ∈ Z).
+                                                                    p|q,p∤r
+                                                                    p∈Qf
+
+Proof. Write f = P/Q in reduced form, with P, Q ∈ Z[X]. It will be sufficient to prove
+that (p, f ′ (X +r)−f ′(X)+ℓ) = 1 when p is large enough in terms of the degree of P and Q, p 6∈
+Qf , p ∤ 2r. Suppose otherwise. Then by Lemma 4.5(i) of [CFH+ 14], we have (p, f (X + r) −
+f (X)+ℓX −c) = p for some class c (mod p). Adding to f an appropriate quadratic polynomial,
+we may suppose (p, f (X + r) − f (X)) = p. Write P/Q = P1 /Q1 (mod p) with P1 , Q1 coprime.
+Then we deduce
+                           P1 (a)Q1 (a + r) ≡ Q1 (a)P1 (a + r) (mod p).
+By coprimality, for all a (mod p), Q1 (a) ≡ 0 implies Q1 (a + r) ≡ 0. Iterating yields Q1 (a) ≡ 0
+for all a (mod p). If p is large enough in terms of deg Q, we would obtain Q1 ≡ 0 which
+is a contradiction. We deduce Q1 (a) 6= 0 (mod p) for all a, so that P1 (X)/Q1 (X) takes a
+constant value and has no poles. If p is large enough in terms of deg P and deg Q, we conclude
+that P1 /Q1 is a constant polynomial, which again contradicts the hypothesis p 6∈ Qf .         
+Proof of Lemma 1. The bound (2.3) is the simple bound for a geometric sum, therefore, we
+focus on proving (2.2). Changing variables, the LHS is
+                                 X
+                                                   eq (f (a + ms + r) − f (a + ms)).
+                       (y−a)/s<m≤(y+x−a)/s
+
+We cover the summation interval by at most 1 + x/sq intervals of length q, and detect the size
+conditions on m by additive characters. We obtain
+              X                                            x              X |Sℓ (q)|
+                         eq (f (a + ms + r) − f (a + ms)) ≪ |S0 (q)| +                 ,
+     (y−a)/s<m≤(y+x−a)/s
+                                                           sq          1≤|ℓ|≤q/2
+                                                                                   ℓ
+where                                X
+                    Sℓ (q) =                  eq (f (a + ms + r) − f (a + ms) + ℓm).
+                               m (mod q)
+Let q1 be the largest divisor of q which is squarefree, coprime with rs and q/q1 , and has no
+prime factor in Qf :
+                                               Y
+                                        q1 =         p.
+                                                        pkq, p∤rs
+                                                         p6∈Qf
+By the Chinese remainder theorem, we may write Sℓ (q) = T1 T2 , where
+                          X
+                T1 =                 eq1 ((q/q1 )−1 (f (a + ms + r) − f (a + ms) + ℓm)),
+                       m (mod q1 )
+
+and                         X
+                T2 =                     eq/q1 (q1−1 (f (a + ms + r) − f (a + ms) + ℓm)).
+                       m (mod q/q1 )
+On T2 we use the trivial bound |T2 | ≤ q/q1 . Concerning T1 , by Lemma 2 applied with f (X)
+replaced by f (a + sX + r) − f (a + sX) + ℓX, we get
+                                1
+                                    +ε                                                   1
+                       T1 ≪ε q12         (q1 , ℓ + sf ′ (a + sX + r) − sf ′ (a + sX)) 2 .
+Let v ∈ Z be such that sv ≡ 1 (mod q). We apply Lemma 3 with r ← rv and f (X) ← f (a+sX).
+                                                                                                1
+                                                                                                    +ε
+We obtain (q1 , ℓ + sf ′ (a + sX + r) − sf ′ (a + sX)) = O(1), therefore |T1 | = O(q12                   ), and so
+                                                                 −1
+                                               |Sℓ (q)| ≪ q 1+ε q1 2 .
+6                                       S. DRAPPEAU AND C. MÜLLNER
+
+This leads to the desired conclusion.                                                                      
+
+                                 3. Auxiliary results on automata
+   We quote in this section a few results from the literature which we will use in our proof of
+Theorem 1.
+   From now on, (an ) denotes a fixed automatic sequence corresponding to a stongly connected
+automaton A = (Q′ , Σ, δ′ , q0′ , Q0 ), where δ′ (q0′ , 0) = q0′ . We follow some ideas and the notion
+of [Mül17] and consider a naturally induced transducer TA = (Q, Σ, δ, q0 , ∆, λ), where Q ⊂
+(Q′ )n0 , π1 (q0 ) = q0′ , δ a transition function which is synchronizing2 and an output function
+λ : Q × Σ → ∆ ⊂ Sn0 which “attaches” to each transition in the naturally induced transducer
+a permutation.
+   A transducer can be viewed as a mean to define functions: on input w = w1 w2 . . . wr the
+transducer enters states q0 = δ(q0 , ε), δ(q0 , w1 ), . . . , δ(q0 , w1 w2 . . . wr ) and produces the outputs
+                      λ(q0 , w1 ), λ(δ(q0 , w1 ), w2 ), . . . , λ(δ(q0 , w1 w2 . . . wr−1 ), wr ).
+The function T (w) is then defined as
+                                             r−1
+                                             Y
+                                 T (w) :=          λ(δ(q0 , w1 w2 . . . wj ), wj+1 ).
+                                             j=0
+
+We also define the slightly more general form,
+                                               r−1
+                                               Y
+                                 T (q, w) :=         λ(δ(q, w1 w2 . . . wj ), wj+1 ).
+                                               j=0
+
+   Proposition 2.5 of [Mül17] shows how the original automaton and the naturally induced
+transducer are related, namely
+(3.1)                    an = τ (δ′ (q0′ , (n)k )) = τ (π1 (T (q0 , (n)k ) · δ(q0 , (n)k ))).
+  The following theorem highlights an important closure property of naturally induced trans-
+ducers.
+Theorem 3 (Theorem 2.7 of [Mül17]). Let A be a strongly connected automaton. There exists
+a minimal d ∈ N, m0 ∈ N, a naturally induced transducer TA and a subgroup G of ∆ such that
+the following two conditions hold.
+      • For all q ∈ Q, w ∈ (Σd )∗ we have T (q, w) ∈ G.
+      • For all g ∈ G, q, q ∈ Q and n ≥ m0 it holds that
+                                  {T (q, w) : w ∈ Σnd , δ(q, w) = q} = G.
+d and m0 only depend on A, but not on its initial state q0′ .
+  Finally, [Mül17, Corollary 2.26] shows that there exists A = (Q′ , Σ, q0′ , δ′ , τ ) generating (an )
+such that d(A) = 1 and we consider a naturally induced transducer which fulfills Theorem 3.
+  One crucial idea in [Mül17] was that the functions T and δ corresponding to a naturally in-
+duced transducer behave “independently” of each other. Thus, we start by giving an important
+property of synchronizing automata.
+Lemma 4. Let A be a synchronizing DFAO with synchronizing word w ∈ Σm0 . There exists
+η > 0 depending only on m0 and k such that the number of integers n ∈ (y, y + x] such that
+                                             δ(q, (n)k ) 6= δ(q, (n)λk )
+is bounded by O(xk−ηλ ) uniformly for λ < ⌊logk (x)⌋ and y ≥ 0. Here, (n)λk denotes the digital
+representation of n truncated at the k-th digit, in other word (n)λk = (m)k where m ∈ [0, kλ )∩N
+and m ≡ n (mod kλ ).
+    2This means that there exists a synchronizing word w , i.e., δ(q , w ) = δ(q, w ) for all q ∈ Q.
+                                                              0          0   0           0
+                           EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                        7
+
+Proof. See Lemma 2.2 of [DDM15].                                                                            
+  The next result is the carry property for automatic sequences, or more precisely T .
+Definition 2. A function f : N → Ud has the carry property if there exists η > 0 such that
+uniformly for λ, α, ρ ∈ N with ρ < λ, the number of integers 0 ≤ ℓ < kλ such that there exists
+(n1 , n2 ) ∈ {0, . . . , kα − 1}2 with
+(3.2)       f (ℓkα + n1 + n2 )H f (ℓkα + n1 ) 6= fα+ρ (ℓkα + n1 + n2 )H fα+ρ (ℓkα + n1 )
+is at most O(kλ−ηρ ) where the implied constant may depend only on k and f .
+Lemma 5 (Lemma 4.9 of [Mül17]). Definition 2 holds – uniformly in r – for f (n) = D(T (n +
+r)) where D is a unitary and irreducible representation of G, η is given by [DDM15, Lemma
+2.2] and the implied constant does not depend on r.
+   To use the carry property efficiently, we need the following lemma which is a generalization
+of Van-der-Corput’s inequality.
+Lemma 6. Let y ≥ 0, x ≥ 1 and Z(n) ∈ Cd×d be given for all n ∈ (y, y + x]. Then we have
+for any real number R ≥ 1 and any integer k ≥ 1 the estimate
+(3.3)
+                     2                                             
+        X                    x + k(R − 1) + 1 X       |r|                     X                        
+              Z(n)       ≤                         1−                                  tr Z(n + kr)H Z(n)
+    y<n≤y+x
+                                    R        |r|<R
+                                                      R                 y<n,n+kr≤y+x
+                     F
+where tr(Z) denotes the trace of Z, and kZkF the Frobenius norm of Z.
+Proof. See Lemma 5 of [DM12].                                                                               
+   We now quote results from representation theory. Consider a finite groupe G. A represen-
+tation D is a continuous homomorphism D : G → Ud , where Ud denotes the group of unitary
+d × d matrices over C. A representation D is called irreducible if there exists no non-trivial
+subspace V ⊂ Ud such that D(g)V ⊆ V holds for all g ∈ G. It is well-known that there
+only exist finitely many equivalence classes of unitary and irreducible representations of G (see
+for example [Ser77, Part I, Section 2.5]). The Peter-Weyl Theorem (see for example [KN74,
+Chapter 4, Theorem 1.2]) states that the entry functions of irreducible representations (suit-
+able renormalized) form a orthonormal basis of L2 (G). Thus we can express any function
+f : G → C by these M0 entry functions:
+Lemma 7. Let G be a finite group. There exists M0 ∈ N and M0 irreducible unitary repre-
+                                                                                          (ℓ)
+sentations (D (ℓ) )0≤ℓ<M0 of G, not necessarily distinct and written as matrices D(ℓ) = (di,j )i,j ,
+such that for any f : G → C there exist coefficients (cℓ ) and indices (iℓ ), (jℓ ) with
+                                                      X           (ℓ)
+                                           f (g) =            cℓ diℓ jℓ (g)
+                                                     0≤ℓ<M0
+                     P
+for all g ∈ G and        |cℓ | ≪ kf k1 .
+
+                                4. Van der Corput differentiation
+  The following proposition reduces the study of automatic sequences with strongly connected
+underlying automaton, to bounds on correlations sums.
+Proposition 1. Let g : N>0 → C be a function with |g(n)| ≤ 1, x ≥ 1, y ≥ 0 be real numbers,
+and (an ) be an automatic sequence in base k, with strongly connected underlying automaton A.
+Denote
+                                                         X
+(4.1)                          U (x, y; h; q, a) :=                 g(n)g(n + h).
+                                                       y<n≤y+x
+                                                      n≡a (mod q)
+8                                    S. DRAPPEAU AND C. MÜLLNER
+
+Then for some η > 0 depending on A, all λ1 , λ2 ∈ N with M := kλ1 , R := kλ2 satisfying RM 2 ≤
+x/10, we have
+        X                              X      x        X             X                                    1/2
+              an g(n) ≪ xM −η +                                                  |U (x, y; rM ; RM 2 , m′ )|      .
+    y<n≤y+x                         0≤m<M
+                                               RM 0≤r<R
+                                                               0≤m′ <RM 2
+                                                              m′ ≡m (mod M )
+
+Remark. It was proved by Sarnak that his Möbius randomness conjecture for all deterministic
+flows would follow from the Chowla conjecture (see [Sar12, Tao12]) concerning correlations
+of the Möbius function. Proposition 1 could be interpreted as a quantified version of this
+phenomenon for automatic sequences; we see that in this case, binary correlations provide
+sufficient information. Note however that the moduli q = RM 2 of the arithmetic progressions
+involved in our statement are rather large compared with the shifts h = rM .
+    We prove Proposition 1 in the remainder of this section.
+
+4.1. Naturally induced transducer. We use the concept of naturally induced transducer
+to rewrite the sequence an . We (still) consider a naturally induced transducer which fulfills
+Theorem 3. By (3.1), we can rewrite an = τ (π1 (T (q0 , (n)k ) · δ(q0 , (n)k ))). Therefore,
+                             X X
+                      an =             τ (π1 (σ · q)) 1[T (q0 ,(n)k )=σ] 1[δ(q0 ,(n)k )=q] .
+                             q∈Q σ∈G
+
+Let
+                                            I = Z ∩ (y, y + x]
+with y ∈ N≥0 and x ∈ N>0 . The above allows us to rewrite
+                                  X                     X X
+(4.2)               S0 (I) :=              an f (n) =             τ (π1 (σ · q))S1 (I; σ, q)
+                                y<n≤y+x                 q∈Q σ∈G
+
+where
+                                           X
+                     S1 (I; σ, q) :=              1[T (q0 ,(n)k )=σ] 1[δ(q0 ,(n)k )=q] f (n).
+                                       y<n≤y+x
+
+    This implies
+                                                   X X
+                                    |S0 (I)| ≪A              |S1 (I; σ, q)| .
+                                                   q∈Q σ∈G
+
+
+4.2. Van der Corput differencing and the carry property. Let 1 ≤ M ≤ x, M = kλ1
+be a power of k, to be determined later. We use the fact that it is usually sufficient to read
+the last few digits of (n)k to determine δ(q, (n)k ), see Lemma 4. This allows us to rewrite
+                                       X
+                   S1 (I; σ, q) =              1[T (q0 ,(n)k )=σ] 1[δ(q0 ,(n)k )=q] g(n)
+                                    y<n≤y+x
+(4.3)                                 X
+                                =            1[δ(q0 ,(m)k )=q] S2 (I; m, σ) + O(xM −η ),
+                                    0≤m<M
+
+where η > 0 only depends on the length of the synchronizing word of the naturally induced
+transducer TA , w0 , and
+                                                    X
+                          S2 (I; m, σ) :=                    1[T (q0 ,(n)k )=σ] g(n).
+                                                y<n≤y+x
+                                               n≡m mod M
+
+We use ideas of representation theory to deal with 1[T (q0 ,(n)k )=σ] . By Lemma 7, we can write
+                                                    X          (m )
+                           1[T (q0 ,(n)k )=σ] =            cℓ diℓ jℓℓ (T (q0 , (n)k )),
+                                                  0≤ℓ<M0
+                           EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                                 9
+
+                                                                      ′
+for some unitary and irreducible representations D (m ) . This gives
+                 X                                       X                X        (m )
+                         1[T (q0 ,(n)k )=σ] g(n) =              cℓ               diℓ jℓℓ (T (q0 , (n)k ))g(n)
+              y<n≤y+x                                0≤ℓ<M0           y<n≤y+x
+             n≡m mod M                                               n≡m mod M
+
+and
+                 X        (m )                                       X
+                         diℓ jℓℓ (T (q0 , (n)k ))g(n) ≤                       D (mℓ ) (T (q0 , (n)k ))g(n)       ,
+              y<n≤y+x                                          y<n≤y+x                                       F
+             n≡m mod M                                        n≡m mod M
+
+where k.kF denotes the Frobenius norm.
+  Thus, we find
+                                                     X
+                            |S2 (I; m, σ)| ≤                 |cℓ | S3 (I; m, D(mℓ ) )         ,
+                                                                                          F
+                                                0≤ℓ<M0
+
+where
+                                                         X
+                             S3 (I; m, D) :=                     D(T (q0 , (n)k ))g(n).
+                                                   y<n≤y+x
+                                                  n≡m mod M
+
+  This gives in total
+                                                X
+(4.4)                    |S0 (I)| ≪A max                 kS3 (I; m, D)kF + O(xM −η ).
+                                         D
+                                              0≤m<M
+
+  We use Lemma 6 for the sequence Z(n) = D(T (q0 , (nM + m)k ))g(nM + m):
+                              xM      −1 + M (R − 1) + 1             X      |r|
+                                                                                    
+           kS3 (I; m, D)k2F ≤                                             1−     tr (S4 (Jr ; m, D, r)) ,
+                                              R                   |r|<R
+                                                                             R
+
+where Jr := {n : y < n, n + rM ≤ y + x} and
+                                         X                                                            
+                S4 (J , m, D, r) :=                  D(T (q0 , (n + rM )k ))H D(T (q0 , (n)k ))
+                                         n∈J
+                                      n≡m mod M
+                                                g(n)g(n + rM ).
+
+We choose R = kλ2 and λ2 ∈ N subject to RM 2 < x/10, which gives
+                                              x  X
+(4.5)               kS3 (I; m, D)k2F ≪                kS4 (I; m, D, r)kF + O(Rx/M ),
+                                             RM 0≤r<R
+
+where the error term is due to the replacement of Jr by I.
+  Letting temporarily a = y + 1, we rewrite n = n1 RM + n2 M + m + a to find
+D(T (q0 , (n + rM )k ))H D(T (q0 , (n)k ))
+        = D(T (q0 , (n1 RM + (n2 M + m + a) + rM )k ))H D(T (q0 , (n1 RM + (n2 M + m + a))k )).
+We apply Lemma 5 with α = λ1 + λ2 , ρ = λ1 and ℓ = n1 . This gives
+D(T (q0 , (n + rM )k ))H D(T (q0 , (n)k ))
+        = D(T2λ1 +λ2 (q0 , (n1 RM + (n2 M + m + a) + rM )k ))H D(T2λ1 +λ2 (q0 , (n1 RM + (n2 M + m + a))k ))
+        = D(T2λ1 +λ2 (q0 , (n + rM )))H D(T2λ1 +λ2 (q0 , (n)k )),
+
+for all but O(xR−1 M −1−η ) values of n1 ∈ [0, x/RM ) and, therefore, for all but O(xM −1−η )
+values of n ∈ I (for fixed m).
+10                                        S. DRAPPEAU AND C. MÜLLNER
+
+     Thus, we find
+                                    X
+        S4 (I; m, D, r) =                    D(T2λ1 +λ2 (q0 , m′ + rM ))H D(T2λ1 +λ2 (q0 , m′ ))S5 (I; m′ , r)
+                               0≤m′ <RM 2
+(4.6)                          m′ ≡m mod M
+                                          −1−η
+                                 + O(xM          ),
+where
+                                                            X
+(4.7)                            S5 (I; m′ , r) :=                          g(n)g(n + rM ).
+                                                       y<n≤y+x
+                                                     n≡m′ mod RM 2
+
+Note that the trivial estimate S5 = O(x/(RM 2 )) gives back the trivial estimate S0 ≪ x, so
+non-trivial bound on S5 gives a non-trivial bound on S0 .
+   Combining (4.5) and (4.6) gives
+                               x   X
+(4.8)      kS3 (I; m, D)k2F ≪            kS4 (I; m, D, r)kF + O(x)
+                              RM 0≤r<R
+                                 x   X         X
+(4.9)                       ≪A                          S5 (I; m′ , r) + O(x2 M −2−η ).
+                               RM 0≤r<R        ′     2 0≤m <RM
+                                                       m′ ≡m mod M
+
+This together with the definition (4.1) finishes the proof of Proposition 1.
+
+                   5. Proof of Theorem 1 in the strongly connected case
+     From Proposition 1, we will deduce Theorem 1 in the following special case.
+Proposition 2. Theorem 1 holds for sequences (an ) whose underlying automata are strongly
+connected.
+  The proof is split in two cases, according to whether or not the rational fraction f is a
+quadratic polynomial.
+
+5.1. The non-quadratic case. We assume first that f is not a quadratic polynomial. Let R =
+M = kλ , and
+                                                              Y
+                                                      q1 =             p.
+                                                             pkq,p∤k
+                                                              p6∈Qf
+
+                                     −1
+We assume also that x ≥ qq1 2 without loss of generality, since otherwise the right-hand side
+of (1.2) is larger than the trivial bound O(x) for the left-hand side. Recall the definition (4.1).
+We use Lemma 1 with g(n) = eq (f (n)) and our choice of R and M , to find the following
+estimate
+                                                                                                                               !
+        X          X                                                   X                        x               Y
+                               U (x, y; rM ; RM 2 , m′ ) ≪ε                      k2λ q ε           +q                    p−1/2
+                                                                                               k3λ
+     0≤r<k λ    0≤m′ <k 3λ                                        0≤r<k λ                                     p|q,p∤rk
+               m′ ≡m mod k λ                                                                                   p∈T
+                                                                                                                 / f
+                                                                                                                               !
+                                                                                 x       −1/2                X
+                                                                   2λ                                                      1/2
+                                                              ≪k                    + q q1 q ε                        (r, q)         .
+                                                                                k3λ
+                                                                                                            0≤r<k λ
+
+Thus, we find by Proposition 1 that for some η > 0 depending on A,
+                                                                             !1/2
+                      X                                 kλ        qk4λ
+                             an eq (f (n)) ≪A,ε x       1/2
+                                                              +        1/2
+                                                                                    q ε/2 + O(xk−λη/2 )
+                      n∈I                              q1         xq1
+                         EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                           11
+
+                                                                                               1
+uniformly in λ such that k3λ < x/10. We choose λ such that kλ ≍k min((q12 q −1 x)1/8 , (q1 )1/4 ).
+This gives
+                                                        !1/8 !1/2                              !1/8 !η
+                                  ε    1          q                           1           q
+(5.1)      |S0 (I)| ≪A,k,ε,d xq        1/4
+                                             +   1/2
+                                                                    +x        1/4
+                                                                                    +    1/2
+                                                                                                         ,
+                                      q1         q1 x                     q1            q1 x
+and implies our claimed bound (1.2) for c = min(η/16, 1/32).
+
+5.2. The quadratic case. Here again we assume that g(n) = eq (f (n)). If f is quadratic, then
+for the purpose of bounding (4.1) we may assume f (X) = uv X 2 with v 6= 0 and (qu, v) = 1.
+Let s = RM 2 , where R and M are powers of k satisfying 1 ≤ RM < x/10. By Lemma 1, we
+have
+                                                      x     2uvrRM 2 −1 
+                   |U (x, y; rM ; RM 2 , m′ )| ≪ min     2
+                                                           ,               .
+                                                      RM         q
+Assume now that (RM )2 < q/(4u), which does not contradict the hypotheses R, M ≥ 1 if we
+let q be large enough in terms of u. Then
+                          2uvrRM 2   2urRM 2 2uqrRM 2
+                                   ≡        −                              (mod 1).
+                              q         qv       v
+By our hypothesis (RM )2 < q/(4|u|), as soon as v ∤ 2rRM 2 , we obtain
+                             2uvrRM 2  1  2urRM 2    1
+                                      ≥ −         ≥    ≫f 1.
+                                 q     v     qv     2v
+If, on the other hand, v | 2rRM 2 , we obtain
+                               2uvrRM 2   2urRM 2   2|u|rRM 2
+                                        =         =
+                                   q         qv        q|v|
+since the latter is less than 1/2, again by our hypothesis (RM )2 < q/(4|u|). In any case, we
+obtain                                                          x      q 
+                          |U (x, y; rM ; RM 2 , m′ )| ≪ min          ,       ,
+                                                                 RM 2 rRM 2
+and therefore                                                          x
+                           X                                                q 
+                                     |U (x, y; rM ; RM 2 , m′ )| ≪ min    ,     .
+                            ′     2
+                                                                        M rM
+                       0≤m <RM
+                       m′ ≡m mod M
+We sum the previous bound over r < R. We obtain
+                   X       X                                             x          X     q 
+                                      U (x, y; rM ; RM 2 , m′ ) ≪              +
+                r<R 0≤m′ <RM 2
+                                                                         M          1≤r<R
+                                                                                          rM
+                   m′ ≡m mod M
+                                                                        x + q log R
+                                                                    ≪               .
+                                                                            M
+                            √
+We now pick R ≍k min{x/M 2 , q/M }, and find by Proposition 1
+             X                                              M2          M 1/2
+                   an eq (f (n)) ≪A,k,ε,d (xq)ε x(x + q)             +            + xM −η/2 .
+             n∈I
+                                                                q        q 1/2
+                          √
+If x ≤ q, we pick M ≍k (x/ q)1/(1+2η) , and if x > q, we pick M ≍k q 1/(2+4η) . We find in any
+case
+                            X                         1    q c
+                                an eq (f (n)) ≪ x1+ε     + 2
+                            n∈I
+                                                       q x
+with c = η/(2 + 4η), and our claimed bound follows.
+12                                     S. DRAPPEAU AND C. MÜLLNER
+
+                       6. Proof for non strongly connected automata
+     We will deduce the full generality of Theorem 1 from Proposition 2 and the following fact.
+Proposition 3. Let g : N → C be a function with |g(n)| ≤ 1, and assume that for every strongly
+connected automatic sequence b = (bn ), there is a non-decreasing function E(b, ·) : R+ → R+
+that
+                           X
+(6.1)                             bn g(n + r) ≤ E(b, x)                  (r ∈ Z, y ≥ 0, x ≥ 1).
+                        y<n≤y+x
+
+Then for any automatic sequence (an ), not necessarily strongly connected, we may associate
+                       (j)
+a finite set {b(j) = (bn )}Jj=1 of strongly connected automatic sequences, and a positive num-
+ber δ > 0 such that for all y ≥ 0, x ≥ 1 and σ ∈ N with K := kσ ∈ [1, x], we have
+                            X                    
+(6.2)                             an g(n) ≪ x1−δ K δ + xK −1 max E(b(j) , K) .
+                                                                               j
+                        y<n≤y+x
+
+Remark. It is important to note the requirement that the hypothesized upper-bound (6.1) is
+uniform with respect to r.
+Proof of Proposition 3. Let A = (Q, Σ, δ, q0 , τ ) be the automaton underlying (an ), and define
+              R := {r ∈ N : δ(q, (r)k ) belongs to a final component of A for any q ∈ Q}.
+Then we have the uniform bound
+(6.3)                        |(y, y + x] ∩ N r R| ≪ x1−δ                  (y ≥ 0, x ≥ 1)
+                                                       (j)
+for some δ > 0 depending on A. We let {(bn )}Jj=1 be the finite set of all automatic sequences
+associated with final components of A (as described in Proposition 2.25 of [Mül17]), with the
+same output function τ .
+   We consider some fixed y ≥ 0 and x ≥ 1. For the purpose of proving the bound (6.2), we
+may assume that x is large enough in terms of A. Let σ ∈ N with 1 ≤ K := kσ ≤ x. We split
+the sum on the left-hand side of (6.2) in congruence classes (mod K), getting
+                             X                   X               X
+                                     an g(n) =                           arK+n g(rK + n).
+                           y≤n<y+x               r≥0      0≤n<K
+                                                       y≤rK+n<y+x
+
+Note that the sum over n is void unless r ∈ (y/K−1, (y+x)/K). From this fact, the bound (6.3)
+and our hypothesis kgk∞ ≤ 1, we obtain
+        X        X                                   X           X
+                           arK+n g(rK + n) =                               arK+n g(rK + n) + O(x1−δ K δ ).
+        r≥0      0≤n<K                             r≥0    0≤n<K
+              y≤rK+n<y+x                           r∈R y≤rK+n<y+x
+                                                                                                      (j)
+For r ∈ R, our automaton reads numbers from left to right, so that arK+n = bn for some j
+(depending on r); we recall that there are only finitely many possibilities for j. Therefore,
+         X         X                                             X                    X
+                            arK+n g(rK + n) ≤                            max                    b(j)
+                                                                                                 n g(rK + n) .
+                                                                           j
+         r≥0    0≤n<K                                  y
+                                                         −1<r< y+x                    0≤n<K
+         r∈R y≤rK+n<y+x                                K        K                  y≤rK+n<y+x
+
+In the inner sum, the size conditions on n describe an interval of length K, for all but at most
+two values of r. Gathering the above and using our hypothesis (6.1), we find
+                           X                           X
+                                 an g(n) ≪                       max E(b(j) , K) + x1−δ K δ
+                                                                     j
+                       y≤n<y+x                   y
+                                                   −1≤r< y+x
+                                                 K        K
+
+                                          ≪ xK −1 max E(b(j) , K) + x1−δ K δ
+                                                             j
+
+as claimed.                                                                                                      
+                         EXPONENTIAL SUMS WITH AUTOMATIC SEQUENCES                                      13
+
+Proof of Theorem 1. We consider the case of (1.2); the argument (1.3) is similar and slightly
+simpler. Proposition 2 shows that the estimate (1.2) holds when the sequence (an ) is associated
+to a strongly connected automaton. Note that the upper-bound (1.2) depends only on the
+total degree of f (while (1.3) depends only on the leading coefficient of f ). Moreover, if r ∈ Z
+and fe(X) := f (X + r), then Qfe = Qf . We deduce that the bounds (1.2) holds also, with the
+same implied constant, for the quantity
+                                           X
+                                                 an eq (f (n + r))
+                                           n∈I
+
+uniformly in r ∈ Z, when the automaton underlying (an ) is strongly connected. The hypothe-
+sis (6.1) is therefore satisfied with
+                                                            1          q 2 c
+                                E((an ), x) = BA,ε x1+ε           +            ,
+                                                             q1       q 1 x2
+where c > 0 depends on A and BA,ε depends at most on A and ε.
+  Assume now that (an ) is not associated to a strongly connected automaton. For all K ∈ [1, x]
+which is a power of x, we obtain by Proposition 3 the bound
+                          X                                            1            q 2 c1
+                                 an eq (f (n)) ≪ x1−δ K δ + xK ε              +
+                       y<n≤y+x
+                                                                         q1        q1 K 2
+
+for some c1 > 0 depending on A. We optimize by letting K ≍k min{x, (xq 2 q1−1 )1/3 }. The
+claimed bound (1.2) follows with c replaced by min{c1 /3, δ/3}.                        
+
+                                             References
+[AS03]    J.-P. Allouche and J. Shallit, Automatic sequences, Cambridge University Press, Cambridge, 2003,
+          Theory, applications, generalizations.
+[Blo04]   V. Blomer, Shifted convolution sums and subconvexity bounds for automorphic L-functions, Int.
+          Math. Res. Not. (2004), no. 73, 3905–3926.
+[CFH+ 14] W. Castryck, É. Fouvry, G. Harcos, E. Kowalski, P. Michel, P. Nelson, E. Paldi, J. Pintz, A. V.
+          Sutherland, T. Tao, and X.-F. Xie, New equidistribution estimates of Zhang type, Algebra Number
+          Theory 8 (2014), no. 9, 2067–2199.
+[DDM15]   J.-M. Deshouillers, M. Drmota, and C. Müllner, Automatic sequences generated by synchronizing
+          automata fulfill the Sarnak conjecture, Studia Math. 231 (2015), no. 1, 83–95.
+[Drm14]   M. Drmota, Subsequences of automatic sequences and uniform distribution, Uniform Distribu-
+          tion and Quasi-Monte Carlo methods, Radon Series on Computational and Applied Mathematics,
+          vol. 15, De Gruyter, Berlin, 2014, pp. 87–104.
+[DM12]    M. Drmota and J. F. Morgenbesser, Generalized Thue-Morse sequences of squares, Israel J. Math.
+          190 (2012), 157–193.
+[FKPLM16] S. Ferenczi, J. Kułaga-Przymus, M. Lemanczyk, and C. Mauduit, Substitutions and Möbius dis-
+          jointness, Ergodic Theory, Dynamical Systems, and the Continuing Influence of John C. Oxtoby:,
+          Contemporary Mathematics, American Mathematical Society, 2016.
+[FKM14]   É. Fouvry, E. Kowalski, and P. Michel, Algebraic trace functions over the primes, Duke Math. J.
+          163 (2014), no. 9, 1683–1736.
+[FKM15]           , A study in sums of products, Philos. Trans. Roy. Soc. A 373 (2015), no. 2040, 20140309,
+          26.
+[FM98]    É. Fouvry and P. Michel, Sur certaines sommes d’exponentielles sur les nombres premiers, Ann.
+          Sci. École Norm. Sup. (4) 31 (1998), no. 1, 93–130.
+[Han17]   G. Hanna, Sur les occurrences des mots dans les nombres premiers, Acta Arith. 178 (2017), no. 1,
+          15–42.
+[Irv15]   A. J. Irving, The divisor function in arithmetic progressions to smooth moduli, Int. Math. Res.
+          Not. IMRN 2015 (2015), no. 15, 6675–6698.
+[IK04]    H. Iwaniec and E. Kowalski, Analytic number theory, American Mathematical Society Colloquium
+          Publications, vol. 53, American Mathematical Society, Providence, RI, 2004.
+[Kor00]   M. A. Korolev, Incomplete Kloosterman sums and their applications, Izv. Ross. Akad. Nauk Ser.
+          Mat. 64 (2000), no. 6, 41–64.
+[KN74]    L. Kuipers and H. Niederreiter, Uniform distribution of sequences, Wiley-Interscience [John Wiley
+          & Sons], New York-London-Sydney, 1974, Pure and Applied Mathematics.
+14                                 S. DRAPPEAU AND C. MÜLLNER
+
+[Mau86]      C. Mauduit, Automates finis et ensembles normaux, Ann. Inst. Fourier (Grenoble) 36 (1986), no. 2,
+             1–25.
+[MR10]       C. Mauduit and J. Rivat, Sur un problème de Gelfond: la somme des chiffres des nombres premiers,
+             Ann. of Math. (2) 171 (2010), no. 3, 1591–1646.
+[MR15]               , Prime numbers along Rudin-Shapiro sequences, J. Eur. Math. Soc. (JEMS) 17 (2015),
+             no. 10, 2595–2642.
+[May16]      J. A. Maynard, Primes with restricted digits, preprint arXiv e-print (2016),
+             https://arxiv.org/abs/1604.01041.
+[Mül17]      C. Müllner, Automatic sequences fulfill the Sarnak conjecture, Duke Math. J. to appear (2017),
+             http://arxiv.org/abs/1602.03042.
+[Sar12]      P. Sarnak, Mobius randomness and dynamics, Not. S. Afr. Math. Soc. 43 (2012), no. 2, 89–97.
+[Ser77]      J.-P. Serre, Linear representations of finite groups, Springer-Verlag, New York-Heidelberg, 1977,
+             Translated from the second French edition by Leonard L. Scott, Graduate Texts in Mathematics,
+             Vol. 42.
+[Tao12]      T.       Tao,       The      Chowla        conjecture      and      the    Sarnak     conjecture,
+             https://terrytao.wordpress.com/2012/10/14/the-chowla-conjecture-and-the-sarnak-conjecture/,
+             2012.
+[Wei48]      A. Weil, On some exponential sums, Proc. Nat. Acad. Sci. U. S. A. 34 (1948), 204–207.
+
+     Aix Marseille Université, CNRS, Centrale Marseille, I2M UMR 7373, 13453 Marseille, France
+     E-mail address: sary-aurelien.drappeau@univ-amu.fr
+
+  Institut für Diskrete Mathematik und Geometrie, TU Wien, Wiedner Hauptstr. 8–10, 1040
+Wien, Austria
+  E-mail address: clemens.muellner@tuwien.ac.at
+

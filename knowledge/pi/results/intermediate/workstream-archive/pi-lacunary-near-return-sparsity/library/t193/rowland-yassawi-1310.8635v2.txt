@@ -1,0 +1,2070 @@
+                                          Automatic congruences for diagonals of rational functions
+                                                                               Eric Rowland
+                                                            Université du Québec à Montréal, Montréal, Canada
+                                                                             rowland@lacim.ca
+arXiv:1310.8635v2 [math.NT] 23 Apr 2014
+
+
+
+
+                                                                               Reem Yassawi∗
+                                                                    Trent University, Peterborough, Canada
+                                                                            ryassawi@trentu.ca
+
+                                                                                   October 9, 2018
+
+
+
+                                                                                       Abstract
+
+                                                       In this paper we use the framework of automatic sequences to study combi-
+                                                    natorial sequences modulo prime powers. Given a sequence whose generating
+                                                    function is the diagonal of a rational power series, we provide a method, based on
+                                                    work of Denef and Lipshitz, for computing a finite automaton for the sequence
+                                                    modulo pα , for all but finitely many primes p. This method gives completely
+                                                    automatic proofs of known results, establishes a number of new theorems for
+                                                    well-known sequences, and allows us to resolve some conjectures regarding the
+                                                    Apéry numbers. We also give a second method, which applies to an algebraic
+                                                    sequence modulo pα for all primes p, but is significantly slower. Finally, we
+                                                    show that a broad range of multidimensional sequences possess Lucas products
+                                                    modulo p.
+
+
+                                          1        Introduction
+                                          1.1        Overview
+                                          A sequence (an )n≥0 of entries in a field F is algebraic if its generating function
+                                                     n
+                                          P
+                                             n≥0 an x is algebraic over F (x), the field of rational expressions with coefficients
+                                          in F . A great many combinatorial sequences are algebraic. Examples include the
+                                          Catalan and Motzkin numbers, whose generating functions are algebraic over Q(x),
+                                          and the Fibonacci sequence, which satisfies a linear recurrence with constant coeffi-
+                                          cients and hence has a rational generating function.
+                                              ∗
+                                                  Partially supported by an NSERC grant.
+
+
+
+                                                                                            1
+    In the past decade, many researchers have been interested in congruences for
+various algebraic sequences modulo prime powers. Deutsch and Sagan [DS06] stud-
+ied arithmetic properties of several sequences, including the Catalan and Motzkin
+numbers. They posited conjectures regarding Motzkin numbers modulo 4 and 8,
+which were proved by Eu, Liu, and Yeh [ELY08]. Congruences for Catalan numbers
+have also been studied by Liu and Yeh [LY10], Xin and Xu [XX11], and Lin [Lin12].
+The techniques used to prove these results depend to some extent on the particular
+sequences considered, and in some cases the proofs occupy entire papers. Kauers,
+Krattenthaler, and Müller developed the first systematic methods for producing
+congruences modulo 2α in [KKM12] and modulo 3α in [KM13] for a large family of
+differentially algebraic sequences, including many algebraic sequences. As examples
+they produce automatic proofs of many existing results.
+    In this paper we show how to discover and prove congruences for algebraic se-
+quences over Q(x) in a general fashion — for any algebraic sequence modulo any
+prime power. A natural setting for these results is that of automatic sequences.
+A p-automatic sequence is a sequence (an )n≥0 on a finite alphabet, where an is the
+output of a finite-state automaton when fed the standard base-p representation of n.
+We postpone the formal definition until Section 1.2. The following result provides
+a fundamental link between automaticity and algebraicity; let Fp denote the finite
+field of size p.
+
+Theorem 1.1 (Christol et al. [CKMFR80]). Let (an )n≥0 be a sequence of elements
+in Fp . Then n≥0 an xn is algebraic over Fp (x) if and only if (an )n≥0 is p-automatic.
+            P
+
+
+    A proof also appears in [AS03, Theorem 12.2.5]. It follows immediately that
+if (an )n≥0 is an algebraic sequence of integers (or, more generally, p-adic integers),
+then (an mod p)n≥0 is p-automatic, since projecting modulo p a polynomial for which
+           n                                                                   n
+P                                                     P
+   n≥0 an x is a root yields a polynomial for which      n≥0 (an mod p)x is a root.
+    The proof of Theorem 1.1 is constructive in the sense that, given a polynomial for
+which n≥0 an xn is a root, there is an algorithm for producing an automaton that
+        P
+
+computes an mod p. Conversely, given such an automaton, there is an algorithm for
+computing such a polynomial; an example showing the details of this computation
+appears in [RY12, Example 4.2].
+    One can also define p-automaticity for multidimensional sequences (an1 ,...,nk )n1 ,...,nk ≥0 ,
+by feeding, in parallel, the base-p representations of n1 , . . . , nk . For an introduction,
+see [AS03, Chapter 14]. A multidimensional version of Theorem 1.1 is proved in
+[Sal87]. The following generalization of Theorem 1.1 was first proved by Chris-
+tol [Chr74], for k = 1, and then later by Denef and Lipshitz [DL87]. The ring of
+p-adic integers is denoted by Zp .
+
+
+
+                                              2
+Theorem 1.2. Let (an1 ,...,nk )n1 ,...,nk ≥0 be a k-dimensional sequence of p-adic inte-
+gers such that
+                                X
+                                           an1 ,...,nk xn1 1 · · · xnk k
+                                 n1 ,...,nk ≥0
+
+is algebraic over Zp (x1 , . . . , xk ), and let α ≥ 1. Then (an1 ,...,nk mod pα )n1 ,...,nk ≥0 is
+p-automatic.
+
+    For k = 1, it follows from Theorem 1.2 that if (an )n≥0 is algebraic, then, given
+a set R of residue classes modulo pα , the set of words
+
+           {base-p representation of n : an ≡ r          mod pα for some r ∈ R}
+
+is a regular language. Given an automaton which computes an mod pα , an automa-
+ton accepting this language can be obtained by setting all states corresponding to
+an output r ∈ R as accepting states and all others as rejecting states. An analogous
+statement holds for general k ≥ 1.
+    Denef and Lipshitz gave two proofs of Theorem 1.2. In this paper we emphasize
+the extent to which these proofs are constructive. From each proof we extract an
+algorithm which, given an appropriate sequence and a prime power pα , outputs a
+finite automaton that computes terms of the sequence modulo pα .
+    The first algorithm, which we describe in Section 2, is simpler to implement,
+works for most of the algebraic sequences we considered, and indeed runs quickly
+for sequences such as the Catalan and Motzkin numbers modulo small prime powers.
+This algorithm in fact applies more generally to diagonals of certain rational power
+series. For example, the sequence of Apéry numbers, which has received much
+attention, is the diagonal of a rational power series but is not algebraic.
+    However, for algebraic sequences this algorithm puts requirements on the coeffi-
+cients of the polynomial satisfied by the generating function. The second algorithm,
+described in Section 4, applies to all algebraic sequences but in practice is much
+slower.
+    In general, neither algorithm produces the automaton with fewest states for a
+given sequence modulo pα . However, it is natural to ask, for each of these algorithms,
+how the number of states changes as p and α vary. Apart from Remarks 2.2 and 4.7,
+we do not address this here, but Adamczewski and Bell [AB13] answered a related
+question for α = 1. In that case, n≥0 (an mod p)xn is algebraic over Fp (x), and
+                                     P
+
+they showed that polynomials for which it is a root have comparable degrees as p
+varies. As a consequence, for general α ≥ 1 they obtain bounds on the degrees of a
+polynomial for an algebraic sequence modulo pα [AB13, Remark 1.2].
+    In Section 3 we compute, purely mechanically, finite automata for various se-
+quences modulo pα , using the method of Section 2. Any number of congruences
+can be read off from these automata. In this way we provide routine proofs of
+
+                                                 3
+many known results, establish a large number of new congruences for combinato-
+rial sequences, and also prove some conjectures that have not succumbed to other
+approaches.
+    Finally, in Section 5 we consider multidimensional diagonals of rational expres-
+sions. We give general conditions for a Lucas product to exist for the coefficient
+sequence modulo p, and we give a new generalization to prime powers of Lucas’
+               n
+                 
+theorem for m      .
+    We mention that after the present paper appeared in preprint form, Zeilberger
+and the first author [RZ14] gave a method for computing an automaton for an mod
+pα , where an is the constant term of P (x)n Q(x) for some Laurent polynomials
+P (x), Q(x). The algorithm is similar in many ways to the algorithm we describe in
+Section 2 and applies to the same combinatorial sequences of interest.
+
+1.2    Finite automata and the Cartier operator
+We now give a formal definition of a finite automaton with output.
+
+Definition 1.3. A p-deterministic finite automaton with output (p-DFAO) is a 6-
+tuple (S, Σp , δ, s1 , A, ω), where S is a finite set of “states”, s1 ∈ S is the initial state,
+Σp = {0, 1, . . . , p − 1}, A is a finite alphabet, ω : S → A is the output function, and
+δ : S × Σp → S is the transition function.
+
+    The function δ extends in a natural way to the domain S × Σ+                        +
+                                                                            p , where Σp is
+the set of nonempty words on the alphabet Σp . Namely, define δ(s, nl · · · n1 n0 ) :=
+δ(δ(s, n0 ), nl · · · n1 ) recursively. This allows us to feed the standard base-p represen-
+tation nl · · · n1 n0 of an integer n into an automaton. Our convention is that we read
+the base-p representation beginning with the least significant digit. (Recall that the
+standard base-p representation of 0 is the empty word.)
+
+Definition 1.4. A sequence (an )n≥0 of elements in A is p-automatic if there is a
+p-DFAO (S, Σp , δ, s1 , A, ω) such that an = ω(δ(s1 , nl · · · n1 n0 )) for all n ≥ 0, where
+nl · · · n1 n0 is the standard base-p representation of n.
+
+    In this article our alphabet is A = Z/(pα Z), where p is a prime and α ≥ 1.
+
+Example 1.5. Consider the following automaton for p = 2 and α = 2. Each of
+the six states is represented by a vertex, labeled with its output under ω. Edges
+between vertices illustrate δ. The unlabeled edge points to the initial state.
+
+
+
+
+                                              4
+The 2-automatic sequence produced by this automaton is
+
+                       (an )n≥0 = 0, 1, 2, 1, 2, 2, 0, 1, 2, 2, 0, 2, 0, 0, 0, 1, . . . .
+
+We will see in Section 3.1 that for n ≥ 1 this is the sequence of Catalan numbers
+modulo 4.
+
+Definition 1.6. The p-kernel of a sequence (an )n≥0 is the collection of sequences
+
+                  kerp ((an )n≥0 ) := {(ape n+j )n≥0 : e ≥ 0, 0 ≤ j ≤ pe − 1}.
+
+    If A is a ring, we let A[x1 , . . . , xk ] and AJx1 , . . . , xk K denote the sets of polynomi-
+als and formal power series, respectively, in variables x1 , . . . , xk with coefficients in A.
+The power series f (x1 , . . . , xk ) ∈ AJx1 , . . . , xk K is algebraic if there exists a nonzero
+polynomial P (x1 , . . . , xk , y) ∈ A[x1 , . . . , xk , y] such that P (x1 , . . . , xk , f (x1 , . . . , xk )) =
+0.
+    By identifying a sequence with its generating function, we extend the notion of
+the p-kernel to formal power series. Namely, if f (x) = n≥0 an xn , then
+                                                                      P
+                                                                                      
+                                   X                                                  
+                kerp (f (x)) :=           ape n+j xn : e ≥ 0, 0 ≤ j ≤ pe − 1 .
+                                                                                      
+                                            n≥0
+
+The set kerp (f ) mod pα is the set kerp (f ) with each element projected modulo pα .
+   The Cartier operator provides a standard way to access elements of the p-kernel.
+
+Definition 1.7. Fix p, and let (d1 , . . . , dk ) ∈ {0, 1, . . . , p−1}k . The Cartier operator
+Λd1 ,...,dk is the map on AJx1 , . . . , xk K defined by
+                                                     
+                   X                                       X
+  Λd1 ,...,dk          an1 ,...,nk xn1 1 · · · xnk k  :=        apn1 +d1 ,...,pnk +dk xn1 1 · · · xnk k .
+                n1 ,...,nk ≥0                                       n1 ,...,nk ≥0
+
+   Equivalently,
+                                                        
+                                                                                                     bn /pc         bn /pc
+               X                                                        X
+  Λd1 ,...,d 
+           k
+                               an1 ,...,nk xn1 1 · · · xnk k  =                         an1 ,...,nk x1 1     · · · xk k     .
+               n1 ,...,nk ≥0                                       n1 ≡d1        mod p
+                                                                            ..
+                                                                             .
+                                                                   nk ≡dk        mod p
+
+
+                                                             5
+                                        Pp−1 d
+Note that, in one variable, f (x) = d=0      x Λd (f )(xp ), and moreover if f (x) ∈ Fp JxK,
+             Pp−1 d
+then f (x) = d=0 x (Λd (f (x)))p . Note also that
+                                             X
+              Λdl ◦ · · · ◦ Λd1 ◦ Λd0 (f ) =   apl+1 n+(pl dl +···+p1 d1 +p0 d0 ) xn ,
+                                                n≥0
+
+so that
+
+    kerp (f ) = {f } ∪ {Λdl ◦ · · · ◦ Λd1 ◦ Λd0 (f ) : l ≥ 0, 0 ≤ dj ≤ p − 1 for each j}.
+
+    The following classical result can be found in [Eil74, Proposition V.3.3] and
+[AS03, Theorem 6.6.2]. Our methods use this theorem and its proof heavily, so we
+include a proof.
+
+Theorem 1.8. Let (an )n≥0 be a sequence of elements from a finite alphabet A.
+Then the p-kernel of (an )n≥0 is finite if and only if (an )n≥0 is p-automatic.
+
+Proof. Note that we need not assume p is prime, so the theorem holds more generally.
+    Suppose the p-kernel of (an )n≥0 is finite. Build an automaton as follows. Let S
+be the p-kernel of (an )n≥0 , and designate the sequence (an )n≥0 itself to be the initial
+state s1 ∈ S. By identifying a sequence with its generating function, we can define
+Λd on S. For all s ∈ S and d ∈ Σp , let δ(s, d) = Λd (s). Finally, for each s ∈ S let
+ω(s) be the first term of s. Then we claim the automaton (S, Σp , δ, s1 , A, ω) outputs
+an when fed the base-p digits of n. Clearly this true for n = 0, since ω(s1 ) = a0 .
+For n ≥ 1 we have
+
+                ω(δ(s1 , nl · · · n1 n0 )) = ω(δ(· · · δ(δ(s1 , n0 ), n1 ) · · · , nl ))
+                                           = ω(Λnl ◦ · · · ◦ Λn1 ◦ Λn0 (s1 ))
+                                           = an .
+
+    Conversely, let (S, Σp , δ, s1 , A, ω) be an automaton that outputs an when fed the
+base-p digits of n. For a sequence (ape n+j )n≥0 in the p-kernel of (an )n≥0 , write j =
+de−1 · · · d1 d0 in base p, and let se,j = δ(s1 , de−1 · · · d1 d0 ) ∈ S. Then the automaton
+(S, Σp , δ, se,j , A, ω) outputs ape n+j when fed the base-p digits of n. This gives an
+injection from the p-kernel of (an )n≥0 to S, so the finiteness of the p-kernel now
+follows from the finiteness of S.
+
+    From the proof of Theorem 1.8 it follows that if (an )n≥0 is p-automatic, then
+relationships between the elements of its p-kernel can be explicitly read off from any
+automaton that computes (an )n≥0 (reading least significant digit first). Coupled
+with Theorem 1.1, this implies that, given a polynomial P (x, y) ∈ Fp [x, y] such that
+P (x, n≥0 an xn ) = 0, one can compute the p-kernel of (an )n≥0 .
+      P
+
+    The following proposition is highly useful. It shows that we can pull certain
+power series out of the Cartier operator when working modulo pα .
+
+                                                    6
+Proposition 1.9. Let x = (x1 , . . . , xk ). Let f (x), g(x) ∈ Zp JxK be formal power
+series in k variables, and let r ∈ {0, . . . , p − 1}k . Then
+                                           α                          α−1
+                      Λr (g(x) · f (x)p ) ≡ Λr (g(x)) · f (x)p                  mod pα .
+                                                                        α−1          α−1
+Proof. If a, b ∈ Zp such that a ≡ b mod p, then ap          ≡ bp     mod pα . Since
+                                                α         α−1
+f (x)p ≡ f (xp ) mod p, it follows that f (x)p ≡ f (xp )p      mod pα . One verifies
+that Λr (g(x) · h(xp )) = Λr (g(x)) · h(x). Therefore
+                                 α
+                                                     α−1
+                                                          
+                 Λr g(x) · f (x)p ≡ Λr g(x) · f (xp )p        mod pα
+                                                                      α−1
+                                               = Λr (g(x)) · f (x)p         .
+
+
+2     Automata for diagonals of rational power series
+In this section we give an algorithm for computing automata for sequences, modulo
+pα , that are diagonals of certain rational power series. This includes many alge-
+braic sequences. The approach is based on a proof of Theorem 1.2 by Denef and
+Lipshitz [DL87, Remark 6.6]. Part of their argument [DL87, Theorem 6.2] is non-
+constructive. Therefore, applying our algorithm to an algebraic power series requires
+a polynomial of a certain form. However, we were able to apply the algorithm to
+nearly all combinatorial sequences we considered.
+     The diagonal of a formal power series is
+                                                            
+                         X                                        X
+                 D            an1 ,...,nk xn1 1 · · · xnk k  :=   an,...,n xn .
+                           n1 ,...,nk ≥0                               n≥0
+
+Theorem 2.1. Let R(x1 , . . . , xk ) and Q(x1 , . . . , xk ) be polynomials in Zp [x1 , . . . , xk ]
+such that Q(0, . . . , 0) 6≡ 0 mod p, and let α ≥ 1. Then the coefficient sequence of
+                                                       
+                                    R(x1 , . . . , xk )
+                                D                         mod pα
+                                    Q(x1 , . . . , xk )
+is p-automatic.
+
+Proof. Since Q(0, . . . , 0) 6≡ 0 mod p, we can expand R(x1 , . . . , xk )/Q(x1 , . . . , xk ) as
+a power series whose coefficients are p-adic integers.
+    Let A = Zp /(pα Zp ). By Proposition 1.9, for s(x1 , . . . , xk ) ∈ Zp [x1 , . . . , xk ] we
+have
+                                                                                                  α   α−1
+                                                                                                          !
+                                                        s(x1 , . . . , xk ) · Q(x1 , . . . , xk )p −p
+                                     
+                s(x1 , . . . , xk )
+Λd1 ,...,dk                             = Λd1 ,...,dk
+              Q(x1 , . . . , xk )pα−1                                  Q(x1 , . . . , xk )pα
+                                                                                                 α  α−1
+                                                                                                         
+                                          Λd1 ,...,dk s(x1 , . . . , xk ) · Q(x1 , . . . , xk )p −p
+                                        ≡                                        p α−1                      mod pα .
+                                                             Q(x1 , . . . , xk )
+
+                                                       7
+                                                   α−1
+Since the denominator Q(x1 , . . . , xk )p               appears both in the initial and final ex-
+pression, we consider the map µd1 ,...,dk from A[x1 , . . . , xk ] to itself given by
+                                                                                           α   α−1
+                                                                                                    
+ µd1 ,...,dk (s(x1 , . . . , xk )) := Λd1 ,...,dk s(x1 , . . . , xk ) · Q(x1 , . . . , xk )p −p       mod pα .
+
+Let deg s(x1 , . . . , xk ) := max1≤i≤k degxi s(x1 , . . . , xk ) be the degree of a polynomial
+s(x1 , . . . , xk ). The degree of µd1 ,...,dk (s(x1 , . . . , xk )) is at most
+
+                   1
+                     deg s(x1 , . . . , xk ) + (pα − pα−1 ) deg Q(x1 , . . . , xk ) .
+                                                                                   
+                   p
+The fixed point of the map
+                                 1
+                                   m + (pα − pα−1 ) deg Q(x1 , . . . , xk )
+                                                                            
+                          m 7→
+                                 p
+
+is pα−1 deg Q(x1 , . . . , xk ). Let
+            n                                           α−1
+                                                                                          o
+   m = max deg R(x1 , . . . , xk ) · Q(x1 , . . . , xk )p −1 , pα−1 deg Q(x1 , . . . , xk ) ,
+
+ let S be the set of all polynomials
+and
+                                             α−1 −1
+                                                     in A[x1 , . . . , xk ] with degree at most m. Then
+ R(x1 , . . . , xk ) · Q(x1 , . . . , xk ) p        mod pα ∈ S, and if s(x1 , . . . , xk ) ∈ S then
+  1 ,...,dk (s(x1 , . . . , xk )) ∈
+µd                                  S. Therefore D(R(x1 , . . . , xk )/Q(x1 , . . . , xk ) mod pα ) ∈
+                               α−1
+D S/Q(x1 , . . . , xk )p             , and S is closed under µd1 ,...,dk . Since
+                                                                                         
+                      s(x1 , . . . , xk )                    µd,...,d (s(x1 , . . . , xk ))
+        Λd D                                       ≡D                                             mod pα ,
+                    Q(x1 , . . . , xk )pα−1                   Q(x1 , . . . , xk )pα−1
+
+the finiteness of kerp (D(R(x1 , . . . , xk )/Q(x1 , . . . , xk ) mod pα )) now follows from the
+finiteness of S. By Theorem 1.8, the sequence of coefficients is p-automatic.
+
+     The relationships between the elements of the p-kernel of (an )n≥0 encode a finite
+automaton for (an )n≥0 in which each state corresponds to an element of the p-kernel
+and where p outgoing edges from a state point to its images under Λd . Therefore
+we see from the proof of Theorem 2.1 that an automaton for the coefficients of
+D(R(x1 , . . . , xk )/Q(x1 , . . . , xk )) modulo pα can be computed as follows.
+     We perform all arithmetic in A = Z/(pα Z) ∼              = Zp /(pα Zp ). Multiply R(x1 , . . . , xk )
+and Q(x1 , . . . , xk ) by Q(0, . . . , 0)−1 , so that we may assume Q(0, . . . , 0) = 1. Let
+                                                                α−1
+the initial state be R(x1 , . . . , xk ) · Q(x1 , . . . , xk )p −1 ∈ S. Apply each µd,...,d , for
+0 ≤ d ≤ p − 1, to the initial state, obtaining p elements of S. Some of these
+polynomials may coincide with the initial state, in which case we have already com-
+puted their images under µd,...,d . For the polynomials whose images under µd,...,d
+have not yet been computed, compute them. Iterate, and stop when all images
+have been computed. Draw an edge labeled d from s(x1 , . . . , xk ) to t(x1 , . . . , xk ) if
+µd,...,d (s(x1 , . . . , xk )) = t(x1 , . . . , xk ). The automaton’s output corresponding to each
+
+                                                      8
+                                                                                                  α−1
+state s(x1 , . . . , xk ) is the constant term of the series s(x1 , . . . , xk )/Q(x1 , . . . , xk )p ;
+since Q(0, . . . , 0) = 1, this constant term is s(0, . . . , 0).
+    Algorithm 1 contains a more formal description. Many of our applications, to
+be discussed shortly, will only require rational expressions in two variables, so for
+concreteness Algorithm 1 is written for a bivariate expression R(x, y)/Q(x, y). The
+input consists of a prime p, an integer α ≥ 1, and polynomials R(x, y), Q(x, y) ∈
+A[x, y] such that Q(0, 0) = 1. Since all arithmetic is performed in A = Z/(pα Z),
+R(x, y) and Q(x, y) can be given as polynomials with coefficients in this ring, even
+if they started as polynomials with integer or p-adic integer coefficients.
+    The output of Algorithm 1 is a finite automaton represented as a 6-tuple as in
+Definition 1.3. We construct the functions δ and ω one state at a time, so it will
+be convenient to represent these functions as sets of pairs. The pair n → a in the
+set ω represents the value ω(n) = a, the output corresponding to state n. The
+pair (n, d) → i in the set δ represents the value δ(n, d) = i, which corresponds to
+a directed edge from state n to state i that is labeled by d. We maintain n as the
+index of the state we are currently examining and m as the total number of states.
+
+    Input: (R(x, y), Q(x, y), p, α) ∈ A[x, y] × A[x, y] × P × Z≥1 with Q(0, 0) = 1
+    δ←∅
+    m←1
+                                      α−1
+    s1 (x, y) ← R(x, y) · Q(x, y)p −1
+    n←1
+    while n ≤ m do
+        for d ∈ {0, 1, . . . , p− 1} do             α   α−1
+             s(x, y) ← Λd,d sn (x, y) · Q(x, y)p −p
+             if s(x, y) ∈ {s1 (x, y), s2 (x, y), . . . , sm (x, y)} then
+                 δ ← δ ∪ {(n, d) → i}, where s(x, y) = si (x, y)
+             else
+                 m←m+1
+                 sm (x, y) ← s(x, y)
+                 δ ← δ ∪ {(n, d) → m}
+        n←n+1
+    ω ← {1 → s1 (0, 0), 2 → s2 (0, 0), . . . , m → sm (0, 0)}
+    return ({1, 2, . . . , m}, Σp , δ, 1, A, ω)
+  Algorithm 1: Computing an automaton for the diagonal of a bivariate rational
+  expression R(x, y)/Q(x, y) modulo pα .
+
+
+Remark 2.2. We can give a crude upper bound on the number of states in the
+automaton output by Algorithm 1 by computing the number of polynomials in S.
+
+                                                  9
+Let L = max{deg R(x1 , . . . , xk ), deg Q(x1 , . . . , xk )}. In the notation of the proof of
+                                                         α−1     k
+Theorem 2.1, we have m ≤ pα−1 L, so |S| ≤ pα(p L+1) . Since the state set can be
+injected into S, this gives us an upper bound for the number of states, although in
+practice this appears to be a vast overestimate. The running time of Algorithm 1 is
+linear in the number of states of the automaton; consequently we do not have good
+bounds on the running time.
+
+    One of our primary uses of Theorem 2.1 will be in conjunction with the following
+result of Furstenberg [Fur67, Proposition 2]. Given an appropriate polynomial for
+which a power series f (x) is a root, it constructs a rational expression of which f (x)
+is the diagonal. A straightforward generalization to multivariate power series was
+given by Denef and Lipshitz [DL87, Lemma 6.3].
+
+Proposition 2.3. Let P (x, y) ∈ Zp [x, y] such that ∂P                                              n ∈
+                                                                                       P
+                                                       ∂y (0, 0) 6= 0. If f (x) =        n≥0 an x
+Zp JxK is a power series such that a0 = 0 and P (x, f (x)) = 0, then
+
+                                          y 2 ∂P
+                                                         !
+                                              ∂y (xy, y)
+                             f (x) = D                      .
+                                             P (xy, y)
+
+    Under the conditions of Proposition 2.3, it follows from P (x, f (x)) = 0 and
+f (0) = 0 that P (0, 0) = 0. Therefore, we can factor y out of P (xy, y), and P (xy, y)/y
+has a nonzero constant term. If
+
+                                   ∂P
+                                   ∂y (0, 0) 6≡ 0   mod p,                                    (1)
+                                                                                  −1
+                                                                           ∂P
+one can compute an automaton for an mod pα by letting c =                  ∂y (0, 0)       mod pα
+and executing Algorithm 1 on the input
+                                                                
+                       c · y · ∂P
+                               ∂y (xy, y), c · P (xy, y)/y, p, α   .
+
+                                                              n
+                                                   P
+    If a0 6= 0 for a given power series f (x) =       n≥0 an x whose coefficients we
+would like to determine modulo pα , we must instead consider f (x) − a0 or another
+modification. The reader may now wish to turn to Section 3, which contains many
+examples.
+    As written, the polynomial arithmetic performed in Algorithm 1 is quite slow
+for large-degree polynomials. One computational task that we repeat many times is
+                             α   α−1
+multiplication by Q(x, y)p −p . A simple observation to improve speed is that we
+                                        α   α−1
+should only expand T (x, y) := Q(x, y)p −p      once.
+    Next, observe that each Λd,d discards all monomials an,m xn y m in the product
+s(x, y) · T (x, y) for which n 6≡ m mod p. Such monomials represent (p − 1)/p of all
+monomials in this product, so we will significantly reduce the number of arithmetic
+operations performed if we can avoid computing them in the first place.
+
+
+                                             10
+   This can be accomplished by binning the monomials an,m xn y m in both s(x, y)
+and T (x, y) according to the difference n − m. Define an operator ∆r by
+                                       
+                       X                        X
+                 ∆r        an,m xn y m  :=             an,m xn y m .
+                        n,m≥0                       n−m≡r   mod p
+
+Then the sum
+                              p−1
+                              X
+                                    ∆r (s(x, y)) · ∆p−r (T (x, y))
+                              r=0
+
+is the sum of the monomials in s(x, y) · T (x, y) whose exponents are congruent to
+each other modulo p. Algorithm 2 incorporates this improvement. The Mathematica
+implementation used to compute the results in Section 3 is available from the web
+site of the first author.
+
+   Input: (R(x, y), Q(x, y), p, α) ∈ A[x, y] × A[x, y] × P × Z≥1 with Q(0, 0) = 1
+   δ←∅
+   m←1
+                                     α−1
+   s1 (x, y) ← R(x, y) · Q(x, y)p −1
+   n←1
+                           α   α−1
+   T (x, y) ← Q(x, y)p −p
+   for r ∈ {0, 1, . . . , p − 1} do
+       Tr (x, y) ← ∆r (T (x, y))
+   while n ≤ m do
+       for d ∈ {0, 1, . . . , p− 1} do                          
+                                Pp−1
+            s(x, y) ← Λd,d            ∆  (s
+                                   r=0 r n  (x, y)) · Tp−r (x, y)
+           if s(x, y) ∈ {s1 (x, y), s2 (x, y), . . . , sm (x, y)} then
+               δ ← δ ∪ {(n, d) → i}, where s(x, y) = si (x, y)
+           else
+               m←m+1
+               sm (x, y) ← s(x, y)
+               δ ← δ ∪ {(n, d) → m}
+       n←n+1
+   ω ← {1 → s1 (0, 0), 2 → s2 (0, 0), . . . , m → sm (0, 0)}
+   return ({1, 2, . . . , m}, Σp , δ, 1, A, ω)
+ Algorithm 2: Computing an automaton for the diagonal of a rational expres-
+ sion R(x, y)/Q(x, y) modulo pα , using fewer operations than Algorithm 1.
+
+
+   Finally, note that all ∆r (s(x, y)) for r ∈ {0, 1, . . . , p − 1} can be computed with
+one pass through s(x, y) rather than p passes. Similarly, the images of a polynomial
+
+
+                                               11
+under all Λd,d for d ∈ {0, 1, . . . , p − 1} can be computed with one pass through the
+polynomial.
+   We mention that a different map µd1 ,...,dk could have been used in the proof of
+Theorem 2.1, and this map yields a slightly different algorithm. Namely, we have
+                                       
+                  s(x1 , . . . , xk )      Λd ,...,dk (s(x1 , . . . , xk ))
+   Λd1 ,...,dk                        α   ≡ 1                               mod pα
+                 Q(x1 , . . . , xk )p        Q(x1 , . . . , xk )pα−1
+                                                                                           α       α−1
+                                      Λd ,...,dk (s(x1 , . . . , xk )) · Q(x1 , . . . , xk )p −p
+                                     = 1                                                                 .
+                                                          Q(x1 , . . . , xk )pα
+(Note that in [DL87, Remark 6.6] the exponent in the numerator of this expression
+is incorrect.) In two variables, the map suggested by this identity is
+                                                             α   α−1
+                       s(x, y) 7→ Λd,d (s(x, y)) · Q(x, y)p −p         mod pα .
+
+Since the exponent in the denominator is pα rather than pα−1 , this map results in a
+higher maximum degree m, so the states s(x, y) have higher degree in this algorithm
+and are consequently slower to compute with. The benefit of this algorithm is that
+it sometimes produces automata with fewer states relative to Algorithms 1 and 2.
+This may be related to the fact that Λd,d applies to s(x, y) before multiplication
+            α  α−1
+by Q(x, y)p −p , so monomials an,m xn y m in s(x, y) for which n 6≡ m mod p are
+discarded. When these monomials are omitted from each state, two states which
+previously differed only by monomials with incongruent exponents collapse into a
+single state.
+
+
+3        Congruences
+In this section we consider a number of combinatorial sequences and give congru-
+ences that were proved (and in most cases also discovered) by computing a finite
+automaton for the sequence modulo pα using Algorithm 2. Details of the computa-
+tions appear on the web site of the first author1 .
+
+3.1        Catalan numbers
+             1  2n
+                   
+Let C(n) = n+1   n . The sequence C(n)n≥0 = 1, 1, 2, 5, 14, 42, 132, 429, . . . of Cata-
+lan numbers [Slo, A000108] is arguably the most important sequence in combi-
+natorics. Catalan numbers were studied from an arithmetic perspective by Alter
+and Kubota [AK73]. Even before their work, the value of C(n) mod 2 was already
+known.
+
+Theorem 3.1. For all n ≥ 0, C(n) is odd if and only if n = 2k − 1 for some k ≥ 0.
+    1
+        http://thales.math.uqam.ca/~rowland/packages.html#IntegerSequences as of this writ-
+ing.
+
+
+                                                12
+Figure 1: Automata that compute Catalan numbers modulo 2 (left) and 4 (right).
+
+
+
+   Eu, Liu, and Yeh [ELY08] determined the value of C(n) modulo 4 and, more
+generally, modulo 8. Xin and Xu [XX11] provided shorter proofs of these results.
+Modulo 4, the Catalan numbers have the following forbidden residue.
+
+Theorem 3.2 (Eu–Liu–Yeh). For all n ≥ 0, C(n) 6≡ 3 mod 4.
+
+    Liu and Yeh [LY10] determined C(n) modulo 16 and 64, written using piecewise
+functions with many cases; we argue that finite automata provide more natural
+notation.
+    Using the method of Section 2, we can generate and prove such results automat-
+ically. Kauers, Krattenthaler, and Müller [KKM12, Section 5] had a similar goal,
+and they showed how to produce congruences for C(n) modulo an arbitrary power
+of 2, encoded as formal power series rather than finite automata.
+    The generating function z = n≥0 C(n)xn for the Catalan numbers satisfies
+                                P
+
+
+                                 xz 2 − z + 1 = 0.
+
+Since C(0) 6= 0, the series n≥0 C(n)xn does not satisfy the conditions of Proposi-
+                           P
+
+tion 2.3. To remedy this, we modify the first term and instead consider the series
+y = 0 + n≥1 C(n)xn , which satisfies
+         P
+
+
+                           x(y + 1)2 − (y + 1) + 1 = 0.
+
+Writing this equation as
+
+                       P (x, y) := xy 2 + (2x − 1)y + x = 0,
+
+we see that ∂P
+            ∂y (0, 0) = −1 6≡ 0 mod 2, satisfying Equation (1). By Proposition 2.3,
+            n
+P
+  n≥1 C(n)x is the diagonal of
+
+                                y(2xy 2 + 2xy − 1)
+                                                   .
+                                xy 2 + 2xy + x − 1
+
+                                        13
+Figure 2: Automata that compute Catalan numbers modulo 8 (left) and 16 (right).
+
+
+
+Reducing the coefficients modulo 2 and executing Algorithm 2 on the input
+
+                                 y, xy 2 + x + 1, 2, 1
+                                                      
+
+
+yields the automaton on the left in Figure 1, whose four states are represented by the
+polynomials y, 0, y+1, 1. Remember that this automaton (like the others we compute
+below) outputs 0 for n = 0; its output is C(n) mod 2 only for n ≥ 1. Modifying
+finitely many terms of an automatic sequence produces another automatic sequence,
+so it is possible to modify the automaton so that it outputs C(0) mod 2 for n = 0,
+repairing the initial term, although we do not undertake this here.
+    An inspection of this automaton shows that the input string 111 · · · 1 outputs 1.
+Moreover, since the most significant digit in the binary representation of n is 1 for
+all n ≥ 1, these are the only input strings that output 1. We have therefore proved
+Theorem 3.1.
+    Automata for higher powers of 2 can be computed similarly. To prove Theo-
+rem 3.2, we compute an automaton for C(n) mod 4, obtaining the automaton on
+the right in Figure 1. It contains six states, none of which correspond to the output
+3. It remains to check n = 0, for which C(0) = 1 6≡ 3 mod 4.
+    Automata for C(n) modulo 8 and 16 appear in Figure 2. In particular, we have
+the following, which was already explicit in the results of Liu and Yeh [LY10].
+
+Theorem 3.3 (Liu–Yeh). For all n ≥ 0, C(n) 6≡ 9 mod 16.
+
+    That is, the residue class 9 modulo 16 is unattained by Catalan numbers, in ad-
+dition to the classes 3, 7, 11, 15 modulo 16, which follow from C(n) 6≡ 3 mod 4. We
+omit automata for larger powers of 2, but we record residues that are not attained.
+
+                                          14
+Figure 3: Automata that compute Catalan numbers modulo 3 (left) and 5 (right).
+
+
+
+Theorem 3.4. For all n ≥ 0,
+
+   • C(n) 6≡ 17, 21, 26 mod 32,
+
+   • C(n) 6≡ 10, 13, 33, 37 mod 64,
+
+   • C(n) 6≡ 18, 54, 61, 65, 66, 69, 98, 106, 109 mod 128,
+
+   • C(n) 6≡ 22, 34, 45, 62, 82, 86, 118, 129, 130, 133, 157, 170, 178, 253 mod 256,
+
+   • C(n) 6≡ 6, 50, 93, 134, 142, 150, 162, 173, 210, 214, 220, 230, 242, 257 mod 512,
+     C(n) 6≡ 258, 261, 270, 285, 294, 298, 348, 381, 382, 422, 446, 478, 502, 510 mod 512.
+
+    Only 180/512 ≈ 35% of the residues modulo 512 are attained by some C(n).
+Higher powers of 2 presumably also have new forbidden residues. This suggests the
+following question.
+
+Open question 3.5. Does the fraction of residues modulo 2α that are attained by
+some Catalan number tend to 0 as α gets large?
+
+    Lin [Lin12] has shown that for α ≥ 2 there are exactly α−1 odd residues attained
+modulo 2α . Hence there are α − 3 essentially new forbidden odd residues modulo 2α
+for each α ≥ 3, and the fraction of odd residues attained does tend to 0. A result of
+Xin and Xu [XX11, Theorem 8] gives some information regarding even residues.
+    There are also some residues modulo 2α that aren’t missed completely but are
+only attained finitely many times. This is also easy to determine from an automaton,
+by identifying the states that can be reached from the initial state in only finitely
+many ways. For example, C(n) 6≡ 1 mod 8 for all n ≥ 2. Similarly, C(n) 6≡ 5, 10
+mod 16 for all n ≥ 6, and there are examples modulo higher powers of 2 as well.
+
+
+                                          15
+    Automata for C(n) mod pα can also be computed for powers of other primes. For
+example, the automaton on the left in Figure 3 computes C(n) mod 3; this result
+is a rephrasing of a theorem of Deutsch and Sagan [DS06, Theorem 5.2]. More
+generally, we can produce an automaton for C(n) mod 3α for any given α, which
+corresponds to the congruences for C(n) modulo 3α established by Krattenthaler and
+Müller [KM13, Section 12]. However, we have not found any forbidden residues.
+
+Open question 3.6. Do there exist integers α ≥ 1 and r such that C(n) 6≡ r
+mod 3α for all n ≥ 0?
+
+3.2   Motzkin numbers
+Let M (n)n≥0 be the sequence 1, 1, 2, 4, 9, 21, 51, 127, . . . of Motzkin numbers [Slo,
+                                                             n
+                                            P
+A001006]. The generating function z =         n≥0 M (n)x for the Motzkin numbers
+satisfies
+                           x2 z 2 + (x − 1)z + 1 = 0.
+    Deutsch, Sagan, and Amdeberhan [DS06, Conjecture 5.5] conjectured necessary
+and sufficient conditions for M (n) to be divisible by 4 and by 8. This conjecture
+was proved by Eu, Liu, and Yeh [ELY08]. In particular, Motzkin numbers have a
+forbidden residue modulo 8.
+
+Theorem 3.7 (Eu–Liu–Yeh). For all n ≥ 0, M (n) 6≡ 0 mod 8.
+
+Proof. The series 0 + n≥1 M (n)xn satisfies
+                     P
+
+
+                      x2 y 2 + (x + 1)(2x − 1)y + x(x + 1) = 0.
+
+We apply the higher-degree variant of Algorithm 2 described at the end of Section 2
+to this series for pα = 8 to compute the automaton in Figure 4. It has 28 states.
+(Algorithm 2 produces an automaton with 51 states.) Some states correspond to
+the output 0, but the only incoming edges for these states are labeled 0. Since the
+binary representation of every integer n ≥ 1 has most significant digit 1, none of
+these states is the final state for an input n ≥ 1. On input n = 0, the automaton
+does output 0, but this output is the constant term of the modified power series and
+not M (0) mod 8.
+
+    Eu, Liu, and Yeh also gave an expression for M (n) mod 8 in the case that M (n)
+is even. The automaton in Figure 4 computes M (n) mod 8 in general.
+    Deutsch and Sagan [DS06, Corollary 4.10] determined the value of M (n) mod 3.
+More generally, Krattenthaler and Müller [KM13, Section 7] showed how to produce
+congruences for M (n) mod 3α for any given α in terms of power series.
+    Deutsch and Sagan [DS06, Theorem 5.4] also determined M (n) mod 5. Modulo
+  2
+5 , we can prove the following new theorem.
+
+                                          16
+       Figure 4: An automaton that computes Motzkin numbers modulo 8.
+
+
+
+Theorem 3.8. For all n ≥ 0, M (n) 6≡ 0 mod 52 .
+
+    The automaton computed by Algorithm 2 for M (n) mod 52 has 144 states. We
+omit it here, but the explicit automaton is available from the web site of the first
+author.
+    The sequence of Motzkin numbers does not miss any residues modulo 32 , 72 , or
+112 . However, there is a forbidden residue modulo 132 .
+
+Theorem 3.9. For all n ≥ 0, M (n) 6≡ 0 mod 132 .
+
+   Algorithm 2 produces an automaton for M (n) mod 132 with 2125 states. The
+computation took ten minutes on a 2.6 GHz laptop with 8 GB RAM.
+   The following conjecture is suggested by experimental evidence, but we have not
+been able to compute the automata for these moduli.
+
+Conjecture 3.10. Let p ∈ {31, 37, 61}. For all n ≥ 0, M (n) 6≡ 0 mod p2 .
+
+Open question 3.11. Are there infinitely many primes p such that M (n) 6≡ 0
+mod p2 for all n ≥ 0?
+
+3.3   Further applications
+Before considering other combinatorial sequences, we pause here to mention addi-
+tional information that an automaton for an mod pα provides access to.
+
+
+                                        17
+    First, one can often compute the distribution of the residues modulo pα by
+computing the letter frequencies of (an mod pα )n≥0 . A p-automatic sequence is
+the image, under a coding, of a fixed point of a p-uniform morphism ϕ. If ϕ is
+primitive, then the letter frequencies exist and are nonzero rational numbers [AS03,
+Theorems 8.4.5 and 8.4.7]. Peter [Pet03] gave necessary and sufficient conditions
+for the letter frequencies to exist in a general automatic sequence. If the letter
+frequencies of the fixed point of ϕ exist, then the vector of letter frequencies is an
+eigenvector of the incidence matrix of ϕ.
+
+Example 3.12. The sequence abccabab · · · is a fixed point of the primitive mor-
+phism ϕ(a) = ab, ϕ(b) = cc, ϕ(c) = ab. The image of this sequence under a, b 7→ 1
+and c 7→ 0 is the sequence of Motzkin numbers modulo 2 [Slo, A039963]. The
+incidence matrix of ϕ is                    
+                                      1 0 1
+                                A = 1 0 1 .
+                                            
+
+                                            0 2 0
+The Perron–Frobenius eigenvalue of A is 2, and (1, 1, 1)/3 is the corresponding
+eigenvector normalized so that the entries sum to 1. Hence the letters a, b, c occur
+with equal frequency in the fixed point abccabab · · · . Therefore, in the sequence
+(M (n) mod 2)n≥0 the letter 0 occurs with frequency 1/3 and the letter 1 with fre-
+quency 2/3.
+
+    Second, if the terms in (an )n≥0 are not divisible by arbitrarily large powers of p
+and (an mod pα )n≥0 is p-automatic for some sufficiently large α, then the sequence
+of p-adic valuations of an is also p-automatic. Let νp (n) be the exponent of the
+highest power of p dividing n, with νp (0) = ∞.
+
+Theorem 3.13. If (an )n≥0 is the sequence of coefficients of the diagonal of a rational
+           R(x1 ,...,xk )
+expression Q(x 1 ,...,xk )
+                           with Q(0, . . . , 0) 6≡ 0 mod p such that νp (an )n≥0 contains only
+finitely many distinct values, then νp (an )n≥0 is p-automatic.
+
+Proof. Let α be an integer such that α > νp (an ) for all n ≥ 0 satisfying an 6= 0. Let
+M be an automaton computing an mod pα . Apply the map r 7→ νp (r) to the output
+label of each state in M to obtain a new automaton on the same graph. The new
+automaton computes νp (an ).
+
+Example 3.14. By Theorem 3.7, the sequence ν2 (M (n))n≥0 is bounded. It fol-
+lows that ν2 (M (n))n≥0 [Slo, A186034] is 2-automatic. Relabeling an automaton for
+M (n) mod 4 gives the automaton in Figure 5. One can even compute the letter fre-
+quencies of this sequence. We already know that the limiting density of odd Motzkin
+numbers is 2/3. The limiting density of Motzkin numbers congruent to 2 modulo 4
+is 1/6, and the limiting density of Motzkin numbers congruent to 0 modulo 4 is 1/6.
+
+                                             18
+  Figure 5: An automaton that computes 2-adic valuations of Motzkin numbers.
+
+
+
+   If νp (an ) takes on infinitely many distinct values, then νp (an )n≥0 cannot be p-
+automatic since its alphabet is not finite. In this case, one would like to know
+whether νp (an )n≥0 is p-regular in the sense of Allouche and Shallit [AS92].
+
+Open question 3.15. Is the sequence ν3 (M (n))n≥0 unbounded? If so, is it 3-
+regular?
+
+3.4   Well-known combinatorial sequences
+Of the many algebraic sequences that arise in combinatorics, we select just a few
+more for consideration.
+   The generating function of the sequence R(n)n≥0 = 1, 0, 1, 1, 3, 6, 15, 36, . . . of
+Riordan numbers [Slo, A005043] satisfies
+
+                           x(x + 1)z 2 − (x + 1)z + 1 = 0.
+
+Deutsch and Sagan [DS06, Corollaries 3.3 and 4.12] determined the value of R(n)
+modulo 2 and modulo 3. In particular, we have the following.
+
+Theorem 3.16 (Deutsch–Sagan). For all n ≥ 0, R(n) 6≡ 2 mod 3.
+
+   Computing an automaton modulo 32 shows the following.
+
+Theorem 3.17. For all n ≥ 0, R(n) 6≡ 16 mod 32.
+
+   Let P (n)n≥0 be the sequence 1, 1, 2, 5, 13, 35, 96, 267, . . . whose nth term is the
+number of directed animals of size n [Slo, A005773]. Its generating function satisfies
+
+                           (3x − 1)z 2 − (3x − 1)z + x = 0.
+
+                                          19
+Deutsch and Sagan [DS06, Corollaries 3.2 and 4.11] also determined the value of
+P (n) modulo 2 and 3. There are no forbidden residues modulo 2 or 3, but this
+sequence has the same forbidden residue modulo 32 as the Riordan numbers.
+
+Theorem 3.18. For all n ≥ 0, P (n) 6≡ 16 mod 32.
+
+   Finally, let H(n)n≥0 be the sequence 1, 1, 3, 10, 36, 137, 543, 2219, . . . whose nth
+term is the number of restricted hexagonal polyominoes of size n [Slo, A002212].
+The generating function satisfies
+
+                              xz 2 + (x − 1)z − x + 1 = 0.
+
+Again, Deutsch and Sagan [DS06, Corollary 3.4 and Theorem 5.3] determined the
+value of H(n) modulo 2 and 3. We can prove the following.
+
+Theorem 3.19. For all n ≥ 0, H(n) 6≡ 0 mod 8.
+
+3.5    Sequences arising in pattern avoidance
+Pattern avoidance is a highly active area of study in combinatorics, and many com-
+binatorial objects have been considered from this perspective. Here we examine five
+sequences whose entries count trees or permutations avoiding a set of patterns.
+   If an is the number of (n + 1)-leaf binary trees avoiding a given finite set of
+contiguous patterns, then (an )n≥0 is algebraic [Row10]. Two such sequences that
+exhibit forbidden residues modulo powers of 2 are the following.
+
+Example 3.20. Let an be the number of (n + 1)-leaf binary trees avoiding the
+following subtree.
+
+
+The sequence is 1, 1, 2, 5, 14, 41, 124, 384, . . . [Slo, A159769], and the generating func-
+tion for this sequence satisfies
+
+                      (x − 2)x2 z 2 + (2x2 − 2x + 1)z + x − 1 = 0.
+
+For all n ≥ 0,
+
+                               an 6≡ 3               mod 4,
+                               an 6≡ 25, 29          mod 32,
+                               an 6≡ 9, 13, 22, 37   mod 64.
+
+Example 3.21. Let an be the number of (n + 1)-leaf binary trees avoiding the
+following subtree.
+
+
+
+
+                                              20
+The sequence is 1, 1, 2, 5, 14, 41, 124, 385, . . . [Slo, A159771], and the generating func-
+tion satisfies
+                      2x2 z 2 − (3x2 − 2x + 1)z + x2 − x + 1 = 0.
+
+For all n ≥ 0,
+
+                                    an 6≡ 3     mod 4,
+                                    an 6≡ 13    mod 16,
+                                    an 6≡ 21    mod 32,
+                                    an 6≡ 37    mod 64.
+
+    Permutation patterns have received a huge amount of attention. In general,
+sequences that count the permutations on n elements avoiding a finite set of patterns
+are not algebraic. However, some sets of patterns do yield algebraic sequences.
+
+Example 3.22. Let an be the number of permutations of length n avoiding 3412
+and 2143 [Atk98]. The sequence is 1, 1, 2, 6, 22, 86, 340, 1340, . . . [Slo, A029759], and
+the generating function satisfies
+
+                           (4x − 1)(2x − 1)2 z 2 + (3x − 1)2 = 0.
+
+The coefficient of x0 z 1 is 0, so we might substitute z = 1+xy; however, the coefficient
+of x0 y 1 is then 2, which is not an obstruction for p 6= 2 but is an obstruction for p = 2.
+Instead we use the fact that an is even for all n ≥ 2 and substitute z = 1 + x + 2xy.
+Dividing the equation by 4x then yields
+
+  x(4x − 1)(2x − 1)2 y 2 + (x + 1)(4x − 1)(2x − 1)2 y + x(4x3 + 3x2 − 4x + 1) = 0,
+
+in which the coefficient of x0 y 1 is −1 6≡ 0 mod 2. Having divided the sequence by 2,
+we need to multiply each output label by 2 in any automaton modulo 2α we compute
+from this equation to recover an automaton for an mod 2α+1 . For all n ≥ 0,
+
+       an 6≡ 10, 14                                                       mod 16,
+       an 6≡ 18                                                           mod 32,
+       an 6≡ 34, 54                                                       mod 64,
+       an 6≡ 44, 66, 102                                                  mod 128,
+       an 6≡ 20, 130, 150, 166, 188, 204, 212, 214, 220, 236, 252         mod 256.
+
+Example 3.23. Let an be the number of permutations of length n avoiding 2143
+and 1324 [Bón98]. The sequence is 1, 1, 2, 6, 22, 88, 366, 1552, . . . [Slo, A032351],
+and the generating function satisfies
+
+            (4x3 − 8x2 + 6x − 1)z 2 + 2(3x2 − 5x + 1)z + x2 + 4x − 1 = 0.
+
+                                               21
+Again an is even for n ≥ 2. The substitution z = 1 + x + 2x2 + 2x2 y gives
+
+      (4x3 − 8x2 + 6x − 1)y 2 + (8x3 − 12x2 + 8x − 1)y + x(4x2 − 4x + 3) = 0
+
+after dividing by 4x4 . For all n ≥ 3,
+
+          an 6≡ 2                                                       mod    8,
+          an 6≡ 30                                                      mod 32,
+          an 6≡ 14, 44, 54                                              mod 64,
+          an 6≡ 38, 46, 60, 76, 86                                      mod 128,
+          an 6≡ 92, 124, 140, 230, 238                                  mod 256,
+          an 6≡ 4, 12, 20, 110, 148, 150, 262, 278, 324,
+                    358, 372, 390, 412, 436, 454, 456, 476              mod 512.
+
+Note that the term a2 = 2 was chopped in the substitution, so an 6≡ 2 mod 8 holds
+only for n ≥ 3.
+
+Example 3.24. Let an be the number of permutations of length n avoiding 1342 and
+2143 [Le05]. The sequence (an )n≥0 is 1, 1, 2, 6, 22, 88, 368, 1584, . . . [Slo, A109033].
+The generating function satisfies
+
+                               2x(x − 1)z 2 + z + x − 1 = 0.
+
+The automata for this sequence seem to have relatively few states, so they are fast
+to compute. For all n ≥ 0,
+
+    an 6≡ 3                                                                mod       4,
+    an 6≡ 4, 5                                                             mod       8,
+    an 6≡ 9, 10, 14                                                        mod      16,
+    an 6≡ 8, 17, 18                                                        mod      32,
+    an 6≡ 16, 33, 34, 38, 54                                               mod      64,
+    an 6≡ 24, 32, 65, 66, 70, 86, 120                                      mod 128,
+    an 6≡ 96, 129, 130, 134, 150, 176, 184, 240                            mod 256,
+    an 6≡ 56, 112, 216, 224, 256, 257, 258, 262, 278, 304, 320, 448        mod 512,
+    an 6≡ 48, 192, 312, 513, 514, 518, 534, 600, 640, 856, 880, 984        mod 1024.
+
+Open question 3.25. For the sequence (an )n≥0 in Example 3.24, is it true that
+
+                 an 6≡ 2α−1 + 1, 2α−1 + 2, 2α−1 + 6, 2α−1 + 22        mod 2α
+
+for all α ≥ 6 and n ≥ 0?
+
+                                             22
+ Figure 6: Automata that compute Apéry numbers modulo 7 (left) and 9 (right).
+
+
+3.6   Apéry numbers
+                                            2     2
+The sequence of numbers A(n) = nk=0 nk n+k
+                                    P
+                                                 k    [Slo, A005259] arose in Apéry’s
+proof that ζ(3) is irrational. Its generating function n≥0 A(n)xn is not algebraic,
+                                                       P
+
+but it is the diagonal of the rational expression
+                                           1
+                        (1 − x1 − x2 )(1 − x3 − x4 ) − x1 x2 x3 x4
+in four variables [Str14], so by Theorem 2.1 the sequence A(n) mod pα is p-automatic
+for every prime power pα .
+    Apéry numbers modulo p were studied by Gessel [Ges82], who proved a Lucas-
+type theorem. Namely, if n = nl · · · n1 n0 in base p, then
+                                        l
+                                        Y
+                               A(n) ≡         A(ni )   mod p.
+                                        i=0
+
+Therefore, one can easily verify that A(n) 6≡ 0 mod 2 for all n ≥ 0, since A(0) ≡
+A(1) ≡ 1 mod 2. More generally, the primes 2, 3, 7, 13, 23, 29, 43, 47, . . . [Slo, A133370]
+divide no Apéry number.
+
+Open question 3.26. Are there infinitely many primes p such that A(n) 6≡ 0
+mod p for all n ≥ 0?
+
+    One can generate an automaton for A(n) mod p either using Gessel’s theorem
+or Theorem 2.1, although Gessel’s theorem accomplishes this more quickly since it
+specifies the structure directly. We mention that A(n) mod 7 has a simple expres-
+sion, which is evident from the automaton on the left in Figure 6.
+
+Theorem 3.27. Let ed (n) be the number of occurrences of the digit d in the standard
+base-7 representation of n. For all n ≥ 0,
+
+                    A(n) ≡ 5e1 (n)+e5 (n)−e2 (n)−e3 (n)−e4 (n)   mod 7.
+
+                                              23
+    In addition, all edges labeled 0 or 6 in the automaton for A(n) mod 7 are loops,
+since A(0) ≡ 1 mod 7 and A(6) ≡ 1 mod 7. That is, inserting or deleting any 0s
+and 6s in the base-7 representation of n produces n0 such that A(n) ≡ A(n0 ) mod 7.
+    For α ≥ 2, the appropriate generalization of Algorithm 2 allows us to resolve
+some conjectures by computing automata for A(n) mod pα .
+    Chowla, Cowles, and Cowles [CCC80] conjectured that
+                                           
+                                           1 if n is even
+                            A(n) mod 8 =
+                                           5 if n is odd.
+
+This was proved by Gessel [Ges82], who then asked whether A(n) is periodic modulo
+16. One computes the following automaton for A(n) mod 16.
+
+
+
+
+This automaton can be summarized as follows. Let β(n) be the number of blocks
+in the run-length encoding of the standard base-2 representation of n. That is, for
+n ≥ 1 write nl · · · n1 n0 = 1λβ(n) · · · dλ2 2 dλ1 1 dλ0 0 , where λi ≥ 1, di ∈ {0, 1}, di 6= di+1 ,
+and dβ(n) = 1. For n = 0 we have β(0) = 0.
+
+Theorem 3.28. For all n ≥ 0, A(n) ≡ 4β(n) + 1 mod 16.
+
+    We use this structure to answer Gessel’s question. (Note that, more generally, it
+is decidable whether an automatic sequence is eventually periodic; see, for example,
+[ARS09].)
+
+Theorem 3.29. The sequence (A(n) mod 16)n≥0 is not eventually periodic.
+
+Proof. For each candidate period length m ≥ 1, it suffices to exhibit arbitrarily
+large n such that A(n) 6≡ A(n + m) mod 16. Write m = ml · · · m1 m0 in base 2. If
+β(m) 6≡ 0 mod 4, let n = 2j for some j ≥ l + 2; then β(n) = 2 and β(n + m) =
+2 + β(m) 6≡ 2 mod 4, so by Theorem 3.28 A(n) 6≡ A(n + m) mod 16. On the other
+hand, if β(m) ≡ 0 mod 4, let n = 2j + 2l+1 for some j ≥ l + 3; then β(n) = 4 and
+β(n + m) = 2 + β(m) ≡ 2 mod 4, so again by Theorem 3.28 A(n) 6≡ A(n + m)
+mod 16.
+
+   Beukers [Beu95] conjectured that if there are α digits in the standard base-5
+representation of n that belong to the set {1, 3} then A(n) ≡ 0 mod 5α . We can
+prove the statement for α = 2.
+
+                                                 24
+     Figure 7: A subautomaton computing certain Apéry numbers modulo 25.
+
+
+
+Theorem 3.30. If two digits in the standard base-5 representation of n belong to
+the set {1, 3}, then A(n) ≡ 0 mod 52 .
+
+Proof. The automaton one computes for A(n) mod 52 has 29 states s1 , s2 , . . . , s29 ,
+indexed according to their positions in a breadth-first traversal of the automaton
+starting with the initial state s1 . Only the states s2 , s4 , s6 , s8 , s10 have an incoming
+edge labeled 1 or 3. That is, after reading the first 1 or 3 in the base-5 representation
+of n, the automaton is in one of these five states. The states that can be reached
+from these five states, in addition to themselves, are s5 , s7 , s11 , s12 . It suffices to
+consider a second 1 or 3 read while in one of these nine states. All eighteen edges
+labeled 1 or 3 leaving one of the nine states mentioned point to s6 . All five edges
+leaving s6 are loops, and the output corresponding to s6 is 0.
+
+   The output corresponding to each of the nine states mentioned in the previous
+proof is a multiple of 5. Deleting these nine states produces the automaton in
+Figure 7 and the following theorem.
+
+Theorem 3.31. Let e2 (n) be the number of 2s in the standard base-5 representation
+of n. If n contains no 1 or 3 in base 5, then A(n) ≡ (−2)e2 (n) mod 25.
+
+    Beukers [Beu95] also conjectured that if the standard base-11 representation
+of n contains α occurrences of the digit 5 then A(n) ≡ 0 mod 11α . These two
+conjectures were generalized by Deutsch and Sagan [DS06, Conjecture 5.13] to all
+primes and recently proved by Delaygue [Del13]. In theory, we can compute an
+automaton for A(n) mod pα for any prime power, and hence prove the conjecture
+for that prime power. However, computing the automaton for 112 or a larger prime
+power is computationally difficult in practice.
+
+                                             25
+    Krattenthaler and Müller [KM13, Conjecture 66] conjectured the following (writ-
+ten in a slightly different form), which they were not able to prove with their method.
+
+Theorem 3.32. Let e1 (n) be the number of 1s in the standard base-3 representation
+of n. For all n ≥ 0, A(n) ≡ 5e1 (n) mod 9.
+
+   In fact this result was already proved by Gessel [Ges82, Theorem 3(iii)]. Com-
+puting the automaton on the right in Figure 6 gives a second proof.
+   Krattenthaler and Müller [KM13, Conjecture 65] also gave a conjecture regarding
+Pn     n 2 n+k
+              
+  k=0 k     k    [Slo, A005258], which arose in Apéry’s proof of the irrationality of
+ζ(2). The generating function of this sequence is the diagonal of
+                                            1
+                                                                          ,
+                 (1 − x1 )(1 − x2 )(1 − x3 )(1 − x4 ) − (1 − x1 )x1 x2 x3
+so we prove this conjecture as well. Krattenthaler and Müller [KM14] have since
+given another proof.
+                                      2
+Theorem 3.33. The value of nk=0 nk n+k
+                               P             
+                                           k   modulo 9 is given by the following
+base-3 automaton.
+
+
+
+
+4     Generating automata using Ore polynomials
+4.1   Theory
+In this section we take an alternate approach, based on [DL87, Section 3], to com-
+puting an automaton for an mod pα for a given algebraic sequence (an )n≥0 of p-adic
+integers. Unlike the method discussed in Section 2, this method works for every al-
+gebraic sequence modulo every prime power, with no restrictions on the coefficients
+of the polynomial. However, rather than computing modulo pα throughout, one
+first computes an automaton for the p0 digit of an , then an automaton for the p1
+digit of an , etc., so that an automaton for an mod pα is built up in α steps. One
+might suspect that this method is therefore more computationally intensive, and
+this suspicion is substantiated by the presence of repeated computations involving
+Ore’s lemma and resultants.
+
+                                            26
+    We first introduce projection and injection maps. Identify Fp with {0, 1, . . . , p −
+1}, and define π : Zp → Fp by π(n0 p0 + n1 p1 + n2 p2 + · · · ) = n0 , where ni ∈
+{0, 1, . . . , p − 1}. Define ι : Fp → Zp by ι(d) = dp0 + 0p1 + 0p2 + · · · . The maps π
+and ι extend coefficient-wise to maps π : Zp JxK → Fp JxK and ι : Fp JxK → Zp JxK.
+
+Lemma 4.1 (Ore’s lemma). If F (x) ∈ Fp JxK such that P (x, F (x)) = 0 for some
+P (x, y) ∈ Fp [x, y], then there exists a polynomial P ∗ (x, y) = g0 (x)y + g1 (x)y p + · · · +
+         m
+gm (x)y p ∈ Fp [x, y] such that P ∗ (x, F (x)) = 0 and g0 (x) 6= 0.
+
+    For a proof, see [AS03, Lemma 12.2.3]. We say that a polynomial P ∗ (x, y) ∈
+Fp [x, y] satisfying the conclusions of Lemma 4.1 is in Ore form. The primary
+advantage of a polynomial in Ore form is that the partial derivative Py∗ (x, y) :=
+∂   ∗
+∂y P (x, y) = g0 (x) is not the zero polynomial, so the following version of Hensel’s
+lemma, whose proof can be found in [DL87, Remark 2.2], can be applied.
+
+Lemma 4.2. Suppose that F (x) ∈ Fp JxK and P (x, y) ∈ Fp [x, y] such that P (x, F (x)) =
+0 and Py (x, y)|y=F (x) 6= 0. Then there exists F (1) (x) ∈ Zp JxK such that ι(P )(x, F (1) (x)) =
+0 and π(F (1) (x)) = F (x).
+
+     Furthermore, Denef and Lipshitz [DL87, Lemma 3.4] proved that for any α, the
+lifting of an algebraic series F (x) ∈ Fp JxK into Zp JxK can be approximated modulo
+pα by an algebraic series in Zp JxK. The proof in Proposition 4.4, below, of this result
+is essentially the same as theirs, although we work with a different linear system.
+We begin with a lemma.
+
+Lemma 4.3. Suppose F (x) ∈ Fp JxK is algebraic. Let d = | kerp (F )|, and let f =
+ι(F ). Then there exist polynomials b0 (x), . . . , bd (x) in Z[x] such that
+                                    d
+                                                     i
+                                    X
+                                           bi (x)f (xp ) = 0.
+                                     i=0
+
+Proof. Since F (x) is algebraic, then by Theorem 1.1 (Christol’s theorem), we can
+compute kerp (F ) = {F1 , . . . , Fd }, where F1 = F ; this also implies that kerp (f ) =
+{f1 , . . . , fd }, where fi := ι(Fi ), so that f1 = f .
+     We now retrace some of the steps in the proof of Theorem 1.1 to obtain a cer-
+                                                                           Pp−1 j            p
+tain linear relationship. Writing each kernel element fi (x) =               j=0 x Λj (fi )(x ),
+and noting that each Λj (fi ) is again an element in {f1 , . . . , fd }, we conclude that
+for 1 ≤ i ≤ d, fi (x) is in the Z[x]-linear span of {f1 (xp ), . . . , fd (xp )}. Replacing
+               l                                                             l
+x with xp , we can conclude that for each l, and for each i, fi (xp ) is in the Z[x]-
+                            l+1             l+1
+linear span of {f1 (xp ), . . . , fd (xp )}. This implies that for 0 ≤ j ≤ d, each
+        j                                                                      d
+f1 (xp ) lives in M , the Z[x]-submodule of ZJxK spanned by {fi (xp ) : 1 ≤ i ≤ d}.
+For each j ∈ {0, . . . , d}, let the polynomials a1,j (x), . . . , ad,j (x) ∈ Z[x] be the co-
+                        j                        d
+efficients in f1 (xp ) = di=1 ai,j (x) fi (xp ). We solve this linear system, describing
+                              P
+
+
+                                                27
+                           d                               d              d
+f1 (x), f1 (xp ) . . . , f1 (xp ) in terms of f1 (xp ), . . . , fd (xp ), over Z(x) to get coeffi-
+                                                                         i
+cients {eb0 (x), . . . , ebd (x)} in Z(x) such that di=0 ebi (x)f1 (xp ) = 0. We then multiply
+                                                   P
+
+by a common denominator to get coefficients {b0 (x), . . . , bd (x)} in Z[x] such that
+                     pi
+Pd
+   i=0 bi (x)f1 (x ) = 0.
+
+Proposition 4.4. Suppose that F (x) ∈ Fp JxK and P (x, y) ∈ Fp [x, y] such that
+P (x, F (x)) = 0, and let α ≥ 1. Then there exists an algebraic F (α) (x) ∈ Zp JxK such
+that ι(F (x)) ≡ F (α) (x) mod pα . Furthermore, a polynomial P (α) (x, y) ∈ Z[x, y]
+such that P (α) (x, F (α) (x)) = 0 can be explicitly computed.
+
+Proof. First we let α = 1. Given P , from Lemma 4.1 we obtain a P ∗ (x, y) ∈ Fp [x, y]
+in Ore form such that F (x) is a root of P ∗ . Let P (1) = ι(P ∗ ). Now Lemma 4.2
+implies that there is an algebraic F (1) (x) ∈ Zp JxK that is a root of P (1) , which agrees
+with ι(F (x)) modulo p.
+   Inductively, suppose that we have computed a polynomial P (α−1) (x, y) ∈ Z[x, y]
+such that P (α−1) (x, F (α−1) (x)) = 0 for some F (α−1) with ι(F (x)) ≡ F (α−1) (x)
+mod pα−1 . To determine F (α) , define δ(x) ∈ Zp JxK by
+
+                                                F (α−1) (x) − ι(F (x))
+                                   δ(x) :=                             .                      (2)
+                                                         pα−1
+Our aim is to show that δ(x) ≡ ∆(x) mod p for some algebraic ∆(x) ∈ Zp JxK, and
+to compute a polynomial Q(x, y) which has ∆(x) as a root. Equation (2) will then
+imply that
+                   ι(F (x)) ≡ F (α−1) (x) − pα−1 ∆(x) mod pα ,
+so we may take F (α) (x) := F (α−1) (x) − pα−1 ∆(x); using P (α−1) and Q, we can then
+compute a polynomial P (α) (x, y) ∈ Z[x, y] such that P (α) (x, F (α) (x)) = 0.
+    Let A = Z/(pα Z). Then A[x] is a quotient of the integral domain Z[x]. Since
+F (x) is algebraic over Fp (x), then using the notation of Lemma 4.3, we have poly-
+                                                 i
+nomials bi (x) ∈ Z[x] such that di=0 bi (x)f (xp ) = 0. Project bi (x) to bi (x) ∈ A[x]
+                                  P
+
+(after dividing by sufficiently many powers of p if necessary, to get a nonzero linear
+combination modulo pα ), so that we explicitly obtain a linear relationship
+
+                                   d
+                                                     i
+                                   X
+                                          bi (x)f (xp ) ≡ 0       mod pα .                    (3)
+                                    i=0
+Noting that f = ι(F ), and applying Relationship (3) to Equation (2), we obtain
+                  d                                       
+                                           i             i
+                  X
+                         bi (x) F (α−1) (xp ) − pα−1 δ(xp ) ≡ 0                 mod pα ,
+                   i=0
+
+so that
+                 d                                         d
+                                           pi                              i
+                 X                                         X
+                                  (α−1)              α−1
+                        bi (x)F           (x ) ≡ p               bi (x)δ(xp )   mod pα .
+                  i=0                                      i=0
+
+
+                                                      28
+           i           i
+Since δ(xp ) ≡ δ(x)p       mod p, we have
+                d                                       d
+                                         i                                  i
+                X                                       X
+                      bi (x)F (α−1) (xp ) ≡ pα−1              bi (x)δ(x)p       mod pα .
+                i=0                                     i=0
+
+   Since P (α−1) (x, F (α−1) (x)) = 0, we can find a Q∗∗ (x, y) ∈ Z[x, y] such that
+                                       d
+                                                             !
+                                   1  X                    i
+                       Q∗∗ x, α−1         bi (x)F (α−1) (xp ) = 0.
+                                 p
+                                             i=0
+
+Thus we have that
+                                       d
+                                                             !
+                                                        pi
+                                       X
+                             ∗∗
+                           Q      x,         bi (x)δ(x)          ≡0   mod p.
+                                       i=0
+
+Thus π(δ(x)) ∈ Fp JxK is a root of π(Q∗ (x, y)) for some Q∗ (x, y). We put π(Q∗ )
+in Ore form using Lemma 4.1 to get a polynomial Q(x, y) ∈ Fp [x, y] such that
+Q(x, π(δ(x))) = 0. Using Hensel’s lemma, we lift π(δ(x)) to ∆(x) ∈ Zp JxK, a root
+of ι(Q). We have ∆(x) ≡ δ(x) mod p, and the proof of the proposition is now
+complete.
+
+    In this proof we have used the fact that algebraic power series form a ring.
+Given polynomials satisfied by two algebraic power series, polynomials satisfied by
+their sum and their product can be computed using resultants. Such polynomials
+may not be irreducible and so may have unnecessarily high degree. We employ
+a standard symbolic–numeric technique to keep computations involving multiple
+resultants manageable. Given two power series we would like to add or multiply,
+compute the first N terms of each series for some N (for example, N = 64). Then
+add or multiply these truncated series. Use a resultant to compute a polynomial for
+which the sum or product of the full series is a root. Then factor this polynomial,
+and evaluate each factor, up to O(xN ), at the truncated sum or product. If there is
+only one factor that evaluates to 0 + O(xN ), then use this factor instead of the full
+polynomial.
+    For an ∈ Zp , let an (i) be the ith base-p digit of an , so that an = an (0)p0 +
+an (1)p1 + an (2)p2 + · · · . Using Proposition 4.4, Denef and Lipshitz showed that if
+f (x) ∈ Zp JxK is algebraic, then projecting the coefficients of f (x) to their ith digits
+yields an algebraic series over Fp (x).
+
+Proposition 4.5 (Denef–Lipshitz [DL87, Proposition 3.5]). Suppose that f (x) =
+            n
+P
+   n≥0 an x ∈ Zp JxK is algebraic, where we are given P (x, y) ∈ Z[x, y] such that
+P (x, f (x)) = 0. Then for each i, fi (x) := n≥0 an (i)xn ∈ Fp JxK is algebraic, and a
+                                            P
+
+polynomial Ri (x, y) ∈ Fp [x, y] can be computed such that Ri (x, fi (x)) = 0.
+
+
+                                                   29
+Proof. The constructive nature of this proposition is clear in the proof of Proposition
+3.5 in [DL87]; we reiterate their inductive proof. Note that if f is a root of P , then
+f0 is a root of π(P ). (The only thing to note is that we need π(P ) 6= 0. If the
+coefficients of P are all divisible by pk , we divide P by pk . In this way we can
+assume that the projection of P is nonzero modulo p.)
+    If i ≥ 1,
+                                     f − i−1
+                                                          !
+                                                  j
+                                          P
+                                             j=0 p ι(fj )
+                            fi = π                          .
+                                              pi
+Assuming that we have shown that f0 , f1 , . . . , fi−1 are algebraic, then by Propo-
+                                                           (i+1−j)
+sition 4.4, for each j ∈ {0, . . . , i − 1} there exists Fj        ∈ Zp JxK such that
+  (i+1−j)
+Fj          ≡ ι(fj ) mod pi+1−j . This means that
+
+                                                          j (i+1−j)
+                                                 Pi−1               !
+                                           f−       j=0 p Fj
+                                fi = π                                ,
+                                                       pi
+
+i.e. fi is algebraic. Furthermore Proposition 4.4 tells us that for j ∈ {0, . . . , i − 1}
+                             (i+1−j)            (i+1−j)      (i+1−j)
+we can find polynomials Pj           such that Pj       (x, Fj       ) = 0; we can use
+these polynomials to compute a polynomial Pi such that Pi (x, fi (x)) = 0.
+
+      Both Propositions 4.4 and 4.5 generalize to multivariate series; we have confined
+ourselves to univariate series for notational simplicity.
+      Suppose that f = n≥0 an xn ∈ Zp JxK is algebraic. Proposition 4.5 tells us that
+                           P
+                                    n
+                       P
+for each i, fi =         n≥0 an (i)x ∈ Fp JxK is the root of a computable polynomial.
+The constructive proofs of Theorems 1.1 and 1.8 allow us to explicitly describe
+the p-kernel of fi . By computing an automaton for the coefficients of each series
+f0 , . . . , fα−1 and taking the direct product of these automata, we obtain an automa-
+ton which computes the nth coefficient of each series simultaneously. Therefore we
+have the following theorem.
+
+Theorem 4.6 (Denef–Lipshitz [DL87, Theorem 3.1(i)]). Suppose that the power
+series f (x1 , . . . , xk ) ∈ Zp Jx1 , . . . , xk K is algebraic over Zp (x1 , . . . , xk ), where we are
+given a polynomial P (x1 , . . . , xk , y) ∈ Z[x1 , . . . , xk , y] such that P (x1 , . . . , xk , f (x)) =
+0. Then for each α, the coefficient sequence of f mod pα is p-automatic.
+
+Remark 4.7. If P (x, f (x)) = 0 and P ∗ (x, y) = K             pi is the Ore form of
+                                                 P
+                                                   i=0 gi (x)y
+P (x, y), Adamczewski and Bell [AB12, Lemma 8.1] gave bounds on the x-degree
+of P ∗ (x, y). Namely, if H = degx P (x, y) and K = degy P (x, y), then the degree
+of each gi (x) is at most HKpK . Now an automaton which computes an mod p
+can be obtained from the proof of Theorem 1.1, for example as given in [AS03,
+Theorem 12.2.5]. The vertices of the automaton can be injected into a space whose
+elements can be described using K + 1 polynomials in Fp [x], each of whose degree
+
+
+                                                    30
+is at most (pK − 1)HKpK . Thus the vertex set of the automaton has size at most
+         K          K
+p(K+1)((p −1)HKp +1) . We contrast this with the size of the automaton generated
+by Proposition
+                        Theorem 2.1. If f (0) = 0 and Py (0, 0) 6≡ 0 mod p, then
+                  2.3 and
+             yPy (xy,y)
+f (x) = D P (xy,y)/y ; according to Remark 2.2, there is an automaton computing
+                              2
+an mod p with at most p(L+1) states, where
+
+                     L = max{deg yPy (xy, y), deg P (xy, y)/y}
+                       ≤ degx P (x, y) + degy P (x, y)
+                       = H + K.
+
+For large p these bounds suggest that the automaton obtained using Theorem 2.1 is
+far smaller than the one obtained using the methods of this section. This emphasizes
+the computational burden of using polynomials in Ore form, although these bounds
+may not be representative of typical automata. If α > 1, then the repeated use of
+Ore’s lemma (at least α times) and the resultant (estimates of the cost of which
+are given in [AB13, Lemma 4.1]) make the bound on the size of an automaton for
+an mod pα even larger.
+
+   Given an algebraic series f (x) ∈ Zp JxK, Algorithm 3 is the algorithm suggested
+by Propositions 4.4 and 4.5 to compute an automaton for the coefficients of f (x)
+modulo pα (where of course we carry around each series by a polynomial).
+
+   Input: (P (x, y), p, α) ∈ Z[x, y] × P × Z≥1 where P (x, f (x)) = 0
+   f0 (x) ← π(f (x))
+   Compute an automaton M0 for the coefficients of f0 (x)
+   for 1 ≤ i ≤ α − 1 do
+       Use Mi−1 to compute b0 (x), . . . , bd (x) as in Lemma 4.3
+       for 2 ≤ j ≤ α − i + 1 do
+                      (j)
+            Compute Fi−1 (x) ≡ ι(fi−1 (x)) mod pj as in Proposition 4.4
+       fi (x) ← π((f (x) − i−1    j (i+1−j) (x))/pi )
+                          P
+                             j=0 p Fj
+       Compute an automaton Mi for the coefficients of fi (x)
+   Compute the direct product M of M0 , . . . , Mα−1
+   return M
+ Algorithm 3: Outline for computing an automaton for the coefficients of an
+ algebraic sequence modulo pα .
+
+   However, this algorithm includes some unnecessary computations. For example,
+we see
+                                                                   
+                                                    (1)
+                                      
+                                              −             −
+                               !
+                       0 (2)
+              f (x) − p F0 (x)          f (x)     F0    (x)   p∆(x)
+  f1 (x) = π                     = π                                 = π(∆(x))
+                      p                                p
+
+
+                                         31
+for some algebraic ∆(x) that we compute in Proposition 4.4. For α = 2, therefore,
+                                                          (2)
+we do not in fact need to compute a polynomial for F0 (x). More generally, the
+computation can be carried out in terms of the various series ∆(x) rather than
+                            (j)           (k)
+the lifted components Fi (x). Let ∆i (x) be the series ∆(x) used to compute
+  (k)         (k−1)
+Fi (x) := Fi        (x) − pk−1 ∆(x) in Proposition 4.4. Then observe that in the proof
+of Proposition 4.4, for α = 1 we can take P (1) = Q and F (1) = f , where f (x) ∈ Zp JxK
+is a root of Q. Therefore for 1 ≤ j ≤ α we have
+                                                j
+                                   (j)                         (k)
+                                                X
+                                 F0      =f−          pk−1 ∆0 .
+                                                k=2
+For 2 ≤ i ≤ α − 1 and 1 ≤ j ≤ α − i + 1 we have
+                                       i              j
+                                (j)           (k)                    (k)
+                                       X              X
+                              Fi−1 =         ∆i−k −         pk−1 ∆i−1 .
+                                       k=2            k=2
+                                      (k)
+When we write fi in terms of ∆j , most of the terms cancel and we are left with
+                           Pi−1 j (i+1−j) !                  
+                                                   i+1
+                       f − j=0   p Fj              X    (j)
+              fi = π              i
+                                             = π      ∆i+1−j  .
+                                p
+                                                                     j=2
+
+The resulting algorithm is Algorithm 4.
+
+   Input: (P (x, y), p, α) ∈ Z[x, y] × P × Z≥1 where P (x, f (x)) = 0
+   f0 (x) ← π(f (x))
+   Compute an automaton M0 for the coefficients of f0 (x)
+   for 1 ≤ i ≤ α − 1 do
+       Use Mi−1 to compute b0 (x), . . . , bd (x) as in Lemma 4.3
+       for 2 ≤ j ≤ α − i + 1 do
+                        (j)
+            Compute ∆i−1 (x) as in Proposition 4.4
+                         (j)
+       fi (x) ← π( i+1
+                  P
+                    j=2 ∆i+1−j (x))
+       Compute an automaton Mi for the coefficients of fi (x)
+   Compute the direct product M of M0 , . . . , Mα−1
+   return M
+ Algorithm 4: Outline for computing an automaton for the coefficients of an
+ algebraic sequence modulo pα , using fewer operations than Algorithm 3.
+
+
+
+4.2   Central trinomial coefficients
+As an example, let (Tn )n≥0 be the sequence 1, 1, 3, 7, 19, 51, 141, 393, . . . of central
+trinomial coefficients [Slo, A002426]. The generating function z = n≥0 Tn xn sat-
+                                                                       P
+
+isfies
+                              (x + 1)(3x − 1)z 2 + 1 = 0.
+
+                                                32
+Since T0 6= 0, we might substitute z = y + 1 in an attempt to obtain a polynomial
+satisfying the conditions of Section 2. The polynomial P (x, y) one obtains has
+∂P
+ ∂y (0, 0) = 2 ≡ 0 mod 2, so we cannot use it to compute an automaton for Tn mod
+2α using Proposition 2.3 and Algorithm 2. Truncating additional terms of the power
+series does not fix the problem. Indeed, we have not been able to apply the method
+of Section 2 to this sequence. Therefore we carry out Algorithm 4 to compute an
+automaton for Tn mod 4.
+     Let P (x, y) = (x + 1)(3x − 1)y 2 + 1. Projecting modulo 2 shows that the series
+f0 (x) = n≥0 Tn (0)xn ∈ F2 JxK satisfies (x + 1)2 y 2 + 1 = 0. An Ore form for P (x, y)
+          P
+
+modulo 2 is
+                                     (x + 1)y 2 + y.
+
+From this one computes an automaton M0 for Tn mod 2 using Theorem 1.1. This
+automaton is as follows, showing that Tn ≡ 1 mod 2 for all n ≥ 0.
+
+
+
+
+   Now let i = 1. Since there is a single element in the 2-kernel of Tn mod 2, we
+can write ι(f0 (x)) as
+
+                          ι(f0 (x)) = ι(f0 (x2 )) + x ι(f0 (x2 )).
+
+Let j = 2. Define δ(x) ∈ Z2 JxK by writing ι(f0 (x)) = f (x) − 2δ(x). Then
+
+                f (x) − 2δ(x) = f (x2 ) − 2δ(x2 ) + x f (x2 ) − 2δ(x2 ) ,
+                                                                       
+
+
+so
+              f (x) − f (x2 ) − xf (x2 )
+                                         = δ(x) − δ(x2 ) − xδ(x2 )
+                          2
+                                         ≡ δ(x) − δ(x)2 − xδ(x)2 mod 2.
+
+Use P (x, y) to compute a polynomial Q∗∗ (x, y) ∈ Z[x, y] such that
+
+                               f (x) − f (x2 ) − xf (x2 )
+                                                         
+                        ∗∗
+                      Q     x,                              = 0,
+                                           2
+
+keeping only one irreducible polynomial factor from each resultant. The coefficients
+of Q∗∗ (x, y) are all divisible by 16, so let
+                                         
+  ∗               1 ∗∗
+Q (x, y) := π       Q (x, y − y − xy ) = (x + 1)16 y 8 + (x + 1)10 y 2 + x4 ∈ F2 [x, y].
+                                 2      2
+                 16
+
+                                            33
+Then Q∗ (x, π(δ(x))) = 0. Computing an Ore form for Q∗ (x, y) gives
+
+                  (x + 1)11 y 8 + x2 (x + 1)3 y 4 + (x + 1)5 y 2 + x2 y.
+      (2)
+Let ∆0 be a root of this polynomial that is congruent modulo 2 to π(δ(x)). This
+concludes the loop over j.
+                        (2)
+   Let f1 (x) := π(∆0 (x)). We have computed a polynomial satisfied by f1 (x) =
+π(δ(x)). From this polynomial, one computes the following automaton M1 for the
+coefficients of f1 (x), the nth term of which is the 21 digit of Tn .
+
+
+
+
+This concludes the loop over i. Since M0 has only one state, the product M0 × M1
+is the following, simply a relabeling of the states of M1 .
+
+
+
+
+    We have not been able to carry out the computation for Tn mod 8. The next
+                                                     (2)                  (2)
+step (for i = 1 and j = 3) would be to compute F0 (x) = f (x) − p∆0 (x). This
+                                   (2)
+computation is not difficult, and F0 is an algebraic series of degree 14. However, we
+                                          (2)                (2)
+have not been able to compute the sum F0 (x) − (x + 1)F0 (x2 ), which is required
+next. Even if we had, however, there is still another Ore polynomial computation
+to undertake.
+
+
+5     Multidimensional diagonals
+5.1   Lucas products
+Lucas’ well-known theorem on binomial coefficients modulo a prime states that if
+n = n(0)p0 + n(1)p1 + · · · + n(l)pl and m = m(0)p0 + m(1)p1 + · · · + m(l)pl in base
+p, then
+                               Y     l       
+                               n           n(i)
+                                   ≡              mod p.
+                              m           m(i)
+                                      i=0
+Lucas-type results are also known for the Apéry numbers and other sequences, such
+as the constant term of P (x)n for certain Laurent polynomials P (x) [SvS09]. Since
+
+                                            34
+such results hold for general p, they fall outside the scope of the previous sections.
+In this section we combine ideas from Section 2 and Section 4 to show that Lucas
+products exist for a large number of sequences.
+    As stated, Theorem 2.1 applies to the “full” diagonal of a rational expression,
+which is a univariate power series obtained by collapsing all variables into one vari-
+able. However, it is not difficult to see that Theorem 2.1 generalizes to any diagonal
+obtained by collapsing any subsets of variables. That is, let B = {b1 , . . . , bl } be a
+set partition of {1, 2, . . . , k}, and define γ(i) = j if i ∈ bj . Then let
+                                                     
+                X                                          X
+       DB              an1 ,...,nk xn1 1 · · · xnk k  :=    anγ(1) ,...,nγ(k) xn1 1 · · · xnl l .
+               n1 ,...,nk ≥0                           n1 ,...,nl ≥0
+
+The full diagonal D is the diagonal D{{1,2,...,k}} in which the set partition B contains
+a single set.
+    The coefficients of DB (f ) form a multidimensional sequence. As is the case for
+the full diagonal, this sequence is p-automatic.
+
+Theorem 5.1. Let R(x1 , . . . , xk ) and Q(x1 , . . . , xk ) be polynomials in Zp [x1 , . . . , xk ]
+such that Q(0, . . . , 0) 6≡ 0 mod p. Let α ≥ 1, and let B be a set partition of
+{1, 2, . . . , k}. Then the |B|-dimensional sequence of coefficients of
+                                                        
+                                     R(x1 , . . . , xk )
+                                DB                         mod pα
+                                     Q(x1 , . . . , xk )
+
+is p-automatic.
+
+    The proof of Theorem 5.1 is identical to the proof of Theorem 2.1 except for
+the last step, where instead of restricting to µd,...,d one considers the more general
+operator µdγ(1) ,...,dγ(k) for d1 , . . . , dl ∈ {0, 1, . . . , p − 1}. Algorithms 1 and 2 generalize
+accordingly. We mention that Denef and Lipshitz [DL87, Theorem 5.2] prove a
+generalization to algebraic power series.
+                                                                        n
+                                                                          
+    For example, the bivariate generating function for m                    is rational, so Theorem 5.1
+applies with the diagonal D{{1},{2}} that collapses no variables. Therefore, for any
+                                                                                n
+                                                                                  
+fixed prime we can compute an automaton that outputs m                              mod p when fed the
+base-p digits of n and m as the sequence of pairs (n(0), m(0)), . . . , (n(l), m(l)). This
+automaton corresponds to the Lucas product for binomial coefficients modulo p.
+    Of course, we would like to prove theorems for arbitrary p when possible. This
+can be done by putting the polynomial in Ore form. A general result using this
+approach is as follows.
+
+Theorem 5.2. Let s ≥ 1 be an integer, and let p be a prime such that p ≡ 1 mod s.
+Let Q = Q(x1 , . . . , xk ) ∈ Zp [x1 , . . . , xk ] be a polynomial such that Q(0, . . . , 0) = 1.
+
+
+                                                  35
+Let
+                                     1       X
+       f = f (x1 , . . . , xk ) =       =           an ,...,nk xn1 1 · · · xnk k ∈ Zp Jx1 , . . . , xk K.
+                                    Q1/s n ,...,n ≥0 1
+                                                1      k
+
+
+Let B be a set partition of {1, 2, . . . , k}. If Λdγ(1) ,...,dγ(k) (Q(p−1)/s ) mod p is a constant
+polynomial for each (d1 , . . . , d|B| ) ∈ {0, 1, . . . , p − 1}|B| , then there is a Lucas product
+for the coefficients of DB (f ) modulo p. Namely,
+                                                l
+                                                Y
+                          anγ(1) ,...,nγ(k) ≡         anγ(1) (i),...,nγ(k) (i)   mod p,
+                                                i=0
+
+where l is the maximum length of the base-p representations of n1 , . . . , n|B| .
+
+Proof. Write
+                                                X                                 mk
+                           Q(p−1)/s =                       cm1 ,...,mk xm
+                                                                         1 · · · xk .
+                                                                          1
+
+                                            m1 ,...,mk ≥0
+
+Let 0 ≤ dj ≤ p − 1 for each 1 ≤ j ≤ |B|. Since Λdγ(1) ,...,dγ(k) (Q(p−1)/s ) mod p is a
+constant polynomial, it is congruent modulo p to cdγ(1) ,...,dγ(k) . We have 1 = Q f s .
+Raising both sides to the power (p − 1)/s and multiplying by f gives
+
+                                              f = Q(p−1)/s f p ,
+
+which is in Ore form. By Proposition 1.9,
+
+                      Λdγ(1) ,...,dγ(k) (f ) = Λdγ(1) ,...,dγ(k) (Q(p−1)/s f p )
+                                            ≡ Λdγ(1) ,...,dγ(k) (Q(p−1)/s )f        mod p
+                                            ≡ cdγ(1) ,...,dγ(k) f      mod p.
+
+Therefore, composing Cartier operators of this form results in a product of the
+corresponding coefficients. It remains to show that
+
+                                cdγ(1) ,...,dγ(k) ≡ adγ(1) ,...,dγ(k)      mod p.
+
+To see this, write Q1/s = 1 + g for some g ∈ Zp Jx1 , . . . , xk K with g(0, . . . , 0) = 0.
+Then Qp/s ≡ 1 + g p mod p, so Q(p−1)/s ≡ Q−1/s + g p Q−1/s mod p. Each nonzero
+                                                                       1
+term of g p has total degree at least p, so the series Q(p−1)/s and Q1/s  are congruent
+modulo p on terms with total degree less than p.
+
+      In the previous proof, each element in the kernel of DB (f ) mod p belongs to the
+set
+               {DB (f ) mod p, DB (2f ) mod p, . . . , DB ((p − 1)f ) mod p, 0},
+
+so in particular there is an automaton for the coefficients modulo p containing at
+most p states.
+
+                                                           36
+   Lucas’ theorem is a simple corollary of Theorem 5.2. Recall that the generating
+function for the binomial coefficients is
+                                 X X n                  1
+                  f (x1 , x2 ) =           xn1 xm
+                                                2 =                .
+                                         m          1 − x1 − x1 x2
+                             n≥0 m≥0
+
+Let B = {{1}, {2}}, Q = 1 − x1 − x1 x2 , and s = 1. For 0 ≤ d ≤ p − 1 and
+0 ≤ e ≤ p − 1 the polynomial Λd,e (Qp−1 ) is a constant since degx1 Q = degx2 Q = 1.
+Therefore the theorem applies. Alternatively, one can verify directly that
+                                             p−1                           !
+                                             X     p − 1
+        Λd,e ((1 − x1 − x1 x2 )p−1 ) = Λd,e               (−x1 )k (1 + x2 )k
+                                                     k
+                                             k=0
+                                             p−1                   k  
+                                                                              !
+                                             X     p−1            X     k
+                                     = Λd,e               (−x1 )k           xl
+                                                     k                  l 2
+                                             k=0                   l=0
+                                                    
+                                               p − 1   d
+                                     = (−1)d
+                                                 d     e
+                                        
+                                        d
+                                     ≡        mod p,
+                                        e
+
+since
+                   
+               dp−1                (p − 1)!
+          (−1)        = (−1)d ·
+                 d              (p − 1 − d)! d!
+                                   (p − 1)!
+                      =
+                        (p − 1 − d)!(−d) · · · (−2)(−1)
+                                       (p − 1)!
+                      ≡                                            mod p
+                        (p − 1 − d)!(p − d) · · · (p − 2)(p − 1)
+                          = 1.
+
+   Central trinomial coefficients modulo p also have a Lucas product, proved by
+Deutsch and Sagan [DS06, Theorem 4.7]. Recall from Section 4.2 that the generating
+function satisfies
+                            1 = −(x + 1)(3x − 1)f (x)2 .
+
+For p 6= 2, the degree of (−(x + 1)(3x − 1))(p−1)/2 is p − 1, so the conditions of
+Theorem 5.2 are satisfied. This also shows that a Lucas product holds for a general
+family of sequences considered by Noe [Noe06].
+    Gessel’s Lucas product for the Apéry numbers is also a corollary of Theorem 5.2.
+Let
+                    Q = (1 − x1 − x2 )(1 − x3 − x4 ) − x1 x2 x3 x4
+
+and B = {{1, 2, 3, 4}}. For each 1 ≤ i ≤ 4, we have degxi Q = 1, so degxi Qp−1 =
+p − 1. Therefore Λd,d,d,d (Qp−1 ) mod p is a constant polynomial, so Theorem 5.2
+applies for every prime p.
+
+                                         37
+5.2    Binomial coefficients modulo a prime power
+We can take a similar approach to diagonal sequences modulo pα . One could write
+out conditions under which a Lucas product exists, and this would account for
+Theorem 3.32 and even Theorem 3.31.
+    Here we restrict our attention to binomial coefficients. Generalizations of Lucas’
+theorem to prime powers have been given by Granville [Gra97] and by Davis and
+                                                                  n
+                                                                      mod pα n≥0,m≥0
+                                                                            
+Webb [DW90]. In general the sequences in the p-kernel of m
+are not multiples of the original sequence, precluding a Lucas product. However,
+we may still carry out the computations symbolically to obtain a third general-
+ization of Lucas’ theorem to prime powers. The result is the following. Write
+D = {0, 1, . . . , pα − pα−1 }.
+
+Theorem 5.3. Let p be a prime, and let α ≥ 1. If n = nl · · · n1 n0 and m =
+ml · · · m1 m0 in base p, then
+                                                     α−1             l 
+                                                                n − i Y pα − pα−1
+                                                                               
+ n             X
+                                 n−i+
+                                         Pl
+                                           h=0 ih
+                                                     p    −1                        ih
+    ≡                         (−1)                                                     mod pα ,
+ m                                                     n−i      m−j         ih      jh
+         (i0 ,...,il )∈Dl+1                                                           h=0
+         (j0 ,...,jl )∈Dl+1
+
+            Pl            h and j =
+                                         Pl           h
+where i =      h=0 ih p                       h=0 jh p .
+
+   Note that lh=0 ih ph and lh=0 jh ph are representations of integers in base p
+              P               P
+
+with an enlarged digit set D rather than the standard digit set {0, . . . , p − 1}.
+
+Proof. For convenience, let φ(pα ) := pα − pα−1 . (This notation is justified since this
+is the value of the Euler totient function at a prime power.)
+                                              n
+                                                
+    Recall that the generating function for m     is
+
+                                                          1
+                                              f=                   .
+                                                    1 − x1 − x1 x2
+                                                                                                  α−1
+First we show that every element in the p-kernel of f mod pα is of the form g · f p
+for some polynomial g with coefficients in Z/(pα Z). Raising both sides of 1 =
+(1 − x1 − x1 x2 )f to the power pα−1 − 1 and multiplying by f gives
+                                                              α−1 −1        α−1
+                                     f = (1 − x1 − x1 x2 )p            fp         ,
+                                        α−1                                                 α−1
+so f itself is of the form g · f p . Moreover, the image of g · f p         under the Cartier
+operator is of the same form: Raise both sides of 1 = (1 − x1 − x1 x2 )f to the power
+                                  α−1              α−1                         α      α
+pα − pα−1 and multiply by f p         to obtain f p    = (1 − x1 − x1 x2 )φ(p ) · f p ; then
+                      α−1
+                                                             α        α
+                                                                          
+       Λnh ,mh g · f p       = Λnh ,mh g · (1 − x1 − x1 x2 )φ(p ) · f p
+                                                              α
+                                                                         α−1
+                             ≡ Λnh ,mh g · (1 − x1 − x1 x2 )φ(p ) · f p        mod pα
+
+
+                                                        38
+by Proposition 1.9.
+                                                                α−1     α−1
+    Next we determine the coefficients of Λnh ,mh (g · f p )/f p               in terms of the
+coefficients of g. Write g = k,l ck,l xk1 xl2 , where the sum is over all k ∈ Z and l ∈ Z,
+                               P
+                                                                             α
+so that ck,l = 0 if k or l is negative. Expanding (1 − x1 − x1 x2 )φ(p ) gives
+                                                                                      
+                                       φ(pα ) φ(pα )       α  
+               α−1
+                                                          φ(p )    i                   · f pα−1 mod pα
+                                                                       ck,l x1k+i xl+j
+                                  X     X      X
+Λnh ,mh g · f p       ≡ Λnh ,mh                    (−1)i                          2
+                                                             i      j
+                                   k,l i=0 j=0
+                                         α      α
+                                                                                        
+                                  X φ(p X) φ(p X)          α  
+                                                           φ(p )    i                           α−1
+                      = Λnh ,mh                    (−1)i              ck−i,l−j xk1 xl2  · f p
+                                                             i      j
+                                   k,l i=0 j=0
+                                α     α
+                                                                                          
+                          X φ(pX) φ(p
+                                    X)            α  
+                                                    φ(p )   i                                     α−1
+                      =                 (−1)i                 cpk+nh −i,pl+mh −j xk1 xl2  · f p .
+                                                      i     j
+                                   k,l    i=0        j=0
+                                                                           α−1    α−1
+Therefore the coefficient of xk1 xl2 in Λnh ,mh (g · f p )/f p      is congruent modulo pα
+to                                    α  
+                                    i φ(p )      i
+                     XX
+                             (−1)                    cpk+nh −i,pl+mh −j .
+                                          i      j
+                     i∈D j∈D
+                               n
+                                 
+    The binomial coefficient m      is simply the constant term of Λnl ,ml · · · Λn1 ,m1 Λn0 ,m0 (f ).
+                                                                            n
+                                                                              
+By iterating the expression we have just computed, we see that m                 is congruent
+         α
+modulo p to
+                                                                       l 
+                                                                           φ(pα )
+                                                                                 
+  n          X             Pl                                         Y               ih
+      ≡               (−1) h=0 ih cPl (nh −ih )ph ,Pl (mh −jh )ph                             mod pα ,
+  m               l+1
+                                        h=0             h=0                  ih       jh
+          (i0 ,...,il )∈D                                                                 h=0
+          (j0 ,...,jl )∈Dl+1
+
+where ck,l is defined by
+                                                                                 α−1 −1
+                               X
+                                         ck,l xk1 xl2 := (1 − x1 − x1 x2 )p
+                                   k,l
+          P                            α−1
+so that                 k l        · fp
+              k,l ck,l x1 x2                    = f . Therefore it suffices to compute ck,l . We have
+                                                                      α−1 −1
+                  X
+                         ck,l xk1 xl2 = (1 − x1 − x1 x2 )p
+                   k,l
+                                             pα−1   α−1
+                                               X−1 p X−1               α−1    
+                                                                       p
+                                                                       k    −1 k k l
+                                         =                       (−1)             x x .
+                                                                          k     l 1 2
+                                              k=0          l=0
+                        α−1
+Therefore ck,l = (−1)k p k −1
+                                              k
+                                                 l    , and this gives the expression claimed.
+
+    The sum in Theorem 5.3 is quite large. It is possible to restrict the indices
+considerably (since for example the summand is 0 if jh > ih for any h), but we
+                                                            n
+                                                                mod pα that rivals
+                                                              
+have not been able to extract an algorithm for computing m
+Granville’s algorithm in speed. However, the expression in Theorem 5.3 gives some
+indication of what analogous expressions for some other two-dimensional rational
+sequences look like.
+
+                                                                 39
+Acknowledgments
+The authors would like to thank Mathieu Guay-Paquet, Marcus Pivato and David
+Poole for helpful discussions. The authors would also like to thank the referee for
+a careful reading of an earlier version of the paper. Finally, we thank the Seasoned
+Spoon for being the catalyst for the crucial insight.
+
+
+References
+[AB12]      Boris Adamczewski and Jason P. Bell. On vanishing coefficients of algebraic power
+            series over fields of positive characteristic. Inventiones Mathematicae, 187(2):343–393,
+            2012.
+[AB13]      Boris Adamczewski and Jason P. Bell. Diagonalization and rationalization of algebraic
+            Laurent series. Annales Scientifiques de l’École Normale Supérieure, 46(6):963–1004,
+            2013.
+[AK73]      Ronald Alter and K. K. Kubota. Prime and prime power divisibility of Catalan
+            numbers. Journal of Combinatorial Theory, Series A, 15(3):243–256, 1973.
+[ARS09]     Jean-Paul Allouche, Narad Rampersad, and Jeffrey Shallit. Periodicity, repetitions,
+            and orbits of an automatic sequence. Theoretical Computer Science, 410(30–32):2795–
+            2803, 2009.
+[AS92]      Jean-Paul Allouche and Jeffrey Shallit. The ring of k-regular sequences. Theoretical
+            Computer Science, 98(2):163–197, 1992.
+[AS03]      Jean-Paul Allouche and Jeffrey Shallit. Automatic Sequences: Theory, Applications,
+            Generalizations. Cambridge University Press, Cambridge, 2003.
+[Atk98]     M. D. Atkinson. Permutations which are the union of an increasing and a decreasing
+            subsequence. The Electronic Journal of Combinatorics, 5:#R6, 1998.
+[Beu95]     Frits Beukers. Consequences of Apéry’s work on ζ(3). Rencontres Arithmétiques de
+            Caen, 1995.
+[Bón98]    Miklós Bóna. The permutation classes equinumerous to the smooth class. The Elec-
+            tronic Journal of Combinatorics, 5:#R31, 1998.
+[CCC80]     S. Chowla, J. Cowles, and M. Cowles. Congruence properties of Apéry numbers.
+            Journal of Number Theory, 12(2):188–190, 1980.
+[Chr74]     Gilles Christol. Eléments analytiques uniformes et multiformes. Séminaire Delange-
+            Pisot-Poitou. Théorie des nombres, 1(15):1–18, 1973–1974.
+[CKMFR80] Gilles Christol, Teturo Kamae, Michel Mendès France, and Gérard Rauzy. Suites
+          algébriques, automates et substitutions. Bulletin de la Société Mathématique de
+          France, 108(4):401–419, 1980.
+[Del13]     Eric Delaygue. Arithmetic properties of Apéry-like numbers. 2013. http://arxiv.
+            org/abs/1310.4131.
+[DL87]      Jan Denef and Leonard Lipshitz. Algebraic power series and diagonals. Journal of
+            Number Theory, 26(1):46–67, 1987.
+[DS06]      Emeric Deutsch and Bruce E. Sagan. Congruences for Catalan and Motzkin numbers
+            and related sequences. Journal of Number Theory, 117(1):191–215, 2006.
+
+
+                                               40
+[DW90]    Kenneth S. Davis and William A. Webb. Lucas’ theorem for prime powers. European
+          Journal of Combinatorics, 11(3):229–233, 1990.
+[Eil74]   Samuel Eilenberg. Automata, languages, and machines. Vol. A. Academic Press [A
+          subsidiary of Harcourt Brace Jovanovich, Publishers], New York, 1974. Pure and
+          Applied Mathematics, Vol. 58.
+[ELY08]   Sen-Peng Eu, Shu-Chung Liu, and Yeong-Nan Yeh. Catalan and Motzkin numbers
+          modulo 4 and 8. European Journal of Combinatorics, 29(6):1449–1466, 2008.
+[Fur67]   Harry Furstenberg. Algebraic functions over finite fields. Journal of Algebra, 7:271–
+          277, 1967.
+[Ges82]   Ira Gessel. Some congruences for Apéry numbers.          Journal of Number Theory,
+          14(3):362–368, 1982.
+[Gra97]   Andrew Granville. Arithmetic properties of binomial coefficients. I. Binomial coeffi-
+          cients modulo prime powers. In Organic Mathematics (Burnaby, BC, 1995), volume 20
+          of CMS Conf. Proc., pages 253–276. Amer. Math. Soc., Providence, RI, 1997.
+[KKM12]   Manuel Kauers, Christian Krattenthaler, and Thomas W. Müller. A method for de-
+          termining the mod-2k behaviour of recursive sequences, with applications to subgroup
+          counting. The Electronic Journal of Combinatorics, 18(2):#P37, 2012.
+[KM13]    Christian Krattenthaler and Thomas W. Müller. A method for determining the mod-
+          3k behaviour of recursive sequences. 2013. http://arxiv.org/abs/1308.2856.
+[KM14]    Christian Krattenthaler and Thomas W. Müller. Generalised Apéry numbers modulo
+          9. 2014. http://arxiv.org/abs/1401.1444.
+[Le05]    Ian Le. Wilf classes of pairs of permutations of length 4. The Electronic Journal of
+          Combinatorics, 12:#R25, 2005.
+[Lin12]   Hsueh-Yung Lin. Odd Catalan numbers modulo 2k . Integers, 12(2):161–165, 2012.
+[LY10]    Shu-Chung Liu and Jean C.-C. Yeh. Catalan numbers modulo 2k . Journal of Integer
+          Sequences, 13:10.5.4, 2010.
+[Noe06]   Tony D. Noe. On the divisibility of generalized central trinomial coefficients. Journal
+          of Integer Sequences, 9(2):Article 06.2.7, 12, 2006.
+[Pet03]   Manfred Peter. The asymptotic distribution of elements in automatic sequences.
+          Theoretical Computer Science, 301(1-3):285–312, 2003.
+[Row10]   Eric Rowland. Pattern avoidance in binary trees. Journal of Combinatorial Theory,
+          Series A, 117(6):741–758, 2010.
+[RY12]    Eric Rowland and Reem Yassawi. A characterization of p-automatic sequences as
+          columns of linear cellular automata. 2012. http://arxiv.org/abs/1209.6008.
+[RZ14]    Eric Rowland and Doron Zeilberger. A case study in meta-automation: automatic
+          generation of congruence automata for combinatorial sequences. Journal of Difference
+          Equations and Applications, to appear, 2014.
+[Sal87]   Olivier Salon. Suites automatiques à multi-indices et algébricité. Comptes Rendus des
+          Séances de l’Académie des Sciences. Série I. Mathématique, 305(12):501–504, 1987.
+[Slo]     Neil Sloane. The On-Line Encyclopedia of Integer Sequences. http://oeis.org.
+[Str14]   Armin Straub. Multivariate Apéry numbers and supercongruences of rational func-
+          tions. 2014. http://arxiv.org/abs/1401.0854.
+
+
+
+                                             41
+[SvS09]   Kira Samol and Duco van Straten. Dwork congruences and reflexive polytopes. 2009.
+          http://arxiv.org/abs/0911.0797.
+[XX11]    Guoce Xin and Jing-Feng Xu. A short approach to Catalan numbers modulo 2r . The
+          Electronic Journal of Combinatorics, 18:#P177, 2011.
+
+
+
+
+                                          42
+

@@ -1,0 +1,1764 @@
+                                           Discrete Mathematics and Theoretical Computer Science                                       DMTCS vol. 22:1, 2020, #20
+
+
+
+
+                                           Complementary symmetric Rote sequences:
+                                           the critical exponent and the recurrence
+                                           function∗
+arXiv:2003.06916v3 [math.CO] 28 May 2020
+
+
+
+
+                                                  L’ubomı́ra Dvořáková                       Kateřina Medková                      Edita Pelantová
+                                                                        FNSPE, Czech Technical University in Prague, Czech republic
+
+                                           received 17th Mar. 2020, revised 24th May 2020, accepted 24th May 2020.
+
+                                           We determine the critical exponent and the recurrence function of complementary symmetric Rote sequences. The
+                                           formulae are expressed in terms of the continued fraction expansions associated with the S-adic representations of
+                                           the corresponding standard Sturmian sequences. The results are based on a thorough study of return words to bis-
+                                           pecial factors of Sturmian sequences. Using the formula for the critical exponent, we describe all complementary
+                                           symmetric Rote sequences with the critical exponent less than or equal to 3, and we show that there are uncountably
+                                           many complementary symmetric Rote sequences with the critical exponent less than the critical exponent of the Fi-
+                                           bonacci sequence. Our study is motivated by a conjecture on sequences rich in palindromes formulated by Baranwal
+                                           and Shallit. Its recent solution by Curie, Mol, and Rampersad uses two particular complementary symmetric Rote
+                                           sequences.
+
+                                           Keywords: critical exponent, recurrence function, Rote sequence, Sturmian sequence, return word, bispecial factor
+
+
+
+                                           Introduction
+                                           We study the relation between the critical exponents of two binary sequences v = v0 v1 v2 · · · and u =
+                                           u0 u1 u2 · · · over the alphabet {0, 1}, where ui = vi + vi+1 mod 2 for each i ∈ N. We write u = S(v).
+                                           Our study is motivated by a conjecture formulated by Baranwal and Shallit in [3]. They searched for
+                                           binary sequences rich in palindromes with a minimum critical exponent. They showed that the value of
+                                           this critical exponent is greater than 2.707. Moreover, they found two sequences v(1) and v(2) having
+                                           the critical exponent equal to 2 + √12 and they conjectured that this is the minimum value. Both of these
+                                           sequences belong to the class of complementary symmetric Rote sequences. Their conjecture has been
+                                           recently proved by Curie, Mol, and Rampersad in [8].
+                                              A Rote sequence is a binary sequence v containing 2n factors of length n for every n ∈ N, n ≥ 1. If the
+                                           language of v is invariant under the exchange of letters 0 ↔ 1, the sequence v is called a complementary
+                                             ∗ The research received funding from the Ministry of Education, Youth and Sports of the Czech Republic through the project no.
+
+                                           CZ.02.1.01/0.0/0.0/16 019/0000778 and from the Grant Agency of the Czech Technical University in Prague through the grant no.
+                                           SGS20/183/OHK4/3T/14.
+                                           ISSN 1365–8050         c 2020 by the author(s)       Distributed under a Creative Commons Attribution 4.0 International License
+2                                                 L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+symmetric (CS) Rote sequence. Already in his original paper [24], Rote proved that these sequences
+are essentially connected with Sturmian sequences. He deduced that a binary sequence v is a CS Rote
+sequence if and only if the sequence u = S(v) is Sturmian. Both CS Rote sequences and Sturmian
+sequences are rich in palindromes, see [6, 10].
+   The formula for the critical exponent of Sturmian sequences was provided by Damanik and Lenz in [9].
+The relation between the critical exponent of a CS Rote sequence v and the associated Sturmian sequence
+S(v) is not straightforward: While the minimum exponent among all Sturmian sequences is reached by
+the Fibonacci sequence and it is 3 + 1+2√5 (see [19]), the two CS Rote sequences v(1) , v(2) whose critical
+exponent equals 2 + √12 , i.e., it is minimum among all binary rich sequences, are associated with the
+                                                                                   √
+Sturmian sequences S(v(1) ) and S(v(2) ) whose critical exponent is 3 + 2.
+   In this paper, we will first derive the relation between the critical exponents of the sequences v and
+S(v), where v is a uniformly recurrent binary sequence whose language is closed under the exchange
+of letters, see Theorem 14. Using this relation, we will determine the formula for the critical exponent of
+any CS Rote sequence, see Theorem 33.
+   One of the consequences of this theorem is for instance the fact that the languages of the sequences
+v(1) and v(2) are the only languages of CS Rote sequences with the critical exponent less than 3, see
+Proposition 34. In this context, let us mention that in [8] the authors showed that there are exactly two
+languages of rich binary sequences with the critical exponent less than 14       5 and they are the languages of the
+                (1)          (2)
+sequences v and v . Furthermore, we show that there are uncountably many CS Rote sequences with
+the critical exponent strictly less than the critical exponent of the Fibonacci sequence, see Theorem 37.
+   Our main technical tool is the description of return words to bispecial factors of Sturmian sequences
+in terms of the continued fraction expansions related to the S-adic representations of Sturmian sequences.
+As a by-product, we obtain an explicit formula for the recurrence function            of CS Rote sequences, see
+Theorem 54. When formulating our results, we use the convergents pqN               N
+                                                                                      of an irrational number θ =
+[0, a1 , a2 , a3 , . . .], where the coefficients ai ’s in the continued fraction expansion of θ correspond to the
+S-adic representation of the standard Sturmian sequence associated to a given CS Rote sequence.
+   There are many generalizations of Sturmian sequences to multiliteral alphabets, see [1]. The critical
+exponent and the recurrence function were studied for two of these generalizations. Justin and Pirillo
+described in [15] the critical exponent of substitutive Arnoux-Rauzy sequences. Recently, Rampersad,
+Shallit, and Vandomme in [22], and Baranwal and Shallit in [2] determined the minimal threshold for
+the critical exponent of balanced sequences over alphabets of cardinality 3, 4, and 5, respectively. The
+recurrence function of Sturmian sequences was found by Morse and Hedlund in [20], and their result was
+generalized by Cassaigne and Chekhova in [7] for Arnoux-Rauzy sequences.
+   The paper is organized as follows. We first introduce basic notions from combinatorics on words in
+Section 1. In Section 2, we recall how to simplify the formula for the critical exponent using return words
+to bispecial factors. The definitions of the already mentioned mapping S and complementary symmetric
+Rote sequences and their basic properties are provided in Section 3. The relation between the critical
+exponents of the sequences v and S(v) is described in Section 4. The main tool for further results –
+a thorough study of return words to bispecial factors of Sturmian sequences using the S-adic representation
+– is carried out in Section 5. An explicit formula for the critical exponent of CS Rote sequences is given
+in Section 6. CS Rote sequences with a small critical exponent are studied in Section 7. And finally, in
+Section 8, an explicit formula for the recurrence function of CS Rote sequences is derived.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                      3
+
+1     Preliminaries
+An alphabet A is a finite set of symbols called letters. A word over A of length n is a string u =
+u0 u1 · · · un−1 , where ui ∈ A for all i ∈ {0, 1, . . . , n − 1}. The length of u is denoted by |u|. The set
+of all finite words over A together with the operation of concatenation form a monoid A∗ . Its neutral
+element is the empty word ε and we denote A+ = A∗ \ {ε}.
+   If u = xyz for some x, y, z ∈ A∗ , then x is a prefix of u, z is a suffix of u and y is a factor of u. We
+sometimes use the notation yz = x−1 u.
+   To any word u over A with cardinality #A = d, we assign its Parikh vector V           ~ (u) ∈ Nd defined as
+(V~ (u))a = |u|a for all a ∈ A, where |u|a is the number of letters a occurring in u.
+   A sequence over A is an infinite string u = u0 u1 u2 · · · , where ui ∈ A for all i ∈ N = {0, 1, 2, . . .}. We
+always denote sequences by bold letters. A sequence u is eventually periodic if u = vwww · · · = v(w)ω
+for some v ∈ A∗ and w ∈ A+ . Otherwise u is aperiodic.
+   A factor of u is a word y such that y = ui ui+1 ui+2 · · · uj−1 for some i, j ∈ N, i ≤ j. The number
+i is called an occurrence of the factor y in u. In particular, if i = j, the factor y is the empty word ε
+and any index i is its occurrence. If i = 0, the factor y is a prefix of u. If each factor of u has infinitely
+many occurrences in u, the sequence u is recurrent. Moreover, if for each factor the distances between
+its consecutive occurrences are bounded, u is uniformly recurrent.
+   The language L(u) of the sequence u is the set of all factors of u. A factor w of u is right special if
+both words wa and wb are factors of u for at least two distinct letters a, b ∈ A. Analogously we define a
+left special factor. A factor is bispecial if it is both left and right special. Note that the empty word ε is a
+bispecial factor if at least two distinct letters occur in u.
+   The factor complexity of a sequence u is a mapping Cu : N → N defined by
+                                     Cu (n) = #{w ∈ L(u) : |w| = n} .
+The aperiodic sequences with the lowest possible factor complexity are called Sturmian sequences. In
+other words, it means that a sequence u is Sturmian if it has the factor complexity Cu (n) = n + 1 for all
+n ∈ N. Clearly, all Sturmian sequences are defined over a binary alphabet, e.g., {0, 1}. There are many
+equivalent definitions of Sturmian sequences, see a survey in [1].
+  A morphism over A is a mapping ψ : A∗ → A∗ such that ψ(uv) = ψ(u)ψ(v) for all u, v ∈ A∗ . The
+morphism ψ can be naturally extended to sequences by
+                             ψ(u) = ψ(u0 u1 u2 · · · ) = ψ(u0 )ψ(u1 )ψ(u2 ) · · · .
+A fixed point of a morphism ψ is a sequence u such that ψ(u) = u. The matrix of a morphism ψ over A
+with the cardinality #A = d is the matrix Mψ ∈ Nd×d defined as (Mψ )ab = |ψ(a)|b for all a, b ∈ A.
+The Parikh vector of the ψ-image of a word w ∈ A∗ can be obtained via multiplication by the matrix Mψ ,
+i.e.,
+                                        ~ (ψ(w)) = Mψ V
+                                        V               ~ (w) .                                     (1)
+   Consider a prefix w of a recurrent sequence u. Let i < j be two consecutive occurrences of w in
+u. Then the word ui ui+1 · · · uj−1 is a return word to w in u. The set of all return words to w in u is
+denoted by Ru (w). If the sequence u is uniformly recurrent, the set Ru (w) is finite for each prefix w,
+i.e., Ru (w) = {r0 , r1 , . . . , rk−1 }. Then the sequence u can be written as a concatenation of these return
+words:
+                                                 u = rd0 rd1 rd2 · · ·
+4                                                L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+and the derived sequence of u to the prefix w is the sequence du (w) = d0 d1 d2 · · · over the alphabet of
+cardinality #Ru (w) = k. The concept of derived sequences was introduced by Durand in [12].
+
+2     The critical exponent and its relation to return words
+Let z ∈ A+ be a prefix of a periodic sequence uω with u ∈ A+ . We say that z has the fractional root u
+and the exponent e = |z|/|u|. We usually write z = ue . Let us emphasize that a word z can have multiple
+exponents and fractional roots. A word z is primitive if its only integer exponent is 1.
+   Let u be a sequence and u its non-empty factor. The supremum of e ∈ Q such that ue is a factor of u
+is the index of u in u:
+
+                                    indu (u) = sup{e ∈ Q : ue ∈ L(u)} .
+
+If the sequence u is clear from the context, we will write ind(u) instead of indu (u).
+Definition 1. The critical exponent of a sequence u is
+
+               cr(u) = sup {e ∈ Q : there is a non-empty factor of u with the exponent e}
+                      = sup {indu (u) : u is a non-empty factor of u} .
+
+Remark 2. Let us comment on the above definition.
+    1. If a non-empty factor u ∈ L(u) is non-primitive, i.e., u = xk for some x ∈ A+ and k ∈ N, k ≥ 2,
+       then indu (x) = k indu (u) > indu (u). Therefore, only primitive factors play a role for finding
+       cr(u).
+    2. If some non-empty factor occurs at least twice in u, then ind(x) > 1 for some non-empty factor x
+       and so cr(u) > 1. Consequently, cr(u) > 1 for each sequence u.
+    3. We say that u is an overlapping factor in u, if there exist x, y ∈ A∗ such that xu = uy ∈ L(u)
+       and 0 < |x| < |u|. If u has an overlapping factor, then cr(u) > 2. Indeed, by [17] the equality
+       xu = uy implies that there exist a, b ∈ A∗ and k ∈ N such that u = (ab)k a, x = ab, and y = ba.
+       If a is empty then the assumption |u| > |x| > 0 forces k ≥ 2, otherwise k ≥ 1. In both cases
+       indu (ab) > 2.
+    4. If u is eventually periodic, then cr(u) is infinite.
+    5. If u is aperiodic and uniformly recurrent, then each factor of u has a finite index. Nevertheless,
+       cr(u) may be infinite. A Sturmian sequence may serve as an example of such a sequence if the
+       continued fraction expansion of its slope has unbounded partial quotients, see [9].
+    6. If u is a binary sequence, then either 11, 00, or 0101 occur in u. It means that the critical exponent
+       of a binary sequence is at least 2. This value is attained by the famous Thue-Morse sequence,
+       which is, of course, overlap-free, see [25] or [4]. The critical exponent of generalized Thue-Morse
+       sequences over multi-letter alphabets were described in [5].
+    7. Recently, Ghareghani and Sharifani introduced a natural generalization of k-bonacci sequences to
+       infinite alphabets. They also computed the critical exponent of these sequences, [13].
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                      5
+
+Lemma 3. Let u be a uniformly recurrent aperiodic sequence. Then cr(u) = sup {indu (u) : u ∈ M},
+where
+
+                         M = {u : u is a return word to a bispecial factor of u} .
+
+Proof: Let u ∈ L(u) be a non-empty factor with the index ind(u) > 1. Denote |u| = n. When searching
+for supremum, we may assume without loss of generality that u is a factor having the largest index among
+all factors of u of length n, i.e., ind(u) ≥ ind(v) for all v ∈ L(u) of length n. Since u is uniformly
+recurrent, ind(u) is finite. We denote
+
+                           z = uind(u) = u0 u00 · · · u0 u00 u0   and   b = uind(u)−1 ,
+
+where u = u0 u00 and u00 6= ε. Clearly, z = bu00 u0 = u0 u00 b.
+   Let us show that the word b is a bispecial factor of u. The word z is a factor of u and so z occurs in u
+at some position j, i.e.,
+                                         z = uj uj+1 · · · uj+|z|−1 .
+Then the letter uj+|z| which follows the word z is distinct from the first letter of u00 . Otherwise, we could
+prolong z to the right, which contradicts the definition of the index of u = uj uj+1 · · · uj+n−1 . Similarly,
+the letter uj−1 which precedes z is distinct from the last letter of u00 . Indeed, if those letters are the same,
+then the factor uj−1 uj · · · uj+n−2 of length n has the index at least ind(u) + n1 , which contradicts the
+choice of u. We can conclude that the factor b is a bispecial factor of u.
+   Moreover, since z = bu00 u0 = u0 u00 b, the word u = u0 u00 is a concatenation of the return words to the
+bispecial factor b. It suffices to prove that only the cases when u is a return word to the bispecial factor b
+have to be inspected. Let us assume that u is a concatenation of at least two return words to b. It means
+that
+                z = ub = sbt for some s, t such that s is a prefix of u and 0 < |s| < |u| .                   (2)
+We will find another factor of u with the index strictly larger than ind(u), which means that such a factor
+u can be omitted. We distinguish three cases:
+    • If ind(u) ≥ 2, then |b| ≥ |u| and both words u and s are prefixes of b. Therefore, the relation (2)
+      implies us = su and we can easily conclude that there is a word x and an integer k > 1 such that
+      u = xk . As mentioned in Remark 2, ind(x) > ind(u).
+    • If 1 < ind(u) < 2 and cr(u) ≤ 2, then by Item 3 of Remark 2, u has no overlapping factor. Clearly,
+      z = u0 u00 u0 and b = u0 for u0 , u00 6= ε. Then the relation (2) implies u0 v = su0 for some v and
+      |u| > |s| ≥ |u0 |. Indeed, if 0 < |s| < |u0 |, then u0 is an overlapping factor, which is not possible.
+      Therefore, u0 is a prefix of s and we can easily deduce that
+
+                                                 |s| + |u0 |   |u| + |u0 |
+                                     ind(s) ≥                >             = ind(u) .
+                                                     |s|           |u|
+
+    • If 1 < ind(u) < 2 and cr(u) > 2, then there is a factor x ∈ L(u) with ind(x) > 2 > ind(u).
+6                                                   L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+Remark 4. In fact, we proved that it suffices to consider the set
+
+            M0 = {u : u is a return word to a bispecial factor of u with the fractional root u}
+
+or, even more specifically, the set
+
+                M00 = {u : u is a return word to the bispecial factor b = uind(u)−1 of u}
+
+instead of M. Clearly, M00 ⊂ M0 ⊂ M.
+   In Remark 2, we emphasize that only primitive factors are relevant for finding the critical exponent.
+Let us verify that all return words from the set M0 (and so M00 , too) are primitive. We prove it by
+contradiction. Let us suppose that u ∈ M0 is non-primitive, i.e., u = xk for some non-empty x and
+k ∈ N, k > 1. Since b has the fractional root u, b = u` = xk` for some ` ∈ Q. Therefore, ub =
+xk(`+1) = xxk` xk−1 = xbxk−1 , which contradicts that u is a return word to b in u.
+
+3    The mapping S on binary words and complementary symmetric
+     Rote sequences
+In this section, we introduce a mapping S which enables us to describe the properties of CS Rote se-
+quences using Sturmian sequences. Nevertheless, this mapping S can be applied to any binary sequence.
+Definition 5. By S we denote the mapping S : {0, 1}+ 7→ {0, 1}∗ such that for every v0 ∈ {0, 1} we
+put S(v0 ) = ε and for every v = v0 v1 · · · vn ∈ {0, 1}+ of length at least 2 we put S(v0 v1 · · · vn ) =
+u0 u1 · · · un−1 , where
+
+                          ui = vi + vi+1       mod 2 for all i ∈ {0, 1, . . . , n − 1} .
+
+Moreover, we extend the domain of S naturally to {0, 1}N : for every v ∈ {0, 1}N we put S(v) = u,
+where
+                            ui = vi + vi+1 mod 2 for all i ∈ N .
+  By E : {0, 1}∗ 7→ {0, 1}∗ we denote the morphism which exchanges the letters, i.e., E(0) = 1,
+E(1) = 0.
+Example 6. We have E(001110) = 110001 and S(001110) = S(110001) = 01001.
+  Clearly, the images of v and E(v) under S coincide for each v ∈ {0, 1}∗ . Moreover, S(x) = S(y) if
+and only if x = y or x = E(y). The following rule follows directly from the definition of S:
+
+                S(v0 v1 · · · vn ) = S(v0 v1 · · · vk )S(vk vk+1 · · · vn )   for any k = 0, . . . , n.      (3)
+
+These observations hold also for infinite sequences.
+Lemma 7. Let v be a binary sequence whose language L(v) is closed under E. Then w 6= ε is a right
+(left) special factor in v if and only if S(w) is a right (left) special factor in S(v).
+
+Proof: We will prove the statement for right special factors. The proof for left special factors is analogous.
+Let c be the last letter of w.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                 7
+
+(=⇒): Let w0 and w1 belong to L(v). Then S(w0) and S(w1) belong to L(S(v)). By the rule (3),
+S(w0) = S(w)S(c0) and S(w1) = S(w)S(c1). As S(c0) 6= S(c1), the factor S(w) is right special in
+S(v).
+(⇐=): Let S(w)0 and S(w)1 be in L(S(v)). Then S(w)0 = S(w)S(cc) = S(wc) and S(w)1 =
+S(w)S(cE(c)) = S(wE(c)). Since L(v) is closed under the exchange of letters, all factors wc, E(wc),
+wE(c) and E(w)c are in L(v). It means that w and E(w) are right special factors in v.
+
+   A Rote sequence is a sequence v with the factor complexity Cv (n) = 2n for all n ∈ N, n ≥ 1. Clearly,
+all Rote sequences are defined over a binary alphabet, e.g., {0, 1}. If the language of a Rote sequence v is
+closed under the exchange of letters, i.e., E(v) ∈ L(v) for each v ∈ L(v), the Rote sequence v is called
+complementary symmetric (shortly CS).
+   Rote in [24] proved that these sequences are essentially connected with Sturmian sequences.
+Proposition 8 ([24]). Let u and v be two sequences over {0, 1} such that u = S(v). Then v is a com-
+plementary symmetric Rote sequence if and only if u is a Sturmian sequence.
+   Let us emphasize that to a given CS Rote sequence v there is the unique associated Sturmian sequence
+u such that u = S(v). On the other hand, for any Sturmian sequence u there exist two associated CS
+Rote sequences v and E(v) such that u = S(v) = S(E(v)). However, L(v) = L(E(v)).
+   Analogously, to a given factor v ∈ L(v) there is a unique associated word u such that u = S(v) and
+this word u is a factor of u. In addition, to a given factor u ∈ L(u) there are exactly two associated words
+v, E(v) such that S(v) = S(E(v)) = u and both these words v, E(v) are factors of v.
+Example 9. Let us underline that for Sturmian sequences u and E(u) the languages of their associated
+CS Rote sequences may essentially differ. Consider the Fibonacci sequence
+
+                                          f = abaababaaba · · · ,
+
+which is the fixed point of the Fibonacci morphism F : a → ab, b → a.
+
+   • If a = 0 and b = 1, then the associated CS Rote sequence starting with 0 is v = 001110011100 · · · .
+                                                                 7
+     The prefix w of v of length 7 is w = 0011100 = (00111) 5 , i.e., w has the fractional root 00111
+     and the exponent 75 .
+   • If a = 1 and b = 0, then the associated CS Rote sequence starting with 0 is v0 = 011011001001 · · · .
+                                                               7
+     The prefix w0 of v0 of length 7 is w0 = 0110110 = (011) 3 , i.e., w0 has the fractional root 011 and
+     the exponent 73 .
+
+We will show later in Example 36 that even the critical exponent of CS Rote sequences associated with u
+and E(u) may be different.
+   In the next section, we will explain that the relation between the shortest fractional root of a factor v
+and the shortest fractional root of S(v) is influenced by the number of letters 1 occurring in the shortest
+fractional root of S(v). This is the reason for the following definition and lemma.
+Definition 10. A word u = u0 u1 · · · un−1 ∈ {0, 1}∗ is called stable if |u|1 = 0 mod 2. Otherwise, u is
+unstable.
+Lemma 11. Let S : {0, 1}+ 7→ {0, 1}∗ .
+8                                                     L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+     (i) If 0 is a prefix of v ∈ {0, 1}∗ , then S(v0) is stable.
+
+    (ii) For every u ∈ {0, 1}∗ there exists a unique w ∈ {0, 1}+ with a prefix 0 such that u = S(w).
+         Moreover, w has a suffix 0 if and only if u is stable.
+
+ (iii) If 0 is a prefix of w, then S(vw) = S(v0)S(w).
+
+    (iv) Let 0 be a prefix of v and v 0 . Then S(v 0 ) is a prefix of S(v) if and only if v 0 is a prefix of v.
+
+Proof:
+
+     (i) Let v = v0 v1 · · · vn−1 , n = |v|, and v0 = 0. Put vn = 0. Then S(v0) = u0 u1 · · · un−1 , where
+         ui = vi + vi+1 mod 2 for every i ∈ {0, 1, . . . , n − 1}. It implies
+                                                     n−1
+                                                     X
+                                       |S(v0)|1 =          ui = v0 + vn = 0      mod 2 .
+                                                     i=0
+
+
+    (ii) Let u = u0 u1 · · · um−1 and m = |u|. We look for w = w0 w1 · · · wm such that ui = wi + wi+1
+         mod 2 for every i ∈ {0, 1, . . . , m − 1}. Clearly, these equations can be equivalently rewritten as
+
+                              ui = wi+1 − wi       mod 2      for every i ∈ {0, 1, . . . , m − 1} .               (4)
+
+         Then starting with w0 = 0 and summing up the equations (4) for i = {0, 1, . . . , j−1}, we determine
+                                   Pj−1
+         the letter wj of w as wj = i=0 ui mod 2. In particular, wm = |u|1 mod 2.
+
+ (iii) It is a particular case of the equation (3).
+
+    (iv) It follows directly from the definition of S.
+
+
+
+
+4       The relation between the indices of factors in v and S(v)
+In this section, we provide a tool for determining the critical exponent of a binary sequence v whose lan-
+guage is closed under the exchange of letters. For any factor v of such a sequence, indv (v) = indv (E(v))
+and we can consider only factors of v starting with 0 without loss of generality.
+Lemma 12. Let v be a binary aperiodic uniformly recurrent sequence whose language is closed under
+E. Denote u = S(v). For a non-empty factor v ∈ L(v) with the prefix 0 and indv (v) > 1, there exists
+a stable factor u ∈ L(u) such that
+                                               1
+                                   indu (u) + |u| = indv (v) and         u = S(v0) .                              (5)
+
+And vice versa, for a non-empty stable factor u ∈ L(u), there exists a factor v ∈ L(v) with the prefix 0
+satisfying (5) .
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                   9
+
+Proof: For a given n ∈ N, n ≥ 1, consider the set Kn of factors v ∈ L(v) of length n with the prefix 0
+and indv (v) > 1. First, we show that the mapping v 7→ S(v0) is a bijection between Kn and the set of all
+stable factors of u of length n.
+   Indeed, if v ∈ Kn , then v0 ∈ L(v). The factor u := S(v0) belongs to L(u), |u| = |v|, and by Item
+(i) of Lemma 11, u is stable. On the other hand, if u ∈ L(u) is stable and of length n, then by Item
+(ii) of Lemma 11, there exists a unique w such that 0 is a prefix and a suffix of w and S(w) = u. As
+L(v) is closed under E, necessarily w ∈ L(v) and w = v0 for some v with the prefix 0. In particular,
+indv (v) > 1. As u = S(w) = S(v0), the lengths of u and v coincide.
+     Now we show that any v ∈ Kn and its image u = S(v0) satisfy (5). Find k ∈ N, k ≥ 1, and θ ∈ (0, 1]
+such that indv (v) = k + θ. Denote v 0 = v θ . Obviously, v 0 6= ε, v 0 is a prefix of v and 0 is a prefix of
+v 0 . Applying Item (iii) of Lemma 11, we get S(v k v 0 ) = (S(v0))k S(v 0 ). Clearly, |S(v 0 )| = |v 0 | − 1,
+|u| = |v|, and by Item (iv) of Lemma 11, S(v 0 ) is a prefix of S(v0). For u = S(v0) it means that
+                                     0            0
+                indu (u) ≥ k + |S(v
+                                 |u|
+                                     )|
+                                        = k + |v  |   1             1                1
+                                               |v| − |u| = k + θ − |u| = indv (v) − |u| .
+
+   To show the opposite inequality, we find ` ∈ N and η ∈ [0, 1) such that indu (u) = ` + η. Denote
+u0 = uη . Using Item (ii) of Lemma 11, we find v 0 with the prefix 0 such that u0 = S(v 0 ). By Item (iv), v 0
+is a prefix of v, and by Item (iii), u` u0 = (S(v0))` S(v 0 ) = S(v ` v 0 ). Therefore, v ` v 0 ∈ L(v) and
+                                                     1                1
+                                 indv (v) ≥ ` + η + |u| = indu (u) + |u| .
+
+
+   As explained in Lemma 3, only return words to bispecial factors play a role for the determination of the
+critical exponent of a sequence. More specifically, we can restrict ourselves to factors from the set M0 (or
+M00 ) introduced in Remark 4.
+Lemma 13. Let v be a binary sequence whose language is closed under E. Assume that v with the prefix
+0 is a return word in v to a bispecial factor b = v e−1 , where e > 2. Denote u = S(v0). Then
+   – either u is a stable return word in S(v) to a bispecial factor with the fractional root u;
+   – or u = x2 , where x is an unstable return word in S(v) to a bispecial factor with the fractional root u.
+
+Proof: The factor S(b) is bispecial in S(v) by Lemma 7. Moreover, by the rule (3), we can write
+                                                  1
+S(b) = S(v e−1 ) = S(v0)f for f = e − 1 − |v|       ≥ 1. Thus S(b) has the fractional root u = S(v0).
+   The word vb is a complete return word to b in v and thus vb = bw for some w. Note that 0 is the first
+letter of b. We denote the last letter of b by z. By the rule (3), we get S(v0)S(b) = S(b)S(zw). It means
+that S(b) is a prefix and a suffix of the word S(v0)S(b). We discuss two cases:
+   – S(b) has exactly two occurrences in S(v0)S(b), one as a prefix and one as a suffix. In this case
+u = S(v0) is a return word to S(b) in S(v) and by Item (i) of Lemma 11, u is stable.
+   – S(b) occurs in S(v0)S(b) as an inner factor. In this case, there exists a return word u0 6= ε to
+S(b) such that |u0 | < |u| and u0 S(b) is a proper prefix of S(v0)S(b). We take the word b0 such that
+b = vb0 . Clearly, b0 has the prefix 0 and so S(b) = uS(b0 ). Then u0 S(b) = u0 uS(b0 ) is a proper prefix of
+S(v0)S(b) = uS(b) = uuS(b0 ). In other words, u0 uu00 = uu for some non-empty u00 and consequently,
+u = u0 u00 = u00 u0 . This implies the existence of x ∈ {0, 1}+ and k 0 , k 00 ∈ N, k 0 , k 00 ≥ 1 such that
+         0              00
+u0 = xk and u00 = xk . If we denote k = k 0 + k 00 ≥ 2, we can write u = xk .
+10                                              L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+   We show that x is unstable and k = 2. Indeed, assume x is stable, then by Item (ii) of Lemma 11, we
+find a unique y with the prefix 0 such that x = S(y0). Applying Item (iii), we obtain S(v0) = u = xk =
+(S(y0))k = S(y k 0) and thus v = y k . Nevertheless, the factor v is primitive as explained in Remark 4.
+Thus this is a contradiction.
+   Since x is unstable and u = xk is stable, necessarily k = 2p for some integer p ≥ 1. Now we deduce
+that k = 2. Indeed, if p ≥ 2, then u is a p-power of the stable factor x2 which yields a contradiction with
+the primitivity of v as above. Finally, k = 2 implies k 0 = 1 and u0 = x is an unstable return word to the
+bispecial factor S(b) in S(v).
+
+Theorem 14. Let v be a binary aperiodic uniformly recurrent sequence whose language is closed under
+       n u = S(v),
+E. Denote                                                               o
+                   1
+  A1 = indu (u) + |u| : u is a stable return word to a bispecial factor of u and
+      n                                                                             o
+                      1
+  A2 = 12 indu (u) + |u|
+                         
+                           : u is an unstable return word to a bispecial factor of u .
+
+Then                                                         
+                                          cr(v) = sup A1 ∪ A2 .
+
+Proof: First we show that
+                                                  
+                        indv (v) ≤ sup A1 ∪ A2        for any non-empty v ∈ L(v) .                        (6)
+                                                                                                         1
+   If indv (v) ≤ 2, then the inequality (6) is trivially satisfied as A1 contains the number indu (0) + |0| ≥2
+(note that 0 is a stable return word in u to the bispecial factor ε). Now we assume that indv (v) = e > 2.
+By Lemma 3 and Remark 4, we may focus only on v which is a return word to the bispecial factor
+                                                                                    1
+b = v e−1 and v has the prefix 0. By Lemma 12, indv (v) = indu (u) + |u|              , where u = S(v0). By
+Lemma 13, the factor u is either a stable return word to a bispecial factor in u, or u = x2 , where x is
+an unstable return word to a bispecial factor in u. In the first case we have indv (v) ≤ sup A1 , while in
+                                                     1
+the second case we have indv (v) = indu (u) + |u|       = 12 indu (x) + 2|x|
+                                                                          1
+                                                                             ≤ sup A2 . We may conclude that
+                         
+cr(v) ≤ sup A1 ∪ A2 .
+   To prove the opposite inequality, we show
+
+                             A1 ∪ A2 \ [0, 1] ⊂ {indv (v) : v ∈ L(v), v 6= ε} .
+                                                                                1
+If H ∈ A1 , then there exists a stable factor u in u such that H = indu (u) + |u|  , and by Lemma 12, we
+                                                                                                   1
+find v in v such that H = indv (v). Analogously, if H ∈ A2 and H > 1, then indu (u) = 2H − |u|       ≥ 2 for
+some unstable factor u ∈ L(u). Thus the word y = uu ∈ L(u), it is a stable factor of u and its index in u
+is 12 indu (u). By Lemma 12, there exists v in v such that indv (v) = indu (y) + |y|
+                                                                                  1
+                                                                                      = 12 indu (u) + 2|u|
+                                                                                                       1
+                                                                                                           =
+H.
+   Theorem 14 will be used in the next sections to determine the critical exponent of a complementary
+symmetric Rote sequence v by exploiting the indices of factors in the Sturmian sequence S(v). The
+following example shows an opposite application of Theorem 14. But before that, let us state a simple
+auxiliary statement reflecting the behaviour of fractional roots under the application of a morphism.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                11
+
+Observation 15. Let φ : A∗ 7→ A∗ be a morphism and let w ∈ A∗ be a prefix of φ(a) for each a ∈ A. If
+u is a fractional root of z, then φ(u) is a fractional root of φ(z)w.
+Example 16. Let us consider the Thue–Morse sequence t = 01101001 · · · , which is fixed by the mor-
+phism ψ : 0 7→ 01 and 1 7→ 10. As ψ is primitive, the sequence t is uniformly recurrent. It is well-
+known that its language is closed under the exchange of letters and cr(t) = 2. The corresponding se-
+quence u = S(t) = 1011101 · · · is called the period doubling sequence and it is fixed by the morphism
+φ : 0 7→ 11 and 1 7→ 10, see [23].
+   We determine the critical exponent of u. Theorem 14 implies cr(u) ≤ 4, as otherwise cr(t) > 2, which
+is a contradiction. Now we show that the value 4 is attained.
+   By Observation 15 and the fact that both φ(0) and φ(1) have the prefix 1, the morphism φ has the
+following two properties:
+
+    1. If w ∈ L(u), then φ(w)1 ∈ L(u).
+
+   2. If u is a fractional root of w, then φ(u) is a fractional root of φ(w)1.
+                                                     
+We will construct two sequences u(n) and w(n) of words belonging to L(u). We start with u(0) = 1
+and w(0) = 111 ∈ L(u) and for each n ∈ N we define
+
+                          w(n+1) = φ(w(n) )1        and      u(n+1) = φ(u(n) ) .
+
+Note that u(0) = 1 is a fractional root of w(0) = 111. Because of the property (2), the word u(n)
+is a fractional root of w(n) for each n ∈ N. Moreover, the specific form of the morphism φ implies
+|u(n+1) | = 2|u(n) | and |w(n+1) | = 2|w(n) | + 1. It gives |u(n) | = 2n and |w(n) | = 2n+2 − 1. Therefore,
+                 n+2
+indu (u(n) ) ≥ 2 2n−1 → 4. We may conclude that cr(u) = 4.
+
+
+5     Return words to bispecial factors of Sturmian sequences
+The main goal of this article is to describe the critical exponent and the recurrence function of CS Rote
+sequences. Proposition 8 and Theorem 14 transform the first task to the computation of the indices of
+return words to bispecial factors in the associated Sturmian sequences.
+   This is a preparatory section for this computation. We introduce the directive sequence of a standard
+Sturmian sequence and recall some known results on bispecial factors, their return words, and derived
+sequences. It allows us to describe the longest factor of u with the fractional root u, where u is any
+return word to a bispecial factor of a Sturmian sequence u (Lemma 24). Furthermore, we explain how to
+express the lengths of these factors explicitly (Proposition 30), and eventually in Section 6, we determine
+the indices.
+   First, we recall that a binary sequence u ∈ {0, 1}N is Sturmian if it has the factor complexity Cu (n) =
+n + 1 for all n ∈ N. If both sequences 0u and 1u are Sturmian, then u is called a standard Sturmian
+sequence. It is well-known that for any Sturmian sequence there exists a unique standard Sturmian se-
+quence with the same language. Since all properties which we are interested in (indices of factors, critical
+exponent, special factors, return words, recurrence function) depend only on the language of the sequence,
+we restrict ourselves to standard Sturmian sequences without loss of generality.
+12                                                 L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+  In the sequel, we use the characterization of standard Sturmian sequences by their directive sequences.
+To introduce them, we define two morphisms
+                                  (                               (
+                                     0 → 10                         0→0
+                            G=                     and      D=
+                                     1→1                            1 → 01
+
+with the corresponding matrices
+                                                                                   
+                                 1         0                                  1   1
+                       MG =                           and         MD =                    .
+                                 1         1                                  0   1
+
+  Let us note that G = E ◦ F and D = F ◦ E, where E is the morphism which exchanges letters, i.e.,
+E : 0 → 1, 1 → 0, and F is the Fibonacci morphism, i.e., F : 0 → 01, 1 → 0.
+Proposition 17 ([15]). For every standard Sturmian sequence u there is a uniquely given sequence ∆ =
+∆0 ∆1 ∆2 · · · ∈ {G, D}N of morphisms and a sequence (u(n) )n≥0 of standard Sturmian sequences such
+that
+                            u = ∆0 ∆1 . . . ∆n−1 (u(n) ) for every n ∈ N .
+Moreover, the sequence ∆ contains infinitely many letters G and infinitely many letters D, i.e.,
+
+∆ = Ga1 Da2 Ga3 Da4 · · · or ∆ = Da1 Ga2 Da3 Ga4 · · ·            for some sequence (ai )i≥1 of positive integers .
+
+The sequence ∆ is called the directive sequence of u.
+Remark 18. Let us note that u has the directive sequence Ga1 Da2 Ga3 Da4 · · · if and only if E(u) has the
+directive sequence Da1 Ga2 Da3 Ga4 · · · . Obviously, both sequences u and E(u) have the same structure
+up to the exchange of letters 0 ↔ 1. In particular, any Sturmian sequence with the directive sequence
+Ga1 Da2 Ga3 Da4 · · · can be written as a concatenation of the blocks 1a1 0 and 1a1 +1 0, while any Sturmian
+sequence with the directive sequence Da1 Ga2 Da3 Ga4 · · · can be written as a concatenation of the blocks
+0a1 1 and 0a1 +1 1.
+   By Vuillon’s result [26], every factor of any Sturmian sequence has exactly two return words. Thus for
+a given bispecial factor b of u, we usually denote the more and the less frequent return word to b in u
+by r and s. In this notation, the sequence u can be decomposed into the blocks rk s and rk+1 s for some
+k ∈ N, k ≥ 1.
+  We need to know how bispecial factors and their return words change under the application of mor-
+phisms G and D. The following description can be found in [18], where several partial statements from
+[16] are accumulated.
+Lemma 19. Let u0 , u be standard Sturmian sequences such that u = G(u0 ).
+     (i) For every bispecial factor b0 of u0 , the factor b = G(b0 )1 is a bispecial factor of u.
+  (ii) Every bispecial factor b of u which is not empty can be written as b = G(b0 )1 for a uniquely given
+       bispecial factor b0 ∈ L(u0 ).
+ (iii) The words r0 , s0 are return words to a bispecial prefix b0 of u0 if and only if r = G(r0 ), s = G(s0 )
+       are return words to a bispecial prefix b = G(b0 )1 of u. Moreover, the derived sequences satisfy
+       du (b) = du0 (b0 ).
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                  13
+
+Lemma 20. Let u0 , u be standard Sturmian sequences such that u = D(u0 ).
+
+  (i) For every bispecial factor b0 of u0 , the factor b = D(b0 )0 is a bispecial factor of u.
+
+  (ii) Every bispecial factor b of u which is not empty can be written as b = D(b0 )0 for a uniquely given
+       bispecial factor b0 ∈ L(u0 ).
+
+ (iii) The words r0 , s0 are return words to a bispecial prefix b0 of u0 if and only if r = D(r0 ), s = D(s0 )
+       are return words to a bispecial prefix b = D(b0 )0 of u. Moreover, the derived sequences satisfy
+       du (b) = du0 (b0 ).
+
+   Any prefix of a standard Sturmian sequence is a left special factor. Moreover, a factor of a standard
+Sturmian sequence u is bispecial if and only if it is a palindromic prefix of u. Therefore, we can order the
+bispecial factors of a given standard Sturmian sequence u by their lengths: we start with the empty word
+ε, which is the 0th bispecial factor, then the first letter of u is the 1st bispecial factor of u etc.
+Remark 21. If u has the directive sequence ∆0 ∆1 ∆2 · · · ∈ {G, D}N , the derived sequence du (b) to the
+nth bispecial factor b of u has the directive sequence ∆n ∆n+1 ∆n+2 · · · . Indeed, we denote the sequence
+with the directive sequence ∆n ∆n+1 ∆n+2 · · · by u0 . It has the bispecial factor ε and by the definition
+du0 (ε) = u0 . If we apply n times Lemmas 19 or 20, we get du (b) = du0 (ε) = u0 .
+  Let us formulate a direct consequence of the relation (1) and Lemmas 19 and 20.
+Corollary 22. Let k, h ∈ N. Let b0 be the k th bispecial factor of a standard Sturmian sequence u0 and u0
+be a return word to b0 in u0 . Let ∆ = ∆0 ∆1 ∆2 · · · ∈ {G, D}N be the directive sequence of u0 .
+
+   1. If u = Gh (u0 ), then the (k + h)th bispecial factor b of u and a return word u to b satisfy
+                                                                             
+                     ~           1 0 ~ 0             0             ~         1 0 ~ 0
+                     V (b) =            V (b ) + h          and V (u) =              V (u ) .
+                                 h 1                 1                       h 1
+
+      The directive sequence of u is Gh ∆0 ∆1 ∆2 · · · .
+
+   2. If u = Dh (u0 ), then the (k + h)th bispecial factor b of u and a return word u to b satisfy
+                                                                             
+                     ~          1 h ~ 0              1             ~         1 h ~ 0
+                     V (b) =           V (b ) + h           and V (u) =             V (u ) .
+                                0 1                  0                       0 1
+
+      The directive sequence of u is Dh ∆0 ∆1 ∆2 · · · .
+
+   As we have seen in Remark 4, when determining the critical exponent it suffices to take into account
+only bispecial factors whose fractional roots are equal to its return words. Lemma 24 says that all bispecial
+factors of a Sturmian sequence are of this type, and moreover, it enables one to determine the indices of
+their return words. The first auxiliary statement is a slightly strengthened variant of Observation 15 for
+the morphisms G and D.
+Observation 23. Let u be a binary sequence and let u ∈ L(u). If z is the longest factor in L(u) with
+the fractional root u, then G(z)1 is the longest factor in L(G(u)) with the fractional root G(u) and,
+analogously, D(z)0 is the longest factor in L(D(u)) with the fractional root D(u).
+14                                               L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+Lemma 24. Let b be a bispecial factor of a standard Sturmian sequence u. Let r and s be the return
+words to b in u and let k ∈ N, k ≥ 1, be such that u is concatenated from the blocks rk s and rk+1 s.
+Then rk+1 b is the longest factor of u with the fractional root r and sb is the longest factor of u with the
+fractional root s.
+
+Proof: We proceed by induction on the length of b. Without loss of generality, we assume that u has the
+directive sequence ∆ = Ga1 Da2 Ga3 Da4 · · · .
+   The bispecial factor b = ε has the return words r = 1, s = 0, and by Remark 18, u is concatenated
+from the blocks 1a1 0 = ra1 s and 1a1 +1 0 = ra1 +1 s. Clearly, ra1 +1 b = 1a1 +1 is the longest factor of u
+with the fractional root 1. Similarly, sb = 0 is the longest factor of u with the fractional root 0.
+   Let b be a bispecial factor of u with |b| ≥ 1 and let u be concatenated from the blocks rk s and rk+1 s
+for the return words r, s to b in u and some k ∈ N, k ≥ 1. By Proposition 17, there is a unique standard
+Sturmian sequence u0 such that u = G(u0 ). By Lemmas 19 and 20, there is a unique bispecial factor b0
+of u0 with the return words r0 and s0 such that b = G(b0 )1, r = G(r0 ), and s = G(s0 ). Moreover, u0 is
+concatenated from the blocks (r0 )k s0 and (r0 )k+1 s0 . Clearly, |b0 | < |b| and so by the induction hypothesis,
+the words (r0 )k+1 b0 and s0 b0 are the longest factors of u0 with the fractional root r0 and s0 , respectively.
+But then by Observation 23, the words rk+1 b = G((r0 )k+1 b0 )1 and sb = G(s0 b0 )1 are the longest factors
+of u with the fractional root r = G(r0 ) and s = G(s0 ), respectively.
+   Having in mind our goal to describe the critical exponent of any CS Rote sequence and Theorem 14,
+we need to determine the indices of return words to bispecial factors in standard Sturmian sequences,
+i.e., the lengths of factors from Lemma 24. We also want to distinguish, which of these return words are
+(un)stable. Both of these tasks can be solved using the Parikh vectors of the relevant bispecial factors and
+their return words. We deduce the explicit formulae for the needed Parikh vectors in Proposition 30. For
+this purpose, we adopt the following notation.
+Notation 25. To a standard Sturmian sequence u with the directive sequence ∆ = Ga1 Da2 Ga3 Da4 · · ·
+or ∆ = Da1 Ga2 Da3 Ga4 · · · we assign an irrational number θ ∈ (0, 1) with the continued fraction
+expansion
+                                      θ = [0, a1 , a2 , a3 , . . .] .
+For every N ∈ N, we denote the N th convergent to the number θ by pqN
+                                                                    N
+                                                                      and the N th convergent to the
+        θ         p0
+number 1+θ by qN
+               0 .
+                   N
+
+Remark 26. Let us recall some basic properties of convergents. They can be found in any number theory
+textbook, e.g., [14].
+
+                                          0
+     1. The sequences (pN ), (qN ), and (qN ) fulfil the same recurrence relation for all N ∈ N, N ≥ 1,
+        namely
+                                          XN = aN XN −1 + XN −2 ,
+                                                                                    0
+        but they differ in their initial values: p−1 = 1, p0 = 0; q−1 = 0, q0 = 1; q−1 = q00 = 1. It implies
+        for all N ∈ N
+                                                                 0
+                                                    pN + qN = qN   .
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                                           15
+
+   2. For all N ∈ N, N ≥ 1, we have
+                                                                                                      
+        1 0       1 a2            1                    0         1   a2N                  p2N −1        p2N
+                          ···                                                     =                                ;
+        a1 1      0 1           a2N −1                 1         0    1                   q2N −1        q2N
+                                                                                                              
+          1    0        1   a2                 1   a2N −2            1        0                p2N −1       p2N −2
+                                     ···                                              =                                    .
+          a1   1        0   1                  0     1           a2N −1       1                q2N −1       q2N −2
+
+
+Remark 27. For the description of a standard Sturmian sequence u we use the number θ. Usually, a
+standard Sturmian sequence is characterized by the so-called slope, which is equal to the density of the
+                                                                θ
+letter 1 in the sequence u. In our notation, the slope of u is 1+θ = [0, 1 + a1 , a2 , a3 , . . .] if the directive
+                                                     1
+sequence ∆ starts with D, otherwise the slope is 1+θ = [0, 1, a1 , a2 , a3 , . . .].
+  In the sequel, we will need two auxiliary statements on convergents pqN
+                                                                        N
+                                                                          to θ.
+Lemma 28. For all N ∈ N we have
+                                                                                                    
+               pN        0                                                    pN                   pN −1
+                     6=       mod 2                          and                          6=                   mod 2 .
+               qN        0                                                    qN                   qN −1
+
+Proof: The first statement is a consequence of the fact that pN and qNare coprime.
+                                                                              We show  the second
+                                                                        pK        pK−1
+statement by contradiction. Assume that there exists K ∈ N such that          =            mod 2. Let
+                                                                        qK        qK−1
+K denote the smallest integer with this property. As q−1 = 0 and q0 = 1, necessarily, K > 0. Using the
+recurrence relation satisfied by the convergents, we can write
+                                                                
+                        pK              pK−1        pK−2         pK−1
+                               = aK             +            =              mod 2 .
+                         qK             qK−1         qK−2        qK−1
+                                                                                                 
+                                                                     pK−2                 pK−1
+  If aK is even, then the previous equation gives                                 =                        mod 2, which is a contradic-
+                                                                     qK−2                 qK−1
+tion with the minimality of K.                                                     
+                                                                     pK−2            0
+  If aK is odd, then the previous equation gives                                  =     mod 2, which is a contradiction
+                                                                     qK−2            0
+with the first statement.
+
+Lemma 29. For all N ∈ N, N ≥ 1, we have
+                                                                 
+       pN −1             pN −2                 p1       p0   pN     pN −1    1
+  aN           + aN −1           + · · · + a2     + a1     =     +         −    .
+       qN −1             qN −2                 q1       q0   qN     qN −1    1
+
+Proof: It can be easily proved by induction on N .
+  The Parikh vectors of the bispecial factors of u and the corresponding return words can be easily
+expressed using the convergents pqN
+                                  N
+                                    to θ. We will use these expressions essentially in the next sections.
+16                                                                  L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+Proposition 30. Let b be the nth bispecial factor of u with the directive sequence Ga1 Da2 Ga3 Da4 · · · .
+We denote the more and the less frequent return word to b in u by r and s, respectively. Put a0 = 0 and
+write n in the form n = m + a0 + a1 + a2 + · · · + aN for a unique N ∈ N and 0 ≤ m < aN +1 . Then
+
+                          
+        ~ (r) =       pN
+     1. V                      ;
+                      qN
+
+                                  
+        ~ (s) =       m pN + pN −1
+     2. V                            ;
+                      m qN + qN −1
+
+                                                                   
+        ~ (b) = (m + 1)                pN               pN −1          1
+     3. V                                       +                   −     .
+                                       qN               qN −1          1
+
+
+Proof: First we suppose that N is even and we denote the standard Sturmian sequence with the directive
+sequence GaN +1 DaN +2 GaN +3 · · · by u0 . By Remark 18, u0 is concatenated from the blocks 1aN +1 0 and
+1aN +1 +1 0. Thus its mth bispecial factor is b0 = 1m and the return words to b0 in u0 are r0 = 1 and
+s0 = 1m 0.
+   By Lemmas 19 and 20 and Remark 21,
+
+             r = Ga1 Da2 · · · GaN −1 DaN (r0 )                         and      s = Ga1 Da2 · · · GaN −1 DaN (s0 ) .
+
+By Corollary 22 and Lemma 29, the Parikh vectors of r and s satisfy
+                                                                
+      ~          1 0     1 a2              1     0     1 aN         0   pN
+      V (r) =                      ···                                =      ;
+                 a1 1    0 1             aN −1 1       0 1          1   qN
+                                                                           
+      ~          1 0     1 a2              1     0     1 aN         1    m pN + pN −1
+      V (s) =                      ···                                =                 .
+                 a1 1    0 1             aN −1 1       0 1          m    m qN + qN −1
+
+To find the Parikh vector of b we start with the bispecial factor b0 = 1m and N times apply Corollary 22.
+Eventually, we rewrite the arising products of matrices by Lemma 29 and we get
+                                                                                 
+         ~ (b) = m pN + aN pN −1 + aN −1 pN −2 + · · · + a2 p1 + a1 p0 .
+         V
+                      qN             qN −1                qN −2                q1          q0
+
+This together with Lemma 29 implies the statement of Item 3 for N even. The proof for N odd is
+analogous.
+
+Remark 31. If we assume in Proposition 30 that u has the directive sequence ∆ = Da1 Ga2 Da3 Ga4 · · · ,
+then by Remark 18, the coordinates of the Parikh vectors will be exchanged, i.e.,
+                                                                                   
+   ~        qN      ~         m qN + qN −1            ~                  qN       qN −1      1
+  V (r) =        , V (s) =                      , and V (b) = (m + 1)           +        −        .
+            pN                m pN + pN −1                               pN       pN −1      1
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                       17
+
+6     The critical exponent of CS Rote sequences
+We are going to give an explicit formula for the critical exponent of a CS Rote sequence v. We will
+use Theorem 14 which requires the knowledge of the indices of return words to bispecial factors in the
+Sturmian sequence S(v). It is well-known that there is a unique standard Sturmian sequence u such that
+both S(v) and u have the same language. Since the critical exponent depends only on the language, we
+can work with the standard Sturmian sequence u instead of S(v).
+  In the following proposition and theorem, we use Notation 25.
+Proposition 32. Let u be a standard Sturmian sequence with the directive sequence Ga1 Da2 Ga3 Da4 · · ·
+or Da1 Ga2 Da3 Ga4 · · · and let n ∈ N be given. We put a0 = 0 and we denote the more and the less
+frequent return word to the nth bispecial factor of u by r and s, respectively.
+                                                                                                       q0       −2
+    1. If n = m + a0 + a1 + a2 + · · · + aN , where 0 ≤ m < aN +1 , then ind(r) = aN +1 + 2 + N q−10                 .
+                                                                                                            N
+
+                                                                         0
+                                                                        qN −2 −2
+    2. If n = a0 + a1 + a2 + · · · + aN , then ind(s) = aN + 2 +           0
+                                                                          qN     .
+                                                                             −1
+
+
+                                                                                                   q 0 −2
+    3. If n = m + a0 + a1 + a2 + · · · + aN , where 0 < m < aN +1 , then ind(s) = 2 + m q0 N+q0                 .
+                                                                                                   N    N −1
+
+                                         0                                          0
+   Let us comment on what is meant by q−2   in the case N = 0 in Item 2: we define q−2 to satisfy the
+                         0       0     0      0
+recurrence relation 1 = q0 = a0 q−1 + q−2 = q−2 .
+Proof: We assume that N is even (the case of N odd is analogous). Moreover, we assume that u has the
+directive sequence Ga1 Da2 Ga3 Da4 · · · .
+   Since b is the nth bispecial factor in u, the derived sequence du (b) is standard Sturmian with the
+directive sequence Gk DaN +2 GaN +3 · · · , where k = aN +1 − m, see Corollary 22. By Remark 18, du (b)
+is a concatenation of the blocks 1k 0 and 1k+1 0. Therefore, the sequence u is concatenated from the blocks
+rk s and rk+1 s, where r and s are the return words to b. By Lemma 24, the factor rk+1 b is the longest
+factor of u with the fractional root r and sb is the longest factor of u with the fractional root s. In other
+words, rind(r) = rk+1 b and sind(s) = sb. By Proposition 30 and Remark 26, we have
+                          0                 0    0                                0    0
+         |r| = pN + qN = qN ,       |s| = mqN + qN −1 ,      and    |b| = (m + 1)qN + qN −1 − 2 .
+
+                                                                        0    0
+As |rk+1 b| = (k + 1)|r| + |b| = (aN +1 − m + 1)|r| + |b| = (aN +1 + 2)qN + qN −1 − 2, we get
+
+                                             k+1                     0
+                                                                    qN −1 −2
+                                 ind(r) = |r |r| b| = aN +1 + 2 +       0
+                                                                       qN    .
+                   0     0
+As |sb| = (2m + 1)qN + 2qN −1 − 2, we get for m = 0
+                                0     0
+                               qN +2qN  −1 −2  a q0   +q 0    +2q 0 −2       q0     −2
+             ind(s) = |sb|
+                       |s| =        0
+                                   qN         = N N −1 qN0 −2 N −1 = aN + 2 + Nq0−2
+                                      −1                  N −1                  N −1
+
+
+and for m > 0                                     0     0
+                                           (2m+1)qN +2qN  −1 −2          q 0 −2
+                         ind(s) = |sb|
+                                   |s| =         0 +q 0
+                                              m qN              = 2 + m q0 N+q0    .
+                                                     N −1                N    N −1
+
+   If the directive sequence equals Da1 Ga2 Da3 Ga4 · · · , only the coordinates of the Parikh vectors of r, s,
+b are exchanged (see Remark 31).
+18                                                  L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+Theorem 33. Let v be a CS Rote sequence and let u be the standard Sturmian sequence such that
+L(S(v)) = L(u). Then cr(v) = sup(M1 ∪ M2 ∪ M3 ) , where
+
+                                   q0     −1
+                                                                  
+              M1 = aN +1 + 2 + N −10           : qN is even, N ∈ N ;
+                                        qN
+                                      0
+                                    q      −1
+                                                                  
+                       aN +1 + 2
+              M2 =               + N −10        : qN is odd, N ∈ N ;
+                           2            2qN
+                              0
+                             q −1
+                                                                                
+              M3 = 2 + 0 N          0   : q     ,
+                                           N −1 N q are odd  and aN +1 > 1, N ≥ 1
+                           qN −1 + qN
+
+if the directive sequence of u is Ga1 Da2 Ga3 Da4 · · · , and
+
+                                        q0     −1
+                                                                     
+                   M1 = aN +1 + 2 + N −10          : pN is even, N ∈ N ;
+                                             qN
+                                           0
+                           aN +1 + 2 qN −1 − 1
+                                                                     
+                   M2 =               +        0    : pN is odd, N ∈ N ;
+                                2            2qN
+                                   0
+                                     −1
+                                                                                   
+                                  qN
+                   M3 = 2 + 0            0 : pN −1 , pN are odd and aN +1 > 1, N ≥ 1
+                                qN −1 + qN
+
+if the directive sequence of u is Da1 Ga2 Da3 Ga4 · · · .
+
+Proof: Let us recall that every CS Rote sequence is uniformly recurrent and aperiodic. In addition, to a
+CS Rote sequence v we can always find a unique standard Sturmian sequence u such that u has the same
+language as S(v). It is important to realize that Theorem 14 holds for the pair v and u, too.
+   First, we assume that u has the directive sequence Ga1 Da2 Ga3 Da4 · · · . We compute the suprema of
+the sets A1 and A2 defined in Theorem 14, since by this theorem, cr(v) = sup(A1 ∪ A2 ).
+                                    S∞        (N )
+   Let us decompose A1 into A1 = N =0 A1 , where
+
+          n                                                                         N          N +1   o
+  (N )
+                                                                                    X          X
+A1                     1
+         = indu (u) + |u| : u is a stable return word to the nth bispecial f. of u,   ak ≤ n <      ak .
+                                                                                       k=0            k=0
+
+By definition, a word u is stable if the number of ones occurring in u is even, i.e., the second component
+                     ~ (u) is even. Combining Propositions 30 and 32, we obtain that A(N ) contains
+of its Parikh vector V                                                                    1
+                       0
+                      qN −1 −1
+     • aN +1 + 2 +        0
+                         qN    if qN is even,
+                    0
+                   qN −2 −1
+     • aN + 2 +       0
+                     qN     if qN −1 is even,
+                        −1
+
+
+                     (N )              q 0 −1
+     • the subset B1        = {2 + m q0 N+q0      : m qN + qN −1 even, 0 < m < aN +1 }.
+                                       N   N −1
+
+
+                     (0)
+First we look at A1 . Since q0 = 1 is odd, q−1 = 0 is even, a0 = 0, q00 = q−1
+                                                                           0     0
+                                                                              = q−2 = 1, we get
+  (0)
+A1 = {2}. Since we know that cr(v) > 2, we can consider only N ≥ 1. Let us note that all elements
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function              19
+     (N )                                                                   (N )
+in B1 are strictly less than 3. If qN or qN −1 is even, the set A1 contains an element ≥ 3 and the
+      (N )                                                                                       (N )
+set B1 does not play any role for sup A1 . If both qN and qN −1 are odd, there is an element in B1
+                                             (N )
+only for odd m < aN +1 , and obviously, sup B1 is attained for m = 1 (if aN +1 = 1 the set is empty).
+Together it gives sup A1 = sup(M1 ∪ M3 ).
+                                   (N )                               (N )
+   Analogously we define the sets A2 for unstable return words. Then A2 consists of
+                           0
+                          qN −1 −1
+    • 12 aN +1 + 2 +
+                                   
+                              0
+                             qN      if qN is odd,
+                       0
+                      qN −2 −1
+    • 12 aN + 2 +
+                               
+                         0
+                        qN       if qN −1 is odd,
+                           −1
+
+
+                   (N )                   q 0 −1
+                          = { 12 2 + m q0 N+q0
+                                                     
+    • the subset B2                                      : m qN + qN −1 odd, 0 < m < aN +1 }.
+                                          N   N −1
+
+
+                                   (0)                                       (N )
+We easily compute that sup A2 = 21 (a1 + 2). All elements in B2 are strictly less than 23 . Thus if
+                             (N )
+qN or qN −1 is odd, the set B2 does not play any role for sup A2 . If qN and qN −1 are even, then the
+     (N )
+set B2 is empty. It means that sup A2 = sup M2 . We can conclude that cr(v) = sup(A1 ∪ A2 ) =
+sup(M1 ∪ M2 ∪ M3 ).
+  If the directive sequence equals Da1 Ga2 Da3 Ga4 · · · , only the coordinates of the Parikh vectors of r
+and s are exchanged (see Remark 31).
+
+
+7     CS Rote sequences with a small critical exponent
+In this section, we present some corollaries of Theorem 33. As we have mentioned, Currie, Mol, and
+Rampersad proved in [8] that there are exactly two languages of rich binary sequences with the critical
+exponent less than 145 . Both of them are languages of CS Rote sequences.
+   Let us recall that the critical exponent depends only on the language of a sequence and not on the
+sequence itself. Therefore, there are infinitely many CS Rote sequences with the critical exponent less
+than 14
+      5 , but all of them have one of two languages. We show that among all languages of CS Rote
+sequences only these two languages have the critical exponent less than 3. We also describe all languages
+of CS Rote sequences with the critical exponent equal to 3.
+Proposition 34. Let v be a CS Rote sequence associated with the standard Sturmian sequence u = S(v).
+If cr(v) ≤ 3, then the directive sequence of u is of one of the following forms:
+
+    1. Ga1 (D2 G2 )ω , where a1 = 1 or a1 = 3; in this case cr(v) = 2 + √12 ;
+
+    2. Ga1 D4 (G2 D2 )ω , where a1 = 1 or a1 = 3; in this case cr(v) = 3;
+
+    3. Ga1 D1 Ga3 (D2 G2 )ω , where a1 = 2 or a1 = 4 and a3 = 1 or a3 = 3; in this case cr(v) = 3;
+
+    4. D1 Ga2 (D2 G2 )ω , where a2 = 1 or a2 = 3; in this case cr(v) = 3.
+
+                                                                  q0   −1
+Proof: For each N ∈ N we denote by βN = aN +1 + 2 + N q−10        the number which is a candidate to join
+                                                            N
+the set M1 . We can easily compute that β0 = a1 + 2, β1 = a2 + 2 and βN > 3 for every N ≥ 2. Indeed, it
+20                                             L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+                          0
+suffices to realize that q−1 = q00 = 1, q10 = a1 + 1 > 1 and (qN
+                                                               0
+                                                                 )N ≥1 is an increasing sequence of integers,
+     q0   −1
+so N q−10     ∈ (0, 1) for all N ≥ 2. Since we look for a sequence v with cr(v) ≤ 3, we have to ensure that
+       N
+βN ∈/ M1 for all N ≥ 2 by the parity conditions. It is also important to notice that sup M3 ≤ 3. Indeed,
+           0
+          qN −1
+since q0 +q  0    ∈ [0, 1) for all N ∈ N, all elements of M3 are less than 3.
+          N    N −1
+
+   First we assume that the directive sequence of u is Ga1 Da2 Ga3 Da4 · · · . By Theorem 33, if qN is even,
+then βN ∈ M1 , otherwise 21 βN ∈ M2 . To ensure sup M1 ≤ 3, qN has to be odd for all N ≥ 2. Moreover,
+to ensure sup M2 ≤ 3, βN ≤ 6 and so aN +1 ≤ 3 for all N ≥ 2. Since q0 = 1 is odd, 21 β0 = a21 +1 ∈ M2
+and so a1 ≤ 4. We distinguish two cases.
+   (i) If q1 = a1 is odd, then M1 is empty and 21 β1 = a22 + 1 ∈ M2 . Thus a2 ≤ 4. The recurrence relation
+qN = aN qN −1 + qN −2 with the odd initial conditions q0 and q1 produces qN odd for all N ≥ 2 if and
+only if aN is even for all N ≥ 2. We can summarize that a1 ∈ {1, 3}, a2 ∈ {2, 4} and aN = 2 for all
+N ≥ 3.
+   Let us observe that if a2 = 4, then sup M2 = 3. Since sup M3 ≤ 3 and M1 is empty, we conclude that
+cr(v) = sup M2 = 3. It gives us Item 2 of our proposition.
+   If a2 = 2, then it is easy to check that all elements of M2 are smaller than 52 and thus sup M2 ≤ 25 .
+Since M1 is empty, to prove Item 1, it remains to deduce
+                                                0
+                                                   −1
+                                                                 
+                                               qN                              1    5
+                       sup M3 = sup 2 + 0              0 :N ∈N =2+
+                                                                             √ > .
+                                            qN −1 + qN                          2   2
+               0                                        0        0        0
+The sequence (qN )N ≥2 fulfils the recurrence relation qN  = 2qN   −1 + qN −2 with the initial conditions
+ 0          0
+q0 = 1 and q1 = a1 + 1. This linear recurrence has the solution
+
+                     0      1
+                                       √        √ N              √         √ N
+                    qN  = 2√  2
+                                  (a1 +   2)(1 +    2)  − (a 1 −    2)(1 −   2)   .                   (7)
+
+                                              0       0
+                                                            √      0
+                                                                                           √     √
+Using the solution one can easily check that qN −1 + qN =       2 qN +cN , where cN = (a1 − 2)(1− 2)N .
+                              0
+As lim cN = 0 and lim qN = +∞, we have
+     N →∞              N →∞
+
+                                    0                      0
+                                  qN −1                qN   −1       1
+                      lim 2 +    0       0 =  lim   2 + √    0
+                                                                    =2+ √ .
+                      n→∞       qN −1 + qN   n→∞          2qN + cN        2
+
+Moreover, since cN > −1, all elements of M3 are smaller than the limit 2 + √12 . Indeed,
+                                     0                 0
+                                    qN   −1          qN   −1        1
+                            2+ √       0
+                                              < 2 + √    0
+                                                               <2+ √ .
+                                   2 q N + cN         2 qN − 1       2
+
+  (ii) If q1 = a1 is even, then M1 = {β1 = a2 + 2} since all the other qN are odd. Thus a2 = 1
+and cr(v) ≥ 3. The recurrence relation qN = aN qN −1 + qN −2 with the initial conditions q0 = 1,
+q1 = a1 ∈ {2, 4} produces odd qN for all N ≥ 2 if and only if a3 is odd and aN is even for all N ≥ 4.
+Moreover, to ensure sup M2 ≤ 3, we have to take a1 ≤ 4 and aN ≤ 3 for every N ≥ 3. Together with the
+parity conditions we get a1 ∈ {2, 4}, a2 = 1, a3 ∈ {1, 3}, and aN = 2 for all N ≥ 4. Since sup M3 ≤ 3,
+the set M3 can be omitted. Together it means that in this case cr(v) = 3 and it corresponds to Item 3 of
+our statement.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                  21
+
+   Now we assume that the directive sequence of u is Da1 Ga2 Da3 Ga4 · · · . By Theorem 33, if pN is even,
+then βN ∈ M1 , otherwise β2N ∈ M2 . Since p0 = 0 is even, β0 = a1 + 2 ∈ M1 . Therefore, a1 = 1 and
+cr(v) ≥ 3. Since p1 = a1 p0 +p−1 = 1 is odd, β21 = a22 +1 ∈ M2 and so a2 ≤ 4. To guarantee cr(v) ≤ 3,
+pN has to be odd and aN +1 ≤ 3 for all N ≥ 2. The recurrence relation pN = aN pN −1 + pN −2 with the
+initial conditions p0 = 0 and p1 = 1 produces pN odd for all N ≥ 2 if and only if a2 is odd and aN is
+even for all N ≥ 2. Clearly, the set M3 can be omitted. We may conclude that cr(v) = 3 and a1 = 1,
+a2 ∈ {1, 3}, and aN = 2 for all N ≥ 3, which corresponds to Item 4.
+
+
+Remark 35. Let us emphasize that all standard Sturmian sequences from Proposition 34, i.e., which are
+associated with CS Rote sequences with the critical exponent ≤ 3, are morphic images of the fixed point
+of the morphism D2 G2 . If follows directly from the fact that their directive sequences have the periodic
+suffix (D2 G2 )ω .
+Example 36. In Proposition 34, we have shown that the CS Rote sequence v such that S(v) has the
+directive sequence G(D2 G2 )ω has the critical exponent cr(v) = 2 + √12 . Let us determine the critical
+exponent cr(v0 ) of the CS Rote sequence v0 associated to the standard Sturmian sequence S(v0 ) obtained
+by the exchange of letters from S(v), i.e., S(v0 ) = E(S(v)).
+   By Remark 18, the directive sequence of S(v0 ) equals D(G2 D2 )ω . Thus we have θ = [0, 1, 2, 2, 2, . . . ]
+and it is readily seen that pN is even if and only if N is even. Let us calculate cr(v0 ) by Theorem 33. We
+have
+                                0
+                               q2N −1 − 1                      q0     −1
+       M1 = {a2N +1 + 2 +          0      : N ∈ N} = {3} ∪ {4 + 2N −1
+                                                                   0     : N ∈ N, N ≥ 1} .
+                                  q2N                             q2N
+                                                           0
+                                                          q2N −1 −1
+                                                                      is increasing and has the limit 1+1√2 ,
+                                                                    
+Using equation (7), we can check that the sequence            0
+                                                             q2N
+and therefore sup M1 = 4 + 1+1√2 . Since the elements of M2 and M3 are ≤ 3, we can conclude that
+cr(v0 ) = 4 + 1+1√2 .
+   It is well-known that among Sturmian sequences the sequence with the lowest possible critical exponent
+is the Fibonacci sequence f , which has cr(f ) = 3 + 1+2√5 ∼ 3.602. The following theorem implies that
+there are uncountably many CS Rote sequences with the critical exponent smaller than cr(f ).
+Theorem 37. Let Ga1 Da2 Ga3 Da4 · · · be the directive sequence of a standard Sturmian sequence u and
+let v be the CS Rote sequence associated with u. Then cr(v) < 27 if and only if the sequence a1 a2 a3 · · ·
+is a concatenation of the blocks from the following list:
+   L0 : 111;
+   L1 : s1, where s ∈ {2, 4};
+   L2 : cs31, where c ∈ {1, 3} and s ∈ {2, 4}∗ ;
+   L3 : cs, where c ∈ {1, 3} and s ∈ {2, 4}N ,
+and if the block L0 appears in a1 a2 a3 · · · , then it is a prefix of a1 a2 a3 · · · .
+
+Proof: As in the proof of Proposition 34, we again use the sets M1 and M2 from Theorem 33. The set
+M3 can be omitted since sup M3 ≤ 3.
+22                                               L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+                                                                                      q0       −1
+  Let us recall that q0 = 1, q1 = a1 , and if qN is even, then βN = aN +1 + 2 + N q−10   ∈ M1 , otherwise
+                                                                                           N
+1                                                  7
+2 βN∈ M2 . First we suppose that cr(v) <           2 and we deduce several auxiliary observations for each
+N ∈ N:
+
+     1. If qN even, then aN +1 = 1.
+        Proof: It follows from the inequality βN < 72 .
+     2. If qN odd, then aN +1 ∈ {1, 2, 3, 4}.
+        Proof: It follows from the inequality 12 βN < 72 .
+     3. If qN −1 odd and qN even, then qN +1 odd.
+        Proof: It follows from Item 1 and the relation qN +1 = aN +1 qN + qN −1 = qN + qN −1 .
+     4. If qN even, qN +1 odd, and qN +2 even, then aN +2 ∈ {2, 4}.
+        Proof: It follows from Item 2 and the relation qN +2 = aN +2 qN +1 + qN .
+     5. If qN even, qN +1 odd, and qN +2 odd, then aN +2 ∈ {1, 3}.
+        Proof: It follows from Item 2 and the relation qN +2 = aN +2 qN +1 + qN .
+     6. If qN odd, qN +1 odd, and qN +2 odd, then aN +2 ∈ {2, 4}.
+        Proof: It follows from Item 2 and the relation qN +2 = aN +2 qN +1 + qN .
+     7. If qN odd, qN +1 odd, and qN +2 even, then aN +2 = {1, 3}. Moreover, if aN +2 = 1, then N = 0
+        and a1 = 1.
+        Proof: Item 2 and the relation qN +2 = aN +2 qN +1 + qN imply aN +2 ∈ {1, 3}. Assume that
+                                                                                                    q0   −1
+        aN +2 = 1. By Item 1, aN +3 = 1. As qN +2 is even, βN +2 ∈ M1 and so βN +2 = 3 + Nq0+1 < 27 .
+                                                                                                    N +2
+        By some simple rearrangements and applications of the recurrence relation, we can rewrite this
+                                               0     0
+        inequality equivalently as (aN +1 − 1)qN + qN   −1 < 2. It is easy to verify that this inequality holds
+        only for N = 0 and a1 = 1 or N = 1 and a2 = 1. Nevertheless, the second case leads to a
+        contradiction with the assumption that both q1 , q2 = a2 q1 + 1 are odd.
+     8. Let M > N + 2. If qN even, qM even, and qK odd for all K, N < K < M , then aN +2 ∈ {1, 3},
+        aM = 3 and aK ∈ {2, 4} for all K, N + 2 < K < M .
+        Proof: Item 6 implies aK ∈ {2, 4} for all K, N + 2 < K < M . By Item 5, aN +2 ∈ {1, 3} and by
+        Item 7, aM = 3.
+
+   Using the previous claims we show that for each J for which qJ is even, at the position J + 1 ends one
+of the blocks L0 , L1 , or L2 . Moreover, the block L0 can only occur as a prefix of the sequence a1 a2 a3 · · · ,
+while each of the blocks L1 and L2 is either a prefix of a1 a2 a3 · · · or it starts at the position I + 2, where
+I is the greatest integer smaller than J for which qI is even. We discuss three cases:
+
+     • Let q1 be even. Then Item 1 implies a2 = 1. And since a1 = q1 is even and q0 = 1 is odd, by Item
+       2, we get a1 ∈ {2, 4}. Thus the prefix a1 a2 of the sequence a1 a2 a3 · · · is of the form L1 from our
+       list.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                         23
+
+    • Let J > 1 be the first index such that qJ is even. As q1 = a1 , a1 is odd, and by Item 2, we get
+      a1 ∈ {1, 3}. Item 6 implies aK ∈ {2, 4} for all K, 1 < K < J. By Item 7, aJ = 3 or aJ = 1.
+      But if aJ = 1, then J = 2 and a1 = 1. Finally, Item 1 implies aJ+1 = 1. Thus the prefix
+      a1 a2 · · · aJ aJ+1 of the sequence a1 a2 a3 · · · is of the form L0 or L2 from our list.
+
+    • Let I be an index such that qI is even and let J be the smallest index greater than I for which qJ is
+      even. By Item 1, aI+1 = 1. The word aI+2 · · · aJ aJ+1 is by Item 4 or Item 8 either of the form L1
+      or L2 .
+
+   If there are infinitely many even denominators qN , then we have shown that the sequence a1 a2 a3 · · ·
+is concatenated from the blocks L0 , L1 , and L2 (L0 can only be a prefix). It remains to consider the case
+when only finitely many denominators qN are even.
+
+    • Let qN be odd for every N ∈ N. Then q1 = a1 is odd. Especially, since both q0 and q1 = a1 are
+      odd, Item 2 implies a1 ∈ {1, 3} and it follows from Item 6 that a2 a3 a4 · · · ∈ {2, 4}N . Therefore,
+      the sequence a1 a2 a3 · · · is equal to the block L3 from our list.
+
+    • Let L ≥ 1 be the last index such that qL is even. In particular, it means that qN is even only
+      for a finite number of indices. Item 1 implies that aL+1 = 1. By Items 5 and 6, the suffix
+      aL+2 aL+3 aL+4 · · · of the sequence a1 a2 a3 · · · equals to L3 .
+
+
+  Now we have to show that any directive sequence Ga1 Da2 Ga3 Da4 · · · such that a1 a2 a3 · · · is concate-
+nated of the blocks from the list gives a standard Sturmian sequence u such that the CS Rote sequence v
+associated to u has the critical exponent less than 27 .
+                                                 0
+                                                qN  −1 −1           q 0 −1
+  If qN is odd, then 12 βN = 21 aN +1 + 1 +          0
+                                                   2qN    < 3 + 2q0 N+q    0   < 72 , as each aN +1 is ≤ 4.
+                                                                  N −1    N −2
+  If qN is even, it is easy to prove by induction on N that there is a block of the form L0 , L1 , or L2
+ending at the position N + 1 (and L0 only for N = 2). In particular, it means that aN +1 = 1 and aN ≥ 2
+                                                                    0
+                                                                   qN
+or a1 = a2 = a3 = 1. In the first case, we get βN ≤ 3 + 2q0           −1
+                                                                         0   < 72 , while in the second case, we
+                                                                 N −1 +qN −2
+
+get β2 = 3 + a2a(a1 +1−1
+                    1 +1)+1
+                            = 3 + 13 < 27 .
+                                                                            0
+                                                                           qN
+  To show that sup(M1 ∪ M2 ) < 72 , we need to show that sup 2q0              −1
+                                                                                 0       < 12 . As aN ≤ 4 for all N ,
+                                                                         N −1 +qN −2
+                  q0            0
+                               qN                             0
+                                                             qN
+we can estimate qN
+                 0
+                   −2
+                      ≥ 4q0       −2
+                                     0     = 15 and thus 2q0    −1
+                                                                   0     =       1
+                                                                                  0
+                                                                                            5
+                                                                                         ≤ 11 .
+                   N −1      N −2 +qN −2                   N −1 +qN −2          qN  −2
+                                                                             2+ q 0
+                                                                                 N −1
+
+
+
+Remark 38. It would be interesting to reveal some topological properties of the set
+
+                                crRote := {cr(v) : v is a CS Rote sequence},
+
+for instance, to find its accumulation points in the interval (3, 27 ). The proof of the previous theorem
+                                                                                        5
+implies that there is no CS Rote sequence with the critical exponent between 3 + 11       and 3 + 21 . We
+even believe that for any CS Rote sequence v, the following implication holds: If cr(v) < 3 + 21 , then
+cr(v) < 3 + 1+1√3 .
+24                                             L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+8      The recurrence function of CS Rote sequences
+The main result of this section is Theorem 54, where we describe the recurrence function of any CS Rote
+sequence in terms of the convergents related to the associated Sturmian sequence. To obtain this result,
+we proceed similarly as in the previous parts concerning the critical exponent, i.e., we transform our task
+of finding the recurrence function of a CS Rote sequence into studying some properties of its associated
+Sturmian sequence. Let us emphasize that we may still restrict our consideration to CS Rote sequences
+associated with standard Sturmian sequences without loss of generality.
+Definition 39. Let u be a uniformly recurrent sequence. The mapping Ru : N → N defined by
+
+        Ru (n) = min{N ∈ N : each factor of u of length N contains all factors of u of length n}
+
+is called the recurrence function of u.
+    The definition of the recurrence function may be reformulated in terms of return words [7].
+Observation 40. Let u be a uniformly recurrent sequence. Then
+
+             Ru (n) = max{|r| ∈ N : r is a return word to a factor of u of length n} + n − 1.
+
+   Moreover, to determine Ru (n) we can restrict our consideration to return words to bispecial factors
+of u.
+Lemma 41. Let u be a uniformly recurrent aperiodic sequence. For n ∈ N, we denote
+
+ Bu (n) = {b ∈ L(u) : ∃w ∈ L(u), |w| = n, such that b is the shortest bispecial factor containing w} .
+
+Then
+                      Ru (n) = max{|r| : r is a return word to b ∈ Bu (n)} + n − 1.
+
+Proof: For evaluation of Ru (n) we use Observation 40. Let w ∈ L(u) and |w| = n.
+  If w is not right special, then there exists a unique letter x such that wx ∈ L(u). Obviously, the
+occurrences of w and wx in u coincide. Therefore, return words to w and wx coincide as well.
+  If y is not left special, then there is a unique letter y such that yw ∈ L(u). If r is a return word to w,
+then the word yry −1 is a return word to yw and the return words r and yry −1 are of the same length.
+  These two facts imply that the lengths of return words to w equal the lengths of return words to the
+shortest bispecial factor containing w.
+  The following lemma shows that for a CS Rote sequence v associated with the Sturmian sequence u
+the sets Bv (n + 1) and Bu (n) correspond naturally for every n ∈ N. Thus to determine the set Bv (n + 1),
+we first describe the set Bu (n) for a standard Sturmian sequence u.
+Lemma 42. Let w be a factor of length n + 1 in a CS Rote sequence v and let v be the shortest bispecial
+factor of v containing w. Then the factor S(v) is the shortest bispecial factor of the associated Sturmian
+sequence S(v) such that S(v) contains S(w).
+
+Proof: The statement is a consequence of the simple fact that S(v) is a bispecial factor of S(v) if and
+only if v and E(v) are bispecial factors of v. (See Lemma 7.)
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                    25
+
+  In the sequel, we will essentially use a characterization of Sturmian sequences by palindromes from [11].
+Let us first recall some basic notions. Consider an alphabet A. The assignment w = w0 w1 · · · wn−1 →
+w = wn−1 wn−2 · · · w0 is called a mirror mapping, and the word w is called the reversal or the mirror
+image of w ∈ A∗ . A word w which coincides with its mirror image w is a palindrome. If p is a palin-
+drome of odd length, then the center of p is a letter a such that p = sas for some s ∈ A∗ . The center of a
+palindrome p of even length is the empty word ε.
+Theorem 43 ([11]). A sequence u is Sturmian if and only if u contains one palindrome of every even
+length and two palindromes of every odd length.
+  Moreover, when studying in detail the proof of this theorem presented by Droubay and Pirillo [11], we
+deduce that any two palindromes of the same odd length have distinct centers, one has the center 0 and
+the other one has the center 1. In fact, we get the following corollary.
+Corollary 44. A binary sequence u is Sturmian if and only if every palindrome in L(u) has a unique
+palindromic extension, i.e., for any palindrome p ∈ L(u) there exists a unique letter a ∈ {0, 1} such that
+apa ∈ L(u).
+  We believe that Theorem 46 is already known. However, since we have not found it in the literature,
+we add its proof. For this purpose, we need an auxiliary lemma. Let us recall that the language L(u) of a
+Sturmian sequence u is closed under reversal, i.e., L(u) contains with every factor w also its reversal w,
+and all bispecial factors of u are palindromes.
+Lemma 45. Let u be a Sturmian sequence. Let p ∈ L(u) be a palindrome and let v be the shortest
+bispecial factor containing p.
+   1. Then p is a central factor of v, i.e., v = sps for some word s.
+   2. If v 0 is the shortest bispecial factor with the same center as p and |v 0 | ≥ |p|, then v 0 = v.
+
+Proof:
+   1. Let v = sp be the shortest left special factor containing p, in particular 0sp and 1sp belong to L(u).
+      Since the language L(u) is closed under reversal, ps is right special, i.e., ps0 and ps1 belong to
+      L(u). As s is the only possible extension of p to the left by a factor of length |s|, both sps0 and
+      sps1 belong to L(u). By the same argument, s is the only possible extension of p to the right by
+      a factor of length |s|. Therefore, 0sps and 1sps belong to L(u). Thus sps is the shortest bispecial
+      factor containing p.
+   2. Assume for contradiction that v 6= v 0 . Since v and v 0 are palindromes with the same centers, there
+      exists a palindrome q such that v 0 = s0 qs0 and v = sqs. Let q be the longest palindrome with
+      this property. If |q| = |v 0 |, then necessarily v 0 = v. If |v 0 | > |q|, then the last letters of s0 and
+      s are distinct and q is a palindrome with two distinct palindromic extensions. This contradicts
+      Corollary 44.
+
+
+Theorem 46. Let u be a Sturmian sequence and n ∈ N, n ≥ 1. Find the shortest bispecial factors Pε ,
+resp. P0 , resp. P1 of length greater than or equal to n with the center ε, resp. 0, resp. 1. Then the
+following statements hold:
+26                                                  L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+     1. Let w be a factor of u of length n and let v be the shortest bispecial factor containing w. Then
+        v ∈ {Pε , P0 , P1 }.
+     2. If u contains no bispecial factor of length n − 1, then for each i ∈ {ε, 0, 1} there exists a factor w
+        of u of length n such that the shortest bispecial factor containing w is Pi .
+     3. If there exists a bispecial factor v of u of length n − 1 and let i ∈ {ε, 0, 1} be the center of the
+        palindrome v, then for each j ∈ {ε, 0, 1}, j 6= i, there exists a factor w of u of length n such
+        that the shortest bispecial factor containing w is Pj , while Pi is not the shortest bispecial factor
+        containing w for any factor w of u of length n.
+
+Proof: Consider the Rauzy graph of u of order n − 1, i.e., a directed graph Γn−1 whose vertices are
+factors of u of length n − 1 and edges are factors of u of length n. An edge e starts in the vertex x and
+ends in the vertex y if x is a prefix and y is a suffix of e. Denote `, resp. r the vertex corresponding to
+the unique left special, resp. right special factor of length n − 1. Furthermore, we denote the shortest
+path from ` to r by pA , and the shortest paths of non-zero length starting in r and ending in ` by pB and
+pC . If u has no bispecial factor of length n − 1, then pA has a positive length, see Figure 1(a). If u has
+a bispecial factor of length n − 1, then the path pA consists of a unique vertex – the bispecial factor b, see
+Figure 1(b).
+
+               (a)                                                          (b)
+                                                                                            pB
+                                                                                            ···
+                                         pB
+                                          ···
+
+
+
+
+                                         pA
+                 `                        ···                      r                      b = pA
+
+
+
+                                         pC
+                                          ···
+                                                                                            pC
+                                                                                            ···
+
+
+
+        Fig. 1: The Rauzy graph of a Sturmian word (a) without a bispecial vertex, (b) with a bispecial vertex.
+
+   Observing these Rauzy graphs, it is obvious that for each edge e from the path px , where x ∈ {A, B, C},
+the shortest bispecial factor containing e is the same as the shortest bispecial factor containing px . Clearly,
+if pA has length 0, then x ∈ {B, C}.
+   Since the language L(u) is closed under reversal, the mirror mapping restricted to the factors of length
+n − 1 and n is an automorphism of the graph Γn−1 . Let us suppose that a palindrome q of length n − 1
+or n is contained in px as an edge or an inner vertex. As any palindrome is mapped onto itself, r = `, and
+` = r, this path px is mapped onto itself, i.e., px = px , and the palindrome q is a central factor of px . On
+one hand, it means that px is a palindrome with the same center as q, on the other hand, it also means that
+px cannot contain any other palindrome of length n − 1 and n as its edge or an inner vertex.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                   27
+
+   By Theorem 43 and the comment after it, there are exactly three palindromes among all vertices and
+edges of Γn−1 (all factors of length n − 1 or n), and moreover, they have distinct centers. We may
+conclude that the paths pA , pB , pC are palindromes and their centers are distinct. The rest of the proof
+follows from Lemma 45.
+
+
+Observation 47. Let P be a palindrome. Then its Parikh vector satisfies:
+     ~ (P ) = 0 mod 2 if and only if P has the center ε;
+                
+  1. V           0
+
+      ~ (P ) =   1
+                  
+   2. V          0    mod 2 if and only if P has the center 0;
+
+      ~ (P ) =   0
+                  
+   3. V          1    mod 2 if and only if P has the center 1.
+  Let us recall that a factor of a standard Sturmian sequence u is bispecial if and only if it is a palindromic
+prefix of u. Therefore we can order the bispecial factors of a given standard Sturmian sequence u accord-
+ing to their lengths. We denote the k-th bispecial factor of u by BS(k). Thus BS(0) = ε, BS(1) = a,
+where a is the first (and the more frequent) letter of u etc.
+                                     0
+  The sequences (pN ), (qN ), and (qN  ) we use in the remaining part of the paper were introduced in
+Notation 25, the notation Bu (n) comes from Lemma 41.
+Theorem 48. Let u be a standard Sturmian sequence with the directive sequence Ga1 Da2 Ga3 Da4 · · · or
+                                  0    0
+Da1 Ga2 Da3 Ga4 · · · , and n ∈ [qN , qN +1 ) for some N ∈ N. Put M = a0 + a1 + a2 + · · · + aN , where
+a0 = 0.
+              0    0
+   • If n ∈ [qN , qN +1 − 1) and n − 1 is not the length of a bispecial factor, then
+
+      Bu (n) = {BS(M +m), BS(M +m+1), BS(M +aN +1 +1)} for some m ∈ {0, . . . , aN +1 − 1}.
+              0    0
+   • If n ∈ [qN , qN +1 − 1] and n − 1 is the length of a bispecial factor, then
+
+                 Bu (n) = {BS(M + m), BS(M + aN +1 + 1)} for some m ∈ {0, . . . , aN +1 }.
+
+Proof: Assume that u has the directive sequence Ga1 Da2 Ga3 Da4 · · · . By Proposition 30, the Parikh
+vectors of bispecial factors satisfy
+                                                            
+            ~ BS(M + i + 1) = V      ~ BS(M + i) + pN
+                                                  
+            V                                                      for i = 0, 1, . . . , aN +1 − 1    (8)
+                                                         qN
+                                                                                          
+                          ~ BS(M + aN +1 + 1) = V    ~ BS(M + aN +1 ) + pN +1 .
+                                                                          
+                and      V                                                                            (9)
+                                                                                   qN +1
+                                                   
+                                          pN         0
+Using Observation 47 and the relation           6=         mod 2 from Lemma 28, we deduce that the
+                                          qN         0
+centers of palindromes BS(M + i), where i = 0, 1, . . . , aN +1 , alternate between two distinct elements
+ {ε,0, 1}.The third
+of                    element of {ε, 0, 1} is the center of the palindrome BS(M + aN +1 + 1), as
+   pN          pN +1
+         6=              mod 2, see Lemma 28. By Proposition 30, the length of BS(M − 1) equals
+   qN          qN +1
+ 0                                                     0
+qN  − 2 and the length of BS(M + aN +1 − 1) equals qN    +1 − 2.
+28                                              L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+                                    0
+     • Let us discuss the case n = qN +1 − 1. The palindromes BS(M + aN +1 − 1), BS(M + aN +1 )
+       and BS(M + aN +1 + 1) have distinct centers, and n − 1 is the length of the palindrome BS(M +
+       aN +1 − 1). Item 3 of Theorem 46 implies that all factors of length n occur in BS(M + aN +1 ) and
+       BS(M + aN +1 + 1). Therefore, the set Bu (n) consists of these two bispecial palindromes.
+                                     0    0
+     • Now we assume that n ∈ [qN      , qN +1 − 2]. Clearly, the length of BS(M − 1) is strictly smaller
+       then n − 1 and n does not exceed the length of BS(M + aN +1 − 1). We choose the smallest
+       m ∈ {0, 1, . . . , aN +1 − 1} such that n ≤ |BS(M + m)|. The bispecial factors BS(M + m),
+       BS(M + m + 1), and BS(M + aN +1 + 1) have distinct centers.
+        If n − 1 is not the length of any bispecial factor, then Item 2 of Theorem 46 implies that Bu (n) =
+        {BS(M + m), BS(M + m + 1), BS(M + aN +1 + 1)}.
+        If n − 1 is the length of a bispecial factor, then Item 3 of Theorem 46 together with the fact that
+        the centers of BS(M + i) alternate for i = 0, 1, . . . , aN +1 − 1 implies that Bu (n) = {BS(M +
+        m), BS(M + aN +1 + 1)}.
+
+If u has the directive sequence Da1 Ga2 Da3 Ga4 · · · , then the proof will be analogous, only the coordinates
+of the Parikh vectors will be exchanged, see Remark 31.
+
+Remark 49. The recurrence function of a standard Sturmian sequence u with the directive sequence
+                                                                             0       0
+Ga1 Da2 Ga3 Da4 · · · or Da1 Ga2 Da3 Ga4 · · · is known to satisfy Ru (n) = qN +1 + qN + n − 1 for every
+       0   0
+n ∈ [qN , qN +1 ). Let us show that this formula is a consequence of the previous statements. Indeed, by
+Lemma 41, we have to find the longest return word to the bispecial factor from the set Bu (n) described
+in Theorem 48. Using Proposition 30, we find that the longest one is the return word s corresponding to
+                                                               0       0
+the bispecial factor BS(M + aN +1 + 1). Its length is |s| = qN   +1 + qN . And thus Lemma 41 implies the
+above mentioned formula, which was obtained by Hedlund and Morse already in 1940, see [20].
+  We have prepared everything we need to derive the formula for the recurrence function of CS Rote
+sequences. For this purpose, we recall Theorem 3.10 from [18]:
+Theorem 50. Let v be a CS Rote sequence associated with the standard Sturmian sequence u = S(v).
+Let v be a non-empty prefix of v and u = S(v). Let r, resp. s be the more frequent, resp. the less frequent
+return word to u in u and let ` be a positive integer such that u is a concatenation of the blocks r` s and
+r`+1 s. Then the prefix v of v has three return words A, B, C satisfying:
+     1. If r is stable and s unstable, then S(A0) = r,   S(B0) = sr` s,     S(C0) = sr`+1 s.
+
+     2. If r is unstable and s stable, then S(A0) = s,   S(B0) = rr,      S(C0) = rsr.
+     3. If both r and s are unstable, then S(A0) = rr,    S(B0) = rs,      S(C0) = sr.
+   We will use the previous theorem for the determination of return words to bispecial factors of CS Rote
+sequences (which are by Lemma 42 associated to bispecial factors of Sturmian sequences). In particular,
+we focus on v such that S(v) is a bispecial factor of the Sturmian sequence u = S(v) and S(v) belongs
+to the set Bu (n) described in Theorem 48.
+   In fact, the following lemmas explain that only the bispecial factor S(v) = BS(M + aN +1 + 1), where
+N ∈ N, M = a0 + a1 + · · · aN , is important. By Proposition 30, its return words r and s have either the
+                 0               0       0                          0       0           0
+lengths |r| = qN   +1 and |s| = qN +1 + qN if aN +2 > 1, or |r| = qN +1 + qN and |s| = qN +1 if aN +2 = 1.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                  29
+
+Lemma 51. Let v be a CS Rote sequence and u = S(v) be the associated standard Sturmian sequence
+with the directive sequence Ga1 Da2 Ga3 Da4 · · · or Da1 Ga2 Da3 Ga4 · · · . Put M = a0 +a1 +a2 +· · ·+aN ,
+where a0 = 0. Let x and y be the bispecial factors in v such that S(x) = BS(M + aN +1 + 1) and
+S(y) = BS(M + m), where m ∈ {0, 1, . . . , aN +1 − 1}. Then at least one return word to x in v is longer
+than every return word to y in v.
+
+Proof: On one hand, by Lemmas 19, 20 and Remark 21, the derived sequence du (S(y)) is a standard Stur-
+mian sequence with the directive sequence GaN +1 −m DaN +2 GaN +3 · · · or DaN +1 −m GaN +2 DaN +3 · · · . It
+                                                  `         `+1
+implies that u is a concatenation of the blocks r0 s0 and r0 s0 , where ` = aN +1 − m. The return words
+to S(y) are by Proposition 30 of length |r0 | = pN + qN = qN    0
+                                                                  and |s0 | = m qN
+                                                                                 0     0
+                                                                                    + qN −1 . Regardless of
+(un)stability of the return words to S(y), the longest return word to y in v is by Theorem 50 of length at
+most
+
+(` + 1)|r0 | + 2|s0 | = (aN +1 − m + 1)qN
+                                        0        0
+                                          + 2(m qN    0
+                                                   + qN         0              0    0        0
+                                                        −1 ) = qN +1 + (m + 1)qN + qN −1 ≤ 2qN +1 .
+
+                                                                                                      0
+On the other hand, the return words r, s to S(x) in u have by Proposition 30 either lengths |r| = qN    +1 and
+       0         0                                   0        0             0
+|s| = qN +1 + qN (if aN +2 > 1), or lengths |r| = qN +1 + qN and |s| = qN +1 (if aN +2 = 1). Regardless
+of (un)stability of the return words to S(x), one of the return words to x in v is of length at least
+                                                       0       0
+                                         |r| + |s| = 2qN +1 + qN .
+
+
+
+
+Lemma 52. Let v be a CS Rote sequence and u = S(v) be the associated standard Sturmian sequence
+with the directive sequence Ga1 Da2 Ga3 Da4 · · · or Da1 Ga2 Da3 Ga4 · · · . Put M = a0 +a1 +a2 +· · ·+aN ,
+where a0 = 0. Let x and y be the bispecial factors in v such that S(x) = BS(M + aN +1 + 1) and
+S(y) = BS(M + aN +1 ). Then at least one return word to x in v is at least as long as every return word
+to y in v.
+
+Proof: Let us denote the return words to S(y) by r0 and s0 , and the return words to S(x) by r and s. By
+Proposition 30, |r0 | = qN0          0     0
+                            +1 and |s | = qN .
+                            0
+  First, we assume that r is unstable. Then by Theorem 50, the return words to y in v are of length at
+most 2|r0 | + |s0 | = 2qN
+                        0       0
+                          +1 + qN . Regardless of (un)stability of the return words to S(x), one of the return
+                                                    0         0
+words to x in v is of length at least |r| + |s| = 2qN +1 + qN .
+                                             0
+  It remains to discuss the case when r is stable. Let us assume that u has the directive sequence
+Ga1 Da2 Ga3 Da4 · · · . By Proposition 30, it means that |r0 |1 = qN +1 is even. We use Theorem 50 to find
+the longest return word to y. Similarly as in the proof of Lemma 51, we determine that ` = aN +2 and
+thus the longest return word to y in v is of length
+
+              L0 = 2|s0 | + (` + 1)|r0 | = 2 qN
+                                              0               0
+                                                + (aN +2 + 1)qN       0       0       0
+                                                                +1 = qN +2 + qN +1 + qN .
+
+   Let us compare L0 with the length of the return words to x in v. If aN +2 > 1, then by Proposition 30,
+|r|1 = |r0 |1 = qN +1 and r is stable as well. The longest return word to x is by Theorem 50 the return
+word sr`+1 s, where ` = aN +2 − 1. Its length is
+                                    0       0            0       0        0       0    0
+          L = 2|s| + aN +2 |r| = 2(qN +1 + qN ) + aN +2 qN +1 = qN +2 + 2qN +1 + qN > L .
+30                                                L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+   If aN +2 = 1, then by Proposition 30, |r|1 = qN +2 = qN +1 + qN and |s|1 = qN +1 . Since qN +1 is
+even, necessarily qN is odd (as follows from the well-known relation pN qN +1 − pN +1 qN = (−1)N +1
+for all N ). It means that r is unstable and s is stable. Thus the longest return word to x in v has the length
+                                        0       0      0        0       0       0
+                    L = 2|r| + |s| = 2(qN +1 + qN ) + qN +1 = 2qN +2 + qN +1 > L .
+
+   If u has the directive sequence Da1 Ga2 Da3 Ga4 · · · , the proof is analogous, we only have to take into
+account that the coordinates of the Parikh vectors are exchanged (see Remark 31). In particular, instead
+of considering qN when determining the number of ones, we consider pN .
+
+Proposition 53. Let v be a CS Rote sequence. Let u be the standard Sturmian sequence such that
+L(S(v)) = L(u) and let u have the directive sequence Ga1 Da2 Ga3 Da4 · · · or Da1 Ga2 Da3 Ga4 · · · . Put
+M = a0 + a1 + a2 + · · · + aN , where a0 = 0. Let L be the length of the longest return word to the
+bispecial factor v of v such that S(v) is the bispecial factor BS(M +aN +1 +1) in u. Then the recurrence
+                                                             0    0
+function of v satisfies Rv (n + 1) = L + n for any n ∈ [qN     , qN +1 ), where N ∈ N.
+
+Proof: Let v0 be a CS Rote sequence associated with the standard Sturmian sequence u such that
+L(S(v)) = L(u). Clearly, L(v) = L(v0 ). Since the recurrence function depends only on the lan-
+guage of the sequence and not on the sequence itself, we can work with the CS Rote sequence v0 instead
+of v.
+   It follows from Lemma 41 that Rv (n + 1) = Rv0 (n + 1) = L + n, where L is the length of the longest
+return word to a bispecial factor from the set Bv0 (n + 1). Lemma 42 shows the correspondence between
+the bispecial factors from the set Bv0 (n + 1) and the bispecial factors from the set Bu (n). In particular,
+                                                              0    0
+if v ∈ Bv0 (n + 1), then S(v) ∈ Bu (n). For every n ∈ [qN       , qN +1 ), where N ∈ N, the set Bu (n) is
+described in Theorem 48. Together with Lemmas 51 and 52, it implies that the bispecial factor v such
+that S(v) equals BS(M + aN +1 + 1) has the longest return word among all bispecial factors from the set
+Bv0 (n + 1).
+
+Theorem 54. Let v be a CS Rote sequence and let u be the standard Sturmian sequence such that
+L(S(v)) = L(u). If u has the directive sequence Ga1 Da2 Ga3 Da4 · · · , then the value of the recurrence
+                      0    0
+function Rv for n ∈ [qN , qN +1 ), N ∈ N, is given by
+
+
+                                        0       0
+                                  
+Case qN even      Rv (n + 1) =
+                                      2qN +1 + qN + n         if aN +2 > 1,
+                                        0
+                                      2qN +2 + n              if aN +2 = 1.
+
+                                           0         0       0
+                                      
+                                          qN  +2 + 2qN +1 + qN + n        if aN +2 > 1
+Case qN +1 even       Rv (n + 1) =           0       0
+                                          2qN +2 + qN +1 + n              if aN +2 = 1.
+
+                                                 0        0
+                                          
+Case qN , qN +1 odd      Rv (n + 1) =
+                                              3qN  +1 + qN + n                if aN +2 > 1
+                                               0        0      0
+                                              qN +3 + qN +2 + qN +1 + n       if aN +2 = 1.
+
+  If u has the directive sequence Da1 Ga2 Da3 Ga4 · · · , then the value of the recurrence function Rv for
+      0    0
+n ∈ [qN , qN +1 ), N ∈ N, is given by
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function                31
+                              0          0
+                                2qN +1 + qN  +n        if aN +2 > 1,
+Case pN even Rv (n + 1) =         0
+                                2qN +2 + n             if aN +2 = 1.
+
+                                          0         0       0
+                                     
+                                         qN  +2 + 2qN +1 + qN + n        if aN +2 > 1
+Case pN +1 even       Rv (n + 1) =          0       0
+                                         2qN +2 + qN +1 + n              if aN +2 = 1.
+
+                                                0        0
+                                         
+Case pN , pN +1 odd      Rv (n + 1) =
+                                             3qN  +1 + qN + n                if aN +2 > 1
+                                              0        0      0
+                                             qN +3 + qN +2 + qN +1 + n       if aN +2 = 1.
+
+Proof: By Proposition 53, Rv (n + 1) = L + n, where L is the length of the longest return word to the
+bispecial factor v in v such that S(v) = BS(M + aN +1 + 1). Consider first that u has the directive
+sequence Ga1 Da2 Ga3 Da4 · · · . By Proposition 30, the Parikh vectors of the return words r and s to the
+bispecial factor BS(M + aN +1 + 1) are
+                                                
+      ~ (r) = pN +1 , V
+   1. V                     ~ (s) = pN +1 + pN if aN +2 > 1;
+                  qN +1                qN +1 + qN
+                                                
+      ~ (r) = pN +1 + pN , V
+   2. V                           ~ (s) = pN +1 if aN +2 = 1.
+                  qN +1 + qN                 qN +1
+Let us emphasize that at most one of the numbers qN and qN +1 is even. It follows from the well-known
+                                                                                            0
+relation pN qN +1 − pN +1 qN = (−1)N +1 for all N . Moreover, let us recall that pN + qN = qN .
+First we discuss the case aN +2 > 1.
+   • If qN is even, then qN +1 is odd, i.e., r and s are unstable. Since |r| < |s|, Item 3 of Theorem 50
+                          0        0
+     gives L = |rs| = 2qN   +1 + qN .
+
+   • If qN +1 is even, then qN is odd, i.e., r is stable and s is unstable. We use Item 1 of Theorem 50 with
+                                                             0       0           0        0        0     0
+     ` = aN +2 −1. Clearly, L = 2|s|+(`+1)|r| = 2(qN           +1 +qN )+aN +2 qN +1 = qN +2 +2qN +1 +qN .
+
+   • If both qN , qN +1 are odd, then r is unstable and s is stable. Item 2 of Theorem 50 implies L =
+                0        0
+     |rsr| = 3qN  +1 + qN .
+
+It remains to discuss the case aN +2 = 1.
+   • If qN is even, then qN +1 is odd, i.e., r and s are unstable. Since |r| > |s|, Item 3 of Theorem 50
+                          0         0        0
+     gives L = |rr| = 2qN   +1 + 2qN = 2qN +2 .
+
+   • If qN +1 is even, then qN is odd, i.e., r is unstable and s is stable. Item 2 of Theorem 50 implies
+                     0         0      0          0
+     L = |rsr| = 3qN   +1 + 2qN = 2qN +2 + qN +1 .
+
+   • If both qN , qN +1 are odd, then r is stable and s is unstable. We use Item 1 of Theorem 50 with
+                                                 0                   0      0      0      0     0
+     ` = aN +3 . Thus L = 2|s|+(`+1)|r| = 2qN      +1 +(aN +3 +1)(qN +1 +qN ) = qN +3 +qN +2 +qN +1 .
+
+  If u has the directive sequence Da1 Ga2 Da3 Ga4 · · · , then the statement of Theorem 54 will stay the
+same, only qN and qN +1 will be replaced by pN and pN +1 because the Parikh vectors of r and s have the
+coordinates exchanged, see Remark 31.
+32                                              L’ubomı́ra Dvořáková, Kateřina Medková, Edita Pelantová
+
+Example 55. By Proposition 34, the critical exponent of the CS Rote sequence v such that S(v) has
+the directive sequence G(D2 G2 )ω is cr(v) = 2 + √12 . In Example 36, we have shown that the CS Rote
+sequence v0 associated to the Sturmian sequence S(v0 ) = E(S(v)) has the critical exponent cr(v0 ) =
+4 + 1+1√2 .
+   Let us find an explicit formula for the recurrence function Rv , resp. Rv0 of the CS Rote sequence v,
+resp. v0 . We will see that these recurrence functions differ essentially, too. In the proof of Proposition 34,
+                                                                                         0
+we have shown that all qN are odd and we have found an explicit formula for qN             , see (7). Applying
+                                          0    0
+Theorem 54, we obtain for every n ∈ [qN , qN +1 )
+
+                    0         0               1          √        √ N +1               √          √ N +1 
+  Rv (n + 1) = 3qN    +1 +  q N +  n = n +   √    (4 +  3   2)(1 +    2)      −  (4 −  3   2)(1 −    2)      .
+                                            2 2
+                                                                                       0     0
+Furthermore, pN is even if and only if N is even. Therefore, we obtain for every n ∈ [q2N , q2N +1 )
+
+                           0         0                1        √                 √          
+         Rv0 (n + 1) = 2q2N   +1 + q2N + n = n + √         (1 + 2)2N +3 − (1 − 2)2N +3 ;
+                                                    2 2
+                    0        0
+and for every n ∈ [q2N −1 , q2N )
+
+                     0          0     0                1       √ 2N +2        √ 2N +2 
+      Rv0 (n + 1) = q2N +1 + 2q2N + q 2N −1 + n = n + √    (1 +  2)     − (1 −  2)       .
+                                                        2
+
+References
+ [1] L. Balková, E. Pelantová, and Š. Starosta, Sturmian jungle (or garden?) on multiliteral alphabets,
+     RAIRO-Theor. Inf. Appl. 44 (2010), 443–470.
+ [2] A. R. Baranwal and J. Shallit, Critical exponent of infinite balanced words via the Pell number
+     system, in: R. Mercas and D. Reidenbach (eds.), Proceedings WORDS 2019, Lecture Notes in
+     Computer Science, vol. 11682, Springer (2019), 80–92.
+ [3] A. R. Baranwal and J. Shallit, Repetitions in infinite palindrome-rich words, in: R. Mercas and D.
+     Reidenbach (eds.), Proceedings WORDS 2019, Lecture Notes in Computer Science, vol. 11682,
+     Springer (2019), 93–105.
+ [4] J. Berstel, Axel Thue’s papers on repetitions in words: a translation, Publications du LaCIM 20,
+     Université du Québec à Montréal (1995).
+ [5] A. Blondin Massé, S. Brlek, A. Glen, and S. Labbé, On the Critical Exponent of Generalized Thue-
+     Morse Words, Discret. Math. Theor. Comput. Sci. 9(1) (2007), 293–304.
+ [6] A. Blondin Massé, S. Brlek, S. Labbé, and L. Vuillon, Palindromic complexity of codings of rota-
+     tions, Theoret. Comput. Sci. 412(46) (2011), 6455–6463.
+ [7] J. Cassaigne and N. Chekhova, Fonctions de récurrence des suites d’Arnoux-Rauzy et réponse à une
+     question de Morse et Hedlund, Ann. Inst. Fourier (Grenoble) 56(7) (2006), 2249–2270.
+ [8] J. D. Currie, L. Mol, and N. Rampersad, The repetition threshold for binary rich words, Discrete
+     Math. Theoret. Comput. Sci. 22(1) (2020), no. 6.
+Complementary symmetric Rote sequences: the critical exponent and the recurrence function              33
+
+ [9] D. Damanik and D. Lenz, The index of Sturmian sequences, European J. Combin. 23 (2002), 23–29.
+[10] X. Droubay, J. Justin, and G. Pirillo, Episturmian words and some construction of de Luca and
+     Rauzy, Theor. Comput. Sci. 255 (2001), 539–553.
+[11] X. Droubay and G. Pirillo, Palindromes and Sturmian words, Theoret. Comput. Sci. 223 (1999),
+     73–85.
+[12] F. Durand, A characterization of substitutive sequences using return words, Discrete Math. 179
+     (1998), 89–101.
+[13] N. Ghareghani and P. Sharifani, On square factors and critical factors of k-bonacci words on infinite
+     alphabet, preprint: arXiv:1912.05253 (2019), 26 pp.
+[14] D. Hensley, Continued Fractions, World Scientific Publishing (2006).
+[15] J. Justin and G. Pirillo, Episturmian words and episturmian morphisms, Theoret. Comput. Sci. 276
+     (2002), 281–313.
+[16] K. Klouda, K. Medková, E. Pelantová, and Š. Starosta, Fixed points of Sturmian morphisms and
+     their derivated words, Theoret. Comput. Sci. 743 (2018), 23–37.
+[17] M. Lothaire, Combinatorics on Words, Encyclopaedia of Mathematics and its Applications, vol.
+     17, Addison-Wesley, Reading, Mass. (1983). Reprinted in the Cambridge Mathematical Library,
+     Cambridge University Press (1997).
+[18] K. Medková, E. Pelantová, and L. Vuillon, Derived sequences of complementary symmetric Rote
+     sequences, RAIRO-Theor. Inf. Appl. 53 (2019), 125–151.
+[19] F. Mignosi and G. Pirillo, Repetitions in the Fibonacci words, RAIRO-Theor. Inf. Appl. 26 (1992),
+     199–204.
+[20] M. Morse and G. A. Hedlund, Symbolic dynamics II. Sturmian trajectories, Amer. J. Math. 62
+     (1940), 1–42.
+[21] E. Pelantová and Š. Starosta, Languages invariant under more symmetries: overlapping factors
+     versus palindromic richness, Discrete Math. 313 (2013), 2432–2445.
+[22] N. Rampersad, J. Shallit, and É. Vandomme, Critical exponents of infinite balanced words, Theor.
+     Comp. Sci. 777 (2019), 454–463.
+[23] M. Rigo, Formal Languages, Automata and Numeration Systems, 2 vols., Wiley (2014).
+[24] G. Rote, Sequences with subword complexity 2n, J. Number Theory 46 (1994), 196–213.
+[25] A. Thue, Probleme über Veränderungen von Zeichenreihen nach gegebene Regeln, Christiana
+     Videnskabs-Selskabs Skrifter, I. Math.-naturv. Klasse 10 (1914).
+[26] L. Vuillon, A characterization of Sturmian words by return words, Eur. J. Combin. 22 (2001), 263–
+     275.
+

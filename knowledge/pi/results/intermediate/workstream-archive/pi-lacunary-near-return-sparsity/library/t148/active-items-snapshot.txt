@@ -1,0 +1,21 @@
+ACTIVE_ITEM_METADATA_SNAPSHOT
+Source: orchestrator-input.json supplied to T148, resource leases at lines 189-208.
+Snapshot role: availability evidence only; an active lease is not mathematical evidence.
+
+T146
+node_id: todo:theory-pi-lacunary-near-return-sparsity:t146
+agent: orchestrator-v1
+generation: 1
+work_generation: 1
+acquired_unix: 1786538249
+expires_unix: 1786554497
+
+T147
+node_id: todo:theory-pi-lacunary-near-return-sparsity:t147
+agent: orchestrator-v1
+generation: 1
+work_generation: 1
+acquired_unix: 1786539719
+expires_unix: 1786554636
+
+No T146 or T147 artifact, result, title, or mathematical fingerprint was present in the refreshed T148 knowledge-library snapshot.

@@ -1,0 +1,22 @@
+{
+  "all_checks_pass": true,
+  "automaton_matrix_identity_checks": 231,
+  "block_entropy_rows": 90,
+  "block_entropy_spectrum_mass_checks": 90,
+  "expected_word_count_rows": 166650,
+  "forbidden_calibration_rows": 990,
+  "integer_invariants": {
+    "block_spectrum_mass": "sum multiplicity*count=N+1-L",
+    "t14_identity": "initial row sum of M^r = independent KMP avoidance count",
+    "t15_bound": "contaminated_starts <= (L+1)*word_count_N",
+    "t16_identity": "maximum row sum of M^r = initial row sum",
+    "word_count_mass": "for each stream,N,k: sum_w count(w,N)=N"
+  },
+  "pi_algorithms_equal": true,
+  "pi_known_prefix_equal": true,
+  "t15_contamination_bound_checks": 990,
+  "word_count_mass_checks": 60,
+  "word_count_rows": 166650,
+  "zero_zero_length4_count_9720": true,
+  "zero_zero_matrix_fixture": true
+}

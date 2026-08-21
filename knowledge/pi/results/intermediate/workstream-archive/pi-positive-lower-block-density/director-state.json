@@ -1,0 +1,6 @@
+{
+  "applied": false,
+  "last_context": "8ff5183d1914780e30bf4e7016941574283846edc5c34a8aad23d3bb6e20c7b8",
+  "record": "removed-workflow-record://theory-director-pi-positive-lower-block-density-1784795749854576254",
+  "unappliable": "[{'id': 'G1', 'rationale': 'This pins the target and creates the direct machine-checked feedback path to local:pi-digits.', 'status': 'achieved', 'text': 'Formalize positive lower block density and its exact relation to empirical full support, normality, and decimal disjunctivity.'}, {'id': 'G2', 'rationale': 'This extends the existing T27-T30 Fourier machinery from one occurrence to persistent density.', 'status': 'achieved', 'text': 'Derive explicit finite-frequency exponential-sum hypotheses "
+}

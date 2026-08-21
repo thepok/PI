@@ -1,0 +1,13 @@
+Command: python3 verify_note.py
+Working directory: directory containing only the delivered artifacts
+Evidence label: experiment (transcription and bounded arithmetic checks only)
+
+hash pins: 11 passed
+canonical quantifiers and normalization: passed
+caps, non-duplication, transfer tests, verdicts: passed
+primary-source PDF anchors: 3 passed
+Kempner denominators, transients, and tail bounds: passed M=0..7
+Kempner cluster, collision ratio, and K2 kill: passed
+Thue-Morse recurrence, denominators, and tail bounds: passed K=2..512
+Thue-Morse complexity through n=128 and literal sign test V=8>6: passed
+ALL T89 CHECKS PASSED

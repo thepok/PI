@@ -1,0 +1,3621 @@
+{
+  "database": "crossref",
+  "bundle_started_at": "2026-07-21T17:22:25Z",
+  "scope_note": "Each query is bounded by its rows/per-page parameter. Responses are mutable discovery records, not theorem evidence or proof of absence.",
+  "queries": [
+    {
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20decimal%20digit%20occurrence&rows=20&select=DOI,title,author,published,URL,type",
+      "response": {
+        "status": "ok",
+        "message-type": "work-list",
+        "message-version": "1.0.0",
+        "message": {
+          "facets": {},
+          "total-results": 240629,
+          "items": [
+            {
+              "DOI": "10.1007/springerreference_11893",
+              "title": [
+                "decimal digit"
+              ],
+              "URL": "https://doi.org/10.1007/springerreference_11893",
+              "type": "reference-entry"
+            },
+            {
+              "DOI": "10.1109/indicon.2017.8488097",
+              "title": [
+                "Digit By Digit Fast Decimal Multiplication"
+              ],
+              "author": [
+                {
+                  "given": "Diganta",
+                  "family": "Sengupta",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Mahamuda",
+                  "family": "Sultana",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Atal",
+                  "family": "Chaudhuri",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2017,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/indicon.2017.8488097",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1016/j.vlsi.2020.10.005",
+              "title": [
+                "Comments on “Improved designs of digit-by-digit decimal multiplier”"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-6536-373X",
+                  "authenticated-orcid": false,
+                  "given": "Mojtaba",
+                  "family": "Valinataj",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Zahra",
+                  "family": "Yazdanian Amiri",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/j.vlsi.2020.10.005",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1016/j.vlsi.2017.12.001",
+              "title": [
+                "Improved designs of digit-by-digit decimal multiplier"
+              ],
+              "author": [
+                {
+                  "given": "Syed Ershad",
+                  "family": "Ahmed",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Santosh",
+                  "family": "Varma",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "M.B.",
+                  "family": "Srinivas",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018,
+                    3
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/j.vlsi.2017.12.001",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/1-4020-0613-6_4489",
+              "title": [
+                "decimal digit"
+              ],
+              "author": [
+                {
+                  "given": "Martin H.",
+                  "family": "Weik",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/1-4020-0613-6_4489",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1049/iet-cdt:20060160",
+              "title": [
+                "Binary-coded decimal digit multipliers"
+              ],
+              "author": [
+                {
+                  "given": "G.",
+                  "family": "Jaberipur",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, School of Computer Science, Shahid Beheshti University, Institute for Studies in Theoretical Physics and Mathematics (IPM), Tehran, 19839-63113, Iran"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "A.",
+                  "family": "Kaivani",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, School of Computer Science, Shahid Beheshti University, Institute for Studies in Theoretical Physics and Mathematics (IPM), Tehran, 19839-63113, Iran"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    7,
+                    2
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/iet-cdt:20060160",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.17487/rfc3091",
+              "title": [
+                "Pi Digit Generation Protocol"
+              ],
+              "author": [
+                {
+                  "given": "H.",
+                  "family": "Kennedy",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2001,
+                    4
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.17487/rfc3091",
+              "type": "report"
+            },
+            {
+              "DOI": "10.21203/rs.3.rs-2561006/v1",
+              "title": [
+                "High-speed binary coded decimal digit multipliers with multiple error detection"
+              ],
+              "author": [
+                {
+                  "given": "Zahra",
+                  "family": "Yazdanian-Amiri",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Babol Noshirvani University of Technology"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Mojtaba",
+                  "family": "Valinataj",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Babol Noshirvani University of Technology"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    2,
+                    10
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.21203/rs.3.rs-2561006/v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.1007/978-3-319-32377-0_9",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation (1988)"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_9",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1109/ismvl.1993.289555",
+              "title": [
+                "Decimal addition and subtraction units using the p-valued decimal signed-digit number representation"
+              ],
+              "author": [
+                {
+                  "given": "N.",
+                  "family": "Muranaka",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "S.",
+                  "family": "Imanishi",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "D.M.",
+                  "family": "Miller",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "URL": "https://doi.org/10.1109/ismvl.1993.289555",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1007/s10470-020-01781-z",
+              "title": [
+                "Design and implementation of modified BCD digit multiplier for digit-by-digit decimal multiplier"
+              ],
+              "author": [
+                {
+                  "given": "Parthibaraj",
+                  "family": "Anguraj",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Thiruvenkadam",
+                  "family": "Krishnan",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021,
+                    1,
+                    11
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/s10470-020-01781-z",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.2172/4378071",
+              "title": [
+                "A FOUR-ADDRESS, EIGHT-DIGIT FLOATING DECIMAL CODING SYSTEM FOR THE C.P.C. MODEL II (NO. 1 BOARDS)"
+              ],
+              "author": [
+                {
+                  "given": "D",
+                  "family": "Sweeney",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1952,
+                    9,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.2172/4378071",
+              "type": "report"
+            },
+            {
+              "DOI": "10.21203/rs.3.rs-9658199/v1",
+              "title": [
+                "Beyond Mod-97: Phase-Coupled D5×D5 Folds for Two-Digit Decimal Checksums with Exact Bounds"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0009-0009-9993-2628",
+                  "authenticated-orcid": false,
+                  "given": "Csaba",
+                  "family": "Balogh",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Országos Kórházi Főigazgatóság (National Directorate General for Hospitals), Budapest, Hungary"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2026,
+                    5,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.21203/rs.3.rs-9658199/v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.1049/el:19660319",
+              "title": [
+                "Single-digit-correcting decimal codes"
+              ],
+              "author": [
+                {
+                  "given": "D.A.",
+                  "family": "Bell",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electronic Engineering, University of Hull, Hull, Yorks. HU6 7RX, UK"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1966,
+                    10
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/el:19660319",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1109/eit.2009.5189621",
+              "title": [
+                "High performance signed-digit decimal adders"
+              ],
+              "author": [
+                {
+                  "given": "Jeff",
+                  "family": "Rebacz",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Erdal",
+                  "family": "Oruklu",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Jafar",
+                  "family": "Saniie",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2009,
+                    6
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/eit.2009.5189621",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1007/978-3-642-24055-3_42",
+              "title": [
+                "Decimal Floating Point Multiplier Using Double Digit Decimal Multiplication"
+              ],
+              "author": [
+                {
+                  "given": "Rekha K.",
+                  "family": "James",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "K.",
+                  "family": "Poulose Jacob",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Sreela",
+                  "family": "Sasi",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2011
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-642-24055-3_42",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_37",
+              "title": [
+                "The evolution of extended decimal approximations to π"
+              ],
+              "author": [
+                {
+                  "suffix": "Jr.",
+                  "given": "J. W.",
+                  "family": "Wrench",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_37",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1049/ip-cdt:20020407",
+              "title": [
+                "Densely packed decimal encoding"
+              ],
+              "author": [
+                {
+                  "given": "M.",
+                  "family": "Cowlishaw",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2002
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/ip-cdt:20020407",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1201/b10684-3",
+              "title": [
+                "What Is the Quadrillionth Decimal Place of pi?"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2008,
+                    10,
+                    28
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1201/b10684-3",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_37",
+              "title": [
+                "The evolution of extended decimal approximations to π"
+              ],
+              "author": [
+                {
+                  "suffix": "Jr.",
+                  "given": "J. W.",
+                  "family": "Wrench",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1997
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_37",
+              "type": "book-chapter"
+            }
+          ],
+          "items-per-page": 20,
+          "query": {
+            "start-index": 0,
+            "search-terms": null
+          }
+        }
+      }
+    },
+    {
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20decimal%20recurrence%20nonzero%20digits&rows=20&select=DOI,title,author,published,URL,type",
+      "response": {
+        "status": "ok",
+        "message-type": "work-list",
+        "message-version": "1.0.0",
+        "message": {
+          "facets": {},
+          "total-results": 183599,
+          "items": [
+            {
+              "DOI": "10.1007/978-3-319-32377-0_9",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation (1988)"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_9",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1109/superc.1988.74139",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation"
+              ],
+              "author": [
+                {
+                  "given": "Y.",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "URL": "https://doi.org/10.1109/superc.1988.74139",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1997
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1988
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-3-319-32377-0_7",
+              "title": [
+                "The computation of π to 29,360,000 decimal digits using Borweins quartically convergent algorithm (1988)"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_7",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.14293/pr2199.000257.v1",
+              "title": [
+                "Primality test and repeating decimal digits"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0009-0000-1380-9042",
+                  "authenticated-orcid": false,
+                  "given": "Simon-Pierre",
+                  "family": "Blackburn",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Université Laval"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    7,
+                    25
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.14293/pr2199.000257.v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.32614/cran.package.round",
+              "title": [
+                "round: Rounding to Decimal Digits"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-8685-9910",
+                  "authenticated-orcid": true,
+                  "given": "Martin",
+                  "family": "Maechler",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2020,
+                    1,
+                    24
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.32614/cran.package.round",
+              "type": "dataset"
+            },
+            {
+              "DOI": "10.1093/jama/9780195176339.022.574",
+              "title": [
+                "Numbers of 4 or More Digits to Either Side of the Decimal Point"
+              ],
+              "author": [
+                {
+                  "given": "Stephen J.",
+                  "family": "Lurie",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Margaret A.",
+                  "family": "Winker",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2009,
+                    4,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1093/jama/9780195176339.022.574",
+              "type": "book"
+            },
+            {
+              "DOI": "10.4135/9781412983907.n15",
+              "title": [
+                "Accurate to n Decimal Places (or Digits)"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2005
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.4135/9781412983907.n15",
+              "type": "reference-entry"
+            },
+            {
+              "DOI": "10.2307/2002776",
+              "title": [
+                "Statistical Treatment of Values of First 2,000 Decimal Digits of e and of /pi Calculated on the ENIAC"
+              ],
+              "author": [
+                {
+                  "given": "Olga",
+                  "family": "Taussky",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1950,
+                    4
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.2307/2002776",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.3840/000639",
+              "title": [
+                "Pi Digits Pie"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    4,
+                    27
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.3840/000639",
+              "type": "dataset"
+            },
+            {
+              "DOI": "10.3840/07000639",
+              "title": [
+                "Pi Digits Pie"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    4,
+                    27
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.3840/07000639",
+              "type": "dataset"
+            },
+            {
+              "DOI": "10.20944/preprints202306.0603.v1",
+              "title": [
+                "Assessing Last Decimal Digits in Retracted Research Articles: Accounting for Missing Zeroes"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0003-3097-3551",
+                  "authenticated-orcid": false,
+                  "given": "Walter Richard",
+                  "family": "Schumm",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    6,
+                    8
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.20944/preprints202306.0603.v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.3840/07000574",
+              "title": [
+                "Pi Digits Bar Chart"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    4,
+                    30
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.3840/07000574",
+              "type": "dataset"
+            },
+            {
+              "DOI": "10.3840/000574",
+              "title": [
+                "Pi Digits Bar Chart"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    4,
+                    30
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.3840/000574",
+              "type": "dataset"
+            },
+            {
+              "DOI": "10.1093/combul/15.3.156",
+              "title": [
+                "Decimal numbers with two check digits"
+              ],
+              "author": [
+                {
+                  "given": "A M",
+                  "family": "Andrew",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1972,
+                    3,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1093/combul/15.3.156",
+              "type": "journal-article"
+            }
+          ],
+          "items-per-page": 20,
+          "query": {
+            "start-index": 0,
+            "search-terms": null
+          }
+        }
+      }
+    },
+    {
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20factor%20complexity%20decimal%20expansion&rows=20&select=DOI,title,author,published,URL,type",
+      "response": {
+        "status": "ok",
+        "message-type": "work-list",
+        "message-version": "1.0.0",
+        "message": {
+          "facets": {},
+          "total-results": 1183224,
+          "items": [
+            {
+              "DOI": "10.51473/rcmos.v1i8.2021.934",
+              "title": [
+                "A internacionalização empresarial brasileira: a complexidade jurídica como fator estratégico na expansão global",
+                "Brazilian business internationalization: legal complexity as a strategic factor in global expansion"
+              ],
+              "author": [
+                {
+                  "given": "Márcio",
+                  "family": "Noronha ",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021,
+                    7,
+                    16
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.51473/rcmos.v1i8.2021.934",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/978-3-319-32377-0_9",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation (1988)"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_9",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1090/mbk/133/03",
+              "title": [
+                "The decimal expansion of a number"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2020,
+                    10,
+                    23
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1090/mbk/133/03",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_37",
+              "title": [
+                "The evolution of extended decimal approximations to π"
+              ],
+              "author": [
+                {
+                  "suffix": "Jr.",
+                  "given": "J. W.",
+                  "family": "Wrench",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_37",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1201/b10684-3",
+              "title": [
+                "What Is the Quadrillionth Decimal Place of pi?"
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2008,
+                    10,
+                    28
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1201/b10684-3",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_37",
+              "title": [
+                "The evolution of extended decimal approximations to π"
+              ],
+              "author": [
+                {
+                  "suffix": "Jr.",
+                  "given": "J. W.",
+                  "family": "Wrench",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1997
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_37",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_37",
+              "title": [
+                "The evolution of extended decimal approximations to π"
+              ],
+              "author": [
+                {
+                  "suffix": "Jr.",
+                  "given": "J. W.",
+                  "family": "Wrench",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_37",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.4169/mathhorizons.20.1.10",
+              "title": [
+                "An Unanticipated Decimal Expansion"
+              ],
+              "author": [
+                {
+                  "given": "Allen",
+                  "family": "Schwenk",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2012,
+                    9
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.4169/mathhorizons.20.1.10",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1109/superc.1988.74139",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation"
+              ],
+              "author": [
+                {
+                  "given": "Y.",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "URL": "https://doi.org/10.1109/superc.1988.74139",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1007/bf02834991",
+              "title": [
+                "When is a decimal expansion irrational?"
+              ],
+              "author": [
+                {
+                  "given": "B.",
+                  "family": "Sury",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004,
+                    3
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/bf02834991",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1997
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_61",
+              "title": [
+                "Vectorization of Multiple-Precision Arithmetic Program and 201,326,000 Decimal Digits of π Calculation"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_61",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_34",
+              "title": [
+                "An ENIAC Determination of π and e to more than 2000 Decimal Places"
+              ],
+              "author": [
+                {
+                  "given": "George W.",
+                  "family": "Reitwiesner",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1997
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_34",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_34",
+              "title": [
+                "An ENIAC Determination of π and e to more than 2000 Decimal Places"
+              ],
+              "author": [
+                {
+                  "given": "George W.",
+                  "family": "Reitwiesner",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_34",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1988
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_34",
+              "title": [
+                "An ENIAC Determination of π and e to more than 2000 Decimal Places"
+              ],
+              "author": [
+                {
+                  "given": "George W.",
+                  "family": "Reitwiesner",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_34",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.2307/2004804",
+              "title": [
+                "Decimal Expansion of Mersenne Primes"
+              ],
+              "author": [
+                {
+                  "given": "J. W.",
+                  "family": "W.",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "M.",
+                  "family": "Lal",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1968,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.2307/2004804",
+              "type": "journal-article"
+            }
+          ],
+          "items-per-page": 20,
+          "query": {
+            "start-index": 0,
+            "search-terms": null
+          }
+        }
+      }
+    },
+    {
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20nth%20decimal%20digit%20algorithm&rows=20&select=DOI,title,author,published,URL,type",
+      "response": {
+        "status": "ok",
+        "message-type": "work-list",
+        "message-version": "1.0.0",
+        "message": {
+          "facets": {},
+          "total-results": 852079,
+          "items": [
+            {
+              "DOI": "10.1007/springerreference_11893",
+              "title": [
+                "decimal digit"
+              ],
+              "URL": "https://doi.org/10.1007/springerreference_11893",
+              "type": "reference-entry"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-4217-6_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2004
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-4217-6_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-3240-5_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-3240-5_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-1-4757-2736-4_60",
+              "title": [
+                "The Computation of π to 29,360,000 Decimal Digits Using Borweins’ Quartically Convergent Algorithm"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1988
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-1-4757-2736-4_60",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1007/978-3-319-32377-0_7",
+              "title": [
+                "The computation of π to 29,360,000 decimal digits using Borweins quartically convergent algorithm (1988)"
+              ],
+              "author": [
+                {
+                  "given": "David H.",
+                  "family": "Bailey",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_7",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1109/indicon.2017.8488097",
+              "title": [
+                "Digit By Digit Fast Decimal Multiplication"
+              ],
+              "author": [
+                {
+                  "given": "Diganta",
+                  "family": "Sengupta",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Mahamuda",
+                  "family": "Sultana",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Atal",
+                  "family": "Chaudhuri",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2017,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/indicon.2017.8488097",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1016/j.vlsi.2020.10.005",
+              "title": [
+                "Comments on “Improved designs of digit-by-digit decimal multiplier”"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-6536-373X",
+                  "authenticated-orcid": false,
+                  "given": "Mojtaba",
+                  "family": "Valinataj",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Zahra",
+                  "family": "Yazdanian Amiri",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/j.vlsi.2020.10.005",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1016/j.vlsi.2017.12.001",
+              "title": [
+                "Improved designs of digit-by-digit decimal multiplier"
+              ],
+              "author": [
+                {
+                  "given": "Syed Ershad",
+                  "family": "Ahmed",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Santosh",
+                  "family": "Varma",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "M.B.",
+                  "family": "Srinivas",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018,
+                    3
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/j.vlsi.2017.12.001",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/1-4020-0613-6_4489",
+              "title": [
+                "decimal digit"
+              ],
+              "author": [
+                {
+                  "given": "Martin H.",
+                  "family": "Weik",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2000
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/1-4020-0613-6_4489",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1049/iet-cdt:20060160",
+              "title": [
+                "Binary-coded decimal digit multipliers"
+              ],
+              "author": [
+                {
+                  "given": "G.",
+                  "family": "Jaberipur",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, School of Computer Science, Shahid Beheshti University, Institute for Studies in Theoretical Physics and Mathematics (IPM), Tehran, 19839-63113, Iran"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "A.",
+                  "family": "Kaivani",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, School of Computer Science, Shahid Beheshti University, Institute for Studies in Theoretical Physics and Mathematics (IPM), Tehran, 19839-63113, Iran"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2007,
+                    7,
+                    2
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/iet-cdt:20060160",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.17487/rfc3091",
+              "title": [
+                "Pi Digit Generation Protocol"
+              ],
+              "author": [
+                {
+                  "given": "H.",
+                  "family": "Kennedy",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2001,
+                    4
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.17487/rfc3091",
+              "type": "report"
+            },
+            {
+              "DOI": "10.21203/rs.3.rs-2561006/v1",
+              "title": [
+                "High-speed binary coded decimal digit multipliers with multiple error detection"
+              ],
+              "author": [
+                {
+                  "given": "Zahra",
+                  "family": "Yazdanian-Amiri",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Babol Noshirvani University of Technology"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Mojtaba",
+                  "family": "Valinataj",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Babol Noshirvani University of Technology"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    2,
+                    10
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.21203/rs.3.rs-2561006/v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.1007/978-3-319-32377-0_9",
+              "title": [
+                "Vectorization of multiple-precision arithmetic program and 201,326,000 decimal digits of pi calculation (1988)"
+              ],
+              "author": [
+                {
+                  "given": "Yasumasa",
+                  "family": "Kanada",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/978-3-319-32377-0_9",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.1109/ismvl.1993.289555",
+              "title": [
+                "Decimal addition and subtraction units using the p-valued decimal signed-digit number representation"
+              ],
+              "author": [
+                {
+                  "given": "N.",
+                  "family": "Muranaka",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "S.",
+                  "family": "Imanishi",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "D.M.",
+                  "family": "Miller",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "URL": "https://doi.org/10.1109/ismvl.1993.289555",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1049/iet-cdt.2011.0089",
+              "title": [
+                "Decimal floating-point antilogarithmic converter based on selection by rounding: algorithm and architecture"
+              ],
+              "author": [
+                {
+                  "given": "D.",
+                  "family": "Chen",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, University of Saskatchewan, Campus Drive 57, Saskatoon, SK S7N 5A9, Canada"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "L.",
+                  "family": "Han",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, University of Saskatchewan, Campus Drive 57, Saskatoon, SK S7N 5A9, Canada"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "S.-B.",
+                  "family": "Ko",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electrical and Computer Engineering, University of Saskatchewan, Campus Drive 57, Saskatoon, SK S7N 5A9, Canada"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2012,
+                    9
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/iet-cdt.2011.0089",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/s10470-020-01781-z",
+              "title": [
+                "Design and implementation of modified BCD digit multiplier for digit-by-digit decimal multiplier"
+              ],
+              "author": [
+                {
+                  "given": "Parthibaraj",
+                  "family": "Anguraj",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                },
+                {
+                  "given": "Thiruvenkadam",
+                  "family": "Krishnan",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "vocabulary": "crossref",
+                      "role": "author"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021,
+                    1,
+                    11
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/s10470-020-01781-z",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.2172/4378071",
+              "title": [
+                "A FOUR-ADDRESS, EIGHT-DIGIT FLOATING DECIMAL CODING SYSTEM FOR THE C.P.C. MODEL II (NO. 1 BOARDS)"
+              ],
+              "author": [
+                {
+                  "given": "D",
+                  "family": "Sweeney",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1952,
+                    9,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.2172/4378071",
+              "type": "report"
+            },
+            {
+              "DOI": "10.21203/rs.3.rs-9658199/v1",
+              "title": [
+                "Beyond Mod-97: Phase-Coupled D5×D5 Folds for Two-Digit Decimal Checksums with Exact Bounds"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0009-0009-9993-2628",
+                  "authenticated-orcid": false,
+                  "given": "Csaba",
+                  "family": "Balogh",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Országos Kórházi Főigazgatóság (National Directorate General for Hospitals), Budapest, Hungary"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2026,
+                    5,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.21203/rs.3.rs-9658199/v1",
+              "type": "posted-content"
+            },
+            {
+              "DOI": "10.1049/el:19660319",
+              "title": [
+                "Single-digit-correcting decimal codes"
+              ],
+              "author": [
+                {
+                  "given": "D.A.",
+                  "family": "Bell",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Department of Electronic Engineering, University of Hull, Hull, Yorks. HU6 7RX, UK"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1966,
+                    10
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1049/el:19660319",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1109/eit.2009.5189621",
+              "title": [
+                "High performance signed-digit decimal adders"
+              ],
+              "author": [
+                {
+                  "given": "Jeff",
+                  "family": "Rebacz",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Erdal",
+                  "family": "Oruklu",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Jafar",
+                  "family": "Saniie",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2009,
+                    6
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/eit.2009.5189621",
+              "type": "proceedings-article"
+            }
+          ],
+          "items-per-page": 20,
+          "query": {
+            "start-index": 0,
+            "search-terms": null
+          }
+        }
+      }
+    },
+    {
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20normality%20dynamical%20system&rows=20&select=DOI,title,author,published,URL,type",
+      "response": {
+        "status": "ok",
+        "message-type": "work-list",
+        "message-version": "1.0.0",
+        "message": {
+          "facets": {},
+          "total-results": 3736311,
+          "items": [
+            {
+              "DOI": "10.1080/10586458.2017.1279092",
+              "title": [
+                "Fractal Analysis of Pi Normality"
+              ],
+              "author": [
+                {
+                  "given": "Carlos",
+                  "family": "Sevcik",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Laboratory on Cellular Neuropastharmacology, Centro de Biofísica y Bioquímica, Instituto Venezolano de Investigaciones Científicas (IVIC), Caracas, Venezuela"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2017,
+                    2,
+                    17
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1080/10586458.2017.1279092",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1007/s12346-022-00705-8",
+              "title": [
+                "Nonlinear Sliding and Nonlinear Regularization of Piecewise Smooth System"
+              ],
+              "author": [
+                {
+                  "given": "Xiaoyan",
+                  "family": "Chen",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "ORCID": "https://orcid.org/0000-0002-3720-4352",
+                  "authenticated-orcid": false,
+                  "given": "Dingheng",
+                  "family": "Pi",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    1,
+                    9
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/s12346-022-00705-8",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1016/j.ins.2023.119700",
+              "title": [
+                "PI-ELM: Reinforcement learning-based adaptable policy improvement for dynamical system"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0003-2452-3570",
+                  "authenticated-orcid": false,
+                  "given": "Yingbai",
+                  "family": "Hu",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Xu",
+                  "family": "Wang",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "ORCID": "https://orcid.org/0000-0002-7148-4167",
+                  "authenticated-orcid": false,
+                  "given": "Yueyue",
+                  "family": "Liu",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "ORCID": "https://orcid.org/0000-0002-3180-7347",
+                  "authenticated-orcid": false,
+                  "given": "Weiping",
+                  "family": "Ding",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Alois",
+                  "family": "Knoll",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2023,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/j.ins.2023.119700",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.23919/ecc.2018.8550551",
+              "title": [
+                "On the Relation Between Non-normality and Diameter in Linear Dynamical Networks"
+              ],
+              "author": [
+                {
+                  "given": "Giacomo",
+                  "family": "Baggio",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Sandro",
+                  "family": "Zampieri",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018,
+                    6
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.23919/ecc.2018.8550551",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.2172/4654228",
+              "title": [
+                "DYNAMICAL MECHANISM FOR THE DIFFRACTIVE DISSOCIATION REACTION $pi$ $Yields$ 5."
+              ],
+              "author": [
+                {
+                  "given": "T",
+                  "family": "Celik",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "W",
+                  "family": "Meggs",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1972,
+                    1,
+                    1
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.2172/4654228",
+              "type": "report"
+            },
+            {
+              "DOI": "10.1109/cca.1994.381295",
+              "title": [
+                "Application of modified Sigma-Pi-linked neural network to dynamical system identification"
+              ],
+              "author": [
+                {
+                  "family": "Chow",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "family": "Gou Fei",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "family": "Yam",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1994
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/cca.1994.381295",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1007/s00500-018-03682-w",
+              "title": [
+                "Revised convexity, normality and stability properties of the dynamical feedback fuzzy state space model (FFSSM) of insulin–glucose regulatory system in humans"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-3826-8657",
+                  "authenticated-orcid": false,
+                  "given": "Izaz Ullah",
+                  "family": "Khan",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Tahir",
+                  "family": "Ahmad",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Normah",
+                  "family": "Maan",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018,
+                    12,
+                    12
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1007/s00500-018-03682-w",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.22323/1.042.0086",
+              "title": [
+                "I=2 pi-pi scattering length with dynamical overlap fermion"
+              ],
+              "author": [
+                {
+                  "given": "Takuya",
+                  "family": "Yagi",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2008,
+                    3,
+                    21
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.22323/1.042.0086",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.1109/icidea64800.2025.10962846",
+              "title": [
+                "Modified Sigma-Pi Neural Network for Dynamical System Identification"
+              ],
+              "author": [
+                {
+                  "given": "Kartik",
+                  "family": "Saini",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Delhi Technological University,Department of Electrical Engineering,New Delhi,India,110042"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Narendra",
+                  "family": "Kumar",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Delhi Technological University,Department of Electrical Engineering,New Delhi,India,110042"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Rajesh",
+                  "family": "Kumar",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "National Institute of Technology Kurukshetra,Department of Electrical Engineering,Kurukshetra,India,136119"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Bharat",
+                  "family": "Bhushan",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Delhi Technological University,Department of Electrical Engineering,New Delhi,India,110042"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2025,
+                    2,
+                    21
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/icidea64800.2025.10962846",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.52957/27821927_2021_4_4",
+              "title": [
+                "OLD ANALOGUE NORMALITY VS NEW DIGITAL NORMALITY IN A COMPETITIVE COORDINATE SYSTEM"
+              ],
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-2195-8600",
+                  "authenticated-orcid": false,
+                  "given": "Galina A.",
+                  "family": "Rodina",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Yaroslavl State Technical University"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2021
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.52957/27821927_2021_4_4",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1109/icet.2016.7813211",
+              "title": [
+                "A single parameter self-tune fractional order PI<sup>λ</sup>controller for second order uncertain dynamical system"
+              ],
+              "author": [
+                {
+                  "given": "Muhammad",
+                  "family": "Farhan",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Nasim",
+                  "family": "Ullah",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Nisar",
+                  "family": "Ahmed",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2016,
+                    10
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1109/icet.2016.7813211",
+              "type": "proceedings-article"
+            },
+            {
+              "DOI": "10.5040/9781474214605.ch-009",
+              "title": [
+                "System and Service"
+              ],
+              "URL": "https://doi.org/10.5040/9781474214605.ch-009",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.5373/jardcs/v12sp1/20201092",
+              "title": [
+                "Comparing Fuzzy Logic and P&amp;O MPPT Methods for PV System and PI Control Like a Load Controller"
+              ],
+              "author": [
+                {
+                  "given": "Saloua",
+                  "family": "Marhraoui",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2020,
+                    2,
+                    13
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.5373/jardcs/v12sp1/20201092",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.5373/jardcs/v12sp1/20201089",
+              "title": [
+                "Fuzzy Sliding Mode Hybrid Control MPPT Strategy and PI Control as a Controller for a Battery Integrated with PV System"
+              ],
+              "author": [
+                {
+                  "given": "Saloua",
+                  "family": "Marhraoui",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2020,
+                    2,
+                    13
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.5373/jardcs/v12sp1/20201089",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1017/etds.2015.53",
+              "title": [
+                "Normality in Pisot numeration systems"
+              ],
+              "author": [
+                {
+                  "given": "ADRIAN-MARIA",
+                  "family": "SCHEERER",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2015,
+                    8,
+                    25
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1017/etds.2015.53",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1080/10586458.2013.878674",
+              "title": [
+                "Experimental Analysis on the Normality of Using Advanced Data-Mining Techniques (Experimental Analysis on the Normality of pi, e, phi, and square root of 2 Using Advanced Data-Mining Techniques)"
+              ],
+              "author": [
+                {
+                  "given": "Konstantinos F.",
+                  "family": "Xylogiannopoulos",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Panagiotis",
+                  "family": "Karampelas",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Reda",
+                  "family": "Alhajj",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2014,
+                    4,
+                    3
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1080/10586458.2013.878674",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.5890/jvtsd.2018.06.001",
+              "title": [
+                "A Fuzzy Logic PI Trajectory Following Control in a Chaotically Loaded Real Mechatronic Dynamical System with Stick-Slip Friction"
+              ],
+              "author": [
+                {
+                  "given": "Wojciech",
+                  "family": "Kunikowski",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Paweł",
+                  "family": "Olejnik",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Jan",
+                  "family": "Awrejcewicz",
+                  "sequence": "additional",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018,
+                    6
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.5890/jvtsd.2018.06.001",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.3934/dcds.2018138",
+              "title": [
+                "Normality and uniqueness of Lagrange multipliers"
+              ],
+              "author": [
+                {
+                  "given": "Karla L.",
+                  "family": "Cortez",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "given": "Javier F.",
+                  "family": "Rosenblueth",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "IIMAS, Universidad Nacional Autónoma de México, Apartado Postal 20-126, CDMX 01000, México"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2018
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.3934/dcds.2018138",
+              "type": "journal-article"
+            },
+            {
+              "DOI": "10.1016/b978-0-12-164902-9.50038-1",
+              "title": [
+                "Extendability of an Elementary Dynamical System to an Abstract Local Dynamical System"
+              ],
+              "author": [
+                {
+                  "given": "TARO",
+                  "family": "URA",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    1976
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.1016/b978-0-12-164902-9.50038-1",
+              "type": "book-chapter"
+            },
+            {
+              "DOI": "10.22323/1.212.0031",
+              "title": [
+                "Study of the $\\pi^+\\pi^-$ System in $\\pi^-\\pi^+\\pi^-$ Final States at COMPASS"
+              ],
+              "author": [
+                {
+                  "given": "Fabian Michael",
+                  "family": "Krinner",
+                  "sequence": "first",
+                  "affiliation": [],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2014,
+                    10,
+                    14
+                  ]
+                ]
+              },
+              "URL": "https://doi.org/10.22323/1.212.0031",
+              "type": "proceedings-article"
+            }
+          ],
+          "items-per-page": 20,
+          "query": {
+            "start-index": 0,
+            "search-terms": null
+          }
+        }
+      }
+    }
+  ]
+}
