@@ -10,6 +10,7 @@ The repository separates trusted mathematics from research machinery:
 - `audit/AxiomAudit.lean`: explicit theorem-by-theorem axiom audit.
 - `knowledge/pi/`: statements, milestone reports, negative results, continuation state, and active workstreams.
 - `workflows/`: sandboxed model runners, task definitions, runtime/container tools, and verification scripts.
+- `ResearchAgents/`: file-based coordination for separately invoked high-capability research models.
 
 No theorem here resolves the main digit-occurrence question. A green build means only that the stated Lean declarations are machine-checked under the exact axiom allowlist.
 
@@ -21,6 +22,10 @@ pwsh workflows/verification/check.ps1
 ```
 
 The gate rejects `sorry`, `admit`, `native_decide`, new axioms, opaque proof declarations, unsafe declarations, and other compiler-trusting shortcuts. Allowed foundational axioms remain exactly `propext`, `Classical.choice`, and `Quot.sound`.
+
+## Run one research-agent turn
+
+Give a capable model the prompt in [`ResearchAgents/PROMPT.md`](ResearchAgents/PROMPT.md). Each invocation claims one task through the task file's current Git blob SHA, completes a bounded deliverable, and closes the task as `done` or `blocked`.
 
 ## Run the sandboxed Ox workflow
 
@@ -36,4 +41,4 @@ The gate rejects `sorry`, `admit`, `native_decide`, new axioms, opaque proof dec
 
 Use provider-specific launches when enforcing distinct concurrency limits. All model work runs in pods; only artifacts that independently pass the Lean and axiom gates may enter `TheoryLib/`.
 
-See [knowledge/pi/README.md](knowledge/pi/README.md) for the research-state map and [workflows/README.md](workflows/README.md) for workflow operations.
+See [knowledge/pi/README.md](knowledge/pi/README.md) for the research-state map, [workflows/README.md](workflows/README.md) for workflow operations, and [ResearchAgents/README.md](ResearchAgents/README.md) for pro-model coordination.
