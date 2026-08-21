@@ -1,7 +1,7 @@
 # GP-0002 CI verification
 
-- Commit under test: `15e3a0e37cd6b81a916a9eca90024a37d2b7b120`
-- Run ID: `32525961854`
+- Commit under test: `aa050f983372ea831e75b44cfdde85b4156cf1e8`
+- Run ID: `32525972019`
 - Run attempt: `1`
 - Runner: `ubuntu-latest`
 - Lean setup outcome: `success`
@@ -13,6 +13,33 @@
 ## Isolated T110 build output (last 400 lines)
 
 ```text
+warning: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:678:10: `simp [L, U, S, hr]` is a flexible tactic modifying `⊢`. Try `simp?` and use the suggested `simp only [...]`. Alternatively, use `suffices` to explicitly state the simplified form.
+
+Note: This linter can be disabled with `set_option linter.flexible false`
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:678:10: Try this:
+  [apply] simp only [sum_ite_eq']
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:679:10: `rw [sum_filter, sum_filter]` uses `⊢`!
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1232:0: 'DecimalFactorComplexity.WeightedFourierReduction.four_div_pi_sq_le_fejerMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1233:0: 'DecimalFactorComplexity.WeightedFourierReduction.nearReturnIndicator_le_intervalMajorant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+warning: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1233:100: This line exceeds the 100 character limit, please shorten it!
+
+Note: This linter can be disabled with `set_option linter.style.longLine false`
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1234:0: 'DecimalFactorComplexity.WeightedFourierReduction.majorantCoefficient_zero_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1235:0: 'DecimalFactorComplexity.WeightedFourierReduction.abs_majorantCoefficient_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1236:0: 'DecimalFactorComplexity.WeightedFourierReduction.orderedPair_phase_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1237:0: 'DecimalFactorComplexity.WeightedFourierReduction.pi_orderedPair_phase_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1238:0: 'DecimalFactorComplexity.WeightedFourierReduction.majorantPairSum_eq_doubleFrequencySum' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -31,34 +58,7 @@ info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:124
 info: TheoryLib/PiDecimalFactorComplexity/T10PiWeightedFourierReduction.lean:1242:0: 'DecimalFactorComplexity.WeightedFourierReduction.HFE_pi_implies_lacunaryNearReturnC2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [8490/8496] Built TheoryLib.PiQuantitativeBlockHitting.T5PiQuantitativeResonanceObstruction (5.0s)
-warning: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:1:1: * '-/':
-Copyright too short!
-
-
-Note: This linter can be disabled with `set_option linter.style.header false`
-info: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:242:0: 'Theory.PiDigits.QuantitativeResonanceObstruction.C1_of_eventual_fullContainment' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:243:0: 'Theory.PiDigits.QuantitativeResonanceObstruction.exists_piOrbit_resonance_of_missingBefore' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-warning: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:243:100: This line exceeds the 100 character limit, please shorten it!
-
-Note: This linter can be disabled with `set_option linter.style.longLine false`
-info: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:244:0: 'Theory.PiDigits.QuantitativeResonanceObstruction.normalized_piOrbit_resonance_of_missing_fullContainment' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-warning: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:244:100: This line exceeds the 100 character limit, please shorten it!
-
-Note: This linter can be disabled with `set_option linter.style.longLine false`
-info: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:245:0: 'Theory.PiDigits.QuantitativeResonanceObstruction.not_C1_implies_V1_failure_or_unbounded_resonance' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-warning: TheoryLib/PiQuantitativeBlockHitting/T5PiQuantitativeResonanceObstruction.lean:245:100: This line exceeds the 100 character limit, please shorten it!
-
-Note: This linter can be disabled with `set_option linter.style.longLine false`
-⚠ [8491/8496] Built TheoryLib.PiQuantitativeBlockHitting.T6PiNaturalScaleResonanceObstruction (14s)
+⚠ [8491/8496] Built TheoryLib.PiQuantitativeBlockHitting.T6PiNaturalScaleResonanceObstruction (17s)
 warning: TheoryLib/PiQuantitativeBlockHitting/T6PiNaturalScaleResonanceObstruction.lean:1:1: * '-/':
 Copyright too short!
 
@@ -166,7 +166,7 @@ info: TheoryLib/PiQuantitativeBlockHitting/T8PiNoV1NaturalScaleResonance.lean:12
 info: TheoryLib/PiQuantitativeBlockHitting/T8PiNoV1NaturalScaleResonance.lean:128:0: 'Theory.PiDigits.PiNoV1NaturalScaleResonance.not_C1_implies_unbounded_naturalScale_resonance' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [8493/8496] Built TheoryLib.PiQuantitativeBlockHitting.T14T14BoundaryRobustFejerDichotomy (18s)
+⚠ [8493/8496] Built TheoryLib.PiQuantitativeBlockHitting.T14T14BoundaryRobustFejerDichotomy (12s)
 warning: TheoryLib/PiQuantitativeBlockHitting/T14T14BoundaryRobustFejerDichotomy.lean:1:1: * '-/':
 Copyright too short!
 
@@ -284,7 +284,7 @@ info: TheoryLib/PiQuantitativeBlockHitting/T14T14BoundaryRobustFejerDichotomy.le
 info: TheoryLib/PiQuantitativeBlockHitting/T14T14BoundaryRobustFejerDichotomy.lean:1584:0: 'Theory.PiDigits.BoundaryRobustFejerDichotomy.not_C1_implies_unbounded_explicit_boundary_or_aggregated_resonance' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [8494/8496] Built TheoryLib.PiQuantitativeBlockHitting.T16T16DecimalBoundaryWordObstruction (14s)
+⚠ [8494/8496] Built TheoryLib.PiQuantitativeBlockHitting.T16T16DecimalBoundaryWordObstruction (10s)
 warning: TheoryLib/PiQuantitativeBlockHitting/T16T16DecimalBoundaryWordObstruction.lean:1:1: * '-/':
 Copyright too short!
 
@@ -382,7 +382,7 @@ info: TheoryLib/PiQuantitativeBlockHitting/T16T16DecimalBoundaryWordObstruction.
 info: TheoryLib/PiQuantitativeBlockHitting/T16T16DecimalBoundaryWordObstruction.lean:1110:0: 'Theory.PiDigits.DecimalBoundaryWordObstruction.not_C1_implies_unbounded_adjacent_word_or_aggregated_resonance' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [8495/8496] Built TheoryLib.PiQuantitativeBlockHitting.T17T17PowerTenDiophantineReduction (6.3s)
+⚠ [8495/8496] Built TheoryLib.PiQuantitativeBlockHitting.T17T17PowerTenDiophantineReduction (4.4s)
 warning: TheoryLib/PiQuantitativeBlockHitting/T17T17PowerTenDiophantineReduction.lean:1:1: * '-/':
 Copyright too short!
 
@@ -406,7 +406,7 @@ info: TheoryLib/PiQuantitativeBlockHitting/T17T17PowerTenDiophantineReduction.le
 info: TheoryLib/PiQuantitativeBlockHitting/T17T17PowerTenDiophantineReduction.lean:425:0: 'Theory.PiDigits.PowerTenDiophantineReduction.not_C1_implies_unbounded_aggregated_resonance_of_powerTenDiophantine' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [8496/8496] Built TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion (4.6s)
+⚠ [8496/8496] Built TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion (3.0s)
 warning: TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean:1:1: * '-/':
 Copyright too short!
 
