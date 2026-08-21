@@ -38,6 +38,10 @@ from typing import Any, Callable, Iterable
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
+if str(ROOT) not in sys.path:
+    # Direct `python workflows/modelbench/runner.py` execution otherwise puts
+    # only the script directory on sys.path. Keep imports repo-local.
+    sys.path.insert(0, str(ROOT))
 RUNNER_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 MODELS: dict[str, dict[str, Any]] = {
@@ -95,6 +99,7 @@ LEAN_GATE_TIMEOUT_S = 900
 PODMAN_IMAGE = "localhost/allmath-research:latest"
 GATE_LOCK_PATH = Path("/tmp/allmath-modelbench-lean-gate.lock")
 PROVIDER_SLOT_LOCK_ROOT = Path("/tmp/allmath-modelbench-provider-slots")
+OPERATOR_PAUSE_PATH = ROOT / "workflows" / "state" / "OPERATOR_PAUSED"
 
 _print_lock = threading.Lock()
 _lean_gate_semaphore = threading.Semaphore(2)
@@ -206,11 +211,8 @@ class SandboxHeartbeat:
 
 
 def _sandbox_api() -> tuple[Any, Any, Any]:
-    """Load the established sibling opencodeworkflow sandbox implementation."""
-    workflow_parent = Path("/home/Marcel/dev")
-    if str(workflow_parent) not in sys.path:
-        sys.path.insert(0, str(workflow_parent))
-    from opencodeworkflow.sandbox import (  # type: ignore[import-not-found]
+    """Load the repository-local workflow sandbox implementation."""
+    from workflows.runtime.sandbox import (
         SandboxConfig,
         finalize_sandbox,
         prepare_sandbox_workspace,
@@ -390,8 +392,7 @@ def harden_sandbox_command(runtime: Any, command: list[str], model_key: str) -> 
     if config_dir.is_dir():
         mounts.extend(["-v", f"{config_dir}:/root/.config/opencode:ro"])
         sandbox_config = (
-            Path("/home/Marcel/dev/opencodeworkflow")
-            / "containers"
+            ROOT / "workflows" / "runtime" / "containers"
             / "opencode-sandbox-config.json"
         )
         if sandbox_config.is_file():
@@ -627,6 +628,50 @@ def cross_process_model_slot(
 def log(message: str) -> None:
     with _print_lock:
         print(message, flush=True)
+
+
+def file_sha256(path: Path) -> str | None:
+    """Hash a regular artifact without following a missing output."""
+    if not path.is_file():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def trusted_source_snapshot_sha256() -> str:
+    """Bind a wave to exact trusted Lean source and project pins."""
+    paths = sorted((ROOT / "TheoryLib").rglob("*.lean"))
+    paths.extend(
+        ROOT / name
+        for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain")
+    )
+    digest = hashlib.sha256()
+    for path in paths:
+        relative = path.relative_to(ROOT).as_posix().encode("utf-8")
+        digest.update(len(relative).to_bytes(8, "big"))
+        digest.update(relative)
+        content = path.read_bytes()
+        digest.update(len(content).to_bytes(8, "big"))
+        digest.update(content)
+    return digest.hexdigest()
+
+
+def sandbox_image_id(image: str) -> str:
+    """Resolve a mutable image tag to the immutable image ID before launch."""
+    proc = subprocess.run(
+        ["podman", "image", "inspect", image, "--format", "{{.Id}}"],
+        capture_output=True,
+        text=True,
+        timeout=30,
+        check=False,
+    )
+    image_id = proc.stdout.strip()
+    if proc.returncode != 0 or not re.fullmatch(r"[0-9a-f]{64}", image_id):
+        raise SystemExit(f"cannot resolve sandbox image {image!r}: {proc.stderr.strip()}")
+    return image_id
 
 
 # ---------------------------------------------------------------------------
@@ -944,7 +989,10 @@ LEAN_FENCE_RE = re.compile(r"```lean\s*\n(.*?)```", re.DOTALL)
 ANSWER_RE = re.compile(r"ANSWER:\s*(ACCEPT|REJECT|[A-E])", re.IGNORECASE)
 FORBIDDEN_LEAN_RE = re.compile(
     r"(\bsorry\b|\badmit\b|\bnative_decide\b|"
-    r"^\s*(?:axiom|constant|opaque)\b|\bunsafe\b)",
+    r"\b(?:run_cmd|run_tac|initialize|builtin_initialize|implemented_by|extern)\b|"
+    r"^\s*(?:axiom|constant|opaque|macro|syntax|elab|notation|attribute|set_option|"
+    r"declare_syntax_cat|include_str|include_bytes)\b|"
+    r"^\s*#|\bunsafe\b)",
     re.MULTILINE,
 )
 ALLOWED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
@@ -954,6 +1002,82 @@ AXIOM_LINE_RE = re.compile(
 )
 
 
+def strip_lean_comments(code: str) -> str:
+    """Remove Lean comments and strings before source-contract checks.
+
+    The kernel gate remains authoritative.  This prevents both marker spoofing
+    in comments and false rejection of explanatory prose.
+    """
+    previous = None
+    while previous != code:
+        previous = code
+        code = re.sub(r"/-.*?-/", " ", code, flags=re.DOTALL)
+    code = re.sub(r"--[^\n]*", " ", code)
+    return re.sub(r'"(?:\\.|[^"\\])*"', '""', code)
+
+
+def artifact_declares_theorem(code: str, full_name: str) -> bool:
+    """Require the candidate source itself to declare the audited theorem."""
+    short_name = full_name.rsplit(".", 1)[-1]
+    declaration = re.compile(
+        rf"^\s*(?:theorem|lemma)\s+(?:{re.escape(full_name)}|{re.escape(short_name)})\b",
+        re.MULTILINE,
+    )
+    return declaration.search(strip_lean_comments(code)) is not None
+
+
+def artifact_imports(code: str) -> set[str]:
+    """Return module names from ordinary top-level Lean import commands."""
+    modules: set[str] = set()
+    for match in re.finditer(
+        r"^\s*import\s+([^\n]+)$", strip_lean_comments(code), re.MULTILINE
+    ):
+        modules.update(match.group(1).split())
+    return modules
+
+
+def artifact_declaration_namespaces(code: str) -> list[tuple[str, str]]:
+    """Return ordinary declarations and their enclosing Lean namespaces."""
+    namespaces: list[str] = []
+    declarations: list[tuple[str, str]] = []
+    for line in strip_lean_comments(code).splitlines():
+        namespace_match = re.match(
+            r"^\s*namespace\s+([A-Za-z_][A-Za-z0-9_'.]*)\s*$", line
+        )
+        if namespace_match:
+            namespaces.append(namespace_match.group(1))
+            continue
+        if re.match(
+            r"^\s*end(?:\s+[A-Za-z_][A-Za-z0-9_'.]*)?\s*$", line
+        ):
+            if namespaces:
+                namespaces.pop()
+            continue
+        declaration_match = re.match(
+            r"^\s*(?:private\s+)?(?:theorem|lemma|def)\s+"
+            r"([A-Za-z_][A-Za-z0-9_'.]*)\b",
+            line,
+        )
+        if declaration_match:
+            declarations.append(
+                (".".join(namespaces), declaration_match.group(1))
+            )
+    return declarations
+
+
+def trusted_tree_declares_theorem(full_name: str) -> bool:
+    """Reject task targets that already exist in the trusted source snapshot."""
+    short_name = full_name.rsplit(".", 1)[-1]
+    declaration = re.compile(
+        rf"^\s*(?:theorem|lemma)\s+(?:{re.escape(full_name)}|{re.escape(short_name)})\b",
+        re.MULTILINE,
+    )
+    for path in (ROOT / "TheoryLib").rglob("*.lean"):
+        if declaration.search(strip_lean_comments(path.read_text(encoding="utf-8"))):
+            return True
+    return False
+
+
 def grade_lean_gate(
     response: str, grading: dict[str, Any], work_dir: Path
 ) -> tuple[bool, str]:
@@ -961,20 +1085,29 @@ def grade_lean_gate(
     if not blocks:
         return False, "no ```lean code block in response"
     code = blocks[-1]
-    stripped = code
-    previous = None
-    while previous != stripped:
-        previous = stripped
-        stripped = re.sub(r"/-.*?-/", " ", stripped, flags=re.DOTALL)
-    stripped = re.sub(r"--[^\n]*", " ", stripped)
+    stripped = strip_lean_comments(code)
     if FORBIDDEN_LEAN_RE.search(stripped):
         return False, (
             "forbidden token "
             "(sorry/admit/native_decide/axiom/constant/opaque/unsafe)"
         )
     names = [str(n) for n in grading.get("theorem_names", [])]
+    expected_types = grading.get("expected_types")
+    if expected_types is not None:
+        if not isinstance(expected_types, dict):
+            return False, "invalid theorem statement contracts"
+        missing_contracts = [
+            name
+            for name in names
+            if not isinstance(expected_types.get(name), str)
+            or not str(expected_types[name]).strip()
+        ]
+        if missing_contracts:
+            return False, f"missing expected types for {missing_contracts}"
     gate_root = work_dir / "lean_gate"
     trusted = gate_root / "trusted"
+    if trusted.exists():
+        shutil.rmtree(trusted)
     trusted.mkdir(parents=True, exist_ok=True)
     for item in (
         "TheoryLib",
@@ -985,40 +1118,36 @@ def grade_lean_gate(
     ):
         source = ROOT / item
         target = trusted / item
-        if not source.exists() or target.exists():
+        if not source.exists():
             continue
         if source.is_dir():
             shutil.copytree(source, target)
         else:
             shutil.copy2(source, target)
     candidate = gate_root / "candidate.lean"
+    contract_checks = (
+        [
+            f"example : {expected_types[name]} := by exact @{name}"
+            for name in names
+        ]
+        if isinstance(expected_types, dict)
+        else []
+    )
     candidate.write_text(
-        code + "\n" + "\n".join(f"#print axioms {n}" for n in names) + "\n",
+        code
+        + "\n"
+        + "\n".join(contract_checks)
+        + "\n"
+        + "\n".join(f"#print axioms {n}" for n in names)
+        + "\n",
         encoding="utf-8",
     )
-    # Cheap preflight: most weak-model drafts fail on ordinary elaboration.
-    # Reject those against the host project before spending several minutes
-    # rebuilding the trusted snapshot in a network-free container.  A host
-    # pass is never sufficient for acceptance; the isolated gate below is
-    # still the authority for compilation and axiom inspection.
-    try:
-        preflight = subprocess.run(
-            ["lake", "env", "lean", str(candidate)],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            timeout=180,
-        )
-    except subprocess.TimeoutExpired:
-        return False, "host Lean preflight timeout"
-    (gate_root / "host-preflight.log").write_text(
-        f"{preflight.stdout}\n{preflight.stderr}", encoding="utf-8"
-    )
-    if preflight.returncode != 0:
-        preflight_output = f"{preflight.stdout}\n{preflight.stderr}"
-        return False, "host compile failed: " + lean_error_excerpt(preflight_output)
     command = [
         "podman", "run", "--rm", "--network", "none",
+        "--read-only", "--cap-drop", "ALL",
+        "--security-opt", "no-new-privileges",
+        "--pids-limit", str(SANDBOX_PIDS_LIMIT),
+        "--tmpfs", SANDBOX_TMPFS,
         "--cpus", "2", "--memory", "8g",
         "--timeout", str(LEAN_GATE_TIMEOUT_S),
         "-v", f"{gate_root}:{gate_root}:ro",
@@ -1055,11 +1184,6 @@ def grade_lean_gate(
         }
     for name in names:
         axioms = printed.get(name)
-        if axioms is None:
-            axioms = next(
-                (v for k, v in printed.items() if k.endswith(f".{name}")),
-                None,
-            )
         if axioms is None:
             return False, f"theorem {name} not found in axiom report"
         if axioms - ALLOWED_AXIOMS:
@@ -1144,20 +1268,68 @@ def grade(
         if work_dir.resolve() not in artifact.parents or not artifact.is_file():
             return False, f"missing artifact {artifact_name}"
         code = artifact.read_text(encoding="utf-8")
+        checked_code = strip_lean_comments(code)
         missing = [
             str(marker)
             for marker in task["grading"].get("required_markers", [])
-            if str(marker) not in code
+            if str(marker) not in checked_code
         ]
         if missing:
             return False, f"Lean artifact missing markers {missing}"
         forbidden = [
             str(marker)
             for marker in task["grading"].get("forbidden_markers", [])
-            if str(marker) in code
+            if str(marker) in checked_code
         ]
         if forbidden:
             return False, f"Lean artifact contains forbidden markers {forbidden}"
+        names = [str(name) for name in task["grading"].get("theorem_names", [])]
+        expected_types = task["grading"].get("expected_types")
+        if not names or not isinstance(expected_types, dict):
+            return False, "missing theorem statement contracts"
+        missing_declarations = [
+            name for name in names if not artifact_declares_theorem(code, name)
+        ]
+        if missing_declarations:
+            return False, (
+                "artifact does not locally declare contracted theorems "
+                f"{missing_declarations}"
+            )
+        allowed_namespaces = {name.rsplit(".", 1)[0] for name in names}
+        outside_declarations = [
+            (namespace, name)
+            for namespace, name in artifact_declaration_namespaces(code)
+            if namespace not in allowed_namespaces
+            and not any(
+                namespace.startswith(f"{allowed}.")
+                for allowed in allowed_namespaces
+            )
+        ]
+        if outside_declarations:
+            return False, (
+                "artifact declares helpers outside contracted namespaces "
+                f"{outside_declarations}"
+            )
+        preexisting = [name for name in names if trusted_tree_declares_theorem(name)]
+        if preexisting:
+            return False, (
+                "contracted theorem names already exist in trusted tree "
+                f"{preexisting}"
+            )
+        allowed_imports = task["grading"].get("allowed_imports")
+        if not isinstance(allowed_imports, list) or not allowed_imports:
+            return False, "missing allowed import contract"
+        imports = artifact_imports(code)
+        approved_imports = {str(item) for item in allowed_imports}
+        unexpected_imports = sorted(imports - approved_imports)
+        if unexpected_imports:
+            return False, f"Lean artifact imports unapproved modules {unexpected_imports}"
+        required_imports = {
+            str(item) for item in task["grading"].get("required_imports", [])
+        }
+        missing_imports = sorted(required_imports - imports)
+        if missing_imports:
+            return False, f"Lean artifact misses required imports {missing_imports}"
         return grade_lean_gate(
             f"```lean\n{code}\n```", task["grading"], work_dir
         )
@@ -1226,6 +1398,31 @@ def load_tasks(
         if task["id"] in seen:
             raise SystemExit(f"duplicate task id {task['id']}")
         seen.add(task["id"])
+        grading = task.get("grading", {})
+        if grading.get("type") == "agentic_lean_artifact":
+            names = grading.get("theorem_names")
+            expected_types = grading.get("expected_types")
+            allowed_imports = grading.get("allowed_imports")
+            if (
+                not isinstance(names, list)
+                or not names
+                or len(set(map(str, names))) != len(names)
+            ):
+                raise SystemExit(
+                    f"task {task['id']} needs nonempty unique theorem_names"
+                )
+            if not isinstance(expected_types, dict) or any(
+                not isinstance(expected_types.get(str(name)), str)
+                or not str(expected_types[str(name)]).strip()
+                for name in names
+            ):
+                raise SystemExit(
+                    f"task {task['id']} needs an exact expected type for every theorem"
+                )
+            if not isinstance(allowed_imports, list) or not allowed_imports:
+                raise SystemExit(
+                    f"task {task['id']} needs a nonempty allowed_imports contract"
+                )
     return tasks
 
 
@@ -1257,6 +1454,37 @@ def prepare_fixtures(task: dict[str, Any], execution_dir: Path) -> None:
             raise FileNotFoundError(f"fixture is not a file: {source_name}")
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
+
+    grading = task.get("grading", {})
+    if (
+        grading.get("type") == "agentic_lean_artifact"
+        and grading.get("theorem_names")
+        and isinstance(grading.get("expected_types"), dict)
+    ):
+        names = [str(name) for name in grading.get("theorem_names", [])]
+        expected = grading.get("expected_types", {})
+        allowed = [str(name) for name in grading.get("allowed_imports", [])]
+        contract_lines = [
+            "# Controller-owned binding contract",
+            "",
+            "Declare every theorem below locally with exactly the stated type.",
+            "The gate appends its own exact type checks and axiom queries.",
+            "Do not add `#print`, `#check`, or other command output to the artifact.",
+            "",
+            "## Allowed imports",
+            "",
+            *[f"- `{name}`" for name in allowed],
+            "",
+            "## Exact theorem types",
+            "",
+        ]
+        for name in names:
+            contract_lines.extend(
+                [f"### `{name}`", "", "```lean", str(expected[name]), "```", ""]
+            )
+        (execution_dir / "TASK_CONTRACT.md").write_text(
+            "\n".join(contract_lines), encoding="utf-8"
+        )
 
 
 def artifact_repair_prompt(task: dict[str, Any], failure: str) -> str:
@@ -1301,6 +1529,8 @@ def run_pair(
     cancel_file: Path | None = None,
     cancellation: Cancellation | None = None,
     sandbox_settings: ModelSandboxSettings | None = None,
+    trusted_source_sha256: str | None = None,
+    sandbox_image_sha256: str | None = None,
 ) -> dict[str, Any]:
     run_id = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + f"-{time.time_ns()}"
     log(f"RUN  {model_key} x {task['id']}")
@@ -1311,6 +1541,11 @@ def run_pair(
         "agentic_lean_artifact",
         "artifact_contract",
     }
+    has_binding_contract = bool(
+        grading_type == "agentic_lean_artifact"
+        and task["grading"].get("theorem_names")
+        and isinstance(task["grading"].get("expected_types"), dict)
+    )
     execution_dir = (
         work_dir
         if is_artifact_task
@@ -1371,6 +1606,11 @@ def run_pair(
             attempt_prompt = str(task.get("resume_prompt", task["prompt"]))
         else:
             attempt_prompt = str(task["prompt"])
+            if has_binding_contract:
+                attempt_prompt += (
+                    "\n\nBefore editing, read the controller-owned TASK_CONTRACT.md. "
+                    "Its exact theorem types and import allowlist are binding."
+                )
         attempt_prompt_sha256s.append(
             hashlib.sha256(attempt_prompt.encode("utf-8")).hexdigest()
         )
@@ -1500,6 +1740,14 @@ def run_pair(
         "prompt_sha256": hashlib.sha256(
             task["prompt"].encode("utf-8")
         ).hexdigest(),
+        "task_contract_sha256": hashlib.sha256(
+            json.dumps(task, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest(),
+        "trusted_source_sha256": trusted_source_sha256,
+        "sandbox_image": sandbox_settings.image if sandbox_settings else None,
+        "sandbox_image_sha256": sandbox_image_sha256,
+        "artifact_sha256": file_sha256(artifact_path) if artifact_path else None,
+        "gate_log_sha256": file_sha256(work_dir / "lean_gate" / "isolated-gate.log"),
         "attempt_prompt_sha256s": attempt_prompt_sha256s,
         "attempt_grades": attempt_grades,
         "dimension": task["dimension"],
@@ -1654,6 +1902,13 @@ def main() -> None:
     if args.slot_status:
         print(json.dumps(provider_slot_status(model_keys), sort_keys=True))
         return
+    if OPERATOR_PAUSE_PATH.exists():
+        raise SystemExit(
+            f"operator pause marker is present: {OPERATOR_PAUSE_PATH}"
+        )
+    if args.cancel_file is None:
+        # Recreating the durable pause marker also cancels an active wave.
+        args.cancel_file = OPERATOR_PAUSE_PATH
     if args.resume_session and len(model_keys) != 1:
         raise SystemExit("--resume-session requires exactly one selected model")
     if args.slot_wait_timeout_s <= 0:
@@ -1692,6 +1947,7 @@ def main() -> None:
     pairs = [(m, t) for t in tasks for m in model_keys]
     cancellation = Cancellation(args.cancel_file)
     sandbox_settings = None
+    pinned_image_sha256 = None
     if args.sandbox:
         sandbox_settings = ModelSandboxSettings(
             image=args.sandbox_image,
@@ -1699,6 +1955,8 @@ def main() -> None:
             memory=args.sandbox_memory,
             timeout_s=args.sandbox_timeout_s,
         )
+        pinned_image_sha256 = sandbox_image_id(args.sandbox_image)
+    pinned_source_sha256 = trusted_source_snapshot_sha256()
 
     def handle_shutdown(signum: int, _frame: object) -> None:
         if cancellation.request(
@@ -1728,6 +1986,8 @@ def main() -> None:
                 cancel_file=args.cancel_file,
                 cancellation=cancellation,
                 sandbox_settings=sandbox_settings,
+                trusted_source_sha256=pinned_source_sha256,
+                sandbox_image_sha256=pinned_image_sha256,
             ): (m, t["id"])
             for m, t in pairs
         }

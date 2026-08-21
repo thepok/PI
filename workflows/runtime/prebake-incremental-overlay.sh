@@ -76,6 +76,15 @@ cp -a "$NEXT/TheoryLib.lean" \
   "$NEXT/lakefile.toml" "$NEXT/lake-manifest.json" "$NEXT/lean-toolchain" \
   "$CURRENT/"
 
+# The Pi image must not retain source or compiled artifacts from the former
+# Erdős project inherited from an older base/prebake layer.
+rm -rf -- "$CURRENT/ErdosLab" \
+  "$CURRENT/.lake/build/lib/lean/ErdosLab" \
+  "$CURRENT/.lake/build/ir/ErdosLab"
+rm -f -- "$CURRENT/ErdosLab.lean" \
+  "$CURRENT/.lake/build/lib/lean/ErdosLab".* \
+  "$CURRENT/.lake/build/ir/ErdosLab".*
+
 expected="$(cat "$NEXT/PREBAKE_SHA")"
 actual="$(snapshot_sha "$CURRENT")"
 if [[ ! "$expected" =~ ^[0-9a-f]{64}$ || "$expected" != "$actual" ]]; then

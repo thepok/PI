@@ -63,6 +63,10 @@ image_snapshot() {
   podman run --rm --network none localhost/allmath-research:latest \
     sh -c '
       cd /opt/allmath-prebuilt || exit 1
+      test ! -e ErdosLab || exit 1
+      test ! -e ErdosLab.lean || exit 1
+      test -z "$(find .lake/build/lib/lean .lake/build/ir \
+        -path "*/ErdosLab*" -print -quit 2>/dev/null)" || exit 1
       recorded="$(cat PREBAKE_SHA 2>/dev/null || true)"
       actual="$(
         (find TheoryLib -name "*.lean" -print0 | sort -z | xargs -0 sha256sum
@@ -179,6 +183,8 @@ RUN cd /opt/allmath-prebuilt; \
       sha256sum | cut -d' ' -f1)"; \
     test "$expected" = "$actual"; \
     printf '%s\n' "$actual" > PREBAKE_SHA
+LABEL org.opencontainers.image.title="pi-research" \
+      org.opencontainers.image.description="Sandboxed Pi research environment with OpenCode, Lean, numerical tools, and an isolated kernel verification gate."
 CF
   # Do not allow a stale cached COPY layer to pair current trusted sources with
   # an older PREBAKE_SHA. The expensive mathlib cache remains in the base image.

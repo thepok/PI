@@ -39,7 +39,7 @@ Ox calls are sandbox-required. A full two-provider wave uses:
 
 ```bash
 .venv/bin/python workflows/modelbench/runner.py \
-  --models ox,oxzen --concurrency 14 --sandbox \
+  --models ox,oxzen --concurrency 20 --sandbox \
   --sandbox-image localhost/allmath-research:latest \
   --sandbox-cpus 2 --sandbox-memory 4g --sandbox-timeout-s 5400 \
   --tasks-dir <task-bank> --out <result-dir> --cancel-file <unique-marker>
@@ -65,6 +65,8 @@ links inside the copied task workspace. Only the grading contract's declared
 artifact and `REPORT.md` return to the result directory; model-created links
 are rejected. Host-captured JSONL remains the authoritative trace.
 
+The 20-thread feeder prevents slot-waiting OpenRouter jobs from starving the
+ten native-provider jobs; provider locks still cap actual calls at 4 + 10.
 The runner enforces provider-specific ceilings both within one process and
 across concurrent refill processes: native OpenCode Ox (`oxzen`) has 10 slots;
 OpenRouter Ox (`ox`) and other models default to 4. Cross-process slots use

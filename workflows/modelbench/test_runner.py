@@ -10,6 +10,14 @@ import pytest
 from workflows.modelbench import runner
 
 
+def test_sandbox_api_is_repository_local() -> None:
+    sandbox_config, prepare, finalize = runner._sandbox_api()
+
+    assert sandbox_config.__module__ == "workflows.runtime.sandbox"
+    assert prepare.__module__ == "workflows.runtime.sandbox"
+    assert finalize.__module__ == "workflows.runtime.sandbox"
+
+
 def test_artifact_contract_requires_declared_support_files(tmp_path: Path) -> None:
     (tmp_path / "EXPERIMENT.md").write_text(
         "Exact replay\nCollision witnesses\n" + "x" * 100,
@@ -83,6 +91,254 @@ def test_lean_artifact_contract_rejects_canonical_definition_replacement(
     assert reason == (
         "Lean artifact contains forbidden markers ['def ThreeLocalCongruent']"
     )
+
+
+def _strict_lean_task(name: str = "OxGateNovel.target") -> dict:
+    return {
+        "grading": {
+            "type": "agentic_lean_artifact",
+            "artifact": "Contribution.lean",
+            "theorem_names": [name],
+            "expected_types": {name: "True"},
+            "allowed_imports": ["Mathlib"],
+            "required_imports": ["Mathlib"],
+            "required_markers": ["theorem target"],
+        }
+    }
+
+
+def test_lean_artifact_rejects_marker_and_declaration_spoofed_in_comment(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "Contribution.lean").write_text(
+        "import Mathlib\n/- theorem target : True := by trivial -/\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        runner,
+        "grade_lean_gate",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("spoof reached the Lean gate")
+        ),
+    )
+
+    passed, reason = runner.grade(
+        _strict_lean_task(), "", tmp_path, tmp_path
+    )
+
+    assert passed is False
+    assert reason == "Lean artifact missing markers ['theorem target']"
+
+
+def test_lean_artifact_rejects_preexisting_target_without_local_declaration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    name = (
+        "Theory.PiDigits.T106BBPForcedOrbit."
+        "sampledBBPForcing_eq_cast_rat"
+    )
+    (tmp_path / "Contribution.lean").write_text(
+        "import TheoryLib.PiQuantitativeBlockHitting.T106T106BBPForcedOrbit\n"
+        "theorem unrelated : True := by trivial\n",
+        encoding="utf-8",
+    )
+    task = _strict_lean_task(name)
+    task["grading"]["allowed_imports"] = [
+        "TheoryLib.PiQuantitativeBlockHitting.T106T106BBPForcedOrbit"
+    ]
+    task["grading"]["required_imports"] = task["grading"]["allowed_imports"]
+    task["grading"]["required_markers"] = []
+    monkeypatch.setattr(
+        runner,
+        "grade_lean_gate",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("preexisting theorem reached the Lean gate")
+        ),
+    )
+
+    passed, reason = runner.grade(task, "", tmp_path, tmp_path)
+
+    assert passed is False
+    assert "does not locally declare" in reason
+
+
+def test_lean_artifact_rejects_unapproved_import(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "Contribution.lean").write_text(
+        "import Mathlib\nimport TheoryLib\n"
+        "namespace OxGateNovel\n"
+        "theorem target : True := by trivial\n"
+        "end OxGateNovel\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(runner, "trusted_tree_declares_theorem", lambda _name: False)
+    monkeypatch.setattr(
+        runner,
+        "grade_lean_gate",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("unapproved import reached the Lean gate")
+        ),
+    )
+
+    passed, reason = runner.grade(
+        _strict_lean_task(), "", tmp_path, tmp_path
+    )
+
+    assert passed is False
+    assert reason == "Lean artifact imports unapproved modules ['TheoryLib']"
+
+
+def test_lean_artifact_rejects_helper_outside_contracted_namespace(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "Contribution.lean").write_text(
+        "import Mathlib\n"
+        "namespace Trusted\n"
+        "def alias : True := True.intro\n"
+        "end Trusted\n"
+        "namespace OxGateNovel\n"
+        "theorem target : True := by trivial\n"
+        "end OxGateNovel\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(runner, "trusted_tree_declares_theorem", lambda _name: False)
+    monkeypatch.setattr(
+        runner,
+        "grade_lean_gate",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("namespace escape reached the Lean gate")
+        ),
+    )
+
+    passed, reason = runner.grade(
+        _strict_lean_task(), "", tmp_path, tmp_path
+    )
+
+    assert passed is False
+    assert reason == (
+        "artifact declares helpers outside contracted namespaces "
+        "[('Trusted', 'alias')]"
+    )
+
+
+def test_lean_artifact_allows_helpers_inside_contracted_namespace(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "Contribution.lean").write_text(
+        "import Mathlib\n"
+        "namespace OxGateNovel\n"
+        "private lemma helper : True := by trivial\n"
+        "theorem target : True := helper\n"
+        "end OxGateNovel\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(runner, "trusted_tree_declares_theorem", lambda _name: False)
+    monkeypatch.setattr(
+        runner,
+        "grade_lean_gate",
+        lambda *_args, **_kwargs: (True, "compiled; axioms clean"),
+    )
+
+    passed, reason = runner.grade(
+        _strict_lean_task(), "", tmp_path, tmp_path
+    )
+
+    assert passed is True
+    assert reason == "compiled; axioms clean"
+
+
+def test_lean_gate_rejects_metaprogram_before_execution(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("metaprogram was executed")
+        ),
+    )
+    response = "```lean\nimport Mathlib\nrun_cmd IO.println \"owned\"\n```"
+
+    passed, reason = runner.grade_lean_gate(
+        response, {"theorem_names": []}, tmp_path
+    )
+
+    assert passed is False
+    assert reason.startswith("forbidden token")
+
+
+def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    project = tmp_path / "project"
+    (project / "TheoryLib").mkdir(parents=True)
+    for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
+        (project / name).write_text("\n", encoding="utf-8")
+    monkeypatch.setattr(runner, "ROOT", project)
+    observed: list[list[str]] = []
+
+    def fake_run(command: list[str], **_kwargs: object) -> subprocess.CompletedProcess[str]:
+        observed.append(command)
+        candidate = tmp_path / "lean_gate" / "candidate.lean"
+        text = candidate.read_text(encoding="utf-8")
+        assert "example : True := by exact @OxGateNovel.target" in text
+        return subprocess.CompletedProcess(
+            command, 0,
+            stdout="'OxGateNovel.target' does not depend on any axioms\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(runner.subprocess, "run", fake_run)
+    response = (
+        "```lean\nimport Mathlib\nnamespace OxGateNovel\n"
+        "theorem target : True := by trivial\nend OxGateNovel\n```"
+    )
+
+    passed, reason = runner.grade_lean_gate(
+        response,
+        {
+            "theorem_names": ["OxGateNovel.target"],
+            "expected_types": {"OxGateNovel.target": "True"},
+        },
+        tmp_path,
+    )
+
+    assert passed is True
+    assert reason == "compiled; axioms clean"
+    assert len(observed) == 1
+    assert observed[0][:4] == ["podman", "run", "--rm", "--network"]
+
+
+def test_lean_gate_does_not_accept_suffix_axiom_result(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    project = tmp_path / "project"
+    (project / "TheoryLib").mkdir(parents=True)
+    for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
+        (project / name).write_text("\n", encoding="utf-8")
+    monkeypatch.setattr(runner, "ROOT", project)
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda command, **_kwargs: subprocess.CompletedProcess(
+            command, 0,
+            stdout="'Evil.OxGateNovel.target' does not depend on any axioms\n",
+            stderr="",
+        ),
+    )
+
+    passed, reason = runner.grade_lean_gate(
+        "```lean\nimport Mathlib\ntheorem target : True := by trivial\n```",
+        {
+            "theorem_names": ["OxGateNovel.target"],
+            "expected_types": {"OxGateNovel.target": "True"},
+        },
+        tmp_path,
+    )
+
+    assert passed is False
+    assert reason == "theorem OxGateNovel.target not found in axiom report"
 
 
 def test_cross_process_model_slot_exits_when_cancelled(
