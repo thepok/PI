@@ -224,6 +224,7 @@ import TheoryLib.PiLacunaryNearReturnSparsity.T106FiniteBranchingResonanceTree
 import TheoryLib.PiLacunaryNearReturnSparsity.T108T108LiteralTransport
 import TheoryLib.PiLongLagBlockCollisionDecay.T104T104ProbabilityClosure
 import TheoryLib.PiLacunaryNearReturnSparsity.T166T166FiniteWordPowerFree
+import TheoryLib.PiQuantitativeBlockHitting.T112T112SampledBBPSelectedResidue
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -2988,6 +2989,10 @@ import TheoryLib.PiLacunaryNearReturnSparsity.T166T166FiniteWordPowerFree
 #print axioms Theory.PiDigits.T111SelectedNumeratorFourierCover.signedDFTTrough_implies_cell_hit
 #print axioms Theory.PiDigits.T111SelectedNumeratorFourierCover.circleDist_le_inv_of_cyclicCell_eq
 #print axioms Theory.PiDigits.T111SelectedNumeratorFourierCover.all_cyclicCells_hit_implies_circleCover
+#print axioms Theory.PiDigits.T112SampledBBPSelectedResidue.ratCast_circle_eq_num_emod_den
+#print axioms Theory.PiDigits.T112SampledBBPSelectedResidue.sampledBBPOrbit_coe_eq_selectedResidue
+#print axioms Theory.PiDigits.T112SampledBBPSelectedResidue.phase_sampledBBPOrbit_eq_selectedResidue
+#print axioms Theory.PiDigits.T112SampledBBPSelectedResidue.exponentialSum_sampledBBP_eq_selectedResidue
 
 -- Representative endpoint registrations recovered by the RA-0003 audit.
 #print axioms Theory.PiDigits.QuantitativeBlockHitting.acceptance_audit_surface

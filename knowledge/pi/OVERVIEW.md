@@ -10126,3 +10126,15 @@ statement for the actual 28-coordinate product in (40dx), with its generated
 base-ten state.  This may follow from density of that exact rational coding
 recurrence or from an equally strong direct mechanism for the single fixed
 orbit of \(\pi\); none is currently proved.
+
+The current BBP interface now retains the exact missing arithmetic object.
+T111 gives a `machine-checked` signed-DFT certificate turning one-sided
+nonzero-frequency control into finite cell occupancy and then circle cover.
+T112 gives four `machine-checked` identities rewriting the sampled BBP orbit,
+every integer-frequency phase, and its finite exponential sum through the
+actual reduced numerator modulo the actual reduced denominator of the single
+synchronized rational \(10^N\,\mathrm{bbpPartial}(7N)\).  This is exact
+representation only: no required signed Fourier bound, density result, or V1
+conclusion is known.  It does, however, prevent future arguments from silently
+discarding the full numerator/denominator structure ruled essential by the
+same-fiber separator.
