@@ -35,7 +35,9 @@
         "namespace Theory.PiDigits.T115SampledBBPCellDefectPhase",
         "def scaledBBPRat", "(10 : ℚ) ^ N", "bbpPartial (7 * N)",
         "def residueNum", ".num %", ".den", "def residueDen",
-        "def cellQuotient", "def cellRemainder", "def cellDefect",
+        "def cellQuotient", "def cellRemainder",
+        "def cellDefect (q N : ℕ) : ℝ",
+        "(cellRemainder q N : ℝ) /", "((q : ℝ) * (residueDen N : ℝ))",
         "mul_residue_eq_den_mul_cell_add_remainder", "zero_mesh_data"
       ],
       "forbidden_markers": [
@@ -80,7 +82,9 @@
         "namespace Theory.PiDigits.T115SampledBBPCellDefectPhase",
         "def scaledBBPRat", "(10 : ℚ) ^ N", "bbpPartial (7 * N)",
         "def residueNum", ".num %", ".den", "def residueDen",
-        "def cellQuotient", "def cellRemainder", "def cellDefect",
+        "def cellQuotient", "def cellRemainder",
+        "def cellDefect (q N : ℕ) : ℝ",
+        "(cellRemainder q N : ℝ) /", "((q : ℝ) * (residueDen N : ℝ))",
         "cyclicCell q", "sampledBBPOrbit N", "stdAddChar (-(h * a))",
         "phase (h.val : ℤ)", "phase (-(h.val : ℤ))",
         "centered_sampledBBPCell_character_eq_residue_mul_defect"
