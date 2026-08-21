@@ -26,3 +26,8 @@ only `experiment`. Preserve the canonical inclusive `bbpPartial` convention
 and the anchor `Q_0=47/15`. Controller-pinned code and checkpoint hashes, not
 pod self-reports, define the trust boundary. The full range is partitioned
 before inspection into exactly 42 half-open shards covering `[512,4096)`.
+Shared code may contain schemas, canonical serialization, and hashing only.
+The generator and verifier must independently implement BBP arithmetic and
+normalization algebra. Checkpoint audit is one sequential pass, every shard
+boundary is explicitly present, and no file may circularly pin its own final
+hash. Every downstream stage validates the full externally bound manifest.
