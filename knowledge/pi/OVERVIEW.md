@@ -53,6 +53,16 @@ and
 and
 [`t114_sampled_bbp_gcd_normalized_successor_20260821.md`](results/machine-checked/t114_sampled_bbp_gcd_normalized_successor_20260821.md).
 
+T115 completes the exact pointwise bridge to T111's characters.  It splits
+each centered sampled-BBP cell character into the target character, the phase
+of the actual reduced residue, and the negative phase of the exact normalized
+Euclidean floor defect.  The defect remains sample-dependent and can have
+order-one phase at mesh-scale frequencies, so this identity provides no
+summed cancellation or occupancy.  It is the stopping point for
+representation-only work; the next mathematical task must establish or
+falsify a nontrivial property of the actual normalized sequence.  See
+[`t115_sampled_bbp_cell_defect_phase_20260821.md`](results/machine-checked/t115_sampled_bbp_cell_defect_phase_20260821.md).
+
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
 `PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge
