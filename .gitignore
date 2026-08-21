@@ -12,7 +12,7 @@ __pycache__/
 /workflows/state/*
 !/workflows/state/OPERATOR_PAUSED
 /workflows/modelbench/results*/
+/workflows/chatgpt-pro/runs/
 
 # Compiled numerical-workflow cache.
 /workflows/state/fastmath-cache/
-
