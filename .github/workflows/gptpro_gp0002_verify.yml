@@ -1,0 +1,97 @@
+name: GP-0002 self-reporting verification
+
+on:
+  push:
+    branches:
+      - pi-core-consolidation
+    paths:
+      - TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean
+      - TheoryLib.lean
+      - audit/AxiomAudit.lean
+      - .github/workflows/gptpro_gp0002_verify.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install pinned Lean and dependencies
+        id: lean-action
+        uses: leanprover/lean-action@v1
+        continue-on-error: true
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+
+      - name: Run isolated and repository verification
+        shell: bash
+        env:
+          LEAN_ACTION_OUTCOME: ${{ steps.lean-action.outcome }}
+        run: |
+          set +e
+          mkdir -p GPTPro/Deliverables/GP-0002
+          isolated_log="$(mktemp)"
+          gate_log="$(mktemp)"
+
+          lake build TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion \
+            >"$isolated_log" 2>&1
+          isolated_exit=$?
+
+          pwsh workflows/verification/check.ps1 >"$gate_log" 2>&1
+          gate_exit=$?
+
+          report="GPTPro/Deliverables/GP-0002/CI_VERIFICATION.md"
+          {
+            echo "# GP-0002 CI verification"
+            echo
+            echo "- Commit under test: \`$GITHUB_SHA\`"
+            echo "- Runner: \`ubuntu-latest\`"
+            echo "- Lean setup outcome: \`$LEAN_ACTION_OUTCOME\`"
+            echo "- Isolated T110 build exit: \`$isolated_exit\`"
+            echo "- Strict repository gate exit: \`$gate_exit\`"
+            echo
+            echo "## Isolated T110 build output (last 400 lines)"
+            echo
+            echo '```text'
+            tail -n 400 "$isolated_log"
+            echo '```'
+            echo
+            echo "## Strict repository gate output (last 400 lines)"
+            echo
+            echo '```text'
+            tail -n 400 "$gate_log"
+            echo '```'
+          } >"$report"
+
+          if [ "$isolated_exit" -eq 0 ] && [ "$gate_exit" -eq 0 ]; then
+            printf '\nRESULT: PASS\n' >>"$report"
+          else
+            printf '\nRESULT: FAIL\n' >>"$report"
+          fi
+
+      - name: Commit verification evidence without forcing
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add GPTPro/Deliverables/GP-0002/CI_VERIFICATION.md
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "record GP-0002 CI verification [skip ci]"
+          for attempt in 1 2 3; do
+            git fetch origin pi-core-consolidation
+            git rebase origin/pi-core-consolidation
+            if git push origin HEAD:pi-core-consolidation; then
+              exit 0
+            fi
+          done
+          exit 1
