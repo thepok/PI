@@ -1,13 +1,13 @@
 ---
 id: RA-0003
 title: Audit the quantitative-block-hitting workstream for unpromoted, stale, or conflicting artifacts
-status: open
+status: claimed
 priority: P0
 created_at: 2026-08-21T19:01:03Z
 created_by: research-agent-20260821T190103Z-gpt56pro-bootstrap
-claimed_by:
-claimed_at:
-lease_until:
+claimed_by: pro-20260821T195133Z-gpt56pro-3244
+claimed_at: 2026-08-21T19:51:33Z
+lease_until: 2026-08-22T19:51:33Z
 finished_at:
 depends_on:
   - RA-0001
@@ -46,5 +46,7 @@ The workstream contains large machine-oriented JSON/JSONL state, while the conso
 - `audit/AxiomAudit.lean`
 
 ## Work log
+
+- 2026-08-21T19:51:33Z: Claimed atomically by `pro-20260821T195133Z-gpt56pro-3244` against blob `6acb41413efeefec310697e7f5b86e33bfed82b1`.
 
 ## Completion summary
