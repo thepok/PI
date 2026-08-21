@@ -1,0 +1,47 @@
+[
+  {
+    "id": "pi-t117-excess-gcd-decomposition",
+    "dimension": "lean_research",
+    "timeout_s": 10800,
+    "max_attempts": 7,
+    "variant": "high",
+    "prompt": "Create Contribution.lean importing only canonical T116. Read AGENTS.md and the controller-owned TASK_CONTRACT.md. Prove the three quotient-coprimality helpers and the complete generic reduced-cross-sum excess-gcd decomposition under exactly the frozen signatures. The main theorem must preserve exact valuations via g=H*k, prove k divides 10*H, and prove both exact successor-denominator quotient identities. Split H=0 explicitly; do not add denominator positivity or nonzero hypotheses. Compile and write REPORT.md with precise zero-case handling and a strict boundary: no size inequality, cancellation, occupancy, density, or V1 claim.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t117-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T116T116SampledBBPGCDPrimeSupport.lean", "destination": "inputs/T116.lean"}
+    ],
+    "grading": {
+      "type": "agentic_lean_artifact",
+      "artifact": "Contribution.lean",
+      "theorem_names": [
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.gcdQuotients_coprime",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.excessNumerator_coprime_rightQuotient",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.excessGCD_coprime_rightQuotient",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.reducedCrossSum_excessGCD_decomposition"
+      ],
+      "expected_types": {
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.gcdQuotients_coprime": "∀ (D E : ℕ), 0 < Nat.gcd D E → Nat.Coprime (D / Nat.gcd D E) (E / Nat.gcd D E)",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.excessNumerator_coprime_rightQuotient": "∀ (A C : ℤ) (D E : ℕ), Nat.Coprime C.natAbs E → 0 < Nat.gcd D E → (let H : ℕ := Nat.gcd D E; let d : ℕ := D / H; let e : ℕ := E / H; Nat.Coprime (10 * A * (e : ℤ) + C * (d : ℤ)).natAbs e)",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.excessGCD_coprime_rightQuotient": "∀ (A C : ℤ) (D E : ℕ), Nat.Coprime C.natAbs E → 0 < Nat.gcd D E → (let H : ℕ := Nat.gcd D E; let d : ℕ := D / H; let e : ℕ := E / H; Nat.Coprime (Int.gcd (10 * A * (e : ℤ) + C * (d : ℤ)) ((H * d : ℕ) : ℤ)) e)",
+        "Theory.PiDigits.T117CommonDenominatorExcessGCD.reducedCrossSum_excessGCD_decomposition": "∀ (A C : ℤ) (D E : ℕ), Nat.Coprime A.natAbs D → Nat.Coprime C.natAbs E → (let H : ℕ := Nat.gcd D E; let d : ℕ := D / H; let e : ℕ := E / H; let X : ℤ := 10 * A * (e : ℤ) + C * (d : ℤ); let U : ℤ := 10 * A * (E : ℤ) + C * (D : ℤ); let V : ℕ := D * E; let k : ℕ := Int.gcd X ((H * d : ℕ) : ℤ); let g : ℕ := Int.gcd U (V : ℤ); U = (H : ℤ) * X ∧ V = H ^ 2 * d * e ∧ g = H * k ∧ k ∣ D ∧ k ∣ 10 * H ∧ V / g = H * d * e / k ∧ V / g = D * e / k)"
+      },
+      "allowed_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T116T116SampledBBPGCDPrimeSupport"
+      ],
+      "required_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T116T116SampledBBPGCDPrimeSupport"
+      ],
+      "required_markers": [
+        "namespace Theory.PiDigits.T117CommonDenominatorExcessGCD",
+        "gcdQuotients_coprime", "excessNumerator_coprime_rightQuotient",
+        "excessGCD_coprime_rightQuotient", "reducedCrossSum_excessGCD_decomposition",
+        "let H : ℕ := Nat.gcd D E", "let k : ℕ := Int.gcd X",
+        "g = H * k", "k ∣ 10 * H", "V / g = D * e / k"
+      ],
+      "forbidden_markers": [
+        "sorry", "admit", "native_decide", "axiom ", "opaque ", "constant ",
+        "unsafe ", "syntax ", "0 < D", "0 < E", "occupancy", "density", "V1"
+      ]
+    }
+  }
+]
