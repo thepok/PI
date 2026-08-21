@@ -10143,3 +10143,15 @@ representation only: no required signed Fourier bound, density result, or V1
 conclusion is known.  It does, however, prevent future arguments from silently
 discarding the full numerator/denominator structure ruled essential by the
 same-fiber separator.
+
+The current T113 direction review sharpens the next bridge further.  Writing
+the actual reduced residue as `r_N/D_N`, its `q`-cell quotient and remainder
+satisfy `q*r_N = D_N*c_{q,N} + e_{q,N}`.  Hence the raw T112 phase differs from
+T111's quantized cell character by an exact, sample-dependent floor-defect
+phase; that factor cannot be dropped at frequencies of size `q`.  Also, T111's
+strict signed trough is exactly equivalent to the selected cell already being
+hit, so it must not be advertised as an easier cancellation target.  A new
+exact pilot, independently replayed, gives first full-cover prefixes 32, 605,
+and 909 for meshes 10, 100, and 200, while only 635 of 1000 cells appear by
+prefix 1001.  These values remain `experiment`; the proposed quotient/remainder
+and defect-weighted DFT bridge remains a `proof sketch` until formalized.
