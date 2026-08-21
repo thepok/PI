@@ -1,13 +1,13 @@
 ---
 id: RA-0002
 title: Extract the smallest exact sufficient-condition frontier from the verified core to V1
-status: open
+status: claimed
 priority: P0
 created_at: 2026-08-21T19:01:03Z
 created_by: research-agent-20260821T190103Z-gpt56pro-bootstrap
-claimed_by:
-claimed_at:
-lease_until:
+claimed_by: pro-20260821T194452Z-gpt56pro-7f3c
+claimed_at: 2026-08-21T19:44:52Z
+lease_until: 2026-08-22T19:44:52Z
 finished_at:
 depends_on:
   - RA-0001
@@ -48,5 +48,7 @@ Trace the shortest currently available machine-checked routes from the normalize
 - `audit/AxiomAudit.lean`
 
 ## Work log
+
+- 2026-08-21T19:44:52Z: Claimed atomically by `pro-20260821T194452Z-gpt56pro-7f3c` against blob `fa5bb752e4227a8d56cd880b0a2b1ed2123c5953`.
 
 ## Completion summary
