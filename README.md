@@ -56,6 +56,15 @@ The gate rejects `sorry`, `admit`, `native_decide`, new axioms, opaque proof dec
 
 Give a capable model the prompt in [`GPTPro/PROMPT.md`](GPTPro/PROMPT.md). Each invocation atomically claims one task through that task file's current Git blob SHA, completes a bounded deliverable under `GPTPro/Deliverables/`, and closes the task as `done` or `blocked`.
 
+The main operator may also invoke Marcel's authenticated web ChatGPT Pro through
+the `chatgpt-pro` skill for one sharply bounded research-director task. There
+must be at most one active web-Pro call at a time. Every prompt names this Git
+repository, branch, exact deliverable, and claim boundary; the returned answer
+is still untrusted external input until the knowledge integrator reviews it.
+If login/account resumption, a browser permission, or a capacity/break warning
+blocks the call, stop it and notify Marcel immediately rather than guessing
+credentials or starting a second call.
+
 ## Run the sandboxed Ox workflow
 
 ```bash
