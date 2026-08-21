@@ -37,17 +37,21 @@ signed estimate is proved for the sampled BBP orbit, so T111 proves neither
 density nor V1. See
 [`t111_signed_dft_cell_occupancy_circle_cover_20260821.md`](results/machine-checked/t111_signed_dft_cell_occupancy_circle_cover_20260821.md).
 
-T112--T113 now connect that generic interface to the exact sampled BBP
+T112--T114 now connect that generic interface to the exact sampled BBP
 rationals.  T112 represents every sampled orbit point and phase using the
 actual reduced numerator and denominator of `10^N*bbpPartial(7N)`.  T113
 machine-checks its base-ten successor, expands the seven-term rational
 forcing, and computes every cyclic cell exactly from that reduced pair.  This
 preserves precisely the coefficient information lost by finite residue-fiber
-arguments, but supplies no cell hit or cancellation estimate.  The remaining
-frontier is the gcd-normalized numerator/denominator dynamics.  See
+arguments.  T114 now computes the successor's exact cross-product gcd, proves
+the resulting reduced numerator and denominator, and substitutes them into
+the next cyclic cell.  It gives no bound or pattern for that gcd and supplies
+no cell hit or cancellation estimate.  See
 [`t112_sampled_bbp_exact_selected_residue_20260821.md`](results/machine-checked/t112_sampled_bbp_exact_selected_residue_20260821.md)
 and
-[`t113_sampled_bbp_reduced_cell_recurrence_20260821.md`](results/machine-checked/t113_sampled_bbp_reduced_cell_recurrence_20260821.md).
+[`t113_sampled_bbp_reduced_cell_recurrence_20260821.md`](results/machine-checked/t113_sampled_bbp_reduced_cell_recurrence_20260821.md),
+and
+[`t114_sampled_bbp_gcd_normalized_successor_20260821.md`](results/machine-checked/t114_sampled_bbp_gcd_normalized_successor_20260821.md).
 
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
