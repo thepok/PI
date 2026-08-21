@@ -14,7 +14,8 @@ depends_on:
 result_paths:
   - GPTPro/Deliverables/GP-0002/README.md
   - GPTPro/Deliverables/GP-0002/T110Candidate.lean
-  - GPTPro/Deliverables/GP-0002/promote_t110.py
+  - TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean
+  - knowledge/pi/results/machine-checked/t110_post_t17_tail_cancellation_criterion_20260821.md
 verification:
   - "PASS: exact T17 theorem-interface and conjunction-shape audit"
   - "PASS: exact q/D/N/r/M dependency and strict-contradiction audit"
@@ -22,6 +23,7 @@ verification:
   - "PASS: promotion helper compiled with Python and passed install, idempotence, and divergent-target refusal tests"
   - "PASS: final repository-state audit found no unverified T110 registration in TheoryLib.lean or audit/AxiomAudit.lean"
   - "NOT RUN: Lean compilation, strict repository gate, and #print axioms; no executable toolchain or CI evidence was available, so the result remains an unpromoted candidate"
+  - "PASS: main-operator independent Lean compilation and full repository kernel/exploit/axiom gate on 2026-08-21"
 ---
 
 ## Objective
@@ -76,6 +78,6 @@ M = 2*10^(2*k+r),
 
 ## Completion summary
 
-Candidate resolution completed. The exact sufficient theorem is the strict tail contrapositive of T17: under the explicit power-of-ten Diophantine premise, an aggregated-Fourier upper bound below `N/(2*q)` at every sufficiently large admissible scale forces `C1`. Merely holding on an unbounded set is not sufficient because T17 supplies only another unbounded witness set, which may be disjoint.
+Machine-checked conditional reduction completed. The exact sufficient theorem is the strict tail contrapositive of T17: under the explicit power-of-ten Diophantine premise, an aggregated-Fourier upper bound below `N/(2*q)` at every sufficiently large admissible scale forces `C1`. Merely holding on an unbounded set is not sufficient because T17 supplies only another unbounded witness set, which may be disjoint.
 
-The Lean source is staged as a candidate rather than promoted. No machine-check, full gate result, or axiom report is claimed. The immediate promotion requirement is to compile the candidate and pass `pwsh workflows/verification/check.ps1`. The unresolved mathematical bottleneck is an actual deterministic tail cancellation estimate for the fixed pi orbit.
+The main operator independently promoted the theorem and passed `pwsh workflows/verification/check.ps1`; the registered theorem has only the exact foundational allowlist. The unresolved mathematical bottleneck is an actual deterministic tail cancellation estimate for the fixed pi orbit.
