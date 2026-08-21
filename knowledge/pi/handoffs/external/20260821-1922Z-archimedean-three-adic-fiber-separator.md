@@ -3,7 +3,7 @@ id: external-20260821-1922Z-archimedean-three-adic-fiber-separator
 author: external-gpt-pro
 created_utc: 2026-08-21T19:22:24Z
 base_branch: pi-core-consolidation
-base_commit: b60035cfb082abfc9f321cab302628263c9418c5
+base_commit: afe40f38784a9fdeb46683d7da783cb546591769
 status: external-unreviewed
 kind: directional-research
 claim_levels:
@@ -35,10 +35,10 @@ Therefore the current route survives only if it uses a genuinely joint BBP invar
 Analysis was performed on branch `pi-core-consolidation` at commit
 
 ```text
-b60035cfb082abfc9f321cab302628263c9418c5
+afe40f38784a9fdeb46683d7da783cb546591769
 ```
 
-The branch advanced during this research pass from `29c038face4253ca9c88d9a7a1c99bc09f7dc21d` by twelve commits. The deltas changed only root coordination material and the `ResearchAgents/` to `GPTPro/` control-plane consolidation; no `TheoryLib/`, `audit/`, or `knowledge/pi/` mathematical file used below changed. The later SHA is therefore the recorded base.
+The branch advanced during this research pass from `29c038face4253ca9c88d9a7a1c99bc09f7dc21d` by thirteen commits. The deltas changed only root coordination material, the `ResearchAgents/` to `GPTPro/` control-plane consolidation, and cleanup of obsolete coordination stubs; no `TheoryLib/`, `audit/`, or `knowledge/pi/` mathematical file used below changed. The later SHA is therefore the recorded base.
 
 The repository's proof authority is `TheoryLib/` plus registration in `audit/AxiomAudit.lean`. The trust policy in `knowledge/pi/verified/TRUST.md` permits only `propext`, `Classical.choice`, and `Quot.sound`. The audit imports the T17, T35, and T77--T106 modules used below. A declaration being imported and axiom-clean establishes only its theorem statement, not the truth of an external premise appearing in that statement.
 
