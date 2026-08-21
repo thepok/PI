@@ -4,7 +4,9 @@ Claim label: `literature-checked` for repository-state inspection only. This fil
 
 ## Operational result
 
-A parallel Pro model created a sound `ResearchAgents/` bootstrap while this task was being prepared. Rather than create a competing queue, its SHA-based task lock, completed RA-0001 reconnaissance, and open RA-0002 through RA-0004 tasks were migrated into the requested top-level `GPTPro/` hierarchy.
+A parallel Pro model created a sound temporary research-agent bootstrap while this task was being prepared. Rather than create a competing queue, its SHA-based task lock, completed RA-0001 reconnaissance, and open RA-0002 through RA-0004 tasks were migrated into the requested top-level `GPTPro/` hierarchy.
+
+The temporary compatibility directory has since been removed at Marcel's request. `GPTPro/` is now the only coordination directory and the only active task queue.
 
 The concrete-results directory is named `Deliverables/`. `Results/` would be ambiguous, while `Findings/` would wrongly exclude code, Lean modules, datasets, and reproducible experiments.
 
@@ -50,4 +52,4 @@ The live frontier is therefore not another occurrence reformulation. It is the c
 
 ## Verification and limits
 
-This consolidation was based on branch head `352b8c267c801e1312d98b43395cab6ecb70a62b`, root policies, the T9 audit, workstream state, and T17 source. No Lean code was changed or compiled. The map is workflow guidance, not evidence for C1 or its negation.
+The consolidation was based on branch head `352b8c267c801e1312d98b43395cab6ecb70a62b`, root policies, the T9 audit, workstream state, and T17 source. The later cleanup removed only the obsolete compatibility directory and updated this operational record. No Lean code was changed or compiled. The map is workflow guidance, not evidence for C1 or its negation.

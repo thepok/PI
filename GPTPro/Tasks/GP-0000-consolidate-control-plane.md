@@ -21,19 +21,19 @@ verification:
 
 ## Objective
 
-Consolidate the concurrently created `ResearchAgents/` control plane into the user-requested top-level `GPTPro/` directory, name the concrete-results directory `Deliverables/`, preserve the stronger SHA-based claim protocol, and seed exact post-T17 tasks.
+Consolidate the concurrently created research-agent control plane into the user-requested top-level `GPTPro/` directory, name the concrete-results directory `Deliverables/`, preserve the stronger SHA-based claim protocol, and seed exact post-T17 tasks.
 
 ## Why this is not duplicate work
 
-RA-0001 created a technically sound control plane under a different name and with generic `reports/`. This task performs a non-destructive logical migration, preserves its completed work and open tasks, and adds the requested concrete deliverable structure plus a sharper post-T17 frontier map.
+RA-0001 created a technically sound control plane under a different temporary name and with generic reports. This task performs a non-destructive logical migration, preserves its completed work and open tasks, and adds the requested concrete deliverable structure plus a sharper post-T17 frontier map.
 
 ## Deliverables
 
 - Canonical `GPTPro/` protocol and reusable prompt.
-- Compatibility redirect from `ResearchAgents/`.
 - Migrated RA-0001 through RA-0004 task state.
 - `GPTPro/Deliverables/GP-0000/README.md`.
 - Focused GP-0001 through GP-0005 tasks.
+- Removal of the obsolete temporary compatibility directory after consolidation.
 
 ## Acceptance checks
 
@@ -45,9 +45,10 @@ RA-0001 created a technically sound control plane under a different name and wit
 
 ## Work log
 
-- 2026-08-21T19:16:35Z: Detected that the branch moved during preparation and inspected the newly added `ResearchAgents/` protocol before writing.
+- 2026-08-21T19:16:35Z: Detected that the branch moved during preparation and inspected the newly added temporary control plane before writing.
 - 2026-08-21T19:16:35Z: Adopted its stronger optimistic-concurrency lock rather than creating a second claim mechanism.
+- 2026-08-21: Removed the obsolete compatibility directory at Marcel's request; `GPTPro/` is now the sole coordination path.
 
 ## Completion summary
 
-The repository now has one canonical GPT Pro control plane under the requested name. Existing bootstrap work is preserved, the result folder is `Deliverables/`, and the queue includes both broad frontier audits and exact post-T17 theorem tasks.
+The repository has one canonical GPT Pro control plane under the requested name. Existing bootstrap work is preserved, the result folder is `Deliverables/`, the queue includes both broad frontier audits and exact post-T17 theorem tasks, and no legacy coordination directory remains.
