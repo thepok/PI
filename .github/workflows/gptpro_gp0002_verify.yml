@@ -8,6 +8,7 @@ on:
       - TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean
       - TheoryLib.lean
       - audit/AxiomAudit.lean
+      - GPTPro/Deliverables/GP-0002/promote_t110.py
       - .github/workflows/gptpro_gp0002_verify.yml
 
 permissions:
@@ -29,7 +30,7 @@ jobs:
           test: false
           lint: false
 
-      - name: Run isolated and repository verification
+      - name: Run isolated build, guarded promotion, and strict gate
         shell: bash
         env:
           LEAN_ACTION_OUTCOME: ${{ steps.lean-action.outcome }}
@@ -37,14 +38,35 @@ jobs:
           set +e
           mkdir -p GPTPro/Deliverables/GP-0002
           isolated_log="$(mktemp)"
+          promotion_log="$(mktemp)"
           gate_log="$(mktemp)"
 
           lake build TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion \
             >"$isolated_log" 2>&1
           isolated_exit=$?
 
-          pwsh workflows/verification/check.ps1 >"$gate_log" 2>&1
-          gate_exit=$?
+          promotion_exit=125
+          gate_exit=125
+          promotion_applied=false
+          if [ "$isolated_exit" -eq 0 ]; then
+            python3 GPTPro/Deliverables/GP-0002/promote_t110.py \
+              >"$promotion_log" 2>&1
+            promotion_exit=$?
+            if [ "$promotion_exit" -eq 0 ]; then
+              if ! git diff --quiet -- TheoryLib.lean audit/AxiomAudit.lean; then
+                promotion_applied=true
+              fi
+              pwsh workflows/verification/check.ps1 >"$gate_log" 2>&1
+              gate_exit=$?
+            fi
+          fi
+
+          if [ "$isolated_exit" -ne 0 ]; then
+            echo "not run: isolated T110 build failed" >"$promotion_log"
+            echo "not run: isolated T110 build failed" >"$gate_log"
+          elif [ "$promotion_exit" -ne 0 ]; then
+            echo "not run: deterministic promotion failed" >"$gate_log"
+          fi
 
           report="GPTPro/Deliverables/GP-0002/CI_VERIFICATION.md"
           {
@@ -54,12 +76,20 @@ jobs:
             echo "- Runner: \`ubuntu-latest\`"
             echo "- Lean setup outcome: \`$LEAN_ACTION_OUTCOME\`"
             echo "- Isolated T110 build exit: \`$isolated_exit\`"
+            echo "- Deterministic promotion exit: \`$promotion_exit\`"
+            echo "- Promotion changed canonical files: \`$promotion_applied\`"
             echo "- Strict repository gate exit: \`$gate_exit\`"
             echo
             echo "## Isolated T110 build output (last 400 lines)"
             echo
             echo '```text'
             tail -n 400 "$isolated_log"
+            echo '```'
+            echo
+            echo "## Deterministic promotion output"
+            echo
+            echo '```text'
+            cat "$promotion_log"
             echo '```'
             echo
             echo "## Strict repository gate output (last 400 lines)"
@@ -69,24 +99,33 @@ jobs:
             echo '```'
           } >"$report"
 
-          if [ "$isolated_exit" -eq 0 ] && [ "$gate_exit" -eq 0 ]; then
+          if [ "$isolated_exit" -eq 0 ] && [ "$promotion_exit" -eq 0 ] && [ "$gate_exit" -eq 0 ]; then
             printf '\nRESULT: PASS\n' >>"$report"
           else
             printf '\nRESULT: FAIL\n' >>"$report"
+            git restore -- TheoryLib.lean audit/AxiomAudit.lean
           fi
 
-      - name: Commit verification evidence without forcing
+      - name: Commit successful promotion and verification evidence without forcing
         if: always()
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add GPTPro/Deliverables/GP-0002/CI_VERIFICATION.md
+          git add TheoryLib.lean audit/AxiomAudit.lean \
+            GPTPro/Deliverables/GP-0002/CI_VERIFICATION.md
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "record GP-0002 CI verification [skip ci]"
+
+          if git diff --cached --name-only | grep -Eq '^(TheoryLib\.lean|audit/AxiomAudit\.lean)$'; then
+            message="promote GP-0002 T110 and record verification"
+          else
+            message="record GP-0002 CI verification [skip ci]"
+          fi
+          git commit -m "$message"
+
           for attempt in 1 2 3; do
             git fetch origin pi-core-consolidation
             git rebase origin/pi-core-consolidation
