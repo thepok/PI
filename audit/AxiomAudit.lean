@@ -227,6 +227,7 @@ import TheoryLib.PiLongLagBlockCollisionDecay.T104T104ProbabilityClosure
 import TheoryLib.PiLacunaryNearReturnSparsity.T166T166FiniteWordPowerFree
 import TheoryLib.PiQuantitativeBlockHitting.T112T112SampledBBPSelectedResidue
 import TheoryLib.PiQuantitativeBlockHitting.T113T113SampledBBPReducedCellRecurrence
+import TheoryLib.PiQuantitativeBlockHitting.T114T114SampledBBPGCDNormalizedSuccessor
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -2999,6 +3000,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T113T113SampledBBPReducedCellRecurre
 #print axioms Theory.PiDigits.T113SampledBBPReducedCellRecurrence.scaledBBPPartialRat_succ
 #print axioms Theory.PiDigits.T113SampledBBPReducedCellRecurrence.sampledBBPForcingRat_eq_seven_singleFractions
 #print axioms Theory.PiDigits.T113SampledBBPReducedCellRecurrence.cyclicCell_sampledBBPOrbit_eq_selectedCell
+#print axioms Theory.PiDigits.T114SampledBBPGCDNormalizedSuccessor.scaledBBPPartialRat_succ_num_den
+#print axioms Theory.PiDigits.T114SampledBBPGCDNormalizedSuccessor.cyclicCell_sampledBBPOrbit_succ_eq_gcdNormalized
 
 -- Representative endpoint registrations recovered by the RA-0003 audit.
 #print axioms Theory.PiDigits.QuantitativeBlockHitting.acceptance_audit_surface
