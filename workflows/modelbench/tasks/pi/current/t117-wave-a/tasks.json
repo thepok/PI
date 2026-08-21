@@ -43,5 +43,37 @@
         "unsafe ", "syntax ", "0 < D", "0 < E", "occupancy", "density", "V1"
       ]
     }
+  },
+  {
+    "id": "pi-t117-normalized-census-workflow",
+    "dimension": "exact_experiment",
+    "timeout_s": 10800,
+    "max_attempts": 5,
+    "variant": "high",
+    "prompt": "Build a robust checkpointed exact-census workflow; do not run the full N=512..4095 experiment yet. Read AGENTS.md. Create README.md, CONTRACT.json, build_checkpoints.py, audit_checkpoints.py, shard_generate.py, shard_verify.py, aggregate.py, and self_test.py. Freeze K1: k^2<=e and K2: k^2<=d*e, with A/D=Q_N and C/E=F_N reduced, H=gcd(D,E), d=D/H, e=E/H, X=10*A*e+C*d, k=gcd(abs(X),H*d), plus raw U,V,g cross-checks U=H*X, V=H^2*d*e, g=H*k, gcd(abs(X),e)=1, k|D, k|10H. Use exact Fraction/int only and canonical inclusive bbpPartial with Q_0=47/15. CONTRACT.json must specify exactly 42 half-open shards: width 256 on [512,1024), width 128 on [1024,2048), width 64 on [2048,4096), with no gaps. Implement one hash-chained exact S_(7b) checkpoint builder using the combined-term route and an independent checkpoint auditor using the literal four poles; shard generation starts and ends on frozen checkpoint hashes. The verifier must independently reconstruct every record, enforce exact JSON types/key sets/integer-string grammar/order, and test both laws. Aggregate must require all 42 shards exactly, recompute global first witnesses, and reject deletion/duplication/reordering/swapping. Store compact canonical tuple SHA-256 plus k/e and bit lengths; full tuples only for witnesses. CONTRACT must pin code/source/container hashes and resource caps; RUN_MANIFEST is produced only after checkpoint audit. self_test.py must exercise a tiny range and mutations of n,k,verdict,tuple digest, checkpoint/code hash, deletion, duplication, reorder, and shard swap. Run self_test.py successfully. README must state Status: `experiment`, exact commands, trust boundary, and that finite data does not prove K1, K2, V1, occupancy, density, or cancellation. Work only in the assigned directory and do not browse.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t117-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T98T98BBPArchimedeanTerm.lean", "destination": "inputs/T98.lean"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T106T106BBPForcedOrbit.lean", "destination": "inputs/T106.lean"},
+      {"source": "TheoryLib/PiQuantitativeBlockHitting/T116T116SampledBBPGCDPrimeSupport.lean", "destination": "inputs/T116.lean"}
+    ],
+    "grading": {
+      "type": "artifact_contract",
+      "artifact": "README.md",
+      "min_chars": 2400,
+      "required_files": [
+        "CONTRACT.json", "build_checkpoints.py", "audit_checkpoints.py",
+        "shard_generate.py", "shard_verify.py", "aggregate.py", "self_test.py"
+      ],
+      "required_markers": [
+        "Status: `experiment`", "N=512..4095", "42", "K1", "K2",
+        "Q_0=47/15", "checkpoint", "RUN_MANIFEST", "tuple SHA-256",
+        "self_test.py", "finite data", "does not prove", "V1"
+      ],
+      "forbidden_markers": [
+        "verified resolution", "candidate resolution", "proves K1",
+        "proves K2", "proves V1", "floating-point"
+      ]
+    }
   }
 ]
