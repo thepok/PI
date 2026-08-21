@@ -1,0 +1,1033 @@
+                                             SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS OF
+                                                          MULTIPLICATIVE FUNCTIONS
+
+                                                                                       JISEONG KIM
+
+                                                  Abstract. In this paper, we investigate the average behavior of ternary correlations for
+                                                  general k-divisor-bounded multiplicative functions, assuming certain second-moment in-
+                                                  tegral bounds for the associated L-functions. Our approach differs from previous meth-
+arXiv:2603.23250v2 [math.NT] 15 Apr 2026
+
+
+
+
+                                                  ods based on spectral theory or Heath-Brown-type decompositions, and instead combines
+                                                  the circle method with weighted short exponential-sum bounds. The key input is short
+                                                  exponential-sum estimates obtained from integral moment bounds for L-functions.
+
+
+
+
+                                                                                        Contents
+                                             1. Introduction                                                                                   1
+                                             1.1. Short exponential sum estimates                                                              3
+                                             1.2. Ternary correlations                                                                         5
+                                             1.3. Corollaries                                                                                  5
+                                             1.4. Sketch of the proof                                                                          6
+                                             1.5. Notation                                                                                     7
+                                             1.6. Plan of the paper                                                                            7
+                                             2. Exponential Sums over Short Intervals                                                          7
+                                             3. Proof of Theorem 1.5                                                                          11
+                                             3.1. Major arcs                                                                                  11
+                                             3.2. The main term                                                                               13
+                                             3.3. Minor arcs                                                                                  14
+                                             4. Proof of Theorem 1.6                                                                          14
+                                             4.1. Bounding short sums on the major arcs                                                       14
+                                             4.2. Minor arcs                                                                                  15
+                                             Acknowledgments                                                                                  16
+                                             References                                                                                       16
+
+
+                                                                                    1. Introduction
+                                             The study of correlations of arithmetic functions is closely connected to many important
+                                           open problems in number theory, such as the k-tuple prime conjecture. In particular, ternary
+                                           correlations have been investigated in several works, especially when averaged over shifts.
+                                             Averaged versions of ternary or higher-order correlations of arithmetic functions, such as
+                                           the von Mangoldt function and divisor functions, over shifts 1 ≤ h ≤ H with H = X θ+ε for
+                                           various values of θ have been studied in [18, 19, 17, 16]. One of the key ingredients in most
+                                             Key words and phrases. Short exponential sums, Ternary correlations, Multiplicative functions.
+                                                                                              1
+2                                          JISEONG KIM
+
+of these works is the Heath-Brown identity, which exploits the convolution structure of these
+functions.
+   For 1-bounded multiplicative functions, estimates for ternary correlations at individual
+shifts are well studied for pretentious multiplicative functions (see, for example, Klurman
+[9] and Darbar [4]). In contrast, for GL(n) Hecke eigenvalues, results on averaged ternary
+correlations over shifts have been obtained using spectral theory in automorphic forms. Note
+that, except for [2], [11] and [16], most of these works consider ternary correlations where
+SL(2, Z) Hecke eigenvalues appear as at least one of the factors.
+
+                Settings (ternary correlations)                      References
+                dk × d2 × d2                                         [2]
+                SL(2, Z) × SL(2, Z) × general                        [10]
+                SL(2, Z) × SL(2, Z) × SL(2, Z)                       [8]
+                dk × dℓ × general, k, ℓ = 2, 3                       [11]
+                SL(3, Z) × SL(2, Z) × general                        [5]
+                SL(4, Z) × SL(2, Z) × general                        [6]
+                dk × dℓ × dm , k, ℓ, m ∈ N                           [16]
+
+   In this paper, we remove the dependence on convolution structures and spectral methods,
+allowing us to treat general multiplicative functions using only second-moment bounds for
+the associated L-functions. We establish our results under standard hypotheses, including
+divisor-boundedness and upper bounds for integral moments. Our main goal is to study
+ternary correlations of the form
+                                  X     |h|
+                                              X
+             S(X, H)f1 ,f2 ,f3 :=    1−               f1 (n) f2 (n + h) f3 (n + 2h), (1.1)
+                                          H X≤n≤2X
+                                |h|≤H
+
+where f1 , f2 , f3 : N → C belong to the class of multiplicative functions defined below.
+Definition 1.1. For an integer k ≥ 1 and a real number α ≥ 0, the class Fk (α) consists of
+multiplicative functions f : N → C that satisfy:
+   (1) (divisor bound) f (n) ≤ dk (n), where dk is the k-fold divisor function.
+   (2) (analytic condition) For each q ∈ N and each Dirichlet character χ modulo q,
+       define                                  ∞
+                                              X   f (n)χ(n)
+                                L(f, χ, s) :=               .
+                                              n=1
+                                                      ns
+         Then L(f, χ, s) is holomorphic and admits an analytic continuation to ℜ(s) > 1/2.
+         It is nonzero for ℜ(s) ≥ 1 and has no poles except possibly when χ is the principal
+         character, in which case it has at most a simple pole at s = 1.
+     (3) (second moment estimates) For any ε > 0 and real T ≥ 1,
+                         Z 2T
+                                                            2             2
+                              |L(f, χ, 1/2 + it)|2 dt ≪ε q ε (1 + T )1+α+ε .           (1.2)
+                          T
+
+    Also, the class Fk′ (α) consists of multiplicative functions f   ∈ Fk (α) that its L-functions
+L(f, χ, s) have no pole at s = 1, for any Dirichlet character χ.
+                  SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                               3
+
+  In general, one expects α = 0 for most multiplicative functions, such as those in the
+Selberg class.
+1.1. Short exponential sum estimates. To study correlations of multiplicative functions,
+weighted exponential sum estimates have played an important role. For example, for SL(2, Z)
+Hecke-Maass cusp forms, let λ(n) denote the normalized Fourier coefficients. It is known
+that                            X
+                                    λ(n) e(nα) ≪ε x1/2+ε .
+                                     n≤x
+For SL(3, Z) Hecke-Maass cusp forms, let A(n, 1) denote the normalized Fourier coefficients.
+It is known that (see [22])   X
+                                  A(n, 1) e(nα) ≪ε x3/4+ε .
+                                 n≤x
+Under the Generalized Riemann Hypothesis, it is proved in [1] that
+                              X
+                                 µ(n) e(nα) ≪ε x3/4+ε .
+                                     n≤x
+
+In the context of short intervals, results are more difficult to obtain. In [23] it is shown that
+                                 X
+                                          Λ(n) e(nα) = o x5/8+ε ,
+                                                                  
+
+                             x−x5/8+ε <n≤x
+
+and, assuming fourth moment integral bounds over short intervals, this is improved to
+                             X
+                                     Λ(n) e(nα) = o x3/5+ε .
+                                                           
+
+                             x−x3/5+ε <n≤x
+
+Later, in [15], it is proved that
+                          Z 2X             X
+                               sup             Λ(n) e(nα) dx = o(XH),
+                         X   α∈[0,1] x−H<n≤x
+
+where H = X ε .
+   These classical results for Λ and µ rely heavily on the Heath–Brown identity to exploit a
+specific convolution structure. For general unbounded multiplicative functions that do not
+admit such a convolution structure with simple components, results of this type are not
+available. If one hopes to apply Mellin inversion directly, one would require a uniform bound
+(in α) of the form
+                                      ∞
+                                    X    f (n)e(nα)
+                                             1/2+it
+                                                    ≪ |t|ε ,
+                                     n=1
+                                            n
+which is stronger than what is implied by GRH. Here, we consider weighted exponential sum
+estimates of a more general nature, which may be of independent interest. We prove the
+following theorem in Section 2.
+Theorem 1.2. Let g ∈ Fk (0), and let 0 ≤ a < q < X. Let x ∈ [X, 2X], and let 0 < η < 1.
+Then, for any |γ| < 1 with |γ|H η−ε/2 → ∞, we have
+           x+H                  
+           X                a                            2                    2
+               g(m) e m       +γ      ≪g,k,ε (q|γ|X)1/2+ε H 1/2 + H η (log X)k −1 .
+           m=x
+                            q
+4                                            JISEONG KIM
+
+Remark 1.3. We define major arcs M and minor arcs m as follows. Let η = 1 − 7ε and
+β = H −1+8ε . We set
+                     [    [ a        a
+                                          
+             M :=                 − β, + β ,  m := [1/Q, 1 + 1/Q] \ M.
+                  1≤q<Q a mod q
+                                q     q
+                              (a,q)=1
+
+Under these definitions, for H ≫ X 1/2+100ε , we obtain the major arc bound
+                              X
+                       sup        f1 (n)e(nα) ≪ (qX)ε q 1/2 X 1/2 H 8ε ,
+                         α∈M
+                                x≤n≤x+H
+
+and the corresponding minor arc estimate
+                                                                   1/2+ε2
+                           X
+                                                      1/2       X
+                   sup              f1 (n)e(nα) ≪ H                           + E(x, H),
+                   α∈m
+                         x≤n≤x+H
+                                                                Q
+
+where E(x, H) denotes a sum over short intervals of length H 1−7ε . Assuming the k-divisor-
+bounded condition, we have the bound
+                                           E(x, H) ≪ H 1−ε .
+    Without averaging over x ∈ [X, 2X], taking Q = H 1/2 yields the uniform bound
+                                    X
+                              sup          f1 (n)e(nα) ≪ H 1−ε ,
+                                 α∈[0,1] x≤n≤x+H
+
+
+which requires H ≫ X 2/3+100ε .
+  With averaging over x ∈ [X, 2X], we obtain additional savings on the major arcs:
+                 Z 2X          X
+                      sup          f1 (n)e(nα) dx ≪ (QX)ε Q1/2 XH 1/2 .
+                    X    α∈M
+                                 x≤n≤x+H
+
+Consequently, by choosing Q = X 1/2−10ε , we obtain the uniform bound
+                     Z 2X          X
+                           sup             f1 (n)e(nα) dx ≪ XH 1−ε ,
+                          X     α∈[0,1] x≤n≤x+H
+
+provided that
+                                           H ≫ X 1/2+100ε .
+Remark 1.4. For the Fourier coefficients A(1, m) of SL(3, Z) Hecke-Maass cusp forms, there
+are some exponential sum estimates with rational phases. For example, it is shown that,
+under the Ramanujan conjecture,
+                                        
+                       X              am
+                          A(1, m)e         ≪ε q 1/2 x2/3+ε + qx1/3+ε
+                      m≤x
+                                       q
+
+for 1 ≤ q ≤ x2/3 (see [7]). Most such results are obtained via the Voronoi summation formula,
+whose applicability depends crucially on the rationality of the phase. A direct application
+of summation by parts does not provide an upper bound better than the uniform bound,
+unless q is very small.
+                     SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                           5
+
+1.2. Ternary correlations. Using the above exponential sum estimates for the minor arc
+treatment, we prove the following.
+Theorem 1.5. Let ε > 0 and k ≥ 1, and let f : N → C be a multiplicative function in
+the class Fk (0). Suppose that L(f, χ, s) has a simple pole at s = 1 when χ is the principal
+character. If X 10/13+100ε ≪ H ≪ X 1−ε , then
+     X         |h|
+                     X                                      X X
+                                                                         Cq3 + O XH 1−ε ,
+                                                                                       
+           1−                f (n) f (n + h) f (n + 2h) = XH
+                 H X≤n≤2X                                    q≥1 a mod q
+    |h|≤H
+                                                                          (a,q)=1
+
+where
+                                               X     µ(q1 )
+                                     Cq :=                    Dq1 ,q0 ,                    (1.3)
+                                              q=q q
+                                                    ϕ(q 1 )q0
+                                                 0 1
+
+                                    ε2
+for certain constants Dq1 ,q0 ≪ q        (see (1.7)).
+  When L(f, s) has no pole at s = 1, the following theorem holds, which substantially
+improves the range of H.
+Theorem 1.6. Let ε > 0, α > 0, and k ≥ 1. Let f1 , f2 , f3 : N → C be arithmetic functions
+                                                                    2     2
+such that f1 ∈ Fk′ (α), f2 , f3 are k-divisor-bounded. If X (1+α) /((1+α) +1)+100ε ≪ H ≪ X 1−ε ,
+then
+             X          |h|
+                               X
+                                        f1 (n) f2 (n + h) f3 (n + 2h) = O XH 1−ε/2 .
+                                                                                   
+                    1−
+                         H X≤n≤2X
+             |h|≤H
+
+1.3. Corollaries.
+
+1.3.1. Non-vanishing over three term arithmetic progressions. When L(f, s) has a simple
+pole, the main term in Theorem 1.5 dominates the error term. Hence we obtain the following
+corollary.
+Corollary 1.7. Let f ∈ Fk (0), |f (n)| ≤ dk (n) for all n, and suppose that L(f, χ, s) has
+a simple pole at s = 1 when χ is a principal character. Then there exist infinitely many
+three-term arithmetic progressions n, n + h, n + 2h such that
+                               |f (n)f (n + h)f (n + 2h)| ≫f 1.
+   In [8], the authors showed that there exist infinitely many three-term arithmetic progres-
+sions for which
+                                a(n) a(n + h) a(n + 2h) ̸= 0,
+where a(n) denotes the n-th Fourier coefficient of a holomorphic cuspidal Hecke eigenform
+F , under the assumption of Selberg’s 1/4-conjecture. Note that |a(n)|2 is the coefficient
+sequence of the Rankin-Selberg L-function of F . It is thus expected that |a(n)|2 ∈ Fk (0)
+for some k. So we can improve the result under the assumptions. Here, we put the general
+result.
+Corollary 1.8. Suppose |a(n)|2 ∈ Fk (0). Define
+         Bc (X, H) := {(n, h) ∈ [X, 2X] × [−H, H] : |a(n)a(n + h)a(n + 2h)| ≥ c} .
+6                                         JISEONG KIM
+
+Then, for any fixed c > 0,
+                                    Bc (X, X 10/13+100ε )
+                               lim inf                    ≫f,c 1.
+                                X→∞    X 1+10/13+100ε
+1.4. Sketch of the proof. We now give a brief outline of our proof strategy. For real
+numbers x and α, denote
+                                       X
+                          Sf (α; x) :=       f (n)e(nα).
+                                            x≤n≤x+2H
+
+Using the orthogonality relations, we have
+                              Z 1            (
+                                              1 if n = 0,
+                                  e(nα) dα =
+                                0             0 otherwise.
+Therefore,
+    Z 2X Z 1
+             Sf1 (α; x)Sf3 (α; x) Sf2 (−2α; x) dα dx
+      X     0
+             X                              Z 2X                                            (1.4)
+           =      f1 (n)f3 (m)f2 (r)1n+m=2r       1x≤n≤x+2H 1x≤r≤x+2H 1x≤m≤x+2H dx.
+                n,m,r                        X
+
+When r = n + h, the above integral is 2H − 2|h| if |h| ≤ H. Therefore, we rewrite (1.1) as
+                                  Z 2X Z 1
+                                1
+           S(X, H)f1 ,f2 ,f3 =             Sf1 (α; x)Sf3 (α; x) Sf2 (−2α; x) dα dx.   (1.5)
+                               2H X     0
+
+   To prove Theorems 1.5 and 1.6, our setups of the circle-method are similar except for the
+size of q ≤ Q. For Theorem 1.5, let Q = XH −1+5ε , for Thorem 1.6, let Q = H 1/(1+α)−5ε
+                                                                                     X
+                                                                                           .
+Define major and minor arcs
+                   [      [ a          a
+                                             
+            M :=                   − β, + β ,         m := [1/Q, 1 + 1/Q] \ M,
+                  1≤q<Q a mod q
+                                q       q
+                           (a,q)=1
+
+where β = H −1+8ε . Then
+S(X, H)f1 ,f2 ,f3
+      Z 2X Z                                            Z                                   
+   1
+=                   Sf1 (α; x)Sf3 (α; x)Sf2 (−2α; x) dα + Sf1 (α; x)Sf3 (α; x)Sf2 (−2α; x) dα dx.
+  2H X            M                                       m
+                                                                                             (1.6)
+We choose β = H −1+8ε to balance the contributions of the major and minor-arcs.
+  To prove Theorem 1.5, we follow the major arcs treatment in [14]. For the minor arcs
+we use weighted exponential-sum estimates over short intervals. Since the dependence on
+moduli q ≤ Q is sufficiently mild, the large choice of Q ensures sufficient cancellation on the
+minor arcs.
+  To prove Theorem 1.6, we treat the major arcs a bit differently. For the major arcs, we
+use the Parseval bound to get extra savings. For the minor arcs we again use weighted
+exponential-sum estimates over short intervals.
+                           SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                          7
+
+Remark 1.9. Our arguments are somewhat similar to [12], which begins with the circle
+method and then applies weighted exponential-sum bounds. Note that [12] uses the supre-
+mum of a long exponential sum,
+                                                        X
+                                                sup            f (n)e(αn) ≪ X β .
+                                                α∈R
+                                                       1≤n≤X
+
+Here, we separate major and minor arcs to restrict the range of α in the supremum, and we
+use second-moment estimates to obtain the needed exponential-sum bounds.
+
+1.5. Notation. We will use standard notation throughout the paper. For any real number
+α, we write e(α) := e2πiα . We denote the Euler totient function by ϕ(n), and we write dk (n)
+to denote the k-fold divisor function. For integer q ≥ 1, we write χ (mod q) for a Dirichlet
+character modulo q.
+  We set                                                             
+                                                                                ∞
+                                              X     µ(q1 )            X f (q0 n)χ(n) 
+                                Dq1 ,q0 :=                    Ress=1            s    .                        (1.7)
+                                             q=q q
+                                                   ϕ(q 1 )q 0          n=1
+                                                                               n
+                                                0 1
+                                                                            (n,q1 )=1
+
+Remark 1.10. A minor technical issue arises when considering the L-function with the
+coefficient f (q0 n) instead of f (n). Let σ = ℜ(s) ∈ [1/2, 1 + ε]. Using the Euler product and
+the divisor bound f (n) ≪ dk (n), we obtain
+    ∞
+   X   f (q0 n)χ(n)
+   n=1
+             ns
+ (n,q1 )=1
+                                                               −1 Y 
+                     Y            f (p) f (p2 )
+                                                                                                            
+                                                                                           f (q0 p)
+  = L(f, χ, s)                  1 + s + 2s + · · ·                               f (q0 ) +          + ···
+                                    p     p                             q0
+                                                                                              ps
+                     p|q                                           p| (q ,q
+                                                                       0    )
+                                                                            1
+                                            Y                                         Y              (1.8)
+                 q0                                      k+1 k+2                                O(1)
+  ≪ dk                         |L(f, χ, s)|           1 + σ + 2σ + · · ·                     1 + σ + ···
+              (q0 , q1 )                                  p   p                           q0     p
+                                              p|q                                        p| (q ,q )
+                                                                                             0   1
+                          
+                 q0                              X     
+  ≪ dk                         |L(f, χ, s)| exp Ok   p−σ
+              (q0 , q1 )                                p≤log2 q
+             ε2
+  ≪k,ε q |L(f, χ, s)| .
+1.6. Plan of the paper. In Section 2 we establish an upper bound for weighted exponential
+sums over short intervals. The proof of Theorem 1.5 is given in Section 3. In Subsection 3.1
+we analyze the major arcs and derive the main term; the minor arcs are treated in Subsection
+3.3. In Section 4 we prove Theorem 1.6.
+
+                                 2. Exponential Sums over Short Intervals
+  We now prove the more general version of Theorem 2.1.
+8                                         JISEONG KIM
+
+Lemma 2.1. Let 0 ≤ α < 1, g ∈ Fk (α), and let 0 ≤ a < q < X. Let x ∈ [X, 2X], and let
+0 < η < 1. Then, for any |γ| < 1 with |γ|H η−ε/2 → ∞, we have
+            x+H                 
+            X                a                                2
+                g(m) e m       +γ      ≪g,k,ε (q|γ|X)(α+1)/2+ε H 1/2 + E(x, H)
+            m=x
+                             q
+
+    where
+                                      X                         X
+                    E(x, H) ≪                dk (m) +                       dk (m).
+                                x−H η ≤m≤x              x+H≤m≤x+H+H η
+
+Proof. Let
+                                          ∞       
+                                          X       an
+                                A(s) :=     g(n)e    n−s .
+                                        n=1
+                                                   q
+For simplicity, assume (a, q) = 1. It is known that when (n, q) = 1, we have
+                                
+                                 an        1 X
+                              e        =               τ (χ̄) χ(an),
+                                  q       ϕ(q) χ mod q
+
+where                                                  
+                                             X         m
+                                 τ (χ) :=       χ(m) e
+                                          1≤m≤q
+                                                       q
+                                          (m,q)=1
+
+is the Gauss sum. Therefore,
+        ∞                                                     ∞
+       X         an          X      1        X                 X
+           g(n)e    n−s =                s
+                                                   τ (χ̄) χ(a)     g(q0 n)χ(n) n−s .   (2.1)
+       n=1
+                  q        q=q q
+                                 ϕ(q  )q
+                                    1 0
+                                           χ mod q             n=1
+                                0 1                 1
+                                                                (n,q1 )=1
+
+  Let ψ be a smooth compactly supported function with supp(ψ) ⊂ [−H −1+η , 1 + H −1+η ],
+such that ψ(x) = 1 for 0 ≤ x ≤ 1, ψ(x) ≤ 1 elsewhere, and
+                                      ψ (j) (x) ≪j H (1−η)j .
+Define                               Z ∞      
+                                           y−x
+                          B(s, γ) :=    ψ        e(γy) y s−1 dy.
+                                      0     H
+By Mellin transform and inversion,
+                                         Z ∞       
+                       y−x                         y−x
+                M ψ             e(γy) (s) :=    ψ         e(γy)y s=1 dy,
+                          H                   0     H
+                                                       
+                 m−x                             y−x
+                                       Z
+                                    1
+             ψ           e(mγ) =           M ψ         e(γy) (s) m−s ds.
+                   H               2πi (σ)        H
+Therefore,
+              ∞                     
+                                     m−x
+                                                 Z
+              X            a                  1
+                  g(m)e m    +γ   ψ        =            A(s) B(s, γ) ds,
+              m=1
+                           q          H      2πi  (σ ′)
+                     SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                                 9
+
+where σ ′ = 1 + log1X . Note that after removing the weight ψ, we have
+               ∞                              x+H                  
+              X                a            m−x       X               a
+                  g(m)e m        +γ      ψ          −     g(m)e m       +γ
+              m=1
+                               q              H       m=x
+                                                                      q
+                          X                     X                                                                (2.2)
+                   ≪ε            dk (m) +                dk (m).
+                        x−H η ≤m≤x             x+H≤m≤x+H+H η
+
+Define
+                                                         ∞
+                                                         X
+                             L(g, χ, s; q0 , q1 ) :=               g(q0 n)χ(n) n−s .
+                                                         n=1
+                                                       (n,q1 )=1
+
+Using (2.1), we get
+  Z                                                                 Z
+                       X            X                     1
+      A(s)B(s, γ) ds =                     τ (χ̄) χ(a)                     L(g, χ, s; q0 , q1 )q0−s B(s, γ) ds
+    (σ)                   q=q0 q1 χ mod q1
+                                                       ϕ(q1 )        (σ)
+                                                       !                                                         (2.3)
+                                                 1
+                          + Ol Hd2 (q)                   ,
+                                            (|γ|H η )l
+where 1/2 ≤ σ < 1, for any l > 0. The error term comes from the possible simple pole of
+L(g, χq1 ,0 , s; q0 , q1 ) together with the bound B(1, γ) ≪l H|H η γ|−l , so it is bounded by
+                                                                                                  !
+                X |µ(q1 |                                                                  1
+                                 Ress=1 L(g, χq1 ,0 , s; q0 , q1 )B(1, γ) = Ol Hd2 (q)
+               q=q q
+               0 1
+                        ϕ(q1 )q0                                                       (|γ|H η )l
+
+for any l > 0. Since |γ|H η = o(H ϵ/2 ), taking l sufficiently large makes this negligible.
+   We split the t-integral into     Z             Z
+                                                       +                   .
+                                          |t|≥5π|γ|X        |t|≤5π|γ|X
+                                                                              (j)
+   For the first integral, we use [3, Lemma 8.1]. Note that ψ Hx                    ≪ H −jη , h(y) :=
+                                                               k          |t|
+t log y + 2πγy satisfies | d(h(y))
+                             dy
+                                   | = | yt + 2πγ| ≥ |γ|x, | ddyhk | ≪ |y|  k for k ≥ 2. Under the
+                 η−ε/2
+assumption γH          → ∞, [3, Lemma 8.1] yields, for any A > 0,
+                                                                    !−A
+                                                   X · |t| |t|
+                             B(s, γ) ≪A H min p X , H η                 .
+                                                      |t| X
+Hence this range is negligible.
+  Now consider the second integral. We estimate
+                                                          Z ∞Z ∞                       
+                                                                       y−x           z−x
+            Z                                 Z
+                                       2
+                         |B(σ + it, γ)| dt =                      ψ             ψ
+              |t|≤5π|γ|X                       |t|≤5π|γ|X 0    0         H             H
+                                                                                                    (2.4)
+                                                                     y it
+                                                      · e γ(y − z)           (yz)σ−1 dy dz dt.
+                                                                       z
+Interchanging the order of integration yields
+   Z                                          Z x+H+H ηZ x+H+H η                             
+                              2          2σ−2                                          1
+                |B(σ + it, γ)| dt ≪ X                               min |γ|X,                   dy dz.
+    |t|≤5π|γ|X                                 x−H η      x−H η                   | log(y/z)|
+10                                                              JISEONG KIM
+
+When |y − z| < 1/|γ|, we bound the minimum by |γ|X:
+                         Z x+H+H η Z z+ 1          !
+                                        |γ|
+                                            |γ|X dy dz ≪ HX.
+                                                                    1
+                                         x−H η                  z− |γ|
+
+Moreover, since z ≤ 2y,
+                    Z x+H+H η                    Z z− 1             Z x+H+H η !
+                                                          |γ|                              1
+                                                                +                                 dy dz
+                              x−H η                x−H η                  1
+                                                                      z+ |γ|          | log(y/z)|
+                                           Z x+H+H η Z                                                                       (2.5)
+                                                                         y
+                                       ≪                                           dy dz ≪ HX log X.
+                                            x−H η                     |z − y|
+Therefore,                         Z
+                                                  |B(σ + it, γ)|2 dt ≪ X 2σ−1 H log X.
+                                   |t|≤5π|γ|X
+
+     Finally, by Hölder’s inequality and (1.2),
+     Z
+                L(g, χ, σ + it; q0 , q1 ) B(σ + it, γ) dt
+       |t|≤5π|γ|X
+                        Z                                             1/2 Z                                               1/2
+                                                                               2                                          2
+                    ≪                      L(g, χ, σ + it; q0 , q1 ) dt                                     |B(σ + it, γ)| dt
+                           |t|≤5π|γ|X                                                          |t|≤5π|γ|X
+                               1/2+α/2+ε2 /2           ε2 /2       σ−1/2       1/2         1/2
+                    ≪ (|γ|X)                       q           X           H         (log X)     .
+                                                                                                                               (2.6)
+     Thus,
+                                                                            2
+                                                                    1 q ε  σ+α/2+ε2 /2 1/2 α/2+1/2+ε2 /2 
+Z                                       X         X
+       A(s)B(s, γ) ds ≪g,k,ε                             |τ (χ̄)|          σ
+                                                                              X        H |γ|               (log X)1/2 .
+ (σ)                                   q=q0 q1   χ mod q
+                                                                  ϕ(q 1 ) q0
+                                                          1
+
+                                                          1/2
+Taking σ = 1/2 and using |τ (χ̄)| ≪ q1 , this is bounded by
+                               2                   2                                  2
+                                                                                                        X       1
+                        q 1/2+ε X 1/2+α/2+ε /2 H 1/2 |γ|1/2+α/2+ε /2 (log X)1/2                                 1/2
+                                                                                                                      .
+                                                                                                       q=q0 q1 q0
+
+     This completes the proof.                                                                                                      □
+     Therefore, if a(n) ∈ Fk (0), then
+                                                                  1/2+ε2
+       1 2X
+         Z
+                                           1/2+ε2 1/2+ε2 1/2    a
+               sup Sa (−2α; x) dx ≪g,k,ε q       X      H    α−          + H η (log X)k−1 ,
+       X X α∈m                                                  q
+as long as
+                                        
+                                       a
+                                   α−      H η−ε/2 → ∞.
+                                       q
+Later, to apply the above bound to achieve a saving of H ε , we require
+                                                                               X
+                        H −1+7.5ε = o (|γ|) ,                   and              ≪ H 1−2ε            when Q ̸= 1.
+                                                                               Q
+                  SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                         11
+
+Lemma 2.2. Assume that for any sufficiently large T,
+                   Z T
+                                          2
+                         L(f, χ, 1/2 + it) dt ≪ q ε (T + 1)1+α+ε
+                           −T
+
+for some α > 0. Then for any sufficiently large T , there exists T0 ∈ [T, 2T ] such that
+                                     sup     L(f, σ + iT0 ) ≪ε q ε/2 T α/2+ε .
+                              σ∈[1/2,1]
+
+Proof. The proof follows in a standard way, see, for example, [20, Lemma 2], or apply the
+Phragmén-Lindelöf principle.                                                           □
+Remark 2.3. For g ∈ Fk′ (α), by averaging over x ∈ [X, 2X], one may obtain extra cancel-
+lation in the integral
+                               Z 2X x+H             2
+                                     X
+                                        g(m)e(mα) dx                               (2.7)
+                                            X     m=x
+when α ∈ m. However, because we require an upper bound for the integral
+                            Z 2X     x+H            2
+                                     X
+                                 sup     g(m)e(mα) dx,                                                 (2.8)
+                                       X        α∈m
+                                                      m=x
+
+we cannot obtain the same cancellations as in the previous case.
+
+                                      3. Proof of Theorem 1.5
+3.1. Major arcs. We first represent the exponential sum as a combination of averages of
+f1 (n) twisted by Dirichlet characters. As usual, the main term arises from the contribution
+of principal characters. We then apply Lemma 2.2 to control the error term. To obtain
+precise asymptotics, we use the Poisson summation formula.
+Lemma 3.1 (Summation by parts). Let x ∈ [X, 2X]. Then for any γ ∈ R,
+                          Z x+2H                            Z x+2H                
+   X               an                                                        ′′   ′′
+         f (n) e      + γn =       Cq e(γy) dy + O E(x + 2H) +        |γ| E(x ) dx ,
+x≤n≤x+2H
+                    q        x                                  x
+
+where
+                                                 X                              Z x′′
+                                ′′                                   an
+                         E(x ) :=                      f (n) e        q
+                                                                              −           Cq dx ,
+                                             x≤n≤x′′                               x
+
+and Cq is defined in (1.3).
+Proof. See [14, Lemma 2.1].                                                                               □
+Lemma 3.2. Let x′ ∈ [x, x + 2H]. Then
+                                                                     2
+                                           E(x′ ) ≪ε q 1/2+2ε X 1/2+2ε .
+Proof. First, we use the identity
+         ∞                                                         ∞
+       X             an   −s
+                                 X       1         X                X
+            f (n) e      n =                    s
+                                                         τ (χ) χ(a)     f (q0 n)χ(n) n−s .
+        n=1
+                      q         q=q q
+                                      ϕ(q 1 ) q0 χ mod q            n=1
+                                           0 1                           1
+                                                                                           (n,q1 )=1
+12                                                     JISEONG KIM
+
+     Let
+                                                         ∞
+                                                         X
+                                          L(χ, s) :=            f (n)χ(n) n−s ,
+                                                         n=1
+
+χq1 ,0 denote the principal character modulo q1 , and let L∗ (χ, s) denote the Dirichlet series
+modified to reflect the condition (n, q1 ) = 1 and the substitution n 7→ q0 n. Using (1.8), we
+have
+                                                2
+                      L(χ, s)−1 L∗ (χ, s) ≪ε q ε    for ℜ(s) ∈ [1/2, 1 + ε].
+     Applying Perron’s formula, we obtain, for any 0 < T ≪ε X 1−ε ,
+                                                               Z 1+ε+iT
+      X                 X 1             X                  1                    (x′ )s − xs
+                    an
+            f (n) e q =                          τ (χ) χ(a)             L∗ (χ, s)             ds
+     x≤n≤x′              q=q0 q1
+                                 ϕ(q1 ) χ mod q             2πi 1+ε−iT                 q0s s
+                                               1
+                                   1+ε             !                                           (3.1)
+                                   X            −1
+                                                   
+                        + Oε                 T         .
+                                   q0
+
+Using (1.2) together with Lemma 2.2 (for convenience, let T denote the parameter T0 in
+Lemma 2.2), we shift the line of integration and obtain
+Z 1+ε+iT                                                                          1+ε
+          ∗       (x′ )s − xs              ∗       x′ − x                    ′    X               2
+         L (χ, s)       s
+                              ds = Ress=1 L (χ, s)        +O |Fχ,q0 ,q1 ,T (x )|+       T −1+ε q ε ,
+ 1+ε−iT                q0 s                          q0                           q0
+where
+                                                      Z 1/2+iT
+                                              ′                              (x′ )s − xs
+                               Fχ,q0 ,q1 ,T (x ) :=              L∗ (χ, s)               ds.
+                                                       1/2−iT                     q0s s
+                           ′
+     Moreover, for any T ≫ 1,
+                       Z 1/2+2iT ′                                                 1/2
+                                                 (x′ )s − xs
+                                                                         
+                                          ∗                                   x                  2
+                                        L (χ, s)             ds ≪                         (qT ′ )ε .
+                          1/2+iT ′                    q0s s                   q0
+Using a dyadic decomposition with T = X 1/2 , we obtain
+ X      X τ (χ)χ(a) Z 1/2+iT            (x′ )s − xs                                2
+                              L∗ (χ, s)             ds + Oε X 1+ε T ε−1 ≪ε q 1/2+2ε X 1/2+2ε .
+                                                                       
+                                              s
+q=q q χ mod q
+                ϕ(q1 ) 1/2−iT                q0 s
+      0 1           1
+            χ̸=χq1 ,0
+
+     Finally, since L∗ (χq1 ,0 , s) has a simple pole at s = 1, we have
+                                 Ress=1 L∗ (χq1 ,0 , s) = Dq1 ,q0            (see (1.7)).
+Hence, the contribution of the principal characters equals Cq (x′ − x). This yields the desired
+bound for E(x′ ).                                                                            □
+     Combining the preceding lemmas yields the following.
+Proposition 3.3. Let x ∈ [X, 2X] and |γ| ≤ β. Then
+                               Z x+2H
+        X               an                                            2
+                                                                                
+              f (n) e      + γn =        Cq e(γy) dy + Oε H 8ε q 1/2+2ε X 1/2+2ε .
+     x≤n≤x+2H
+                         q         x
+                        SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                                         13
+
+  Note that
+      X µ(q1 )                                             X          µ(q1 )                                2
+                               Ress=1 L∗ (χq1 ,0 , s) ≪                        Ress=1 L∗ (χq1 ,0 , s) ≪ q 2ε −1 .
+      q=q0 q1
+                ϕ(q1 ) q0                                 q=q0 q1
+                                                                     ϕ(q1 ) q0
+
+By Proposition 3.3, the major-arc contribution equals
+   1 X X
+                Z     Z 2X Z x+2H                                     2
+                                                      8ε 1/2+2ε2 1/2+2ε
+                                    Cq e(γy) dy + Oε H q        X
+  2H q<Q a mod q |γ|<β X      x
+             (a,q)=1
+                                           Z x+2H                                                               
+                                                                                        8ε 1/2+2ε2       1/2+2ε
+                                       ×                Cq e(−2γy) dy + Oε H q                       X                 dx dγ.
+                                                x
+                                                                                                                           (3.2)
+  Since                                    Z x+2H
+                                                                                2
+                                                     Cq e(γy) dy ≪ q 2ε −1 H,
+                                            x
+the total contribution of the error terms in (3.2) is
+                                                    2                       2
+                              ≪ X 3/2+2ε Q1/2+6ε H 16ε + Q7/2+6ε X 5/2+6ε H −2+32ε .
+With Q = XH −1+5ε and H ≫ X 10/13+100ε , the above contribution is bounded by
+                                                        ≪ε XH 1−ε .
+
+3.2. The main term. We now extract the asymptotic from
+                    Z     Z 2X Z x+2H             2 Z x+2H              
+       1 X X
+                                       Cq e(γy) dy            Cq e(−2γy) dy dx dγ.
+      2H q<Q a mod q |γ|<β X     x                      x
+                    (a,q)=1
+
+  The main term becomes
+                 Z      Z       Z 2X Z x+2H          2 Z x+2H            !
+ 1 X X 3
+              C        −                       e(γy) dy            e(−2γy) dy dx dγ.
+2H q<Q a mod q q   γ∈R    |γ|>β    X     x                   x
+          (a,q)=1
+
+  Note that                                         X     X
+                                                                    Cq3 ≪ 1.
+                                                    q>Q a mod q
+                                                        (a,q)=1
+                          R x+H
+                                e(γy) dy ≪ |γ|−1 , the tail integral |γ|>β · · · dγ contributes at
+                                                                      R
+Using the trivial bound x
+most XH 1−16ε .
+  Let 1[a,b] denote the indicator of [a, b], and write its Fourier transform as
+                                             Z
+                                   bb(ζ) :=     b(t) e(−ζt) dt.
+                                                           R
+Then the first integral equals
+                 Z 2X Z            2
+                                       \ (2γ) dγ dx + O XH 1−16ε .
+                                                                
+                          1[x,x+2H]
+                           \ (−γ) 1[x,x+2H]                                                                                (3.3)
+                        X        R
+14                                                    JISEONG KIM
+
+             \ (γ/2) 2 . Then
+                            
+Let G(γ) := 1[x,x+2H]
+            Z                                        Z
+                               2                   1
+                 1[x,x+2H] (−γ) 1[x,x+2H] (2γ) dγ =
+                  \               \                      G(γ)1[x,x+2H]
+                                                              \ (−γ)dγ.
+             R                                      2  R
+Since                        Z                                    
+                                          \ (−γ)dγ = G ∗ 1[x,x+2H]
+                                     G(γ)1[x,x+2H]        \ (0),
+                              R
+Using the inverse Fourier transform for the convolution, we have
+                                            Z
+                          G ∗ 1[x,x+2H] (0) =
+                               \                G(α)1
+                                                b     [x,x+2H] (α)dα.
+                                                              R
+Note that                                 Z
+                                                                               
+                          G(α)
+                          b    =2                 1[x,x+2H] (γ) ∗ 1[x,x+2H] (γ) (2α)dγ.
+                                           R
+Since α is supported in [x, x + 2H], the first integral in (3.3) is
+           Z 2X Z x+2H Z
+                           1[max(2α−x−2H,x),min(2α−x,x+2H)] (γ) dγ dα dx
+            X    x       R
+                   Z 2X Z x+H                      Z 2X Z x+2H
+                                                                                                              (3.4)
+                =             (2α − 2x) dα dx +                  (2x + 4H − 2α)dα dx
+                     X           x                                  X   x+H
+                         2
+                 = 2H X.
+which evaluates to 2H 2 X. Therefore, the main term is
+                                   XX X 3 2
+                                                 C H .
+                                   H q<Q a mod q q
+                                                          (a,q)=1
+
+3.3. Minor arcs. The contribution from the minor arcs is bounded by
+                        Z 2X Z 1
+     −1                                    2                                   2
+   H    sup Sf (−2α; x)           Sf (α; x) dα dx ≪ sup Sf (−2α; x) · X(log X)k .
+        X<x≤2X                        X       0                          X<x≤2X
+         α∈m                                                              α∈m
+
+Therefore, by Lemma 2.1, the proof is complete.
+
+                                          4. Proof of Theorem 1.6
+4.1. Bounding short sums on the major arcs. We follow the argument for Theorem
+1.5. Here, we obtain
+               Z 2X Z
+            1
+                       Sf1 (α; x)Sf3 (α; x) Sf2 (−2α; x) dα dx
+           2H X      M
+                               Z 2X                   Z 1                              (4.1)
+                            1
+                       ≪              sup |Sf (α; x)|     |Sf2 (−2α; x)Sf3 (α; x)|dαdx
+                            H X α∈M 1                  0
+
+Since α ∈ M, by Lemma 3.1,
+                                 X                                                               X
+Sf1 (α; x) ≪ ′ max                     f1 (n)e(an/q) (1 + H|α − a/q|) ≪ ′ max                            f1 (n)e(an/q) H 8ε
+            x ∈[x,x+2H]                                                           x ∈[x,x+2H]
+                             x≤m≤x′                                                             x≤m≤x′
+                       SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                                                     15
+
+where α ∈ (a/q − β, a/q + β). Using the trivial bounds
+                      Z 1
+                                                                  2
+                          |Sf2 (−2α; x)||Sf3 (α; x)|dα ≪ H(log X)k −1 ,
+                              0
+
+it is sufficient to show that
+                           Z 2X
+                                              sup           |Sf1 (a/q; x)| dx ≪ XH 1−10ε .
+                                  X    (a,q)=1,q<Q
+
+By applying the argument as in the proof of Lemma 3.2,
+                                                                                   x+2H
+                                                                                    q0
+                                                            1/2+ε2 /2
+                                                                                   X
+                            |Sf1 (a/q; x)| ≪ q                          max               f1 (q0 n)χ(n) .
+                                                                        χ(q1 )
+                                                                                  n= qx
+                                                                                      0
+
+
+Applying the Parseval Identity (see [13, Lemma 14]) and shifting the line of integration
+through Lemma 2.2, we obtain
+
+                                          2
+     Z 2X (x+2H)/q
+             X 0
+                        f1 (q0 n)χ(n)         dx
+       X     n=x/q0
+                     Z 1/2+iX/H                                                                     Z 1/2+2U
+            ε2   2                                      2          1        ε2
+        ≪q H                      |L(f1 , χ, s)| |ds| + q XH max                                                   |L(f1 , χ, s)|2 |ds|.
+                      1/2                                   U ≫X/H U                                  1/2+iU
+                                                                                                                                      (4.2)
+By using the integral moment (1.2), the above is bounded by
+                                                    2                        2            2
+                                                  Qε /2 (X)1+α+ε H 1−α−ε .
+Therefore,
+                                                                                                         x+2H                  2    1/2
+Z 2X                                                                             Z 2X                      q0
+                                               2
+                                                                                                          X
+           sup       |Sf1 (a/q; x)| dx ≪ Q1/2+ε /2 X 1/2                                     max                 f1 (q0 n)χ(n) dx         ,
+                                                                                                                                 
+ X     (a,q)=1,q<Q                                                                X     q=q0 q1 ,χ(q1 )
+                                                                                                          n= qx
+                                                                                                              0
+
+
+which is bounded by
+                                                    2                   2                      2
+                                       Q1/2+ε X 1+α/2+ε /2 H 1/2−α/2−ε /2 .
+                                      (1+α)2
+                 X                                +100ε
+Since Q =       1 −5ε    , H ≫ X (1+α)2 +1                  , the proof is complete.
+             H 1+α
+
+4.2. Minor arcs. For the minor arcs, applying Theorem 2.1 together with the conditions
+                                               (1+α)2                                                 1
+                                                        +100ε
+                                  H≫X         (1+α)2 +1            ,             |α − a/q| ≪            ,
+                                                                                                     qQ
+we obtain
+                                          Z 2X
+                                      1
+                                                    sup Sf1 (−α; x) dx ≪ H 1−ε .
+                                      X       X     α∈m
+16                                                   JISEONG KIM
+
+Therefore the contribution from the minor arcs is bounded by
+                    Z 2X                 Z 1
+                 −1
+               H         sup Sf1 (−α; x)     Sf3 (α; x)Sf2 (−2α; x) dα dx
+                         X    α∈m                        0
+                                     Z 2X                                                     !1/2
+                                                                    X
+                               −1                                                       2
+                         ≪H                    sup Sf1 (−α; x)                |f2 (n)| dx
+                                       X       α∈m
+                                                                 x<n≤x+2H
+                             Z 2X                                                      !1/2
+                                                               X
+                        ×            sup Sf1 (−α; x)                    |f3 (n)|2 dx
+                               X     α∈m
+                                                             x<n≤x+2H
+                                           Z 2X
+                                       2
+                         ≪ (log X)k                sup Sf1 (−α; x) dx
+                                               X   α∈m
+                                   1−ε/2
+                         ≪ HX              .
+This completes the proof of Theorem 1.6.
+
+                                               Acknowledgments
+     The author would like to thank Kunjakanan Nath for helpful discussions.
+
+
+                                                   References
+ [1] R. C. Baker and G. Harman, Exponential sums formed with the Möbius function. J. London Math. Soc.
+     (2) 43 (1991), no. 2, 193–198; MR1111578
+ [2] V. Blomer, On triple correlations of divisor functions. Bull. London Math. Soc. 49 (2017), 10–22.
+ [3] V. Blomer, R. Khan, and M. Young, Distribution of mass of holomorphic cusp forms. Duke Math. J.
+     162 (2013), no. 14, 2609–2644.
+ [4] P. Darbar, Triple correlations of multiplicative functions. Acta Arith. 180 (2017), 63–88.
+ [5] F. Hou, On the general triple correlation sums for GL2 × GL2 × GL2 . Rocky Mountain J. Math. 54
+     (2024), no. 6, 1655-1672.
+ [6] F. Hou, G. Lü Triple correlation sums of coefficients of Maass forms for SL4 (Z). Q. J. Math. 75 (2024),
+     no. 3, 1123-1148.
+ [7] J. Jääsaari and E. V. Vesalainen, On sums involving Fourier coefficients of Maass forms for SL(3, Z),
+     Funct. Approx. Comment. Math. 57 (2017), no. 2, 255–275; MR3732898
+ [8] T. A. Hulse, C. I. Kuan, D. Lowry-Duda, and A. Walker, Triple correlation sums of coefficients of cusp
+     forms, J. Number Theory 220 (2021), 1–18.
+ [9] O. Klurman, Correlations of multiplicative functions and applications. Compos. Math. 153 (2017), 1622–
+     1657.
+[10] Y. Lin, Triple correlations of Fourier coefficients of cusp forms. Ramanujan J. 45 (2018), 841–858.
+[11] M. Lou Triple correlations of ternary divisor functions. II. Int. J. Number Theory 19 (2023), no. 7,
+     1525-1551.
+[12] G. Lu and P. Xi, On triple correlations of Fourier coefficients of cusp forms. J. Number Theory 183
+     (2018), 485–492.
+[13] K. Matomäki and M. Radziwiłł, Multiplicative functions in short intervals. Ann. of Math. (2) 183 (2016),
+     no. 3, 1015–1056.
+[14] K. Matomäki, M. Radziwiłł, and T. Tao, Correlations of the von Mangoldt and higher divisor functions
+     I. Long shift ranges. Proc. Lond. Math. Soc. (3) 118 (2019), no. 2, 284–350.
+[15] K. Matomäki, M. Radziwiłł and T. C. Tao, Fourier uniformity of bounded multiplicative functions in
+     short intervals on average. Invent. Math. 220 (2020), no. 1, 1–58; MR4071407
+                    SHORT EXPONENTIAL SUMS AND TERNARY CORRELATIONS                                    17
+
+[16] K. Matomäki, M. Radziwiłł, X. Shao, T. Tao, and J. Teräväinen, Higher uniformity of arithmetic
+     functions in short intervals II. Almost all intervals. arXiv:2411.05770.
+[17] K. Matomäki, X. Shao, T. Tao, and J. Teräväinen, Higher uniformity of arithmetic functions in short
+     intervals I. All intervals. Forum Math. Pi 11 (2023), e29.
+[18] H. Mikawa, On prime twins. Tsukuba J. Math. 15 (1991), 19–29.
+[19] A. Perelli and J. Pintz, On the exceptional set for Goldbach’s problem in short intervals. J. London
+     Math. Soc. (2) 47 (1993), no. 1, 41–49.
+[20] K. Ramachandra and A. Sankaranarayanan, Notes on the Riemann zeta-function. J. Indian Math. Soc.
+     57 (1991), 1–4.
+[21] P. Shiu, A Brun–Titchmarsh theorem for multiplicative functions. J. Reine Angew. Math. 313 (1980),
+     161–170.
+[22] Stephen D. Miller, Cancellation in additively twisted sums on GL(n), Amer. J. Math., 128(3):699-729,
+     2006.
+[23] T. Zhan, On the representation of large odd integer as a sum of three almost equal primes. Acta Math.
+     Sinica (N.S.) 7 (1991), no. 3, 259–272; MR1141240
+
+  Department of Mathematical Sciences, McNeese State University, Lake Charles, LA
+70609, USA
+  Email address: jiseongk51@gmail.com
+

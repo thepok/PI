@@ -1,0 +1,6 @@
+'DecimalFactorComplexity.T51FibonacciTwoBlock.fullBand_decimalFrequencyAdmissible_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DecimalFactorComplexity.T51FibonacciTwoBlock.fullBand_complete_chain_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

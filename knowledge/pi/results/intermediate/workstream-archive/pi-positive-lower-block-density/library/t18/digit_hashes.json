@@ -1,0 +1,18 @@
+{
+  "digit_count": 10003,
+  "hash_scope": "ASCII digits after the decimal point, with no newline",
+  "pi": {
+    "algorithms_equal": true,
+    "chudnovsky_sha256": "665f10ecc2c415d58347374c8ca3b6d71c4e8021bad53df9ef5ae7c1d6c598ab",
+    "known_50_digit_prefix_equal": true,
+    "known_prefix": "14159265358979323846264338327950288419716939937510",
+    "machin_sha256": "665f10ecc2c415d58347374c8ca3b6d71c4e8021bad53df9ef5ae7c1d6c598ab"
+  },
+  "streams": {
+    "champernowne": "6981a12fa8f1054736d9ebe4e978f9641e14396b1815205e65df1361e0a08b81",
+    "iid": "83f94747dbbd646ede6598b7e9cfd461334ecacbf0b682a67e94f0b33ffdac9d",
+    "pi": "665f10ecc2c415d58347374c8ca3b6d71c4e8021bad53df9ef5ae7c1d6c598ab",
+    "t2_sparse_island": "0cbf107fc87bb887565e6cee71e7e1bb1c92ec2254e9a3ec2eb04d5b07636c83",
+    "t4_balanced": "7570a628f31a3d328343ce7651d0921449abcabf594f2357804ec3a2f01494c6"
+  }
+}

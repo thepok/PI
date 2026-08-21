@@ -1,0 +1,1646 @@
+                                           FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP
+
+                                                                        THOMAS JORDAN AND TUOMAS SAHLSTEN∗
+
+
+                                                 Abstract. We investigate under which conditions a given invariant measure µ for the dynamical
+                                                 system deﬁned by the Gauss map x 7→ 1/x mod 1 is a Rajchman measure with polynomially
+                                                 decaying Fourier transform
+                                                                                    µ(ξ)| = O(|ξ|−η ), as |ξ| → ∞.
+                                                                                   |b
+                                                 We show that this property holds for any Gibbs measure µ of Hausdorﬀ dimension greater than
+                                                 1/2 with a natural large deviation assumption on the Gibbs potential. In particular, we obtain
+arXiv:1312.3619v3 [math.DS] 2 Feb 2015
+
+
+
+
+                                                 the result for the Hausdorﬀ measure and all Gibbs measures of dimension greater than 1/2 on
+                                                 badly approximable numbers, which extends the constructions of Kaufman and Queﬀélec-Ramaré.
+                                                 Our main result implies that the Fourier-Stieltjes coeﬃcients of the Minkowski’s question mark
+                                                 function decay to 0 polynomially answering a question of Salem from 1943. As an application of
+                                                 the Davenport-Erdős-LeVeque criterion we obtain an equidistribution theorem for Gibbs measures,
+                                                 which extends in part a recent result by Hochman-Shmerkin. Our proofs are based on exploiting the
+                                                 nonlinear and number theoretic nature of the Gauss map and large deviation theory for Hausdorﬀ
+                                                 dimension and Lyapunov exponents.
+
+
+
+
+                                                                        1. Introduction and the main results
+                                         1.1. Rajchman measures. Given a Borel probability measure µ on the unit circle T, we deﬁne
+                                         the Fourier transform of µ at the frequency ξ ∈ R by the quantity
+                                                                                    Z
+                                                                              b(ξ) = e−2πiξx dµ(x).
+                                                                              µ
+
+                                         It is a central question in Fourier analysis and its applications to understand how the behaviour or
+                                         decay of µb aﬀect for example the absolute continuity, singularity, geometric or arithmetic structure
+                                         of the measure µ. If µ b → 0 at inﬁnity, then µ is called a Rajchman measure. Rajchman measures
+                                         have their root and motivation in the study of sets of uniqueness and multiplicity of Fourier series;
+                                         see for example [14] and the survey of Lyons [21] for a more detailed historical background.
+                                            When we know the rate of decay for the Fourier transform of a Rajchman measure, we can
+                                         recover a lot of information from the structure of the measure. For example, a classical bound
+                                         coming from potential theoretic methods (see for example [22] and references therein) shows that
+                                         if the Fourier transform µ  b → 0 polynomially, that is, |b    µ(ξ)| = O(|ξ|−η ) as |ξ| → ∞ for some
+                                         η > 0, then the Hausdorﬀ dimension of the measure µ satisﬁes dim µ ≥ 2η. This gives rise to the
+                                         notion of Salem sets, that is, a set A ⊂ R with Hausdorﬀ dimension s = dim A that supports a
+                                         Rajchman measure µ with Fourier transform |b       µ(ξ)| = O(|ξ|−η ) as |ξ| → ∞ with η arbitrarily close
+                                         to s/2. Thanks to Plancherel’s theorem, if the Fourier transform µ    b ∈ L2 , then µ must be absolutely
+                                                             2
+                                         continuous with L density, and moreover, if µ            1
+                                                                                            b ∈ L , then µ is a continuous function. With the
+                                         help of the convolution formula µ[  ∗ν =µ b · νb this kind of powerful information can be linked to the
+                                         structure and size of the sumsets and distance sets of the supports of Rajchman measures with
+                                         rapidly enough decaying Fourier transform; for a detailed background, see for example the survey
+                                         of Mattila [23].
+
+                                            2010 Mathematics Subject Classification. 42A38 (Primary), 11K50, 37C30, 60F10 (Secondary).
+                                            Key words and phrases. Fourier transform, Gibbs measures, Gauss map, Diophantine approximation, normal
+                                         numbers, large deviation theory, thermodynamical formalism.
+                                            ∗
+                                              Corresponding author. T.S. acknowledges the partial support from University of Bristol, the Finnish Centre of
+                                         Excellence in Analysis and Dynamics Research, Emil Aaltonen Foundation and the European Union (ERC grant
+                                         ♯306494).
+                                                                                                 1
+2                             THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+   Rajchman measures with polynomially decaying Fourier transforms share many similar proper-
+ties with Lebesgue measure. The Erdős-Turán inequality yields a universal bound for the measure
+µ(I) of an interval I compared to its length |I| via the Fourier coeﬃcients µ b(k). Lebesgue measure
+also has the following characteristic property that almost every number is normal and a similar cri-
+terion can be deduced for Rajchman measures with polynomial decay as well. Recall that a given
+a sequence x1 , x2 , . . . , of non-negative real numbers equidistributes modulo 1, if for any interval
+I ⊂ [0, 1] the frequency of xk hitting I is the length |I|. In other words, there exists
+                                  |{1 ≤ k ≤ N : xk mod 1 ∈ I}|
+                              lim                              = |I|.
+                             N →∞              N
+A particularly important case is the sequence xk = nk x, k ∈ N, where n ∈ N is a ﬁxed base. If the
+sequence (nk x) equidistributes modulo 1, the number x is called n-normal. Moreover, a measure
+µ on [0, 1] is n-normal if µ almost every x is n-normal. Invoking the famous Weyl’s criterion for
+equidistribution with exponential sums, we obtain the following
+Theorem 1.1 (Davenport-Erdős-LeVeque). Let µ be a probability measure on [0, 1] and (sk )k∈N
+a sequence of natural numbers. If any p 6= 0 satisfies
+                                  ∞
+                                  X    N
+                                    1 X
+                                         µ
+                                         b(p(sk − sm )) < ∞,                                     (1.1)
+                                    N3
+                                 N =1       k,m=1
+
+then the sequence (sk x)k∈N equidistributes modulo 1 at µ almost every x.
+   When µ is a Rajchman measure with µ      b → 0 polynomially, then (1.1) holds for every strictly
+increasing sequence (sk )k∈N . In particular, µ is n-normal for any n ∈ N.
+   This was proved by Davenport, Erdős and LeVeque in [5] and for the proof of the statement
+in this form, see for example [29, Theorem 7.2]. Moreover, see also [29, Corollary 7.4] for the
+deduction for the corollary on Rajchman measures.
+   Theorem 1.1 can be applied to ﬁnd normal numbers in small sets which still support Rajchman
+measures with polynomially decaying Fourier coeﬃcients. This approach has been particularly
+useful in Diophantine approximation of irrational numbers after the seminal works of Kaufman
+[12, 13]. A classical result of Dirichlet says that for any irrational number x ∈ [0, 1] we can ﬁnd
+inﬁnitely many rationals p/q with |x − p/q| ≤ q −2 . A number is well approximable if the rate of
+approximation Dirichlet’s theorem gives can be improved: for example, if α ≥ 2, the class of α-well
+approximable numbers W (α) consists of those irrational x with |x − p/q| ≤ q −α for inﬁnitely many
+rationals p/q. The set W (α) is when α > 2 a fractal with Hausdorﬀ dimension dim W (α) = 2/α by
+a classical result of Jarnı́k-Besicovitch. In [13] Kaufman proved that there is a Rajchman measure
+µ on W (α) with polynomial decay
+                                         µ(ξ)| = o(log |ξ|)|ξ|−1/α ,
+                                        |b
+which shows that W (α) is a Salem set. The papers by Bluhm [2, 3] contain a more detailed proof
+of Kaufman’s result and demonstrate that the set of Liouville numbers (numbers in every W (α))
+also supports a Rajchman measure; note that as the Liouville numbers have Hausdorﬀ dimension
+0 the decay cannot be polynomial.
+    A polar opposite to well approximability is the collection of badly approximable numbers, that
+is, those irrational x ∈ [0, 1] for which we can ﬁnd a constant c(x) > 0 such that |x− p/q| ≥ c(x)/q 2
+for all rationals p/q. All such numbers are exactly those numbers for which the continued fraction
+expansion a1 (x), a2 (x), . . . , is bounded (see Section 2). Thus this gives rise to the sets
+                           BN = {x ∈ [0, 1] \ Q : ai (x) ≤ N for all i ∈ N}
+whose union is the set of all badly approximable numbers. As BN can be interpreted as an
+attractor to a self-conformal iterated function system {x 7→ 1/(x + a) : a = 1, 2, . . . , N } (see
+Section 2), it is possible to estimate the Hausdorﬀ dimension of BN . In [8] it was estimated
+                  FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                             3
+
+
+dim BN ≥ dim B2 = 0.531.. for any N ∈ N and Jarnı́k [11] proved that dim BN ր 1 as N → ∞.
+These sets support Rajchman measures:
+Theorem 1.2 (Kaufman & Queﬀélec-Ramaré). Given N ≥ 2, there exists a Rajchman measure
+µ on BN such that µ
+                  b → 0 polynomially.
+   The measure constructed in this proof is now widely known as the Kaufman measure. Theorem
+1.2 was proved by Kaufman [12] for N ≥ 3 and Queﬀélec-Ramaré [29] later extended this result
+for N ≥ 2 by modifying the proof of Kaufman and with more careful analysis of continuants. Thus
+this yields by Theorem 1.1 that there are inﬁnitely many badly approximable n-normal numbers
+for any N ≥ 2 and n ∈ N. For N ≥ 3 this was already settled by Baker, who pointed out this
+could be deduced from Kaufman’s result (see for example the lecture notes by Montgomery [26]),
+but for B2 the Kaufman measure constructed by Queﬀélec-Ramaré ﬁnally settled this problem for
+all N ≥ 2.
+   Kaufman measures and their construction have since become useful tool in Diophantine ap-
+proximation. See for example the paper by Pollington and Velani [28] with a connection to the
+Littlewood conjecture.
+
+1.2. Fourier transforms of invariant measures. The motivation for this paper is to investigate
+under which conditions on a dynamical system a given invariant measure µ is a Rajchman measure
+with a polynomial decaying Fourier transform. It turns out the construction of the Kaufman
+measure on badly approximable numbers in Theorem 1.2 provides a good reference to understand
+this problem.
+   Kaufman’s original proof relied on constructing a measure µ with large enough dimension sup-
+ported on BN which satisﬁes suitable µ independence assumption for the measures of cylinders.
+The independence in the construction allowed the use of law of large numbers to obtain µ generic
+growth rates for the continuants of the continued fraction expansions and that the generic contin-
+uants do not deviate much from this generic growth. This controlled growth of generic continuants
+is crucial in the proof when studying the oscillations of µ with |b    µ(ξ)| for large frequencies ξ.
+   The growth rate of continuants can be explained by the evolution of the dynamical system
+([0, 1] \ Q, T ) on irrationals, where T : [0, 1] \ Q → [0, 1] \ Q is the Gauss map, deﬁned by
+                                                    1
+                                          T (x) =     mod 1.
+                                                   x
+The Gauss map acts as a shift for the continued fraction expansions of irrational numbers and the
+growth rate of the derivative (T n )′ (x) as n → ∞ of the composition T n is comparable to the growth
+of the nth continuant of an irrational x (see the end of Section 2). Thus implicitly Kaufman’s
+construction already relies heavily on the dynamics of the Gauss map, which leads to the problem;
+is the decay of Fourier coeﬃcients in general just a generic property of the dynamical system?
+   We show that Rajchman measures are indeed quite common for the Gauss map and the classical
+Gibbs condition is enough (see Section 3 for a deﬁnition). Gibbs measures arise in thermodynam-
+ical formalism as equilibrium states for some potential functions and they enjoy a weak form of
+independence; for example, they are always ergodic T invariant measures. All Bernoulli mea-
+sures on badly approximable numbers are Gibbs measures and there is a Gibbs measure which is
+equivalent to the Hausdorﬀ measure Hs of dimension s = dim BN when restricted to BN . Gibbs
+measures tend to satisfy strong statistical properties, in particular in this setting we can show they
+satisfy large deviation results on the generic growth of the Gauss map, which enable us to adapt
+Kaufman’s approach.
+   However, as the alphabet generated by the Gauss map is inﬁnite, the potential associated to
+the Gibbs measure µ may not in general satisfy the large deviation principle, so we need to impose
+a weak condition on the decay in the tail of the Gibbs measure. More precisely, that there exists
+δ > 0 such that when n → ∞ the probability
+                              µ({x ∈ [0, 1] \ Q : a1 (x) ≥ n}) = O(n−δ )                         (1.2)
+4                             THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+This condition on the distribution of the ﬁrst continued fraction digit of x is equivalent to the
+Gibbs measure µ satisfying the large deviation theory bounds for the Kaufman type arguments we
+use in the proof; see Proposition 4.4 and Remark 4.5 below. For a ﬁnite alphabet, which would
+for example cover the situation of BN as symbolically it is {1, 2, . . . , N }N , such an assumption is
+unnecessary so the only assumption on the Gibbs measure required is that the dimension is greater
+than 21 . More generally, we can just consider any ﬁnite A ⊂ N and deﬁne an irrational x to be
+A-badly approximable, if the digits of the continued fraction expansion of x are only in A, and
+write x ∈ B(A). Then BN = B({1, 2, . . . , N }).
+Theorem 1.3. We have the following properties:
+  (1) If µ is any Gibbs measure for the Gauss map which satisfies (1.2) and Hausdorff dimension
+      dim µ > 1/2, then µ is a Rajchman measure with Fourier transform
+                                    b(ξ) = O(|ξ|−η ),
+                                    µ                   |ξ| → ∞,                                 (1.3)
+        for some η > 0.
+    (2) If A ⊂ N is finite and µ is any Gibbs measure for the Gauss map restricted to B(A) with
+        dimension dim µ > 1/2, then (1.3) holds.
+   It is worth pointing out the contrast between this result and the case for the map ×n map
+x 7→ nx mod 1 on T, where a measure µ is ×n invariant if and only if µ           b(k) for all k ∈ Z
+                                                                         b(nk) = µ
+so the only ×n invariant measure with whose Fourier transform has a power decay is Lebesgue
+measure.
+   After a slight adjustment of the proof of Theorem 1.3, it also applies to Hausdorﬀ measures Hs
+on the badly approximable numbers B(A) with large enough dimension:
+Corollary 1.4. If A ⊂ N is finite s = dim B(A) > 1/2, then the Hausdorff measure Hs restricted
+to B(A) is a Rajchman measure with polynomially decaying Fourier transform. In particular, the
+Hausdorff measure on BN satisfies this property for any N ≥ 2.
+   This is due to the fact that Hausdorﬀ measure Hs is an s-conformal measure in our setting and
+equivalent to a Gibbs measure with uniformly positive and ﬁnite densities; see Section 6.7 for more
+details and references.
+   Another application of Theorem 1.3 concerns the Fourier-Stieltjes coeﬃcients of singular mono-
+tonic functions f : [0, 1] → [0, 1], that is, monotonic f with zero derivative Lebesgue almost
+everywhere. Such functions arise naturally from singular measures. If µ is a singular probability
+measure with respect to Lebesgue measure, with support [0, 1] and without atoms, then the cumu-
+lative distribution function x 7→ µ([0, x]) is an increasing singular monotonic function. Moreover,
+if we have an increasing singular monotonic function f : [0, 1] → [0, 1], then deﬁning a Stieltjes
+measure µ by the formula µ([x, y]) = f (y)−f (x) for all reals 0 ≤ x < y ≤ 1 has f as the cumulative
+distribution function. The Fourier-Stieltjes coefficients of f are then precisely the Fourier coeﬃ-
+       b(k), k ∈ Z, of the measure µ. There has been much research to understand the asymptotics
+cients µ
+of these coeﬃcients for various singular functions, see Salem’s paper [30] for references.
+   All Gibbs measures µ for the Gauss map that are fully supported and not equal to the Gauss
+measure (see Remark 3.4(2) for a deﬁnition) give rise to a singular monotonic function by the
+cumulative distribution function x 7→ µ([0, x]). Indeed, any ergodic measure for the Gauss map
+not equal to the Gauss measure (see Remark 3.4(2)) has to be singular with respect to Gauss
+measure and hence to Lebesgue measure. Thus if a singular monotonic function f gives rise to a
+Gibbs measure µ for a Gauss map with the requirement (1.2) is on the tail of µ and dim µ > 12
+satisﬁed, we can apply Theorem 1.3 to have that the Fourier-Stieltjes coeﬃcients of f decay to 0
+at inﬁnity with a polynomial rate. An example of this application is given in the following.
+   A famous construction of a singular monotonic function given by Minkowski in [25] is the
+Minkowki’s question mark function, which is deﬁned for irrationals x ∈ [0, 1] by
+                                               X∞
+                                                       (−1)n+1
+                                    ?(x) = 2
+                                               n=1
+                                                   2a1 (x)+···+an (x)
+                  FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                               5
+
+
+and for rationals x ∈ [0, 1] with continued fraction expansion [a1 (x), . . . , am (x)] by replacing the
+sum just up to m and setting ?(0) = 0. The original motivation for the construction of ? was to
+relate the continued fraction expansions of quadratic irrational numbers to their binary expansions.
+It turns out that ? has many fractal features, see for example the work by Kesseböhmer and
+Stratmann [15] on multifractal analysis and the references therein. Let µ is the Stieltjes measure
+deﬁned by ?. It dates back to the work of Salem [30] in 1943 where he proved that the Fourier
+coeﬃcients of µ converge ’in average’ to 0, that is,
+                                            Xn
+                                      1
+                                                 µ(k)| = O(n−η )
+                                                |b
+                                    2n + 1
+                                            k=−n
+as n → ∞ for a suitable η > 0. In the same paper Salem asked can this be strengthened to µ
+                                                                                         b → 0,
+i.e. whether µ is Rajchman or not. This problem has been re-visited over the years, for example
+it was recently mentioned in [4].
+   We see that µ is indeed a Gibbs measure for the Gauss map; in particular, it is a Bernoulli
+measure (see Remark 3.4(1) for a deﬁnition) associated to the weights pa = 2−a , a ∈ N. The tail
+event {a1 (x) ≥ n} has an exponential decay:
+                               µ({x ∈ [0, 1] \ Q : a1 (x) ≥ n}) = 2−n+1
+so (1.2) is satisﬁed. Finally in [19] the Hausdorﬀ dimension of µ is found. It is shown that
+                                                  log 2          1
+                                  dim µ = R 1                 > .
+                                           2 log(1 + x) dµ(x)    2
+                                             0
+Thus the measure µ satisﬁes the assumptions of Theorem 1.3 and we obtain a corollary, which
+answers to Salem’s original question and also gives a bound for the rate for the decay:
+Corollary 1.5. The Fourier-Stieltjes coefficients of the Minkowski’s question mark function decay
+to 0 at infinity with a polynomial rate.
+   This application of Theorem 1.3 was pointed out by Persson in [27]. Note an alternative approach
+to solving Salem’s problem was presented in [35].
+   Furthermore, the main Theorem 1.3 together with the equidistribution Theorem 1.1 yields that
+suitable Gibbs measures will give us normal numbers in their support:
+Corollary 1.6.     (1) If µ is any Gibbs measure for the Gauss map which satisfies (1.2) and
+      Hausdorff dimension dim µ > 1/2, then (sk x)k∈N equidistributes modulo 1 at µ almost
+      every x for any strictly increasing sequence of natural numbers (sk )k∈N . In particular, µ is
+      n-normal for any n ∈ N.
+  (2) If A ⊂ N is finite and µ is any Gibbs measure for the Gauss map restricted to B(A) with
+      dimension dim µ > 1/2, then the same conclusion holds for µ.
+  Recently, in [9] Hochman and Shmerkin presented a general criterion for the n-normality of a
+measure µ, which adapts to many general nonlinear iterated function systems including the one
+determined by the Gauss map. In particular, they obtained the following in [9, Theorem 1.12].
+Theorem 1.7 (Hochman-Shmerkin). Any Gibbs measure for the Gauss map supported on B(A)
+for a finite A ⊂ N is n-normal for any n ∈ N.
+   In their proof Hochman and Shmerkin did not rely on large deviations, Fourier transforms or the
+Davenport-Erdős-LeVeque criterion on equidistribution but rather they used a completely diﬀerent
+approach by studying the ergodic properties of the so called scenery flow invariant distributions
+generated by the Gibbs measure. However, the results of Hochman and Shmerkin do not apply to
+give the more general statement on equidistribution of (sk x)k∈N for any strictly increasing sequence
+(sk )k∈N obtained from Davenport-Erdős-LeVeque, so our result extends their results in this respect
+even in the case of ﬁnite alphabets with the caveat of the curious Hausdorﬀ dimension assumption.
+The n-normality part of Corollary 1.6(1) was conjectured also in [9]: “...It seems very likely that
+6                                 THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+the result holds also for Gibbs measures when A ⊂ N is infinite, under standard assumptions on
+the Gibbs potential...”, so dropping the dimension assumption dim µ > 1/2 in Corollary 1.6(1)
+should be possible at least for the n-normality.
+   We ﬁnish this section by outlining how the rest of the paper is structured. In Sections 2 and 3
+we describe the basic results from the theory of continued fractions and thermodynamic formalism
+that we use. In Section 4 we prove the large deviation results we need and in Section 5 we describe
+how we can use these results to decompose the Gibbs measure, where we can apply Kaufman type
+arguments. We can then complete the proof of Theorem 1.3 in Section 6 and we ﬁnish the paper
+by commenting on some possible extensions of our work beyond the system ([0, 1] \ Q, T ) to more
+general nonlinear dynamical systems.
+
+                       2. Diophantine approximation and the Gauss map
+   During the course of the proof of Theorem 1.3 we will use heavily the language of continued
+fractions. In this section we will introduce our notation for continued fractions and state the
+elementary properties of continued fraction that we make use of. For the majority of the re-
+sults presented here, we refer to the book by Khinchin [16]. Write N = {1, 2, . . . }. Given digits
+a1 , . . . , an ∈ N, where n ∈ N, a continued fraction is the rational number
+                                                                         1
+                                   [a1 , a2 , . . . , an ] =                           .
+                                                                             1
+                                                               a1 +
+                                                                                   1
+                                                                      a2 +
+                                                                  1          ..
+                                                                                  .+
+                                                                 an
+For each irrational x ∈ [0, 1] we can ﬁnd unique numbers ai (x) ∈ N such that
+                         x = [a1 (x), a2 (x), . . . ] := lim [a1 (x), a2 (x), . . . , an (x)].
+                                                           n→∞
+This expression is the continued fraction expansion of x. Thus we obtain a coding of [0, 1] \ Q
+via the words a = (a1 , a2 , . . . ) ∈ NN . For notational purposes, let Nn and N∗ be the collections
+of length n and any ﬁnite length words of natural numbers, and in the proceedings a can mean
+either ﬁnite word (a1 , a2 , . . . , an ) or an inﬁnite word (a1 , a2 , . . . ) depending on the context.
+Definition 2.1 (Continuants). For any ﬁnite word a = (a1 , a2 , . . . , an ) ∈ Nn , there exists integers
+pn (a) and qn (a) such that
+                                                                  pn (a)
+                                        [a1 , a2 , . . . , an ] =        .
+                                                                  qn (a)
+The denominator here qn (a) called the continuant of the continued fraction [a]. We deﬁne the
+numbers qk (a) also for k < n even if the word a has length bigger than k. Then qk (a) is just the
+continuant qk (a|k ), where a|k is the restriction (a1 , . . . , ak ).
+    Continuants satisfy by construction the following important relations:
+Remark 2.2. Given a ∈ Nn , we have
+   (1) the recurrence relation
+                                        qn (a) = an qn−1 (a) + qn−2 (a);                           (2.1)
+     (2) relation between numerators and denominators
+                                  qn (a)pn−1 (a) − qn−1 (a)pn (a) = (−1)n ;                        (2.2)
+     (3) invariance and recovery under mirroring
+                                qn (a) = qn (a← ) and             qn−1 (a) = pn (a← )              (2.3)
+         where a← = (an , . . . , a1 ) is the mirror image of a = (a1 , . . . , an ) ∈ Nn .
+                    FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                                 7
+
+
+   Continuants can be used to estimate the rate of convergence of continued fractions to a given
+irrational number. In particular, if x ∈ [0, 1] \ Q and a ∈ Nn is its continued fraction digits up to
+n, then Dirichlet’s theorem tells us
+                                                      pn (a)      1
+                                                 x−          ≤         .
+                                                      qn (a)   qn (a)2
+Continuants themselves have already a lower bound for their growth: in particular, if
+                                                √
+                                                 5+1
+                                           θ=
+                                                  2
+is the Golden ratio, then we have the following
+Lemma 2.3. If a ∈ Nn , then qn (a) ≥ c0 θ n for some constant c0 > 0 independent of a.
+Proof. We have that each ai ≥ 1 so we have by the recurrence relation (2.1), that the word
+1n = (1, 1, . . . , 1) ∈ Nn satisﬁes qn (a) ≥ qn (1n ). The recurrence relation (2.1) gives the relation
+                                            qn (1n ) = qn−1 (1n ) + qn−2 (1n )
+with q1 (11 ) = 1 and for convention q0 (10 ) := 0, so the sequence (qn (1n ))n∈N is the Fibonacci
+sequence. By Binet’s formula this means that it has exponential growth rate given by c0 θ n .   
+  Another way to understand the continuants qn when n is large, is to interpret the problem with
+the growth rate of orbits for a suitable dynamical system. This gives rise to the notion of Gauss
+map:
+Definition 2.4 (Gauss map and inverse branches). Let T : [0, 1]\Q → [0, 1]\Q be the Gauss map
+deﬁned by
+                                                       1
+                                           T (x) = mod 1.
+                                                       x
+                                         1
+Moreover, let Ta : [0, 1] \ Q → Ia := [ a+1 , a1 ] \ Q be the inverse branch (T |Ia )−1 of the Gauss map
+given by
+                                                   1
+                                   Ta (x) =           , x ∈ [0, 1] \ Q.
+                                               x+a
+  The Gauss map acts as a shift for the continued fraction digits of x ∈ [0, 1] \ Q:
+                                     T (x) = [a2 (x), a3 (x), . . . ] ∈ [0, 1] \ Q.
+In the language of dynamical systems this means that the Gauss map is conjugate to the full shift
+σ : NN → NN .
+   The growth rate of the continuants under compositions of the inverse branches
+                                              Ta := Ta1 ◦ Ta2 ◦ · · · ◦ Tan
+for a ∈ Nn is about of the order qn (a)−2 as the construction intervals
+                     Ia := Ta ([0, 1] \ Q) = {x ∈ [0, 1]\Q : ai (x) = ai for 1 ≤ i ≤ n}
+are of the size qn (a)−2 . More precisely
+Lemma 2.5. Given a ∈ Nn , then we have
+                                   1
+                                     qn (a)−2 ≤ |Ta′ | ≤ qn (a)−2                                      (2.4)
+                                   4
+In particular, the same bounds hold for the length |Ia |.
+Proof. By construction the inverse branch Ta at x ∈ [0, 1] and a ∈ Nn is precisely
+                                            pn−1 (a)x + pn (a)   pn (a)          (−1)n x
+    Ta (x) = [a1 , a2 , . . . , an + x] =                      =        +                          .   (2.5)
+                                            qn−1 (a)x + qn (a)   qn (a) (qn−1 (a)x + qn (a))qn (a)
+8                               THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+This yields that the derivative has the following representation
+                                                          (−1)n
+                                      Ta′ (x) =                         .                             (2.6)
+                                                  (qn−1 (a)x + qn (a))2
+By the recurrence relation (2.1) we have qn−1 (a) ≤ qn (a) so
+                                           1                      1
+                                               2
+                                                 ≤ |Ta′ (x)| ≤         .
+                                        4qn (a)                qn (a)2
+By computing Ta at the end points or using mean value theorem we obtain the same bounds for
+the length |Ia |.                                                                        
+
+    Using this, we can give a useful quasi-independence for the continuants:
+Lemma 2.6. Given a ∈ Nn and 1 ≤ j < n, we have
+                            1                        qn (a)
+                              ≤                                                    ≤ 4.
+                            2   qn−j (a1 , . . . , an−j )qj (an−j+1 , . . . , an )
+Proof. Write b = a1 , . . . , an−j and c = an−j+1 , . . . , an . Given x ∈ [0, 1] we have by the chain rule
+                                         Ta′ (x) = Tb′ (Tc (x))Tc′ (x).
+Then by Lemma 2.5, we have
+                               1                                             1
+                                 2      2
+                                          ≤ |Tb′ (Tc (x))||Tc′ (x)| ≤
+                       16qn−j (b) qj (c)                              qn−j (b)2 qj (c)2
+so applying Lemma 2.5 again for Ta (x) and taking a root we have
+                                1
+                                2 qn−j (b)qj (c) ≤ qn (a) ≤ 4qn−j (b)qj (c).
+
+                                                                                                         
+
+                    3. Thermodynamical formalism and Gibbs measures
+   The fact that the Gauss map is conjugate to the full shift on NN enables us to use the thermo-
+dynamical formalism for countable shifts developed by Mauldin and Urbański in [24] and Sarig in
+the papers [31, 32]. This also relates to earlier work of Walters in [33]. Let us now recall some
+classical notation and deﬁnitions related to thermodynamical formalism and Gibbs measures.
+   For the rest of the section, we write X = [0, 1] \ Q on which the Gauss map is conjugated to the
+full shift on NN . Let M be the set of all Borel probability measures on [0, 1] and write MT ⊂ M
+as the collection of T invariant measures µ, that is,
+                                                         X
+                                   µ(A) = µ(T −1 A) =       µ(Ta A)
+                                                               a∈N
+
+for a Borel set A ⊂ X. Given a function ϕ : X → R (which we often call a potential or an
+observable) and n ∈ N let Sn ϕ be the Birkhoff sum deﬁned at x ∈ X by
+                                                       n−1
+                                                       X
+                                          Sn ϕ(x) =          ϕ(T k (x)).
+                                                       k=0
+
+Definition 3.1 (Entropy and Lyapunov exponents). Given µ ∈ MT , the Kolmogorov-Sinai en-
+tropy hµ and Lyapunov-exponent λµ of µ with respect to T are deﬁned by
+                                                               Z
+                           1 X
+                 hµ = lim         −µ(Ia ) log µ(Ia ) and λµ = log |T ′ | dµ.
+                      n→∞ n
+                                n a∈N
+                  FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                                9
+
+
+  We say a function ϕ : X → R is locally Hölder if there exists constants C > 0 and δ > 0 such
+that for all n ∈ N we have
+                              sup sup{|ϕ(x) − ϕ(y)| : x, y ∈ Ia } ≤ Cδn .
+                              a∈Nn
+For a ﬁnite word a ∈ Nn we will let a∞ denote the inﬁnite periodic word of period n, which repeats
+the word a. For a given function ϕ we can deﬁne its pressure as follows
+Definition 3.2 (Pressure and equilibrium states). The pressure of a potential ϕ is the quantity
+                                                                 !
+                                       1       X
+                                                              ∞
+                          P (ϕ) = lim log           exp(Sn ϕ(a )) .
+                                  n→∞ n
+                                                  n   a∈N
+Alternatively, we have the variational principle
+                                               Z Z         
+                          P (ϕ) = sup hµ + ϕ dµ : ϕ dµ > −∞
+                                     µ∈MT
+
+and any measure assuming this supremum is called an equilibrium state for ϕ.
+   For a given potential ϕ there often exists a unique invariant measure µ = µϕ , which satisﬁes a
+suitable regularity condition with respect to eSn (ϕ(x))−nP (ϕ) known as the Gibbs condition:
+Definition 3.3 (Gibbs measures). A measure µ ∈ MT is a Gibbs measure with potential ϕ, if
+there is a constant C ≥ 1 such that for any n ∈ N and a ∈ Nn we have
+                         C −1 eSn ϕ(Ta (x))−nP (ϕ) ≤ µ(Ia ) ≤ CeSn ϕ(Ta (x))−nP (ϕ)
+at any x ∈ X. Notice that by deﬁnition Ta (x) is always an element of the construction interval Ia .
+Remark 3.4. Here are a few well-known examples of Gibbs measures:
+                                                        P
+   (1) Take some numbers 0 ≤ pa ≤ 1, a ∈ N, with a∈N pa = 1, then the measure µ giving mass
+       pa1 pa2 . . . pan to the interval Ia for any a = a1 . . . an is called a Bernoulli measure for T .
+       This measure is a Gibbs measure associated to the potential ϕ deﬁned by ϕ(x) = log pa1 (x) ,
+       where a1 (x) is the ﬁrst continued fraction digit of x. Indeed, the pressure P (ϕ) = 0, and
+       so the Birkhoﬀ sum Sn ϕ(x) reduces the Gibbs comparison to equality:
+                                 µ(Ia ) = pa1 pa2 . . . pan = eSn ϕ(Ta (x)) .
+   (2) More delicate examples can be found from taking the potential ϕ = − log |T ′ | for which
+       Gauss measure µ deﬁned by
+                                                  1     1
+                                     dµ(x) =                dx
+                                                log 2 1 + x
+       is Gibbs. Gauss measure is the unique T invariant measure which is equivalent to Lebesgue
+       measure.
+   (3) If we take some ﬁnite A ⊂ N with at least 2 elements and let s = dim B(A), then the
+       s-dimensional Hausdorﬀ measure Hs restricted to B(A) is equivalent to a Gibbs measure
+       with the potential ϕ = −s log |T ′ | with densities bounded away from 0 and inﬁnity. This
+       follows for example from [7, Theorem 5.3] when interpreting B(A) as a cookie-cutter set.
+   Gibbs measures are often uniquely determined as invariant measures for the Ruelle transfer
+operator Lϕ determined by the potential. Let C(X) be the space of bounded continuous maps
+f : X → C.
+Definition 3.5 (Ruelle transfer operator). The Ruelle transfer operator for a potential ϕ is the
+action Lϕ : C(X) → C(X), deﬁned for f ∈ C(X) and x ∈ X by
+                                             X
+                                 Lϕ f (x) =       eϕ(y) f (y).
+                                                  y∈T −1 {x}
+10                            THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+The dual operator of Lϕ on MT is the action L∗ϕ : M → M, deﬁned for ν ∈ M and f ∈ C(X) by
+                                               Z
+                                     ∗
+                                    Lϕ ν(f ) := Lϕ f dν.
+
+  The following result relates the concepts of Gibbs measures, transfer operators and the pressure
+function.
+Proposition 3.6. Let ϕ : X → R be a locally Hölder potential. We have
+                                                 X∞
+                    P (ϕ) < ∞ if and only if         exp(ϕ((n)∞ )) < ∞.
+                                                            n=1
+Moreover if P (ϕ) = 0 then the following results hold:
+   (1) There exists a Hölder continuous function h bounded away from 0 and a measure µ ∈ M
+       such that Lϕ h = h and L∗ϕ µ = µ. Moreover the measure µϕ defined by
+                                             dµϕ (x) = h(x) dµ(x)
+         is Rthe unique Gibbs measure for ϕ.
+     (2) If ϕ dµϕ > −∞, then µϕ is the unique equilibrium state for the potential ϕ.
+Proof. This follows from Proposition 2.1.9, Theorem 2.7.3 and Corollary 2.7.5 in [24].              
+   For a locally Hölder potential ϕ with P (ϕ) = 0 we will use µϕ to denote the unique Gibbs
+measure for ϕ. One advantage of the transfer operator in our setting is what happens under
+iteration. Let n ∈ N and f be a continuous map we have at any x ∈ [0, 1]\Q that
+                                 X                     X
+                   Lnϕ f (x) =        eSn ϕ(y) f (y) =   eSn (ϕ(Ta (x))) f (Ta (x)).
+                              y: T n (y)=x                    a∈Nn
+
+Notice that since Ta (x) ∈ Ia and the pressure P (ϕ) = 0, the deﬁnition of Gibbs measure gives
+                                             wa (x) := eSn (ϕ(Ta (x)))
+is comparable to µϕ (Ia ) up to the Gibbs constant C ≥ 1. We now deﬁne the family of potentials
+which we consider.
+Definition 3.7. We will consider the class of locally Hölder potentials ϕ which satisfy the following
+properties:
+   (1) P (ϕ) = 0, Lϕ 1 = 1 and ϕ ≤ 0,
+   (2) There exists tc > 0 such that for all t ∈ (−2tc , 2tc ) we have that
+                   P (−t log |T ′ | + ϕ) < ∞       and P (t(ϕ − s log |T ′ |) + ϕ) < ∞,
+        where s is the fraction hµ /λµ of the entropy hµ and Lyapunov exponent λµ of µ = µϕ .
+Remark 3.8. We note that it follows from the Birkhoﬀ ergodic theorem that Gibbs measures are
+exact dimensional and the number s = hµ /λµ in Deﬁnition 3.7 is in fact the Hausdorﬀ dimension
+dim µ of the Gibbs measure µ = µϕ , see for example [24, Theorem 4.4.2].
+  It should be noted that our ﬁrst assumption here is not restrictive at all due to the following
+proposition.
+Proposition 3.9. Let ψ be a locally Hölder function such that P (ψ) < ∞. We can find a locally
+Hölder function ϕ such that ϕ ≤ 0, P (ϕ) = 0 , Lϕ 1 = 1 and
+                                                    µϕ = µψ .
+Proof. It follows from Lemma 1 in [31] that if P (ψ) < ∞ then we can ﬁnd a locally Hölder ϕ such
+that ϕ ≤ 0, P (ϕ) = 0 , Lϕ 1 = 1 and ϕ − ψ is cohomologous to a constant in the class of bounded
+Hölder potentials. It follows from Theorem 2.2.7 in [24] that in this case µϕ = µψ .          
+                  FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                            11
+
+
+  The following proposition summarises the main results from the thermodynamic formalism on
+countable Markov shifts we need:
+Proposition 3.10. Let ϕ be a potential satisfying Definition 3.7. Then
+   (1) for all bounded continuous functions f we have that
+                                    Z             Z
+                                       Lϕ f dµϕ = f dµϕ ;
+
+   (2) let t0 > 0 and ψ be a locally Hölder continuous potential such that P (tψ + ϕ) < ∞ for all
+       t ∈ (−t0 , t0 ). If we define Q : (−t0 , t0 ) → R by
+                                         Q(t) = P (tψ + ϕ),
+                                                                   R
+       then Q is analytic and convex on (−t0 , t0 ) and Q′ (t) =       ψ dµtψ+ϕ .
+Proof. The ﬁrst part of the proposition is immediate from the condition that Lϕ 1 = 1 and the fact
+that µϕ is then a ﬁxed point for the dual operator. The second part of the proposition follows
+from Corollary 4 in Sarig [32].                                                                 
+Remark 3.11. We also include the case where we restrict T to B(A) for a ﬁnite A ⊂ N. Then we
+let ϕ : B(A) → R be a Hölder continuous potential satisfying the conditions of Deﬁnition 3.7. All
+the above results hold in this setting with the added advantage that the pressure is never inﬁnite.
+
+                      4. Large deviation bounds for Gibbs measures
+  Let X1 , X2 , . . . be identically distributed independent random variables with expectation 0. In
+probability theory large deviations in their simplest form examine the rate at which
+                                      P(|X1 + · · · + Xn | > εn)
+decays as n → ∞ for some ε > 0. Cramér’s theorem states that if the moment generating function
+is always ﬁnite then this decay is exponential, see for example Section 1.9 in [6]. Large deviations
+also appear in dynamics and it turns out that the theory can be developed for certain invariant
+measures for hyperbolic dynamical systems, see for example the paper by Young [36] in the compact
+setting. In this section we prove results of this form for the Gauss map we need for the Rajchman
+property.
+   In the ﬁnite state space case the results follow from the much more general results in [17, 20, 36]
+so we concentrate on proving the results in the countable state space. This is by no means the
+ﬁrst time large deviations have been considered for the countable shift, for example see Section 6
+of the paper Kifer, Peres and Weiss [18] or Yuri [37]. However, they consider observables which
+are bounded whereas we are interested in the observable − log |T ′ | which is unbounded.
+   Let ϕ be a locally Hölder potential such that ϕ ≤ 0 and P (ϕ) = 0. We denote by µϕ the Gibbs
+measure for ϕ. For simplicity of the notation, given a locally Hölder observable f , write
+                                                    Z
+                                           α(f ) := f dµϕ .
+
+Our main large deviation result is the following
+Theorem 4.1. Let f be any locally Hölder observable. Suppose
+                                     {t ∈ R : P (tf + ϕ) < ∞}
+contains a neighbourhood of the origin. Then for any ε > 0 there exists δ = δ(ε) > 0 and
+n1 = n1 (ε) ∈ N such that for n ≥ n1
+                         µϕ ({x ∈ [0, 1] : |Sn f (x) − nα(f )| > nε}) ≤ e−nδ .
+12                            THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+  As a corollary to this we have the large deviation result for the observables we use. Write
+ψ = − log |T ′ | for the observable corresponding to the Lyapunov exponent. That is, we have
+                                          λ = λµϕ = −α(ψ).
+We let s = hµϕ /λµϕ , which is the Hausdorﬀ dimension of µϕ .
+Corollary 4.2.    (1) Suppose that {t ∈ R : P (tψ + ϕ) < ∞} contains a neighbourhood of the
+      origin. Then for any ε > 0 there exists δ = δ(ε) > 0 and n1 = n1 (ε) ∈ N such that for all
+      n ≥ n1 we have
+                           µϕ ({x ∈ [0, 1] : |Sn ψ(x) + nλ| ≥ nε}) ≤ e−nδ .
+     (2) Suppose that {t ∈ R : P (t(ϕ − sψ) + ϕ) < ∞} contains a neighbourhood of the origin. Then
+         for any ε > 0 and for all n ≥ n1 we have
+                                                           
+                                                Sn ϕ(x)
+                           µϕ      x ∈ [0, 1] :         −s >ε    ≤ e−nδ .
+                                                Sn ψ(x)
+Proof. Part 1 is Theorem 4.1 with f = ψ. To prove part 2 we let f = ϕ − sψ and note that here
+α(f ) = 0. We then have that for ε > 0 if x satisﬁes that
+                                            Sn ϕ(x)
+                                                    −s >ε
+                                            Sn ψ(x)
+giving |Sn f (x)| > ε|Sn ψ(x)|. By Lemma 2.5 and Lemma 2.3 we have that
+                                           |(T k )′ (x)| ≥ c20 θ 2k
+where, recall, θ > 1 was the Golden ratio and c0 > 0 a universal constant. Then we obtain by the
+deﬁnition of the Birkhoﬀ sum Sn ψ(x) that
+                                                   n−1
+                                                   X
+                   |Sn f (x)| > ε|Sn ψ(x)| = ε ·         log |(T k )′ (x)| ≥ εn log(c20 θ n+1 ).
+                                                   k=0
+
+Choosing n1 = n1 (ε) larger in Theorem 4.1 such that log(c20 θ n+1 ) ≥ 1 holds for all n ≥ n1 , the
+result is now an application of Theorem 4.1 since α(f ) = 0.                                     
+
+  We now give the proof of Theorem 4.1. We start with the following simple lemma which exploits
+the convexity of the pressure function.
+Lemma 4.3. If there exists t0 > 0 such that (−t0 , t0 ) ⊂ {t ∈ R : P (tf + ϕ) < ∞} and α 6= α(f ),
+then there exists t ∈ (−t0 , t0 ) such that P (t(f − α) + ϕ) < 0.
+Proof. For simplicity we assume that α < α(f ) the case where α > α(f ) can be handed analogously.
+We deﬁne the function Q : (−t0 , t0 ) → R by
+                                           Q(t) = P (tf + ϕ)
+                                                                                  R
+and note that by Proposition 3.10 this function will be analytic, convex, Q′ (t) = f dµt where µt is
+the unique Gibbs state for tf +ϕ and Q(0) = 0 with Q′ (0) = α(f ). Thus there exists α1 ∈ [α, α(f )]
+and −t0 < t < 0 such that Q′ (t) = α1 . Now consider the case α1 = α(f ). Because α < α(f ) = α1
+we have that
+                     P (t(f − α) + ϕ) = Q(t) − αt < Q(t) − α1 t = Q(0) = 0
+by the convexity of Q. Moreover, in the case α1 < α(f ) we have by the convexity of Q that
+                      P (t(f − α) + ϕ) = Q(t) − αt ≤ Q(t) − α1 t < Q(0) = 0.
+                                                                                                   
+                 FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                           13
+
+
+Proof of Theorem 4.1. By Lemma 4.3, we can ﬁx α 6= α(f ) and t ∈ R such that
+                                    δ1 := −P (t(f − α) + ϕ) > 0.
+Let us ﬁrst assume α < α(f ); the other case is symmetric. Note that in this case we must have
+t < 0. Indeed, the map W deﬁned by W (v) = P (v(f − α) + ϕ) is convex by α < α(f ), the value
+W (0) = P (ϕ) = 0, the derivative W ′ (0) = α(f ) − α > 0 and that W (t) = −δ1 < 0. As f is locally
+Hölder, we may ﬁx n1 ∈ N such that for any n ≥ n1 , a ∈ Nn and any x, y ∈ Ia we have that
+|Sn f (x) − Sn f (y)| ≤ nδ
+                         4t and also that
+                           1
+
+                                                         !
+                   1        X                                                   δ1
+                                                      ∞
+                     log       exp(Sn (t(f − α) + ϕ)(a )) − P (t(f − α) + ϕ) ≤ ,
+                  n          n
+                                                                                4
+                       a∈N
+
+by the deﬁnition of the pressure, where recall a∞ ∈ NN is the periodic inﬁnite word repeating a
+thought as a point in X. We also have that by the Gibbs property of µϕ we have for all n ∈ N
+that
+                                   µϕ (Ia ) ≤ C exp(Sn ϕ(a∞ ))
+where C is the Gibbs constant of µϕ . We let
+                          Cn = {a ∈ Nn : Sn f (x) ≤ αn for some x ∈ Ia }.
+We can then calculate for n ≥ n1 that
+                                                  X
+            µϕ ({x ∈ [0, 1] : Sn f (x) ≤ nα}) ≤          µ(Ia )
+                                                  a∈Cn
+                                                    X
+                                             ≤C            exp(Sn ϕ(a∞ ))
+                                                    a∈Cn
+                                                             X
+                                             ≤ Cenδ1 /4             exp(Sn (t(f − α) + ϕ)(a∞ ))
+                                                             a∈Cn
+                                                             X
+                                                    nδ1 /4
+                                             ≤ Ce                   exp(Sn (t(f − α) + ϕ)(a∞ ))
+                                                             a∈Nn
+
+                                             ≤ Cenδ1 /2 exp(nP (t(f − α) + ϕ))
+                                             = Ce−nδ1 /2 .
+In the case α > α(f ) we obtain a symmetric computation with t > 0 we use to deﬁne δ1 . Thus for
+any 0 < ε < |α − α(f )|, we obtain
+                      µϕ ({x ∈ [0, 1] : |Sn f (x) − nα(f )| > εn}) ≤ 2Ce−nδ1 /2
+which completes Theorem 4.1 as now any δ < δ1 /2 is enough for the claim.                         
+
+  Moreover, the second assumption of Deﬁnition 3.7 can be characterised by the fatness of the tail.
+This will be shown in the following result, which explains why the assumption (1.2) is necessary
+and suﬃcient for ϕ to satisfy the conditions of parts (1) and (2) of Corollary 4.2
+Proposition 4.4. Let ϕ : X → R be a locally Hölder potential with pressure P (ϕ) = 0, Lϕ 1 = 1
+and ϕ ≤ 0 with s ∈ [0, 1] the Hausdorff dimension of ϕ. Then the following are equivalent
+     • There exists δ > 0 such that
+                                 µϕ ({x ∈ X : a1 (x) ≥ n}) = O(n−δ )
+     • There exists t0 > 0 such that for all −t0 < t < t0 we have that
+                             P (tψ + ϕ) < ∞ and P (t(ϕ − sψ) + ϕ) < ∞.
+14                           THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+Proof. Firstly suppose there exists δ > 0 such that
+                               µϕ ({x ∈ X : a1 (x) ≥ n}) = O(n−δ ).
+Thus by the Gibbs property of µϕ we have that
+                                        ∞
+                                        X              ∞)
+                                              eϕ((k)        = O(n−δ ),
+                                        k=n
+
+which implies that for any 0 < t < δ/2 we have
+                                         ∞
+                                         X              ∞)
+                                               eϕ((k)        k2t < ∞                                    (4.1)
+                                         k=1
+and
+                                 ∞
+                                 X                     ∞ ))−stψ((k)∞ )
+                                      e(t+1)(ϕ((k)                       < ∞.                           (4.2)
+                            k=1
+                                                                                       ∞
+Since by Lemma 2.5 we have k2 ≤        |T ′ ((k)∞ )| ≤ 4k2 so e−stψ((k) ) ≤ 4st k2st ≤ 4st k2t . By
+Proposition 3.6 it follows from (4.1) and (4.2) that for t suﬃciently small
+                           P (tψ + ϕ) < ∞ and P (t(ϕ − sψ) + ϕ) < ∞
+as claimed. For the other direction if for t > 0 suﬃciently small P (tψ + ϕ) < ∞ we have that
+                                         ∞
+                                         X              ∞)
+                                               eϕ((k)        k2t < ∞
+                                         k=1
+from which it follows that for that
+                                        ∞
+                                        X            ∞)
+                                              eϕ((k)        = O(n−2t )
+                                        k=n
+                                    ∞                       P∞
+as
+P∞n → ∞.       Indeed if ek:= eϕ((k) ) and c :=               k=1 ek k
+                                                                         2t   < ∞, then for all n ∈ N we have
+      e  k 2t ≤ c and so as t > 0 we have
+   k=n k
+                                  ∞
+                                  X            ∞
+                                               X
+                                        ek ≤         ek k2t n−2t ≤ cn−2t .
+                                  k=n          k=n
+Thus by the Gibbs property of µϕ we have
+                                                             ∞
+                                                             X                ∞)
+                       µϕ ({x ∈ X : a1 (x) ≥ n}) ≤                 Ceϕ((k)         = O (n−2t )
+                                                             k=n
+and the result follows. One can observe that in this direction of the equivalence we do not need
+the second condition on the pressure.                                                          
+Remark 4.5. It should be noted that if µϕ did not satisfy condition (1.2) then the large deviation
+result could not hold. In this case we would have that
+                             lim sup nδ µϕ ({x ∈ X : a1 (x) ≥ n}) = ∞
+                               n→∞
+
+then as eϕ(x)  is at least 4a1 (x)2 by Lemma 2.5 we have that Corollary 4.2 could not hold as
+µϕ ({x ∈ X : |Sn ψ(x) + nλ| ≥ nε}) would decay subexponentially.
+Remark 4.6. We also remark that in the proofs of the results in this section, such as Theorem
+4.1, we do not use any speciﬁc properties of the Gauss map itself, only the symbolic coding with
+the countable Markov shift, so the results could be extended to other Markov maps with similar
+coding.
+                 FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                           15
+
+
+                          5. Decomposition of the Gibbs measure
+   In this section we provide an important decomposition of the Gibbs measure on each generation
+n. This will be done by creating cylinders from the ‘good sets’ for the large deviations, that is,
+where we can control the exponential decay of |Ta′ (x)| and the measure µ(Ia ) with respect to the
+length |Ia |. Thanks to the large deviation bounds, the exceptional sets to these regular parts is
+exponentially small. Fix ε > 0 from now on and suppress it from the notation. We will only make
+assumptions on ε when dealing with the proof of Theorem 1.3 in Section 6.
+   We begin by choosing n0 suﬃciently large such that the large deviation bounds in Corollary 4.2
+and that some technical conditions are true. It should be noted that we keep the Gibbs measure
+µ and its potential ϕ ﬁxed.
+Choice of n0 . Choose an even number n0 ∈ N such that the following are true
+  (1) If n1 = n1 (ε/2) is the threshold from large deviations result Corollary 4.2 with ε/2 in the
+      place of ε, then
+                                             n0 /2 > n1 .                                      (5.1)
+   (2) If C is the Gibbs constant for µ, and θ is the Golden ratio, and c0 is the constant from
+       Lemma 2.3, we assume
+                               log 4                     log 4C 2
+                                     < ε/2       and                  < ε/2.                   (5.2)
+                               n0 /2                   log(c20 θ n0 )
+   (3) If δ = δ(ε/2) > 0 is the rate function for the large deviations Corollary 4.2, then
+                                      e−δn0 /2
+                                               < e−δn0 /4 .                                    (5.3)
+                                      1 − e−δ
+   (4) If λ is the Lyapunov exponent of µ, then
+                                                                         1 ( λ −2ε)n0
+                en0 /2 ≥ 2πeλ+2λε ,   eελn0 ≥ 2Cπe(1+2s)λ       and         e 2       ≥ 1.     (5.4)
+                                                                        192
+  The reason for (1) in this choice is that we will want to obtain large deviation bounds at the
+halved generation n/2 for some n ≥ n0 .
+Construction (Regular intervals). We will now construct a collection Rn of words a ∈ Nn where
+we have good control on the growth of the continuants qn (a) and the weights µ(Ia ). With the
+deﬁnition of n0 in mind, for n ≥ n0 write the n-regular set for large deviations
+                            n             1                   Sn ϕ(x)          o
+                   An (ε) := x ∈ [0, 1] : Sn ψ(x) + λ < ε,            −s <ε
+                                          n                   Sn ψ(x)
+and deﬁne the collection of n-regular words by
+                                         n
+                                         \
+                               Rn :=         {a ∈ Nn : Ia|k ⊂ Ak (ε)}
+                                       k=⌊n/2⌋
+
+and let Rn ⊂ [0, 1] be the corresponding union of intervals in Rn .
+   The reason to take intersections in the construction is to have have the n-regular intervals from
+Rn nested in the sense that if a ∈ Rn , then we know the ‘k-regularity’ for the interval Ia|k for
+smaller k up to n/2. This space is useful when dealing with large intervals for example in the proof
+of Theorem 1.3.
+   The advantage of large deviations for Lyapunov exponents and Hausdorﬀ dimension is that we
+obtain bounds for the continuants qn (a) and the weights wa (x) = eSn ϕ(Ta (x)) in the terms of eλn
+when a ∈ Rn . The following lemma summarises all the comparisons we have:
+Lemma 5.1. Fix n ≥ n0 , a ∈ Rn and ⌊n/2⌋ ≤ k ≤ n. Then the following comparisons hold
+16                               THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+     (1) the continuant qk (a) satisfies
+                                          e(λ−ε)k ≤ qk (a)2 ≤ 4e(λ+ε)k ;
+                                                ′
+     (2) the length |Ia|k | and the derivative Ta|   satisfies
+                                                   k
+
+                 1 (−λ−ε)k
+                 16 e      ≤ |Ia|k | ≤ e(−λ+ε)k             and        1 (−λ−ε)k
+                                                                      16 e
+                                                                                     ′
+                                                                                 ≤ |Ta| k
+                                                                                          | ≤ e(−λ+ε)k ;
+
+     (3) if x ∈ [0, 1], then the weight wa|k (x) = eSk ϕ(Ta|k (x)) satisfies
+                                   e(−sλ−3λε)k ≤ wa|k (x) ≤ e(−sλ+3λε)k ;
+     (4) if C ≥ 1 is the Gibbs constant of µ, then the measure µ(Ia|k ) satifies
+                                C −1 e(−sλ−3λε)k ≤ µ(Ia|k ) ≤ Ce(−sλ+3λε)k .
+Proof. We do this just in the case k = n as the proof is the same for the other cases. Fix x ∈ [0, 1]
+and a ∈ Nn . Then by the chain rule
+                                             n−1
+                                             X                    1
+                           log |Ta′ (x)| =         log                         = Sn ψ(Ta (x)).             (5.5)
+                                                         |T ′ (T j (Ta (x))|
+                                             j=0
+
+Lemma 2.5 gives 14 qn (a)−2 ≤ |Ta′ (x)| ≤ qn (a)−2 so
+                                   eSn ψ(Ta (x)) ≤ qn (a)−2 ≤ 4eSn ψ(Ta (x)) .                             (5.6)
+If Ta (x) ∈ An (ε), then
+                                     e(−λ−ε)n ≤ eSn ψ(Ta (x)) ≤ e(−λ+ε)n .
+Thus by (5.6), we obtain
+                                  e(λ−ε)n ≤ qn (a)2 ≤ 4e(λ+ε)n ,
+which proves (1). Now (2) follows when recalling the distortion bounds for the lengths |Ia|k | and
+ ′
+Ta|   from Lemma 2.5. Moreover, as Sn ψ(Ta (x)) ≤ 0 we have
+    k
+
+                             e(s+ε)Sn ψ(Ta (x)) ≤ eSn ϕ(Ta (x)) ≤ e(s−ε)Sn ψ(Ta (x)) .
+Thus by using crude bounds ε, s ≤ 1 and λ > 1 we obtain
+                                    e(−sλ−3λε)n ≤ wa (x) ≤ e(−sλ+3λε)n .
+which is (3). This also gives (4) by the Gibbs property that links µ(Ia ) to wa (x).                          
+   As we are intersecting with sets Ak (ε) whose µ measure is exponentially close to one, we do not
+lose much in the measure:
+Lemma 5.2. For all n ≥ n0 we have
+                                             µ([0, 1] \ Rn ) ≤ e−δn/4
+where δ = δ(ε/2) > 0 is the rate function from the large deviations with ε/2.
+Proof. We wish to show that
+                                               n
+                                               \
+                                                          Ak (ε/2) ⊂ Rn .                                  (5.7)
+                                             k=⌊n/2⌋
+
+This is enough for us as it yields by the geometric series formula that
+                                          n
+                                          X                                      e−δn/2
+                     µ([0, 1] \ Rn ) ≤             µ([0, 1] \ An (ε/2)) ≤                < e−δn/4 ,
+                                                                                 1 − e−δ
+                                         k=⌊n/2⌋
+
+where δ := δ(ε/2)/2 since ⌊n/2⌋ ≥ n1 (ε/2) by (5.1) of the choice of n0 since n0 is even.
+                 FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                             17
+
+
+  To prove (5.7) let a ∈ Nn be a word such that Ta (x) ∈ Ak (ε/2) for all k ∈ ⌊n/2⌋, . . . , n. We
+wish to prove that Ia|k ⊂ Ak (ε) for all these k. Fix k and a point y ∈ [0, 1] and let us prove that
+Ta|k (y) ∈ Ak (ε). Since Ta (x) ∈ Ak (ε/2) we have by Lemma 2.5 that
+                             1                            log 4
+                               Sk ψ(Ta|k (y)) + λ < ε/2 +       <ε
+                             k                              k
+and for the Gibbs constant C ≥ 1 in addition the Lemma 2.3 shows that
+                 Sk ϕ(Ta|k (y))                 log 4C 2               log 4C 2
+                                − s < ε/2 +                  ≤ ε/2 +                <ε
+                 Sk ψ(Ta|k (y))             |Sk ψ(Ta|k (y))|         log(c20 θ 2k )
+by the choice of n0 (the property (5.2)). More precisely, we used the triangle inequality after
+                                              ′ (z)|, where z = T
+applying (5.5) to obtain Sk ψ(Ta (x)) = log |Ta| k               σk a (x) and σ is the shift, which
+yields
+                                                                    ′ (y)|
+                                                                  |Ta| k
+                            Sk ψ(Ta|k (y)) − Sk ψ(Ta (x)) = log     ′ (z)|
+                                                                  |Ta| k
+
+and ﬁnishing the proof with Lemma 2.5 which allows us to compare the derivatives at points y
+and z. Thus Ia|k ⊂ Ak (ε) and we are done as k = ⌊n/2⌋, . . . , n is arbitrary.           
+
+                                 6. Proof of the main result
+6.1. Overview. We will now give some heuristics and general strategy we follow during the proof.
+   (1) We ﬁrst choose a natural number n ≥ n0 so large that |ξ|−1 is approximately the exponential
+       number e−cλn for some constant c > 0, where λ is the Lyapunov exponent of the Gibbs
+       measure µ = µϕ . Then the proof reduces to verify that the Fourier transform |b    µ(ξ)| has an
+       exponential bound e    −ηcλn for some constant η > 0.
+   (2) The ﬁrst step is to use the invariance of the Gibbs measure µ = µϕ under the dual operator
+       L∗ϕ and apply the Ruelle transfer operator n times to the oscillation x 7→ e−2πiξx . This,
+       by the deﬁnition of the transfer operator, yields that µ    b(ξ) becomes a summation over
+       nth pre-images of T , that is, a summation over the words a ∈ Nn of certain oscillative µ
+       integrals.
+   (3) This is the point where we invoke the decomposition of the Gibbs measure to the regular
+       and irregular part using the n-regular cylinders Rn given by the large deviations. Since
+       not much µ mass enters outside of Rn , we obtain an exponential decay e−δn/2 for that part
+       from the large deviations and Lemma 5.2; see Section 6.3 below. Thus we are left to just
+       study the summation over the regular words a ∈ Rn of oscillative µ integrals.
+   (4) We then exploit the Hölder bounds for the measure µ(Ia ) on regular intervals Ia and the
+       decay rate for Ta′ (x) to transfer the estimates from the oscillative µ integrals for the Gibbs
+       measure to oscillative L2 Lebesgue integrals. The price we pay is that the there is an
+       exponentially increasing term ﬁghting against the Lebesgue integrals, so we need a rapid
+       enough decay to counter this multiplicative error.
+   (5) When we deal with the Lebesgue measure and n-regular words a for which we can control
+       the growth of the continuants qn (a), we can then rely on stationary phase type inequalities
+       that Kaufman also used, which, when invoking the rapid expansive nature of the Gauss
+       map, yield an exponential decay bound e−λn/2 in our case. This decays rapidly enough for
+       us to counter the error produced in the step (4).
+
+6.2. Fixing parameters. We begin the proof by ﬁxing the the parameters ε > 0 for large de-
+viations and the number n ≥ n0 related to |ξ|−1 , recall choice of n0 in the beginning of Section
+5. We will invoke the convention f (x) ≪ g(x) if there is a constant independent of x such that
+f (x) ≤ Cg(x).
+18                           THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+  Let µ = µϕ be Gibbs measure with entropy h = hµ , Lyapunov exponent λ = λµ and Hausdorﬀ-
+dimension s = h/λ = dim µ > 1/2. Then the number
+                                                2s2 − s
+                                    ηs :=                   > 0.
+                                            (4 − s)(1 + 2s)
+Let us ﬁx ε > 0 such that
+                                  ε < 1/26      and ηs − 38ε > 0.                              (6.1)
+This now ﬁxes n0 = n0 (ε) ∈ N which we deﬁned in the Section 5 before decomposing the Gibbs
+measure.
+  To prove the main Theorem 1.3 it is enough to show that
+                                                                 δ
+                                    µ(ξ)| ≪ |ξ|−ηs +38ε + |ξ|− 12λ ,
+                                   |b                                                          (6.2)
+where δ = δ(ε/2) > 0 is the exponential rate from the large deviations with ε/2. Depending on how
+small ε is, one of the terms in 6.2 will dominate the other but in both cases we obtain polynomial
+decay for the Fourier transform.
+  Let us write for the rest of the paper u := |ξ|. Assume u is initially so large that we can choose
+n ≥ n0 such that
+                                   e(1+2s)λn ≤ u < e(1+2s)λ(n+1) .                             (6.3)
+
+6.3. Splitting the transfer operator. Deﬁne h : [0, 1] → C by h(y) = exp(−2πiξy). Since µ is
+a Gibbs measure with potential ϕ, we have that µ satisﬁes invariance condition L∗ϕ µ = µ and if
+applied n times to h gives
+                                         Z
+                                   b(ξ) = Lnϕ h(x) dµ(x).
+                                   µ
+
+By the deﬁnition of the transfer operator
+                                        X
+                             Lnϕ h(x) =   wa (x) exp(−2πiξTa (x))
+                                         a∈Nn
+
+where, recall, the weight wa (x) := eSn ϕ(Ta (x)) . Now decompose the summation
+                                       Lnϕ h(x) = f (x) + g(x)
+to the regular part f (x) and the irregular part g(x) according to Rn as follows
+             X                                              X
+     f (x) =      wa (x) exp(−2πiξTa (x)) and g(x) =              wa (x) exp(−2πiξTa (x)).     (6.4)
+            a∈Rn                                           a∈Nn \Rn
+                                                        R           R
+Hence in order to estimate |b µ(ξ)| we need to estimate |f | dµ and |g| dµ. Both terms will con-
+tribute to the decay rate of the Fourier transform, depending on the value ε > 0. For the irregular
+part, we can immediately use the measure bound from Lemma 5.2. Indeed since e(1+2s)λn ≤ u and
+by the Gibbs property of µ we have wa (x) ≤ Cµ(Ia ) so inputting e(1+2s)λn ≤ u from (6.3) we have
+                Z
+                                                                     1           δ
+                                                                −        δ
+                   |g(x)| dµ(x) ≤ Cµ([0, 1] \ Rn ) ≤ Ce−δn/4 ≪ u 4(1+2s)λ ≪ u− 12λ            (6.5)
+
+since λ > 1 and s ≤ 1. For the regular part, on the other hand, we will obtain the bound
+                               Z
+                                                                  δ
+                                  |f (x)| dµ(x) ≪ u−ηs +38ε + u− 12λ                           (6.6)
+
+with the same term on the right. Since u = |ξ|, this yields the desired decay and Theorem 1.3.
+The proof of this bound is now split into the Sections 6.4, 6.5 and 6.6 below.
+                 FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                          19
+                                                                         R
+6.4. From Gibbs to Lebesgue. To estimate the oscillative integral |f (x)| dµ(x) we rely on
+a method to transfer the problem on integrating over the Gibbs measure µ back to Lebesgue
+measure. In the case of discrete sums of point masses, this kind of approach reduces to large sieve
+inequalities, see for example inequality (4) in Baker’s paper [1]. The analytic version used for
+example by Baker requires classically Hölder bounds from the original measure µ, see for example
+the inequalities used by Kaufman [12, Section 5]. In our case, Gibbs measures do not have Hölder
+bounds but on the n-regular cylinders we do have control for them. Thus we will give the following
+version using the L2 norm kf k2 with respect to Lebesgue measure. Note that here the proof applies
+to any C 1 function f instead of the speciﬁc f we consider:
+Lemma 6.1. Suppose we are given numbers α, β > 0 such that γ = α+β ≥ 1 and let f : [0, 1] → C
+be C 1 with kf k∞ ≤ 1 and kf ′ k∞ ≤ eαλn . Then
+               Z
+                 |f (x)| dµ(x) ≪ e(−βλ+εγ)n + kf k22 e((1−s)αλ+(3−s)βλ+3λεγ)n + e−δγn/4 .
+
+Proof. Write m = ⌊γn⌋ and
+                      R′m = {a ∈ Rm : sup{|f (x)| : x ∈ Ia } ≥ 2eαλn e(−λ+ε)m }.
+By the condition α + β ≥ 1 and n ≥ n0 , we have m ≥ n0 so we may apply all the large deviation
+theory for the words in Rm . Let a ∈ R′m . Since f is C 1 and by Lemma 5.1(2) we have |Ia | ≤
+e(−λ+ε)m then by the mean value theorem
+                        |f (x)| ≥ 2eαλn e(−λ+ε)m − kf ′ k∞ |Ia | ≥ eαλn e(−λ+ε)m
+for all x ∈ Ia . Thus by Lemma 5.1(2) we have
+                         Z               X
+                           |f (x)|2 dx ≥   e2αλn+2(−λ+ε)m |Ia |
+                                         a∈R′m
+                                                                    1 (−λ−ε)m
+                                      ≥ |R′m | · e2αλn+(−2λ+2ε)m · 16 e
+                                         1
+                                      ≥ 16 |R′m | · e2αλn+(−3λ+ε)m .
+This yields by Lemma 5.1(4) and kf k∞ ≤ 1 that for the Gibbs constant C > 0 the integral
+              Z                   X
+                  |f (x)| dµ(x) ≤    µ(Ia ) ≤ 16Ckf k22 e−2αλn+(3λ−ε)m e(−sλ+3λε)m
+                R′m                a∈R′m
+
+                                                 ≤ 16Ckf k22 e−2αλn+(3−s)λm+3λεm
+                                                 ≪ kf k22 e(−2αλ+(3−s)λγ+3λεγ)n
+                                                 = kf k22 e((1−s)αλ+(3−s)βλ+3λεγ)n .
+Moreover, by the deﬁnition of R′m we have as α + β = γ that
+                     Z
+                              |f (x)| dµ(x) ≤ 2eαλn+(−λ+ε)m ≪ e(−βλ+εγ)n .
+                         Rm \R′m
+
+Finally, the remaining part we use kf k∞ ≤ 1 to obtain a measure bound
+                    Z
+                             |f (x)| dµ(x) ≤ µ([0, 1] \ Rm ) ≤ e−δm/4 ≪ e−δγn/4
+                      [0,1]\Rm
+by Lemma 5.2.                                                                                    
+                                                          P
+   We apply Lemma 6.1 for the regular part f (x) = a∈Rn wa (x) exp(−2πiξTa (x)), recall (6.4).
+The ﬁrst term of the bound in Lemma 6.1 already decays exponentially as n → ∞. However, the
+larger β > 0 we choose, the faster the exponential term in the front of kf k22 grows. Thus we need
+to ﬁnd a suitable choice of β so the growth will not terminate the decay of kf k22 as n → ∞. The
+number α we will ﬁx from the following
+20                              THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+Lemma 6.2. For the function f defined in (6.4) we have
+                                              kf ′ k∞ ≤ eαλn
+with α := 2s + 2ε.
+Proof. Diﬀerentiating term-wise, we obtain
+                                                      X
+                                    |f ′ (x)| ≤ 2πu          wa (x)|Ta′ (x)|.
+                                                      a∈Rn
+
+For a ∈ Rn , we have by Lemma 5.1(2) that |Ta′ (x)| ≤ e(−λ+ε)n . Now inputting u < e(1+2s)λ(n+1)
+from (6.3), the Gibbs property wa (x) ≤ Cµ(Ia ) and λ > 1 we obtain
+                                          X
+                 |f ′ (x)| ≤ 2Cπue(−λ+ε)n   µ(Ia ) ≤ 2Cπe(1+2s)λ e(2sλ+ελ)n ≤ eαλn
+                                            a∈N
+
+since by the choice (5.4) of n0 we have 2Cπe(1+2s)λ ≤ eελn0 (recall n ≥ n0 ).                     
+6.5. Bounding the L2 norm. Thanks to Lemma 6.1, we are now reduced to just bound the L2
+norm of f . We dedicate this section to prove the following
+Proposition 6.3. For the function f defined in (6.4) we have
+                                                  λ
+                                 kf k22 ≪ u−1/2 e( 2 +15λε)n + e(−sλ+3λε)n                     (6.7)
+  This is the part where we use heavily the nonlinear nature of the Gauss map and much of the
+number theoretical tools in continued fractions appear. This is also the part where we adapt the
+mirroring argument presented by Queﬀélec and Ramaré, which allows us to only assume that the
+Hausdorﬀ dimension of µ is at least 1/2 in contrast to Kaufman’s bound 2/3. The main idea of
+bounding the L2 norm is to study the distribution of the diﬀerences Ta (x) − Tb (x) for diﬀerent
+n-regular words a and b and exploit stationary phase type inequalities (see Section 6 of [34]) to
+bound oscillative Lebesgue integrals in the terms of derivatives of the oscillations that are under
+control for words in Rn . The key lemma is the following modiﬁcation of the lemma used by
+Kaufman in [12].
+Lemma 6.4 (Stationary phase). Let ψ : [0, 1] → R be a C 2 map such that the derivative has the
+form
+                                  ψ ′ (x) = ϕ(x) · (α1 x + α2 )
+for some C map ϕ : [0, 1] → R with a ≤ |ϕ| ≤ b and |ϕ′ | ≤ b, where b > a > 0.
+            1
+
+    (1) If α1 6= 0, then       Z
+                                       e2πiψ(x) dx ≤ 6ba−3/2 |α1 |−1/2 .
+     (2) If |α1 | ≤ |α2 |/2 and α2 6= 0, then
+                                  Z
+                                      e2πiψ(x) dx ≤ 8|α2 |−1 (a−1 + ba−2 ).
+
+Proof. The proofs were given in Section 4 of [12] and they follow immediately from partial inte-
+gration since we know the growth bounds for ψ. However, the inequality presented in [12] for the
+case (2) has a slightly diﬀerent form. There, precisely speaking, it was proved that for any C 2 map
+ψ : [0, 1] → R with |ψ ′ | ≥ r and |ψ ′′ | ≤ R we have
+                                       Z
+                                            e2πiψ(x) dx ≤ r −1 + Rr −2 .
+
+However, this yields immediately the case (2) since by the assumptions on ϕ and |α1 | ≤ |α2 |/2 the
+derivatives
+                                 |ψ ′ (x)| = |ϕ(x)||α1 x + α2 | ≥ a|α2 |/2
+and
+                       |ψ ′′ (x)| = |ϕ′ (x)|(|α1 | + |α2 |) + |ϕ(x)||α1 | ≤ 2b|α2 |,
+                  FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                           21
+
+
+which gives the claim with r = a|α2 |/2 and R = 2b|α2 |.                                           
+   Now, let us look at the proof of Proposition 6.3, and how we can reduce the setting to a situation
+where we can apply the stationary phase. Given a, b ∈ Rn , deﬁne the C 2 mapping ψa,b : [0, 1] → R
+at x ∈ [0, 1] by
+                                     ψa,b (x) = ξ(Ta (x) − Tb (x)).
+After expanding the square, we obtain
+                                            X
+                              |f (x)|2 =            wa (x)wb (x)e2πiψa,b (x) ,
+                                           a,b∈Rn
+
+where we have that wa (x) = eSn ϕ(Ta (x)) . Writing
+                         Z                                      X
+             I(a, b) :=    exp(2πiψa,b (x)) dx      and S(a) :=   µ(Ib )I(a, b),
+                                                                            b∈Rn
+
+the Gibbs property of µ yields
+                  Z                X                       X
+                     |f (x)|2 dx ≪   µ(Ia )µ(Ib )I(a, b) =   µ(Ia )S(a).                        (6.8)
+                                     a,b∈Rn                               a∈Rn
+
+Thus we end up estimating the integrals I(a, b) for possible choices of a and b. For this purpose,
+we denote the diﬀerence of the nth continuants by
+                                     dn (a, b) := |qn (a) − qn (b)|.
+Similarly, deﬁne dn−1 using the (n − 1)th continuants of a and b. Notice that these diﬀerences
+attain only integer values. Then with the stationary phase we obtain a relationship between I(a, b)
+and the diﬀerences dn and dn−1 in the following key lemma:
+Lemma 6.5. Let a, b ∈ Rn . If dn−1 (a, b) 6= 0, then
+                                                    u−1/2 e(3λ/4+7ε)n
+                                    I(a, b) ≪                         .                         (6.9)
+                                                     dn−1 (a, b)1/2
+and if dn−1 (a, b) ≤ dn (a, b)/2 and dn (a, b) 6= 0 we have
+                                                    u−1/2 e(3λ/4+7ε)n
+                                    I(a, b) ≪                         .                       (6.10)
+                                                      dn (a, b)1/2
+Proof. Fix a, b ∈ Rn and write ψ = ψa,b as deﬁned above. Recall that the derivative of Ta has
+the form
+                                                     (−1)n
+                                   Ta′ (x) =                       .
+                                             (qn−1 (a)x + qn (a))2
+so writing α1 := qn−1 (a) − qn−1 (b), α2 := qn (a) − qn (b) and
+                                          (qn−1 (a) + qn−1 (b))x + qn (a) + qn (b)
+                     ϕ(x) := (−1)n ξ ·                                                        (6.11)
+                                         (qn−1 (a)x + qn (a))2 (qn−1 (b)x + qn (b))2
+we obtain ψ ′ (x) = ϕ(x) · (α1 x + α2 ). Thus we will apply Lemma 6.4 using bounds for |ϕ| and |ϕ′ |.
+Since we have qn−1 (a) ≤ qn (a) and
+                                 e(λ/2−ε/2)n ≤ qn (a) ≤ 4e(λ/2+ε/2)n
+and the same bounds for the continuant qn (b), we obtain the bound
+              a := 18 ue(−3λ−5ε)n/2 ≤ |ϕ(x)| ≤ 16ue(−3λ+5ε)n/2 ≤ 40ue(−3λ+5ε)n/2 := b.
+Diﬀerentiating again (6.11), we obtain as well
+                                               |ϕ′ (x)| ≤ b.
+22                               THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+Note that here we did the crude bound for |ϕ(x)| above as we wanted the same bound with b as
+for ϕ′ to use Lemma 6.4. Then 0 < a < b and moreover
+                                        ba−3/2 ≪ u−1/2 e(3λ+25ε)n/4 .
+Recall that by the choice (6.3) of n, we have e(1+2s)λn ≤ u. Moreover, λ > 1 and s > 1/2 so
+                                                   1                    1
+                          u−1 e(3λ+25ε)n/2 ≤ e( 2 −2s+13ε)λn ≤ e(− 2 +13ε)λn < 1
+since, recall we chose initially ε < 1/26 in (6.1). Thus by taking square roots, we have the same
+bounds for ba−2 and a−1 as well:
+                    ba−2 ≪ u−1 e(3λ+15ε)n/2 ≤ u−1/2 e(3λ+25ε)n/4 < u−1/2 e(3λ/4+7ε)n
+and
+                    a−1 ≪ u−1 e(3λ+5ε)n/2 ≤ u−1/2 e(3λ+25ε)n/4 < u−1/2 e(3λ/4+7ε)n .
+An application of the case (1) of Lemma 6.4 with α1 = qn−1 (a) − qn−1 (b) and α2 = qn (a) − qn (b)
+then yields in the case dn−1 (a, b) 6= 0 that
+                                                                                u−1/2 e(3λ/4+7ε)n
+              I(a, b) ≤ 6ba−3/2 |α1 |−1/2 = 6ba−3/2 (dn−1 (a, b))−1/2 ≪                           .
+                                                                                 dn−1 (a, b)1/2
+In the case when dn−1 (a, b) ≤ dn (a, b)/2 and dn (a, b) 6= 0 we use the case (2) of Lemma 6.4 to
+obtain
+                                                           u−1/2 e(3λ/4+7ε)n
+                       I(a, b) ≤ 8|α2 |−1 (a−1 + ba−2 ) ≪
+                                                              dn (a, b)1/2
+since dn (a, b)1/2 ≤ dn (a, b) as dn (a, b) ≥ 1.                                                      
+
+     Now as we noted in (6.8) to prove Proposition 6.3 we are left to estimate the sum
+                                             X
+                                      S(a) =      µ(Ib )I(a, b)
+                                                   b∈Rn
+
+for a ﬁxed a ∈ Rn . Write
+                                                   1 ( λ −2ε)n
+                                             r0 :=    e 2      ,
+                                                  192
+which, by the choice (5.4) of n0 , is larger than or equal to 1. We decompose the sum S(a) termwise
+to four smaller sums A1 , A2 , A3 and A4 depending on the values of dn−1 (a, b) and dn (a, b) with
+respect to r0 and to each other; see their deﬁnitions in the Lemmas 6.6, 6.7, 6.8 and 6.9 below.
+Then in these lemmas we will apply Lemma 6.5 to obtain bounds for the sums A1 , . . . , A4 that are
+independent of a as follows:
+                                                                               λ
+                       A1 ≪ e(−sλ+3λε)n       and      A2 , A3 , A4 ≪ u−1/2 e( 2 +15λε)n .
+Thus if we apply the bound (6.8) we have for kf k22 and use the fact that µ is a probability measure,
+we obtain        Z               X                                         λ
+                   |f (x)|2 dx ≪     µ(Ia )S(a) ≪ e(−sλ+3λε)n + u−1/2 e( 2 +15λε)n
+                                     a∈Rn
+as claimed in Proposition 6.3. Therefore, we are just left to describe the decomposition to
+A1 , . . . , A4 and prove the desired bounds for them.
+  Let us ﬁrst we consider words in the summation S(a) for which dn and dn−1 agree:
+Lemma 6.6. We have
+                                          X
+                      A1 :=                                  µ(Ib )I(a, b) ≪ e(−sλ+3λε)n .
+                              b∈Rn : dn−1 (a,b)=dn (a,b)=0
+                         FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                                       23
+
+
+Proof. In this case we notice that whenever b ∈ Rn with
+                                                   dn (a, b) = dn−1 (a, b) = 0,
+then in fact we have b = a. Indeed, if qn (a) = qn (b) and qn−1 (a) = qn−1 (b) and recall
+                    qn (a)pn−1 (a) − qn−1 (a)pn (a) = (−1)n = qn (b)pn−1 (b) − qn−1 (b)pn (b)
+by (2.2), so we obtain
+                                          qn−1 (a)(pn (a) − pn (b)) ≡ 0 mod qn (a).
+As qn−1 (a) and qn (a) are coprime, we obtain pn (a) ≡ pn (b) mod qn (a). However,
+                                                pn (b)/qn (a) = pn (b)/qn (b) ≤ 1,
+so this is only possible if pn (a) = pn (b) yielding b = a whenever dn (a, b) = dn−1 (a, b) = 0. Thus
+by Lemma 5.1(4) we can bound
+                                X
+                                             µ(Ib )I(a, b) = µ(Ia ) ≪ e(−sλ+3λε)n .
+                                b: dn−1 (a,b)=dn (a,b)=0
+
+                                                                                                                      
+  In the second case we have words for which dn or dn−1 is bounded below by r0 :
+Lemma 6.7. We have
+                                                  X                                                    λ
+                      A2 :=                                               µ(Ib )I(a, b) ≪ u−1/2 e( 2 +15λε)n .
+                                b∈Rn : dn (a,b)>r0 or dn−1 (a,b)>r0
+
+Proof. First of all, using (6.10) of Lemma 6.5 with Lemma 5.1(4) we obtain
+            X                                  −1/2                                 λ
+                        µ(Ib )I(a, b) ≪ u−1/2 r0 e(−sλ+3λε)n e(3λ/4+7ε)n ≪ u−1/2 e( 2 −sλ+12λε)n ,
+              dn (a,b)>r0
+    b: d
+           n−1 (a,b)≤dn (a,b)/2
+
+                                           nλ
+                           1
+by the deﬁnition of r0 = 192 e 2 −2εn . Secondly, using (6.9) of Lemma 6.5 yields the same bound
+for the rest
+          X                                X
+                    µ(Ib )I(a, b) ≤                 µ(Ib )I(a, b)
+            dn (a,b)>r0                           b: dn−1 (a,b)>r0 /2
+  b: d
+         n−1 (a,b)>dn (a,b)/2
+                                                                                                                 λ
+                                                ≪ u−1/2 (r0 /2)−1/2 e(−sλ+3λε)n e(3λ/4+7ε)n ≪ u−1/2 e( 2 −sλ+12λε)n
+Similary, (6.9) of Lemma 6.5 gives us
+            X                               −1/2                                 λ
+                     µ(Ib )I(a, b) ≪ u−1/2 r0 e(−sλ+3λε)n e(3λ/4+7ε)n ≪ u−1/2 e( 2 −sλ+12λε)n .
+           b: dn−1 (a,b)>r0
+                                                                                   λ
+This number is always less than the desired bound u−1/2 e( 2 +15λε)n .                                                
+  Thus we are just left with the part of the sum S(a) where both dn and dn−1 are bounded from
+above by r0 and where they are not simultaneously 0. In this part we have two sums A3 and A4
+deﬁned depending on whether dn ≤ 2dn−1 or not, and bounds for them in Lemmas 6.8 and 6.9
+below. In the next lemma we have dn ≤ 2dn−1 which allows us to exlude the case dn−1 = 0 as
+then it would force dn = 0, which is already handled in Lemma 6.6 above.
+Lemma 6.8. We have
+                                                  X                                                λ
+                       A3 :=                                             µ(Ib )I(a, b) ≪ u−1/2 e( 2 +15λε)n .
+                                            d (a,b)≤2d       (a,b)
+                                  b∈Rn : 1≤d n (a,b)≤rn−1
+                                                       ,d (a,b)≤r
+                                            n−1          0   n       0
+24                                  THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+Proof. For now on, write m := ⌈ n2 ⌉. Given j = 0, 1, . . . , m, let us write
+                                                          1 ( n −j)λ−2εn
+                                                 rj :=       e 2         .
+                                                         192
+                                                                                                 λ
+                                                                         1 ( 2 −2ε)n0
+For j = 0 this agrees with the deﬁnition of r0 given above and r0 ≥ 192    e          ≥ 1 by the choice
+(5.4) of n0 and because by the choice of ε in (6.1) we have ε < 1/26 < λ/4 by λ > 1. Note that
+r0 > r1 > · · · > rm and rm < 1. For j = 0, 1, . . . , m − 1 deﬁne the annulus
+                      Aj = {b ∈ Rn : dn (a, b) ≤ 2rj and rj+1 ≤ dn−1 (a, b) ≤ rj }.
+Now these annuli allow us to decompose the summation we consider. Since µ(Ib ) ≪ e(−sλ+3λε)n
+by Lemma 5.1(4) we have using the bound (6.9) of Lemma 6.5 that
+                     X                                       m−1
+                                                             X X
+                                          µ(Ib )I(a, b) ≤               µ(Ib )I(a, b)
+              d (a,b)≤2d
+        b: 1≤d n (a,b)≤rn−1
+                              (a,b)                          j=1 b∈Aj
+              n−1        0 ,dn (a,b)≤r0
+
+                                                                                  m−1
+                                                                                  X                  X
+                                                              −1/2 (3λ/4+7ε)n              −1/2
+                                                         ≪u         e                    rj                 e(−sλ+3λε)n
+                                                                                   j=0            b∈Aj
+                                                                                         m−1
+                                                                                         X           −1/2
+                                                         = u−1/2 e(3λ/4−sλ+10λε)n                rj         |Aj |
+                                                                                           j=0
+
+Thus our estimate reduces to estimating the cardinality of Aj . Fix b ∈ Aj . Recall that the mirror
+images of a and b are deﬁned by
+                         a← = (an , an−1 , . . . , a1 ) and         b← = (bn , bn−1 , . . . , b1 ).
+By the mirroring property (2.3) of continuants we obtain
+                    dn−1 (a, b) = |pn (a← ) − pn (b← )|           and dn (a, b) = dn (a← , b← )
+so rj+1 ≤ |pn (a← ) − pn (b← )| ≤ rj and dn (a← , b← ) ≤ 2rj , which yields
+          pn (a← ) pn (b← )   |pn (a← ) − pn (b← )| |qn (a← ) − qn (b← )|pn (b← )    3rj
+               ←
+                  −      ←
+                            ≤                      +                              ≤        ,
+          qn (a )   qn (b )         qn (a← )              qn (a← )qn (b← )          qn (a)
+where we used the mirroring which gives qn (a) = qn (a← ).
+  By the quasi-independence Lemma 2.6 we have
+                               qn (a) ≥ 12 qn−j (a1 , . . . , an−j )qj (an−j+1 , . . . , an ).
+On the other hand, by the mirroring property, we have
+                                    qj (an−j+1, . . . , an ) = qj (an , . . . , an−j+1 )
+so we can bound
+                                 qn−j (a1 , . . . , an−j )2
+                                                            ≤ qj (an , . . . , an−j+1 )−2 .
+                                       4qn (a)2
+                                                         n
+                                       1 ( 2 −j)λ−2εn
+On the other hand, the deﬁnition rj = 192 e           gives us
+                              1 ( n −j)λ−2εn    1 e(λ−ε)(n−j)    1 qn−j (a1 , . . . , an−j )2
+                    3rj =       e 2          <                ≤
+                             64                64 e(λ+ε)n/2     64        qn (a)
+using the fact that ⌊n/2⌋ ≤ n − j < n and Lemma 5.1(1). Thus we have shown that the annulus
+Aj ⊂ Bj , where
+                      n           pn (a← ) pn (b← )                                   o
+                                                         1                         −2
+                 Bj := b ∈ Rn :            −          <    q (a
+                                                        16 j n  , . . . , a n−j+1 )    .
+                                  qn (a← )   qn (b← )
+We wish to show that the cardinality of Bj is at most 2|Cj |, where
+                                          Cj := {(b1 , . . . , bn−j+1 ) : b ∈ Rn }.
+                         FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                                                     25
+
+
+Note that Cj is precisely the collection of all generation n − j + 1 subwords of elements in Rn .
+Since ⌊n/2⌋ < n − j + 1 ≤ n, we may use Lemma 5.1 for the words in Cj . To prove this consider
+the interval I = Ian ,...,an−j+1 .
+    (a) If an−j+1 6= 1, then I is neighboured by the intervals Ian ,...,an−j+1 −1 and Ian ,...,an−j+1 +1
+                                                           1
+        both of which must have diameter greater than 16     qj (an , . . . , an−j+1 )−2 . Indeed, by the
+        recurrence relation for the continuants
+                     qj (an , . . . , an−j+1 + 1) = qj (an , . . . , an−j+1 ) + qj−1 (an , . . . , an−j+1 )
+                                                     ≤ 2qj (an , . . . , an−j )
+           and
+                         qj (an , . . . , an−j+1 − 1) = qj (an , . . . , an−j ) − qj−1 (an , . . . , an−j+1 )
+                                                         ≤ qj (an , . . . , an−j ),
+                                                                       1
+         which thanks to Lemma 2.5 gives the size bound 16               qj (an , . . . , an−j+1 )−2 for the intervals
+         from below. Thus if we require b ∈ Bj we would need (an , . . . , an−j+2 ) = (bn , . . . , bn−j+2 )
+         as otherwise the point pn (b← )/qn (b← ) would be too far from the point pn (a← )/qn (a← ).
+     (b) If an−j+1 = 1, then depending on the sign of the derivative of Ta′ n ...,an−j+2 , the two neigh-
+         bouring cylinders are the jth generation interval Ian ,...,an−j+1 +1 and the (j −1)th generation
+                                                                                              1
+         interval Ian ,...,an−j+2 +1 and both of these have diameter greater than 16            qj (an , . . . , an−j+1 )−2
+         again by the recurrence relation for the continuants. Thus there are at most two choices
+         for (bn , . . . , bn−j+2 ).
+The cases (a) and (b) together prove that a given b ∈ Bj has at most two possibilities for the
+segment bn , . . . , bn−j+2 . Moreover, as b ∈ Rn , the initial segment (b1 , . . . , bn−j+1 ) ∈ Cj . Hence
+|Bj | ≤ 2|Cj | as we wanted.
+   Now, we can just bound the cardinality of Cj . Given (b1 , . . . , bb−j+1 ) ∈ Cj we have by Lemma
+5.1(4) that
+                                     µ(Ib1 ,...,bn−j+1 ) ≥ C −1 e−(n−j+1)(λs+3λε) .
+Since µ is a probability measure this gives us a cardinality bound
+                                       |Cj | ≤ Ce(n−j+1)(λs+3λε) ≤ Ce(sλ+3λε)n e−sλj .
+Therefore, we can bound the cardinality of Aj as follows
+                                 |Aj | ≤ 2|Cj | ≪ e(sλ+3λε)n e−sλj .
+                                                 P      −1/2
+Now recall that we are interested in the sum m−1   j=0 rj     |Aj |. Inputting the deﬁnition of rj =
+ 1 (n   −j)λ−2εn
+192 e            , we see that
+      2
+
+                                                     −1/2               λ         λ
+                                                    rj        ≪ e(− 4 +2λε)n e 2 j
+                              √
+using a crude bound               λ ≤ λ as λ > 1. Thus the sum
+    m−1
+    X                                                      m−1
+                                                           X
+            −1/2                        λ                           1                            λ                λ
+           rj    |Aj | ≪ e(sλ+3λε)n e(− 4 +2λε)n                  e( 2 −s)λj ≪ e(sλ+3λε)n e(− 4 +2λε)n = e(− 4 +sλ+5λε)n
+     j=0                                                    j=0
+                                                                                                                            (6.12)
+where we used s > 1/2 so that the geometric sum is dominated by a constant. Inputting this to
+what we obtained previously, we have our desired claim
+                 X                                                                    m−1
+                                                                                      X      −1/2                     λ
+                                      µ(Ib )I(a, b) ≪ u−1/2 e(3λ/4−sλ+10λε)n                rj       |Aj | ≪ u−1/2 e( 2 +15λε)n .
+        d (a,b)≤2d
+  b: 1≤d n (a,b)≤rn−1
+                          (a,b)                                                       j=0
+        n−1        ,d (a,b)≤r
+                     0   n        0
+
+                                                                                                                                    
+26                                         THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+   Finally we are left with the case dn > 2dn−1 . In this case we can exlude those words with dn = 0
+as then it would force dn−1 < 0, which is absurd as the diﬀerences are non-negative.
+Lemma 6.9. We have
+                                                  X                                                       λ
+                       A4 :=                                             µ(Ib )I(a, b) ≪ u−1/2 e( 2 +15λε)n .
+                                             dn (a,b)>2dn−1 (a,b)
+                                b∈Rn : d
+                                           n−1 (a,b)≤r0 ,1≤dn (a,b)≤r0
+
+Proof. In this case we can use the part (6.10) of Lemma 6.5, which gives
+           X                                                          X
+                        µ(Ib )I(a, b) ≪ u−1/2 e(3λ/4−sλ+10λε)n                                                               dn (a, b)−1/2
+         dn (a,b)>2dn−1 (a,b)                                                                    dn (a,b)>2dn−1 (a,b)
+b: d                                                                                    b: d
+       n−1 (a,b)≤r0 ,1≤dn (a,b)≤r0                                                             n−1 (a,b)≤r0 ,1≤dn (a,b)≤r0
+
+again by Lemma 5.1(4). Now consider the summation on the right-hand side. We proceed similarly
+as in the proof of Lemma 6.8: now we split the summation to the annuli determined by the
+conditions dn−1 (a, b) ≤ rj /2 and rj+1 ≤ dn (a, b) ≤ rj with the same radii rj . By the mirroring
+property (2.3) of continuants these conditions yield
+                             |pn (a← ) − pn (b← )| ≤ rj /2           and |qn (a← ) − qn (b← )| ≤ rj
+so we can make a same bound as in the proof of Lemma 6.8 for the diﬀerence:
+         pn (a← ) pn (b← )      |pn (a← ) − pn (b← )| |qn (a← ) − qn (b← )|pn (b← )    3rj
+              ←
+                  −      ←
+                              ≤                       +                             <        .
+         qn (a )    qn (b )           qn (a← )                qn (a← )qn (b← )        qn (a)
+Thus the proof after this is exactly as in Lemma 6.8 since this allows us to reduce the estimation
+to a cardinality bound for Bj and summation over j. Hence we obtain the same bound up to a
+constant                        X                                       λ
+                                               µ(Ib )I(a, b) ≪ u−1/2 e( 2 +15λε)n .
+                                       dn (a,b)>2dn−1 (a,b)
+                              b: d
+                                     n−1 (a,b)≤r0 ,1≤dn (a,b)≤r0
+
+                                                                                                                                        
+6.6. Completion of the proof of the main theorem. Recall that in Section 6.3 we deduced
+that the proof of Theorem 1.3 is complete if we are able to prove that the main integral bound
+(6.6) holds for the regular part, that is,
+                                Z
+                                                                   δ
+                                   |f (x)| dµ(x) ≪ u−ηs +38ε + u− 12λ ,
+
+where the exponent
+                                                2s2 − s
+                                                        ηs =
+                                            (4 − s)(1 + 2s)
+and δ = δ(ε/2) > 0 is the constant from large deviations with ε/2. To verify this, write
+                                             α := 2s + 2ε and             β := (1 + 2s)ηs .
+Then γ := α + β ≥ 1 since s > 1/2 and crudely bounding also γ ≤ 7. By Lemma 6.2 we have
+kf ′ k∞ ≤ eαλn . Thus the function f satisﬁes the assumptions of Lemma 6.1. This gives us
+        Z
+          |f (x)| dµ(x) ≪ e(−βλ+εγ)n + kf k22 e((1−s)αλ+(3−s)βλ+3λεγ)n + e−δγn/4 =: t1 + t2 + t3 .
+
+Recall that we chose in (6.3) the number n ≥ n0 such that
+                                                  e(1+2s)λn ≤ u < e(1+2s)λ(n+1) .                                                   (6.13)
+By the deﬁnition of β as λ > 1 and γ ≤ 7 we obtain
+                                                                                  γ
+                                                                         −ηs + (1+2s)λ ε
+                                      t1 = e−(1+2s)ηs λn+γεn ≪ u                           < u−ηs +7ε
+and similarly as γ > 1 and s ≤ 1 we have
+                                                                    γ               δ
+                                                              − 4(1+2s)λ δ
+                                                     t3 ≪ u                  < u− 12λ .
+                   FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                             27
+
+
+Thus we are just left with bounding t2 with respect to u.
+  Recall the L2 bound from Proposition 6.3:
+                                 kf k22 ≪ u−1/2 e(λ/2+15λε)n + e(−sλ+3λε)n .
+Inputting this to the deﬁnition of t2 yields
+       t2 ≪ u−1/2 e(λ/2+15λε)n e((1−s)αλ+(3−s)βλ+3λεγ)n + e(−sλ+3λε)n e((1−s)αλ+(3−s)βλ+3λεγ)n .
+Now deﬁne
+              1 1/2 + 2s(1 − s) + (3 − s)(1 + 2s)ηs    s − 2s(1 − s) − (3 − s)(1 + 2s)ηs
+        ̺s :=   −                                   =                                    .
+              2                  1 + 2s                              1 + 2s
+If we plug-in the deﬁnition of α = 2s + 2ε and β = (1 + 2s)ηs to the ﬁrst term bounding t2 and
+use (6.13), we obtain a bound
+     u−1/2 e(λ/2+15λε)n e((1−s)αλ+(3−s)βλ+3λεγ)n = u−1/2 e(λ/2+2s(1−s)λ+(3−s)(1+2s)ηs λ+(3γ+17)λε)n
+                                                             3γ+17
+                                                   ≪ u−̺s + 1+2s ε
+                                                   ≪ u−̺s +38ε
+using γ ≤ 7. Moreover, for the second term bounding t2 we obtain similarly
+                                                                       3γ+5
+                  e(−sλ+2s(1−s)λ+(3−s)(1+2s)ηs λ+(3γ+5)λε)n ≪ u−̺s + 1+2s ε ≪ u−̺s +26ε .
+                                               2s −s   2
+On the other hand, by the deﬁnition of ηs = (4−s)(1+2s) , the exponent
+                       (4 − s)[s − 2s(1 − s) − (3 − s)(1 + 2s)ηs ]   8s3 + 10s2 − s
+                ̺s =                                               =                 > ηs .
+                                    (4 − s)(1 + 2s)                  (4 − s)(1 + 2s)
+Thus the polynomial decay coming from the term t1 involving ηs dominates the decay we obtain
+from t2 since ηs − 38ε > 0 by the choice of ε in (6.1). This ﬁnishes the ﬁnal claim and the proof
+of Theorem 1.3.
+6.7. The case of Hausdorff measure. To ﬁnish the section, let us make some remarks on the
+proof of Corollary 1.4 and see how the proof of the main Theorem 1.3 can be modiﬁed to have
+the Rajchman property for the Hausdorﬀ measure ν = Hs |B(A) for a ﬁnite A ⊂ N. The crucial
+observation is that even though ν is not T invariant, it is an s-conformal measure, that is, a ﬁxed
+point for the dual operator L∗ϕ with potential ϕ = −s log |T ′ |; see for example [10, Theorem 6]. In
+Section 6.3, when we apply Lϕ to the oscillation x 7→ e−2πiξx , we only need the measure to be a
+ﬁxed point for L∗ϕ . The T invariance is only needed in the deduction of the large deviation bounds,
+but by [7, Theorem 5.3] we know that ν is equivalent to a T invariant measure µ on B(A) with
+uniformly positive and ﬁnite densities. This allows us to use the same large deviation bounds or
+measure comparisons to the lengths |Ia | for ν, which we already established for µ up to a ﬁxed
+multiplicative error constant, which does not aﬀect the decay rate of the Fourier transform.
+
+                                              7. Prospects
+7.1. Dimension and decay. An immediate question arising from our main result is that why is
+there a dimension assumption dim µ > 1/2 for the Gibbs measures µ? The result by Hochman-
+Shmerkin [9] on ﬁnding normal numbers in the supports of Gibbs measures does not have dimension
+restrictions, so it could be possible that the dimension requirement is just an artifact of the method
+we use. The dimension assumption is important in the summation of the geometric series in the
+L2 estimations on the lemmas Lemma 6.8 and 6.9 of the proof of Proposition 6.3 in Section 6.5.
+In particular, in the estimate (6.12) the important term r0 may not dominate if s is less than 1/2.
+   Another direction is to estimate the decay rate we have for the Fourier transform. It is an
+open problem whether the set of badly approximable numbers is a Salem set. As we noted in the
+introduction, the Hausdorﬀ dimension of this set is 1, so we would need to ﬁnd Rajchman measures
+on badly approximable numbers with |b     µ(ξ)| = O(|ξ|−η ) with η arbitrarily close to 1/2. The rates
+28                                THOMAS JORDAN AND TUOMAS SAHLSTEN
+
+
+we obtain for the Gibbs measures when the Hausdorﬀ dimension s is large are not close to 1/2.
+The proofs in this paper are designed to give polynomial decay but we have not considered how to
+optimise this decay and it is probable that new methods would need to be developed to do this.
+
+7.2. Markov maps. It is a natural question whether the results here could be extended to dynam-
+ical systems other than ([0, 1] \ Q, T ). A possible problem could be to consider general expanding
+Markov maps on the circle T and the Gibbs measures related to these maps. Nonlinearity of the
+system seems to be crucial in the proof and in fact it is straightforward to see that the results can-
+not hold for the maps x 7→ nx mod 1. However, even if we assume nonlinearity, another obstacle
+for extending the results are some of the number theoretical properties of the Gauss map we use.
+The mirroring property which basically guarantees that the interval Ia has a comparable length
+to Ia← we used in bounding the L2 norm of the regular part f in Section 6.5 is rarely available to
+general Markov maps. This can probably be overcome by slightly stregthening the assumption on
+the dimension of µ since this property is only needed to weaken this assumption. However in part
+1 of the proof of Proposition 6.3 we estimate the set for which dn−1 (a, b) = 0 and dn (a, b) = 0.
+This makes important use of properties of the continuants of the continued fraction expansion and
+so this part of the proof would need to be overhauled to extend the result to more general Markov
+maps.
+
+                                          8. Acknowledgements
+  The authors are grateful to Alan Haynes, Andrew Ferguson and all the other members of the
+“Dynamical Systems and Diophantine Approximation” reading group in the University of Bristol
+during Spring 2013 where this collaboration was initiated. TS also thanks Sanju Velani and all the
+participants of the minicourse “An Invitation to Geometric and Diophantine Fourier Analysis” in
+the University of York during December 2013 for many comments and suggestions on this paper.
+We thank Tuomas Orponen, Michal Rams and Mike Todd for useful comments on a preliminary
+version of this work, Tomas Persson for pointing out the application to Salem’s problem, and the
+anonymous referee for comments and suggestions.
+
+                                                 References
+ [1] R. Baker. Metric number theory and the large sieve. J. London Math. Soc. (2), 24(1):34–40, 1981.
+ [2] C. Bluhm. On a theorem of Kaufman: Cantor-type construction of linear fractal Salem sets. Ark. Mat.,
+     36(2):307–316, 1998.
+ [3] C. Bluhm. Liouville numbers, Rajchman measures, and small Cantor sets. Proc. Amer. Math. Soc., 128(9):2637–
+     2640, 2000.
+ [4] F. Canto-Martı́n, H. Hedenmalm, and A. Montes-Rodrı́guez. Perron-Frobenius operators and the Klein-Gordon
+     equation. J. Eur. Math. Soc. (JEMS), 16(1):31–66, 2014.
+ [5] H. Davenport, P. Erdős, and W. J. LeVeque. On Weyl’s criterion for uniform distribution. Michigan Math. J.,
+     10:311–314, 1963.
+ [6] R. Durrett. Probability: theory and examples. Cambridge Series in Statistical and Probabilistic Mathematics.
+     Cambridge University Press, Cambridge, fourth edition, 2010.
+ [7] K. J. Falconer. Techniques in fractal geometry. John Wiley & Sons Ltd., Chichester, 1997.
+ [8] I. Good. The fractional dimensional theory of continued fractions. Math. Proc. Cambridge Philos. Soc.,
+     37(3):199–228, 1941.
+ [9] M. Hochman and P. Shmerkin. Equidistribution from fractals. Invent. Math., 2013. To appear, Preprint at
+     http://arxiv.org/abs/1302.5792.
+[10] F. Hofbauer. Hausdorﬀ and conformal measures for expanding piecewise monotonic maps of the interval. Stud.
+     Math., 103(2):191–206, 1992.
+[11] V. Jarnı́k. Zur metrischen theorie der diophantischen approximationen. Prace Mat.–Fiz., 36(1):91–106, 1928-
+     1929.
+[12] R. Kaufman. Continued fractions and Fourier transforms. Mathematika, 27(2):262–267, 1980.
+[13] R. Kaufman. On the theorem of Jarnı́k and Besicovitch. Acta Arith., 39(3):265–267, 1981.
+[14] R. Kaufman. M -sets and measures. Ann. of Math. (2), 135(1):125–130, 1992.
+[15] M. Kesseböhmer and B. O. Stratmann. Fractal analysis for sets of non-diﬀerentiability of Minkowski’s question
+     mark function. J. Number Theory, 128(9):2663–2686, 2008.
+                    FOURIER TRANSFORMS OF GIBBS MEASURES FOR THE GAUSS MAP                                       29
+
+
+[16] A. Khinchin. Continued fractions. Dover Publications Inc., Mineola, NY, russian edition, 1997. With a preface
+     by B. V. Gnedenko, Reprint of the 1964 translation.
+[17] Y. Kifer. Large deviations in dynamical systems and stochastic processes. Trans. Amer. Math. Soc., 321(2):505–
+     524, 1990.
+[18] Y. Kifer, Y. Peres, and B. Weiss. A dimension gap for continued fractions with independent digits. Israel J.
+     Math., 124:61–76, 2001.
+[19] J. R. Kinney. Note on a singular function of Minkowski. Proc. Amer. Math. Soc., 11:788–794, 1960.
+[20] A. Lopes. Entropy and large deviation. Nonlinearity, 3(2):527–546, 1990.
+[21] R. Lyons. Seventy years of Rajchman measures. Proceedings of the Conference in Honor of Jean-Pierre Kahane
+     (Orsay, 1993), J. Fourier Anal. Appl., pages 363–377, 1995.
+[22] P. Mattila. Geometry of Sets and Measures in Euclidean Spaces: Fractals and Rectifiability. Cambridge Univer-
+     sity Press, Cambridge, 1995.
+[23] P. Mattila. Hausdorﬀ dimension, projections, and the Fourier transform. Publ. Mat., 48(1):3–48, 2004.
+[24] R. D. Mauldin and M. Urbański. Graph directed Markov systems, volume 148 of Cambridge Tracts in Mathe-
+     matics. Cambridge University Press, Cambridge, 2003. Geometry and dynamics of limit sets.
+[25] H. Minkowski. Geometrie der zahlen. Gesammelte Abhandlungen, 2, 1911.
+[26] H. Montgomery. Ten lectures on the interface between analytic number theory and harmonic analysis, volume 84
+     of CBMS Regional Conference Series in Mathematics. Published for the Conference Board of the Mathematical
+     Sciences, Washington, DC, 1994.
+[27] T. Persson. On a problem by R. Salem concerning minkowski’s question mark function. Preprint,
+     http://arxiv.org/abs/1501.00876, 2015.
+[28] A. Pollington and S. Velani. On a problem in simultaneous Diophantine approximation: Littlewood’s conjecture.
+     Acta Math., 185(2):287–306, 2000.
+[29] M. Queﬀélec and O. Ramaré. Analyse de Fourier des fractions continues à quotients restreints. Enseign. Math.
+     (2), 49(3-4):335–356, 2003.
+[30] R. Salem. On some singular monotonic functions which are strictly increasing. Trans. Amer. Math. Soc., 53:427–
+     439, 1943.
+[31] O. Sarig. Phase transitions for countable Markov shifts. Comm. Math. Phys., 217(3):555–577, 2001.
+[32] O. Sarig. Existence of Gibbs measures for countable Markov shifts. Proc. Amer. Math. Soc., 131(6):1751–1758
+     (electronic), 2003.
+[33] P. Walters. Invariant measures and equilibrium states for some mappings which expand distances. Trans. Amer.
+     Math. Soc., 236:121–153, 1978.
+[34] T. H. Wolﬀ. Lectures on harmonic analysis, volume 29 of University Lecture Series. American Mathematical
+     Society, Providence, RI, 2003. With a foreword by Charles Feﬀerman and preface by Izabella Laba, Edited by
+     Laba and Carol Shubin.
+[35] S. Yakubovich. The aﬃrmitive solution to Salem’s problem revisited. Preprint, http://arxiv.org/abs/1501.00141,
+     2015.
+[36] L.-S. Young. Large deviations in dynamical systems. Trans. Amer. Math. Soc., 318(2):525–543, 1990.
+[37] M. Yuri. Large deviations for countable to one Markov systems. Comm. Math. Phys., 258(2):455–474, 2005.
+
+  Department of Mathematics, University of Bristol, University Walk, Clifton, Bristol, BS8 1TW,
+England
+  E-mail address: thomas.jordan@bristol.ac.uk
+
+  Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Givat Ram, Jerusalem
+91904, Israel
+  E-mail address: tsahlsten@math.huji.ac.il
+

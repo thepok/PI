@@ -1,0 +1,1613 @@
+                                           LYAPUNOV EXPONENTS OF THE SPECTRAL COCYCLE FOR
+                                           TOPOLOGICAL FACTORS OF BIJECTIVE SUBSTITUTIONS ON
+                                                             TWO LETTERS
+arXiv:2210.11982v2 [math.DS] 23 Feb 2024
+
+
+
+
+                                                                         JUAN MARSHALL-MALDONADO
+
+
+                                                    Abstract. The present paper explores the spectral cocycle defined in [BS20]
+                                                    in the special case of bijective substitutions on two letters, the most prominent
+                                                    example being the Thue-Morse substitution. We derive an explicit subexpo-
+                                                    nential behaviour of the deviations from the expected exponential behavior.
+                                                    Moreover, these sharp bounds will be exploited to prove that the top Lyapunov
+                                                    exponent is greater or equal to the top exponent of the subshift topological
+                                                    factors after a renormalization. In order to obtain such results for the sub-
+                                                    stitutive subshift factors, we define a special kind of sum, which is a multiple
+                                                    version of the twisted Birkhoff sum. For the particular case of the Thue-Morse
+                                                    substitution, we derive that the exponent is zero, we give an explicit subexpo-
+                                                    nential bound for the twisted Birkhoff sums and we do the same for subshift
+                                                    topological factors.
+
+
+
+
+                                                                                 1. Introduction
+                                              This paper continues the work of [BS14, BS20] around the spectral cocycle de-
+                                           fined explicitly in [BS20]. The study of this extension of the Rauzy-Veech cocycle
+                                           has given fruitful results as effective rates of weakly mixing for several classes of sys-
+                                           tems such as interval exchange transformations [AFS23], linear flows on translations
+                                           surfaces of genera higher or equal than 2 [For22] and special suspension flows over
+                                           more general S-adic systems (including substitutions) [BS18, BS20, BS21]. Other
+                                           consequences are the nature of the spectral measures involved, specifically, sufficient
+                                           and necessary conditions for purely singular spectrum [BS19, BS20, BS22, BGM19].
+
+                                              The results of this work are first steps towards a general understanding of the
+                                           behavior of the top Lyapunov exponent (and more generally, the whole Lyapunov
+                                           spectrum) of the spectral cocycle under conjugacy and semiconjugacy, which is a
+                                           completely open question: subshift topological factors may be associated to more
+                                           complex substitutions, in particular the cocycle matrices may be of higher dimen-
+                                           sion. Therefore, it is not clear that the estimates on the matrices are transfered to
+                                           the factors: consider the next example (from [Dek14]). The Thue-Morse substitu-
+                                           tion is given by ζT M : 0 7→ 01, 1 7→ 10. A conjugate substitution (see subsection 2.3
+                                           for background) σ : A −→ A+ on the alphabet A = {w1 , w2 , . . . , w12 } is given by
+                                               σ(w1 ) = w4 w10        σ(w2 ) = w4 w10          σ(w3 ) = w5 w11        σ(w4 ) = w5 w11
+                                               σ(w5 ) = w6 w12        σ(w6 ) = w6 w12          σ(w7 ) = w7 w1         σ(w8 ) = w7 w1
+                                               σ(w9 ) = w8 w2         σ(w10 ) = w8 w2          σ(w11 ) = w9 w3        σ(w12 ) = w9 w3 .
+
+                                              Key words and phrases. Spectrum, substitutions, exponential sums, Lyapunov exponents, sym-
+                                           bolic dynamics, twisted cocycle.
+                                                                                           1
+2                           JUAN MARSHALL-MALDONADO
+
+
+Consider the subshift Xσ ⊂ AZ associated to σ (see subsection 2.1), and δ the
+Kronecker delta. Our results show in particular that all the sums of the form
+                               n
+                              2X −1
+                                      δxk ,a e2πikω ,   a∈A
+                              k=0
+have a subexponential behavior for any x = (xn )n∈Z ∈ Xσ and almost every
+ω ∈ [0, 1). This is just one example (of infinitely many) constructed with the
+classical method introduced by M. Queffélec (see [Que10]).
+
+   We expect that the methods introduced in this work pave the way for obtaining
+similar results in a much larger class of substitutions, for example, substitutions
+of constant length. We emphasize the fact that there is no systematic method to
+calculate the Lyapunov exponents in the general case. Some particular cases where
+this is possible are the case of bijective abelian substitutions (see [BGM19]) and
+constant length substitutions on two letters (see [Mañ17, BCM20]).
+
+   For the time being, we have restricted our attention to bijective subtitutions on
+two letters, the Thue-Morse substitution being the most prominent example. In this
+case, we obtain some rigidity on the behavior of the top Lyapunov exponent with
+respect to the subshift factors, stated in Theorem 1.2. A special property of bijective
+substitutions on two letters we take advantage of is that we may represent its twisted
+Birkhoff sums as a Riesz product. Namely, for the Thue-Morse substitution, the
+twisted Birkhof sum over a fixed point may be expressed as
+                                          n−1
+                                          Y
+                             pn (ω) =           2 sin(π{ω2j }).
+                                          j=0
+
+   A lot of attention has been given to the understanding of the asymptotics of Lp
+norms of pn : part of the proof of a prime number theorem for the sum-of-digits
+function, due to Maduit and Rivat in [MR10], uses the asymptotic
+                          ||pn ||1 ∼ 2nδ , with δ = 0.40325...
+A survey with the link between these products and the Thue-Morse sequence is
+found in [Que18]. We will be interested in the asymptotics of pn for fixed ω as
+n goes to infinity. Apparently contradictory with the latter result, the growth is
+subexponential for generic ω. The next result answers a question implicitly asked
+in [BCM20].
+Theorem 1.1. There exists a positive constant B such that for almost all ω, there
+is a positive integer n0 (ω) such that for all n ≥ n0 (ω),
+                                                   √
+                         max(pn (ω), p−1
+                                      n (ω)) ≤ e
+                                                 B n log log(n)
+                                                                .
+   It might be worth to compare this result with the growth of a cocycle in the
+context of discrete Schrödinger operators arising from the Thue-Morse substitution
+found in [LQY17], where the authors show a similar subexponential behavior.
+
+   Theorem 1.1 will imply, in particular, that the top Lyapunov exponent of the
+spectral cocycle for the Thue-Morse substitution vanishes, which is a known fact
+(see [BCM20]). In fact, this will be the case for all topological factors of the Thue-
+Morse subshift coming from an aperiodic substitution. Moreover, we will prove a
+                                                                                      3
+
+
+more general result for all primitive aperiodic bijective substitutions on a two letter
+alphabet, which is our main result. Let ρ(A) be the spectral radius of a matrix A.
+Theorem 1.2. Let ζ be an aperiodic, primitive and bijective subtitution on two
+letters of constant length q. If σ is an aperiodic substitution such that the associ-
+ated dynamical system is a topological factor of the one associated to ζ, then the
+corresponding top Lyapunov exponents of the spectral cocycle satisfy
+                                 χ+
+                                  σ (ω)
+                                               χ+
+                                                ζ
+                                          ≤         ,
+                              log(ρ(Mσ ))    log(q)
+for Lebesgue almost all ω, where Mσ is the substitution matrix of σ.
+   As we shall see, the nonnegativity of the top Lyapunov exponent of the spectral
+cocycle is a general fact (Theorem 3.1), so for the Thue-Morse substitution we have
+the next result.
+Corollary 1.3. For every topological factor of the Thue-Morse subshift coming
+from an aperiodic substitution σ we have χ+
+                                          σ (ω) = 0, for Lebesgue almost all ω.
+
+   In fact, there is only one non-trivial subshift factor of the Thue-Morse subshift
+up to conjugacy (this may be deduced from [CDK17] and [CQY16]) which is given
+by the period doubling substitution. But there is no unicity of the substitution
+used to represent a subshift (in fact, there are infinitely many, see Theorem 2.8
+below), and it is not necessarily true that two substitutions with conjugate systems
+have the same top Lyapunov exponent of the spectral cocycle.
+
+   We organize the paper as follows: in Section 2 we recall several notions around
+substitutions and dynamics, in particular, those related to the Thue-Morse se-
+quence. In addition we recall the definition of the spectral cocycle (and results
+on its top Lyapunov exponent), the twisted Birkhoff sum and consider one gen-
+eralization: the twisted correlation. To finish, we state a result about asymptotic
+laws of expanding maps of the unit interval which will be essential for our estimates.
+
+   Section 3 begins with three general results about the top Lyapunov exponent
+of the spectral cocycle. It continues with finer estimates for the twisted Birkhoff
+sums in the Thue-Morse case (in particular, showing its subexponential behavior)
+and for constant length substitutions on two letters. We finish this section with
+upper bounds for the twisted correlations of Thue-Morse. For simplicity and as a
+motivation, the bounds are proved in the simplest case, but presented in general.
+
+   In Section 4 we state the analogous results of last section on the Thue-Morse
+substitution to an arbitrary bijective substitution on two letters. In particular, we
+state Theorem 4.7 which contains upper bounds for the twisted correlations. In
+Section 5 we present the proof of Theorem 1.2 based on the results of Section 4.
+Finally in the Appendix we present in full generality the proof of the upper bounds
+for the twisted correlations of bijective substitution on two letters.
+
+                               Acknowledgements
+   The author would like to thank Jöel Rivat for the discussions around exponential
+sums of digital functions. The author would also like to thank Benoı̂t Saussol to
+direct us to the article [DGM12] for the bounded law of iterated logarithm, and
+4                           JUAN MARSHALL-MALDONADO
+
+
+Sébastien Gouëzel for explaning to us the deduction of this law from an invari-
+ance principle and for reading the first manuscript. I would like to thank the two
+anonymous referees for their exhaustive lists of corrections, which have significantly
+improved the presentation of this article. Finally, I would like to thank my super-
+visors Alexander I. Bufetov and Pascal Hubert, for all the discussions around this
+problem and constant encouragement.
+
+                                   2. Background
+2.1. Substitutions. For the basic notions on substitutions see for example [Que10].
+Let us start by fixing a positive integer m ≥ 2 and a finite alphabet A = {1, . . . , m}.
+A substitution on the alphabet A is a map ζ : A −→ A+ , where we use A+ to denote
+the set of finite (non-empty) words on A. By concatenation, it is natural to extend
+a substitution to A+ to AN (one-sided sequences) or AZ (two-sided sequences). In
+particular, the iterates ζ n (a) = ζ(ζ n−1 (a)) for a ∈ A, are well defined.
+
+   For a word w ∈ A+ let |w| be its length and let |w|a be the number of symbols
+a found in w. The substitution matrix associated to a substitution ζ is the m × m
+matrix with integer entries defined by Mζ (a, b) = |ζ(b)|a . A substitution is called
+primitive if its substitution matrix is primitive (see [Que10], Chapter 5). If there
+exists q ∈ N, q ≥ 2 such that |ζ(a)| = q for all a ∈ A, we say that ζ is a constant-
+length substitution.
+
+   The substitution subshift associated to ζ is the set Xζ of sequences (xn )n∈Z ∈ AZ
+such that for every i ∈ Z and k ∈ N exist a ∈ A and n ∈ N such that xi . . . xi+k
+is a subword of some ζ n (a). Let w = w0 . . . wk be a word in A+ and l ∈ Z. The
+cylinder at l associated to w is the set
+                  [w]l = {(xn )n∈Z ∈ Xζ | xl = w0 , . . . , xl+k = wk } .
+When l = 0 we will omit the subindex l. Abusing notation, let [w] be the elements
+of A+ that start with w, that is, having w as a prefix. In particular, we will consider
+in the next sections the indicator function of a cylinder [w] ⊂ Xζ , which we will
+denote by 1[w] .
+
+   A classical result is that the Z-action by the left-shift T ((xn )n∈Z ) = (xn+1 )n∈Z
+on Xζ is minimal and uniquely ergodic when ζ is primitive (see [Que10], Chapter
+5). From now on we only consider primitive and aperiodic substitutions, i.e., such
+that there are no shift-periodic sequences in the subshift.
+
+   Finally, let us recall the definition of conjugacy and semiconjugacy. We say
+two subshifts (X, T ), (Y, T ) are topologically conjugate if there is a homeomorphism
+π : X −→ Y such that π ◦ T = T ◦ π. If π is only onto, then we say X and Y are
+topologically semiconjugate, or that Y is a factor of X.
+2.2. Thue-Morse sequence and bijective subtitutions. Let
+                                 ζT M : 0 7→ 01, 1 7→ 10
+be the Thue-Morse substitution. This substitution has two fixed points, namely,
+u = ζT∞M (0) and v = ζT∞M (1). The former one is called the Thue-Morse sequence.
+Note that v is equal to u after changing the symbols 0’s for 1’s and 1’s for 0’s.
+                                                                                          5
+
+
+Another characterization of this sequence which we will use along the whole text is
+the next arithmetic property valid for all integers k ≥ 0:
+                                  uk = s2 (k) (mod 2),
+where s2 (k) is equal to the sum of digits in the binary expansion of k, i.e., if
+k = k0 + · · · + kn−1 2n−1 with kj ∈ {0, 1}, then s2 (k) = k0 + · · · + kn−1 .
+
+   The Thue-Morse substitution is a particular case of bijective substitutution.
+Definition 2.1. A substitution ζ of constant length q is bijective if for all j ∈
+{1, . . . , q} there exists a permutation πj of A such that for all a ∈ A we have
+ζ(a)j = πj (a). In particular, for a fixed j ∈ {1, . . . , q} all letters ζ(a)j , for a ∈ A,
+are different.
+   As we will see in Section 4, an analogue of the arithmetic property of Thue-Morse
+is shared by all bijective substitution on two letters (see Corollary 4.5).
+Example 2.2. Let us consider the alphabets A = {1, 2, 3, 4, 5} and B = {0, 1} and
+the following substitutions:
+                        
+    
+     1  →
+         7   123325      
+                           1 7→ 123323
+    
+                        
+                         
+    
+          →
+           7             
+                                          (                         (
+     2      235414      2 7→ 235414        0 7→ 01101011             0 7→ 01010
+ζ1 : 3 7→ 544231 ζ2 : 3 7→ 544231 ζ3 :                          ζ3 :
+    
+                        
+                                            1 7→ 10010100             1 7→ 11100
+    
+     4 7→ 311142        
+                           4 7→ 311142
+    
+                        
+                         
+    5 7→ 452553         5 7→ 452553
+
+    The substitutions ζ1 , ζ2 are of constant length (q = 6) on A. The substitution
+ζ1 is bijective and ζ2 is not bijective, since for j = 6 we have ζ2 (1)6 = ζ2 (5)6 = 3.
+The substitutions ζ3 , ζ4 are of constant length (q = 8 and q = 5 respectively) on
+B. The substitution ζ3 is bijective and ζ4 is not bijective, since for j = 2 we have
+ζ4 (0)2 = ζ4 (1)2 = 1.
+2.3. Conjugacy and factor list of a substitution subshift. Here we recall
+some results on factors of substitution subshifts. First, we recall the classical result
+of Curtis-Hedlund-Lyndon on topological factor maps on general subshifts. For a
+shift space X, let Lr (X) be the set of all possible words appearing in elements of
+X of length r ≥ 0.
+Definition 2.3. A sliding block code π is a map between shift spaces X ⊆ AZ ,
+Y ⊆ B Z such that there exists an integer r ≥ 0 and a map π
+                                                          b : L2r+1 (X) −→ B such
+that the image (yn )n∈Z ∈ Y by π of (xn )n∈Z ∈ X is given by the rule
+                     yn = π
+                          b(xn−r . . . xn . . . xn+r )   for all n ∈ Z.
+Theorem 2.4 (see [LM95], Theorem 6.2.9). A function π : X −→ Y is a sliding
+block code if and only if it is continuous and commutes with the shift map T .
+   For substitution subshifts we have the next two general results.
+Theorem 2.5 ([Dur00]). Subshift topological factors of substitution systems are
+topologically conjugate to substitution subshifts.
+Theorem 2.6 ([DHS99]). There exist finitely many subshift topological factors of
+a substitution subshift up to topological conjugacy.
+6                          JUAN MARSHALL-MALDONADO
+
+
+   Deciding when two substitution systems are topologically conjugate or semicon-
+jugate (one is a factor of the other) is a problem recently solved (the conjugacy
+problem follows from the second one by coalesence of substitution subshifts).
+Theorem 2.7 ([DL22]). For two uniformly recurrent substitution subshifts (X, T )
+and (Y, T ), it is decidable wheter they are semiconjugate. Moreover, if (Y, T ) is
+aperiodic, then there exists a computable constant r such that for any factor π :
+X −→ Y there exist k ∈ Z and a factor π ′ : X −→ Y of radius less than r, such
+that π = T k ◦ π ′ .
+   It is tempting to think we may list all factors from a given substitution system,
+but the radius r in the last result depends strongly on the factor system. On the
+other hand, in the constant length case, this is partially solved: it is possible to
+give the list of all factors of constant length (see [CDK17, DL22]). Examples of
+conjugate substitution systems to the Thue-Morse subshift which are not constant
+length are given in [Dek14].
+Theorem 2.8 ([Dek14]). There exist infinitely many non-constant length, primi-
+tive, injective substitutions with Perron-Frobenius eigenvalue equal to 2, conjugate
+to the Thue-Morse substitution.
+Example 2.9. Consider the substitutions ζ1 and ζ2 defined below. Both are conju-
+gate to the Thue-Morse substitution. The substitution ζ3 (period doubling) defines
+a non-trivial topological factor.
+                            ζ1 : 0 7→ 01, 1 7→ 20, 2 7→ 10,
+                            ζ2 : 0 7→ 012, 1 7→ 02, 2 7→ 1,
+                            ζ3 : 0 7→ 01, 1 7→ 00.
+2.4. Solutions of s2 (k + a) − s2 (k) = d. Here we briefly recall some results from
+[EP17]. Consider the equation s2 (k + a) − s2 (k) = d, for a ∈ N and d ∈ Z. Let Sa,d
+be its solution set. Note that if d > ⌈log2 (a)⌉, then Sa,d = ∅. Also, d < −n implies
+Sa,d ∩ {0, . . . , 2n − 1} = ∅. These will be trivial cases of the next lemma.
+
+   To change between words and numbers represented by digits consider the next
+notation: k 2 denotes the word associated to the digits of k in base 2, i.e., if k =
+k0 + · · · + kn−1 2n−1 then, k2 = k0 . . . kn−1 ∈ {0, 1}∗. Similarly, for a word w =
+w0 . . . wn−1 ∈ {0, 1}∗, let w2 be the number w0 + · · · + wn−1 2n−1 .
+Lemma 2.10 (see [EP17], Lemma 2.1.1). There exists a finite set of words Pa,d =
+{pda (1), . . . , pda (s)} ⊂ {0, 1}∗, such that
+                                                     s
+                                                     [
+                                   k ∈ Sa,d ⇐⇒ k 2 ∈   [pda (i)],
+                                                i=1
+
+   Let ||Pa,d || be the length of the longest word of Pa,d . We will keep using Pa,d
+to denote the set made from elements from the old Pa,d after adding all possible
+suffixes in {0, 1} to all words which are not of maximal length ||Pa,d ||, making all
+the words of the new set of length ||Pa,d ||.
+Lemma 2.11. For all a ∈ N and d ∈ Z, the set Pa,d (if it is non-empty) satisfies:
+   • #Pa,d ≤ 8a3 .
+   • ||Pa,d || = 2⌈log2 (a)⌉ + |d|.
+                                                                                        7
+
+
+Proof. Both claims come direct from the proof of Lemma 2.10: we generalize the
+proof to strongly q-additive functions in Lemma 6.1 (see also the proof of Corollary
+6.2). Here we sketch the proof to use the explicit constants later in the particular
+case of the Thue-Morse substitution. For the second point, since a has at most
+⌈log2 (a)⌉ digits in base 2, the longest word of Pa,d has a prefix of length at most
+⌈log2 (a)⌉ followed by a suffix from some P1,d′ , and |d′ | ≤ ⌈log2 (a)⌉ + |d|. In sum-
+mary, ||Pa,d || ≤ 2⌈log2 (a)⌉ + |d|.
+
+   By our assumption, all words from Pa,d have the same length, i.e., we can take
+||Pa,d || = 2⌈log2 (a)⌉ + |d|. Finally, each suffix added is of length at most 2⌈log2 (a)⌉
+and a has at most ⌈log2 (a)⌉ digits in base 2, which defines 2⌈log2 (a)⌉ possible prefixes
+for the words in Pa,d . In summary, we have #Pa,d ≤ 2⌈log2 (a)⌉ 22⌈log2 (a)⌉ ≤ 8a3 . 
+
+2.5. Mixing coefficients and bounded law of iterated logarithm. A major
+technical tool needed to obtain the bounds of subsections 3.2 and 3.3 is a bounded
+iterated logarithm law for uniformly expanding systems, in the case of unbounded
+observables. Although the proof of this result does not play a role for our work, we
+comment the context for completeness.
+
+   Following [DGM12], the result comes from the study of some mixing coefficients,
+definition we recall next. For an integrable random variable X of a probability
+space (Ω, C, P), set X (0) = X − E(X). For a real random vector (X1 , . . . , Xk ) and
+a σ-algebra F ⊂ C, define
+                                                                  (0)
+                                             Yk
+                                                             (0)
+         φ(F , X1 , . . . , Xk ) = sup   E       1{Xj ≤xj }      F          .
+                              (x1 ,...,xk )∈Rk      j=1
+                                                                                 ∞
+
+Let R be a bijective bimeasurable map of Ω. For a process X = (Xj )j≥0 such that
+Xi = Ri ◦ X0 and X0 is measurable with respect to a σ-algebra F that satisfies
+F ⊂ R−1 F , define
+
+                   φk,X (n) = max            sup    φ(F , Xi1 , . . . , Xil ).
+                               1≤l≤k n≤i1 <···<il
+
+   The main importance of these coefficients is that a suitable control on them
+implies a bounded law of iterated logarithm for the Birkhoff sums of uniformly
+expanding maps of the interval (being one of its inverse branches the transformation
+R) and observables f in the closure of the family of functions Mon2 (M, ν) (below
+we denote this closure by Monc2 (M, ν)), where Mon2 (M, ν) (M > 0, ν a measure
+on the unit interval) is the set of functions g : [0, 1] −→ R such that ν(|g|2 ) ≤ M 2
+(square-integrable with respect to the measure ν) and g is a finite sum of functions
+which are monotonic in some interval and zero elsewhere.
+
+Theorem 2.12 ([DGM12]). Let S be a uniformly expanding map of the unit inter-
+val with an absolutely continuous invariant measure ν. Then, for any M > 0 and
+f ∈ Monc2 (M, ν), there exists a nonnegative constant A such that
+                            k−1
+                                                                !
+           X1               X                      p
+                                      i
+                 ν max          (f ◦ S − ν(f )) ≥ A n log log(n) < ∞.
+           n=1
+               n    1≤k≤n
+                            i=0
+8                           JUAN MARSHALL-MALDONADO
+
+
+This convergence implies a bounded law of iterated logarithm: for ν-almost every
+ω,
+                                      n−1
+                                      X
+                             1
+               lim sup p                  (f ◦ S i (ω) − ν(f )) ≤ A.
+                 n→∞     n log log(n) i=0
+2.6. Spectral cocycle and top Lyapunov exponents. As usual, we use the no-
+tation e(x) := e2πix . Following [BS20], let ζ be a substitution over A = {1, . . . , m}
+and let ζ(a) = w1 . . . wka .
+Definition 2.13. The spectral cocycle is the cocycle over Tm = (R/Z)m with
+(a, b) ∈ A2 entry given by
+                                  ka
+                                  X
+              Cζ (ξ, 1)(a, b) =         δwj ,b e(ξw1 + · · · + ξwj−1 ),   ξ ∈ Tm
+                                  j=1
+
+                   Cζ (ξ, n) = Cζ ((MζT )n−1 ξ, 1) . . . Cζ (ξ, 1).
+   The original definition actually uses a minus sign in the exponentials, but it is
+just a convention and it will not affect the calculations. Since we will only consider
+the spectrum of the substitution with the Z-action, we will restrict this cocycle
+to the diagonal, i.e, for ξ = ω~1, with ω ∈ [0, 1). In the case of constant length
+substitutions (of length q), the base dynamics is the q-times map ω 7→ qω (mod 1)
+over T.
+Example 2.14. Let ζT M : 0 7→ 01, 1 7→ 10 be the Thue-Morse substitution. Then,
+for (ξ0 , ξ1 )T = ω~1,
+                                           
+                         ~          1   e(ω)
+                CζT M (ω 1, 1) =               ,
+                                  e(ω)    1
+                                                                 
+                        ~             1      e(2n−1 ω)       1  e(ω)
+                CζT M (ω 1, n) =                       ...            .
+                                  e(2n−1 ω)      1         e(ω)   1
+   The pointwise top Lyapunov exponent of the spectral cocycle Cζ , is defined for
+ω ∈ [0, 1) as
+                                          1
+                         χ+
+                          ζ (ω) = lim sup   log||Cζ (ω~1, n)||.
+                                    n→∞ n
+By the Furstenberg-Kesten theorem, this is in fact a limit for almost every ω. In
+the case of a constant length substitution, since the q-times map x → qx (mod
+1) (q ∈ N, q ≥ 2) is an ergodic transformation for the Lebesgue measure (denoted
+by Leb), the Furstenberg-Kesten theorem implies that χ+     ζ (ω) is almost everywhere
+                                     +
+constant, value we will denote by χζ . A reference for general theory on cocycles is
+[Via14].
+2.7. Results on binary constant length substitutions. We recall some results
+proved in [BCM20] concerning constant length substitutions on two letters. The
+main result gives an expression of the top Lyapunov exponent as the logarithmic
+Mahler measure of certain polynomial.
+Theorem 2.15 ([BCM20], Theorem 1.1). Let ζ be a substitution of length q on
+two letters. Then
+                                  χ+ζ = m(P ).
+for some polynomial P ∈ Z[X] with integer coefficients and degree q − 1, where
+m(P ) denotes the logarithmic Mahler measure of P .
+                                                                                                  9
+
+
+  In fact, in [BCM20] they also prove that the other Lyapunov exponent vanishes,
+but we will not use this fact. A crucial observation to prove this result is the next
+Lemma 2.16 ([BCM20], Remark 4.3). Let ζ be a substitution of length q on two
+letters, v = (1, −1)T and P the polynomial of Theorem 2.15. Then
+                                                        n−1
+                                                        Y
+                                 Cζ (ω~1, n)v =               P (e(q k ω))v
+                                                        k=0
+and
+                                                   1
+                                χ+
+                                 ζ = lim               log||Cζ (ω~1, n)v||.
+                                          n→∞ n
+
+   Let us mention that the polynomial P is explicit and depends only on the bi-
+jective columns of the substitution, that is, on elements j ∈ {1, . . . , q} such that
+ζ(0)j 6= ζ(1)j .
+2.8. Twisted Birkhoff sums and twisted correlations. In this subsection we
+define a special kind sum appearing in the calculations of the top Lyapunov ex-
+ponents for factors of Thue-Morse, but whose study might be interesting by itself.
+First, we recall the notion of twisted Birkhoff sum:
+Definition 2.17. Let (X, µ, T ) be a measure-preserving system, f a measurable
+                                                   f
+function and ω ∈ [0, 1). The twisted Birkhoff sum SN (ω, x) (at time N , of parameter
+ω) of f at a point x ∈ X is defined by
+                                                    N
+                                                    X −1
+                                  f
+                                 SN (ω, x) =               f (T k x)e(kω).
+                                                    k=0
+
+   This type of sum (or integral in the continuous case) is of major importance in
+several recent works like [MM20, Tre20, BS21, AFS23] since uniform (on x ∈ X)
+upper bounds allow one to obtain lower bounds for the dimension of spectral mea-
+sures of the dynamical systems involved: substitutions, interval exchange trans-
+formations, suspensions over S-adic systems (including translation surfaces) and
+higher dimensional tilings.
+
+   A generalization of this kind of sum is the next concept. For more generalizations
+of multiple ergodic sums see for example [Eis13] and references therein.
+Definition 2.18. Let (X, µ, T ) be a dynamical system, f a measurable function.
+Let a1 < · · · < at positive integers and ω ∈ [0, 1). The (accumulated) twisted
+              f
+correlation CN  (a1 , . . . , at , ω, x) (at time N , of parameters a1 , . . . , at and ω) of f at
+a point x ∈ X is defined by
+                                          N
+                                          X −1
+           f
+          CN (a1 , . . . , at , ω, x) =          f (T k x)f (T k+a1 x) . . . f (T k+at x)e(kω).
+                                          k=0
+
+   We will study this concept in the case of subshifts arising from bijective sub-
+stitutions on two letters, and for the indicator functions 1[0] , 1[1] . It turns out
+that better algebraic properties emerge if we consider the function 1[0] − 1[1] , and
+the twisted correlation of the former functions may be bounded from above using
+a finite combination of twisted correlations of the latter function. For this last
+                                                ±
+function we denote its twisted correlations by CN (a1 , . . . , at , ω, x). For example, if
+10                               JUAN MARSHALL-MALDONADO
+
+
+we consider u the Thue-Morse sequence (note that we are only interested in the
+nonnegative coordinates), the twisted correlation will be of the form
+                                           N
+                                           X −1
+            ±
+           CN (a1 , . . . , at , ω, u) =         (−1)s2 (k)+s2 (k+a1 )+...+s2 (k+at ) e(kω).
+                                           k=0
+
+Of course, for the other fixed point of the Thue-Morse substitution denoted by v,
+we have the next simple relation for the twisted correlation (recall that v is just u
+after swaping 0’s and 1’s):
+                   ±                                     ±
+                  CN (a1 , . . . , at , ω, u) = (−1)t+1 CN (a1 , . . . , at , ω, v).
+   Where do these sums come up? They appear naturally when studying the twisted
+Birkhoff sums of (topological) subshift factors of a substitution (on two letters)
+subshift: by Theorem 2.4, every factor π comes from a map π      b : L2r+1 → B, for
+some r ≥ 0. By Theorem 2.5 factors of substitution systems are conjugate to
+substitution subshifts. Let a, b ∈ B, σ the factor substitution and w any element of
+Xσ starting with σ n (a). If x ∈ π −1 ({w}), we have the next relation for f = 1[b] :
+                                       |σn (a)|−1
+      f
+                             X             X
+     S|σ n (a)| (ω, w) =                            1[w−r ...wr ]−r (T k x)e(kω)
+                           w:b
+                             π (w)=a       k=0
+                                       |σn (a)|−1
+                             X             X
+                       =                            1[w−r ] (T k−r x) · . . . · 1[wr ] (T k+r x)e(kω)
+                           w:b
+                             π (w)=a       k=0
+
+   Note in the last equality there are some terms depending on negative coordinates,
+but the number of terms is bounded (in fact computable according to Theorem 2.7)
+as n goes to infinity, so it will not interfere with determining asymptotic bounds.
+Using the simple relation between the indicator functions, we obtain the twisted
+Birkhoff sum of the factor as a sum of different twisted correlation in the Thue-
+Morse subshift. The details are explained in Section 6.
+
+
+Remark 2.19. The case ω = 0, i.e., of correlations of higher order, has been recently
+studied in [BC23].
+
+                                             3. Results
+3.1. Top Lyapunov exponent of a general substitution. A simple observation
+leads to a basic fact about the top Lyapunov exponent of an arbitrary substitution.
+Here and in the proof of Proposition 3.4, we use the following simple fact: consider
+f (x) = log(|2 cos(πx)|), g(x) = log(|2 sin(πx)|). It is an excercise to check that
+f, g ∈ L1 ([0, 1], Leb) and both have mean equal to zero.
+Proposition 3.1. Let ζ be an arbitrary substitution on A. Then, χ+
+                                                                 ζ (ω) ≥ 0 for
+Lebesgue almost every ω ∈ [0, 1).
+Proof. Note that for the line of the matrix Cζ (ω, n) indexed by a ∈ A, all complex
+exponentials 1, . . . , e((|ζ n (a)| − 1)ω) appear as a summand in some entry of this
+line. From this fact we deduce rapidly,
+                                         X
+                    ||Cζ (ω, n)||∞ ≥        |Cζ (ω, n)(a, b)|
+                                            b∈A
+                                                                                     11
+
+
+                                  ≥ |1 + . . . + e((|ζ n (a)| − 1)ω)|
+                                  = |2 cos(π{|ζ n (a)|ω})|/|e(ω) − 1|.
+A uniform distribution result may serve to conclude. Alternatively, an elementary
+argument is the next one: call f (x) = log(|2 cos(πx)|). We will conclude the proof
+by means of the next Borel-Cantelli based argument: let ε > 0 and Gn (ε) = Gn =
+{ω ∈ [0, 1)|f ({|ζ n (a)|ω}) ≥ nε}. Since the Lebesgue measure is invariant for all
+q-times maps,
+               Leb(Gn ) = Leb ({ω ∈ [0, 1) | f ({|ζ n (a)|ω}) ≥ nε})
+                        = Leb ({ω ∈ [0, 1) | |f (ω)| ≥ nε})
+                          X                                        
+                                                        |f (ω)|
+                        =     Leb    ω ∈ [0, 1) | k ≤           <k+1    .
+                                                           ε
+                           k≥n
+
+Then,
+         X                  XX                                        
+                                                           |f (ω)|
+             Leb(Gn ) =          Leb     ω ∈ [0, 1) | k ≤          <k+1
+                                                              ε
+         n≥1            n≥1 k≥n
+                        X                                          
+                                                        |f (ω)|
+                      =     k Leb      ω ∈ [0, 1) | k ≤         <k+1
+                                                           ε
+                        k≥1
+                        Z 1
+                            |f (x)|
+                      ≤             dx < +∞.
+                         0     ε
+From Borel-CantelliTlemma we deduce that for any ε > 0, Leb (lim inf n Gn (ε)) = 1.
+Considering G = i lim inf n Gn (1/i) we have Leb(G) = 1 and for any ω ∈ G,
+     f ({|ζ n (a)|ω})
+limn                  = 0.                                                       
+             n
+Remark 3.2. A similar result is proved in Theorem 3.34 of [BGM19], but for almost
+every parameter in the line generated by the Perron-Frobenius eigenvector instead
+of the vector ~1 as in our case. It is worth mentioning also that the top Lyapunov
+exponent of the general cocyle as defined in Definition 2.13 is nonnegative if we
+assume the substitution matrix has no eigenvalues that are roots of unity, as shown
+in Corollary 2.8 of [BS22].
+   To finish this section we prove a result regarding the rest of the Lyapunov spec-
+trum of a constant length substitution.
+Proposition 3.3. Let ζ be a substitution of constant length q on an alphabet A of
+cardinality d. Then there exists a Lyapunov exponent χj (ω) = 0 almost surely.
+Proof. Indeed, note that the vector ~1 ∈ Rd is a rigth eigenvector of Cζ (ω~1, n) with
+eigenvalue
+               n−1
+               Y                                          n−1
+                                                          Y
+                   1 + e(q j ω) + · · · + e(q (d−1)j ω) =     Pd (e(q j ω)).
+                 j=0                                      j=0
+We know m(Pd ) = 0, since it is the product of cyclotomic polynomials. Therefore,
+if ~1 ∈ Wj for some j ∈ 1, . . . , d in the filtration, by the Birkhoff ergodic theorem
+                                          n−1
+            1                            1X
+         lim  log||Cζ (ω~1, n)~1|| = lim      log(|Pd (q j ω)|) = m(Pd ) = 0,
+        n→∞ n                       n→∞ n
+                                          j=0
+12                          JUAN MARSHALL-MALDONADO
+
+
+for Lebesgue almost every ω. That is, the Lyapunov exponent χj (ω) = 0 almost
+surely.                                                                    
+
+3.2. The Thue-Morse top Lyapunov exponent. The fact that the top Lya-
+punov exponent for Thue-Morse is equal to zero is not a new result, in fact the result
+is really explicit for all constant length substitutions on two letters: see [BCM20].
+As hinted in the introduction, this is related to the growth of the Thuse-Morse
+polynomials. In this subsection we will recall the proof of this fact and then prove
+an explicit subexponential upper bound for the Thue-Morse polynomials.
+
+   Let v = (1, −1)T and note that v is an eigenvector for all matrices appearing in
+the cocycle:
+                                                                  
+                   ~              1      e(2n−1 ω)         1    e(ω)
+           CζT M (ω 1, n)v =                        ...                v
+                              e(2n−1 ω)      1           e(ω)     1
+                              n−1
+                              Y                
+                          =         1 − e(ω2j ) v.
+                              j=0
+
+As pointed out in [BCM20], it is enough to study this direction to calculate the top
+Lyapunov exponent. Set f (ω) = 2 sin(πω) (= |1 − e(ω)|). Since S : [0, 1) −→ [0, 1)
+defined by Sx = 2x (mod 1) is ergodic for the Lebesgue measure, we have that for
+almost every ω,
+                                            n−1
+                                            Y
+              1                        1                   1
+                log||CζT M (ω~1, n)|| = log     f (S n ω) + log(||v||)
+              n                        n    j=0
+                                                           n
+                                          n−1
+                                       1X                    1
+                                     =       log(f (S n ω)) + log(||v||)
+                                       n j=0                 n
+                                        Z 1
+                                     −→     log(f (x))dx = 0.
+                                           0
+
+In fact, we can show a finer estimate for the growth of the product pn (ω) :=
+Q n             j
+  j=0 2 sin(π{ω2 }).
+
+Proposition 3.4. There exists a positive constant B such that for almost all ω,
+there is a positive integer n0 (ω) such that for all n ≥ n0 (ω),
+                                                   √
+                         max(pn (ω), p−1
+                                      n  (ω)) ≤ e B n log log(n)
+                                                                 ,
+                 Qn
+where pn (ω) = j=0 2 sin(π{ω2j }).
+
+Proof. Fix ε > 0. Consider the function of the unit interval f (x) = log(2 sin(πx)).
+One can check that Leb(f ) = 0 and Leb(|f |2 ) ≤ 22 . Set f1 , f2 as
+          f1 (x) = 2 log(2 sin(πx)) if x ∈ (0, 1/2] and f1 (x) = 0 otherwise,
+          f2 (x) = 2 log(2 sin(πx)) if x ∈ [1/2, 1) and f2 (x) = 0 otherwise.
+            1    1
+Then, f = f1 + f2 and f ∈ Mon2 (2, Leb). We may apply Theorem 2.12 to
+            2    2
+the doubling map S and the function f : we get for almost every ω there exists
+                                                                                        13
+
+
+n0 (ω) ≥ 1 such that for every n ≥ n0 (ω),
+                         n
+                         X                               p
+                               f ◦ S j (ω) ≤ (A + ε)      n log log(n).
+                                             | {z }
+                         j=0
+                                                  =:B
+To obtain the desired inequality we take exponential both sides, by noticing that
+                             e|x| = emax(x,−x) = max(ex , e−x ).
+                                                                                         
+3.3. Top Lyapunov exponent for a binary constant length substitution.
+We generalize the calculations made in the last subsection in this more general
+setting: we will show an explicit subexponential deviation from the expected expo-
+nential growth for the spectral cocycle.
+Theorem 3.5. Let ζ be a substitution of length q on two letters and I = χ+    ζ . There
+exists a positive constant B such that for almost all ω there exists a positive integer
+n0 (ω) such that for all n ≥ n0 (ω),
+                       √               ||Cζ (ω~1, n)||     √
+                   e−B n log log(n) ≤          nI
+                                                       ≤ eB n log log(n) .
+                                             e
+Proof. Let P the integer polynomial appearing in Lemma 2.16 (which can be de-
+duced directly from ζ as explained in [BCM20]) and v = (1, −1)T . The real function
+f : ω 7→ log(|P (e(ω))|) is defined everywhere in [0, 1] except maybe at q points, since
+the trigonometric polynomial P (e(ω)) has degree q − 1.
+
+   The reader may check that f ∈ L1 ([0, 1], Leb), Leb(f ) = m(P ) = I (by Theorem
+2.15) and f ∈ L2 ([0, 1], Leb), i.e., there exists M > 0 such that Leb(f 2 ) < M 2 . We
+may decompose f into a finite sum of increasing and decreasing functions (as in the
+case of the Thue-Morse substitution in last section) taking into account the zeros
+and critical points of P (e(ω)). In summary, f ∈ Mon2 (M, Leb) and by Theorem
+2.12, there exists B > 0 such that for Lesbesgue almost every ω ∈ [0, 1) there exists
+n0 (ω) ≥ 1 such that for every n ≥ n0 (ω),
+                                                     p
+                     log||Cζ (ω~1, n)|| − nm(P ) ≤ B n log log(n),
+i.e.,
+                         √                  ||Cζ (ω~1, n)||     √
+                   e−B   n log log(n)
+                                        ≤           nI
+                                                            ≤ eB n log log(n) .
+                                                  e
+where I = χ+
+           ζ = m(P ).                                                                    
+3.4. Upper bounds for twisted correlations: the Thue-Morse case. In this
+subsection we look for upper bounds for the twisted correlations C2±n (a1 , . . . , at , ω)
+for the Thue-Morse subshift. A remark on notation: given F : N −→ C, G : N −→
+R+ and some parameters a, b > 0, we write
+                                            F = Oa,b (G)
+if there exists C = C(a, b) > 0 depending only on a, b such that for all n ≥ 0 we
+have
+                                  |F (n)| ≤ CG(n).
+The main result of this section is the next one.
+14                                JUAN MARSHALL-MALDONADO
+
+
+Theorem 3.6. Let C2±n (a1 , . . . , at , ω, u) be the twisted correlation defined in Defi-
+nition 2.18, for F = 1[0] − 1[1] and u the Thue-Morse sequence. Then
+      • if t is even, there exists B > 0 independent of ω and t such that for almost
+        every ω,
+                                                              √            
+                   C2±n (a1 , . . . , at , ω, u) = Oat ,ω nt eB n log log(n) .
+      • if t is odd, for every ε > 0 and almost every ω,
+                                                                        
+                           C2±n (a1 , . . . , at , ω, u) = Oat ,ω nt+1+ε .
+   For simplicity we will only prove the case t = 1 here. For the general case, see
+the Appendix.
+
+                                                          e2n (a, ω, u) := P2 −1 [1 +
+                                                                                n
+   Equivalently, we will prove the upper bound for C                           k=0
+(−1)s2 (k+a)+s2 (k) ]e(kω), since the geometric sum is bounded by a constant depend-
+ing on ω, so it can be included in the Oat ,ω sign. Let us recall that if d > ⌈log2 (a)⌉,
+then Sa,d = ∅; and d < −n implies Sa,d ∩ {0, . . . , 2n − 1} = ∅. Recall also that for
+a word w = w0 . . . wn−1 ∈ {0, 1}∗, w2 is the integer w0 + · · · + wn−1 2n−1 . Finally,
+note that we can change s2 (k + a) + s2 (k) for s2 (k + a) − s2 (k) because it is in the
+exponent of −1.
+
+                   n
+                  2X −1
+e2n (a, ω, u) =
+C                       [1 + (−1)s2 (k+a)−s2 (k) ]e(kω)
+                  k=0
+                          ⌊n/2⌋
+                          X             X
+             =2                                  e(kω)
+                   d=−⌈log2 (a)/2⌉ k∈Sa,−2d
+                                  0≤k≤2n −1
+                          ⌊n/2⌋
+                          X                   X
+             =2                                           e(kω)
+                                        S
+                   d=−⌈log2 (a)/2⌉ k2 ∈ i [pa,−2d (i)]
+                                       0≤k≤2n −1
+                          ⌊n/2⌋      #Pa,−2d 2n−||Pa,−2d || −1                                           
+                          X           X            X                                                  2
+             =2                                                    e        2||Pa,−2d || k + pa,−2d (i)    ω
+                   d=−⌈log2 (a)/2⌉     i=1              k=0
+                                                                      a,−2d || −1
+                          ⌊n/2⌋
+                          X          #Pa,−2d
+                                       X                  2
+                                                               2n−||PX                            
+             =2                                e pa,−2d (i) ω                     e 2||Pa,−2d || kω
+                   d=−⌈log2 (a)/2⌉     i=1                                    k=0
+                                                                                2
+                                                                                   
+                                        ⌊n/2⌋          #Pa,−2d    e pa,−2d (i) ω
+                                         X               X
+             = 2(e(2n ω) − 1)                                                    
+                                   d=−⌈log2 (a)/2⌉       i=1
+                                                                 e 2||Pa,−2d || ω − 1
+
+By the first claim of Lemma 2.11,
+                                                ⌊n/2⌋
+                                                 X                 1
+                e2n (a, ω, u)| ≤ 8a3
+               |C                                                              
+                                                        |sin π2 ||Pa,−2d ||+1 ω |
+                                         d=−⌈log (a)/2⌉
+                                                   2
+
+                                                 ⌊n/2⌋
+                                                  X
+                                  ≤ 4πa3                       ||2||Pa,−2d ||+1 ω||−1
+                                                                                   R/Z
+                                             d=−⌈log2 (a)/2⌉
+                                                                                                                        15
+
+
+By the second claim of the same lemma,
+                                                         ⌊n/2⌋
+                                                         X
+                  e2n (a, ω, u)| ≤ 4πa3
+                 |C                                                  ||22⌈log2 (a)⌉+2d+1 ω||−1
+                                                                                            R/Z .
+                                                  d=−⌈log2 (a)/2⌉
+
+Now we recall a well-known consequence of Borel-Cantelli lemma.
+Lemma 3.7 (see [BHL17], Lemma 6.2.6). Let ε > 0 and q > 1. For almost every
+x ∈ R there exists d0 (x) ∈ N such that
+                                                                     1
+                                                ||q n x||R/Z ≥            ,
+                                                                   n1+ε
+holds for every n ≥ d0 (x).
+  Then,
+                                                                                                    
+                                                        ⌊n/2⌋
+                                                         X
+                   e2n (a, ω, u)| = Oa,ω 
+                  |C                                              (2⌈log2 (a)⌉ + 2d + 1)1+ε 
+                                                       d=d0 (ω)
+                                                     2+ε
+                                        = Oa,ω (n          )
+  This finishes the proof for the case t = 1. We have already seen the case t = 0,
+which is the case of twisted Birkhoff sums in last section.
+
+   To finish this section, we will pass to uniform bounds for the twisted correlations
+for all points of the subshift. We relay on the classic prefix-suffix decomposition:
+Proposition 3.8 ([DT89], Lemma 1.6). Let ζ be a primitive substitution with
+Perron-Frobenius eigenvalue θ. For any x ∈ Xζ , and N ≥ 1 there exists n ≥ 1 such
+that
+                 x[0,N −1] = s0 ζ(s1 ) . . . ζ n (sn )ζ n (pn ) . . . ζ(p1 )p0 ,
+where pi , si are respectively proper prefixes and suffixes (possibly empty) of words of
+{ζ(a)|a ∈ A} and pn , sn not both equal to the empty word. Moreover, there exists
+C > 0 such that | log(N ) − n log(θ)| ≤ C.
+                    ±
+Corollary 3.9. Let CN (a1 , . . . , at , ω, x) be the twisted correlation over x ∈ XζT M .
+Then
+      • if t is even, there exists B > 0 independent of ω and t such that for almost
+        every ω,
+                                                             √                       
+             ±
+          CN   (a1 , . . . , at , ω, x) = Oat ,ω log(N )t+1 eB log(N ) log log log(N ) .
+
+      • if t is odd, for every ε > 0 and almost every ω,
+                            ±
+                                                                            
+                           CN (a1 , . . . , at , ω, x) = Oat ,ω log(N )t+2+ε .
+Proof. Following the decomposition from Proposition 3.8, the bound follows simply
+from triangle inequality:
+       ±
+     |CN (a1 , . . . , at , ω, x)|
+          n
+          X
+                         ±                                                   ±
+      ≤         δpj ,0 |C|ζ j           (a1 , . . . , at , ω, u)| + δpj ,1 |C|ζ j           (a1 , . . . , at , ω, v)|
+                           T M (pj )|                                          T M (pj )|
+          j=0
+16                                       JUAN MARSHALL-MALDONADO
+
+          n
+          X
+                         ±                                                   ±
+      +         δsj ,0 |C|ζ j           (a1 , . . . , at , ω, u)| + δsj ,1 |C|ζ j           (a1 , . . . , at , ω, v)|
+                           T M (sj )|                                          T M (sj )|
+          j=0
+          (P n                √             
+                            t B j log log(j)
+                Oa   ,ω   j  e                                    if t is even,
+      = Pj=0n
+                   t
+                                 
+                           t+1+ε
+            j=0 at ,ω j
+                O                                                 if t is odd.
+        (                      √              
+          (n + 1)Oat ,ω nt eB n log log(n)                           if t is even,
+      ≤                            
+          (n + 1)Oat ,ω nt+1+ε                                       if t is odd.
+By using the second claim of Proposition 3.8, we finish the proof of the corollary. 
+
+                       4. Bijective substitutions on two letters
+   In this section we generalize results from Section 3 to general bijective substitu-
+tions on two letters. For the rest of the section let q be an integer greater or equal
+to two.
+4.1. Top Lyapunov exponent. First let us see an arithmetic property for a gen-
+eral bijective substitution on two letters.
+Definition 4.1. We say a function h : N −→ Z is strongly q-additive if for all n ≥ 0
+and j = 0, . . . , q − 1
+                           h(qn + j) = h(n) + h(j).
+Remark 4.2. Note that a strongly q-additive function is completely determined by
+the values h(1), . . . , h(q−1) (and h(0) is necessarily equal to 0). For more properties
+on (strongly) q-additive functions, see for example [DG10].
+Example 4.3. The sum-of-digits function s2 is a strongly 2-additive function.
+   From now on consider consider ζ a bijective substitution of length q on A =
+{0, 1}. We suppose ζ(0) start with 0, since otherwise we can work with ζ 2 which
+is a bijective substitution of length q 2 on A and necessarily satisfies the latter
+condition. It will have associated the same subshift (and so, the same subshift
+factors) and the fact that
+                                         χ+
+                                          ζ
+                                                       χ+
+                                                        ζk
+                                                =                 for all k ≥ 1,
+                                    log(q)          log(q k )
+justify this assumption to prove Theorem 1.2. Consider u = (un )n≥0 = ζ ∞ (0).
+Lemma 4.4. For ζ as above, the function F = 1[0] − 1[1] defined on Xζ satisfy
+                                        F (T qn+j u) = F (T n u)F (T j u)
+(i.e., F is strongly q-multiplicative, see [DG10]).
+Proof. Since u = ζ(u) we have that for all n ≥ 0 and 0 ≤ j < q, uqn+j = ζ(un )j .
+Let H(n) = F (T n u), then
+                          (                     (
+                            1   if uqn+j = 0      1    if ζ(un )j = 0
+             H(qn + j) =                     =
+                            −1 if uqn+j = 1       −1 if ζ(un )j = 1
+and
+                                    (                              (
+                                          1  if uj = 0                 1  if ζ(0)j = 0
+                        H(j) =                         =                               .
+                                          −1 if uj = 1                 −1 if ζ(0)j = 1
+                                                                                               17
+
+
+If un = 0, then H(n) = 1 and
+                          (
+                                      1  if ζ(0)j = 0
+                H(qn + j) =                           = H(j) = H(n)H(j).
+                                      −1 if ζ(0)j = 1
+If un = 1, then H(n) = −1 and
+                (                    (
+                  1   if ζ(1)j = 0     1                   if ζ(0)j = 1
+   H(qn + j) =                     =                                    = −H(j) = H(n)H(j),
+                  −1 if ζ(1)j = 1      −1                  if ζ(0)j = 0
+where we used the bijectivity of the substitution in the second equality.                      
+Corollary 4.5. There is a strongly q-additive function h : N −→ Z such that
+                                         F (T n u) = (−1)h(n)
+Proof. It is clear we can define a function h̃ : N −→ Z/2Z that satisfy the strong
+q-additive property. To pass to a strongly q-additive function h : N −→ Z such
+that for all n ≥ 1 we have h(n) ≡ h̃(n) (mod 2), we just have to make any choice
+of elements in {0, . . . , 2(q − 1)} such that h(j) ≡ h̃(j) (mod 2) for j = 1, . . . , q − 1
+and define the rest the terms h(n) by induction.                                          
+4.2. Twisted correlations. As before, we will consider the twisted correlations
+over a fixed point of the substitution and for the function F = 1[0] − 1[1] . By
+Corollary 4.5, consider h : N −→ Z a strongly q-additive function such that
+                                        F (T n u) = (−1)h(n) .
+Therefore we will study the sum
+                                               n
+                                              qX −1
+            Cq±n (a1 , . . . , at , ω, u) =         (−1)h(k)+h(k+a1 )+···+h(k+at ) e(kω).
+                                              k=0
+As in the case of Thue-Morse, we have the next result for the growth of twisted
+correlations: let I = χ+
+                       ζ be the top Lyapunov exponent of the spectral cocycle.
+
+Theorem 4.6. Let Cq±n (a1 , . . . , at , ω, u) be the twisted correlation defined in Defi-
+nition 2.18, for F = 1[0] − 1[1] . Then,
+      • if t is even, there exists B > 0 independent of ω and t such that for almost
+        every ω,
+                                                               √            
+                 Cq±n (a1 , . . . , at , ω, u) = Oat ,ω nt enI+B n log log(n) .
+      • if t is odd, for every ε > 0 and almost every ω,
+                            Cq±n (a1 , . . . , at , ω, u) = Oat ,ω (nt+1+ε ).
+   We will prove this result in the Appendix. Of course, we may generalize to an
+arbitrary point of the subshift Xζ using the prefix-suffix decomposition.
+                               ±
+Corollary 4.7. Let CN            (a1 , . . . , at , ω, x) be the twisted correlation over x ∈ Xζ .
+Then
+     • if t is even, there exists B > 0 independent of ω and t such that for almost
+       every ω,
+                                                                        √                 
+      ±
+    CN  (a1 , . . . , at , ω, x) = Oat ,ω N I/ log(q) log(N )t+1 eB log(N ) log log log(N ) .
+18                               JUAN MARSHALL-MALDONADO
+
+
+        • if t is odd, for every ε > 0 and almost every ω,
+                         ±
+                        CN (a1 , . . . , at , ω, x) = Oat ,ω (log(N )t+2+ε ).
+Proof. The proof is the same of Corollary 3.9.                                                       
+
+                      5. Top Lyapunov exponents of factors
+   In this section we will prove Theorem 1.2. The proof relies on the bounds for the
+twisted correlations found in subsection 3.4: we will see that the twisted Birkhoff
+sums of the factor subshift, correspond to linear combinations of twisted correla-
+tions on the factorized system.
+
+    The sketch of the proof has already been shown in the background section,
+but here is writen down explicitly and rigorously. Let (Xσ , T ) be an aperiodic
+topological factor of (Xζ , T ) arising from the aperiodic substitution σ, where ζ is
+a bijective substitution on the alphabet A = {0, 1} of constant length q ≥ 2. By
+Theorem 2.7, the factor map π : Xζ −→ Xσ is defined by a map π    b of radius r, where
+r is a computable constant depending on Xσ . Let I = χ+      ζ be the top Lyapunov
+exponent of the spectral cocycle for ζ, being almost everywhere constant since ζ is
+of constant length. Consider a point w such that at position zero it has the block
+σ n (a), for a letter a ∈ A. Choose any x ∈ π −1 ({w}). Then, setting f = 1[b] , we
+have
+                     f
+|Cσ (ω, n)(a,b)| = |S|σ n (a)| (ω, w)|
+
+                               |σn (a)|−1
+                      X          X
+                ≤                           1[w−r ] (T k−r x) · . . . · 1[wr ] (T k+r x)e(kω)
+                    w:b
+                      π(w)=b     k=0
+                                 n
+                               |σ (a)|−(r+1)
+                      X              X
+                ≤                               1[w−r ] (T k x) · . . . · 1[wr ] (T k+2r x)e(kω) + ∆r .
+                    w:b
+                      π(w)=b         k=0
+
+   In the last sum, there are terms depending on negative coordinates of x, but at
+most on the first r negative coordinates, which we leave apart in the term ∆r since
+they make no difference in the asymptotic as n goes to infinity.
+
+     Consider the next simple relations for F (x) = 1[0] (x) − 1[1] (x):
+                                              1
+                                     1[0] (x) = [1 + F (x)] ,
+                                              2
+                                              1
+                                    1[1] (x) = [1 − F (x)] .
+                                              2
+                   ±                          F
+By definition CN (a1 , . . . , at , ω, x) = CN  (a1 , . . . , at , ω, x). In the last inequality
+                                                            1               1
+above we replace each factor 1[0] (x), 1[1] (x) by [1 + F (x)], [1 − F (x)] respec-
+                                                            2               2
+tively, and develop the product, yielding a sum of twisted correlations with param-
+eters ai belonging to non-empty subsets of {0, . . . , 2r}, of the function F (note the
+obvious abuse of notation for the parameters in the twisted correlations below and
+the addition of one of these terms into ∆r ):
+                                X            X
+         |Cσ (ω, n)(a, b)| ≤                        C|σ F                           g
+                                                           n (a)|−(r+1) (S, ω, x) + ∆r,b .
+
+                                 π(w)=b S⊂{0,...,2r}
+                               w:b
+                                           S6=∅
+                                                                                                19
+
+
+We may estimate each twisted correlation using Corollary 4.7. We claim that for
+any ε > 0 there exists a constant Cb,r,ω > 0 depending on b, r, ω such that
+                                                            I/ log(q)+ε
+                     |Cσ (ω, n)(a, b)| ≤ Cb,r,ω |σ n (a)|
+                                        ≤ Cb,r,ω (||(MσT )n ||∞ )I/ log(q)+ε
+The second inequality is obvious by definition of the substitution matrix and the
+norm ||·||∞ . For the first one, note that by Corollary 4.7 we have that for N =
+|σ n (a)| − (r + 1)
+                                                          √                       
+            F
+           CN (S, ω, x) = Oat ,ω N I/ log(q) log(N )2r+2 eB log(N ) log log log(N ) ,
+
+since the bound in Corollary 4.7 in the odd case dominates the√one of the even case.
+Since for any ε > 0 we have, log(N )2r+2 = Or (N ε ) and eB log(N ) log log log(N ) =
+O(N ε ) (for our purposes, B is a universal constant). Then
+                                  √
+        N I/ log(q) log(N )2r+2 eB log(N ) log log log(N ) = Or (N I/ log(q)+ε )
+                                                                                     
+                                                                          I/ log(q)+ε
+                                                           = Or |σ n (a)|               ,
+
+which proves the claim.
+
+   This implies
+                                     1
+                   χ+
+                    σ (ω) = lim sup     log(|Cσ (ω, n)(a, b)|)
+                              n→∞ n
+                                                                      
+                                                               T n 1/n
+                           ≤ (I/ log(q) + ε) log lim sup ||(Mσ ) ||∞
+                                                    n→∞
+                                          
+                           = log ρ(MσT ) (I/ log(q) + ε),
+i.e.,
+                                     χ+
+                                      σ (ω)       I
+                                              ≤        +ε
+                                  log(ρ(Mσ ))   log(q)
+(note that MσT has the same spectral radius as Mσ since they have the same eigen-
+values). Since ε > 0 is arbitrary, we obtain the conclusion of Theorem 1.2.
+
+                                         6. Appendix
+6.1. Preliminary lemmata. Let h : N −→ Z be a strongly q-additive function.
+As in the case of s2 , we consider for a ∈ N and d ∈ Z the set Sa,d of positive integer
+solutions n to the equation
+                                     h(n + a) − h(n) = d.
+We have the same structure for the solutions as shown by the next lemma. The
+proof is the same as in Lemma 2.1.1 in [EP17]. We recall the notation introduced
+in subsection 2.4: let k be a nonnegative integer. Let k q be the word associated to
+the digits of k in base q, i.e., if k = k0 + · · · + kn−1 q n−1 then, k q = k0 . . . kn−1 ∈
+{0, 1, . . . , q − 1}∗ . Similarly, for a word w = w0 . . . wn−1 ∈ {0, 1, . . . , q − 1}∗ , let w q
+be the number w0 + · · · + wn−1 q n−1 .
+20                            JUAN MARSHALL-MALDONADO
+
+
+Lemma 6.1. There exists a (possibly empty) finite set of words
+                    Pa,d = {pda (1), . . . , pda (s)} ⊂ {0, 1, . . . , q − 1}∗ ,
+such that
+                                                        s
+                                                        [
+                              k ∈ Sa,d ⇐⇒ k q ∈               [pda (i)],
+                                                        i=1
+
+Proof. Let us proceed by induction on a: if a = 1 and k ∈ S1,d we have two cases:
+      • k = ql + r for some l ≥ 0 and 0 ≤ r < q − 1. Then h(k + 1) = h(l) + h(r + 1)
+        and since h(k) = h(l) + h(r), the equation is equivalent to
+                                    h(r + 1) − h(r) = d.
+        There is only a finite number of prefixes (least significant digits), in fact of
+        length 1, that satisfy this equation.
+
+      • k = lq p+1 + rq p + (q − 1)q p−1 + · · ·+ (q − 1) for some p ≥ 1 and 0 ≤ r < q − 1.
+        Then, h(k + 1) = h(l) + h(r + 1) and since h(k) = h(l) + h(r) + ph(q − 1),
+        the equation is equivalent to
+                             h(r + 1) − h(r) − ph(q − 1) = d
+        In particular, p is bounded for fixed d and again there is only a finite number
+        of prefixes that satisfy this equation.
+Suppose this is true for a ≥ 1 and let m be an integer between a + 1 and qa. Let
+k ≡ j (mod q), then                            
+                                          k−j
+                              h(k) = h            + h(j).
+                                            q
+Note that a + 1 ≤ m + j =: ql + r ≤ qa + j, and so l ≤ a. Then
+                                                   
+                                           k−j
+                          h(k + m) = h           + l + h(r).
+                                             q
+That is, k = qk ′ + j and k ′ ∈ Sl,d+h(j)−h(r) .                                        
+  An analog of Lemma 2.11 holds in this broader case. We will keep using Pa,d to
+denote the set of words in Pa,d (if it is non-empty) after adding suffixes in such a
+way the length of every word is of equal length to the longest one.
+Lemma 6.2. For all a ∈ N and d ∈ Z, there exist positive constants Ca and Da
+such that the set Pa,d , satisfies
+      • #Pa,d ≤ Ca .
+      • ||Pa,d || = Da + |d|.
+Proof. For the first claim, note that in the proof of Lemma 6.1 if a = 1 there is a
+fixed number of prefixes (or least significant digits) for the solutions of the equa-
+tions (considering them as words). For m ≥ 1 between a + 1 and qa, we reduce the
+problem by dividing m by q. Repeating this procedure at most the length of aq
+times, we obtain a finite number of prefixes and the number of them only depends
+on a, that is, we bound #Pa,d by a positive constant Ca .
+
+   For the second claim, note that in the proof of Lemma 6.1 if a = 1 the length of
+the prefixes of the solutions is bounded by some fixed constant plus the absolute
+value of d. For an integer m ≥ 1 between a + 1 and qa, we divide again by q
+                                                                                                          21
+
+
+to reduce the problem, and we obtain that the length of the possible prefixes is
+bounded by a contant depending on a plus |d|.
+
+   Finally, to obtain the equality of the second claim, we simply complete the words
+of Pa,d with all possible suffixes, to make all words of the same length. Since the
+possible suffixes only depends on a, we may simply redefine Ca in such a way that
+the cardinal Pa,d is bounded by this constant.                                    
+
+   Both Lemma 6.1 and Lemma 6.2 have a multiple versions.
+Corollary 6.3. Let 1 ≤ a1 < . . . < at be positive integers and d1 , . . . dt ∈ Z. Then
+                       \                      [
+                   k∈     Saj ,dj ⇐⇒ kq ∈         [pda11 ,...,d
+                                                         ,...,at (i)],
+                                                                t
+
+                                  j                              i
+                                          T
+for some words pda11 ,...,d
+                     ,...,at (i) ∈
+                            t                            d1 ,...,dt                          d1 ,...,dt
+                                           j Paj ,dj =: Pa1 ,...,at , where i = 1, . . . , #Pa1 ,...,at   if
+this set is non-empty.
+Corollary 6.4. By completing shorter words of Pad11,...,a
+                                                     ,...,dt
+                                                           t
+                                                             (if this set is non-empty)
+there exist positive constants Cat , Dat , such that
+      • #Pad11,...,a
+              ,...,dt
+                     t
+                       ≤ C at .
+
+       • ||Pad11,...,a
+                ,...,dt
+                       t
+                         || = Dat + |dj ∗ |, for some 1 ≤ j ∗ ≤ t.
+   Both corollaries can be checked rapidly since all of these words correspond to
+elements of some Paj ,dj which has the longest words among all these sets, or it is
+empty for the choice of a1 , . . . , at , d1 , . . . , dt .
+
+6.2. Upper bounds for twisted correlations. Let us begin with the case when
+t is odd. First note that the equation h(k + a) − h(k) = d may have solutions
+in {0, . . . , q n − 1} only if d ∈ {−2qn, . . . , h(a)}. For every j = 1, . . . , t, consider
+Dj = {−2qn, . . . , h(aj )} and the decomposition Dj = Dj0 ∪ Dj1 in even and odd
+elements respectively.
+
+   Since the geometric series of the exponentials is bounded by a constant depend-
+ing on ω, we consider equivalently C      eqn (a1 , . . . , at , ω, u) = Cq±n (a1 , . . . , at , ω, u) +
+Pqn −1
+  k=0 e(kω). Note also that since t is odd, we can change the exponent of −1 from
+h(k) + h(k + a1 ) + · · · + h(k + at ) to
+               h(k + a1 ) − h(k) + h(k + a2 ) − h(k) · · · + h(k + at ) − h(k).
+Using these facts we have
+                                           n
+                                          qX −1                                    
+         eqn (a1 , . . . , at , ω, u) =
+         C                                        1 + (−1)h(k)+h(k+a1 )+···+h(k+at ) e(kω)
+                                          k=0
+                                           n
+                                                                                  
+                                          qX −1          t
+                                                         Y
+                                      =           1 +         (−1)h(k+aj )−h(k)  e(kω)
+                                          k=0            j=1
+                                                  X              X
+                                      =2                                  e(kω).
+                                                    c
+                                              dj ∈Dj j     k∈∩j Saj ,dj
+                                                                 n
+                                           c1 +···+ct ≡2 0 0≤k≤q −1
+22                                     JUAN MARSHALL-MALDONADO
+
+
+The first sum in the last equality sums over all elements of each D1c1 , . . . , Dtct , for
+all combinations of variables c1 , . . . , ct ∈ {0, 1} satisfying c1 + · · · + ct ≡2 0.
+
+  Applying Corollary 6.3 and via simple calculations involving geometric series,
+we obtain
+  Ceqn (a1 , . . . , at , ω, u)
+              X               X
+   =2                           e(kω).
+                   c
+             dj ∈Dj j     k∈∩j Saj ,dj
+                                n
+          c1 +···+ct ≡2 0 0≤k≤q −1
+                                                     d ,...,d
+                            #Pad11,...,a
+                                  ,...,dt       n−||Pa 1 ,...,at ||
+               X                X       t   q         1
+                                                       X       t −1
+                                                                                   d1 ,...,dt                          q       
+     =2                                                               e         q ||Pa1 ,...,at || k + pda11 ,...,d
+                                                                                                             ,...,at (i)
+                                                                                                                    t
+                                                                                                                              ω
+                   c
+             dj ∈Dj j           i=1                    k=0
+          c1 +···+ct ≡2 0
+                                                                                       q 
+                                                  #Pad11,...,a
+                                                        ,...,dt
+                                   X                  X       t    e pda11 ,...,d
+                                                                           ,...,at (i) ω
+                                                                                  t
+
+     = 2(e (q n ω) − 1)                                                 d1 ,...,dt
+                                                                                            .
+                                       c
+                                dj ∈Dj j              i=1         e q ||Pa1 ,...,at || ω − 1
+                             c1 +···+ct ≡2 0
+
+Taking the absolute value and by Corollary 6.4,
+                                              X                                                      1
+         eqn (a1 , . . . , at , ω, u)| ≤ 2Cat
+        |C                                                                                                         
+                                                                                                   d ,...,d
+                                                                                             ||Pa11,...,att ||+1
+                                                                      c
+                                                               dj ∈Dj j
+                                                                                 |sin πq                           ω |
+                                                            c1 +···+ct ≡2 0
+                                                                  X                     d1 ,...,dt
+                                                ≤ πCat                          ||q ||Pa1 ,...,at ||+1 ω||−1
+                                                                                                          R/Z .
+                                                                      c
+                                                               dj ∈Dj j
+                                                            c1 +···+ct ≡2 0
+
+     Since ||Pad11,...,a
+                  ,...,dt
+                         t
+                           || = ||Paj∗ ,dj∗ || = Dat + |dj ∗ | for some j ∗ , we obtain
+                                                        X
+                |Ceqn (a1 , . . . , at , ω)| ≤ πCat               ||q Dat +|dj∗ |+1 ω||−1
+                                                                                       R/Z .
+                                                                          c
+                                                                dj ∈Dj j
+                                                             c1 +···+ct ≡2 0
+
+To estimate each term in this sum we argue as in subsection 3.4: by Lemma 3.7,
+for almost every ω there exists d0 (ω) such that
+                                                                       1
+                                                  ||q n ω||R/Z ≥           ,
+                                                                      n1+ε
+for all n ≥ d0 (ω). In particular,
+                                                                     t
+                                                                     X             X
+        eqn (a1 , . . . , at , ω, u)| ≤ Oat ,ω (1) + Cat                                                                   1+ε
+       |C                                                                                         (Dat + |dl | + 1)
+                                                                                        c
+                                                                     l=1         dj ∈Dj j
+                                                                              c1 +···+ct ≡2 0
+                                                                                   j ∗ =l
+                                                                               |dj∗ |≥d0 (ω)
+
+                                       = Oat ,ω (nt+1+ε ).
+     The even case is worked in a similar way: consider
+                                                                                         n
+                                                                                        qX −1
+            bqn (a1 , . . . , at , ω, u) = Cq±n (a1 , . . . , at , ω, u) +
+            C                                                                                     (−1)h(k) e(kω).
+                                                                                           k=0
+                                                                                                                        23
+
+      Pqn −1                                       √           
+Since     k=0 (−1)
+                          h(k)
+                               e(kω) = Oω enI+B n log log(n) almost surely by Theorem
+3.5 and we want a weaker estimate, it is enough to prove the required upper bound
+    bqn (a1 , . . . , at , ω, u). Note also that since t is even, we can change the exponent
+for C
+of −1 from h(k + a1 ) + · · · + h(k + at ) to
+
+                h(k + a1 ) − h(k) + h(k + a2 ) − h(k) · · · + h(k + at ) − h(k),
+
+to justify the third equality below (and also that (−1)h(k) = e(h(k)/2)).
+
+                  bqn (a1 , . . . , at , ω, u)
+                  C
+                           n
+                          qX −1                                           
+                      =           (−1)h(k) + (−1)h(k)+h(k+a1 )+···+h(k+at ) e(kω)
+                          k=0
+                           n
+                          qX −1                                      
+                      =         (−1)h(k) 1 + (−1)h(k+a1 )+···+h(k+at ) e(kω)
+                          k=0
+                                                                            
+                           n
+                          qX −1            t
+                                           Y                                                    
+                                  1 +                 h(k+aj )−h(k)       h(k)
+                      =                          (−1)                    e       + kω
+                                           j=1
+                                                                              2
+                          k=0
+                                  X                X                        
+                                                                   h(k)
+                      =2                                       e        + kω
+                                    c                               2
+                              dj ∈Dj j     k∈∩j Saj ,dj
+                                                 n
+                           c1 +···+ct ≡2 0 0≤k≤q −1
+                                                                         d ,...,d
+                                               #Pad11,...,a
+                                                     ,...,dt        n−||Pa 1 ,...,at ||
+                                                                q         1        t −1
+                                  X                X       t              X
+                      =2                                                                  Ak ,
+                                    c              i=1
+                              dj ∈Dj j                                    k=0
+                           c1 +···+ct ≡2 0
+
+
+
+
+where
+                                              q                                                 
+                ||Pad11,...,a
+                       ,...,dt
+                               ||   d1 ,...,dt
+            h q              t k + pa ,...,a (i)                                             q 
+                                    1       t            d1 ,...,dt                               
+   Ak = e                                         + q ||Pa1 ,...,at || k + pda11 ,...,d
+                                                                                  ,...,at (i)
+                                                                                         t
+                                                                                                  ω .
+                                  2
+
+
+   Let us factorize the terms independent of k in the exponentials Ak , and continue
+from the last line.
+
+  bqn (a1 , . . . , at , ω, u)
+  C
+                                                              q                      
+                           #Pad11,...,a
+                                 ,...,dt
+                                                  d1 ,...,dt
+             X                  X      t
+                                             h p a1 ,...,at (i)                     q
+                                                                                        
+  =2                                       e                      + pda11,...,d
+                                                                          ,...,at (i) ω 
+                                                                                 t
+
+                  c
+                                                       2
+           dj ∈Dj j             i=1
+        c1 +···+ct ≡2 0                    |                            {z                       }
+                                                                      d ,...,d
+                                                               =Ba11 ,...,att (i)
+                                               d ,...,d
+                                          n−||Pa 1 ,...,at ||
+                                                                        d1 ,...,dt
+                                                                                                                   
+                                      q         1
+                                                 X       t −1
+                                                                   h q ||Pa1 ,...,at || k           d1 ,...,dt
+                                                                e                          + kq ||Pa1 ,...,at || ω 
+                                                                           2
+                                                 k=0
+24                                          JUAN MARSHALL-MALDONADO
+
+                                                                         d ,...,d
+                            #Pad11,...,a
+                                  ,...,dt                           n−||Pa 1 ,...,a t ||
+               X                X       t                       q         1
+                                                                           X       t −1                                           
+                                                                                                   h (k)         d1 ,...,dt
+     =2                                     Bda11 ,...,d
+                                                  ,...,at (i)
+                                                         t
+                                                                                           e             + kq ||Pa1 ,...,at || ω
+                   c
+                                i=1
+                                                                                                     2
+             dj ∈Dj j                                                      k=0
+          c1 +···+ct ≡2 0
+                            #Pad11,...,a
+                                  ,...,dt
+                                                                n−||Pad11,...,a
+                                                                         ,...,dt
+                                                                                 ||−1
+               X                X       t                                  Y   t
+                                                                                                        d1 ,...,dt
+     =2                                     Bda11 ,...,d
+                                                  ,...,at (i)
+                                                         t
+                                                                                         P (ωq ||Pa1 ,...,at ||+j )
+                   c            i=1                                       j=0
+             dj ∈Dj j
+          c1 +···+ct ≡2 0
+
+(we use Lemma 2.16 in the last equality). Taking the absolute value,
+                 bqn (a1 , . . . , at , ω, u)|
+                |C
+                                            #Pad11,...,a
+                                                  ,...,dt
+                                                          n−||Pad11,...,a
+                                                                   ,...,dt
+                                                                           ||−1
+                              X                 X       t               Yt
+                                                                                                      d1 ,...,dt
+                 ≤2                                                                   P (ωq ||Pa1 ,...,at ||+j )
+                                   c            i=1                    j=0
+                          dj ∈Dj j
+                       c1 +···+ct ≡2 0
+
+                                   X                   n−1
+                                                       Y
+                 ≤ 2Cat                                                 |P (ωq j )|
+                                      c           d ,...,d
+                                dj ∈Dj j     j=||Pa11,...,att ||
+                             c1 +···+ct ≡2 0
+                             t
+                             X          X                  n−1
+                                                           Y
+                 = 2Cat                                                   |P (ωq j )|.
+                                           c
+                              l=1    dj ∈Dj j     j=Dat +|dl |
+                                  c1 +···+ct ≡2 0
+                                        ∗
+                                        j =l
+
+By Theorem 3.5 there exists a universal B > 0 such that for almost all ω,
+                                        n−1
+                                        Y   P (ωq j )      √
+                                                          B n log log(n)
+                                                      ≤ e                ,
+                                        j=0
+                                               eI
+
+for all n ≥ n0 (ω), for some n0 (ω). In particular,
+                  n−1
+                  Y                                      n−1
+                                                         Y   P (ωq j )         √
+                            P (ωq j ) = e(n−l)I                        ≤ e nI+B n log log(n)
+                                                                                             .
+                                                         j=0
+                                                                eI
+                   j=l
+
+This is, for all n ≥ 0
+                                 n−1
+                                 Y                         √            
+                                        P (ωq j ) ≤ Oω enI+B n log log(n) .
+                                 j=l
+
+This finishes the proof of Theorem 3.6.
+
+                                                       References
+[AFS23] Artur Avila, Giovanni Forni, and Pedram Safaee, Quantitative weak mixing for interval
+        exchange transformations, Geometric and Functional Analysis 33 (2023), no. 1, 1–56.
+[BC23]  Michael Baake and Michael Coons, Correlations of the Thue–Morse sequence, Indaga-
+        tiones Mathematicae (2023).
+[BCM20] Michael Baake, Michael Coons, and Neil Mañibo, Binary constant-length substitutions
+        and Mahler measures of borwein polynomials, From Analysis to Visualization (Cham)
+        (David H. Bailey, Naomi Simone Borwein, Richard P. Brent, Regina S. Burachik, Judy-
+        anne Heather Osborn, Brailey Sims, and Qiji J. Zhu, eds.), Springer International Pub-
+        lishing, 2020, pp. 303–322.
+                                                                                                25
+
+
+[BGM19] Michael Baake, Franz Gähler, and Neil Manibo, Renormalisation of pair correlation
+         measures for primitive inflation rules and absence of absolutely continuous diffraction,
+         Communications in Mathematical Physics 370 (2019), no. 2, 591–635.
+[BHL17] Michael Baake, Alan Haynes, and Daniel Lenz, Averaging almost periodic functions
+         along exponential sequences. In: Baake, M., Grimm, U. (eds.): Aperiodic order, vol.
+         2: Crystallography and almost periodicity, pp. 343– 362, Cambridge University Press,
+         Cambridge, 2017.
+[BS14]   Alexander I. Bufetov and Boris Solomyak, On the modulus of continuity for spectral
+         measures in substitution dynamics, Advances in Mathematics 260 (2014), 84–129.
+[BS18]            , The Hölder property for the spectrum of translation flows in genus two, Israel
+         Journal of Mathematics 223 (2018), no. 1, 205–259.
+[BS19]   Artemi Berlinkov and Boris Solomyak, Singular substitutions of constant length, Er-
+         godic Theory and Dynamical Systems 39 (2019), no. 9, 2384–2402.
+[BS20]   Alexander I. Bufetov and Boris Solomyak, A spectral cocycle for substitution systems
+         and translation flows, Journal d’analyse mathématique 141 (2020), no. 1, 165–205.
+[BS21]            , Hölder regularity for the spectrum of translation flows, Journal de l’École
+         polytechnique — Mathématiques 8 (2021), 279–310 (en).
+[BS22]            , On substitution automorphisms with pure singular spectrum, Mathematische
+         Zeitschrift 301 (2022), no. 2, 1315–1331.
+[CDK17] Ethan M. Coven, Frederik M. Dekking, and Michael S. Keane, Topological conjugacy of
+         constant length substitution dynamical systems, Indagationes Mathematicae 28 (2017),
+         no. 1, 91–107.
+[CQY16] Ethan M. Coven, Anthony Quas, and Reem Yassawi, Computing automorphism groups
+         of shifts using atypical equivalence classes, Discrete Analysis 2016 (2016), no. 3.
+[Dek14] Frederik M. Dekking, On the structure of Thue–Morse subwords, with an application
+         to dynamical systems, Theoretical Computer Science 550 (2014), 107–112.
+[DG10]   Michael Drmota and Peter J Grabner, Analysis of digital functions and applica-
+         tions, Combinatorics, automata and number theory, Cambridge University Press, 2010,
+         pp. 452–504.
+[DGM12] Jerome Dedecker, Sébastien Gouëzel, and Florence Merlevede, The almost sure invari-
+         ance principle for unbounded functions of expanding maps, ALEA: Latin American
+         Journal of Probability and Mathematical Statistics 9 (2012), 141–163.
+[DHS99] Fabien Durand, Bernard Host, and Christian Skau, Substitutional dynamical systems,
+         bratteli diagrams and dimension groups, Ergodic Theory and Dynamical Systems 19
+         (1999), no. 4, 953–993.
+[DL22]   Fabien Durand and Julien Leroy, Decidability of the isomorphism and the factorization
+         between minimal substitution subshifts, Discrete Analysis (2022).
+[DT89]   Jean-Marie Dumont and Alain Thomas, Systemes de numeration et fonctions fractales
+         relatifs aux substitutions, Theoretical Computer Science 65 (1989), no. 2, 153 – 169.
+[Dur00] Fabien Durand, Linearly recurrent subshifts have a finite number of non-periodic sub-
+         shift factors, Ergodic Theory and Dynamical Systems 20 (2000), no. 4, 1061–1078.
+[Eis13]  Tanja Eisner, Linear sequences and weighted ergodic theorems, Abstract and Applied
+         Analysis, vol. 2013, Hindawi, 2013.
+[EP17]   Jordan Emme and Alexander Prikhod’Ko, On the asymptotic behaviour of the cor-
+         relation measure of sum-of-digits function in base 2, Integers: Electronic Journal of
+         Combinatorial Number Theory 17 (2017), A58.
+[For22]  Giovanni Forni, Twisted translation flows and effective weak mixing, Journal of the
+         European Mathematical Society 24 (2022), no. 12, 4225–4276.
+[LM95]   Douglas Lind and Brian Marcus, An introduction to symbolic dynamics and coding,
+         Cambridge University Press, 1995.
+[LQY17] Qinghui Liu, Yanhui Qu, and Xiao Yao, Unbounded trace orbits of Thue–Morse Hamil-
+         tonian, Journal of Statistical Physics 166 (2017), 1509–1557.
+[Mañ17] Neil Mañibo, Lyapunov exponents for binary substitutions of constant length, Journal
+         of Mathematical Physics 58 (2017), no. 11.
+[MM20] Juan Marshall-Maldonado, Modulus of continuity for spectral measures of suspension
+         flows over Salem type substitutions, arXiv preprint arXiv:2009.13607 (2020).
+[MR10] Christian Mauduit and Joël Rivat, Sur un probleme de Gelfond: la somme des chiffres
+         des nombres premiers, Annals of Mathematics (2010), 1591–1646.
+26                             JUAN MARSHALL-MALDONADO
+
+
+[Que10]   Martine Queffélec, Substitution dynamical systems-spectral analysis, vol. 1294, Springer,
+          2010.
+[Que18]           , Questions around the Thue–Morse sequence, Unif. Distrib. Theory 13 (2018),
+          no. 1, 1–25.
+[Tre20]   Rodrigo Treviño, Quantitative weak mixing for random substitution tilings, arXiv
+          preprint arXiv:2006.16980 (2020).
+[Via14]   Marcelo Viana, Lectures on Lyapunov exponents, vol. 145, Cambridge University Press,
+          2014.
+
+  Juan Marshall-Maldonado, Department of Mathematics, Bar-Ilan University, Ramat-
+Gan, Israel
+  Email address: jgmarshall21@gmail.com
+

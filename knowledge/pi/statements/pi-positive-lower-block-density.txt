@@ -1,0 +1,24 @@
+CANONICAL QUESTION
+Let pi = 3.d_1 d_2 d_3 ... be its unique nonterminating decimal expansion, with D = {0,...,9} and d_i in D for every integer i >= 1. For integers k,N >= 1 and w = (w_0,...,w_(k-1)) in D^k, define A_pi(w,N) to be the number of integers n with 0 <= n < N such that d_(n+j+1) = w_j for every integer j with 0 <= j < k. Is it true that, for every k >= 1 and every w in D^k, liminf_(N->infinity) A_pi(w,N)/N > 0? Status: OPEN pending a source-pinned literature audit. This is stronger than local:pi-digits but weaker than base-10 normality.
+
+PROVENANCE
+Formulated by this system on 2026-07-22 from local:pi-digits and the accumulated developments T20 (base-10 orbit density), T21 (arbitrarily late occurrence), T25 (formal Champernowne normality), T27 and T29 (finite Fourier coverage and resonance), and T30-T31 (empirical-limit obstruction and a disjunctive resonant separator). The intended feedback path is direct: the canonical claim implies every word occurs, while its equivalent empirical-measure form and finite-frequency sufficient conditions turn the pi mission into reusable orbit, measure, and exponential-sum targets. Bailey and Crandall (2001), the lacunary discrepancy sources audited in T28, and standard uniform-distribution references are context to be source-pinned for exact applicability; no theorem about pi is inferred from them.
+
+RECORDED AMBIGUITIES
+A1 (CANONICAL): every nonempty decimal word, including leading-zero words, has strictly positive lower asymptotic frequency as quantified above. Status: OPEN.
+A2: every word occurs at least once. This is local:pi-digits, is weaker than A1, and is OPEN.
+A3: every word occurs infinitely often or arbitrarily late. T21 proves this equivalent to A2 for a generic one-sided stream; it is not A1.
+A4: every word has positive upper asymptotic frequency. This is weaker than A1 because favorable subsequences may differ by word. Status: OPEN for pi.
+A5: every word has an existing positive limiting frequency, without prescribing its value. This is stronger than A1 but weaker than normality. Status: OPEN.
+A6: every length-k word has limiting frequency 10^(-k). This is base-10 normality, is stronger than A1, and is OPEN for pi.
+A7: every word occurs with bounded gaps, or has positive lower Banach density. These are stronger recurrence readings and are not canonical. Status: OPEN.
+A8: every weak-* accumulation point of mu_N = N^(-1) sum_(n=0)^(N-1) delta_{fract(10^n*pi)} on R/Z has full topological support. This is the intended dynamical equivalent of A1; the equivalence, including decimal-cylinder boundaries, is an initial formal target rather than an assumed theorem.
+A9: at least one empirical accumulation point has full support. This is weaker than A8 but still implies A2; it is not canonical. Status: OPEN.
+A10: for each k there is an unspecified delta_k > 0 uniform over all w in D^k. Because D^k is finite, this is equivalent to A1. Requiring an explicit bound such as delta_k >= c*10^(-k) is stronger and not canonical.
+A11: bound only the first occurrence by C*k*10^k. This is the separate pi-quantitative-block-hitting problem; it neither supplies repeated positive density nor follows with that rate from A1.
+A12: count noncontiguous subsequences, prefixes only, aligned starts, or include the integer digit 3. These conventions are excluded. Starting empirical averages at n=1 instead of n=0 is an equivalent finite shift.
+A13: replace base 10 by base 2, base 16, or all bases. These are different problems; cross-base transfer cannot be assumed.
+A14: use logarithmic, Abel, or other weighted averages. These define different density notions and are excluded.
+
+VERIFICATION RULES
+This problem is subject to VERIFICATION.md in full. Finite computation of pi digits is heuristic evidence only and cannot prove A1. Every sibling or bounded variant must state its exact quantifiers and cannot claim A1 or local:pi-digits without a formally verified implication. Almost-everywhere results for generic reals, results for Champernowne or other artificial constants, and conditional dynamical hypotheses do not establish the pi claim. Literature claims require pinned sources and hypotheses; formal claims require checked artifacts.

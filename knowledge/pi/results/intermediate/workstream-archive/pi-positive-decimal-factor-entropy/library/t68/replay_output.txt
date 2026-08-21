@@ -1,0 +1,8 @@
+verified projected criterion accepts a three-state hidden-branching probe
+verified completed T66 instances replayed: 34
+verified projected primitive-phase passes: 0
+verified projected primitive-phase failures: 34
+verified a finite projected phase-incompatibility witness for every failure
+verified 10 T66 resource-frontier rows remain unclassified
+artifact-only regeneration matched byte-for-byte
+ALL T68 CHECKS PASSED -- FINITE EXPERIMENTAL EVIDENCE ONLY

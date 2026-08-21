@@ -1,0 +1,653 @@
+{
+  "agenda": [
+    {
+      "acceptance": "A skeptic can recompile named theorems with allowed axioms only and verify that leading zeros, arbitrary contiguous starts, full containment, and one uniform C occur in the theorem types.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 4,
+        "timeout_s": 3600
+      },
+      "content_sha256": "882bc6ce393451afa3192fbb0a98c43203d67968ac51e9ceb7b6ad5e139e1ab4",
+      "deliverable": "For G1, add a Lean module importing the existing pi-digit occurrence definitions, define full-containment cover time, encode C1 and A2-A5, and prove that C1 implies the exact canonical V1 statement plus full length-k factor complexity.",
+      "id": "T1",
+      "kind": "formalize",
+      "learn_either_way": "Failure identifies an indexing, infinity-valued cover-time, or library-interface defect before analytic work begins.",
+      "serves_goal": "G1",
+      "status": "done",
+      "strategy": "Formalize-first; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can recompile the closed theorem, inspect the explicit constant, and verify that its quantifiers cover every k and every List (Fin 10) of length k without an unproved asymptotic premise.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 7200
+      },
+      "content_sha256": "0e41d7c41d526c1965286a54edf8df9640c856e8eab14e84f9869ffa5810b77d",
+      "deliverable": "For G2, import T22-T25 and prove a Lean theorem giving one explicit numeral C_Ch >= 1 such that every length-k word, including leading-zero words, is fully contained within the first C_Ch*k*10^k digits of the formal Champernowne stream for every k >= 1.",
+      "id": "T2",
+      "kind": "prove",
+      "learn_either_way": "Failure determines whether the k*10^k scale, leading-zero construction, or current Champernowne API needs repair; it does not count as evidence against C1 for pi.",
+      "serves_goal": "G2",
+      "status": "done",
+      "strategy": "Transfer from a solved analogue; explicit construction"
+    },
+    {
+      "acceptance": "A skeptic can recompile the implication and verify that every analytic hypothesis is explicit, quantified uniformly in k, and used to produce an occurrence of every length-k word by the claimed prefix bound.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 7200
+      },
+      "content_sha256": "2e7bb46c3b9fc5dafc8fcc6a443269ab1f77af822c390a1026dcd5b57af57da0",
+      "deliverable": "For G3, package T20, T26, and T27 into a uniform theorem: an explicit family of star-discrepancy or finite-frequency bounds at N_k <= C*k*10^k, strong enough to give positive count in every decimal interval of length 10^(-k), implies C1 with a stated constant change.",
+      "id": "T3",
+      "kind": "formalize",
+      "learn_either_way": "Failure exposes the exact quantitative loss between Weyl sums, discrepancy, and cylinder coverage, yielding a sharper replacement frontier instead of an unsupported pi claim.",
+      "serves_goal": "G3",
+      "status": "done",
+      "strategy": "Axiomatize the obstruction; reduce to a known theorem"
+    },
+    {
+      "acceptance": "A skeptic can replay the retrieval manifest, reproduce source hashes, inspect exact theorem quotations, and verify that every included candidate is either correctly instantiated into T3 or rejected by a specifically cited unmet hypothesis, with the search scope and exclusions stated explicitly.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 4,
+        "timeout_s": 7200
+      },
+      "content_sha256": "1922e651b11933d7958e6d568e677ff0b158f02a760ac311146cec563aed9f31",
+      "deliverable": "For G4, produce a reproducible source-pinned audit of direct pi-specific effective base-10 discrepancy, decimal block-hitting, quantitative normality, and claimed BBP or base-transfer results not already covered by general almost-everywhere lacunary surveys. For every located candidate, record its exact theorem, base, quantifiers, effectivity, prefix-length dependence, and either a valid substitution into T3 or a quoted unmet hypothesis. State any negative finding only for the documented corpus and do not treat finite digit computations as evidence for C1.",
+      "id": "T4",
+      "kind": "literature",
+      "learn_either_way": "A successful match supplies a concrete route through T3; if no candidate matches, the audit identifies the exact pi-specific quantitative hypotheses still missing and resolves the pending literature-status question for its documented corpus.",
+      "serves_goal": "G4",
+      "status": "done",
+      "strategy": "Reduce to a known theorem; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named theorem with allowed axioms only and verify in its type the literal negation of T1's C1, the V1 case split, unbounded bad lengths, full-containment cutoff, nonzero bounded frequency, and explicit resonance lower bound.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 7200
+      },
+      "content_sha256": "587cf9c711d43cdb2b189e6b4a0ffb3fc43d8e767e9d24a31fb9d4578d0aee4d",
+      "deliverable": "For G5, import T1 and the finite exponential-cylinder machinery used by T3 and prove a Lean theorem that not C1 implies the following dichotomy: either canonical V1 fails, or for every integers C,K >= 1 there exist k >= K, a length-k decimal word missing at an explicitly stated full-containment deadline on the C*k*10^k scale, and a nonzero frequency h <= 2*10^(2*k) whose normalized pi-orbit exponential sum has magnitude at least (8*10^(2*k))^(-1). Expose the orbit sum, word, deadline, frequency, and constants in the theorem type rather than packaging them in a new certificate predicate. State explicitly that this is necessary under failure, has no converse here, and neither proves nor refutes C1.",
+      "id": "T5",
+      "kind": "formalize",
+      "learn_either_way": "Success isolates a concrete multiscale analytic obstruction distinct from fixed-word failure; failure identifies whether unbounded-length extraction, containment-to-orbit indexing, or T27's quantitative constants prevent this reduction.",
+      "serves_goal": "G5",
+      "status": "done",
+      "strategy": "Invariant hunting; formalize-first; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named theorems with allowed axioms only and verify the literal not-C1 hypothesis, V1 split, full-containment cutoff, unbounded bad lengths, explicit numeral constants, h = O(10^k), and the Omega(1/((k+1)*10^k)) normalized lower bound in their types.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 16,
+        "timeout_s": 21600
+      },
+      "content_sha256": "f87d50fd9b0710011dc7031fac12be022438e7cc869e27d08a105914c5be1c45",
+      "deliverable": "For G6, import T1, T3, T5, and the finite exponential-cylinder machinery and prove in Lean an explicit finite interval-discrepancy theorem and its pi specialization: under not C1, either canonical V1 fails, or for every integers C,K >= 1 there is k >= K and a length-k word missing at the full-containment deadline C*k*10^k together with a nonzero frequency h <= c_F*10^k whose normalized pi-orbit exponential sum is at least 1/(c_A*(k+1)*10^k), for explicit absolute numeral constants c_F,c_A. State that this is necessary-only, has no converse here, and neither proves nor refutes C1.",
+      "id": "T6",
+      "kind": "formalize",
+      "learn_either_way": "Failure must identify the strongest proved frequency and amplitude scales and whether the loss comes from the finite Fourier inequality, cylinder endpoints, orbit normalization, or missing Lean support.",
+      "serves_goal": "G6",
+      "status": "done",
+      "strategy": "Contradiction with an extremal object; reduce to a known theorem; invariant hunting; formalize-first; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can check the stated probability space, explicit constants, overlap-pair calculation, slab independence, union bound, simultaneous all-k quantifier, leading-zero coverage, and full-containment indexing directly from the note, with no finite simulation used as proof.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 4,
+        "timeout_s": 7200
+      },
+      "content_sha256": "95074c26574368e9de37d31131dcc0868a8aed9498b5ecbc3eb3a51c30c59adf",
+      "deliverable": "For G7, give a self-contained rigorous proof note with explicit integers C_rand >= 1 and an explicit eta > 0 such that an iid uniform decimal stream has probability at least eta of simultaneously satisfying, for every k >= 1 and every length-k decimal word including leading-zero words, a contiguous occurrence fully contained in its first C_rand*k*10^k digits. The proof must treat overlapping starts rather than assuming independence, expose the fixed-word second-moment and border-overlap estimates, construct independent digit slabs, and sum the all-k failure probabilities. Label this as an iid sibling theorem that proves nothing about pi or C1 without a separate transfer theorem.",
+      "id": "T7",
+      "kind": "prove",
+      "learn_either_way": "Success rigorously validates the proposed scale in the random model and isolates reusable overlap estimates; failure identifies whether highly bordered words defeat the uniform second-moment bound or require a border-class or automaton refinement, without counting against C1 for pi.",
+      "serves_goal": "G7",
+      "status": "done",
+      "strategy": "Transfer from a solved analogue; probabilistic heuristic, stated honestly; invariant hunting"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named theorems with allowed axioms only and verify literal not-C1, arbitrary positive C and K, unbounded k, full-containment cutoff, the explicit frequency and amplitude constants, and absence of any V1 case split in their types.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 16,
+        "timeout_s": 14400
+      },
+      "content_sha256": "336e66139eb87d3b019ec1d36e669d433cf483addd47ddae06f3a029d1a577c6",
+      "deliverable": "For G8, import T1 and T6 and prove in Lean a generic finite-alphabet extension lemma and a pi specialization stating that not C1 alone implies: for every integers C,K >= 1, there exist k >= K, a length-k decimal word absent at the exact full-containment deadline C*k*10^k, and a nonzero frequency h with h.natAbs <= 128*10^k whose normalized pi-orbit exponential sum is at least 1/(16388*(k+1)*10^k). The theorem type must contain no V1-failure disjunct. State explicitly that the result is necessary-only, has no converse here, and neither proves nor refutes C1.",
+      "id": "T8",
+      "kind": "formalize",
+      "learn_either_way": "Failure identifies whether missing-word extension, full-containment deadline arithmetic, or the generic interface to T6's finite Jackson resonance theorem prevents elimination of the V1 branch.",
+      "serves_goal": "G8",
+      "status": "done",
+      "strategy": "Split into cases with different mechanisms; contradiction with an extremal object; formalize-first; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can replay the retrieval manifest and hashes, verify every quoted theorem and hypothesis, and check each explicit T3 substitution or cited obstruction against the stated scales without any almost-everywhere or finite-computation claim being attributed to pi.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 2,
+        "ram_gb": 4,
+        "timeout_s": 7200
+      },
+      "content_sha256": "8891ab67d4c684e72edafb90ddab0977e425cbc1612fed86d6029cbadc7cb74c",
+      "deliverable": "For G9, extend T4 with a bounded, source-pinned audit limited to deterministic shrinking-target and lacunary-orbit theorems for {10^n*x} whose hypotheses concern Diophantine type, irrationality measures, orbit complexity, or another property verifiably known for pi. Exclude T4's existing corpus and general almost-everywhere results. For each candidate, quote the exact theorem and either instantiate T3 at N = O(k*10^k) and target radius 10^(-k), or identify the exact unmet pi hypothesis. Any negative conclusion must be limited to the documented corpus.",
+      "id": "T9",
+      "kind": "literature",
+      "learn_either_way": "A match gives a new route through T3; no match identifies whether known arithmetic information about pi is too weak for deterministic shrinking-target control in the audited theorem class.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Reduce to a known theorem; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can check the stream definition, explicit constants, all-k full-containment deadlines, unbounded endpoint sequence, and orbit-sum lower bound from the proof artifacts, and verify that the statement is generic rather than pi-specific.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 14400
+      },
+      "content_sha256": "bafc7ce1b2ab91f0d498297b9268466252dbfd0b5621e0d606f28fb83ac00d33",
+      "deliverable": "For G9, construct an explicit generic decimal stream and explicit constants C_sep >= 1 and rho > 0 such that every length-k word, including leading-zero words, is fully contained in its first C_sep*k*10^k digits for every k >= 1, while at infinitely many explicitly defined stage endpoints N the frequency-1 normalized base-10 orbit sum has magnitude at least rho. Build on T2's quantitative word-enumeration machinery and use zero slabs whose endpoints retain the uniform deadline. Label this as a sibling separation: it proves that bare resonance has no converse to T8 and proves nothing about pi or C1.",
+      "id": "T10",
+      "kind": "prove",
+      "learn_either_way": "Success rules out bare single-frequency anti-resonance as a necessary route to C1; failure identifies whether uniform k*10^k deadlines quantitatively prevent the proposed long-slab separation.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Weaken/strengthen probes; transfer from a solved analogue; explicit construction"
+    },
+    {
+      "acceptance": "A skeptic can check the polynomial construction, coefficient and degree bounds, boundary-separation use, strict total error below 1/2, and expansion into ordinary exponential sums, then verify every pi-specific assertion against T9 and confirm that no natural-scale estimate or claim about C1 is asserted.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 14400
+      },
+      "content_sha256": "d7c595491d37813acb411c7663e0cc058ecb81a513019723eb386a27b81aa309",
+      "deliverable": "For G9, produce a self-contained rigorous proof note giving a count-sensitive Fourier transfer. For q = 10^k, use the exact finite Fourier identity for the length-k block histogram only as a preliminary lemma. Given N orbit points at distance at least eta > 0 from every q-adic cylinder boundary, construct an explicit trigonometric polynomial P for a specified cylinder, state its coefficients and degree bound in q, N, and eta, and prove that the sum of P over the points differs from the exact cylinder count by less than 1/2. Expand this estimator into ordinary orbit exponential sums, so zero occurrences are distinguishable from one occurrence. Specialize the boundary-separation input to pi only as far as T9's source-pinned irrationality statement permits and report the resulting frequency scale, even if it is unusably large. Label the result as a conditional reduction that neither proves nor refutes C1.",
+      "id": "T11",
+      "kind": "prove",
+      "learn_either_way": "Success identifies phase coherence strong enough to retain support-level information and quantifies its frequency cost; failure identifies whether explicit cylinder approximation, boundary separation, or the available arithmetic information about pi blocks this transfer.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Split into cases with different mechanisms; weaken/strengthen probes; axiomatize the obstruction; reduce to a known theorem"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named Lean theorems with allowed axioms only and verify in their types the boundary-separation hypothesis, explicit coefficients and frequency cutoff, strict error below 1/2, exact cylinder count, ordinary exponential-sum expansion, and zero-count phase-coherence consequence, with no unconditional pi or C1 conclusion.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 32,
+        "timeout_s": 21600
+      },
+      "content_sha256": "f48652a2aa2ca129188ab517abc94f679d233127a6451aed3f46a1ebb9bcd6ef",
+      "deliverable": "For G9, formalize in Lean the deterministic core of T11: for a finite base-10 orbit sample separated by eta > 0 from every boundary of a specified q-adic cylinder, construct the explicit finite trigonometric estimator with its coefficients and degree M = ceil(N/eta), prove that its summed value differs from the exact cylinder count by strictly less than 1/2, and expand it into ordinary orbit exponential sums. Derive an exposed weighted multi-frequency phase-coherence consequence of zero cylinder count. Import the existing cylinder and orbit machinery from T3, T6, and T8; state explicitly that the theorem is conditional, supplies no verified boundary separation or cancellation estimate for pi, and neither proves nor refutes C1.",
+      "id": "T12",
+      "kind": "formalize",
+      "learn_either_way": "Success upgrades T11's genuinely count-sensitive structure to kernel-checked status; failure identifies whether q-adic boundary encoding, explicit Fejer coefficients, finite-sum estimates, or strict 1/2 arithmetic is the formal bottleneck.",
+      "parked_reason": "ledger attempts exhausted without an accepted artifact",
+      "serves_goal": "G9",
+      "status": "parked",
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can verify the circle and boundary definitions, Fejer coefficients, pointwise tail estimate away from both boundaries, summed error bound, explicit dichotomy constants, and T8 specialization, and can confirm that complex absolute values and aggregated frequencies are used rather than the three rejected T12 substitutes.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 14400
+      },
+      "content_sha256": "5645fe5b47ba848d0f5c0e9828d4ec8b4f939b8b639034104f7b88dcd3d7b594",
+      "deliverable": "For G9, extend T8 and T11 with a self-contained rigorous proof note for q = 10^k. Given N circle points, a q-adic cylinder with zero occurrences, a circular boundary width delta > 0, and a Fourier cutoff M, use an explicit Fejer convolution with aggregated triangular coefficients to prove, with explicit numeral constants and hypotheses relating M, delta, and q, that either an explicit proportion of the points lies in the circular delta-neighborhood of the cylinder boundaries or the exposed weighted sum of ordinary exponential sums over 0 < |h| <= M has a stated lower bound. Specialize through T8 so that not C1 forces this dichotomy at unbounded bad lengths and exact full-containment deadlines. Include the contrapositive cover criterion. State that the result is necessary-only, has no converse, supplies neither branch estimate for pi, and neither proves nor refutes C1.",
+      "id": "T13",
+      "kind": "prove",
+      "learn_either_way": "Success identifies a boundary-robust obstruction stronger than T8's bare resonance; failure identifies whether the obstacle is the Fejer tail constant, circular boundary accounting, or conversion of an empty cylinder into weighted phase coherence, thereby fixing the exact frontier before another Lean attempt.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Split into cases with different mechanisms; contradiction with an extremal object; weaken/strengthen probes; axiomatize the obstruction"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named Lean theorems with allowed axioms only and verify in their types the circular two-boundary count, aggregated triangular coefficients, complex absolute value, explicit T13 constants and hypotheses, contrapositive cover criterion, literal not-C1 specialization, unbounded bad lengths, and exact full-containment deadlines, with none of the three rejected T12 substitutes.",
+      "attempts": 2,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 32,
+        "timeout_s": 21600
+      },
+      "content_sha256": "068df4824e364e79637e15b1e0a2f116189b31cfd768066c51bc40310f051311",
+      "deliverable": "For G9, import T8 and formalize in Lean the deterministic core and pi specialization of T13: for a finite circle sample and an empty q-adic cylinder, prove with T13's explicit constants and parameter hypotheses that either sufficiently many points lie in the circular delta-neighborhood of both cylinder boundaries or the aggregated triangularly weighted sum of ordinary complex exponential sums over nonzero signed frequencies up to M has the stated lower bound. Derive the contrapositive cover criterion and specialize T8 so that not C1 forces this dichotomy at unbounded lengths and exact full-containment deadlines. The theorem must use complex norms, circular boundary distance, and aggregated signed frequencies, not T12's rejected real-part-only, ordered-pair, or representative-dependent substitutes. State that the result is necessary-only, supplies neither branch estimate for pi, and neither proves nor refutes C1.",
+      "id": "T14",
+      "kind": "formalize",
+      "learn_either_way": "Success upgrades T13's boundary-robust obstruction to kernel-checked status; failure identifies whether circular q-adic boundaries, signed-frequency aggregation, complex Fejer estimates, or T8 deadline plumbing is the remaining formal bottleneck.",
+      "serves_goal": "G9",
+      "status": "done",
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can verify the boundary-to-word equivalence in every carry and wraparound case, the removal of the two cylinder-interior words from the missing-cylinder hypothesis, the resulting explicit count constant, and the specialization of T14 at exact full-containment deadlines.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 8,
+        "timeout_s": 14400
+      },
+      "content_sha256": "9e5619d7a1b6cc1f0130cecb0d6b9df4b60b4bbf3cba045bdb91aba3c0bf1004",
+      "deliverable": "For G10, produce a self-contained rigorous proof note importing T14 and specializing q = 10^k and the circular boundary width to delta = 10^(-(k+r)). Prove the exact correspondence between the two boundary neighborhoods of a missing length-k cylinder and the explicitly enumerated length-(k+r) predecessor/successor words ending in r nines or r zeros, including carries, the 0/1 circular wraparound, canonical representatives, and exclusion of exact boundary hits for the pi orbit. Under explicit T14 parameter hypotheses, derive that not C1 forces at unbounded exact full-containment deadlines either T14's aggregated signed-frequency lower bound or an explicit lower count for one of the two surviving adjacent long-suffix words. State that this is necessary-only, has no converse, supplies no bound for pi, and neither proves nor refutes C1.",
+      "id": "T15",
+      "kind": "prove",
+      "learn_either_way": "Failure identifies whether T14's delta and cutoff constraints, circular endpoint conventions, decimal carries, or the existing cylinder-to-digit bridge prevent a clean combinatorial form of the boundary obstruction.",
+      "serves_goal": "G10",
+      "status": "done",
+      "strategy": "Split into cases with different mechanisms; library-driven descent; formalize-first"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named Lean theorems with allowed axioms only and verify in their types all carry and wraparound cases, canonical representatives, exact-boundary exclusion, removal of exactly the two interior words, the ceil(N/(8*10^k)) count, and specialization of T14 at exact full-containment deadlines.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 32,
+        "timeout_s": 21600
+      },
+      "content_sha256": "60b90d531d48eab674e4aa860deced8e05cc9d316b2a5cef0e31913d35c8af10",
+      "deliverable": "For G10, import T14 and formalize in Lean the deterministic decimal combinatorial core and pi specialization of T15: at q = 10^k and circular boundary width 10^(-(k+r)), identify the two boundary neighborhoods with the explicitly padded predecessor, two interior, and successor length-(k+r) words in every carry and 0/1 wraparound case; exclude exact boundary hits for the pi orbit; use absence of the length-k cylinder to remove exactly the two interior words; and prove that T14's boundary branch forces one surviving adjacent word to occur at least ceil(N/(8*10^k)) times at the exact full-containment deadline. Import rather than reprove T14's Fejer estimates. State that the result is necessary-only, has no converse, supplies no pi-specific bound on either branch, and neither proves nor refutes C1.",
+      "id": "T16",
+      "kind": "formalize",
+      "learn_either_way": "Success upgrades T15's direct decimal obstruction to kernel-checked status; failure identifies whether carries, circular endpoints, cylinder-to-word directions, occurrence-count arithmetic, or T14 deadline plumbing is the remaining formal bottleneck.",
+      "serves_goal": "G10",
+      "status": "done",
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent"
+    },
+    {
+      "acceptance": "A skeptic can recompile the named theorems with allowed axioms only and verify the explicit mu, A, C, K, D, r, and M quantifiers, uniform exclusion of the adjacent-word branch before the exact deadline, and the resulting aggregated-resonance conclusion, with no unconditional assertion of the Diophantine predicate or C1 for pi.",
+      "attempts": 1,
+      "budget": {
+        "cpu": 4,
+        "ram_gb": 32,
+        "timeout_s": 21600
+      },
+      "content_sha256": "6ce39a7a83c658a369d5801df6ad628547d852d093ad79296cca040e3d1c71b9",
+      "deliverable": "For G11, import T14 and T16, define an explicit power-of-ten Diophantine predicate with natural parameters mu and A, and prove in Lean that it excludes all relevant predecessor and successor words with zero or nine suffix length r beyond an explicit bound for every orbit start before D = C*k*10^k. Compose this with T16 to show conditionally that not C1 forces its aggregated signed-frequency resonance branch at unbounded exact full-containment deadlines, with explicit choices of r and cutoff M. The pi corollary must retain the Diophantine predicate as a hypothesis; T9's source-pinned irrationality result may be cited only as external motivation, not as a kernel-checked premise or an unconditional fact in the theorem.",
+      "id": "T17",
+      "kind": "formalize",
+      "learn_either_way": "Success closes the formal arithmetic plumbing left by T9, T11, T14, and T16; failure identifies whether denominator conversion, circular boundary distance, suffix encoding, or deadline arithmetic prevents the reduction and records the strongest valid replacement bound.",
+      "serves_goal": "G11",
+      "status": "done",
+      "strategy": "Formalize-first; reduce to a known theorem; split into cases with different mechanisms; library-driven descent"
+    }
+  ],
+  "conjectures": [
+    {
+      "evidence": [],
+      "id": "C1",
+      "statement": "There exists an integer C >= 1 such that for every k >= 1 and w in {0,...,9}^k, some i >= 1 has i+k-1 <= C*k*10^k and d_(i+j) = w_j for all 0 <= j < k, where d_i are pi's fractional decimal digits.",
+      "status": "open"
+    }
+  ],
+  "goals": [
+    {
+      "id": "G1",
+      "rationale": "This fixes all indexing and growth conventions while importing the existing digit-stream library.",
+      "status": "achieved",
+      "text": "Formalize the uniform decimal cover-time bound and its exact relationship to canonical disjunctivity."
+    },
+    {
+      "id": "G2",
+      "rationale": "The solved analogue tests the proposed scale and extends T22-T25 with reusable quantitative machinery.",
+      "status": "achieved",
+      "text": "Prove an explicit k*10^k cover-time bound for the formal Champernowne stream."
+    },
+    {
+      "id": "G3",
+      "rationale": "This turns the headline into explicit analytic frontier hypotheses compatible with T20, T26, and T27.",
+      "status": "achieved",
+      "text": "Derive uniform discrepancy and finite-frequency conditions that imply the canonical pi bound."
+    },
+    {
+      "id": "G4",
+      "rationale": "The canonical statement remains pending a literature check after its formal sufficient conditions were isolated.",
+      "status": "achieved",
+      "text": "Determine whether source-pinned pi-specific quantitative results instantiate the T3 certificate for the canonical bound."
+    },
+    {
+      "id": "G5",
+      "rationale": "This complements T3's sufficient certificate and separates failure of the quantitative rate from failure of eventual word occurrence.",
+      "status": "achieved",
+      "text": "Derive an explicit finite-frequency resonance obstruction forced by failure of C1 in the regime where canonical disjunctivity V1 still holds."
+    },
+    {
+      "id": "G6",
+      "rationale": "T5 loses a full factor of 10^k in both frequency range and resonance size; an explicit Erdos-Turan or Selberg-Fejer bridge would materially narrow the analytic target left open by T4.",
+      "status": "achieved",
+      "text": "Sharpen the finite-frequency resonance obstruction forced by failure of C1 to the natural decimal-cylinder frequency and amplitude scales."
+    },
+    {
+      "id": "G7",
+      "rationale": "This converts the coupon-collector motivation into a checkable overlapping-word sibling theorem and identifies correlation estimates that a future pi-specific argument would need.",
+      "status": "achieved",
+      "text": "Give a rigorous proof note establishing an explicit uniform k*10^k full-word cover bound with positive probability for an iid uniform decimal stream."
+    },
+    {
+      "id": "G8",
+      "rationale": "T6 leaves failure of V1 as an alternative even though a permanently missing word has missing extensions at arbitrarily large lengths, to which its finite resonance machinery should apply.",
+      "status": "achieved",
+      "text": "Remove the canonical-disjunctivity escape branch from the natural-scale resonance obstruction forced by failure of C1."
+    },
+    {
+      "id": "G9",
+      "rationale": "T8 closes the previous formal gap, but its necessary resonance condition may also occur in streams satisfying the cover bound and no accepted fixed-pi theorem currently instantiates T3.",
+      "status": "achieved",
+      "text": "Determine what additional fixed-point or phase-coherence structure beyond T8's bare single-frequency resonance could distinguish failure of the canonical quantitative cover bound."
+    },
+    {
+      "id": "G10",
+      "rationale": "This exposes the unresolved boundary branch as a concrete pi-digit statistic without repeating T14's Fourier formalization or claiming a converse.",
+      "status": "achieved",
+      "text": "Translate T14's geometric boundary-concentration branch into an explicit quantitative obstruction stated directly in terms of neighboring decimal words with long zero or nine suffixes."
+    },
+    {
+      "id": "G11",
+      "rationale": "T9 and T11 identify irrationality bounds as the available pi-specific boundary input, while T14 and T16 kernel-check the downstream analytic and decimal machinery; the missing reusable link is the arithmetic-to-boundary reduction.",
+      "status": "achieved",
+      "text": "Formalize a power-of-ten Diophantine condition that quantitatively excludes T16's neighboring long-zero or long-nine suffix branch and reduces failure of C1 to T14's aggregated Fourier-resonance branch."
+    }
+  ],
+  "problem": "local:pi-quantitative-block-hitting",
+  "program_version": 15,
+  "results": [
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t1-1784712149-r0/theory_artifacts/PiQuantitativeBlockHitting.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T1",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 4,
+      "recorded_at": "2026-07-22T09:43:46Z",
+      "skeptic_notes": "The Lean gate passed for all named theorems with allowed axioms only. The delivered audit theorem and C1 expansion visibly quantify one C, every positive k, all Fin 10 words including leading-zero words, arbitrary contiguous starts, and n + k full containment. The statement referee independently found the encoding faithful. A2-A5 remain separately labeled open variants; no computation or sibling claim is presented as a proof of C1.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t1",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t2-1784713445-r0/theory_artifacts/ChampernowneQuantitativeCover.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T2",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T09:58:46Z",
+      "skeptic_notes": "The gate recompiled the closed artifact with allowed axioms only. Its explicit theorem supplies 22 >= 1 and quantifies every positive k and every List (Fin 10) of length k, including leading-zero lists, with a contiguous occurrence fully contained by n + k <= 22*k*10^k. The proof is finite and constructive, has no asymptotic premise, and explicitly labels the result as Champernowne rather than pi. The statement-referee reports the zero-based formulation faithfully matches the requested analogue.",
+      "skeptic_policy_version": 4,
+      "strategy": "Transfer from a solved analogue; explicit construction",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t2",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t3-1784714345-r0/theory_artifacts/UniformPiAnalyticCover.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T3",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T10:17:51Z",
+      "skeptic_notes": "The passed Lean gate recompiles the implication. Its explicit theorem has one C for every positive k, permits N, H, and B to vary with k, bounds N by C*k*10^k, and derives every function-valued word occurrence with full containment by (C+1)*k*10^k. The statement referee found this faithful. The file correctly labels the result conditional and does not claim a Pi bound.",
+      "skeptic_policy_version": 4,
+      "strategy": "Axiomatize the obstruction; reduce to a known theorem",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t3",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t4-1784715687-r0/theory_artifacts/T4_AUDIT.md",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t4-1784715687-r0/theory_artifacts/retrieval_manifest.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t4-1784715687-r0/theory_artifacts/reproduce.sh",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t4-1784715687-r0/theory_artifacts/HASHES.sha256"
+      ],
+      "failure_cause": "none",
+      "item": "T4",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T10:53:47Z",
+      "skeptic_notes": "The bounded corpus, search limits, exclusions, exact quotations, source and extraction hashes, and T3 comparison are explicit. All ten live source and extraction hashes reproduced, and each candidate is either rejected with a cited unmet premise or classified as non-evidence; no candidate instantiates T3.",
+      "skeptic_policy_version": 4,
+      "strategy": "Reduce to a known theorem; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t4",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t5-1784717849-r0/theory_artifacts/PiQuantitativeResonanceObstruction.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T5",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T11:21:30Z",
+      "skeptic_notes": "The named theorem recompiles under the passed allowed-axiom gate and its type has the literal not-C1 hypothesis, the V1 split, arbitrary positive C and K, k >= K, a function-valued decimal word missing with n+k <= C*k*10^k, and an exposed nonzero h with the stated bound and normalized resonance lower bound. The source hash matches the staged canonical statement. Its comments accurately limit it to a necessary consequence, with no converse and no claim to prove or refute C1.",
+      "skeptic_policy_version": 4,
+      "strategy": "Invariant hunting; formalize-first; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t5",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t6-1784719509-r0/theory_artifacts/PiNaturalScaleResonanceObstruction.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T6",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T12:29:33Z",
+      "skeptic_notes": "The Lean gate recompiled all four named theorems with allowed axioms only. The final theorem has literal not-C1, the V1-failure-or-V1 split, positive C and K quantifiers, unbounded k, a word absent under n+k <= C*k*10^k, and the exact admissible-start normalization C*k*10^k-k+1. Its type gives nonzero h with h.natAbs <= 128*10^k and normalized lower bound 1/(16388*(k+1)*10^k). The staged referee independently found the zero-based full-containment translation faithful. Documentation accurately limits the result to a necessary condition, with no converse and no claim to prove or refute C1.",
+      "skeptic_policy_version": 4,
+      "strategy": "Contradiction with an extremal object; reduce to a known theorem; invariant hunting; formalize-first; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t6",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t7-1784723853-r0/theory_artifacts/T7_IID_DECIMAL_COVER.md"
+      ],
+      "failure_cause": "none",
+      "item": "T7",
+      "recorded_at": "2026-07-22T12:52:14Z",
+      "skeptic_notes": "The proof note directly specifies the iid product space, C_rand=18 and eta=8/9; computes overlapping pairs through the exact border condition; derives the uniform second-moment bound; uses disjoint chunks for slab independence; and applies word and countable-length union bounds. Its event G has the required simultaneous all-k quantifier. The tested windows are fully contained, the cumulative endpoint is below 18*k*10^k, and D^k includes leading-zero words. The iid-sibling and no-transfer-to-pi labels are explicit, and the argument uses exact symbolic inequalities rather than simulation.",
+      "skeptic_policy_version": 4,
+      "strategy": "Transfer from a solved analogue; probabilistic heuristic, stated honestly; invariant hunting",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t7",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t8-1784724952-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t8-1784724952-r0/theory_artifacts/PiNoV1NaturalScaleResonance.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T8",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "recorded_at": "2026-07-22T13:10:54Z",
+      "skeptic_notes": "The gate recompiled all three named theorems with allowed axioms. The final theorem literally assumes not C1; quantifies arbitrary natural C,K with positivity hypotheses; supplies k >= K, a decimal word absent under n+k <= C*k*10^k, the exact start cutoff C*k*10^k-k+1, nonzero h, h.natAbs <= 128*10^k, and the stated 1/(16388*(k+1)*10^k) lower bound. Its type contains no V1 proposition or disjunct. The staged statement referee independently found the encoding faithful. The necessary-only, no-converse, and no-claim-to-resolve-C1 labels are consistent with the theorem.",
+      "skeptic_policy_version": 4,
+      "strategy": "Split into cases with different mechanisms; contradiction with an extremal object; formalize-first; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t8",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t10-1784726983-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t10-1784726983-r0/theory_artifacts/T10_GENERIC_RESONANT_COVER.md"
+      ],
+      "failure_cause": "none",
+      "item": "T10",
+      "lean_gate_receipt": "passed: no Lean content",
+      "recorded_at": "2026-07-22T13:42:17Z",
+      "skeptic_notes": "The delivered proof sketch defines d as the concatenation of the padded all-word enumerations E_k followed by zero slabs Z_k, with C_sep = 13 and rho = 1/3. Lemmas 1-2 prove full containment for every k and every leading-zero word; Lemma 3 gives the explicit strictly increasing unbounded endpoints N_k; Lemma 4 and the final real-part estimate give the frequency-one lower bound. The scope warnings correctly state that this is an artificial generic stream, not pi or C1. The canonical and T2 hashes match their staged files; the T27 reference is precisely pinned and its interface is corroborated by staged T3/T5/T6/T8.",
+      "skeptic_policy_version": 4,
+      "strategy": "Weaken/strengthen probes; transfer from a solved analogue; explicit construction",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t10",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/theory_artifacts/T9_DETERMINISTIC_ORBIT_AUDIT.md",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/theory_artifacts/retrieval_manifest.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/theory_artifacts/reproduce.sh",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t9-1784726206-r0/theory_artifacts/HASHES.sha256"
+      ],
+      "failure_cause": "none",
+      "item": "T9",
+      "problems_reported": 3,
+      "recorded_at": "2026-07-22T13:46:41Z",
+      "skeptic_notes": "The passed delivery supplies a bounded, replayable audit: the manifest pins five primary PDFs, four retained searches, exact hashes, locators, exclusions, and a fetch/verify script. The audit checks T3's stated scale, gives either no substitution or a source-specific unmet hypothesis for every candidate, and limits its negative conclusion to the documented corpus. Its labels correctly keep pi open and do not attribute any almost-everywhere or finite-computation claim to pi.",
+      "skeptic_policy_version": 4,
+      "strategy": "Reduce to a known theorem; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t9",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t11-1784728294-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t11-1784728294-r0/theory_artifacts/T11_COUNT_SENSITIVE_FOURIER_TRANSFER.md"
+      ],
+      "failure_cause": "none",
+      "item": "T11",
+      "recorded_at": "2026-07-22T14:04:07Z",
+      "skeptic_notes": "Acceptance satisfied. The note gives the Fejer convolution polynomial, exact coefficients and degree M=ceil(N/eta), uses the boundary-distance hypothesis to prove total error strictly below 1/2, and expands it into ordinary orbit sums so counts 0 and 1 separate. Its pi specialization is exactly the T9 Salikhov lower bound with an unspecified threshold and huge stated frequency scale; it expressly supplies neither cancellation, a natural-scale estimate, nor a claim about C1. The canonical and T9 hashes and the Salikhov DOI/PDF hash agree with staged inputs.",
+      "skeptic_policy_version": 4,
+      "strategy": "Split into cases with different mechanisms; weaken/strengthen probes; axiomatize the obstruction; reduce to a known theorem",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t11",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t12-1784729369-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t12-1784729369-r0/theory_artifacts/T12CountSensitiveFourierTransfer.lean"
+      ],
+      "failure_cause": "mathematical",
+      "flash_prove_calls": 3,
+      "item": "T12",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T15:58:50Z",
+      "skeptic_notes": "The Lean gate recompiles the named theorems, but the delivered formalization does not satisfy the binding statement literally. Its strict error theorem controls only the real part of a complex estimator, its expansion retains ordered-pair frequencies rather than the required aggregated triangular coefficients, and its boundary hypothesis is a representative-dependent interval condition rather than circular boundary separation. These are substantive scope changes, not a pipeline fault. Conditional pi labeling and the absence of a C1 conclusion are honest.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t12",
+      "verdict": "reject"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t13-1784736236-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t13-1784736236-r0/theory_artifacts/T13_BOUNDARY_ROBUST_FEJER_DICHOTOMY.md"
+      ],
+      "failure_cause": "none",
+      "item": "T13",
+      "lean_gate_receipt": "passed: no Lean content",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T16:19:17Z",
+      "skeptic_notes": "The gate passed. The delivered proof note defines the circle, half-open cylinders, both circular boundary points, and the Fejer convolution; derives aggregated triangular coefficients and the tail and summed-error bounds; proves the explicit 1/(4q), 1/(2q) dichotomy; supplies the numerical cutoff, contrapositive cover criterion, and the T8 specialization at exact full-containment deadlines. It uses complex moduli of ordinary exponential sums and signed aggregated frequencies, and explicitly excludes the rejected real-part, ordered-pair, and noncircular-boundary substitutes. Its necessary-only and non-C1-resolving status is accurately stated.",
+      "skeptic_policy_version": 4,
+      "strategy": "Split into cases with different mechanisms; contradiction with an extremal object; weaken/strengthen probes; axiomatize the obstruction",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t13",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t14-1784737389-r0/theory_builder_result.json"
+      ],
+      "failure_cause": "environmental",
+      "item": "T14",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T16:47:57Z",
+      "skeptic_notes": "builder reported blocked: The artifact assumes FejerApproximationCertificate. It does not formalize the interval-Fejer convolution expansion and circular two-boundary tail estimate needed to construct that certificate from T13's stated parameter hypotheses, so the literal not-C1 dichotomy remains conditional.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t14",
+      "verdict": "revise"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t14-1784738879-r1/theory_artifacts/T14BoundaryRobustFejerDichotomy.lean"
+      ],
+      "failure_cause": "none",
+      "flash_prove_calls": 2,
+      "item": "T14",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T18:25:16Z",
+      "skeptic_notes": "Acceptance satisfied: the gate recompiled the named theorems with allowed axioms. Their checked types expose circular two-boundary counts, aggregated triangular signed-frequency complex norms, explicit T13 constants and hypotheses, strict contrapositive cover criteria, literal not-C1 unbounded bad lengths, and exact full-containment deadlines, without the three T12 substitutes. The formalization is correctly labeled necessary-only and does not claim C1.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t14",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t15-1784745072-r0/theory_artifacts/T15_DECIMAL_BOUNDARY_WORD_OBSTRUCTION.md"
+      ],
+      "failure_cause": "none",
+      "item": "T15",
+      "lean_gate_receipt": "passed: no Lean content; the imported T14 premise is staged and hash-verified",
+      "recorded_at": "2026-07-22T18:46:07Z",
+      "skeptic_notes": "The proof note meets the binding acceptance sentence. Sections 3-5 enumerate predecessor/interior/successor labels, prove the strict circular boundary-to-four-cylinder equivalence including both wraparounds, and exclude Q-adic pi-orbit endpoints using irrationality. Sections 6-7 identify cylinders with padded long words, delete exactly the two interior words from the missing-cylinder count, and derive max(Occ_N(P), Occ_N(S)) >= N/(8q), hence ceil(N/(8q)). Section 8 checks delta=10^(-(k+r)), M+1 >= 2*10^(2k+r), and the exact N=D-k+1 deadline against T14. Its necessary-only/no-converse/no-pi-bound labels are explicit and honest.",
+      "skeptic_policy_version": 4,
+      "strategy": "Split into cases with different mechanisms; library-driven descent; formalize-first",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t15",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t16-1784746208-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t16-1784746208-r0/theory_artifacts/T16DecimalBoundaryWordObstruction.lean"
+      ],
+      "failure_cause": "none",
+      "flash_prove_calls": 1,
+      "item": "T16",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 2,
+      "recorded_at": "2026-07-22T19:55:17Z",
+      "skeptic_notes": "The passing Lean gate recompiles all named T16 theorems with allowed axioms. Their types explicitly cover canonical padded labels, ordinary carry plus both circular wrap cases, strict half-open endpoint handling and pi endpoint exclusion, the four-cylinder equivalence and count identity, deletion of exactly the two interior cylinders, the ceil(N/(8*10^k)) adjacent-word bound, and T14 specialization at D=C*k*10^k with N=D-k+1. The staged statement referee found the necessary-only encoding faithful. The artifact labels its result as having no converse, no pi-specific branch estimate, and no resolution of C1.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; split into cases with different mechanisms; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t16",
+      "verdict": "accept"
+    },
+    {
+      "artifacts": [
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t17-1784750451-r0/theory_builder_result.json",
+        "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t17-1784750451-r0/theory_artifacts/T17PowerTenDiophantineReduction.lean"
+      ],
+      "failure_cause": "none",
+      "item": "T17",
+      "lean_gate_receipt": "lean_gate: all claimed theorems recompiled with allowed axioms only",
+      "problems_reported": 1,
+      "recorded_at": "2026-07-22T20:27:56Z",
+      "skeptic_notes": "The passed Lean gate recompiles all named T17 theorems with allowed axioms. The final theorem explicitly binds mu, A, C, K, k, D, r, and M; supplies D = C*k*10^k, r = (mu-1)*D+1, M = 2*10^(2*k+r); excludes both adjacent words for every n with n+k <= D; and concludes the aggregated resonance bound. The source and statement-referee report consistently retain PowerTenDiophantine and not C1 as hypotheses, with no unconditional claim about either for pi.",
+      "skeptic_policy_version": 4,
+      "strategy": "Formalize-first; reduce to a known theorem; split into cases with different mechanisms; library-driven descent",
+      "todo_id": "todo:theory-pi-quantitative-block-hitting:t17",
+      "verdict": "accept"
+    }
+  ],
+  "schema_version": 1,
+  "statement_sha256": "ab000220813f99eb40cfdc2d7fdae4ea7796291852df43dce7e6bf317c247449",
+  "updated_at": "2026-07-22T20:32:53Z"
+}

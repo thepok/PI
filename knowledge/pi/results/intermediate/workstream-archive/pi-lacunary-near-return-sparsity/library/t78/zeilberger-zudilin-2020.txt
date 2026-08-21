@@ -1,0 +1,824 @@
+                                                            2020
+                                                     vol. 9 no. 4
+
+
+
+
+The irrationality measure of π is at most 7.103205334137 . . .
+                Doron Zeilberger and Wadim Zudilin
+                                                                   Moscow Journal of Combinatorics and Number Theory
+                                                                                                            Vol. 9, No. 4, 2020
+  msp                                                                                https://doi.org/10.2140/moscow.2020.9.407
+
+
+
+
+           The irrationality measure of π is at most 7.103205334137 . . .
+                                     Doron Zeilberger and Wadim Zudilin
+
+                                      In memory of Naum Il’ich Feldman (1918–1994)
+
+
+     We use a variant of Salikhov’s ingenious proof that the irrationality measure of π is at most 7.606308 . . .
+     to prove that, in fact, it is at most 7.103205334137 . . . .
+
+
+
+                                      Introduction: How irrational is π ?
+   Every number that is not rational (a quotient of integers) is irrational, but not all irrational numbers
+are born equal. To measure “how irrational” is a given number x, we define (see [Weisstein 2019]) the
+irrationality measure µ (also called the irrationality exponent) as the smallest number µ such that
+                                                           p    1
+                                                     x−      > µ+
+                                                           q  q
+holds for any  > 0 and all integers p and q with sufficiently large q.
+   It is not hard to see that the irrationality measure of e is 2, but the exact irrationality measure of π
+is unknown. It became a competitive sport to find lower and lower upper bounds for the irrationality
+measure of π. The first upper bound, of 42, was proved by Kurt Mahler [1953]. This record has been
+subsequently improved by Maurice Mignotte [1974], Gregory Chudnovsky [1982], and in three better-
+and-better articles, by Masayoshi Hata [1990; 1993a; 1993b]. The current “world record” is due to
+Vladislav Khasanovich Salikhov who proved the upper bound of 7.606308. This was announced in
+[Salikhov 2008] and published in [Salikhov 2010]. In this article we tweak Salikhov’s method to beat
+his more than ten-year-old record to set a new world record of 7.103205334137 . . . .
+   The aim of our paper is not just to state and prove yet another record that would most likely be
+broken again sooner or later (we hope not that soon, unless it is by ourselves. . . ), but to also explain our
+“experimental mathematics” methodology that pointed the way to the ultimate human-generated formal
+proof, to be given in Part II.1 We also describe a fully rigorous, and fully computer-generated, proof of
+a coarser upper bound that is much better than many of the previous world records. This will be done in
+Part I. Readers who are not interested in the process of discovery, or computer proofs, can go straight to
+Part II, which is a self-contained human-generated and human-readable proof.
+
+MSC2010: primary 11J82; secondary 11Y60, 33F10, 33C60.
+Keywords: π , irrationality measure, experimental mathematics, Almkvist–Zeilberger algorithm.
+    1 Accompanying Maple package: while this article has a fully rigorous human-made and human-readable proof of the claim
+in the title, it was discovered thanks to the Maple package SALIKOHVpi.txt available from http://sites.math.rutgers.edu/ zeil-
+berg/mamarim/mamarimhtml/pimeas.html.
+
+                                                             407
+408                               DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+   We are grateful to Vladislav Salikhov for pointing out a mistake in the previous version of our Lemma 2
+below. Fixing the gap required employing new techniques, so that in the end this manuscript is more
+than just tweaking the construction in [Salikhov 2010].
+
+                             Part I. The experimental mathematics way
+General strategy. A good way to gain immortality, and become a famous person, is to be the first one
+to prove that a famous constant, let’s call it x, is irrational. One way to achieve this is to come up with
+two sequences of positive integers {an } and {bn }, and a positive, explicit real number δ such that there is
+a constant C, independent of n, such that, for all n > 0,
+                                                    an   C
+                                               x−      ≤ 1+δ .
+                                                    bn  bn
+This immediately implies the irrationality of x and at the same time establishes an upper bound, namely
+1 + 1/δ, for the irrationality measure of x.
+   This is exactly how, in1978, the 64-year old Roger Apéry became immortal by doing the above with
+x = ζ (3) i.e., ∞        −3 ; see Alf van der Poorten’s classic exposition [1979].
+                P
+                   n=1 n
+   Shortly after, Frits Beukers [1979] gave a much simpler rendition of Apéry’s construction by intro-
+ducing a certain explicit triple integral
+                                           x(1 − x)y(1 − y)z(1 − z) n dx dy dz
+                               Z 1Z 1Z 1                           
+                       I (n) =                                                        ,
+                                0 0 0           1 − (1 − x y)z)        1 − (1 − x y)z
+and pointing out that
+ (i) I (n) is small and can be explicitly bounded,
+(ii) I (n) = A(n) + B(n)ζ (3) for certain sequences of rational numbers A(n), B(n) that can be explicitly
+     bounded, and
+(iii) A(n) lcm(1, 2, . . . , n)3 and B(n) are integers.
+Since thanks to the prime number theorem lcm(1, 2, . . . , n) grows like en+o(n) as n → ∞, everything
+followed.
+   Shortly after, Krishna Alladi and Michael Robinson [1980] used one-dimensional analogs to reprove
+the irrationality of log 2, and established an upper bound of 4.63 for its irrationality measure (subsequently
+improved, see [Weisstein 2019]) by considering the simple integral
+                                                      x(1 − x) n dx
+                                                 Z 1         
+                                         I (n) =                       .
+                                                  0    1+x       1+x
+Our manuscript [Zeilberger and Zudilin 2019] is dedicated to further exploration of this theme.
+
+An experimental mathematics reduction of Salikhov’s approach. Salikhov [2010] essentially uses the
+same strategy, but with the far more complicated integral
+                         (x − 4 + 2i)6 (x − 4 − 2i)6 (x − 5)6 (x − 6 + 2i)6 (x − 6 − 2i)6 n
+                Z 4+2i                                                                  
+                                                                                               dx
+    I (n) = −i                                                                                        .
+                 4−2i                            x (x − 10)
+                                                   10          10                           x(x − 10)
+                        THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                         409
+
+
+He then used partial fractions to claim that
+
+                                              I (n) = A(n) + B(n)π
+
+for some sequences of {A(n)}, {B(n)} of rational numbers.
+   Using the saddle-point method, he bounded I (n) and A(n), B(n).
+   He then proved that if one sets
+                                      n                                         n
+                                      25                                          25
+       A (n) = lcm(1, 2, . . . , 10n)
+         0
+                                          A(n) and B (n) = lcm(1, 2, . . . , 10n)
+                                                       0
+                                                                                      B(n),
+                                      32                                          32
+
+then A0 (n) and B 0 (n) are integer sequences, and defining
+
+                                                                    25 n
+                                                                      
+                                     I (n) = lcm(1, 2, . . . , 10n)
+                                      0
+                                                                         I (n),
+                                                                    32
+
+using lcm(1, 2, . . . , 10n) = O(e10n+o(n) ), one can explicitly bound A0 (n), B 0 (n), I 0 (n), and I 0 (n) being
+small and B 0 (n) being big, and one can get a crude upper bound for the irrationality measure, using the
+fact that A0 (n)/B 0 (n) approximate π.
+   Finally, the hard part was coming up with “additional saving”, a sequence of integers F(n) such that
+A00 (n) = A0 (n)/F(n) and B 00 (n) = B 0 (n)/F(n) are still integers. Setting I 00 (n) = I 0 (n)/F(n) he squeezed
+more juice out of it, getting a larger δ and hence a smaller irrationality measure 1 + 1/δ, setting the current
+record of 7.606308 . . . .
+   Our approach is different. We do not use partial fractions, but rather the fact that, thanks to the
+Almkvist–Zeilberger algorithm [1990], there exists a third-order linear recurrence equation of the form
+
+                      p0 (n)I (n) + p1 (n)I (n + 1) + p2 (n)I (n + 2) + p3 (n)I (n + 3) = 0
+
+for some explicit polynomials p0 (n), p1 (n), p2 (n), p3 (n). To save space, we do not reproduce it here,
+but refer the reader to http://sites.math.rutgers.edu/∼zeilberg/tokhniot/oSALIKHOVpi2.txt.
+    That webpage gives a new, computer-generated proof of the crude upper bound, only using the recur-
+rence and the so-called Poincaré lemma that gives the asymptotics of A(n), B(n) and I (n) from which
+it is immediate to bound A0 (n), B 0 (n), and I 0 (n). The only nonrigorous part in our approach is the study
+of the extra divisor F(n), whose growth we estimate empirically.
+    For details see the above-mentioned computer-generated article.
+
+Tweaking Salikhov’s integral: looking where to dig. Looking at Salikhov’s integral, it is natural to
+consider the more general integral
+
+                             (x − 4 + 2i)2An (x − 4 − 2i)2An (x − 5)2An (x − 6 + 2i)2An (x − 6 − 2i)2An
+                    Z 4+2i
+   I A,B (n) = −i                                                                                       dx,
+                     4−2i                              x 2Bn+1 (x − 10)2Bn+1
+
+where Salikhov’s integral is the special case I3,5 (n). Perhaps we can do better? But before we invest
+time and energy, trying out many choices of A and B, it makes sense to do things empirically, crank out,
+say, 300 terms of the examined sequence and see whether it yields good “deltas”.
+410                              DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+   Alas, even Maple and Mathematica will start to complain if we use the definition for, say, n = 300.
+Luckily, for each specific A and B, Shalosh B. Ekhad can quicky use the Almkvist–Zeilberger algo-
+rithm [1990] to crank out many terms, and thereby get very good estimates for the “deltas”. This initial
+reconnaissance is very fast and gives you an indication on where to dig.
+   This is implemented in procedure BestAB in the Maple package SALIKOHVpi.txt mentioned above.
+Typing BestAB(10,300); gives the computer-generated article http://sites.math.rutgers.edu/∼zeilberg/
+tokhniot/oSALIKHOVpi4.txt.
+   Most of the choices of (A, B) give negative, useless, deltas, but — surprise! — the choice of A = 2,
+B = 3 yields that the smallest δ in the range 290 ≤ n ≤ 300 is 0.16605428729395818514. This beats
+the analogous value for the A = 3, B = 5 case, which equals 0.15727140930557009691. The “bronze
+medal” was won by A = 5, B = 8, which was almost as good, 0.15701995819256081077, followed by
+A = 8, B = 13, which gave the respectable 0.15586354092162189848. Next in line was a non-Fibonacci
+A = 7, B = 10 that placed fifth, with 0.12451550531454231901. For all the other “empirical deltas” see
+the above output file.
+   Once we found out that A = 2, B = 3 was a good gamble, we had another pleasant surprise. We can re-
+place n by n/2 and still get combinations of 1 and π (in the original case A = 3, B = 5 of Salikhov, the odd
+indices n give combinations of 1 and arctan 17 ). This simplifies the recurrence, and a fully rigorous proof
+of the cruder upper bound of 10.747747465671804677 . . . can be found at http://sites.math.rutgers.edu/
+∼zeilberg/tokhniot/oSALIKHOVpi3.txt.
+   In order to get the more refined upper bound, we had to resort to nonrigorous estimates.
+   Luckily it was possible to make everything fully rigorous, and this brings us to Part II.
+
+      Part II. A fully rigorous (human-generated) proof of the claimed upper bound
+                             for the irrationality measure of π
+Test bunny. For n = 0, 1, 2, . . . , our integrals in question are
+                      (x − 5)2n (x − 4 + 2i)2n (x − 4 − 2i)2n (x − 6 + 2i)2n (x − 6 − 2i)2n
+               Z 4+2i
+       In = 5i                                                                              dx
+                4−2i                              x 3n+1 (x − 10)3n+1
+                                5x (x + 1 + 2i)2n (x + 1 − 2i)2n (x − 1 + 2i)2n (x − 1 − 2i)2n
+                      Z −1+2i 2n
+                  n+1
+          = i(−1)                                                                              dx.      (1)
+                       −1−2i                          (5 + x)3n+1 (5 − x)3n+1
+These are from the winning family in Part I.
+
+Arithmetic. The integrand
+           5x 2n (x + 1 + 2i)2n (x + 1 − 2i)2n (x − 1 + 2i)2n (x − 1 − 2i)2n   5x 2n (x 4 + 6x 2 + 25)2n
+  R(x) =                                                                     =                           (2)
+                                (5 + x)3n+1 (5 − x)3n+1                        (5 + x)3n+1 (5 − x)3n+1
+possesses the symmetry R(−x) = R(x) and therefore can be written as
+                                        3n                          
+                                       X         Aj            Aj
+                         R(x) = P(x) +                  +                                               (3)
+                                             (5 + x) j+1 (5 − x) j+1
+                                              j=0
+
+for some rational A j and a polynomial P(x) ∈ Z[x 2 ] of degree 4n − 2.
+                             THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                                  411
+
+
+Lemma 1. The coefficients A j in the partial-fraction expansion (3) satisfy
+
+                                    2−b(5n+3 j)/2c+1 5− j A j ∈ Z        for j = 0, 1, . . . , 3n.                           (4)
+
+In particular, they are integers.
+Proof. To compute A j , introduce linear operators
+                                                                 1 dm f (x)
+                                                Dm : f (x) 7→                 .
+                                                                 m! dx m x=−5
+Then with the help of Leibniz’s formula we deduce
+
+A j = D3n− j ((x +5)3n+1 R(x))
+               X
+    =5                       Dm 0 (5−x)−3n−1 Dm 1 x 2n Dm 2 (x +1+2i)2n Dm 3 (x +1−2i)2n
+        m 0 ,m 1 ,...,m 5 ≥0                                            × Dm 4 (x −1+2i)2n Dm 5 (x −1−2i)2n
+         m ,...,m ≤2n
+               1      5
+       m 0 +m 1 +···+m 5 =3n− j
+          X
+   =5              (−1)m 1 +···+m 5 T (m)10−3n−1−m 0 52n−m 1 (4−2i)2n−m 2 (4+2i)2n−m 3 (6−2i)2n−m 4 (6+2i)2n−m 5
+         m∈M j
+        X
+   =           (−1)m 1 +···+m 5 T (m)24n−1+ j+m 1 (1−i)−m 4 (1+i)−m 5 5 j (2+i)m 2 +m 5 (2−i)m 3 +m 4                        (5)
+       m∈M j
+
+for j = 0, . . . , 3n, where the summation is over the multi-indices m = (m 0 , . . . , m 5 ) from the set
+
+M j = {(m 0 , m 1 , . . . , m 5 ) : m 0 , m 1 , . . . , m 5 ≥ 0, m 1 , . . . , m 5 ≤ 2n, m 0 + m 1 + · · · + m 5 = 3n − j} ⊂ Z6≥0
+
+and
+                                                                                  5 
+                                                                         3n +m  Y
+                                                                                 0    2n 
+                               T (m) = T (m 0 , m 1 , . . . , m 5 ) =                            ∈ Z.
+                                                                            m0              m`
+                                                                                     `=1
+
+Now m 4 + m 5 ≤ 3n − j and (1 ± i)2 = ±2i; hence
+
+                                           2d(3n− j)/2e × (1 − i)−m 4 (1 + i)−m 5 ∈ Z[i]
+and
+                              2−b(5n+3 j)/2c+1 × 24n−1+ j+m 1 (1 − i)−m 4 (1 + i)−m 5 ∈ Z[i].
+
+Therefore, 2−b(5n+3 j)/2c+1 5− j A j ∈ Z[i] and the result follows from using the fact that A j ∈ Q.                          
+   Formula (5) for the coefficients A j makes sense for any integer j ≤ 3n; it generates the coefficients
+in the Laurent series expansion of R(x) at x = −5. More precisely,
+                                   ∞                             3n                    ∞
+                                   X                             X         Aj        X
+                          R(x) =           A−k (x + 5) k−1
+                                                             =                     +   A−k (x + 5)k−1 .
+                                                                       (x + 5) j+1
+                                   k=−3n                         j=0                  k=1
+
+Note that A j produced by formula (5) are not necessarily integral for negative j but at least they satisfy
+10− j A j ∈ Z for j = −1, −2, . . . , −(4n − 1) on the grounds of the formula, and we also have 10− j A j ∈ Z
+412                                           DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+for j = 0, 1, 2, . . . , 3n in accordance with Lemma 1. Furthermore,
+                3n                            3n                         3n       ∞
+                                                                  X j +k −1  (x + 5)k−1
+                X          Aj        X        Aj            X
+                                   =                      =   A j                         ;
+                       (5 − x) j+1     (10 − (x + 5)) j+1               j        10 j+k
+                j=0                          j=0                         j=0      k=1
+
+comparing the last two expansions with (3) we find
+                    3n                           X ∞        3n                  
+                   X         Aj          Aj                    X    j +k −1  A j
+  P(x) = R(x) −                     +              =    A −k −                        (x + 5)k−1 .
+                         (5 + x) j+1 (5 − x) j+1                       j     10 j+k
+                            j=0                                       k=1             j=0
+
+On the other hand, P(x) is a polynomial of degree 4n − 2; hence
+                                4n−1
+                                X           3n                  
+                                            X     j +k −1  A j
+                       P(x) =        A−k −                          (x + 5)k−1 .                                                   (6)
+                                                     j     10 j+k
+                                               k=1            j=0
+
+Lemma 2. Any prime from the set
+                    n           √  1   n
+                                      n o
+                                            2
+                                              o
+              Pn = p > max{5, 3n} : ≤     <     ⊂ { p prime : 5 < p ≤ 2n}
+                                   2   p    3
+satisfies the following property: if p | j for j ∈ {−4n + 1, −4n + 2, . . . , 3n}, then A j ≡ 0 (mod p) (in
+other words, p | 10− j A j ). (Here {x} = x − bxc denotes the fractional part of the number.)
+Proof. In order to establish the claim, we will cast the coefficients A j in (5) differently. Observe that
+                                   5x 2n (x 2 + (3 − 4i))2n (x 2 + (3 + 4i))2n
+                           R(x) =
+                                                  (25 − x 2 )3n+1
+                                      X  2n  2n                                     x 2(n+n 1 +n 2 )
+                                  =5                     (3 − 4i)2n−n 1 (3 + 4i)2n−n 2
+                                               n1 n2                                   (25 − x 2 )3n+1
+                                      n 1 ,n 2 ≥0
+and
+                       x 2m               (5 − (x + 5))2m
+                                 =
+                  (25 − x 2 )3n+1 (x + 5)3n+1 (10 − (x + 5))3n+1
+                                                ∞
+                                   52m 10−3n−1 X (x + 5)k X         n 0 2m
+                                                                            3n +k −n 
+                                                                                       0
+                                 =                              (−2)                     ;
+                                   (x + 5)3n+1        10k                n0        3n
+                                                              k=0        n 0 ≥0
+hence
+               X                                                                             2n  2n 
+      Aj =             (3 − 4i)2n−n 1 (3 + 4i)2n−n 2 52n+2n 1 +2n 2 +1 10−(6n− j)−1                        Z (n, n 1 + n 2 , j),
+                                                                                             n1    n2
+             n 1 ,n 2 ≥0
+where                                                                2n +2m  6n − j −n 
+                                                     X                                   0
+                                     Z (n, m, j) =        (−2)n 0                          .
+                                                                         n0         3n
+                                                     n 0 ≥0
+
+This means that our lemma is a consequence of the following divisibility property: if a prime p ∈ Pn
+divides j, then it also divides
+
+                                b(n, n 1 , n 2 ) = 2n 2n Z (n, n 1 + n 2 , j)
+                                                    
+                                T
+                                                   n1 n2
+for any n 1 , n 2 ≥ 0.
+                       THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                         413
+
+
+   From now on, we will repeatedly
+                            √         use the fact that the p-adic order of N ! satisfies ord p N ! = bN / pc =
+N / p − {N / p} when p > N . In particular,
+                      2n 
+               ord p        = b2ωc − b2ω − ω` c − bω` c = b2ωc − b2ω − ω` c for ` = 1, 2,                    (7)
+                       n`
+where the fractional parts ω = {n/ p}, ω1 = {n 1 / p} and ω2 = {n 2 / p} all belong to the interval [0, 1).
+Since p ∈ Pn , we have ω ∈ 12 , 23 , so that b2ωc = b3ωc = 1. If at least one of the p-adic orders in
+                                       b(n, n 1 , n 2 ) ≥ 1, establishing the required divisibility; therefore, it
+(7) is positive then immediately ord p T
+remains to analyze the remaining situations assuming b2ω − ω` c = b2ωc = 1 for ` = 1, 2, in other words,
+assuming
+                                   2ω − ω1 ≥ 1 and 2ω − ω2 ≥ 1.
+
+   The binomial sums Z (n, m, j) can be realized as a terminating 2 F1 hypergeometric function, to which
+several classical transformations can be applied. For example, it can be transformed into
+                                     X           2n +2m  6n −2(n +m)− j 
+                       Z (n, m, j) =    (−1)n 0
+                                                     n0        3n − j −n 0
+                                      n 0 ≥0
+                                                 X       2n +2m  4n −2m − j 
+                                    = (−1)n+m     (−1)k                          .
+                                                         n +m +k     2n −m −k
+                                                 k∈Z
+
+Though the expression does not possess a closed form in general, its particular instance j = 0 reduces
+to the super Catalan numbers
+                                                       ∞
+                               (2N )! (2M)!    X        2N  2M 
+                                             =   (−1)k              ;
+                             N ! (N + M)! M!            N +k M +k
+                                                   k=−∞
+
+see [Gessel 1992] also for the historical reference of this identity due to K. von Szily (1894). The
+argument in [Gessel 1992, Section 6] shows that the more general sum
+                                    X∞          2N  2M − j 
+                                         (−1)k
+                                                 N +k      M +k
+                                       k=−∞
+
+is the coefficient of t 2N in the polynomial
+                                    (2N )! (2M − j)!
+                        (−1) N                         (1 + t) N +M (1 − t) N +M− j .
+                                 (N + M)! (N + M − j)!
+In our situation N = n + m, M = 2n − m with m = n 1 + n 2 , the factorial-ratio factor
+                      (2N )! (2M − j)!     (2n + 2n 1 + 2n 2 )! (4n − 2n 1 − 2n 2 − j)!
+                                         =
+                   (N + M)! (N + M − j)!                (3n)! (3n − j)!
+has the nonnegative p-adic order
+
+                  b2ω + 2ω1 + 2ω2 c + b4ω − 2ω1 − 2ω2 − j/ pc − b3ωc − b3ω − j/ pc
+                         = b2ω + 2ω1 + 2ω2 c + b4ω − 2ω1 − 2ω2 c − 2b3ωc
+414                                DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+(we use j/ p ∈ Z), because b3ωc = 1,
+
+         2ω + 2ω1 + 2ω2 ≥ 2ω ≥ 1         and       4ω − 2ω1 − 2ω2 ≥ 4ω − 4(2ω − 1) = 4(1 − ω) > 34 .
+
+Moreover, if this p-adic order is positive then Z (n, n 1 + n 2 , j) is divisible by p; hence the divisibility of
+b(n, n 1 , n 2 ) follows. Thus, we are left with the situation when this order is zero,
+T
+
+                                b2ω + 2ω1 + 2ω2 c = b4ω − 2ω1 − 2ω2 c = 1,
+meaning that
+                             2ω + 2ω1 + 2ω2 < 2           and    4ω − 2ω1 − 2ω2 < 2.                                      (8)
+
+We have to show that the coefficient of t 2N in (1 + t) N +M (1 − t) N +M− j is divisible by p.
+   Setting r = − j/ p ∈ Z and using the “freshman’s dream identity” (1 − t) p ≡ 1 − t p (mod p) in the
+ring Z[[t]], we find
+
+  (1 + t) N +M (1 − t) N +M− j = (1 − t 2 ) N +M (1 − t)− j
+                                                                 X               N +M            X            r 
+                               ≡ (1 − t 2 ) N +M (1 − t p )r =        (−1)k1               t 2k1       (−1)k2       t pk2 ;
+                                                                                   k1                            k2
+                                                                 k1 ≥0                             k2 ≥0
+
+hence the coefficient of t 2N is congruent to
+                                        bN
+                                         X / pc              N + M  r 
+                                                  (−1)k+N
+                                                              N −kp      2k
+                                          k=0
+
+modulo p. The p-adic order of the nonzero binomial coefficients NN −kp
+                                                                   +M 
+                                                                        does not depend on k:
+                                                                         
+            N +M        N     M       N           M               N     M       N       M
+     ord p          =−      +       +      −k +        +k = −          +      +       +       .
+             N −kp        p     p       p           p                p    p        p       p
+Recalling that N = n + m, M = 2n − m with m = n 1 + n 2 the latter quantity reads
+                           3n       
+                 ord p                 = b3ωc − bω + ω1 + ω2 c − b2ω − ω1 − ω2 c = 1,
+                         n +n 1 +n 2
+where we employed (8) to get
+
+                                      bω + ω1 + ω2 c = b2ω − ω1 − ω2 c = 0.
+
+This means that all binomial coefficients NN −kp    +M 
+                                                         are divisible by p, thus completing our proof of the
+                b(n, n 1 , n 2 ) by p, and of the lemma.
+divisibility of T                                                                                          
+Remark. An earlier version of Lemma 2 claimed that any prime p ∈ Pn , satisfying p | j for j ∈
+{−4n, −4n + 1, . . . , 3n}, divides T (m) for all m ∈ M j ; this would clearly imply the present statement
+in view of formula (5). However, the claim about the divisibility properties of T (m) was false.
+Lemma 3. Define 8 = 8n = p∈Pn p and
+                                Q
+
+                                                   lcm(1, 2, . . . , 4n)
+                                         Ln =                            ∈ Z.
+                                                          8n
+                       THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                 415
+
+
+Then
+                          10− j A j
+                   Ln ×             ∈Z       for j ∈ {−4n, −4n + 1, . . . , 3n − 1, 3n}, j 6= 0,      (9)
+                             j
+and 8−1
+     n × A 0 ∈ Z.
+
+  Asymptotically,
+                                                             √
+                        log 8n   0 0 23   0 0 12    π
+                                                
+                                                            3 3
+                    lim        =       −        = √ − log     = 0.64527561 . . .                   (10)
+                   n→∞     n     0 32     0 12     2 3       4
+
+(see [Hata 1993b, Lemma 2.2]).
+Proof. Note that
+                                             1
+                   lcm(1, 2, . . . , 4n) ×     ∈ Z for j ∈ {−4n, −4n + 1, . . . , 3n}, j 6= 0,
+                                             j
+implying, for all such j,
+                                                 1
+                                         Ln ·        ∈Z    if p | j, p ∈ Pn .                        (11)
+                                                j/ p
+On the other hand, it follows from formula (5) and Lemma 2 that
+                                          10− j A j
+                                                    ∈ Z if p | j, p ∈ Pn .                           (12)
+                                             p
+Combining (11) and (12) results in claim (9).                                                          
+Lemma 4. Write the polynomial P(x) ∈ Z[x] in the decomposition (3) as
+                          4n−2
+                          X
+               P(x) =            Bk (x + 1 + 2i)k ,   with Bk ∈ Z[i] for k = 0, 1, . . . , 4n − 2.   (13)
+                          k=0
+Then
+                          2−b5n/2c+d3k/2e+2 × Bk ∈ Z[i]        for k = 0, 1, . . . , 4n − 2.         (14)
+
+Proof. If k ≥ 2n then −b5n/2c + d3k/2e + 2 ≥ 0 and the inclusion in (14) follows from Bk ∈ Z[i].
+Therefore, we only need to verify (14) for k < 2n; since R(x) from (2) has a zero of order 2n at
+x = −1 − 2i, we deduce from (3) that
+                            3n 
+                     1 dk X
+                                                        
+                                     Aj          Aj
+             Bk = −                         +
+                    k! dx k      (5 + x) j+1 (5 − x) j+1 x=−1−2i
+                                  j=0
+                        3n        j +k                                        
+                        X                       Aj                       Aj
+                   =−      (−1)k                         + (−1) j+1
+                                     k     (5 + x) j+k+1            (x − 5) j+k+1 x=−1−2i
+                        j=0
+                      3n 
+                                      (−1)k A j
+                                                                           
+                      X    j +k                              Aj
+                   =−                              +
+                             k     (2(2 − i)) j+k+1 (2(1 + i)(2 − i)) j+k+1
+                        j=0
+416                                       DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+for k = 0, 1, . . . , 2n − 1. It follows then from (4) that
+
+                                        2−b5n/2c+d3k/2e+2 (2 − i)3n+k+1 × Bk ∈ Z[i]
+
+and, again, we recall Bk ∈ Z[i] to conclude with (14) for k < 2n.                                              
+
+Lemma 5. For the polynomial P(x) in the decomposition (3), we have
+                                                                 Z −1+2i
+                                           2  −b5n/2c
+                                                        Ln × i                P(x) dx ∈ Z.                   (15)
+                                                                     −1−2i
+
+Proof. We first compute the integral using representation (13),
+                              Z −1+2i                    4n−2
+                                                         X            Z −1+2i
+                          i             P(x) dx = i              Bk              (x + 1 + 2i)k dx
+                               −1−2i                      k=0            −1−2i
+
+                                                         4n−2                            4n−2
+                                                                                  X 22k+2 Bk
+                                                         X         Bk
+                                                   =i                 (4i)k+1 = −            ik
+                                                                 k +1                k +1
+                                                          k=0                             k=0
+
+implying
+                                                                             Z −1+2i
+                                2−b5n/2c lcm(1, 2, . . . , 4n) × i                     P(x) dx ∈ Z[i]        (16)
+                                                                              −1−2i
+
+on the basis of Lemma 4. On the other hand, if representation (6) is applied then
+     Z −1+2i                   4n−1
+                               X            3n                   Z −1+2i
+                                             X    j +k −1  A j
+ i             P(x) dx = i             A−k −                                (x + 5)k−1 dx
+      −1−2i                                          j     10 j+k    −1−2i
+                               k=1             j=0
+                               4n−1
+                               X           3n                  
+                                       A−k X j +k −1  A j
+                         =i               −                      ((4 + 2i)k − (4 − 2i)k )
+                                        k        j     k 10 j+k
+                               k=1              j=0
+                              4n−1
+                              X                     3n                            k  
+                                      A−k   A0 1          j +k −1  A j 1               k
+                                                                                           (−1)(`+1)/2 2k−`
+                                                     X                               X
+                                                                                 k+1
+                         =                −        −                           2
+                                       k    k 10 k          j −1     j 10 j+k           `
+                              k=1                              j=1                                    `=0
+                                                                                                     ` odd
+
+is a rational number satisfying
+
+                                     lcm(1, 2, . . . , 4n)
+                                                                     Z −1+2i
+                                                           ×i                    P(x) dx ∈ 10−4n Z           (17)
+                                            8n                        −1−2i
+
+on the basis of Lemma 3. Finally, the two inclusions (16) and (17) combine into (15).                          
+
+Lemma 6. For the partial-fraction part in (3) (without the j = 0 term), we have
+                                                      3n
+                                              Z −1+2i X                                         
+                                                                             1           1
+                    2   −b5n/2c+1
+                                     Ln × i                    Aj                   +              dx ∈ Z.
+                                               −1−2i                     (5 + x) j+1 (5 − x) j+1
+                                                         j=1
+                      THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                        417
+
+
+Proof. This follows from
+                3n    Z −1+2i                               
+                X                        1           1
+              i    Aj                           +              dx
+                          −1−2i      (5 + x) j+1 (5 − x) j+1
+               j=1
+                          3n                                                            
+                          X  Aj          1          1          1          1
+                     =i                        −          −          +
+                                j    (4 − 2i) j (4 + 2i) j (6 + 2i) j (6 − 2i) j
+                          j=1
+                          3n
+                             A j (2 + i) j     (2 − i) j       (2 + i) j         (2 − i) j
+                          X                                                                     
+                     =i                      −           −                  +                        ∈Q
+                                j     2j5j       2j5j      2 j (1 + i) j 5 j 2 j (1 − i) j 5 j
+                          j=1
+
+and the inclusions of Lemma 1 and 3.                                                                         
+  Lemma 1 and the integrality of L n imply that 2−b5n/2c+1 L n × A0 ∈ Z; together with the calculation
+                                                                                               πi
+    Z −1+2i                
+               1        1
+                   +           dx = log(4 + 2i) − log(4 − 2i) − log(6 − 2i) + log(6 + 2i) =
+     −1−2i    5+x 5−x                                                                          2
+and Lemmas 5, 6 we are thus led to the following statement.
+Proposition 7. For the integrals In in (1), we have
+
+                                         2−b5n/2c+2 L n × In ∈ Z + Zπ.
+
+Asymptotics. By now we have legally settled that In = an + bn π for some rational an and bn .
+Proposition 8. The asymptotics of the integrals In and the coefficients bn in the representation In =
+an + bn π are as follows:
+
+      lim sup |In |1/n = |N1 | = 0.029458495928 . . .      and      lim b1/n = N3 = 21851.691396 . . . ,
+        n→∞                                                        n→∞ n
+
+where
+                 N1,2 = 0.02930189 . . . ± i 0.00303351 . . . ,       N3 = 21851.691396 . . .
+
+are the zeros of polynomial
+
+                                    108N 3 − 2359989N 2 + 138304N − 2048.                                  (18)
+
+Proof. This rigorously follows from the Poincaré lemma supplied by the rigorously produced — thanks
+to the Almkvist–Zeilberger method [1990] — difference equation for the integrals In (hence also for
+an , bn ), whose indicial polynomial (more precisely, the indicial polynomial of its “constant-coefficients
+approximation”) is exacty (18). Observe that |In | ≤ 1 follows from integrating over the line interval
+[−1 − 2i, −1 + 2i] and trivially bounding the absolute value of the integrand on it. However, those who
+prefer traditional analytical methods can have fun going through the glorious details of the saddle-point
+method, at least after the change of variables y = x 2 is performed in (1). For that, one deals with the
+function
+                                         n                        2           2
+                            e = 5g(y) , where g(y) = y(y + 6y + 25) ,
+                            R(y)
+                                   y − 25                         (y − 25)3
+418                                   DORON ZEILBERGER AND WADIM ZUDILIN
+
+
+and with the zeros
+                     y1,2 = −1.91975076 . . . ∓ i 1.01250889 . . . ,          y3 = 66.33950152 . . .
+of
+                                        g 0 (y) 2y 3 − 125y 2 − 500y − 625
+                                               =                           .
+                                        g(y)     y(y 2 + 6y + 25)(y − 25)
+Then N j = g(y j ) for j = 1, 2, 3. The remaining part is performing a suitable deformation of path in (1)
+                                    √       √
+to pass through the saddle points y1 and y2 (with the choice of branch such that the real parts of the
+roots are negative) and writing a Cauchy integral for bn over a closed contour passing through the saddle
+         √
+points ± y3 .                                                                                           
+
+World record. It follows from Propositions 7 and 8 that the forms
+                           In0 = 2−b5n/2c+2 L n In = an0 + bn0 π,      where n = 0, 1, 2, . . . ,
+all have integral coefficients an0 , bn0 and the asymptotics
+                                                                 √
+                   log |In0 |              5            π       3 3
+         lim sup              = log |N1 | − log 2 + 4 − √ + log     = −1.90291648559998 . . .
+           n→∞        n                    2           2 3       4
+and                                                        √
+                   log bn0           5            π       3 3
+               lim         = log N3 − log 2 + 4 − √ + log     = 11.613890045331 . . .
+              n→∞    n               2           2 3       4
+(the asymptotics of L n follows from the prime number theorem and (10)). This implies (see, e.g., [Sa-
+likhov 2010, Lemma 1]) that the irrationality measure of π is bounded above by
+                        11.613890045331 . . .
+                  1+                          = 7.10320533413700172750577342281 . . . .
+                       1.90291648559998 . . .
+
+                                                       References
+[Alladi and Robinson 1980] K. Alladi and M. L. Robinson, “Legendre polynomials and irrationality”, J. Reine Angew. Math.
+ 318 (1980), 137–155. MR Zbl
+[Almkvist and Zeilberger 1990] G. Almkvist and D. Zeilberger, “The method of differentiating under the integral sign”, J. Sym-
+ bolic Comput. 10:6 (1990), 571–591. MR Zbl
+[Beukers 1979] F. Beukers, “A note on the irrationality of ζ (2) and ζ (3)”, Bull. Lond. Math. Soc. 11:3 (1979), 268–272. MR
+ Zbl
+[Chudnovsky 1982] G. V. Chudnovsky, “Hermite–Padé approximations to exponential functions and elementary estimates of
+ the measure of irrationality of π ”, pp. 299–322 in The Riemann problem, complete integrability and arithmetic applications
+ (Bures-sur-Yvette/New York, 1979/1980), Lecture Notes in Math. 925, Springer, 1982. MR Zbl
+[Gessel 1992] I. M. Gessel, “Super ballot numbers”, J. Symbolic Comput. 14:2-3 (1992), 179–194. MR Zbl
+[Hata 1990] M. Hata, “Legendre type polynomials and irrationality measures”, J. Reine Angew. Math. 407 (1990), 99–125.
+ MR Zbl
+[Hata 1993a] M. Hata, “A lower bound for rational approximations to π”, J. Number Theory 43:1 (1993), 51–67. MR Zbl
+[Hata 1993b] M. Hata, “Rational approximations to π and some other numbers”, Acta Arith. 63:4 (1993), 335–349. MR Zbl
+[Mahler 1953] K. Mahler, “On the approximation of π”, Nederl. Akad. Wetensch. Proc. Ser. A. 56:1 (1953), 30–42. MR Zbl
+[Mignotte 1974] M. Mignotte, “Approximations rationnelles de π et quelques autres nombres”, pp. 121–132 in Journées Arith-
+ métiques (Grenoble, 1973), Bull. Soc. Math. France, Mém. 37, Société Mathématique de France, Paris, 1974. MR Zbl
+                           THE IRRATIONALITY MEASURE OF π IS AT MOST 7.103205334137 . . .                                 419
+
+
+[van der Poorten 1979] A. van der Poorten, “A proof that Euler missed. . . Apéry’s proof of the irrationality of ζ (3)”, Math.
+ Intelligencer 1:4 (1979), 195–203. MR Zbl
+[Salikhov 2008] V. K. Salikhov, “On the irrationality measure of π”, Uspekhi Mat. Nauk 63:3(381) (2008), 163–164. In Rus-
+ sian; translated in Russian Math. Surveys 63:3 (2008), 570–572. MR Zbl
+[Salikhov 2010] V. K. Salikhov, “On the measure of irrationality of π ”, Mat. Zametki 88:4 (2010), 583–593. In Russian;
+ translated in Math. Notes 88:3-4 (2010), 563–573. MR Zbl
+[Weisstein 2019] E. W. Weisstein, “Irrationality measure”, MathWorld post, 2019, available at http://mathworld.wolfram.com/
+ IrrationalityMeasure.html.
+[Zeilberger and Zudilin 2019] D. Zeilberger and W. Zudilin, “Automatic discovery of irrationality proofs and irrationality
+ measures”, preprint, 2019. arXiv
+
+Received 13 Dec 2019. Revised 7 Jan 2020.
+D ORON Z EILBERGER :
+doronzeil@gmail.com
+Department of Mathematics, Rutgers University–New Brunswick, Busch Campus, Piscataway, NJ, United States
+WADIM Z UDILIN :
+w.zudilin@math.ru.nl
+Department of Mathematics, Institute for Mathematics, Astrophysics and Particle Physics, Radboud University, Nijmegen,
+Netherlands
+
+
+
+
+MJCNT — published in partnership with the
+Moscow Institute of Physics and Technology                                                                              msp
+                                           Moscow Journal of Combinatorics
+                                              and Number Theory
+                                                              msp.org/moscow
+                                  EDITORS-IN-CHIEF
+                                           Yann Bugeaud       Université de Strasbourg (France)
+                                                              bugeaud@math.unistra.fr
+                                   Nikolay Moshchevitin       Lomonosov Moscow State University (Russia)
+                                                              moshchevitin@gmail.com
+                                     Andrei Raigorodskii      Moscow Institute of Physics and Technology (Russia)
+                                                              mraigor@yandex.ru
+                                        Ilya D. Shkredov      Steklov Mathematical Institute (Russia)
+                                                              ilya.shkredov@gmail.com
+                                  EDITORIAL BOARD
+                                           Iskander Aliev     Cardiff University (United Kingdom)
+                                     Vladimir Dolnikov        Moscow Institute of Physics and Technology (Russia)
+                                        Nikolay Dolbilin      Steklov Mathematical Institute (Russia)
+                                            Oleg German       Moscow Lomonosov State University (Russia)
+                                       Michael Hoffman        United States Naval Academy
+                                   Grigory Kabatiansky        Russian Academy of Sciences (Russia)
+                                         Roman Karasev        Moscow Institute of Physics and Technology (Russia)
+                                    Gyula O. H. Katona        Hungarian Academy of Sciences (Hungary)
+                                    Alex V. Kontorovich       Rutgers University (United States)
+                                         Maxim Korolev        Steklov Mathematical Institute (Russia)
+                                  Christian Krattenthaler     Universität Wien (Austria)
+                                    Antanas Laurinčikas      Vilnius University (Lithuania)
+                                            Vsevolod Lev      University of Haifa at Oranim (Israel)
+                                               János Pach     EPFL Lausanne(Switzerland) and Rényi Institute (Hungary)
+                                            Rom Pinchasi      Israel Institute of Technology – Technion (Israel)
+                                    Alexander Razborov        Institut de Mathématiques de Luminy (France)
+                                                Joël Rivat    Université d’Aix-Marseille (France)
+                                           Tanguy Rivoal      Institut Fourier, CNRS (France)
+                                             Damien Roy       University of Ottawa (Canada)
+                                     Vladislav Salikhov       Bryansk State Technical University (Russia)
+                                             Tom Sanders      University of Oxford (United Kingdom)
+                               Alexander A. Sapozhenko        Lomonosov Moscow State University (Russia)
+                                         József Solymosi      University of British Columbia (Canada)
+                                 Andreas Strömbergsson        Uppsala University (Sweden)
+                                     Benjamin Sudakov         University of California, Los Angeles (United States)
+                                       Jörg Thuswaldner       University of Leoben (Austria)
+                                          Kai-Man Tsang       Hong Kong University (China)
+                                      Maryna Viazovska        EPFL Lausanne (Switzerland)
+                                             Barak Weiss      Tel Aviv University (Israel)
+                                         PRODUCTION
+                                              Silvio Levy     (Scientific Editor)
+                                                              production@msp.org
+Cover design: Blake Knoll, Alex Scorpan and Silvio Levy
+See inside back cover or msp.org/moscow for submission instructions.
+The subscription price for 2020 is US $310/year for the electronic version, and $365/year (+$20, if shipping outside the US) for print
+and electronic. Subscriptions, requests for back issues and changes of subscriber address should be sent to MSP.
+Moscow Journal of Combinatorics and Number Theory (ISSN 2640-7361 electronic, 2220-5438 printed) at Mathematical Sciences
+Publishers, 798 Evans Hall #3840, c/o University of California, Berkeley, CA 94720-3840 is published continuously online. Periodical
+rate postage paid at Berkeley, CA 94704, and additional mailing offices.
+                             MJCNT peer review and production are managed by EditFlow® from MSP.
+                                                             PUBLISHED BY
+                                              mathematical sciences publishers
+                                                  nonprofit scientific publishing
+                                                          http://msp.org/
+                                              © 2020 Mathematical Sciences Publishers
+Moscow Journal of Combinatorics and Number Theory
+                                                                   vol. 9   no. 4    2020
+
+
+                                    In memoriam
+                                   N. I. Feldman
+
+Naum Ilyitch Feldman                                                                  351
+     N IKOLAY M OSHCHEVITIN
+Effective simultaneous rational approximation to pairs of real quadratic numbers      353
+     YANN B UGEAUD
+Algebraic integers close to the unit circle                                           361
+     A RT ŪRAS D UBICKAS
+On transcendental entire functions with infinitely many derivatives taking integer    371
+values at several points
+     M ICHEL WALDSCHMIDT
+Can polylogarithms at algebraic points be linearly independent?                       389
+     S INNOU DAVID , N ORIKO H IRATA -KOHNO and M AKOTO K AWASHIMA
+The irrationality measure of π is at most 7.103205334137 . . .                        407
+     D ORON Z EILBERGER and WADIM Z UDILIN
+                                              √
+Approximating π by numbers in the field Q( 3)                                         421
+     M IKHAIL Y U . L UCHIN and V LADISLAV K H . S ALIKHOV
+On approximations of solutions of the equation P(z, ln z) = 0 by algebraic numbers    435
+     A LEXANDER G ALOCHKIN and A NASTASIA G ODUNOVA
+Two integral transformations related to ζ (2)                                         441
+     R AFFAELE M ARCOVECCHIO
+

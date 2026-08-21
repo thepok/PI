@@ -1,0 +1,1359 @@
+                                                  THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT
+
+                                                                       VERÓNICA BECHER AND NICOLE GRAUS
+
+
+                                                  Abstract. A number is normal in base b if, in its base b expansion, all blocks of digits of
+                                                  equal length have the same asymptotic frequency. The rate at which a number approaches
+arXiv:2407.13114v1 [math.NT] 18 Jul 2024
+
+
+
+
+                                                  normality is quantified by the classical notion of discrepancy, which indicates how far the
+                                                  scaling of the number by powers of b is from being equidistributed modulo 1. This rate
+                                                  is known as the discrepancy of a normal number. The Champernowne constant c10 =
+                                                  0.12345678910111213141516 . . . is the most well-known example of a normal number. In 1986,
+                                                  Schiffer provided the discrepancy of numbers in a family that includes the Champernowne
+                                                  constant. His proof relies on exponential sums. Here, we present a discrete and elementary
+                                                  proof specifically for the discrepancy of the Champernowne constant.
+
+
+
+
+                                                                                        Contents
+                                             1. Normal numbers                                                                                   1
+                                             2. Discrepancy estimate of normal numbers                                                           3
+                                             3. Statement of results                                                                             5
+                                             4. Basic tools                                                                                      6
+                                             5. Theorem 1: Upper bound                                                                           7
+                                             5.1. Counting occurrences                                                                           8
+                                             5.2. Proof of Theorem 1                                                                            14
+                                             6. Theorem 2: Lower Bound                                                                          18
+                                             6.1. Witnessing Blocks                                                                             18
+                                             6.2. Proof of the Theorem 2                                                                        19
+                                             Acknowledgements                                                                                   24
+                                             References                                                                                         24
+
+
+
+
+                                                                                  1. Normal numbers
+                                              More than a hundred years ago, Émile Borel defined the property of normality of real
+                                           numbers: a real number is normal in a given integer base b if in its expansion in base b all
+                                           digits have the same asymptotic frequency and furthermore, all blocks of digits of equal length
+                                           have the same asymptotic frequency. Borel proved that almost all real numbers, with respect
+                                           to Lebesgue’s measure, are normal in all integer bases greater than or equal to 2. A nice
+                                           version of this proof appears in Hardy and Wright’s book [8, Theorem 148].
+
+                                             Date: July 19, 2024.
+                                             2020 Mathematics Subject Classification. Primary 11K16.
+                                             Key words and phrases. normal numbers; Champernonwne constant; discrepancy.
+                                                                                              1
+2                             VERÓNICA BECHER AND NICOLE GRAUS
+
+
+
+
+        Figure 1. Plot of the expansion of the first 250000 digits of Champernowne
+        constant in base 10, in base 2 and in base 6, from left to right. In each base
+        each digit is assigned a different color, and the digits in the expansion are
+        displayed in row-major order.
+
+  Borel would have liked to give an √example of a normal number that is one of the mathe-
+matical constants such as π, or e, or 2. But so far none of these has been proved normal in
+any base. It remains an open problem [3, 1].
+  The best known example of a normal number is Champernowne constant,
+        c10 = 0.123456789101112131415161718192021222324252627...
+Its expansion is the concatenation of all positive integers expressed in base 10 in increasing
+order. David Champernonwne defined it specifically to be an example of a number that is
+normal in base 10 [4]. He did this work in 1933 with the supervision of G.H. Hardy while he
+was a student at King’s College, Cambridge [9]. Champernowne’s proof is elementary, based
+on a rigorous counting.
+   Notice that c10 expressed in base b, for b ̸= 10, is different from the Champernowne
+constant cb which is the concatenation of the positive integers expressed in base b, in increasing
+order. Figure 1 depicts the expansion Champernowne number constant c10 expressed in base
+10, in base 2 and in base 6. It is not known whether c10 is normal to any integer base other
+than 10.
+   In this note we present all the definitions and results in base 10. It is is equally possible to
+make the presentation for an arbitrary base b greater than or equal to 2.
+   For any real number α ∈ [0, 1), its expansion in base 10 is the sequence of digits (αi )i∈N
+such that αi ∈ {0, .., 9} and
+                   X
+        α = ⌊α⌋ +       αi 10−i .
+                    i≥1
+
+In case α is a rational number, it may have two expansions and we choose the one ending with
+a tail of 0s.
+Definition (Ocurrences counter). Let k ∈ N and let B = (b1 . . . bk ) be a block of digits bi ∈
+{0, . . . , 9} of length k. Let N ∈ N. We define occ(α, B, N ) as the number of occurrences of
+the block B in (α1 α2 . . . αN ) as k consecutive digits,
+        occ(α, B, N ) = #{i : αi . . . αi+k−1 = b1 . . . bk , 1 ≤ i ≤ N − k + 1}.
+                      THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                            3
+
+Example. For N = 20, B = (131) and α = 0.1331132113131751319 1 31 occ(α, B, N ) = 3.2
+                                                                       ↑
+                                                                      αN
+
+Definition (Normal number in base 10). A real number α is normal in base 10 if for all k ∈ N
+and for every B block of digits of length k,
+             occ(α, B, N )     1
+         lim               = k.
+        N →∞      N           10
+Example. The rational number 0.0123456789 0123456789 0123456789 . . . is not normal be-
+cause although the frequency of each digit is 1/10, the frequency of the block (1 1) is 0.2
+
+                       2. Discrepancy estimate of normal numbers
+   Normality can be expressed in the theory of uniform distribution of sequences modulo 1.
+A number is normal in a given base b if the scaling of the number by powers of b is uniformly
+distributed modulo 1, [5]. The rate at which a number approaches normality in a base b is
+given by the classical notion of discrepancy.
+   The discrepancy of a sequence (xn )n∈N ⊂ [0, 1) measures how far is the sequence from being
+equidistributed in the unit interval.
+Definition (Discrepancy of a sequence). For a sequence (xn )n∈N ⊂ [0, 1) the discrepancy of
+it first N terms is
+                                    #{n : xn ∈ [a, b), 1 ≤ n ≤ N }
+         D ((xn )n∈N , N ) = sup                                   − (b − a) .
+                            0≤a<b<1              N
+   For normality in base 10 we consider for each real number, the scaling of the number by
+increasing powers of 10. If the expansion of α in base 10 is given by α = 0.α1 α2 α3 . . ., we
+consider the sequence (xn )n∈N where
+        x1      =    100 α   mod 1     =   0.α1 α2 α3 . . .
+        x2      =    101 α   mod 1     =   0.α2 α3 α4 . . .
+                ..
+                 .
+       xn       =    10n−1 α   mod 1   =   0.αn αn+1 αn+2 . . .
+Definition (Discrepancy of a number for base 10). For α ∈ [0, 1), its discrepancy for base 10 is
+       D(α, N ) = D (10n−1 α mod 1)n∈N , N .
+                                              
+
+Proposition. A real number α is normal in base 10 if and only if lim D(α, N ) = 0.
+                                                                    N →∞
+
+Example. Let α ∈ [0, 1) and let (αi )i∈N the sequence of digits in its decimal expansion.
+Partition the unit interval [0, 1) into intervals of size 1/10. To ask in which of those ten
+intervals is α is equivalent to determine α1 ,
+                1
+         α ∈ 0. 10      if and only if α1 = 0
+                 1 2
+         α ∈  10 , 10  if and only if α1 = 1
+                 2 3
+         α ∈ 10    , 10   if and only if α1 = 2
+            ..
+             . 
+                 9
+                      
+         α ∈ 10    ,1     if and only if α1 = 9.
+For instance,
+4                             VERÓNICA BECHER AND NICOLE GRAUS
+
+
+                                   α = 0.3 . . .
+                 0      1     2        3     4     5      6   7      8      9     1
+                       10    10       10     10    10    10   10    10     10
+
+Recall that for rational numbers having two expansions we commit to the expansion ending
+with an infinite tail of 0s instead of the infinite tail of 9’s. This is justified because we are
+working with intervals that include the left point, For example, α = 0.30000 = 0.2999 . . . and
+α ∈ [3/10, 4/10), so it is justified that we chose the expansion that sets α1 = 3.
+  If instead of partitioning [0, 1) in 10 intervals, we partition it in 100 intervals of size 1/102 ,
+then to find out the subinterval containing α we need to determine the first two digits of its
+decimal expansion, α1 and α2 . For instance,
+                      
+              32 33
+        α∈       ,         if and only if α1 = 3 and α2 = 2.
+              102 102
+                                  α = 0.32 . . .
+                 0                   30     40                                    1
+                                     102    102
+
+For each n ∈ {1, . . . , N }, we need to identify the interval of size of size 1/10n that contains
+xn = 10n−1 α mod 1, For instance, partition the interval [0, 1) into 1000 intervals of size 1/103
+and consider one of them,
+                        
+             325 326
+       I=       ,           .
+             103 103
+Since xn = 10n−1 α mod 1 = 0.αn αn+1 αn+2 . . ., we have that
+        xn ∈ I if and only if αn = 1 and αn+1 = 3 and αn+2 = 0
+               if and only if α = 0.α1 . . . αn−1 3 2 5 αn+3 . . . .
+
+                               xn = 0.325 . . .
+
+                 3           32      325    326    33                            4
+                10           102     103    103    102                           10
+
+That is, xn belongs to the interval I if and only if there is an occurrence of the block B = (325)
+in the digit number n of α. Thus, if we take k = 3, the length of the block B, then
+        #{n : xn ∈ I, 1 ≤ n ≤ N } = #{n : (αn αn+1 αn+2 ) = (3 2 5), 1 ≤ n ≤ N }
+                                       = occ(α, B, N + k − 1).
+                                                                                             2
+   We use Landau’s notation to make estimates. For functions f and g over the real numbers,
+and g strictly positive, we write f (x) = O(g(x)) if there exists a positive constant C and a
+value x0 such that for all x > x0 , |f (x)| < Cg(x). And we write f (x) = o(g(x)) if for all
+positive constants C, there exists x0 such that for every x ≥ x0 ,|f (x)| < Cg(x).
+   Schiffer in [14] gives the discrepancy of numbers in a large family, but of Lebesgue measure
+zero. He proves that for any non-constant polynomial f with rational coefficients such that
+                     THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                               5
+
+f (n) ∈ N for all n ∈ N, the discrepancy of the real number α whose decimal expansion is
+formed by the concatenation of the values of f evaluated on the positive integers,
+       α = 0.f (1)f (2)f (3) . . .
+satisfies the following: There are two constants K1 and K2 such that, there are cofinitely many
+N for which D(α, N ) < K1 /log N ; and there are infinitely many N for which D(α, N ) >
+K2 /log N . Nakai and Shiokawa in [12] generalize this result for non-constant f with real
+coefficients, such that f (t) > 0 for all t > 0. Schiffer’s result applies to the Champernowne
+constant taking the polynomial f (x) = x. In this note we give a discrete an elementary proof
+of of the exact discrepancy of the Champernowne number.
+   How does it compare the discrepancy of the Champernowne constant to the discrepancy
+of other normal numbers? The minimum discrepancy achievable by a normal number is
+still not known. The question was posed by Korobov in 1955 [10], see also Bugeaud’s book
+[3]. Without restricting to sequences of the form (bn α)n≥1 the minimal discrepancy known:
+Schmidt [15] proved that there is a constant C such that for all sequences (xn )n∈N ⊂ [0, 1)
+there are infinitely many N where the discrepancy of the first N terms, is above C log(N )/N .
+And the discrepancy of first N terms of the van der Corput sequences is O((log N )/N ) so this
+is the minimal discrepancy that an arbitrary sequence (xn )n≥1 can have [11].
+   Surprisingly, almost all numbers in the sense of the Lebesgue measure are normal with the
+same discrepancy. Gál and Gál [7] proved an upper bound for the discrepancy of almost all
+numbers with respect to Lebesgue’s measure. Philipp [13] gave the explicit constants, and
+Fukuyama [6] refined them, obtaining that for every base b > 1, there exists a constant Kb
+such that for almost every real number α,
+                  √
+                    N D ((bn α mod 1)n≥0 , N )
+         lim sup          p                      = Kb .
+          N →∞               log(log N )
+That is to say that for almost every real number α,
+                        p             !
+                          log(log N )
+        D(α, N ) = O        √           .
+                              N
+   Gál and Gál showed that the discrepancy of almost all numbers is below the law of the
+iterated logarithm. This, in turn, is below the of discrepancy of Schiffer’s numbers. Thus,
+Champernowne constant approaches normality much slower than almost every number.
+   The set of bases to which a real number can be normal is not tied to any arithmetical
+properties other than multiplicative dependence (for integer bases r and s, if rn = sm for
+some m, n ∈ N, a number is normal in base r exactly when it is normal to base s). For
+any given set of bases closed under multiplicative dependence, there are real numbers that
+are normal to each base in the given set, but not normal to any base in its complement. In
+[2, Theorem 2.8] Becher and Slaman show that the discrepancy functions for multiplicatively
+independent bases are pairwise independent.
+
+                                     3. Statement of results
+   Here we give a discrete and elementary proof of the exact discrepancy of the Champernowne
+constant c10 . Schiffer [14] provided the discrepancy of a family of numbers that includes c10 .
+His proof relies on exponential sums. This is and alternative proof of Schiffer’s result specifi-
+cally for the Champernowne constant.
+6                                  VERÓNICA BECHER AND NICOLE GRAUS
+
+Theorem 1. Let c10 be the Champernowne constant for base 10. Then, there is a constant
+K1 > 0 such that there are cofinitely many N such that D(c10 , N ) < K1 /log N .
+Theorem 2. Let c10 be the Champernowne constant for base 10. Then, there exists a constant
+K2 > 0 such that for infinitely many N , D(c10 , N ) > K2 /log N . In particular, one can take
+K2 = 1/(103 3).
+Remark. Theorems 1 and 2 imply that D(c10 , N ) = O (1/log N ) and D(c10 , N ) ̸= o (1/log N ).
+That is, the estimate cannot be improved.
+Remark. Theorems 1 and 2 hold for any other integer base b ≥ 2 with the definition of
+Champernowne constant cb for that base (the concatenation of all positive integers represented
+in that base). The constants K1 , K2 depend on the base b.
+
+                                                4. Basic tools
+    In the sequel the Champernowne constant is called c = c10 ,
+          c = 0.12345678910111213141516171819202122 . . .
+We define three sequences.
+Definition. Let (ti )i∈N , where ti = i, be the sequence of terms that concatenated yield the
+expansion of c.
+Definition. Let (ci )i∈N , where each ci ∈ {0, .., 9}, be the decimal expansion of c.
+    For example, c11 = 0 and c14 = 1, because
+                     c2             c11
+                     ↓               ↓
+          c = 0.1 2 3 4 5 6 7 8 9 1 0 11 1 2 13 14 15 16 . . . .
+                ↑                   ↑      ↑
+                c1                 c10    c14
+
+Definition. Let (xn )n∈N = (10n−1 c mod 1)n∈N .
+    Thus, x1 = 0.1 2 3 4 5 . . . , x2 = 0.2 3 4 5 6 . . . , . . . xn = 0.cn cn+1 cn+2 . . .
+Definition (Overlapping occurrences). An occurrence of B in c is overlapping if B occurs
+between two or more ti . We denote occo (c, B, N ) to the number of overlapping occurrences of
+B in (c1 c2 . . . cN ).
+Definition (Non-overlapping occurrences). An occurrence of B in c non-overlapping, if B
+occurs within a single term ti . We denote occno (c, B, N ) to the number of non-overlapping
+occurrences of B in (c1 c2 . . . cN ).
+Example. For N = 36 and B = (1 2). Then, occno (c, B, N ) = 1, because
+          c = 0.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 2 3 24 . . .
+                                                                                 ↑
+                                                                                xN
+
+And occo (c, B, N ) = 2, because
+          c = 0.1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 2 3 24 . . . .
+                                                                                 ↑
+                                                                                xN
+                                                                                              2
+Remark. occ(c, B, N ) = occno (c, B, N ) + occo (c, B, N ).
+                        THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                              7
+
+Definition (segment sℓ ). Given ℓ ∈ N, sℓ is the concatenation of terms formed by all natural
+numbers of ℓ digits ordered in ascending order, that is, from 10ℓ−1 to 10ℓ − 1,
+                 ℓ digits         ℓ digits
+              z }| {              z }| {
+        sℓ = (10 . . . 0, . . . , 9 . . . 9).
+Example. s1 = (1 2 3 4 5 6 7 8 9), s2 = (10 11 12 . . . 98 99), s3 = (100 101 . . . 998 999). 2
+Definition (The numbers v = v(N ) and n = n(N )). For N ∈ N, let v = v(N ) be such that
+T (v) ≥ N and T (v − 1) < N . Let n = n(N ) the number of digits of v.
+Definition. For v ∈ N, T (v) is the number of digits in the expansion of c up to the term v.
+Example. For v = 11, T (v) = 13, since there are 13 digits in 1 2 3 4 5 6 7 8 9 10 11. 2
+Example. For N = 14, then v = 12 and n = 2, since T (v) = 15 ≥ N and T (v − 1) = 13 < N .
+                                                v
+        c = 0.1 2 3 4 5 6 7 8 9 10 11 1 2 13 . . .
+                                              ↑
+                                             cN
+
+                                                                                                  2
+Definition (Lengths L and M ). Given N , we define L = L(N ) as number of digits from s1
+to sn−1 ,
+              n−1
+              X
+        L=          j · 9 · 10j−1 .
+              j=1
+
+We define M = M (N ) as the number of digits within sn to the number v.
+                                  n
+                                                          !
+                                 X
+                   n−1                    n−i      n−1
+       M = n(v − 10     + 1) = n     vi 10    − 10     +1 .
+                                                    i=1
+
+Remark. Given n ∈ N, let L = L(N ), M = M (N ), n = n(N ). Then,
+                                   n
+                                   X                         10n 1
+(1)     L≤N ≤L+M =                        9j10j−1 = n10n −      + .
+                                                              9  9
+                                    j=1
+
+Definition. occno (B, v) is the number of non-overlapping occurrences of B in all n digit terms
+less than or equal to v, where n is the number of digits of v.
+Definition. occo (B, v) is the number of overlapping occurrences of B in all n digit terms less
+than or equal to v, where n is the number of digits of v.
+Definition. For ℓ ∈ N, occno (B, sℓ ) is the number of non-overlapping occurrences of B in sℓ .
+Definition. Forℓ ∈ N, occo (B, sℓ ) is the number of overlapping occurrences in sℓ .
+
+
+                                       5. Theorem 1: Upper bound
+  We give an upper bound, for every N , of D(c, N ).
+8                                      VERÓNICA BECHER AND NICOLE GRAUS
+
+5.1. Counting occurrences. We start with the following lemma.
+Lemma 1. Given N ∈ N and B a block of length k > 1, then
+         occ(c, B, N ) = 10−k N + O(10n−k ),
+where the hidden constant in O(10n−k ) does not depend on B.
+Proof. Let N ∈ N and B = (b1 , . . . , bk ). We know that
+         occ(c, B, N ) = occno (c, B, N ) + occo (c, B, N ).
+We separate the proof into steps.
+ Step 1: We estimate occno (c, B, N ), the non-overlapping occurrences.
+ Step 1.1: For each ℓ ≥ 1 we show
+         occno (B, sℓ ) ≤ 10ℓ−k + (ℓ − k) · 9 · 10ℓ−k−1 .
+    If ℓ < k, then occno (B, sℓ ) = 0, since B does not fit within a block of ℓ digits.
+    If ℓ ≥ k: We want to count the amount of numbers of the form:
+         y=∗
+           | . . . ∗ {z
+                     B ∗ . . . ∗}
+                    ℓ digits
+
+where the asterisk ∗ represents any possible digit. We move the position of B and count in
+each case:
+  • We count the amount of numbers of the form
+         y0 = B |∗ .{z
+                     . . ∗}
+                  ℓ−k digits
+
+that is, ℓ digit numbers that contain B in the first position:
+  If b1 = 0: There are 0 numbers of the form y0 , since no natural number begins with 0.
+  If b1 ̸= 0: There are 10ℓ−k numbers of the form y0 , so we can choose the last ℓ − k digits
+between 0 and 9.
+  • We count the amount of numbers of the form
+               ∗ B
+         y1 = |{z}             |∗ .{z
+                                    . . ∗}
+               1 digit    ℓ−k−1 digits
+
+that is, ℓ digit numbers that contain B in the second position: There are 9 · 10 · 10ℓ−k−1
+numbers of the form y1 .
+  • We count the amount of numbers of the form
+               ∗∗ B
+         y2 = |{z}             |∗ .{z
+                                    . . ∗}
+               2 digits   ℓ−k−2 digits
+
+that is, ℓ digit numbers that contain B in the third position: There are 9 · 10 · 10ℓ−k−2 numbers
+of the form y2 . Because:
+       ◦ 9 is the number of values that the first digit can take (between 1 and 9 since it cannot
+         take the value 0).
+       ◦ 10 is the number of values that the second digit can take (between 0 and 9).
+       ◦ 10ℓ−k−2 is the number of values that the last ℓ − k − 2 digits can take.
+                           THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                9
+
+   • We count the amount of numbers of the form
+         y3 = ∗ ∗ ∗} B
+              | {z              |∗ .{z
+                                     . . ∗}
+                3 digits    ℓ−k−3 digits
+
+that is, ℓ digit numbers that contain B in the fourth position: There are 9 · 102 · 10ℓ−k−3
+numbers of the form y3 .
+  • Continuing like this, we arrive at the last position: We count the amount of numbers of
+the form
+         yℓ−k = |∗ .{z
+                     . . ∗} B
+                   ℓ−k digits
+
+that is, ℓ digit numbers containing B in position ℓ − k + 1 : There are 9 · 10ℓ−k−1 numbers of
+the form yℓ−k .
+  Overall we obtain that for each j ∈ {1, . . . , ℓ − k}, the amount of numbers of the form yj is
+         9 · 10ℓ−k−1 .
+Therefore, if b1 = 0:
+                   ℓ−k
+                   X
+  occno (B, sℓ ) =     9 · 10ℓ−k−1 = (ℓ − k) · 9 · 10ℓ−k−1 ;
+                      j=1
+if b1 ̸= 0:
+                                    ℓ−k
+                                    X
+   occno (B, sℓ ) = 10ℓ−k +                   9 · 10 ell−k−1 = 10ℓ−k + (ℓ − k) · 9 · 10ℓ−k−1 .
+                                    j=1
+Then, for all ℓ ≥ k,
+         occno (B, sℓ ) ≤ 10ℓ−k + (ℓ − k) · 9 · 10ℓ−k−1 ,
+   Step 1.2: We show that
+                                  n−1
+                                  X
+         occno (c, B, N ) =              occno (B, sℓ ) + occno (B, v) + O(n).
+                                  ℓ=k
+
+To count non-overlapping occurrences of B up to the position N , that is, occno (c, B, N )),
+we count occurrences in sℓ for each ℓ ∈ {1, . . . , n − 1} that is, occno (B, sℓ ), and then count
+the occurrences in sn by cutting it at v (that is occno (B, v)). Finally, the O(n) comes from
+substracting the possible occurrences of B within v after the N ’th digit, there could be at
+most n − k of those occurrences.
+Example. For N = 9523, v = 2658 and n = 4,
+                                                                         v
+                     . . 9} 10
+         c = 0. |1 .{z      | .{z
+                                . . 99} |100 .{z
+                                               . . 999} 1000 .{z
+                                                               . . 2658} 26 58
+                                                        |                ↑
+                   9·1       90·2               900·3        1658·4     cN
+                  digits    digits              digits       digits
+
+Let’s take B to be any two-digit block, that is, k = 2. To count non-overlapping occurrences
+up to N , we have
+         occno (c, B, N ) = occno (B, s2 ) + occno (B, s3 ) + occno (B, v) + O(n)
+                                     occurrences          occurrences     occurrences    occurrences
+                                        in s2                in s3       in sn until v    after cN
+10                                         VERÓNICA BECHER AND NICOLE GRAUS
+
+because
+                     s1           s2              s3                            v
+          c = 0. 1 . . . 9 10 . . . 99 100 . . . 999 1000 . . . 2658 26 58 .
+                                                                                ↑
+                                                                               cN
+
+Then, the procedure consists of first, counting the occurrences in s1 (which are 0 because
+k = 2), in s2 and s3 ; then count the occurrences from 1000 to 2658; and finally, subtract
+possible occurrences in the last two digits of v. 2
+  Step 1.3: Bound occno (B, v). which is the amount of numbers of the form
+          y = |∗ . . . ∗ {z
+                         B ∗ . . . ∗}            with y ≤ v.
+                       n digits
+
+     If n < k: occno (B, v) = 0, because, B does not fit inside blocks of length n.
+                        Xn
+     If n ≥ k: Let v =      vi 10n−i = v1 . . . vn . Given j ∈ {0, . . . , n − k}, we define:
+                             i=1
+                 j
+                 X
+          aj =         vi 10j−i = v1 . . . vj
+                 i=1
+Again, we move the position of B and count in each case: Given j ∈ {0, . . . , n − k}, let us call
+occno (B, v, j) the amount of numbers of the form
+          yj = |∗ .{z
+                    . . ∗} B       |∗ .{z
+                                        . . ∗}         with yj ≤ v.
+                 j digits      n−k−j digits
+
+     Case j = 0. We want to count the amount of numbers of the form
+          y0 = B ∗
+                 | ·{z
+                     · · ∗}
+                    n−k digits
+
+We note that again, if b1 = 0, then occno (B, v, j) = 0, since there are no numbers that begin
+with a leading zero. Now, if b1 ̸= 0, we must separate cases, since occno (B, v, j) depend on
+who is B and who is v.
+
+        • If B > v1 . . . vk : occno (B, v, j) = 0, then y0 > v.
+        • If B = v1 . . . vk : occno (B, v, j) = vk+1 . . . vn + 1, then the last n − k digits of y0 we can
+          choose between 0 and vk+1 . . . vn .
+        • If B < v1 . . . vk : occno (B, v, j) = 10n−k , then the last n − k digits of y0 can take any
+          value from 0 up to |9 .{z   . . 9} .
+                                         n−k digits
+                                           n−k
+Therefore, occno (B, v, 0) ≤ 10                    .
+
+     Case 1 ≤ j ≤ n − k .
+          occno (B, v, j) = (aj − 10j−1 + θj )                  10n−k−j
+                                       Choose the first      Choose the last
+                                          j digits            n−k−j digits
+
+                                                 j
+                                                                                     !
+                                                 X
+                               = 10−k                  vi 10n−i − 10n−1 + θj 10n−j       where 0 ≤ θj ≤ 1.
+                                                 i=1
+.
+                        THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                                 11
+
+  Let’s see why the first equality is valid. For yj to be effectively less than or equal to v, we
+must choose the first j digits within (10j−1 , . . . , aj ). It depends on the values of B and v,
+whether we are taking aj inclusive or exclusive.
+Example. B = (3 1), n = 4, v = 2325 and j = 1. So,
+
+       occno (B, v, 1) =                 2         ·                 10            = (2 − 101−1 + θ1 )104−2−1
+                              Choose thefirst digit         Choose the
+                               between 1 and 2      fourth digitbetween 0 and 9
+
+with θ1 = 1. In this case, we are taking aj = 2 inclusive. 2
+Example. B = (3 1), n = 4, v = 2305 and j = 1. Then,
+
+       occno (B, v, 1) =         1       ·       10           = (2 − 101−1 + θ1 )104−2−1 , with θ1 = 0.
+                              The first  Choose the
+                              digit only fourth digit
+                              can be 1 between 0 and 9
+
+with θ1 = 0. In this case, we are taking aj = 2 exclusive. 2
+Example. B = (3 1), n = 4, v = 2315 and j = 1. So,
+       occno (B, v, 1) =                 10            +             6
+                                    If the first                 If the first
+                                     digit is 1,                  digit is 2,
+                                choose the fourth            choose the fourth
+                              digit between 0 and 9        digit between 0 and 5
+
+                            = (2 − 101−1 )104−2−1 + (104−2−1 − 4)
+                                                                 4
+                            = (2 − 101−1 )104−2−1 + 104−2−1 (1 − )
+                                                                10
+                                                                                    4
+                            = (2 − 101−1 + θ1 )104−2−1 , with θ1 = 1 −                .
+                                                                                   10
+                                                                                               2
+  Recall M is the number of digits from 10n−1 to v, that is, the number of digits in sn up to the
+number v. Then, Recall L the number of digits from 1 to 10n−1 − 1 By (1), L ≤ N ≤ L + M .
+Indeed, N = L + M − O(n) because in the worst case, N is the position of the first digit of v
+and we have to subtract n − 1. We have,
+
+                 n−k
+                 X
+occno (B, v) =         occno (B, v, j)
+                 j=0
+                                                                                  
+                                       n−k
+                                       XX  j
+            ≤ 10n−k + 10−k                      vi 10n−i − 10n−1 + θj 10n−j 
+                                       j=0 i=1
+                                                                                  
+                          n−k
+                          XX  j                                  n−k
+                                                                 XX  j
+            = 10−k                   (vi 10n−i − 10n−1 ) +                 θj 10n−j  + O(10n−k )
+                            j=0 i=1                               j=0 i=1
+                                                                            
+                                                       n−k j                                 n−k
+                                                       XX                                    X          1
+            ≤ 10−k −(n − k + 1)10n−1 +                              vi 10n−i  + 10−k 10n         j       + O(10n−k )
+                                                                                                       10j
+                                                           j=0 i=1                           j=0
+12                                      VERÓNICA BECHER AND NICOLE GRAUS
+                                                                                     
+                                                                 n−k
+                                                                 XX  j
+                  = 10−k −(n − k + 1)10n−1 +                                vi 10n−i  + O(10n ) + O(10n−k )
+                                                                 j=0 i=1
+                                                                                                       
+                                                                 n−k
+                                                                 X
+                  ≤ 10−k −(n − k + 1)10n−1 +                          vi 10n−i (n − k − i + 1) + O(10n−k )
+                                                                 j=1
+                      −k                   n−k
+                  ≤ 10     M + O(10              )
+Let’s see why the last two inequalities are valid. For the previous to the last we have
+n−k
+XX  j                    0
+                         X                     1
+                                               X                         n−k
+                                                                         X
+               n−i                   n−i                   n−i
+          vi 10      =         vi 10       +         vi 10       + ...          vi 10n−i
+j=0 i=1                  i=1                   i=1                       i=1
+                                n−1                  n−1               n−2
+                     = (v1 10          ) + (v1 10            + v2 10         ) + . . . + (v1 10n−1 + . . . + vn−k 10n−(n−k) )
+                         n−k
+                         X
+                     =         vi 10n−i (n − k − i + 1)
+                         i=1
+
+For the last we have,
+                               n−k
+                               X                                                                                      n
+                                                                                                                      X
+                     n−1                   n−i                                      n−1           n−1
+−(n − k + 1)10             +         vi 10       (n − k − i + 1) ≤ −n10                    + 10         (k − 1) + n         vi 10n−i
+                               j=1                                                                                    i=1
+                                                                                           n
+                                                                        ≤ M + O(10 ).
+We conclude,
+                               n−1
+                               X
+      occno (c, B, N ) =             occno (B, sℓ ) + occno (B, v) − O(n)
+                               ℓ=k
+(2)
+                               n−1
+                               X
+                         ≤           10ℓ−k + (ℓ − k) · 9 · 10ℓ−k−1 + 10−k M + O(10n−k ),
+                               ℓ=k
+
+where the hidden constant inside O(10n−k ) does not depend on B.
+     Step 2: We bound occo (c, B, N ), the number of overlapping occurrences.
+     If k = 1, there are no overlapping occurrences of B, so we assume k > 1. Observe that
+                                 n
+                                 X
+          occo (c, B, N ) ≤            occo (B, sℓ ) + O(n).
+                                 ℓ=1
+
+The worst case for N is realized in the last digit of v when v is the last number in sn ,
+          v = 10n − 1 = 9| .{z
+                             . . 9} ,
+                               n digits
+
+so should add each occo (B, sℓ ) up to ℓ = n. The O(n) comes from summing all the overlapping
+occurrences that could appear between two (or more) sℓ . At most there are kn of those
+occurrences, that is k occurrences for each sℓ ). We can bound them by a constant that does
+not depend on the choice of B.
+                         THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                 13
+
+   Step 2.1: We bound occo (B, sℓ ).
+   Case ℓ ≥ k. For blocks of length ℓ ≥ k, there can only be overlapping occurrences two
+blocks, and no more. If x is a number of ℓ digits, and overlapping occurrence of B between x
+and x + 1 can happen only if the last digits of x are (b1 , . . . , bk−j ) and the first digits of x + 1
+are (bk−j+1 , . . . , bk ) for some j ∈ {1, . . . , k − 1}. Therefore, x must be of the form
+        x = bk−j+1 . . . bk |∗ .{z
+                                 . . ∗} b1 . . . bk−j .
+                                ℓ−k digits
+
+Since there are ℓ − k free digits, x can at most take 10ℓ−k values. Then, for each
+j ∈ {1, . . . , k − 1}, B can occur overlapping blocks of length ℓ at most 10ℓ−k times. Therefore,
+                           k−1
+                           X
+        occo (B, sℓ ) ≤           10ℓ−k = (k − 1)10ℓ−k .
+                            j=1
+
+Example. For ℓ = 6, B = (1 2 3 4), k = 4. Then, the overlapping occurrences of B are:
+          x      x+1
+      234 ∗ ∗1 234 ∗ ∗2
+      34 ∗ ∗12 34 ∗ ∗13
+      4 ∗ ∗123 4 ∗ ∗124
+
+Then, occo (B, sℓ ) = 3 · 102 . In this example equality applies because the block B consists of
+all different digits. But, if B has repeated digits, we could be counting the same occurrence
+repeatedly. That’s why we get a bound for occo (B, sℓ ) and not an equality. 2
+Example. For ℓ = 6, B = (1 1 1 1), k = 4, the overlapping occurrences of B are:
+          x      x+1
+      111 ∗ ∗1 111 ∗ ∗2
+      11 ∗ ∗11 11 ∗ ∗12
+      1 ∗ ∗111 1 ∗ ∗112
+
+Then, occo (B, sℓ ) < 3 · 102 . The equality would imply that numbers such as x = 111011 be
+counted twice of (once in the first row and once once in the second row). 2
+   Case ℓ < k. To simplify the work, and as it is sufficient for the bound we are looking for,
+we bound all overlapping occurrences B from s1 to sk−1 in terms of the number of digits from
+s1 to sk−1 , that is, the number of digits in
+        1 2 . . . 10 11 . . . 100 . . . 999 . . .      10k−1 − 1          .
+                                                           =9...9
+                                                    (It has k−1 digits)
+
+Then,
+        k−1
+        X                         k−1
+                                  X
+              occo (B, sℓ ) ≤            9 · 10i−1 ·         i     .
+        ℓ=1                       i=1    Amount of    Amount
+                                        numbers in si    of
+                                                       digits
+
+Therefore, we bound the overlapping occurrences, concluding Step 2:
+                               n
+                               X                            k−1
+                                                            X
+(3)     occo (c, B, N ) ≤            10ℓ−k (k − 1) +              9 · 10j−1 · j
+                               ℓ=k                          j=1
+14                                     VERÓNICA BECHER AND NICOLE GRAUS
+
+Using the bounds (2) (from Step 1) and (3) ( from Step 2) we obtain,
+        occ(c, B, N ) = occno (c, B, N ) + occo (c, B, N )
+                             n−1
+                             X
+                         ≤         10ℓ−k + 9(ℓ − k)10ℓ−k−1 + 10n−k + 10−k M + O(10n−k )
+                             ℓ=k
+                               Xn                        k−1
+                                                         X
+                             +         10ℓ−k (k − 1) +         9 · 10j−1 · j
+                                 ℓ=k                     j=1
+                             n−1
+                             X
+                         =         10ℓ−k + 9(ℓ − k)10ℓ−k−1 + 10−k M
+                             ℓ=k
+                               Xn
+                             +         10ℓ−k (k − 1) + O(10n−k ).
+                                 ℓ=k
+Then,
+
+                  n−1
+                  X
+occ(c, B, N ) ≤         10ℓ−k−1 (10 + 9ℓ − 9k + 10k − 10) + 10n−k (k − 1) + 10−k M + O(10n−k )
+                  ℓ=k
+                         n−1                                      n−1
+                    −k
+                         X                       1 X ℓ
+                                                    −k
+             = 10       10         ℓ−1
+                              · 9 · ℓ + 10 · k ·        10 O(10n−k ) + 10−k M + O(10n−k )
+                                                 10
+                    ℓ=k                             ℓ=k
+                                              n    1 − 10k
+                                                          
+                 −k        −k        1 1 − 10
+             ≤ 10 L + 10 · k ·                   −           + O(10n−k ) + 10−k M + O(10n−k )
+                                    10    −9         −9
+             = 10−k L + O(10n−k ) + 10−k M + O(10n−k )
+             = 10−k N + O(10n−k ).                                                                  □
+5.2. Proof of Theorem 1. We need to show that there exists N0 ∈ N and C > 0 such that
+                                1
+for all N ≥ N0 , D(c, N ) ≤ C       . We introduce notation. For 0 ≤ a < b < 1 and N ∈ N,
+                              log N
+                             #{j ∈ {1, . . . , N } : xj ∈ [0, b)}
+        D(c, a, b, N ) =                                          − (b − a).
+                                              N
+Then,
+          sup     |D(c, a, b, N )| = D(c, N ),
+        0≤a<b<1
+
+To bound the discrepancy of c we should take supremum of |D(c, a, b, N )| over all intervals
+[a, b) ⊆ [0, 1). Let us see that it suffices to consider intervals of the form [0, b). Suppose we
+have proved it for every interval of the form [0, b), that is, for every N ≫ 1,
+                                               #{j ∈ {1, . . . , N } : xj ∈ [0, b)}        K
+         sup |D(c, 0, b, N )| = sup                                                 −b ≤       .
+        0≤b<1                            0<b<1                  N                        log N
+For every N ≫ 1, |D(c, a, b, N )| is equal to
+         #{j ∈ {1, . . . , N } : xn ∈ [0, b)} − #{j ∈ {1, . . . , N } : xj ∈ [0, a)}
+                                                                                     −b+a .
+                                              N
+                      THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                                       15
+
+Then,
+
+                  #{j ∈ {1, . . . , N } : xn ∈ [0, b)}      #{j ∈ {1, . . . , N } : xj ∈ [0, a)}
+|D(c, a, b, N )| ≤                                     −b +                                      −a
+                                    N                                         N
+               ≤ 2 sup |D(c, 0, y, N )|
+                     0≤y<1
+                    K
+               ≤2
+                  log N
+                   C
+               =       .
+                 log N
+                                                                                   K
+  We now prove that for every N ≫ 1, for all b ∈ [0, 1), sup |D(c, 0, b, N )| ≤        , where
+                                                           0≤b<1                 log N
+                                                                                           
+                                                                                         1
+the constant K does not depend on b. It is enough to see that |D(c, 0, b, N )| = O           ,
+                                                                                      log N
+for all b ∈ [0, 1), where the hidden constant in Landau’s O does not depend on b. We divide
+the proof in three steps.
+                                                         k
+                                                         X
+   Step 1: Let k ∈ N and α ∈ [0, 1), α = 0.α1 . . . αk =    αi 10−i . Let N ∈ N. We show
+                                                                   i=1
+
+                                            10−k
+                                                
+        |D(c, α, α + 10−k , N )| = O               ,
+                                           log N
+where the constant does not depend on α. For B = (α1 , . . . , αk ) we have,
+        #{j ∈ {1, . . . , N } : xj ∈ [α, α + 10−k )} = occ(c, B, 1, N ) + O(k).
+The term O(k) comes from counting the possible occurrences that could occur after the digit
+cN and up to the digit cN +k−1 . Using Lemma 1 for the second equality we obtain,
+                                                            
+                      −k          1                   −k     k
+       |D(c, α, α + 10 , N )| =     occ(c, B, N ) − 10 + O
+                                  N                         N
+
+                                                                                                
+                                  1 −k                      1 n−k                −k            k
+                                =   10 N + O                  10           − 10       +O
+                                  N                         N                                  N
+
+                                                                                            
+                                       −k               1                                  k
+(4)                             = 10         +O             10−k       − 10 −k
+                                                                                  +O
+                                                      log N                                N
+
+                                                     
+                                             1     −k
+                                =O               10     ,
+                                           log N
+                                                                                                            10−k
+                                                                                                                  
+for N large enough (since k is fixed). By Lemma 1, the hidden constant in O                                            does
+                                                                                                           log N
+not depend on α.
+   Recall that N is the position at which we find v, v is a term with n digits, L is number of
+digits from s1 to sn−1 , and M is the number of digits within sn to the number v. Let us see
+16                                 VERÓNICA BECHER AND NICOLE GRAUS
+
+why equality (4) holds. We prove that for for sufficiently large N
+          10n /N < 2/ log N,
+Using L ≤ N we have,
+                           10n−1 1
+                                                              
+2N      2            n−1                            1 1          1
+    ≥ n (n − 1)10        −      +     ≥ 2 (n − 1) −      ≥2 n−1−     ≥ n+log n.
+10n    10                    9    9                 9 10         9
+And using N ≤ L + M we have
+          log N < n + log n,
+So,
+          log N < n + log n < 2N/10n .
+                                                        10−k
+                                                            
+                                 −k
+We obtain, |D(c, α, α + 10            , N )| = O              .
+                                                       log N
+                                                                       h
+                                                                       X
+     Step 2: Let h ∈ N and γ ∈ [0, 1), γ = 0.γ1 . . . γh =                    γi 10−i . We show
+                                                                        i=1
+                                          
+                               1
+          |D(c, 0, γ, N )| = O      ,
+                             log N
+whose constant does not depend on γ. This is the desired result just for intervals whose
+extremes γ are numbers with finite decimal expansion. Let k ∈ {1, . . . , h} and j ∈ {0, . . . , γk }.
+We define
+              k−1
+              X
+       λk,j =     γi 10−i + j10−k = 0.γ1 . . . γk−1 j.
+                 i=1
+Then, it holds that
+                     k−1
+                     X
+          λk,j+1 =         γi 10−i + (j + 1)10−k = λk,j + 10−k .
+                     i=1
+We observe
+       λ1,0 = 0 ,                      λ1,1 = 0.1 ,                  . . . λ1,γ1 = 0.γ1
+       λ2,0 = 0.γ1 ,                    λ2,1 = 0.γ1 1 ,              . . . λ2,γ2 = 0.γ1 gamma2
+       ..                              ..                                  ..
+        .                               .                                   .
+           λh,0 = 0.γ1 . . . γh−1 , λh,1 = γ1 . . . γh−1 1 , . . . λh,γh = 0.γ1 . . . γh = γ.
+Then,
+             k −1
+          h γX                                      k   N     h γ −1            k            h γ −1
+          X                                    1 XX X                          XX
+                    D(c, λk,j , λk,j+1 , N ) =        χ[λk,j ,λk,j+1 ) (xn ) −    10−k
+                                               N
+          k=1 j=0                                      n=1 k=1 j=0                          k=1 j=0
+                                                        N                     h
+                                                   1 X                X
+                                               =       χ[0,γ) (xn ) −   γk 10−k
+                                                   N
+                                                       n=1                 k=1
+                                                       N
+                                                   1   X
+                                               =             χ[0,γ) (xn ) − γ
+                                                   N
+                                                       n=1
+                                               = D(c, 0, γ, N ).
+                      THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                 17
+
+Hence,
+                                 k −1
+                              h γX
+                              X
+         |D(c, 0, γ, N )| ≤                 |D(c, λk,j , λk,j+1 , N )|
+                              k=1 j=0
+                                 k −1
+                              h γX
+                              X
+                          =                 D(c, λk,j , λk,j + 10−k , N )
+                              k=1 j=0
+                              h
+                                             10−k
+                              X                    
+                          =         O                     by step 1, taking N sufficiently large
+                                            log N
+                              k=1
+                                             
+                             1
+                          =O
+                           log N
+                                         
+                                       1
+where the hidden constant in O               does not depend on γ, nor on h, since
+                                    log N
+        h      −k                   X ∞                      
+       X         10               1            −k           1
+            O            ≤O                  10 ≤ O                  .
+                log N          log N                      log N
+       k=1                               k=1
+                                                                          
+                                                                       1
+  Step 3: Let β ∈ [0, 1). We prove that |D(c, 0, β, N )| = O                . Let N ∈ N. Let’s take
+                                                                     log N
+h = [log(log N ))]. If β has a finite decimal expansion, then we are in the case of Step 2 and
+the proof is complete. Otherwise, β = 0.β1 β2 . . . βh βh+1 . . .. Let α, γ ∈ [0, 1) be such that
+         α ≤ β ≤ γ,
+         γ − α = 10−h ,
+         α10h ∈ N,
+         γ10h ∈ N.
+That is to say, α = 0.β1 . . . βh and γ = α + 10−h . So,
+                                   N
+                            1 X
+         D(c, 0, β, N ) =       χ[0,β) (xn ) − β
+                            N
+                                n=1
+                                 N
+                            1   X
+                       ≤                χ[0,β) (xn ) − γ + γ − α = D(c, 0, γ, N ) + 10−h .
+                            N
+                                n=1
+Similarly,
+                                   N
+                          1 X
+         D(c, 0, β, N ) ≥     χ[0,β) (xn ) − α + α − γ = D(c, 0, α, N ) − 10−h .
+                          N
+                                n=1
+                              −h
+Then, D(c, 0, α, N ) − 10           ≤ D(c, 0, β, N ) ≤ D(c, 0, γ, N ) + 10−h . Therefore,
+         |D(c, 0, β, N )| ≤ max{|D(c, 0, α, N ) − 10−h |, |D(c, 0, γ, N ) + 10−h |}
+                          ≤ max{|D(c, 0, α, N )|, |D(c, 0, γ, N )|} + 10−h
+                                    
+                                 1
+                          =O           + 10−h        by step 2
+                               log N
+18                              VERÓNICA BECHER AND NICOLE GRAUS
+                                          
+                                     1
+                          =O                   .
+                                   log N
+The proof of Theorem 1 is complete.                                                                       □
+
+                                    6. Theorem 2: Lower Bound
+  We prove a lower bound for the discrepancy D(c, N ). We need to find out how much the
+number of occurrences of the blocks of equal length can differ. It suffices to find only two
+witnessing blocks one whose occurrences are in excess and the other in defect.
+6.1. Witnessing Blocks. The statement of Lemma 2 is due to Schiffer [14, Lemma 2]. This
+is our version of the proof.
+Lemma 2. Let α ∈ [0, 1). Let B1 and B2 be blocks of equal length k. Suppose there exists a
+constant C > 0 such that for infinitelly many N ∈ N,
+                                                 N
+       |occ(α, B1 , N ) − occ(α, B2 , N )| > C         .
+                                               log(N )
+Then, there exists a constant K > 0 such that for infinitely many N ∈ N,
+                      K
+       D(N, α) >           .
+                   log(N )
+Furthermore, it holds for the constant K = C/3.
+Proof. Let B1 = (b1 . . . bk ), B2 = (d1 . . . dk ) and α = 0.α1 α2 α3 . . . ∈ [0, 1). Let
+        β1 = 0.b1 . . . bk = ki=1 bi 10−i and β2 = 0.d1 . . . dk = ki=1 di 10−i
+                              P                                            P
+        I1 = [β1 , β1 + 10−k ) ⊆ [0, 1)         and I2 = [β2 , β2 + 10−k ) ⊆ [0, 1).
+Observe that α ∈ I1 if and only if (α1 . . . αk ) = (b1 , . . . , bk ). And α ∈ I2 if and only if (α1 . . . αk ) =
+(d1 , . . . , dk ). Let N ∈ N be such that N + k − 1 satisfies the hypothesis of the statement,
+                                                                      N +k−1
+        |occ(α, B1 , N + k − 1) − occ(α, B2 , N + k − 1)| > C                      .
+                                                                    log(N + k − 1)
+So,
+        D(α, N ) = D((10n−1 α         mod 1, N )n∈N )
+                               #{n ∈ {1, . . . , N } : 10n−1 α    mod 1 ∈ [a, b)}
+                   =     sup                                                        − (b − a)
+                       0≤a<b<1                          N
+                           #{n ∈ {1, . . . , N } : 10n−1 α mod 1 ∈ Ii }
+                   ≥ max                                                − 10−k
+                     i=1,2                         N
+                           occ(α, Bi , N + k − 1)
+(5)                = max                             − 10−k
+                     i=1,2            N
+                     |occ(α, B1 , N + k − 1) − occ(α, B2 , N + k − 1)|
+(6)                ≥
+                                              2N
+                        C(N + k − 1)
+                   >
+                     2N log(N + k − 1)
+                             C
+                   ≥                    .
+                     2 log(N + k − 1)
+                          THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                              19
+
+    To see inequality (5) notice that 10n−1 α mod 1 ∈ I1 , if and only if αn = b1 , . . . , αn+k−1 =
+bk , and this happens exactly when B1 occurs in (αn , . . . , αn+k−1 ). The same holds for B2 .
+Observe that when n = 1, we consider the occurrences in (α1 . . . αk ), and when n = N , we
+consider the occurrences in (αN , . . . , αN +k−1 ).
+    To see inequality (6) notice that
+
+   |occ(α, B1 , N + k − 1) − occ(α, B2 , N + k − 1)|
+                                                     =
+                          2N
+                                                                                
+           1 occ(α, B1 , N + k − 1)        −k      occ(α, B2 , N + k − 1)     −k
+        =                             − 10     −                          − 10
+           2             N                                    N
+                                                                                      
+           1 occ(α, B1 , N + k − 1)         −k           occ(α, B2 , N + k − 1)     −k
+        ≤                               − 10          +                         − 10
+           2              N                                         N
+           1         occ(α, Bi , N + k − 1)
+        ≤ 2 max                             − 10−k .
+           2 i=1,2              N
+  We obtained that D(α, N ) ≥ C/(1 log(N +k −1)). To finish the proof we can take K = C/3
+because, since k is fixed, for sufficiently large N ,
+                C               C
+                          ≥           .
+         2 log(N + k − 1)   3 log(N )
+                                                                                                    □
+
+6.2. Proof of the Theorem 2. We use Lemma 2. Let B1 and B2 be of equal length k ≥ 2,
+B2 = (0 . . . 0) the block of all zeros, and B1 = (1 1 ∗ . . . ∗), where the asterisk ∗ represents any
+digit between 0 and 9.
+Example. Let k = 2, B1 = (1 1) and B2 = (0 0), Let’s see that B1 has occurrences in excess
+and B2 in defect. Notice that B1 has overlapping occurrences in the expansion of c bit B2 does
+not, because B2 is the block of all zeros and there aren’t terms ti beginning with a 0. For the
+non-overlapping occurrences of each block we must count. Let’s count of the non-overlapping
+occurrences of B1 and B2 in (1 . . . 999) = (s1 s2 s3 ); that is, we want to calculate for i =1.2,
+        3
+        X
+               occno (Bi , sℓ ).
+        ℓ=1
+
+We count up to ℓ = 3, but the procedure is similar for every ℓ.
+ Case of B1 :
+    • occno (B1 , s1 ) = 0, because k = 2 > 1.
+    • occno (B1 , s2 ) = 1, because the only occurrence of B1 in s2 is (1 1).
+    • occno (B1 , s3 ) = 19, because there are ten occurrences of the form (1 1 ∗) and nine of
+      the form (∗ 1 1).
+        3
+        X
+Thus,         occno (B1 , sℓ ) = 20.
+        ℓ=1
+  Case of B2 :
+    • occno (B1 , s1 ) = 0, because k > 1.
+    • occno (B1 , s2 ) = 0, because the term (0 0) does not appear in the c.
+20                                      VERÓNICA BECHER AND NICOLE GRAUS
+
+     • occno (B1 , s3 ) = 9 because there are nine occurrences of the form (∗ 0 0), but none of
+       the form (0 0 ∗) .
+      X3
+Thus,    occno (B1 , sℓ ) = 9.
+         ℓ=1
+                                                                                            2
+  In order to use Lemma 2, we must see that there exists a constant C such that for infinitely
+many N ∈ N,
+                                                               N
+          |occ(c, B1 , N ) − occ(c, B2 , N )| > C                    ,
+                                                             log(N )
+where B1 and B2 are the witnessing blocks. Let N ∈ N. Observe that |occ(c, B1 , N ) − occ(c, B2 , N )|
+is equal to
+          |occno (c, B1 , N ) + occo (c, B1 , N ) − (occno (c, B2 , N ) + occo (c, B2 , N ))| .
+We first calculate occno (c, B1 , N ) − occno (c, B2 , N ). For ℓ ∈ N, we calculate occno (B1 , sℓ ) −
+occno (B2 , sℓ ). Recall in Lemma 1 we define occno (Bi , sℓ ) as the number of non-overlapping
+occurrences of Bi in
+          sℓ = (10ℓ−1 , . . . , 10ℓ − 1) = (10 . . . 0}, . . . , 9| .{z
+                                            | {z                      . . 9}).
+                                                  ℓ digits          ℓ digits
+
+     If ℓ < k: occno (Bi , sℓ ) = 0, for i = 1, 2.
+     If ℓ ≥ k:
+     occno (B1 , sℓ ) = 10ℓ−k + (ℓ − k) · 9 · 10ℓ−k−1 , because the first digit of B1 is not 0.
+               occno (B2 , sℓ ) = (ℓ − k) · 9 · 10ℓ−k−1 , because the first digit of B2 is 0.
+     Therefore,
+(7)       occno (B1 , sℓ ) − occno (B2 , sℓ ) = 10ℓ−k , for all ℓ ≥ k.
+Remark. We are using that the first digit of B2 is zero and the first digit of B1 is not zero.
+     Let v = v(N ) and n = n(N ). As in the proof of Lemma 1, for i = 1, 2 it holds that
+                                   n−1
+                                   X
+          occno (Bi , c, N ) =            occno (Bi , sℓ ) + occno (Bi , v) − O(n)
+                                   ℓ=k
+
+We must calculate occno (B1 , v) − occno (B2 , v).
+   If n < k: occno (Bi , v) = 0.
+   If n ≥ k: As in the proof of Lemma 1 let v = v1 . . . vn , and for each j ∈ {0, . . . , n − k}, let
+aj = v1 . . . vj . Let occno (B, v, j) be the amount of numbers of the form
+          yj = |∗ .{z
+                    . . ∗} B      |∗ .{z
+                                       . . ∗}   with yj ≤ v.
+                 j digits      n−k−j digits
+
+     Case j = 0. We count the amount of numbers of the form
+          y0 = B i ∗
+                   | ·{z
+                       · · ∗}         con y0 ≤ v.
+                     n−k digits
+
+Since the first digit of B2 is zero,
+          occno (B2 , v, 0) = 0.
+                          THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                                                  21
+
+  Again by proof of Lemma 1,
+         occno (B1 , v, 0) ≤ 10n−k .
+   Case 1 ≤ j ≤ n − k. The amount of numbers of the form yj with the first j digits less than
+aj , then yj < v, and then occno (B1 , v, j) = occno (B2 , v, j). If the first j digits of yj are greater
+than aj , then yj > v so they do not add up to occno (B1 , v, j) nor to occno (B2 , v, j). Finally,
+if the first j digits of yj are equal to aj . There, the number of non-overlapping occurrences
+of B1 could be different from that of B2 . We analyze this case. Let ∆j (Bi ) be the amount of
+numbers of the form
+         yj = v1 . . . vj Bi |∗ .{z
+                                  . . ∗}    ,     with yj ≤ v.
+                             n−k−j digits
+
+       • If Bi > vj+1 . . . vj+k : ∆j (Bi ) = 0, then in that case yj > v.
+       • If Bi = vj+1 . . . vj+k : ∆j (Bi ) = vj+k+1 . . . vn + 1, then the last n − k − j they can
+         take any value from 0 to vj+k+1 . . . vn .
+       • If Bi < vj+1 . . . vj+k : ∆j (Bi ) = 10n−k−j , then the last n − k − j can take any value
+         from 0 to |9 .{z
+                        . . 9}.
+                       n−j−k
+
+Therefore, ∆j (Bi ) ≤ 10n−k−j , for each j ∈ {1, . . . , n − k}. So, for N large enough so that
+n ≥ k,
+                                                                        n−k
+                                                                        X
+(8)      occno (B1 , v) − occno (B2 , v) = occno (B1 , v, 0) +                (occno (B1 , v, j) − occno (B2 , v, j))
+                                                                        j=1
+                                                                        n−k
+                                                                        X
+                                                = occno (B1 , v, 0) +         (∆j (B1 ) − ∆j (B2 )).
+                                                                        j=1
+
+Remark. Since B2 ≤ B1 , then 0 ≤ ∆j (B1 ) ≤ ∆j (B2 ). Hence,
+         v 1 . . . vj B 1 ∗   · · ∗} ≤ v
+                          | ·{z            implies       v1 . . . vj : B2 ∗| ·{z
+                                                                               · · ∗} ≤ v.
+                        n−k−j                                             n−k−j
+                         digits                                            digits
+
+  Hence,
+(9)      0 ≤ ∆j (B1 ) − ∆j (B2 ) ≤ 10n−k−j .
+We conclude that for all N large enough so that n ≥ k,
+
+(10)     occno (c, B1 , N ) − occno (c, B2 , N ) =
+             n−1                                                        n−1
+                                                                                                                             !
+             X                                                          X
+         =         occno (B1 , sℓ ) + occno (B1 , v) − O(n) −                   occno (B2 , sℓ ) + occno (B2 , v) − O(n)
+             ℓ=k                                                        ell=k
+             n−1
+             X
+         =         occno (B1 , sℓ ) − occno (B2 , sℓ ) + occno (B1 , v) − occno (B2 , v) + O(n)
+             ℓ=k
+             n−1
+             X
+         =         10ℓ−k + occno (B1 , v) − occno (B2 , v) + O(n)                 using (7)
+             ℓ=k
+22                                    VERÓNICA BECHER AND NICOLE GRAUS
+
+               n−1
+               X                                  n−k
+                                                  X
+           =         10ℓ−k + occno (B, v, 0) +            ∆j (B1 ) − ∆j (B2 ) + O(n)        using (8)
+               ℓ=k                                 j=1
+               n−1
+               X               n−k
+                               X
+           ≥         10ℓ−k +         ∆j (B1 ) − ∆j (B2 ) + O(n)
+               ℓ=k             j=1
+               n−1
+               X               n−k
+                               X
+           =         10ℓ−k −         ∆j (B2 ) − ∆j (B1 ) + O(n)
+               ℓ=k             j=1
+               n−1
+               X               n−k
+                               X
+           ≥         10ℓ−k −         10n−j−k + O(n)           using (9).
+               ℓ=k             j=1
+     We now count the overlapping occurrences.
+Remark. Since B2 is the block of all zeros, it has no overlapping occurrences (since no number
+starts with leading zeros). This explains the choice of B2 .
+  We count the overlapping occurrences of B1 . It is enough for us to count some of them,
+enough so as to verify the hypothesis of Lemma 2.
+  Recall that B1 = (1 1 ∗     · · ∗} ) = (b1 b2 . . . bk ). Then, we define for each ℓ ∈ N,
+                          | ·{z
+                                k−2 digits
+                                                 ℓ−k digits
+          Pℓ = {m ∈ N : m = b2 b3 . . . bk ∗ · · · ∗ b1 = b2 10ℓ−1 +b3 10ℓ−2 +. . .+bk 10ℓ−k+1 +. . .+b1 }
+                                            z }| {
+                            |             {z          }
+                                             ell digits
+
+That is, Pℓ is the set numbers of ℓ digits, whose first k − 1 digits are (b2 b3 . . . bk ), and its last
+digit is b1 .
+   If ℓ < k: #Pℓ = 0.
+   If ℓ ≥ k: #Pℓ = 10ℓ−k , then there are ℓ − k free digits.
+Remark. We are using that b2 ̸= 0, otherwise we would be looking for m ∈ N that starts
+with a leading zero.
+   Observe that for every element of Pℓ , there is an occurrence overlapping B1 between two ℓ
+digit numbers. Then,
+(11)      occo (B1 , sℓ ) ≥ 10ℓ−k , ∀ℓ ≥ k
+where, remember, occo (B1 , sℓ ) was the number of overlapping occurrences B1 in sℓ .
+Remark. We are using:
+   • k ̸= 1, otherwise there would be no occurrences around B1 .
+   • b1 ̸= 9, because if not, it could happen that m = b2 9 . . . 9 and then m + 1 does not
+     have b2 as its first digit, and therefore, it does not produce an overlapping.
+     Therefore, for all N large enough so that n ≥ k,
+     occ(c, B1 , N ) − occ(c, B2 , N ) =
+           = occno (c, B1 , N ) + occo (c, B1 , N )) − (occno (c, B2 , N ) + occo (c, B2 , N ))
+           = occno (c, B1 , N ) − occno (c, B2 , N ) + occo (c, B1 , N ) − occo (B2 , c, 1, N )
+                                                                                       =0
+                            THE DISCREPANCY OF THE CHAMPERNOWNE CONSTANT                             23
+
+             n−1
+             X                  n−k
+                                X
+        ≥          10ℓ−k −            10n−j−k + O(n) + occo (c, B1 , 1, N )            using (10)
+             ℓ=k                j=1
+             n−1
+             X                  n−k
+                                X                            n−1
+                                                             X
+        ≥          10ℓ−k −            10n−j−k + O(n) +              occo (B1 , sℓ )
+             ℓ=k                j=1                           l=1
+             n−1
+             X                  n−k
+                                X                            n−1
+                                                             X
+        ≥          10ℓ−k −            10n−j−k + O(n) +              10ℓ−k        using (11)
+             ℓ=k                j=1                           ℓ=k
+              n−1
+              X                   n−1
+                                  X
+        =2          10ℓ−k −             10m−k + O(n)            change of variable: m = n − j
+              ℓ=k                m=k
+             n−1
+             X
+        =          10ℓ−k + O(n)
+             ℓ=k
+           1
+        ≥      10n
+         10k+1
+           1     N
+(12)    ≥ k+1          .
+         10    log(N )
+
+To see the last inequality observe that, since n is the number of digits of v,
+       n−1
+       X                                              n
+                                                      X
+                    j        · 9 · 10j−1 ≤ N ≤              j · 9 · 10j−1 .
+       j=1 Number of             Quantity             j=1
+            digits of           of numbers
+          each number              in sj
+
+                                       r
+                                       X                                 10r  1
+Furthermore, for all r ∈ N,                  j · 9 · 10j−1 = 10r r −         + . Then,
+                                                                          9   9
+                                       j=1
+
+              n−1
+                                                         10n−1 1
+                                                                                
+              X
+                                 j−1          n−1                   n−1        1
+       N≥            j · 9 · 10         = 10        n−1−      + > 10      n−1−
+                                                           9   9               9
+               j=1
+
+Therefore,
+                                   
+                                 10
+       log(N ) ≥ n − 1 + log n −      .
+                                 9
+
+And
+                                                                        n
+                                                              10n 1
+                                                                   X
+                        n                      10   n    n
+       log(N )10 ≥              n − 1 + log(n − ) 10 ≥ 10 n −    +    =   j · 9 · 10j−1 ≥ N.
+                                               9               9   9
+                                                                                               j=1
+
+  Finally, we make the constant K explicit. We just proved in (12) that
+
+                                                         N
+       occ(c, B1 , N ) − occ(c, B2 , N ) ≥ C
+                                                       log(N )
+24                              VERÓNICA BECHER AND NICOLE GRAUS
+
+             1
+with C =         . Since since the smallest possible value of k that we can take is k = 2, and
+           10k+1
+by Lemma 2 we can take K = C/3, we obtain
+             C        1        1
+       K=       = k+1 = 3 .
+             3     10 3      10 3
+   The statement of Theorem 2 asks the bound for infinitely many N . Since we gave the lower
+bound for all N sufficiently large so that n(N ) ≥ k, we gave it for for cofinitely many N , a
+stronger result. The proof of Theorem 2 is complete. □
+
+                                        Acknowledgements
+  This work was supported by grant UBACYT 20020220100065BA from Universidad de
+Buenos Aires.
+
+                                              References
+ [1] V. Becher and O. Carton. Normal numbers and computer science. In V. Berthé and M. Rigo, editors,
+     Sequences, Groups, and Number Theory, Trends in Mathematics Series. Birkhäuser/Springer, 2018.
+ [2] V. Becher and T. Slaman. On the normality of numbers to different bases. Journal of the London
+     Mathematical Society, 90(2):472–494, 2014.
+ [3] Y. Bugeaud. Distribution modulo one and Diophantine approximation, volume 193 of Cambridge Tracts
+     in Mathematics. Cambridge University Press, Cambridge, 2012.
+ [4] D. G. Champernowne. The construction of decimals normal in the scale of ten. Journal of the London
+     Mathematical Society, 8:254–260, 1933.
+ [5] D.D.Wall. Normal numbers. PhD thesis, University of California Berkeley, 1949. Ph.D.Thesis.
+ [6] K. Fukuyama. The law of the iterated logarithm for discrepancies of {θ nx}. Acta Mathematica Hungarica,
+     118:155–170, 2008.
+ [7] I. Gál and L. Gál. The discrepancy of the sequence (2n x). Indagationes Mathematicae, 26:129–143, 1964.
+ [8] G. H. Hardy and E. M. Wright. An introduction to the theory of numbers. Oxford, at the Clarendon Press„
+     1954. 3rd ed.
+ [9] G.H. Hardy. Letter from G.H. Hardy to A.M. Turing, late 1930s. Turing Digital Archive AMT/D/5 -1
+     ALS, G.H. Hardy. [late 1930s].
+[10] N. Korobov. Numbers with bounded quotient and their applications to questions of diophantine
+     approximation. Izv. Akad. Nauk SSSR Ser. Mat., 19:361–380, 1955.
+[11] L. Kuipers and H. Niederreiter. Uniform distribution of sequences. Pure and Applied Mathematics. Wiley-
+     Interscience [John Wiley & Sons], New York-London-Sydney, 1974.
+[12] Y. Nakai and I. Shiokawa. Discrepancy estimates for a class of normal numbers. Acta Arithmetica,
+     62(3):271–284, 1992.
+[13] W. Philipp. Limit theorems for lacunary series and uniform distribution mod 1. Acta Arithmetica,
+     26(3):241–251, 1975.
+[14] J. Schiffer. Discrepancy of normal numbers. Acta Arithmetica, 47(2):175–186, 1986.
+[15] W. Schmidt. Irregularities of distribution VII. Acta Arithmetica, 21:45–50, 1972.
+
+     Verónica Becher
+     Departamento de Computación, Facultad de Ciencias Exactas y Naturales e ICC
+     Universidad de Buenos Aires y CONICET
+     Pabellón 0, Ciudad Universitaria (C1428EGA) Buenos Aires, Argentina
+     vbecher@dc.uba.ar
+
+     Nicole Graus
+     Departamento de Matemática, Facultad de Ciencias Exactas y Naturales Universidad de Buenos Aires
+     Pabellón 1, Ciudad Universitaria (C1428EGA) Buenos Aires, Argentina
+     nicole.graus.h@gmail.com
+

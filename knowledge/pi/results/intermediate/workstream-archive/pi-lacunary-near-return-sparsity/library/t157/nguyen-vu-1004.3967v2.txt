@@ -1,0 +1,1355 @@
+                                                   OPTIMAL INVERSE LITTLEWOOD-OFFORD THEOREMS
+
+                                                                                HOI NGUYEN AND VAN VU
+arXiv:1004.3967v2 [math.CO] 16 Jan 2011
+
+
+
+
+                                                  Abstract. Let ηi , i = 1, . . . , n be iid Bernoulli random variables, taking values ±1 with
+                                                  probability 12 . Given a multiset V of n integers v1 , . . . , vn , we define the concentration
+                                                  probability as
+
+                                                                              ρ(V ) := sup P(v1 η1 + . . . vn ηn = x).
+                                                                                        x
+                                                      A classical result of Littlewood-Offord and Erdős from the 1940s asserts that, if the vi
+                                                  are non-zero, then ρ(V ) is O(n−1/2 ). Since then, many researchers have obtained improved
+                                                  bounds by assuming various extra restrictions on V .
+                                                      About 5 years ago, motivated by problems concerning random matrices, Tao and Vu
+                                                  introduced the Inverse Littlewood-Offord problem. In the inverse problem, one would like
+                                                  to characterize the set V , given that ρ(V ) is relatively large.
+                                                      In this paper, we introduce a new method to attack the inverse problem. As an ap-
+                                                  plication, we strengthen the previous result of Tao and Vu, obtaining an optimal char-
+                                                  acterization for V . This immediately implies several classical theorems, such as those of
+                                                  Sárközy-Szemerédi and Halász.
+                                                      The method also applies to the continuous setting and leads to a simple proof for the
+                                                  β-net theorem of Tao and Vu, which plays a key role in their recent studies of random
+                                                  matrices.
+                                                      All results extend to the general case when V is a subset of an abelian torsion-free
+                                                  group, and ηi are independent variables satisfying some weak conditions.
+
+
+
+
+                                                                                     1. Introduction
+
+                                          1.1. The Forward Littlewood-Offord problem. Let ηi , i = 1, . . . , n be iid Bernoulli
+                                          random variables, taking values ±1 with probability 12 . Given a multiset V of n integers
+                                          v1 , . . . , vn , we define the random walk S with steps in V to be the random variable S :=
+                                          P  n
+                                             i=1 vi ηi . The concentration probability is defined to be
+
+
+
+                                                                                   ρ(V ) := sup P(S = x).
+                                                                                               x
+
+
+                                          Motivated by their study of random polynomials in the 1940s, Littlewood and Offord [7]
+                                          raised the question of bounding ρ(V ). (We call this the forward Littlewood-Offord problem,
+                                          in contrast with the inverse Littlewood-Offord problem discussed in the next section.) They
+
+                                            2000 Mathematics Subject Classification. 11B25.
+                                            Key words and phrases. inverse Littlewood-Offord problem, concentration probability, generalized arith-
+                                          metic progression.
+                                            Both authors are supported by research grants DMS-0901216 and AFOSAR-FA-9550-09-1-0167.
+                                                                                                   1
+2                                  HOI NGUYEN AND VAN VU
+
+
+showed that ρ(V ) = O(n−1/2 log n). Shortly after the Littlewood-Offord paper, Erdős [1]
+gave a beautiful combinatorial proof of the refinement
+
+                                             n 
+                                            n/2
+                                  ρ(V ) ≤        = O(n−1/2 ).                            (1)
+                                            2n
+
+Erdős’ result is sharp, as demonstrated by V = {1, . . . , 1}.
+
+Notation. Here and later, asymptotic notations, such as O, Ω, Θ, and so forth, are used
+under the assumption that n → ∞. A notation such as OC (.) emphasizes that the hidden
+constant in O depends on C. If a = Ω(b), we write b ≪ a or a ≫ b. All logarithms have a
+natural base, if not specified otherwise.
+
+The results of Littlewood-Offord and Erdős are classics in combinatorics and have generated
+an impressive wave of research, particularly from the early 1960s to the late 1980s.
+
+One direction of research was to generalize Erdős’ result to other groups. For example, in
+1966 and 1970, Kleitman extended Erdős’ result to complex numbers and normed vectors,
+respectively. Several results in this direction can be found in [3, 5].
+
+Another direction was motivated by the observation that (1) can be improved significantly
+by making additional assumptions about V . The first such result was discovered by Erdős
+and Moser [2], who showed that if vi are distinct, then ρ(V ) = O(n−3/2 log n). They
+conjectured that the logarithmic term is not necessary, and this was confirmed by Sárközy
+and Szemerédi [12].
+Theorem 1.2. Let V be a set of n different integers, then
+
+
+                                       ρ(V ) = O(n−3/2 ).
+
+In [4] (see also in [23]), Halász proved very general theorems that imply Theorem 1.2 and
+many others. One of his results can be formulated as follows.
+Theorem 1.3. Let l be a fixed integer and Rl be the number of solutions of the equation
+vi1 + · · · + vil = vj1 + · · · + vjl . Then
+
+                                                       1
+                                     ρ(V ) = O(n−2l− 2 Rl ).
+
+It is easy to see, by setting l = 1, that Theorem 1.3 implies Theorem 1.2.
+
+Another famous result in this area is that of Stanley [13], which, solving a conjecture of
+Erdős and Moser, shows when ρ(V ) attains its maximum under the assumption that the vi
+are different.
+Theorem 1.4. Let n be odd and V0 := {−⌊n/2⌋, . . . , ⌊n/2⌋}. Then
+                                         ρ(V ) ≤ ρ(V0 ).
+                                 INVERSE LITTLEWOOD-OFFORD PROBLEM                              3
+
+
+A similar result holds for the case of n being even [13]. Stanley’s proof of Theorem 1.4 used
+sophisticated machinery from algebraic geometry, particularly the hard Lefschetz theorem.
+A few years later, a more elementary proof was given by Proctor [9]. This proof also has
+an algebraic nature, involving the representation of the Lie algebra sl(2, C). As far as we
+know, there is no purely combinatorial proof.
+
+It is natural to ask for the actual value of ρ(V0 ). From Theorem 1.2, one would guess (under
+the assumption that the elements of V are different) that
+
+
+
+                                           ρ(V0 ) = (C0 + o(1))n−3/2
+for some constant C0 > 0. However, the algebraic proofs do not give the value of C0 . In
+fact, it is not obvious that limn→∞ n3/2 ρ(V0 ) exists.
+
+Assuming that C0 exists for a moment, one would next wonder if V0 is a stable maximizer.
+In other words, if some other set V0′ has ρ(V0′ ) close to C0 n−3/2 , then should V0′ (possibly
+after a normalization) be ”close” to V0 ? (Note that ρ is invariant under dilation, so a
+normalization would be necessary.)
+
+
+1.5. The inverse Littlewood-Offord problem. Motivated by inverse theorems from
+additive combinatorics (see [23, Chapter 5]) and a variant for random sums in [20, Theorem
+5.2], Tao and the second author [18] brought a different view to the problem. Instead of
+trying to improve the bound further by imposing new assumptions (as done in the forward
+problems), they tried to provide the complete picture by finding the underlying reason as
+to why the concentration probability is large (say, polynomial in n).
+                                                                                          n
+Note that the (multi)-set V has 2n subsums, and ρ(V ) ≥ n−C means that at least n2C of
+these take the same value. This observation suggests that the set should have a very strong
+additive structure. To determine this structure, we first discuss a few examples of V , where
+ρ(V ) is large. For a set A, we denote the set {a1 + · · · + al |ai ∈ A} by lA.
+
+Example 1.6. Let I = [−N, N ] and v1 , . . . , vn be elements of I. Because S ∈ nI, by the
+                                 1        1
+pigeon-hole principle, ρ(V ) ≥ |nI| = Ω( nN ). In fact, a short consideration yields a better
+                                                                   √
+bound. Note that, with a probability of least .99, we have S ∈ 10 nI. Thus, again by the
+                                             1
+pigeon-hole principle, we have ρ(V ) = Ω( √nN   ). If we set N = nC−1/2 for some constant
+C ≥ 1/2, then
+                                                                1
+                                                 ρ(V ) = Ω(       ).                          (2)
+                                                               nC
+
+The next, and more general, construction comes from additive combinatorics. A very im-
+portant concept in this area is that of generalized arithmetic progressions (GAPs). A set Q
+is a GAP of rank r if it can be expressed as in the form
+
+                   Q = {a0 + x1 a1 + · · · + xr ar |Mi ≤ xi ≤ Mi′ for all 1 ≤ i ≤ r}
+
+for some {a0 , . . . , ar }, {M1 , . . . , Mr }, and {M1′ , . . . , Mr′ }.
+4                                    HOI NGUYEN AND VAN VU
+
+
+It is convenient to think of Q as the image of an integer box B := {(x1 , . . . , xr ) ∈ Zr |Mi ≤
+mi ≤ Mi′ } under the linear map
+                          Φ : (x1 , . . . , xr ) 7→ a0 + x1 a1 + · · · + xr ar .
+The numbers ai are the generators of P , the numbers Mi and Mi′ are the dimensions of
+P , and Vol(Q) := |B| is the volume of B. We say that Q is proper if this map is one-to-one
+or, equivalently, if |Q| = Vol(Q). For non-proper GAPs, we, of course, have |Q| < Vol(Q).
+If −Mi = Mi′ for all i ≥ 1 and a0 = 0, we say that Q is symmetric.
+Example 1.7. Let Q be a proper symmetric GAP of rank r and volume     P N . Let v1 , . . . , vn
+be (not necessarily distinct) elements of P . The random variable S = ni=1 vi ηi takes values
+in the GAP nP . Because |nP | ≤ Vol(nB) = nr N , the pigeon-hole principle implies that
+ρ(V ) ≥ Ω( nr1N ). In fact, using the same idea as in the previous example, one can improve
+                    1
+the bound to Ω( nr/2  N
+                        ). If we set N = nC−r/2 for some constant C ≥ r/2, then
+
+
+                                                         1
+                                           ρ(V ) = Ω(      ).                                (3)
+                                                        nC
+
+The examples above show that, if the elements of V belong to a proper GAP with a small
+rank and small cardinality, then ρ(V ) is large. A few years ago, Tao and the second author
+[18] showed that this is essentially the only reason:
+Theorem 1.8 (Weak inverse theorem). [18] Let C, ǫ > 0 be arbitrary constants. There
+are constants r and C ′ depending on C and ǫ such that the following holds. Assume that
+V = {v1 , . . . , vn } is a multiset of integers satisfying ρ(V ) ≥ n−C . Then, there is a proper
+                                                                               ′
+symmetric GAP Q with a rank of at most r and a volume of at most nC that contains all
+but at most n1−ǫ elements of V (counting multiplicity).
+Remark 1.9. The presence of a small set of exceptional elements is not completely avoidable.
+For instance, one can add o(log n) completely arbitrary elements to V and, at worst, only
+decrease ρ(V ) by a factor of n−o(1) . Nonetheless, we expect the number of such elements
+to be less than what is given by the results here.
+
+The reason we call Theorem 1.8 weak is that C ′ is not optimal. In particular, it is far from
+reflecting the relations in (2) and (3). In a later paper [16], Tao and the second author
+refined the approach to obtain the following stronger result.
+Theorem 1.10 (Strong inverse theorem). [16] Let C and 1 > ε be positive constants.
+Assume that
+                                  ρ(V ) ≥ n−C .
+Then, there exists a proper symmetric GAP Q of rank r = OC,ε (1) that contains all but
+Or (n1−ε ) elements of V (counting multiplicity), where
+                                                            r
+                                       |Q| = OC,ε (nC− 2 +ε ).
+
+The bound on |Q| matches Example 1.7, up to the nǫ term. However, this error term seems
+to be the limit of the approach. The proofs of Theorems 1.8 and 1.10 rely on a replacement
+argument and various lemmas about random walks and GAPs.
+                              INVERSE LITTLEWOOD-OFFORD PROBLEM                                           5
+
+
+Let us now consider an application of Theorem 1.10. Note that Theorem 1.10 enables us
+to make very precise counting arguments. Assume that we would like to count the number
+of (multi)sets V of integers with max |vi | ≤ N = nO(1) such that ρ(V ) ≥ ρ := n−C .
+                                                                                 r
+Fix d ≥ 1, and fix 1 a GAP Q with rank r and volume |Q| = nC− 2 . The dominating term
+in the calculation will be the number of multi-subsets of size n of Q, which is
+
+                                        r                 n                  1
+                         |Q|n = n(C− 2 +ǫ)n ≤ nCn n− 2 +ǫn = ρ−n n−n( 2 −ǫ) .                           (4)
+
+Motivated by questions from random matrix theory, Tao and the second author obtained
+the following continuous analogue of this result.
+Definition 1.11 (Small ball probability). Let z be a real random variable, and let V =
+{v1 , . . . , vn } be a multiset in Rd . For any r > 0, we define the small ball probability as
+
+
+                           ρr,z (V ) := sup P(v1 z1 + . . . vn zn ∈ B(x, r)),
+                                        x∈Rd
+
+
+where z1 , . . . , zn are iid copies of z, and B(x, r) denotes the closed disk of radius r centered
+at x in Rd .
+
+Let n be a positive integer and β, ρ be positive numbers that may depend    P on n. Let Sn,β,ρ
+be the collection of all multisets V = {v1 , . . . , vn }, vi ∈ R2 such that ni=1 kvi k2 = 1 and
+ρβ,η (V ) ≥ ρ, where η has a Bernoulli distribution.
+Theorem 1.12 (The β-net Theorem). [21] Let 0 < ǫ ≤ 1/3 and C > 0 be constants. Then,
+for all sufficiently large n and β ≥ exp(−nǫ ) and ρ ≥ n−C , there is a set S ⊂ (R2 )n of size
+at most
+
+                                                 1
+                                       ρ−n n−n( 2 −ǫ) + exp(o(n))
+
+such that for any V = {v1 , . . . , vn } ∈ Sn,β,ρ , there is some V ′ = (v1′ , . . . , vn′ ) ∈ S such that
+kvi − vi′ k2 ≤ β for all i.
+
+The theorem looks a bit cleaner if we use C instead of R2 (as in [21]). However, we prefer
+the current form, because it is more suitable for generalization. The set S is usually referred
+to as a β-net of Sn,β,ρ .
+
+Theorem 1.12 is at the heart of establishing the Circular Law conjecture in random matrix
+theory (see [21, 17]). It also plays an important role in the study of the condition number
+of randomly perturbed matrices (see [22]). Its proof in [21] is quite technical and occupies
+the bulk of that paper.
+   1A more detailed version of Theorems 1.8 and 1.10 tells us that there are not too many ways to choose
+the generators of Q. In particular, if N = nO(1) , the number of ways to fix these is negligible compared to
+the main term.
+6                                 HOI NGUYEN AND VAN VU
+
+
+However, given the above discussion, one might expect to obtain Theorem 1.12 as a simple
+corollary of a continuous analogue of Theorem 1.10. However, the arguments in [21] have
+not yet provided such an inverse theorem (although they did provide a sufficient amount
+of information about the set S to make an estimate possible). The paper [10] by Rudelson
+and Vershynin also contains a characterization of the set S, but their characterization has
+a somewhat different spirit than those discussed in this paper.
+
+
+                         2. A new approach and new results
+
+In this paper, we introduce a new approach to the inverse theorem. The core of this new
+approach is a (long-range) variant of Freiman’s famous inverse theorem.
+
+This new approach seems powerful. First, it enables us to remove the error term nǫ in
+Theorem 1.10, resulting in an optimal inverse theorem.
+Theorem 2.1 (Optimal inverse Littlewood-Offord theorem, discrete case). Let ε < 1 and
+C be positive constants. Assume that
+                                        ρ(V ) ≥ n−C .
+Then, there exists a proper symmetric GAP Q of rank r = OC,ε (1) that contains all but at
+most εn elements of V (counting multiplicity), where
+                                                          r
+                                  |Q| = OC,ε (ρ(V )−1 n− 2 ).
+
+This immediately implies several forward theorems, such as Theorems 1.2 and 1.3. For
+example, we can prove Theorem 1.2 as follows.
+
+
+Proof. (of Theorem 1.2) Assume, for contradiction, that there is a set V of n distinct
+numbers such that ρ(V ) ≥ c1 n−3/2 for some large constant c1 to be chosen. Set ε = .1, C =
+                                                                          r
+3/2. By Theorem 2.1, there is a GAP Q of rank r and size OC,ǫ ( c11 nC− 2 ) that contains at
+least .9n elements from V . This implies |Q| ≥ .9n. By setting c1 to be sufficiently large and
+using the fact that C = 3/2 and r ≥ 1, we can guarantee that |Q| ≤ .8n, a contradiction. 
+
+
+Theorem 1.3 can be proved in a similar manner with the details left as an exercise.
+
+Similar to [16, 18], our method and results can be extended (rather automatically) to much
+more general settings.
+
+General V . Instead of taking V to be a subset of Z, we can take it to be a subset of any
+abelian torsion-free group G (thanks to Freiman isomorphism, see Section 4). We can also
+replace Z by the finite field Fp , where p is any sufficiently large prime. (In fact, the first
+step in our proof is to embed V into Fp .)
+
+General η. We can replace the Bernoulli random variables by independent random variables
+ηi satisfying the following condition. There is a constant c > 0 and an infinite sequence of
+primes p such that for any p in the sequence, any (multi)-subset V of size n of Fp and any
+t ∈ Fp
+                         INVERSE LITTLEWOOD-OFFORD PROBLEM                                 7
+
+
+                           n                                   n
+                           Y                                   X  vi t
+                                 |Eep (ηi vi t)| ≤ exp(−c        k k2 )                  (5)
+                                                                   p
+                           i=1                                 i=1
+where kxk denotes the distance from x to the closest√integer (we view the elements of Fp
+as integers between 0 and p − 1) and ep (x) := exp(2π −1x/p).
+Example 2.2. (Lazy random walks) Given a parameter 0 < µ ≤ 1, let ηiµ be iid copies of a
+random variable η µ , where η µ = 1 or −1 with probability µ/2, and η µ = 0 with probability
+1 − µ. The sum
+
+                                                    n
+                                                    X
+                                      S µ (V ) :=         ηi µ vi ,
+                                                    i=1
+
+can be viewed as a lazy random walk with steps in V . A simple calculation shows
+
+
+                                                                       2πx
+                              Eep (ηx) = (1 − µ) + µ cos                   .
+                                                                        p
+
+It is easy to show that there is a constant c > 0 depending on µ such that
+
+
+                                              2πx            x
+                          |(1 − µ) + µ cos        | ≤ exp(−ck k2 ).
+                                               p             p
+Example 2.3. (µ-bounded variables) It suffices to assume that there is some constant 0 <
+µ ≤ 1 such that for all i
+
+
+                                                                           2πx
+                             |Eep (ηi x)| ≤ (1 − µ) + µ cos                    .         (6)
+                                                                            p
+Theorem 2.4. The conclusion of Theorem 2.1 holds for the case when V is a multi-subset
+of an arbitrary torsion-free abelian group G and ηi , 1 ≤ i ≤ n are independent random
+variables satisfying (5).
+
+In some applications, we might need a version of Theorem 2.1 with a smaller number of
+exceptional elements. By slightly modifying the proof presented in Section 5, we can prove
+the following result.
+Theorem 2.5. Let ε < 1 and C be positive constants. Assume that
+
+
+                                          ρ(V ) ≥ n−C .
+
+Then, for any nǫ ≤ n′ ≤ n, there exists a proper symmetric GAP Q of rank r = Oǫ,C (1)
+that contains all but n′ elements of V (counting multiplicity), where
+
+                                                              r/2
+                                    |Q| = OC,ǫ (ρ−1 /n′               ).
+8                                    HOI NGUYEN AND VAN VU
+
+
+Remark 2.6. In an upcoming paper [8], we are able to address the unresolved issues con-
+cerning Theorem
+         q      1.4 by following the method used to prove Theorem 2.1. We prove that
+             24         −3/2 .
+ρ(V0 ) = (   π + o(1))n       More important, we obtain a stable version of Theorem 1.4,
+which shows that, if ρ(V ) is close to ( 24/π + o(1))n−3/2 , then V is ”close” to V0 . As a
+                                        p
+
+byproduct, we obtain the first non-algebraic proof for the asymptotic version of the Stanley
+theorem.
+
+We now turn to the continuous setting. In this part, we consider a real random variable z
+such that there exists a constant Cz such that
+
+
+                                  P(1 ≤ |z1 − z2 | ≤ Cz ) ≥ 1/2,                             (7)
+
+where z1 , z2 are iid copies of z. We note that Bernoulli random variables are clearly of
+this type. (Also, the interested reader may find (7) more general than the condition of the
+κ-controlled second moment defined in [21] and the condition of bounded third moment in
+[10].) In the statement above, Cz is not uniquely defined. In what follows, we will take the
+smallest value of Cz .
+
+We say that a vector v ∈ Rd is δ-close to a set Q ⊂ Rd if there exists a vector q ∈ Q such
+that kv − qk2 ≤ δ. A set X is δ-close to a set Q if every element of X is δ-close to Q. The
+analogue of Example 1.7 is the following.
+Example 2.7. Let Q be a proper symmetric GAP of rank r and volume N in Rd . Let
+v1 , . . . , vn be (not necessarily distinct) vectors that are O(βn−1/2 )-close to Q. If we set
+                r
+|Q| = nC− 2 for some constant C ≥ r/2, then
+                                                         1
+                                          ρβ,η (V ) = Ω( C ).                               (8)
+                                                        n
+
+Thus, one would expect that, if ρβ,z (V ) is large, then (most of) V is O(βn−1/2 )-close to a
+GAP with a small volume. Confirming this intuition, we obtain the following continuous
+analogue of Theorem 2.1.
+Theorem 2.8 (Optimal inverse Littlewood-Offord theorem, continuous case). Let δ, C > 0
+be arbitrary constants and β > 0 be a parameter that         P may depend on n. Suppose that
+V = {v1 , . . . , vn } is a (multi-) subset of Rd such that ni=1 kvi k22 = 1 and that V has large
+small ball probability
+                                         ρ := ρβ,z (V ) ≥ n−C ,
+where z is a real random variable satisfying (7). Then, there exists a proper symmetric GAP
+Q of rank d ≤ r = O(1) so that all but at most δn elements of V (counting multiplicity) are
+O(β log
+    n1/2
+        n
+          )-close to Q, where
+
+
+                                 |Q| = O(ρ−1 δ(−r+d)/2 n(−r+d)/2 ).
+
+The theorem is optimal in the sense that the exponent (−r + d)/2 of n cannot generally be
+improved (see Appendix B for more details).
+                          INVERSE LITTLEWOOD-OFFORD PROBLEM                                     9
+
+
+Theorem 2.8 is a special case of the following more general theorem.
+Theorem 2.9 (Continuous Inverse Littlewood-Offord theorem, general setting). Let 0 <
+ǫ < 1; 0 < C be constants. Let β > 0 be a parameter that     Pn may depend on n. Suppose that
+                                                d                   2
+V = {v1 , . . . , vn } is a (multi-) subset of R such that i=1 kvi k2 = 1 and that V has large
+small ball probability
+                                         ρ := ρβ,z (V ) ≥ n−C ,
+where z is a real random variable satisfying (7). Then, thePfollowing holds. For any number
+nǫ ≤ n′ ≤ n, there exists a proper symmetric GAP Q = { ri=1 xi gi : |xi | ≤ Li } such that
+                                       q
+                                          n′
+                                                      √
+     • (Full dimension) There exists    log n ≪ k ≪       n′ such that the dilate P := β −1 k · Q
+       contains the discrete hypercube {0, 1}d .
+     • (Approximation) At least n − n′ elements of V are O( βk )-close to Q.
+     • (Small rank and cardinality) Q has constant rank d ≤ r = O(1), and cardinality
+
+                                  |Q| = O(ρ−1 n′(−r+d)/2 ).
+                                                                   √
+     • (Small generators) There is a non-zero integer p = O( n′ ) such that all steps gi
+                                                                  p
+       of Q have the form gi = (gi1 , . . . , gid ), where gij = β pij with pij ∈ Z and pij =
+             √
+       O(β −1 n′ ).
+
+Theorem 2.9 implies the following corollary (see Appendix B for a simple proof), from
+which one can derive Theorem 1.12 in a straightforward manner (similar to the discrete
+case discussed earlier).
+Corollary 2.10. Let 0 < ǫ < 1; 0 < C be constants. Let β > 0 be a parameter that
+may depend on n. Suppose that V = {v1 , . . . , vn } is a (multi-) subset of Rd such that
+P n        2
+  i=1 kvi k2 = 1 and that V has large small ball probability
+
+                                    ρ := ρβ,z (V ) ≥ n−C ,
+where z is a real random variable satisfying (7). Then the following
+                                                                 P holds. For any number
+n′ between nǫ and n, there exists a proper symmetric GAP Q = { ri=1 xi gi : |xi | ≤ Li } such
+that
+
+     • At least n − n′ elements of V are β-close to Q.
+     • Q has small rank, r = O(1), and small cardinality
+
+                                                         ρ−1
+                                                               
+                                        |Q| ≤ max O( √ ), 1 .
+                                                           n′
+                                                    √
+     • There is a non-zero integer p = O( n′ ) such that all steps gi of√Q have the form
+                                               p
+       gi = (gi1 , . . . , gid ), where gij = β pij with pij ∈ Z and pij = O(β −1 n′ ).
+
+Note that the approximations obtained from Corollary 2.10 are rougher than those from
+Theorem 2.9). However, the bound on |Q| is improved in some critical cases (particularly
+when r = d).
+10                                 HOI NGUYEN AND VAN VU
+
+
+In the above theorems, the hidden constants could depend on previously set constants
+ǫ, C, Cz , d. We could have written Oǫ,C,Cz ,d and ≪ǫ,C,Cz ,d everywhere, but these notations
+are somewhat cumbersome, and this dependence is not our focus.
+
+                                        3ǫ
+Proof. (of Theorem 1.12) Set n′ := n1− 2 (which is ≫ nǫ as ǫ ≤ 1/3). Let S ′ be the collection
+of all subsets of size at least n − n′ of GAPs whose parameters satisfy the conclusion of
+Corollary 2.10.
+
+Because each GAP is determined
+                          √ √ by      its generators and dimensions, the number of such
+                       −1    ′   ′ O(1)  ρ−1 O(1)                             ρ−1 O(1)
+GAPs is bounded by ((β      n) n)       (√ n′
+                                              )   = exp(o(n)). (The term ( √       )   bounds
+                                                                 −1
+                                                                               n′
+                                                                 ρ
+the number of choices of the dimensions Mi .) Thus, |S ′ | = O(( √ n′
+                                                                      )n ) + 1 exp(o(n)).
+
+We approximate each of the exceptional elements by a lattice point    in β ·(Z/d)d . Thus, if we
+let S ′′ to be the set of these approximated tuples, then |S ′′ | ≤ i≤n′ (O(β −1 ))i = exp(o(n))
+                                                                   P
+
+(here, we used the assumption β ≥ exp(−nǫ )).
+
+Set S := S ′ × S ′′ . It is easy to see that |S| ≤ O(n−1/2+ǫ ρ−1 )n + exp(o(n)). Furthermore, if
+ρ(V ) ≥ n−O(1) , then V is β-close to an element of S, concluding the proof.                 
+
+
+                         3. The long range inverse theorem
+
+Let us first recall a famous theorem by Freiman [23, Chapter 5].
+Theorem 3.1 (Freiman’s inverse theorem). Let γ be a positive constant and X a subset of
+a torsion-free group such that |2X| ≤ γ|X|. Then, there is a proper symmetric GAP Q of
+rank at most r = Oγ (1) and cardinality Oγ (|X|) such that X ⊂ Q.
+
+
+In our analysis, we will need to deal with an assumption of the form |kX| ≤ kγ |X|, where
+γ is a constant but k is not. (Typically, k will be a positive power of |X|.) We successfully
+give a structure for X under this condition in the following theorem, which we will call the
+long range inverse theorem.
+Theorem 3.2 (Long range inverse theorem). Let γ > 0 be constant. Assume that X is a
+subset of a torsion-free group such that 0 ∈ X and |kX| ≤ kγ |X| for some integer k ≥ 2
+that may depend on |X|. Then, there is proper symmetric GAP Q of rank r = O(γ) and
+cardinality Oγ (k−r |kX|) such that X ⊂ Q.
+
+
+Note that for any given ǫ > 0 and for any sufficiently large k, it is implied from Theorem
+3.2 that the rank of Q is at most γ + ǫ. The implicit constant involved in the size of Q can
+                 2O(γ)
+be taken to be 22     , which is quite poor. Although we have not elaborated on this bound
+substantially, our method does not seem to say anything when the polynomial growth with
+a size of kX is replaced by something faster.
+
+Theorem 3.2 will serve as our main technical tool. This theorem can be proved by applying
+an earlier result [19]. We give a short deduction in Appendix A.
+                              INVERSE LITTLEWOOD-OFFORD PROBLEM                                         11
+
+
+                                      4. Freiman isomorphism
+
+We now introduce the concept of Freiman isomorphism that allows us to transfer an additive
+problem to another group in a way that is more flexible than the usual notion of group
+isomorphism.
+Definition 4.1 (Freiman isomorphism of order k). Two sets V, V ′ of additive groups G, G′
+(not necessarily torsion-free) are a Freiman isomorphism of order k (in generalized form) if
+there is an injective map f from V to V ′ such that f (v1 ) + · · · + f (vk ) = f (v1′ ) + · · · + f (vk′ )
+in G′ if and only if v1 + · · · + vk = v1′ + · · · + vk′ in G.
+
+The following theorem allows us to pass from an arbitrary torsion-free group to Z or cyclic
+groups of a prime order (see [23, Lemma 5.25]).
+Theorem 4.2. Let V be a finite subset of a torsion-free additive group G. Then, for any
+integer k, there is a Freiman isomorphism φ : V → φ(V ) of order k to some finite subset
+φ(V ) of the integers Z. The same is true if we replace Z by Fp , if p is sufficiently large,
+depending on V .
+
+An identical proof to that in [23] implies the following stronger result.
+Theorem 4.3. Let V be a finite subset of a torsion-free additive group G. Then, for any
+integer k, there is a map φ : V → φ(V ) to some finite subset φ(v) of the integers Z such
+that
+
+
+            v1 + · · · + vi = v1′ + · · · + vj′ ⇔ φ(v1 ) + · · · + φ(vi ) = φ(v1′ ) + . . . φ(vj′ )    (9)
+
+for all i, j ≤ k. The same is true if we replace Z by Fp , if p is sufficiently large, depending
+on V .
+
+By Theorem 4.3, a large prime p and set Vp ⊂ Fp exist such that (9) holds for all i, j ≤ |V |.
+Hence, we infer that
+
+
+                                              ρ(V ) = ρ(Vp ).
+
+Thus, instead of working with a subset V of a torsion-free group, it is sufficient to work
+with a subset of Fp , where p is sufficiently large.
+
+To end this section, we record a useful fact about GAPs, as follows. Assume that A is a
+dense subset of a GAP Q. Then, the iterated sumsets kA contain a structure similar to Q
+(see [14, Lemma 4.4], [15, Lemma B3]).
+Lemma 4.4 (Sárközy-type theorem in progressions). Let Q = {a1 x1 + · · · + ar xr : |xi | ≤
+Mi , 1 ≤ i ≤ r} be a proper GAP in a torsion-free group of rank r. Let A ⊂ Q be a
+symmetric subset such that |A| ≥ δ|Q| for some 0 < δ < 1. Then, there exists positive
+integers 1 ≤ m, l ≪δ,r 1 such that Ql ⊂ 2mA, where Ql is the GAP
+12                                  HOI NGUYEN AND VAN VU
+
+
+
+                     Ql = {la1 x1 + · · · + lar xr : |xi | ≤ Mi /l2 , 1 ≤ i ≤ r}.
+
+
+                                  5. Proof of Theorem 2.1
+
+Embedding. The first step is to embed the problem into the finite field Fp for some prime
+p. In the
+        Pcase when the vi are integers, we simply take p to be a large prime (for instance,
+      n   n
+p ≥ 2 ( i=1 |vi | + 1) suffices). If V is a subset of a general torsion-free group G, one can
+use Theorem 4.3.
+
+From now on, we can assume that vi are elements of Fp for some large prime p. We view
+elements of Fp as integers between 0 and p − 1. We use the shorthand ρ to denote ρ(V ).
+
+Fourier Analysis. The main advantage of working in Fp is that one can use discrete Fourier
+analysis. Assume that
+                                  ρ = ρ(V ) = P(S = a),
+                                                               √
+for some a ∈ Fp . Using the standard notation ep (x) for exp(2π −1x/p), we have
+
+
+                                   1 X                   1 X
+              ρ = P(S = a) = E         ep (ξ(S − a)) = E     ep (ξS)ep (−ξa).           (10)
+                                   p                     p
+                                       ξ∈Fp                             ξ∈Fp
+
+
+By independence,
+
+
+                                         n                      n
+                                         Y                      Y           2πξvi
+                            Eep (ξS) =         ep (ξηi vi ) =         cos         .     (11)
+                                                                              p
+                                         i=1                    i=1
+
+
+It follows that
+
+
+                            1 XY       2πvi ξ    1 X Y cos πvi ξ
+                       ρ≤        | cos        |=      |          |,                     (12)
+                            p            p       p         p
+                              ξ∈Fp i                            ξ∈Fp i
+
+
+where we made the variable change ξ → ξ/2 (in Fp ) to obtain the last identity.
+
+By convexity, we have that | sin πz| ≥ 2kzk for any z ∈ R, where kzk := kzkR/Z is the
+distance of z to the nearest integer. Thus,
+
+
+                       πx          1     πx           x             x
+                   | cos  | ≤ 1 − sin2       ≤ 1 − 2k k2 ≤ exp(−2k k2 ),               (13)
+                        p          2      p           p             p
+where, in the last inequality, we used that fact that 1 − y ≤ exp(−y) for any 0 ≤ y ≤ 1.
+
+Consequently, we obtain the key inequality
+                            INVERSE LITTLEWOOD-OFFORD PROBLEM                                      13
+
+
+                                                                          n
+                          1 XY       πvi ξ    1 X        X vi ξ
+                     ρ≤        | cos       |≤     exp(−2  k     k2 ).                            (14)
+                          p           p       p             p
+                           ξ∈Fp i                           ξ∈Fp          i=1
+
+                                                                         Pn           2
+Large level sets. Now, we consider the level sets Sm := {ξ|               i=1 kvi ξ/pk ≤ m}. We have
+
+
+                                           n
+                       1 X        X vi ξ       1 1 X
+          n−C ≤ ρ ≤        exp(−2  k     k2 ) ≤ +    exp(−2(m − 1))|Sm |.
+                       p             p         p p
+                          ξ∈Fp            i=1                       m≥1
+
+          P
+Because       m≥1 exp(−m) < 1, there must be a large level set Sm such that
+
+
+
+                                         |Sm | exp(−m + 2) ≥ ρp.                                 (15)
+
+In fact, because ρ ≥ n−C , we can assume that m = O(log n).
+
+Double counting and the triangle inequality. By double -counting, we have
+
+                          n X                               n
+                          X              vi ξ 2  X X vi ξ
+                                     k       k =    k k2 ≤ m|Sm |.
+                                          p           p
+                          i=1 ξ∈Sm                    ξ∈Sm i=1
+
+
+So, for most vi
+
+                                         X          vi ξ 2 C 0 m
+                                                k       k ≤      |Sm |                           (16)
+                                                     p      n
+                                         ξ∈Sm
+
+
+for some large constant C0 .
+
+Set C0 = ε−1 . By averaging, the set of vi satisfying (16) has a size of at least (1 − ε)n. We
+call this set V ′ . The set V \V ′ has a size of at most εn, and this is the exceptional set that
+appears in Theorem 2.1. In the rest of the proof, we are going to show that V ′ is a dense
+subset of a proper GAP.
+
+Because k · k is a norm, by the triangle inequality, we have, for any a ∈ kV ′ ,
+
+                                     X          aξ 2     C0 m
+                                            k     k ≤ k2      |Sm |.                             (17)
+                                                p         n
+                                     ξ∈Sm
+
+
+More generally, for any l ≤ k and a ∈ lV ′ ,
+
+                                     X          aξ 2     C0 m
+                                            k     k ≤ k2      |Sm |.                             (18)
+                                                p         n
+                                     ξ∈Sm
+14                                       HOI NGUYEN AND VAN VU
+
+                     ∗ := {a|
+                              P        aξ 2     1
+Dual sets. Define Sm            ξ∈Sm k p k ≤ 200 |Sm |} (the constant 200 is ad hoc, and any
+                                                   ∗ can be viewed as some sort of a dual set
+sufficiently large constant would be sufficient). Sm
+of Sm . In fact, one can show, as far as cardinality is concerned, it does behave like a dual
+
+
+                                                     ∗       8p
+                                                   |Sm |≤         .                               (19)
+                                                            |Sm |
+
+To see this, define Ta := ξ∈Sm cos 2πaξ                                          2
+                         P
+                                     p . Using the fact that cos 2πz ≥ 1 − 100kzk for any
+                             ∗
+z ∈ R, we have, for any a ∈ Sm
+
+                                         X                   aξ 2    1
+                                  Ta ≥          (1 − 100k       k ) ≥ |Sm |.
+                                                              p      2
+                                         ξ∈Sm
+
+                                         P                 2πax
+However, using the basic identity             a∈Fp cos       p = pIx=0 , we have
+
+
+                                              X
+                                                     Ta2 ≤ 2p|Sm |.
+                                              a∈Fp
+
+
+(19) follows from the last two estimates and averaging.
+           pn
+Set k := c1 m , for a properly chosen constant c1 = c1 (C0 ). By (18), we have ∪kl=1 lV ′ ⊂ Sm
+                                                                                             ∗ .
+      ′′                        ′′
+Set V = V ′ ∪ {0}; we have kV ⊂ Sm    ∗ ∪ {0}. This results in the critical bound
+
+
+
+                                   ′′         p
+                               |kV | = O(         ) = O(ρ−1 exp(−m + 2)).                         (20)
+                                            |Sm |
+
+The long range inverse theorem. The role of Fp is no longer important, so we can view
+the vi as integers. The inequality (20) is exactly the assumption of the long range inverse
+theorem.
+
+With this theorem in hand, we are ready to conclude the proof. A slight technical problem is
+      ′′
+that V is not a set but a multiset. Thus, we apply Theorem 3.2 with X as the set of q
+                                                                                    distinct
+elements of V (note that kX = kV if k ≥ 2). Furthermore, k = Ω( m ) = Ω( logn n ),
+              ′′                      ′′
+                                                                        pn
+
+ρ−1 ≤ nC is bounded from above by k2C+1 .
+
+It follows from Theorem 3.2 that X is a subset of a proper symmetric GAP Q of rank
+r = OC,ǫ (1) and cardinality
+
+                                                                                      r      
+                       −r                     −r      ′′                  −1             n −r
+             OC,ǫ (k        |kX|) = OC,ǫ (k        |kV |) = OC,ǫ ρ             exp(−m)(    )
+                                                                                         m
+                                                            = OC,ǫ (ρ−1 n−r ),
+concluding the proof.
+                               INVERSE LITTLEWOOD-OFFORD PROBLEM                                15
+
+
+Remark 5.1. To prove Theorem 2.5, in the section describing double counting and the tri-
+angle inequality, we define V ′ to be the collection of all vi ∈ V satisfying
+
+                                           X         vi ξ 2 m
+                                                 k       k ≤ ′ |Sm |.
+                                                      p     n
+                                          ξ∈Sm
+
+                     q
+                   n′
+Next, with k = c1  m for some sufficiently small c1 , we obtain a bound similar to (20),
+         ′′      −1
+where |kV | = O(ρ exp(−m + 2)). We then conclude Theorem 2.5 by applying the long
+range inverse theorem.
+
+
+                                       6. Proof of Theorem 2.9
+
+This proof will essentially follow the same steps as in the discrete case, with some additional
+simple arguments.
+
+Given a real number w and a variable z, we define the z-norm of w by
+
+
+                                       kwkz := (Ekw(z1 − z2 )k2 )1/2 ,
+
+where z1 , z2 are two iid copies of z.
+
+Fourier analysis. Our first step is to obtain the following analogue of (14), using the Fourier
+transform.
+Lemma 6.1 (bounds for small ball probability).
+                                  Z        X n
+                               2
+             ρr,z (V ) ≤ exp(πr )   exp(−      khvi , ξik2z /2 − πkξk22 )dξ.
+                                               Rd          i=1
+
+
+This lemma is basically from [21]; the proof is presented in Appendix C, for the reader’s
+convenience.
+
+Next, consider the multiset Vβ := β −1 · V = {β −1 v1 , . . . , β −1 vn }. It is clear that
+
+
+                                            ρβ,z (V ) = ρ1,z (Vβ ).
+
+We now work with Vβ . Thus ρ1,z (Vβ ) ≥ n−O(1) and                           2    −2 .
+                                                                 P
+                                                                     v∈Vβ kvk = β
+
+For concision, we write ρ for ρ1,z (Vβ ). Set M := 2A log n, where A is sufficiently large.
+From Lemma 6.1 and the fact that ρ ≥ n−O(1) , we easily obtain
+
+
+                                               1 X                          ρ
+                         Z
+                                       exp(−       khv, ξik2z − πkξk22 )dξ ≥ .                (21)
+                             kξk2 ≤M           2                            2
+                                                 v∈Vβ
+16                                    HOI NGUYEN AND VAN VU
+
+
+Large level sets. For each integer 0 ≤ m ≤ M , we define the level set
+
+                                                                                 
+                                              X                                  
+                       Sm :=        ξ ∈ Rd :          khv, ξik2z + kξk22 ≤ m          .
+                                                                                 
+                                               v∈Vβ
+
+
+Then, it follows from (21) that m≤M µ(Sm ) exp(− m
+                               P
+                                                  2 + 1) ≥ ρ, where µ(.) denotes the
+Lebesgue measure of a measurable set. Hence, there exists m ≤ M such that µ(Sm ) ≥
+ρ exp( m
+       4 − 2).
+                            √
+Next, because Sm ⊂ B(0,         m), by the pigeon-hole principle there exists a ball B(x, 12 ) ⊂
+    √
+B(0, m) such that
+
+
+                      1                                     m
+                µ(B(x, ) ∩ Sm ) ≥ cd µ(Sm )m−d/2 ≥ cd ρ exp( − 2)m−d/2 .
+                      2                                     4
+
+Consider ξ1 , ξ2 ∈ B(x, 1/2) ∩ Sm . By the Cauchy-Schwarz inequality (note that k.kz is a
+norm), we have
+
+                                    X
+                                           khv, (ξ1 − ξ2 )ik2z ≤ 4m.
+                                    v∈Vβ
+
+
+Because ξ1 − ξ2 ∈ B(0, 1) and µ(B(x, 21 ) ∩ Sm − B(x, 12 ) ∩ Sm ) ≥ µ(B(x, 21 ) ∩ Sm ), if we put
+                                                      n
+                                                      X
+                           T := {ξ ∈ B(0, 1),               khξ, vi ik2z ≤ 4m},
+                                                      i=1
+
+
+then
+
+
+                                                        m
+                                  µ(T ) ≥ cd ρ exp(       − 2)m−d/2 .
+                                                        4
+
+Discretization. Choose N to be a sufficiently large prime (depending on the set T ). Define
+the discrete box
+
+
+                     B0 := {(k1 /N, . . . , kd /N ) : ki ∈ Z, −N ≤ ki ≤ N } .
+
+We consider all shifted boxes x + B0 , where x ∈ [0, 1/N ]d . By the pigeon-hole principle,
+there exists x0 such that the size of the discrete set (x0 + B0 ) ∩ T is at least the expectation
+|(x0 + B0 ) ∩ T | ≥ N d µ(T ) (to see this, we first consider the case when T is a box).
+
+Let us fix some ξ0 ∈ (x0 + B0 ) ∩ T . Then, for any ξ ∈ (x0 + B0 ) ∩ T , we have
+                             INVERSE LITTLEWOOD-OFFORD PROBLEM                                           17
+
+
+                                                                                       
+              X                                  X                     X
+                     khv, ξ0 − ξik2z ≤ 2               khv, ξik2z +          khv, ξ0 ik2z  ≤ 16m.
+              v∈Vβ                               v∈Vβ                  v∈Vβ
+
+
+Note that ξ0 − ξ ∈ B1 := B0 − B0 = {(k1 /N, . . . , kd /N ) : ki ∈ Z, −2N ≤ ki ≤ 2N }. Thus,
+there exists a subset S of size at least cd N d ρ exp( m
+                                                       4 − 2)m
+                                                               −d/2 of B such that the following
+                                                                        1
+holds for any s ∈ S:
+
+                                             X
+                                                    khv, sik2z ≤ 16m.
+                                             v∈Vβ
+
+
+Double counting. We let y = z1 − z2 , where z1 , z2 are iid copies of z. By the definition of
+S, we have
+
+
+                                             XX
+                                                         khv, sik2z ≤ 16m|S|
+                                             s∈S v∈Vβ
+                                       XX
+                                  Ey                kyhv, sik2R/Z ≤ 16m|S|.
+                                       s∈S v∈Vβ
+
+
+It is then implied that there exists 1 ≤ |y0 | ≤ Cz such that
+
+                       XX
+                                  ky0 hv, sik2R/Z ≤ 16m|S|P(1 ≤ |y| ≤ Cz )−1 .
+                       s∈S v∈Vβ
+
+
+However, by property (7), we have P(1 ≤ |y| ≤ Cz ) ≥ 1/2. Thus,
+
+                                  XX
+                                               ky0 hv, sik2R/Z ≤ 32m|S|.
+                                  s∈S v∈Vβ
+
+
+Let n′ be any number between nǫ and n. We say that v ∈ Vβ is bad if
+
+
+                                       X                          32m|S|
+                                             ky0 hv, sik2R/Z ≥           .
+                                                                    n′
+                                       s∈S
+
+
+Then, the number of bad vectors is at most n′ . Let Vβ′ be the set of remaining vectors.
+Thus, Vβ′ contains at least n − n′ elements. In the remainder of the proof, we show that Vβ′
+is close to a GAP, as claimed in the theorem.
+
+Dual sets. Consider an arbitrary v ∈ Vβ′ . We have                                    2             ′
+                                                                 P
+                                                                       s∈S ky0 hs, vikR/Z ≤ 32m|S|/n .
+18                                          HOI NGUYEN AND VAN VU
+         q
+Set k := 64πn2 m , and let Vβ′′ := k(Vβ′ ∪ {0}). By the Cauchy-Schwarz inequality (see (18)),
+               ′
+
+
+for any a ∈ Vβ′′ , we have
+
+
+                                         X                                  |S|
+                                               2π 2 khs, y0 aik2R/Z ≤           ,
+                                                                             2
+                                         s∈S
+
+
+which implies
+
+
+                                           X                             |S|
+                                                 cos(2πhs, y0 ai) ≥          .
+                                                                          2
+                                           s∈S
+
+
+                                 1
+Observe that, for any x ∈ C(0, 256d ) (the ball of radius 1/256d in the k.k∞ norm) and any
+s ∈ S ⊂ C(0, 2), we always have cos(2πhs, xi) ≥ 1/2 and sin(2πhs, xi) ≤ 1/12. Thus, for
+               1
+any x ∈ C(0, 256d ),
+
+
+                               X                                     |S| |S|   |S|
+                                     cos (2πhs, (y0 a + x)i) ≥          −    =     .
+                                                                      4   12    6
+                               s∈S
+
+
+However,
+
+
+                                           !2
+                                                                                      √
+      Z               X                                   X Z                                         
+                            cos(2πhs, xi)        dx ≤                           exp 2π −1hs1 − s2 , xi dx
+          x∈[0,N ]d   s∈S                               s1 ,s2 ∈S   x∈[0,N ]d
+
+                                                    ≪d |S|N d .
+
+
+Hence, we deduce the following:
+
+                                                                        !
+                                 X                    |S|                            |S|N d      Nd
+                  µx∈[0,N ]d    (  cos(2πhs, xi))2 ≥ ( )2                   ≪d               ≪ d     .
+                                                       6                            (|S|/6)2     |S|
+                                 s∈S
+
+
+Now, using the facts that S is large, |S| ≫d N d ρ exp( m4 − 2)m
+                                                                 −d/2 and N was chosen to be
+                      ′′        1             d
+large enough for y0 Vβ + C(0, 256d ) ⊂ [0, N ] , we have
+
+
+                                                   1                 m
+                            µ(y0 Vβ′′ + C(0,          )) ≪d ρ−1 exp(− + 2)md/2 .
+                                                 256d                4
+
+Thus, we obtain the following analogue of (20):
+                               INVERSE LITTLEWOOD-OFFORD PROBLEM                                      19
+
+
+
+                                                    
+                                               1                       m
+               µ       k(Vβ′ ∪ {0}) + C(0,          ) ≪d ρ−1 y0−d exp(− + 2)md/2 .                  (22)
+                                             256dy0                    4
+
+The long range inverse theorem. Our analysis again relies on the long range inverse theorem.
+Let D := 1024dy0 . We approximate each vector v ′ of Vβ′ by its closest vector in ( Dk
+                                                                                    Z d
+                                                                                       ) ,
+
+                                                √
+                                     ′   a        d
+                                   kv −    k2 ≤     , with a ∈ Zd .
+                                        Dk      Dk
+
+                                                                          ′ 2       −2 ), we have
+                                                            P
+Let Aβ be the collection of all such a. Because                 v′ ∈Vβ′ kv k2 = O(β
+
+
+                                         X
+                                                kak22 = Od,Cz (k2 β −2 ).                           (23)
+                                         a∈Aβ
+
+
+It follows from (22) that
+
+
+                                                                m         
+                 |k(Aβ + C0 (0, 1))| = Od,Cz ρ−1 (Dk)d y0−d exp(− + 2)md/2
+                                                                 4 
+                                                          m
+                                              −1 d
+                                     = Od,Cz ρ k exp(− + 2)md/2 ,
+                                                           4
+
+where C0 (0, r) is the discrete cube {(z1 , . . . , zd ) ∈ Zd : |zi | ≤ r}.
+
+Now, we apply Theorem 3.2 to the set Aβ +C0 (0, 1) (note that 0 ∈ Aβ ). That lemma implies
+there exists a proper GAP P = { ri=1 xi gi : |xi | ≤ Ni } ⊂ Zd containing Aβ + C0 (0, 1) with
+                                P
+a small rank r = O(1) and small size
+
+
+                                                          m         
+                             |P | = Od,Cz (ρ−1 kd exp(− + 2)md/2 k−r
+                                                            4
+                                            −1 ′ (−r+d)/2
+                                  = Od,Cz (ρ n            ).
+
+
+Moreover, we learned from the proof of Theorem 3.2 and Lemma 4.4 that kQ can be
+contained in a set ck(Aβ + C0 (0, 1)) for some c = O(1). Using (23), we conclude that all
+generators gi of Q are bounded,
+
+
+                                           kgi k2 = Od,Cz (kβ −1 ).
+
+Next, because C0 (0, 1) ⊂ Q, the rank r of P is at least d. It is a routine calculation to see
+          β
+that Q := Dk · P satisfies all of the required properties in Theorem 2.9.
+20                                HOI NGUYEN AND VAN VU
+
+
+             Appendix A. Proof of the long range inverse theorem
+
+The key lemma to prove our long range inverse theorem is an earlier result by Tao and the
+second author ([19, Theorem 1.21]), given below.
+Lemma A.1. Let ǫ > 0, γ > 0 be constants. Assume that X is a subset of integers such
+that |kX| ≤ kγ |X| for some number k ≥ 2. Then, kX is contained in a symmetric 2-proper
+GAP Q with rank r = Oγ,ǫ (1) and cardinality Oγ,ǫ (|kX|).
+
+Next, if kX ⊂ kQ, where Q is a GAP, then it is natural to suspect that X ⊂ Q, but this is
+not always true. However, the conclusion holds if kQ is 2-proper and 0 ∈ X.
+                                                                         P = { ri=1 xi ai :
+                                                                              P
+Lemma A.2. (Dividing sumsets relations) Assume that 0 ∈ X and that P
+|xi | ≤ Ni } is a symmetric 2-proper GAP that contains kX. Then X ⊂ { ri=1 xi ai : |xi | ≤
+2Ni /k}.
+
+A good way to keep this lemma in mind is the following. Consider the relation X ⊂ P . It is
+trivial that this relation can always be multiplied, namely, for all integers k ≥ 1, kX ⊂ kP .
+The above lemma asserts that, under certain assumptions, the relation kX ⊂ kP can be
+divided, giving X ∈ P .
+
+Proof. (of Lemma A.2) Without P   a loss of generality, we can assume that k = 2l . It is
+sufficient to show that 2 X ⊂ { ri=1 xi ai : |xi | ≤ Ni /2}. Because 0 ∈ X, 2l−1 X ⊂ 2l X ⊂
+                         l−1
+
+P , any element x of 2l−1 X can be written as x = ri=1 xi ai , with |xi | ≤ Ni . Now, because
+                                                    P
+2x ∈ P ⊂ 2P and 2P is proper (as P is 2-proper), we must have 0 ≤ |2xi | ≤ Ni .            
+
+It is clear that Theorem 3.2 follows from Lemma A.1 and Lemma A.2.
+
+
+                        Appendix B. Remarks on Theorem 2.9
+
+The purpose of this section is to give an example showing that the bound in Theorem 2.9
+cannot be improved and to provide a proof for Corollary 2.10.
+
+First, consider the set U := [−2n, −n] ∪ [n, 2n]. Sample n points v1 , . . . , vn from U inde-
+pendently with respect to the (continuous) uniform distribution, and let A be the set of
+sampled points. Let ξ be the Gaussian random variable N (0, 1), and consider the sum
+
+
+                                   S := v1 ξ1 + · · · + vn ξn ,
+where ξi are iid copies of ξ.
+
+S has a Gaussian distribution with a mean 0 and variance Θ(n3 ), with a probability of one.
+Thus, for some interval I of length 1, P(S ∈ I) ≥ Cn−3/2 , for some constant C.
+
+Set n′ = δn, for some small positive constant δ. Theorem 2.9 states that (most of) A is
+                                                    r
+O( log
+    √ n )-close to a GAP of rank r and volume O(n2− 2 ). We show that one cannot replace
+      n
+                            INVERSE LITTLEWOOD-OFFORD PROBLEM                                      21
+
+                        r
+this bound by O(n2− 2 −ǫ ) for any ǫ. There are only three possible values for r: r = 1, 2, 3.
+Our claim follows from the following simple lemma, whose proof remains as an exercise.
+
+Lemma B.1. Let C, δ, ǫ be positive constants and n → ∞. The following hold with a
+probability of 1 − o(1) (with respect to the random choice of A).
+
+      • A does not contain any subset of cardinality (1 − δ)n that is C √
+                                                                        log n
+                                                                          n
+                                                                              -close to a GAP
+        of rank 1 and volume of at most Cn3/2−ǫ .
+      • A does not contain any subset of cardinality (1 − δ)n that is C √
+                                                                        log n
+                                                                          n
+                                                                              -close to a GAP
+        of rank 2 and volume of at most Cn .1−ǫ
+
+
+      • A does not contain any subset of cardinality (1 − δ)n that is C √
+                                                                        log n
+                                                                          n
+                                                                              -close to a GAP
+        of rank 3 and volume of at most Cn1/2−ǫ .
+
+
+The construction above can also be generalized to higher dimensions, but we do not attempt
+to do so here.
+
+For the remainder of this section, we prove Corollary 2.10.
+
+We consider the following two cases.
+
+Case 1: r ≥ d + 1. Consider the GAP P at√the end of the proof of Theorem 2.9. Recall
+that |P | = Od,Cz (ρ−1 n′ (d−r)/2 ) = Od,Cz (ρ−1 / n′ ). Let
+
+
+                                                  β
+                                           Q :=      · P.
+                                                  Dk
+
+It is clear that Q satisfies all of the conditions of Corollary 2.10. (Note that, in this case,
+                                                                         log n′
+we obtain a stronger approximation; almost all elements of V are O( β √    n′
+                                                                                )-close to Q.)
+
+Case 2: r = d. Because the unit vectors ej = (0, . . . , 1, . . . , 0) belong to P = { di=1 xi gi :
+                                                                                            P
+
+|xi | ≤ Ni } ⊂ Zd , the set of generators gi , i = 1, . . . , d forms a base with the unit determinant
+of Rd . In P , consider the set of lattice points with all coordinates divisible by k. We observe
+that (for instance, by [23, Theorem 3.36]) this     set can be contained       in a GAP P ′ of rank
+d and cardinality max O( k1r |P |, 1 = max O(ρ−1 /n′ r/2 ), 1 . (Here, we use the bound
+                                       
+
+|P | = O(ρ−1 exp(− m
+                   4 )m
+                        d/2 ).) Next, define
+
+
+
+
+                                                  β
+                                           Q :=      · P ′.
+                                                  Dk
+
+It is easy to verify that Q satisfies all of the conditions of Corollary 2.10. (Note that, in
+this case, we obtain a stronger bound on the size of Q.)
+22                                      HOI NGUYEN AND VAN VU
+
+
+                                Appendix C. Proof of Lemma 6.1
+
+We have
+
+
+                   Xn                        n
+                                             X
+                 P(   zi vi ∈ B(x, r)) = P(k   zi vi − xk22 ≤ r 2 )
+                    i=1                               i=1
+                                                                 n
+                                                                                                     !
+                                                                 X
+                                        = P exp(−πk                     zi vi − xk22 ) ≥ exp(−πr 2 )
+                                                                  i=1
+                                                                           n
+                                                                           X
+                                        ≤ exp(πr 2 )E exp(−πk                    zi vi − xk22 ).
+                                                                           i=1
+
+
+Note that
+
+                                                  Z
+                            exp(−πkxk22 ) =                 e(hx, ξi) exp(−πkξk22 )dξ.
+                                                      Rd
+
+
+We thus have
+
+
+          Xn                               Z                   Xn
+        P(   zi vi ∈ B(x, r)) ≤ exp(πr 2 )                 Ee(h   zi vi , ξi)e(−hx, ξi) exp(−πkξk22 )dξ.
+           i=1                                        Rd        i=1
+
+
+Using
+
+
+                                      Xn                n
+                                                        Y
+                                 |Ee(h   zi vi , ξi)| =   |Ee(zi hvi , ξi)|,
+                                       i=1                     i=1
+
+
+and
+
+
+                   |Ee(zi hvi , ξi)| ≤ |Ee(zi hvi , ξi)|2 /2 + 1/2 ≤ exp(−khvi , ξik2z /2),
+
+we obtain
+
+                                             Z                 n
+                                                               X
+                                         2
+                     ρr,z (V ) ≤ exp(πr )             exp(−          khvi , ξik2z /2 − πkξk22 )dξ.
+                                                 Rd            i=1
+
+
+Acknowledgements. The authors would like to thank K. Costello and the referees for
+carefully reading this manuscript and providing very helpful remarks.
+                              INVERSE LITTLEWOOD-OFFORD PROBLEM                                           23
+
+
+                                              References
+
+ [1] P. Erdős, On a lemma of Littlewood and Offord, Bull. Amer. Math. Soc. 51 (1945), 898-902.
+ [2] P. Erdős and L. Moser, Elementary Problems and Solutions: Solutions: E736. Amer. Math. Monthly,
+     54 (1947), no. 4, 229-230.
+ [3] J. Griggs, Database Security and the Distribution of Subset Sums in Rm , Graph Theory and Combina-
+     torial Biology, Balatonlelle 1996 , Bolyai Math. Studs. 7 (1999), 223–252.
+ [4] G. Halász, Estimates for the concentration function of combinatorial number theory and probability,
+     Period. Math. Hungar. 8 (1977), no. 3-4, 197-211.
+ [5] G. Katona, On a conjecture of Erdős and a stronger form of Sperner’s theorem. Studia Sci. Math.
+     Hungar 1 (1966), 59–63.
+ [6] D. Kleitman, On a lemma of Littlewood and Offord on the distributions of linear combinations of vectors,
+     Advances in Math. 5 (1970), 155-157.
+ [7] J. E. Littlewood and A. C. Offord, On the number of real roots of a random algebraic equation. III. Rec.
+     Math. Mat. Sbornik N.S. 12 , (1943). 277–286.
+ [8] H. Nguyen, A new approach to an old problem of Erdős and Moser, submitted.
+ [9] R. A. Proctor, Solution of two difficult combinatorial problems with linear algebra. Amer. Math. Monthly
+     89 (1982), no. 10, 721-734.
+[10] M. Rudelson and R. Vershynin, The Littlewood-Offord problem and the condition number of random
+     matrices, Advances in Mathematics 218 (2008), no 2, 600-633.
+[11] A. Sárközy, Finite addition theorems I, J. Num. Thy. 32 (1989), 114–130.
+[12] A. Sárközy and E. Szemerédi, Über ein Problem von Erdős und Moser, Acta Arithmetica, 11 (1965)
+     205-208.
+[13] R. Stanley, Weyl groups, the hard Lefschetz theorem, and the Sperner property, SIAM J. Algebraic
+     Discrete Methods 1 (1980), no. 2, 168–184.
+[14] E. Szemerédi and V. Vu, Long arithmetic progressions in sumsets: thresholds and bounds, J. Amer.
+     Math. Soc. 19 (2006), 119–169.
+[15] T. Tao, Freiman’s theorem in solvable groups, http://arxiv.org/abs/0906.3535
+[16] T. Tao and V. Vu, A sharp inverse Littlewood-Offord theorem, to appear in Random Structures and
+     Algorithms.
+[17] T. Tao and V. Vu, From the Littlewood-Offord problem to the circular law: universality of the spectral
+     distribution of random matrices, Bull. Amer. Math. Soc. (N.S.) 46 (2009), no. 3, 377–396.
+[18] T. Tao and V. Vu, Inverse Littlewood-Offord theorems and the condition number of random matrices,
+     Annals of Mathematics (2) 169 (2009), no 2, 595-632.
+[19] T. Tao and V. Vu, John-type theorems for generalized arithmetic progressions and iterated sumsets,
+     Adv. Math. 219 (2008), no. 2, 428–449.
+[20] T. Tao and V. Vu, On the singularity probability of random Bernoulli matrices, Journal of the A. M. S
+     20 (2007), 603-673.
+[21] T. Tao and V. Vu, Random matrices: The Circular Law, Communication in Contemporary Mathematics
+     10 (2008), 261-307.
+[22] T. Tao and V. Vu, Smooth analysis of the condition number and the least singular value, (to appear in
+     Mathematics of Computation).
+[23] T. Tao and V. Vu, Additive Combinatorics, Cambridge Univ. Press, 2006.
+
+
+Department of Mathematics, Rutgers University, Piscataway, NJ 08854
+
+E-mail address: hoi@math.rutgers.edu
+
+
+Department of Mathematics, Rutgers University, Piscataway, NJ 08854
+
+E-mail address: vanvu@math.rutgers.edu
+

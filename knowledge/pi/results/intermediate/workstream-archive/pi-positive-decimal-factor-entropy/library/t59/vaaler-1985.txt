@@ -1,0 +1,3288 @@
+BULLETIN (New Series) OF THE
+AMERICAN MATHEMATICAL SOCIETY
+Volume 12, Number 2, April 1985
+
+SOME EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+BY JEFFREY D. VAALER1
+
+1. Introduction. In the late 1930s A. Beurling observed that the entire
+function
+(1.1)
+
+B(z) = ( ^ ) 2 {
+
+t
+
+(z - n)-2 -
+
+£
+
+(z - my2 + 2*"1}
+
+satisfies a simple and useful extremal property. We have
+(1.2)
+
+sgn(x)<B(x)
+
+for all real x and
+(1.3)
+
+(
+
+B(x) - sgn(x) dx = 1.
+
+•'-oo
+
+The function B(z) is entire of exponential type 2TT, and Beurling showed that
+if F(z) is any entire function of exponential type 2TT satisfying sgn(x) < F(x)
+for all real x9 then
+(1.4)
+
+(
+
+F(x) - sgn(x)dx
+
+> 1.
+
+Moreover, he showed that there is equality in (1.4) if and only if F(z) = B(z).
+As an application Beurling found an interesting inequahty for almost periodic
+functions (we include it here in Theorem 15), but his results were never
+published.
+In 1974 A. Selberg used the function B(z) to obtain a sharp form of the
+large sieve inequahty. Selberg noted that if XE(X) ^S t r i e characteristic function
+of the interval E = [a, /?] and
+(1.5)
+
+CE(z)-\{B(fi-z)
+
++
+
+B(z-a)},
+
+then
+(1.6)
+
+XB(*)<CE(X)
+
+Received by the editors November 14, 1983.
+1980 Mathematics Subject Classification. Primary 42A10, 42A38; Secondary 10H30, 41A17.
+1
+Research supported in part by National Science Foundation grant MCS-8303309.
+©1985 American Mathematical Society
+0273-0979/85 $1.00 + $.25 per page
+183
+
+184
+
+J. D. VAALER
+
+for all real x. For x ¥= a and x =£ fl we have
+XE(X) = 2"{ s g n (0 ~ x) + s S n ( * ~ <*)}>
+so (1.6) follows immediately from (1.2). Since CE(x) is continuous, the
+restrictions on x can be removed. By using (1.3) and (1.5) Selberg observed
+that CE(x) is integrable along the real axis and
+CE(x) - XE(X)
+
+dx - 1.
+
+-00
+
+Of course, CE(z) is entire of exponential type 277, but now, for applications, it
+is usually more convenient to work with an equivalent property of the Fourier
+transform of CE. Specifically, the Fourier transform
+Q(0 = /
+
+CE(x)e(-tx)
+
+dx
+
+•'-oo
+
+(where we write e(u) = el7Tlu) is a continous function supported on [-1,1].
+To illustrate one of the simplest applications of Selberg's function, let
+\l9 A2> • >Aw be real numbers and
+TV
+
+f{x) = £
+
+a(n)e(Xnx)
+
+an almost periodic trigonometric polynomial. Suppose that XVX2,...,XN
+sue
+well spaced in the sense that \Xn — Xm\ > 1 whenever n =£ m. Using inequality
+(1.6) we have
+(1.8) [fi \f(x)\2
+
+CE(x)\f(x)\2dx
+
+dx < f
+
+.oo
+
+*
+
+*
+
+E
+
+Za(n)a(m)f
+
+CE(x)e((Xn
+
+- Xm)x) dx
+
+n= l m—\
+N
+
+N
+
+= I
+
+La(n)a(m)CE(K-K)-
+
+«= 1 m—l
+
+Now CE(Xm — Xn) = 0 if \Xm - Xn\ > 1, so all of the nondiagonal terms on
+the right of (1.8) are zero. It follows that
+f
+
+\f(x)\2dx<CE(0)I.
+
+\a(n)\2=(p-a
+
++l)i
+
+\a(n)\2.
+
+More generally, if |XW — Xm| ^ ô > 0 for n =t m, then an obvious change of
+variables in the previous argument leads to the upper bound
+
+(1.9)
+
+/'l/OOfdx < ( / * - « + f i - 1 ) ! \a(n)\2.
+«
+
+n= l
+
+By modifying his original construction Selberg found an entire function cE{z)
+of exponential type 2m which satisfies the minorizing inequality cE(x) < x^(*)
+for all real x and also
+oo
+
+/ -nr,
+
+XE(X)
+
+~cE(x)dx
+
+= 1.
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+185
+
+Of course, this provides a lower bound which, when combined with (1.9), can
+be written as
+(1.10)
+
+f
+
+| / ( x ) | 2 J x = ( j 8 - « + öo- 1 ) E
+
+\a(n)\2
+
+with - 1 < 6 < 1.
+The identity (1.10) was also obtained by Montgomery and Vaughan [M-V]
+from a generalization of Hilbert's inequality. In fact, their form of Hubert's
+inequality can also be established directly from Beurling's inequality (1.2) and
+knowledge of the Fourier transform of B(x) - sgn(x). We provide the details
+in Theorem 16.
+The functions cE(z) and CE(z) occur as special cases of a general method
+for constructing entire functions of prescribed exponential type which minorize
+or majorize a given function of bounded variation. We describe this result in
+§4.
+Let
+M+N
+
+S(x) =
+
+E
+
+a(n)e(nx)
+
+n = M+l
+
+be a trigonometric polynomial with period 1, and let £1? £2>- ••>£/? t>e r e a l
+numbers which are well spaced modulo 1. Specifically, we suppose that
+ll£r ~~ £JI > $ > 0 for r # 5, where ||x|| is the distance from x to the nearest
+integer. In its most basic setting the large sieve is an inequality of the form
+R
+
+(1-11)
+
+M+N
+
+E |S(€r)l <A(JM)
+r=l
+
+E
+
+\a(n)\\
+
+n = M+\
+
+By using the function CE(z) Selberg established (1.11) with A(JV, ô) = N - 1
+4- 8 _1, which is sharp. An essentially equivalent bound with A(7V, 8) = N + 8~x
+was obtained at about the same time by Montgomery and Vaughan [Mon].
+Selberg's proof of (1.11) is simple and direct. Let F(z) be the entire function of
+exponential type 2TT8 defined by F(z) = CE(8z), where E = [8(M + 1),
+8(M + TV)]. It follows that F(x) > 0 for all real x and F(x) > 1 for M + 1 <
+x < M + iV. Since
+we see that F is supported on [-8, 8] and F(0) = N — l + ô"1. By a theorem of
+Fejer [Boa, pp. 124-126] there is an entire function / ( z ) such that F(x) =
+| ƒ(x)| 2 for all real x,f(x) is obviously in L2(R), and
+/(*)=r/2/(<)e(z0^,
+that is, ƒ is supported on [-8/2, 8/2]. Now define
+M+N
+
+S*(x)=
+
+a{n)f{n)~le{nx).
+
+E
+n = M+l
+
+The identity
+(1.12)
+
+5(x) = f
+•'-fi/2
+
+f(u)S*(u
+
++ JC) C/M
+
+186
+
+J. D. VAALER
+
+follows immediately. If we apply Cauchy's inequality to the right side of (1.12)
+we find that
+\S(Q\2<
+
+(1.13)
+
+f/2
+
+\f(u)\2duf/2
+
+J-K n
+
+\S*(u + Sr)\2du
+
+J-K n
++S/2
+
+=
+
+F(0)f'
+
+\S*(u)\2du.
+
+Finally, we sum both sides of (1.13) over r and use the well spacing of
+£x, f 2» • • ->£R m°d 1. In this way we obtain
+(1.14)
+
+£
+
+\S(ir)\2<F(0)f\S^u)\2du
+M+N
+
+= ( A T - I + Ô- 1 )
+
+£
+
+k»!)!2^»)-1
+
+n = M+l
+M+N
+
+<(N-l+8-1)
+
+£
+
+\a(n)t
+
+n-M+1
+
+This method for proving the large sieve is implicit in [Sel, p. 215].
+In view of the extremal property satisfied by Buerling's function B(z% one
+might expect that a similar property would hold for the function CE(z). This is
+indeed the case, but only if the length ft — a of the interval E is an integer.
+Selberg has shown that if F(z) is any entire function of exponential type 2TT
+which majorizes XE(X) along the real axis, then
+oo
+
+/ - 0 0 H*)
+
+- XB(X) àx > 1,
+
+provided that ft - a is an integer. In this case CE(z) is clearly extremal;
+however, it is not unique. The set of all extremal functions for (1.15) was
+determined by Selberg (see [GV2, p. 289]). If ft — a is not an integer, then
+inequality (1.15) is false in general. B. Logan [Log] has found the corresponding extremal function for fi — a not an integer and established that it is
+unique.
+Although Selberg's function CE(z) is not extremal for every interval E, it
+has proved to be a useful device for establishing several important inequalities.
+A further account of its applications in connection with the large sieve is
+contained in [Mon, GVt, GV2 and Sel]. Our purpose here is to give a more
+general discussion of the extremal problems which motivated the construction
+of B(z) and CE(z) and to provide some additional applications.
+Our notation for Fourier transforms, Fourier series, and convolutions follows that of Stein and Weiss [StW]. We say that a function ƒ: R -> C is
+normalized if
+(1.16)
+
+lim \{f(x
+
++
+
+h)+f(x-h)}=f(x)
+
+for every real x. An entire function F(z), z = x 4- iy9 is said to have exportential type o > 0 if, for every e > 0,
+\f{z)\^A(e)e«>+*M
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+187
+
+for all z and some positive constant A(e) which may depend on e. We write \\x\\
+for the distance from the real number x to the nearest integer.
+ACKNOWLEDGEMENT. The author wishes to thank Professors Arne Beurling
+and Atle Selberg for helpful conversations about this paper.
+2. Special functions. We have noted that the function B{x) majorizes sgn(x)
+and minimizes the integral on the left of (1.8). Before proving these facts about
+B(x), we consider the following simpler question: How can sgn(jc) be approximated by an entire function F(z) of exponential type o in such a way that
+the integral
+\F(x) -
+
+sgn(x)\dx
+
+-00
+
+is minimized? This problem can be reformulated in terms of Beurling's theory
+of minimal extrapolation [Beu], and a solution can be constructed from a
+general method of Sz. Nagy [SNa] (see also Shapiro [Sha, Chapter 7]). Here,
+however, we shall take a more direct approach which can be suitably modified
+to deal with B(x) and the problem of majorizing sgn(x).
+If F(z) is an entire function of exponential type IT and F(x) is bounded on
+R, then F(z) can be represented by the interpolation formula (Timan [Tim, p.
+183] or Zygmund [Zyg, vol. II, p. 275])
+(2.2)
+
+F ( r ) - ( ^ )
+
+•JF(0)z-1+ £ (-l)"F(n)((z-«)-1 + «-1)+F'(0)J.
+This suggests that the special function
+(2.3)
+
+G ( z ) = ( ^ ) {
+
+£
+
+( - l J - s g n ^ X ^ - n ^ + n-O + l o g ^ ,
+
+«==-00
+
+«*0
+
+which interpolates sgn(x) at the integers, should be a good approximation to
+sgn(x) on R. In fact, G(z) is the unique entire function which minimizes the
+integral (2.1) with a = IT. It will be clear from the following lemmas that our
+choice of G'(0) = log 4 is the right one.
+LEMMA 1. The function G(x) satisfies
+
+(2.4)
+
+0 < sgn(sin7Tx){sgn(jc) - G(x)} <
+
+SUITTA;
+7TX
+
+( l + | x | ) -1
+
+for all real x.
+PROOF. We define functions UN(z) and GN(z) by
+
+(2.5)
+
+uM = (SJ^)L-1
+^
+
+' \
+
++ £ (-D"((*-«r1 + «-1)]
+n=-N
+
+J
+
+188
+
+J. D. VAALER
+
+and
+(2.6)
+
+^ ( - i r s g n ^ C z - H)"1 + «-1)
+
+G„(z)=(^)J
+
+£
+
+(-l)msgn(m)m
+
+M.
+
+m*0
+
+It follows that UN(z) -* 1 and (/^(z) -> G(z) uniformly on compact subsets
+of C as N -> oo. From (2.5) and (2.6) we have
+(2.7)
+sgn(sin7rx){t/2^(A:) - G 2Ar (*)}
+IN
+
+Sin7TX
+
+x- 1 + 2 £ ( - l ) n ( x + «) _ 1 .
+
+Next we assume that x > 0 and reorganize the sum on the right of (2.7). We
+find that
+2N
+
+IN
+
+2N
+
+x-1 + 2 £ (-l)"(x + «f 1 = £ (-I)-(JC + H)"1 + Z (-l) m (^ + m)~l
+n—1
+Af-1
+
+«=0
+
+m=l
+
+= £ { ( * + 2/) _1 (x + 2/ + l ) " 1 -(JC + 2/ + l)'\x
+/=o
+
++ 2/ 4- 2)"1}
+
+l
+
++ (JC + 2N)~
+
+= E (-i)n(x + «r i (x + « + i)- i +(x + 2iv)-1.
+«=0
+
+Letting N -> oo we have
+(2.8)
+sgn(sin7Tx){l - G(x)}
+sm77\x
+
+(-^"(x + ^ - ^ + w + i ) - 1 .
+
+s
+«=o
+
+Finally, we use the estimate
+0 < E (-1)W(^ + «) _1 (x + « + l)"1 < x'\x + l)"1
+«=o
+for the alternating series in (2.8) to deduce that (2.4) holds for x > 0. Since the
+expressions in (2.4) are even functions, the inequality must also hold for x < 0.
+The case x = 0 is trivial, so the lemma is proved.
+LEMMA 2. The function I(z) = \G'(z)
+
+satisfies
+
+(2.9)
+ƒ(*) « (1 + x2Yl
+for all real x. Thus I(x) is integrable, and its Fourier transform is given by
+(2.10)
+
+7(0 =
+
+TTt COt TTt
+
+if \t\ < 1 / 2 ,
+
+0
+
+if \t\ > 1/2.
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+PROOF. We write the function GN(z\
+
+/~ ^ \
+(2.11)
+
+^ / \
+GN(z) =
+
+189
+
+defined by (2.6), in the form
+
+r*»
+/ x sin7r(z — n)
+v
+£ sgn(n)
+/
+w{z-n)
+n = .N
+N
+
+=
+
+£
+
+sgn(n)f
+
+n—N
+
+e((z-n)t)dt.
+-V2
+
+By applying \{d/dz) to both sides of (2.11) and using the identity
+(2.12)
+
+E
+
+sgn(/i)e(-/iO = - i cot irr + i(
+
+n=-N
+
+^
+
+^ n ^ T / '
+'
+
+we find that
+(2.13)
+
+- G ^ ( z ) = f1/2
+
+{ntcot <nt}e(tz) dt
+
+-C(^}{cosv{2N+1)t)eitz)dt'-1/2
+
+As N -> oo, the second integral on the right of (2.13) converges to zero by the
+Riemann-Lebesgue lemma. This establishes the representation
+(2.14)
+
+I(z)=
+
+l/2
+
+ffl/2
+
+{irtcot
+
+irt}e(tz)dt.
+
+-1/2
+
+Next we define \p(t) = 77/ cot ?r£ for - 1 < ƒ < 1 and integrate by parts twice in
+(2.14). We obtain
+I(z) = -(2TTZ)" 2 /77 2 cot TTz + J 1 7 2 ^ ' ( O ^ ( t ó ) * } ,
+which proves the estimate (2.9). Of course, this also shows that I(x) is
+integrable, and (2.10) then follows from (2.14) by the Fourier inversion
+formula.
+COROLLARY 3. The Fourier transform of the function D(x)
+
+= G(x) — sgn(x)
+
+is given by
+<2 15)
+
+'
+
+cw
+
+-{(.«)-{«0-1}
+
+».*o.
+
+PROOF. Since D is odd we may assume that ? # 0. Then (2.15) is obtained
+from the formula
+1 r°°
+ƒ ( / ) - ! = x ƒ e(-fcc) dD(x)
+
+after an integration by parts.
+THEOREM 4. If F(z)
+
+is an entire function of exponential type a, then
+OO
+
+/
+
+err
+
+\F(x) - sgn(.x)| dx > -
+
+190
+
+J. D. VAALER
+
+for o > 0, and
+\F(x) - sgn(x)| J x = 4-00
+
+i
+
+for o = 0. Moreover, there is equality in (2.16) if and only ifF(z) = G{GTT~1Z).
+PROOF. We begin by assuming that o > 0; then, by an obvious change of
+variables, we may assume that a = IT. Let F(z) be an entire function of
+exponential type m such that
+oo
+
+/-00
+
+\F(x) - sgn(x)| dx < oo.
+
+By Lemma 1 the function sgn(x) — G(x) is integrable, so, by the triangle
+inequality, F(x) — G(x) is integrable. Since F(z) - G(z) has exponential type
+77, it follows from a classical result of Polya and Plancherai [P-P] that
+F'(x) — G'(x) is integrable. Finally, G\x) is integrable by Lemma 2, and thus
+F\x) must be integrable. This also shows that F(x) and F(x) - sgn(x) have
+bounded variation on R.
+For the remainder of the proof we write 4>(x) = F(x) - sgn(x) and <p(x)
+= \F\x). The Fourier transforms of \p and <p are related by the identity
+
+^(0 = («0_1{*(0-1}
+
+(2.18)
+
+for t # 0. This follows immediately from
+z* 0 0
+
+1
+
+9(0-1= 2 ƒ
+
+«(-'*)<**(*)
+
+and an integration by parts. Since <p(z) = i-F'( z ) is a n entire function of
+exponential type TT, the transform <p(t) is continuous and supported on [- \, \\
+Thus,
+(2.19)
+^t)^-(mt)-1
+if |/| > \. Next we observe that sgn(sin7r.x;) has period 2 and the Fourier series
+expansion
+2 °°
+(2.20)
+sgn(sin77x) = — £ (2Jfc 4- l) _1 e((A: 4- £)*).
+/c = - o o
+
+As sgn(sin7Tx) is a normalized function of bounded variation on [0,2], this
+Fourier expansion converges at every point x and the partial sums are
+uniformly bounded. Using (2.19) and (2.20) we obtain the lower bound
+I /«oo
+
+oo
+
+/
+
+|JF(JC) — sgn(x)| dx >\j
+
+I
+
+\p(x)sgn(sin7rx) dx\
+A: 4- 2 ) * ) ^
+
+(2.21)
+
+m
+
+k — oo
+
+Jr £
+
+"•»
+
+(2fc+l)-^(-(fc+l))
+
+& = -oo
+4
+
+oo
+
+4
+TT
+
+I
+£
+
+OQ
+
+(2A:+1)-2=1.
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+191
+
+It is clear from the lower bound in Lemma 1 that there is equality in (2.21) if
+F(z) = G(z). On the other hand, if we assume that there is equality in (2.21)
+then {F(x) — sgn(x)}sgn(sin7rx) does not change sign. Since F(x) is continuous, we easily deduce that F(n) = sgn(«) at each integer n. From the interpolation formula (2.2) and (2.3) it follows that
+F(z) = G(z) + /3sin7Tz
+for some constant ft. But we have already seen that F(x) — <J(x) is integrable;
+thus 0 = 0.
+If F(z) has exponential type zero, then it is of exponential type a for every
+a > 0. Therefore (2.16) holds for every a > 0; hence (2.17) is false.
+We now turn our attention to the problem of majorizing sgn(x) by entire
+functions of exponential type. If F(z) is entire of exponential type 2TT,
+bounded on R, and an odd function, then F can be represented by the
+interpolation formula
+(2.22)
+
+F(z)=(™^)2
+£
+
+F(m)(z-m)-2+
+
+lim
+
+£
+
+-*°°
+
+n—N
+
+N
+
+1 — 00
+
+F{n){z
+
+- H)" 1 .
+I
+
+This is a special case of a more general identity which we prove in §3. Of
+course, the advantage of (2.22) over (2.2) is that (2.22) interpolates both F and
+F' at the integers. The price we pay for this is an increase in the exponential
+type from IT to 2 77. In view of (2.22) we define three special functions, each
+having exponential type Itr, as follows:
+H{z)=(^f-)2[
+
+I
+
+ƒ(*) « i # ' ( z ) ,
+
+sgn(,n)(z-m)-2 + 2 z A
+and
+
+* ( z ) = ( ^ ) 2 .
+
+We note that H(z) + K(z) is the function B(z) defined by (1.1).
+LEMMA 5. For all real x we have
+
+(2.23)
+
+\H{x)\ < 1
+
+and
+(2.24)
+
+|sgn(x) - H(x)\ < K(x).
+
+PROOF. It suffices to show that
+
+(2.25)
+
+1 - K(x) < H(x) < 1
+
+holds for x > 0. The result will then follow easily from the observation that
+sgn(*) and H(x) are odd functions.
+From the identity
+
+t (z-m)-2=(^-f
+*-*
+
+V
+
+'
+
+\ Sin TTZ I
+
+192
+
+J. D. VAALER
+
+we have (with x > 0)
+
+H(x) = 1 +(^P) 2 {2*- 1 - x-2 - 2 £ (JC + m)"2].
+
+(2.26)
+
+By the arithmetic-geometric mean inequality,
+00
+
+00
+
+2
+" +2 ^
+LI
+
+(JC +
++ m)~
+m)"2== ££
+(x
+
+2
+
+1=1
+
+" ~ +- m)"
+^"
+{(JC
+
+2
+
+2
+
+- ' - +- m
+- +- 1)~
+^'2}
++(x
+
+m=0
+
+> 2 ^
+
+(x + m) (jc + m + l)
+
+= 2x _ l .
+
+m= 0
+
+It follows that the inequahty on the right of (2.25) holds for x > 0. On the
+other hand,
+00
+
+00
+
+£ (JC + m)~2 < £
+m= l
+
+(* + "0 _ l (* + m + l) _ l = JC"1,
+
+m—0
+
+which, when combined with (2.26), confirms the inequality on the left of (2.25).
+The bound (2.24) obviously implies Beurling's inequality (1.2) and also
+shows that H(x) — sgn(jc) is integrable. To obtain (1.3) we note that
+/*oo
+
+oo
+
+/
+
+i?(jc) - sgn(jc) dx = /
+
+/«oo
+
+K(x) dx + /
+
+^-00
+
+-00
+
+oo
+
+/
+
+H(x) - sgn(jc) dx
+
+•'-00
+
+K(x)dx
+
+= 1,
+
+-oo
+
+since H(x) — sgn(jc) is odd.
+Next we consider the function J(z).
+THEOREM 6. The function J(x) is integrable and satisfies
+/ ( J C ) <3C (1 +|JC|)" 3
+
+(2.27)
+
+for all real x. The Fourier transform ofJ(x) is given by
+(2.28)
+
+J(t) = I 7Tt(l ~ \t\) COt 7Tt + |*| /ƒ0 < |f| < 1,
+\0
+
+ifl^\t\.
+
+The function J(t) is even, nonnegative, continuously differentiable, and strictly
+decreasing on [0,1].
+PROOF. Let
+
+so that
+lim
+N-* oo
+
+HN(z)
+
+= H(z)
+
+and
+
+lim
+
+\H'N(Z)
+
+N-* oo
+
+^
+
+=
+
+J(z)
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+193
+
+uniformly on compact subsets of C. From the identities
+K{z)=f1(l-\t\)e(tz),dt
+
+(2.29)
+J
+
+-l
+
+and
+zK(z) = 7T~ fl sgn(t)e(tz)
+
+(2.30)
+
+dt,
+
+2.7TI J_i
+
+we have
+N
+
+(2.31)
+
+HN(z)=
+
+£
+
+sga(m)K(z-m)
+
++ 2zK(z)
+
+m = -N
+N
+
+f
+
+(l-M)
+
+Ë
+
+sgn(m)e(-mt)\e(tz)dt
+
+J
+
+~l
+
+\m—N
+
+J
+
++ — f1
+
+sgn(t)e(tz)dt.
+
+As in our proof of Lemma 2, we apply \{d/dz) to both sides of (2.31), use the
+identity (2.12) and the Riemann-Lebesgue lemma, and conclude that
+J(z)= fl {vt(l -\t\) cot TTt +\t\) e (tz) dt.
+
+(2.32)
+
+Let <p(t) = 7Tt(l — t)cot irt + t for - 1 < t < 2, with <p defined by continuity
+at 0 and 1. We then write (2.32) in the form
+(2.33)
+
+/ ( z ) = 2 f <p(t)cos(27Ttz) dt
+
+and integrate by parts three times. This provides the representation
+J(z) =
+
+1
+
+( n
+- { 2 / <p/,,(r)sin(277/z) dt
+
+AIT1
+
+r-sin27rz
+
+(2TTZ)3 I ^o
+
+3
+
+and also shows that (2.27) must hold. It is clear from (2.27) that J(x) is
+integrable and (2.28) follows from (2.32). The remaining properties attributed
+to J(t) are all easily verified.
+COROLLARY 7. The Fourier transform of the function E(x) = H(x) — sgn(x)
+
+is given by
+10
+2 34
+
+<- >
+
+ift = 0,
+
+'<'>-(( rt) -(A.)-i) >f*o.
+
+We are now in a position to prove Beurling's result that the function B(z) is
+extremal in inequality (1.4). In §3 we show that the representation (2.22) also
+holds when F(z) has exponential type 2<n and is integrable on R. We use this
+fact in our proof of Beurling's theorem.
+THEOREM 8. Let F(z) be an entire function of exponential type a such that
+
+F(x)^
+
+sgn(jc) for all real x. Ifa>0 then
+°°
+F(x) - sgn(x)dx
+/ Ï
+
+2TT
+
+>— ;
+o
+
+194
+
+J. D. VAALER
+
+if a = 0 then
+(2.36)
+
+(
+
+F(x) - sgn(x) dx = + oo.
+
+•'-oo
+
+Moreover, there is equality in (2.35) if and only ifF(z) = Z?(a(27r)_1z).
+PROOF. If a > 0 then without loss of generality we may suppose that
+a = 2TT. We proceed exactly as in the proof of Theorem 4, but use H and / in
+place of G and I. We let 4>(x) = F(x) - sgn(x), q>(x) = iF'(x), and show
+that <p(x) is integrable. Again we obtain the identity
+1
+
+^(o = (^r {*(o-i}
+
+if t =£ 0. Since ç>(f ) is now supported on the interval [-1,1], we have
+(2.37)
+t(t) =
+-(mtyl
+for |f| > 1.
+At this point we use the Poisson summation formula (Zygmund [Zyg, Vol. I,
+p. 68]). Specifically, \p(x) is a normalized function of bounded variation;
+therefore
+00
+
+(2.38)
+
+£
+
+00
+
+<H* + 0 =
+
+1—-0O
+
+E
+
+Um)e{mx)
+
+m=*-oo
+
+at each point x (the symmetric partial sums of both series converge to the same
+value). From (2.37) we obtain
+00
+
+(2.39)
+
+£
+
+00
+
+$(m)e(mx)
+
+= $(Ö)~
+
+m=*-oo
+
+£
+
+(irin^^e^mx)
+
+m = -oo
+
+_ f#(0) + 2(jc -[x]
+~ \^(0)
+
+-1/2)
+
+if jc£ Z,
+ifxGZ.
+
+Now we observe that ^ ( x ) > 0, and, hence, the function (2.38) is nonnegative.
+This obviously implies that $(0) ^ 1, which is exactly inequality (2.35).
+If there is equality in (2.35)—that is, if \p(Q) = 1—then
+00
+
+lim
+
+£ ^(x + 0 = 0.
+
+Hence, F(l + ) = sgn(/ + ), and therefore F(l) = 2?(/), at each integer /. Since
+F(JC) majorizes sgn(x), we also conclude that F\l) = 0 = # ' ( 0 at each integer
+/ ¥= 0. When we expand the entire function F(z) — B(z), which is integrable
+on R, by using (2.22), we find that
+F(z) - B(z) = (F'(0) - 2)zK(z).
+Since xK(x) is «0/ integrable, we must have F'(0) = 2; hence, F(z) = B(z).
+Finally, if o = 0 we deduce that (2.36) holds exactly as in our proof of
+Theorem 4.
+3. Interpolation formulas. The representation (2.22) is useful for constructing
+majorants because it allows us to control both F(n) and F'{n). We now give a
+general account of this interpolation formula. Throughout this section F(z)
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+195
+
+will denote an entire function of exponential type a with a < 2TT. For 0 < p <
+oo let Ep be the set of those functions F(z) which satisfy
+
+ƒ
+
+p
+
+00
+
+\F(x)\
+
+dx < oo forO <p < oo,
+
+sup
+
+|-F(*)| < oo for/? = oo.
+
+-00
+
+and
+- 0 0 <X< 00
+
+If F(z) is in Ep, 0 < p < oo, then, by a result of Plancherel and Polya [P-P],
+(3.1)
+
+t
+
+\F(m)f«pr \F(x)fdx
+
+m = -oo
+
+-oo
+
+and
+(3.2)
+
+f
+
+\F'(x)\"dx^pr \F(x)fdx.
+
+•'-00
+
+-00
+
+For /? = oo the analogue of (3.2) is given by the classical inequahty of
+Bernstein [Bra]: if F(z) is in E°° then
+(3.3)
+
+sup \F'(x)\ < 2TT(
+-00<X<00
+
+sup
+
+|F(JC)||.
+
+^-00<X<00
+
+'
+
+By the Paley-Weiner theorem, F(z) is in E2 if and only if
+(3.4)
+
+F(z)=
+
+fl
+
+F(t)e(tz)dt
+
+J
+
+-i
+
+with F(t) in L 2 ([-l, 1]). Of course, F(t) is the Fourier transform of F, defined
+for almost all t by
+F(t)=
+
+lim f
+
+F(x)e(-tx)dx
+
+r-»oo J-T
+
+and F ( 0 = 0 for almost all t, with \t\ > 1.
+an entire function in Ep for some finite p. Then
+
+THEOREM 9. Let F(z)be
+\ 2(
+
+(
+
+oo
+
+oo
+
+\
+
+E /•(».)(*-m)- 2 + E F'(«)(z - «r 1 ,
+
+^
+'
+
+V m = -oo
+
+« = -oo
+
+/
+
+u>/*ere the expression on the right of (3.5) converges uniformly on compact subsets
+ofC.
+If p = 2 f/ie Fourier transform F(t) occurring in (3.4) /las the form
+(3.6)
+F ( 0 = (1 - M ) u F ( 0 +(27r/)- 1 sgn(/) Ü F (0
+for almost all t in [-1,1], w/iere wF ö«<i vF are periodic functions in L2([0,1]) with
+period 1 a«d Fourier series expansions
+00
+
+(3.7)
+
+«F(0=
+
+E
+
+F(m)e(-»tf)
+
+m = -oo
+
+00
+
+(3.8)
+
+uF(t) =
+
+E F(n)e(-«0-
+
+196
+
+J. D. VAALER
+
+If p = 1 then (3.7) and (3.8) are absolutely convergent, uF and vF are
+continuous, and (3.6) holds f or all t in [-1,1]. In particular•,
+00
+
+(3.9)
+
+£
+
+F(m) = uF(0) = H0)
+
+and
+(3.10)
+
+£
+
+/ »
+
+= vF(0) = 0.
+
+« = -00
+
+PROOF. TO begin with, we suppose that/? = 2, so F(z) is given by (3.4). For
+0 < t < 1 we define
+(3.11)
+Up(t) = F(t) +
+F(t-l)
+and
+(3.12)
+vF(t) = 2iri{fJP(0 + (/ - l)F(f - 1)}.
+We then extend the domain of uF and vF to R by requiring that both functions
+have period 1. Since F is in L 2 ([-l,l]), it is clear that uF and vF are in
+L2([0,1]). The identity (3.6) follows easily from (3.11), (3.12), and the periodicity of uF and vF. To obtain the expansions (3.7) and (3.8), we note that
+
+F(n) = f
+
+[F(t) +F(t-\)}e{tn)dt=
+
+f uF(t)e{tn)
+
+dt
+
+and
+F'(n) = Jf
+
+2vTitF(t)e(tn) dt
+
+-i
+
+= fl 2m{tF(t)
+
++(t - l)F(t - l)}e(tn)
+
+= f vF(t)e(tn)
+
+dt
+
+dt
+
+for each integer n. Thus, F(«) and F'{n) are the Fourier coefficients of uF and
+uF, respectively.
+Next we apply the Fourier transform identities (2.29) and (2.30). It follows
+that for each positive integer N,
+(3.13)
+
+( ^ f f
+= f
+
+E
+
+F(m)(z-m)-2+
+
+£
+
+F>(r,)(z - n)" 1 }
+
+{(! ~\t\)uF(t,
+
+N) +(2<iri)-\gn{t)vF{t,
+
+uF(t,N)=
+
+£
+
+where
+N
+
+F(m)e(-mt)
+
+m = -N
+
+and
+N
+
+vF(t9N)=
+
+£
+n = -N
+
+F'(n)e(-nt).
+
+N)} e{tz) dt,
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+197
+
+Since the sequences F(m) and F'(n) are square summable, the left side of
+(3.13) converges uniformly on compact subsets of C as N -> oo. On the right
+side of (3.13) we have uF(t, N) -> uF{t) and vF(t, N) -> vF(t) in L2-norm.
+This is all we need to establish the representation (3.5).
+If p = 1 then (3.1) and (3.2) imply that uF(t) and vF(t) have absolutely
+convergent Fourier series. Thus, we may take uF and vF to be continuous
+periodic functions. Since F(t) is now continuous and supported on [-1,1], the
+identity (3.6) must hold for all t in [-1,1]. If we let t = 0, then (3.9) and (3.10)
+follow immediately.
+Finally, we must show that (3.5) holds if F(z) is an entire function in Ep
+with 2 < p < oo. We accomplish this by considering the entire function
+(3.14)
+V
+
+R(z)
+
+J
+
+V
+
+'
+
+f l
+z- (F(z)
+. , x
+\F'(0)
+
+- F(0))
+
+ifz#0,
+ifz = 0
+
+and its derivative
+f
+z" 2 (F(0) + zF'(z) - F(z))
+if z # 0,
+*'(z)
+. , , x
+V
+'
+UF'(O)
+ifz = 0.
+Since # ( z ) is in E2, by the first part of our proof we have
+
+(3.15)
+
+(3.16)
+
+R(Z)=
+
+lim
+
+(™f-)2
+
+•[
+
+R(m)(z-my2+
+
+£
+
+£
+
+R'{n){z-n)-
+
+uniformly on compact subsets of C. Next we multiply both sides of (3.16) by z
+and use (3.14) and (3.15). After a brief computation we find that
+(3.17)
+F{z)-F(0)
+=
+
+lim f ^ ^ ) 2 /
+
+F(m)(z-my2+
+
+£
+
+£
+
+m=-N
+
+F'(n)(z
+
+n=-N
+
++ £ R'(k)-F{o)
+
+E (z-/)-
+
+As the identity
+/
+
+OO
+
+£
+/ ,= - 0 0
+
+\7
+
+2
+(z_,)-2_L7«_
+v
+7
+V s m 77Z /
+
+is well known; all that remains is to show that
+lim
+
+£
+
+\R'(x)\ dx^
+
+f
+
+R'(k) = 0.
+
+We have
+(3.18)
+
+f
+
+- n)" 1
+
+|x|" 2 |F(0) - F ( J C ) | dx
+
+198
+
+J. D. VAALER
+
+The first integral on the right of (3.18) is obviously finite. The second integral
+is also finite because F'(x) is in LP(R) by (3.2). Thus, R'(z) is in E1. Since we
+have already established (3.10) for functions in E1, we obtain
+
+E R'(k)= ƒ R'(x)dx = 0.
+k — oo
+
+-«>
+
+This completes our proof.
+THEOREM 10. Let F(z) be an entire function of exponential type o with
+o < 277, let R(z) be defined by (3.14), and suppose that R(z) is in Ep for some
+finite p. Then
+
+F(z)=(^)2(
+
+(3.19)
+
+^
+
+£
+
+F(m)(z
+
+- my2 + F>(0)z-i
+
+' \ m — -oo
+
++ E F'(«){(z-«ri + «- i }+^ F ,
+rt = - o o
+
+I
+
+where the expression on the right of (3.19) converges uniformly on compact
+subsets ofC, and A F is a constant given by
+(3.20)
+
+t
+
+AP-\F'{Q)+
+
+(F(0)-F(n))n-\
+
+«==-00
+
+p
+PROOF. Since R(z) is in E , we may apply Theorem 9. As in the proof of
+that result, we find that (3.16) and (3.17) holds. Now, however, we reorganize
+(3.17) and use (3.15) to obtain
+
+F{z)=
+
+Um
+
+•
+
+(BBH)2
+
+E F(m)(z
+I m—N
+
+(3.21)
+
+- my2 + F'(0)z~l + £ *"("){(* - n)~l + n~1}
+n—N
+"*°
++ |F'(0) +
+L
+
+p
+
+E (F(0)-F(k))kA.
+k—N
+
+I
+
+k*0
+
+'
+
+q
+
+If 0 < p < q < oo, then E Q E . Thus, we may assume without loss of
+generality that 1 < p < oo. It follows that
+00
+
+(3.22)
+
+£
+m — -oo
+
+00
+
+|F(m)m-1f=
+
+E \R(m) + F^m^f
+w
+^-oo
+w^-oo
+00
+
+<2>
+
+£
+w = -oo
+w#0
+
+{\R(m)\P+\F(0)m-i\P}<ao,
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+199
+
+and
+(3.23)
+
+\F'(n)n~l\P =
+
+£
+n*0
+
+E
+
+R^n-1?
+
+\R'(n) +
+
+n*0
+00
+
+<2'
+
+{\R'(n)f+\R(n)n-l\P}<
+
+Z
+
+00.
+
+« = -00
+
+n*0
+
+For the series defining A F we also have
+00
+
+(3.24)
+
+L
+
+00
+
+\(F(0)-F(k))k-2\=
+
+IH^Wk]-1
+
+£
+
+k = ~oo
+k*0
+
+< 00.
+
+k = -oo
+k*0
+
+Estimates (3.22)-(3.24), together with (3.21), show that the right side of (3.19)
+converges uniformly on compact subsets, with AF given by the absolutely
+convergent series (3.20).
+We note that if F(z) is odd and bounded on R, then AF = 0 and (3.19)
+reduces to (2.22).
+4. Majorizing functions of bounded variation. Let ƒ : R -> C be a normalized
+function of bounded variation. The results of §2 can be applied in a simple
+way to prove approximation and majorization theorems for such a function ƒ.
+We use the following notation: If 8 > 0 we write F8(x) = 8F(8x). If F(x) is
+integrable we have F8(t) = F(8~lt). In this case we also define the convolutions
+f(i)F(x
+
+- | ) di
+
+and
+(df)*F(x)=
+
+f
+
+F(x-i)dfH).
+
+For entire functions F(z) of exponential type a with F(x) integrable, it is easy
+to verify that ƒ * F(z) and (df )* F(z) have exponential type at most a. We
+denote the total variation of ƒ on (-oo, x] by Vf (x) and let Vf = l i m ^ +O0Vf(x).
+THEOREM 11. The entire function f
+
+* Is(z) has exponential type at most 7r8 and
+
+satisfies
+
+ƒ
+
+00
+
+-,
+
+\f(x)-f*I8(x)\dx<(2Sy1Vf.
+
+-00
+
+The entire functions ƒ * Js(z) and (dV^)* K8(z) have exponential type at most
+2TTÔ and satisfy
+
+(4.2)
+for all real x.
+
+\f(x)-f*Js(x)\
+
+<
+
+(2Ô)-l{dVf)*Ks(x)
+
+200
+
+J. D. VAALER
+
+PROOF. Let x be a point at which ƒ is continuous. Then
+1
+
+/.OO
+
+ƒ(*)=-ƒ
+
+/«00
+
+/(x-S)</{sgn(8£)}= /
+
++ -ƒ
+z
+
+f(x-OhU)dè
+
+/(jc-Orf{sgn(80-G(8*)}
+
+•'-oo
+
+= f*h(x)
+
++ yƒ
+z
+
+{sgn(ô(x - £)) - (?(*(* - €))} 4fU)
+
+•'-oo
+
+after integrating by parts. Since ƒ is continuous at almost all x9 we have
+oo
+
+/
+
+,
+
+\f(x)-f*Is{x)\dx
+
+-oo
+1
+
+/«OO
+
+< x ƒ
+-oo
+
+/«OO
+
+ƒ
+
+|sgn(S(x - 0 ) - G(*(x - 0)1 <*Kr(0 <£c
+
+-oo
+
+= (25)- 1 F / )
+by using the case of equality in (2.16).
+In like manner we obtain
+(4.3) f(x)-f*Js(x)=-f
+
+L
+
+{sgn(8(*-0) " # ( * ( * - « ) ) } # ( « )
+•'-oo
+
+at each point x where ƒ is continuous. By combining (2.24) and (4.3) we find
+that
+1
+
+(4.4)
+
+\f(x)-f*Js(x)\^
+
+f00
+
+^ j^K^x
+=
+
+- t) dVf{£)
+
+^{dVf)*Ks(x).
+
+Since ƒ satisfies the normalization (1.16), it is trivial to extend (4.4) to points of
+discontinuity by considering left- and right-hand limits. This completes the
+proof.
+The Fourier transforms of the integrable functions
+%(f,x)=f(x)-f*I8(x)
+and
+can be computed exactly as in our proof of Corollary 3. We find that
+
+and
+
+(4-6)
+
+^(/.O-^OJ1"^"'0)
+
+for t * 0, and %(f,0)
+
+= $«(ƒ,()) = 0. Here we have written
+.—.
+
+(4.7)
+
+/«OO
+
+df(t) - ƒ
+•'-00
+
+for the Fourier-Stieltjes transform of/.
+
+e(-tx)
+
+df(x)
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+201
+
+For real-valued functions/, (4.2) provides the following majorization.
+COROLLARY 12. Iff
+
+is real valued then the entire function
+M(f,S,z)=f*Js(z)+(2ôY1{dVf)*Ks(z)
+
+(4.8)
+
+has exponential type at most 2 775, satisfies f (X) < M(f, 5, x)for all real x9 and
+= (28)-lVf.
+
+M(f,S,x)-f(x)dx
+-00
+
+Since the total variation of sgn(jc) is 2, Theorem 4 shows that there is
+equality in (4.1) when ƒ (x) = sgn(x).
+If f(x) is real valued and integrable, then M( ƒ, 5, x) is integrable. A
+straightforward computation shows that
+A(f989t)^f(t)J8(t)+(28)'ldVf(t)K8(t)
+for all real /. Thus M( ƒ, 5,/) is supported on [-5,8]. In particular, if
+f(x) = XE(X) f° r some interval E = [a, ft], then the right side of (4.8) is
+\ ƒƒ 8H'(8(x
+
+- £)) dt+±
+
+{Ks(x
+
+- «) + * , ( * - /?)}
+
+= i{#(8(*-«))-//(*(*-0))}
++ ±{ff(8(x-a)) +
+
+tf(8(x-/9))}
+
+= i{2»(8(/J-*))+*(«(* -«))}.
+Thus Corollary 12 generalizes Selberg's construction (1.5).
+While the function M(f, 5, z) majorizes ƒ (x) on R, we cannot, in general,
+expect M( ƒ, 5, z) to be an extremal function which minimizes the integral
+(4.9). For certain special functions ƒ, such an extreme majorant can be
+obtained by simply constructing, by means of Theorems 9 or 10, an entire
+function of exponential type which interpolates ƒ(x) and ff(x) at the integers.
+This approach has been carried out by Graham and Vaaler [GV2]. An alternative method is illustrated by the entire functions rk(z) == z2k~lH(z), where
+k = 0,1,2,
+It is clear that each rk(z) has exponential type 277 and, by
+(2.23), satisfies rk(x) < |JC| 2 / C - 1 for all real x. For k = 0 this can be improved
+to T 0 (X) < min{2, |x| _ 1 }. Among all entire functions of type 277 which minorize
+min{2, |JC|_1 }, the function r0(z) can be shown to be extremal in the sense that
+j ^ min{2, |JC|_1 } - T0(JC) dx is minimized. We note that r0(z) interpolates the
+values of min{2, |x| - 1 } and its derivative at the integers. For k = 1,2,... the
+nonnegative functions |JC|2AC_1 — rk(x) are no longer integrable.
+5. The Berry-Esseen inequality. Let f(x) and g(x) be normalized probability
+distribution functions. An important problem in probability theory is to
+estimate the difference f(x) — g(x) by an expression depending on df(t)
+— dg(t) for values of t restricted to an interval |;| < 5. For example, if g(x) has
+
+202
+
+J. D. VAALER
+
+a density function bounded from above by the positive constant M, then
+
+(5.1)
+
+sup \f(x) - g(x)\ « c^M
+
++ c2f
+
+|ff'l?^) - Tg(t)\ dt
+
+for certain positive constants cx and c2 and all 8 > 0. With our definition of the
+Fourier-Stieltjes transform, the usual proofs of (5.1) give cx = 12TT"2 and
+c2 = 77_1 (Feller [Fel], Loève [Loe]). Earlier versions of this inequality were
+used by Berry [BIT] and Esseen [Ess] in order to estimate the rate of convergence in the central limit theorem. Since their work has appeared, there
+have been many refinements. We note in particular the papers of Zolotarev
+[Zo r Zo 3 ], van Beek [vBe], and H. Prawitz [Pr r Pr 5 ].
+Inequalities sharper than (5.1) can be obtained directly from Corollary 12.
+Here we give two results of this type which are essentially the same as those
+obtained by Prawitz [PrJ. For the purpose of this application, Prawitz
+obtained inequality (2.24) in a manner quite different from ours.
+THEOREM 13. Let f(x) and g(x) be probability distribution functions with
+Fourier-Stieltjes transforms defined by (4.7). Suppose t~l{df(t) — dg(t)} is integrable on a neighborhood of zero and g has a density function g\x) bounded from
+above by M. Then
+
+(5.2)
+
+\f(x) - g(x) - ƒ* J{8-h){2mt)-l{df(t)
+
+- dg(t)}e(xt)
+
+J
+
+dt
+
+-8
+
+^ { M + j * K(8-lt){7f(t)
+28 v
+,_,
+
+- Tg(t)}e(xt)
+
+dt
+
+for all real x and all 8 > 0.
+PROOF. Since ƒ (x) is increasing, (4.7) takes the form
+
+f(x)<f*Js(x)+(28Y\df)*Ks(x).
+It follows that
+
+(5.3)
+
+f(x) -g(x)
+
+< ( ƒ - g)*Js{x) + ( 2 S ) - 1 ( # -
+
+dg)*Ks(x)
+
++ g*Js(x)+(28)-\dg)*Ks(x)
+
+- g(x).
+
+In the first term on the right of (5.3) we have
+{f(t)-g(t))J»(x-t)dt
+-00
+
+= \r *(«(*-ovum-*(*>}
+= f^ {[ M" ~ t) da) d{f(i) - g(m
++\ f
+
+H(6(u-t))d{f(t)-g(S)}.
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+203
+
+Here u is an arbitrary real number less than x. Applying the Fourier inversion
+formula to /, we obtain
+(5.5)
+
+ƒ /a(c*-0rf«= ƒ ƒ
+
+J8(t)e((a-S)t)dtda
+
+= £jt(t){£ e(Ut)dU}e(-it)dt.
+Using Fubini's theorem we find that
+(5.6)
+
+j T ( jT Jt(a - O </<o) d{ ƒ(£) - g ( 0 }
+
+Since the function {lirit)~l{df(t) — dg(/)} is integrable on [-8, 8], we may
+combine (5.4) and (5.6) in the form
+(5.7)
+
+fsJs(t)(2mtyl{7f(t)-7g(t)}e(xt)dt
+
+(f-g)*Js(x)=
+
+Js{t){2TrityX{7f{t) -7g(t)}e{ut)
+
+-f
+
++\r
+L
+
+J
+
+dt
+
+H(8(u-z))d{f(è)-g(m-
+
+-vo
+
+We now let w -> -oo. The second integral on the right of (5.7) tends to zero by
+the Riemann-Lebesgue lemma. In the third integral on the right of (5.7) we use
+(2.24) and the dominated convergence theorem. We obtain
+lim \ C
+«-•-00
+
+H(d(u - £)) d{f(è)
+
+- g(€)} = 4
+
+Z J-QQ
+
+f
+L
+
+d{ f(l) - g(0} = 0,
+
+J_o0
+
+SO
+
+(5.8)
+
+( / - g ) * / , ( * ) = fy8(t)(27rityl{7f(t)
+
+-Tg(t)}e(xt)
+
+dt.
+
+Next we write the second term on the right of (5.3) as
+
+(5.9)
+
+±£Ka(x-i)d{f(t)-g(t))
+=
+
+j s C È s ( t ) { C e { { x ~ * )r)d{m) ~ g U ) } ) d t
+
+= Js f
+
+Ks(t){7f(t)
+
+- Tg{t)}e{xt) dt.
+
+204
+
+J. D. VAALER
+
+Finally, the last three terms on the right of (5.3) can be estimated using (1.3),
+(4.3), and our bound on the density function g'(x). We find that
+(5.10)
+
+g * J8(x) +(2ôY\dg)*
+= U
+
+K8(x) -
+
+g(x)
+
+B(S(x - *)) - sgn(«(x - «)) dg(i)
+
+1
+
+/.00
+
+< -M I
+z
+
+B(S(x - 0) ~ sgn(Ô(x - £)) dt
+
+•'-oo
+
+= (28)~lM.
+When we combine (5.8)-(5.10) we obtain an upper bound for f(x) — g(x). Of
+course, (4.2) also provides a minorizing inequality
+f(x)>f*J8(x)
+
+-(2S)-\df)*Ks(x).
+
+This leads to a corresponding lower bound for f(x) — g(x). To complete the
+proof, the upper and lower bounds can be written together as (5.2).
+By making a slight variation in our proof of Theorem 13 we get a similar
+inequality, but without the requirement that g(x) have a bounded density.
+THEOREM 14. Let f(x) and g(x) be probability distribution functions such that
+t~l{df(t) — dg(t)} is integrable on a neighborhood of zero. Then
+
+(5.11)
+
+ƒ ( * ) - g(x) - j
+
+J(8-lt){2mty\dJ{t)
+
+-dg(t)}e(xt)
+
+dt
+
+K(S-lt){7f(t) +dg~(t)}e(xt) dt
+
+< jjf'
+for all real x and all 8 > 0.
+
+PROOF. We apply (4.2), instead of (5.3), directly to the function ƒ (x) — g(x).
+Since ƒ and g are increasing and K8(x) is nonnegative, we have
+
+\f(x) - g(x) -(f
+
+- g)* Js(x)\
+
+< (28y\dVf_g)*
+
+Ks(x)
+
+<(28)-\df+dg)*Ka(x).
+The result now follows by using (5.8) and (5.9) as in our proof of Theorem 13.
+6. Further applications. Let \l9 X 2 ,...,X A rbe real numbers and
+N
+
+f(x)
+
+= £
+
+a{n)e{\nx)
+
+«= i
+
+an almost periodic trigonometric polynomial.
+THEOREM 15. If\\J
+
+(6.1)
+
+> 8 > Oforn = 1,2,...,N9 then
+sup | / ( * ) | < ( 4 0 ) " ^ |/'(£)l-
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+205
+
+If, in addition, f (x) is real valued, then
+(6.2)
+
+<(28ylsupf'(ï).
+
+sup \f(x)\
+
+Moreover, the constants (4ô) _1 and (2Ô)"1 are asymptotically best possible as
+N —» oo.
+PROOF. We have
+oo
+
+/ -oo
+
+f(x-i)i2t(t)di
+
+= L"(n)e(\nx)f
+„=1
+
+I2t(S)e(-\Hi)dt
+•'-oo
+
+= La(n)î2S(Xn)e(\nx)
+
+= 0,
+
+since î2S(t) = 0 for \t\ > 8. It follows that
+f(x)
+
+=U
+*
+
+J
+
+f(x-è)d{sgn(28t)}
+-oo
+
+= \(
+L
+
+f{x-t)d{$gn(28è)-G(28i)}
+•'-00
+
+1 r°°
+
+= -/
+
+{sgn(280-G(280}/'(*-€)^-
+
+Therefore, by Theorem 4,
+| / ( * ) | < (sup \fW\)[\
+
+j T |sgn(2*ii)-G(2«u)| <b
+
+-(48)"1sup|/'U)|.
+This proves (6.1).
+Since J8(t) = Ks(t) = 0 for \t\ > ô, we also have
+f*J8(x)
+
+= 8-lf'*K8(x)
+
+=0
+
+for all real x. This implies that
+(6.3)
+
+/(^)= 2ƒ
+
+-00
+
+{sgn(«0-#(«€)}ƒ'(*-€)#
+
+00
+
+1 roo
+/
+{sgn(8£) - i/(Ô£) + A-(«0}/'(* - 0 dt-00
+
+Now we suppose that ƒ (x) is real valued and use the minus sign on the right of
+(6.3). In view of the bound (2.24) we find that
+
+(6.4) f(x) > ( s u p / ' ( € ) ) ( ^ y (sSn(ÔM) - H^u"> ~ *( 0 ")} du
+(28)\ - l sup ƒ'(£).
+
+206
+
+J. D. VAALER
+
+Similarly, using the plus sign on the right of (6.3), we obtain
+
+f(x)^(28ylsupf'(0
+for all real x. This establishes (6.2).
+In order to show that (6.1) and (6.2) are sharp, let
+
+denote the periodic Fejer kernel. Then let
+iîX Z
+^(x)=(X'[x]~1/2
+*>
+10
+if x e Z.
+It suffices to assume that 8 = 1; then the function
+
+(6.6)
+
+fN{x) = * * kN{x) = f Hè)kN(x -1) dt
+
+.-^^(i-JîL)^»)
+is real valued and satisfies the hypotheses of the theorem. We have
+
+ƒ*(*) = - £ (l-1^)e(nx)
+n=-N^
+
+=
+
+l-kN(x),
+
+'
+
+and hence the right side of (6.2) is
+1
+1
+-sup/^(£) = - .
+Since fN(x)
+
+-> \p(x) pointwise, we must also have
+lim (sup|/ A r (x)|) = y .
+N--*oo V %
+
+I
+
+**
+
+The proof that (6.1) is sharp is essentially the same, except ||x|| — 1/4 is used
+in place of ^(x).
+Inequality (6.1) is due to H. Bohr (see [Sha, p. 142]), and (6.2) was
+discovered by Beurling. In fact, this inequality motivated Beurling's construction of the extremal function B(z) = H(z) + K(z). Theorem 15 can be
+extended to absolutely continuous functions f(x) such that ƒ and ƒ' are in
+L°°(R) and the spectrum of ƒ does not intersect the open interval (-27r8, 2TT8).
+This extension for (6.1) is discussed by Shapiro [Sha, Chapter 7].
+Next we consider a general form of Hubert's inequality first obtained by
+Montgomery and Vaughan [M-V] (see also [Mon] and [GV2]). Here we give a
+new and particularly simple proof of this result.
+THEOREM 16 (MONTGOMERY AND VAUGHAN). Let Xv X 2 ,...,X Ar be real
+numbers satisfying \Xm — Xn\> 8 > 0 whenever m # «, and let «(!),.. ,,a(N)
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+207
+
+be arbitrary complex numbers. Then
+£
+2s
+
+(6.7)
+
+"
+Is
+
+\
+
+a(m)a(n)
+KTrÔ-^Z
+_ \
+
+\a(n)\\
+
+n= l
+PROOF. Let <p(x) = H(x) 4- K(x) - sgn(x) so that <p(x) is nonnegative and
+integrable. Using (2.29) and (2.34) we see that
+
+1
+-(mt)~l
+
+<p(0 =
+
+if t = 0,
+if|*|>l.
+
+It follows that
+<pd(x) E
+
+a(m)e(-\mx) dx
+
+m= \
+N
+
+N
+
+= E
+
+E
+
+fl(m)ö(n)^(XmN
+
+AT
+
+XJ
+
+N
+
+EI«(«)ffc(o)E E«(m)a(«){ w /ô- 1 (x m -x„)}- 1 ,
+I
+«= 1
+
+and therefore
+N
+
+N
+
+L ^
+
+(6.8)
+
+a(m)a(«)
+
+a_i v^ i / \i 2
+
+If we begin with H(x) — K(x) — sgn(x), we obtain (6.8) with the inequality
+reversed and a factor of - 1 on the right side. These bounds prove the theorem.
+7. Majorizing periodic functions. We define periodic trigonometric polynomials iN(x)JN(x),
+and kN(x) as follows:
+oo
+
+(7.1)
+
+iN(x)=
+
+E
+
+N
+
+l2N+i(x + m)=
+
+n—
+
+WÎ = - O O
+
+oo
+
+(7.2)
+
+jN(x)=
+
+E
+£
+m = -oo
+
+E
+
+JN+l(n)e(nx)9
+
+n — -N
+
+oo
+
+M*) =
+
+Î2N+2(n)e(™)>
+-N
+
+W
+
+<Vn(* + ™) =
+
+m = -oo
+
+(7.3)
+
+E
+
+AT
+
+tf„+1(x
+
++ m) =
+
+£
+
+KN+l(n)e(nx).
+
+n*=-N
+
+Of course, A:^ is the periodic Fejer kernel also given by (6.5). The identities
+indicated on the right of (7.1)-(7.3) follow immediately from the Poisson
+summation formula. For the purpose of approximating or majorizing periodic
+functions by trigonometric polynomials, we use iN9 j N , and ^ in a role
+analogous to that played by the entire functions /, / , and K in Theorem 11. In
+the periodic case */>(x), defined by (6.6), can be used in place of sgn(x). Thus,
+
+208
+
+J. D. VAALER
+
+we assume throughout this section that \p is so defined. Here we use ƒ * g(x) to
+denote the convolution
+
+f1/2f(x-i)g(i)dt
+
+fg(x) =
+J
+
+-\/2
+
+of two periodic functions with period 1. We also write
+rl/2
+
+f(n)
+
+^ /
+
+f(x)e(-nx)
+
+dx
+
+for the nih Fourier coefficient of the periodic function ƒ (x).
+THEOREM 17. The trigonometric polynomial
+N
+
+(7.4)
+
+^*iN(x)
+
+satisfies
+(7.5)
+
+(-2mn)~lî2N+2(n)e(nx)
+
+= E
+
+sgn(xp*iN(x))
+
+= sgn( !//(*)),
+
+(7.6)
+and
+
+sgn(i// * iN(x) - */>(•*)) = sgn(sin277(7V + l ) x ) ,
+
+(7.7)
+
+f/2 |* * «„(*) - H*)\ àx = (AN + 4)"1.
+J
+
+-\/2
+
+If pN(x)
+
+is any trigonometric polynomial of degree at most N9 then
+fX/2 \pN(x) - * ( x ) | dx > (4JV + 4)" 1 .
+
+(7.8)
+
+Moreover, there is equality in (7.8) if and only ifpN(x)
+
+= \p * /^(x).
+
+PROOF. We have
+
+/-» ^\
+(7.9)
+
+N
+
+. / \
+v^ ç
+/ x/sin27r«x\
+**iN(x)
+= - E ^v+2(")
+^
+TV
+= -
+
+E { ^ 2 ^ + 2 ( " ) - /27Y+2(" + ! ) } £ ( * , " ) ,
+«= 1
+
+where
+_,
+
+v
+
+-A sin27r/x
+
+5(x,»)-E - ^ - .
+By a classical result of Fejer [Fej, Satz XXVI] the partial sums S(x, n) are
+positive for 0 < x < 1/2. Since I2N+2(n) *s strictly decreasing for n =
+1, 2 , . . . ,JV 4- 1 (by (2.10)), the right side of (7.9) is negative for 0 < x < 1/2.
+As \p * iN(x) is odd, continuous, and periodic, this proves (7.5) for all real x.
+Let Z)(x) be defined as in Corollary 3 and write 8 = IN + 2. Then
+(7-10)
+
+-i
+
+00
+
+-i
+
+00
+
+-25
+
+E
+
+Z>s(x + m) = - ^
+
+E
+
+m = -oo
+
+Ds(n)e(nx)
+
+« = -oo
+00
+
+1
+
+= E ~ 2 ^ " { / 2 ; v + 2 ^ ~ 1 }^(^) = */"***(*) -4>(x)
+« = -00
+
+«¥=0
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+209
+
+by (2.15) and the Poisson summation formula. Using (2.4) we have
+(7.11)
+
+sgn{-(2S)"\D 8 (jt + m)} = sgn{sin27r(7V + l)(x + m)}
+= sgn{sin27r(7V + l)x)
+
+for all real x and every integer m. This clearly implies (7.6).
+To establish (7.7) we combine (2.16), (7.10), and (7.11). We find that
+
+f^lfiM-Mx^dx-^^ 1 ri/2
+-1/2
+= ^
+
+£
+
+£
+
+D8(x + rn) dx
+
+/_ 1/2 \D9(x + m)\ dx = ^ / ° ° |Z)a(jc)| <fc = (47V + 4)" 1 .
+'-1/2
+
+To obtain (7.8) we proceed in a manner quite similar to our proof of (2.16).
+From the Fourier expansion (2.20) we have
+
+ƒ 1/2 /? (x)sgn{sin27r(A 4- l)x} dx = 0
+r
+
+N
+
+_ i
+
+/"•>
+
+for every trigonometric polynomial pN(x) having degree at most TV. This leads
+to the lower bound
+
+(7.12)
+
+f/
+
+\pN(x)-t(x)\dx
+
+J
+
+-\/2
+'
+
+1/2
+[p (x)
+ƒ
+i -1/2
+N
+
+= f
+
+--^(x)}sgn{sin27r(A r + 1)JC} dx
+
+xp(x)sgn{sm27r(N
+
++ l)x) dx
+
+K_1 /?
+
+rj
+
+£
+
+(2k + iy1f/
+
+= 77"2(iV+ l)" 1 £
+
+* ( * ) * { ( 2 * + i ) 0 v + i ) * } J*
+
+(2* + l)" 2 = (47V + 4)" 1 .
+
+If there is equality in (7.12) then pN(x) interpolates the values of \p(x) at the
+points /(27V 4- 2)" 1 for / = 1,2,... ,(27V + 1). Since the degree of pN is at most
+TV, such an interpolating polynomial exists and is unique [Zyg, Vol. II, pp.
+1-3]. In view of (7.6) the unique interpolating polynomial is precisely \p * iN(x).
+The determination of a unique extremal trigonometric polynomial in inequality (7.8) is a basic step in the sharp forms of Jackson's theorems obtained
+by Favard [Fav] and Achieser and Krein [A-K] (see also Cheney [Che, pp.
+139-148]). A typical approximation theorem of this type is given below as
+(7.23).
+Our next result identifies an extremal property associated with \p * jN(x) +
+(27V + 2)- 1 * Ar (x).
+
+210
+
+J. D VAALER
+
+THEOREM 18. The trigonometric polynomial
+N
+
+^*JN(X)=S
+
+(-277m)" 1 / A , +1 («)e(«x)
+
+E
+
+satisfies
+(7.13)
+
+sgn(* • . ƒ „ ( * ) ) - s g n ( « K * ) ) ,
+
+(7.14)
+and
+
+\+ * jN(x) - +(x)\ < (2N +
+
+(7.15)
+
+2)-1kN(x),
+
+\**JN(x)\<\4>(x)\-
+
+If pN{x) is any trigonometric polynomial of degree at most N satisfying pN{x) >
+yp(x) for all real x, then
+fl/2 pN(x) - +(x) dx > {IN + 2)' 1 .
+
+(7.16)
+
+J
+
+-i/2
+
+Moreover, there is equality in (7.16) if and only if
+PN(X) = * * JN(X) + (2N + l ^ M * ) PROOF. Identity (7.13) is established in the same way as (7.5).
+Next we let E(x) be defined as in Corollary 7. Mimicking our proof of
+(7.10) we find that
+00
+
+(7.17)
+
+(2N+2Y1
+
+£
+
+EN+1(x
+
++ m) =
+
+t*jN(x)-t(x).
+
+KN+1{x
+
++ m) = {2N +
+
+m = -oo
+
+Hence,
+\^*jN(x)-^{x)\^(2N
+
++ 2y\ -1l
+
+£
+
+2ylkN{x)
+
+w = -oo
+
+by combining (2.24), (7.3), and (7.17).
+Inequality (7.15) is somewhat more obscure. We use the identity (2.26) with
+x > 0. A simple calculation shows that
+\2/
+
+(
+^ P
+
+°o
+
+\-2x-1 + x~2 + 2 £ (* + m)'
+
+2+ +2
+
+=(^)V:(- - JHH
+Since v coth y > 1 for f > 0 we see that
+(7.18)
+
+-E(x) = ((sin7rx)/7r) 2 #(x)
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+211
+
+for x > 0, where R(x) is a positive, strictly decreasing function of x. Now we
+use (7.17), (7.18), and the fact that E(x) is an odd function. It follows that
+(7.19)
+
+**.ƒ„(*)-*(*)
+00
+
+(
+
+E
+
+00
+
+EN+1(x
+
+m=0
+
+- (IN + i r ^ l *
+
++ m) - E EN+1{(1 -x) + m)
+m=0
+
+1)x
+
+f
+
+00
+
+• E {«^+1(x + m ) - J R w + 1 ( ( l - x ) + m)}.
+m= 0
+
+From our observations concerning R(x), the right side of (7.19) is clearly
+positive for 0 < x < 1/2. This, together with (7.13), shows that (7.15) holds for
+0 < x < 1/2. Then the inequality holds for all real x, since both sides of (7.15)
+are even functions of period 1.
+Finally, we suppose thatpN(x) has degree at most N and majorizes \p(x). By
+continuity we must have/^(O) > 1/2. Thus,
+(7.20)
+
+\ < E { PN(l(N
+
++ I)" 1 ) - 4,(l(N + l)- 1 )}
+
+E /M«) E e(in(N +1)-1) - E UN + ir 1 - i
+n-»-N
+
+/=1v
+
+/=0
+
+= (JV+l)j?„(0).
+As iKO) = 0, (7.20) is equivalent to (7.16). If (7.20) holds with equality then
+(7.21)
+
+/>„(0) = l / 2 and pN(l(N
+
++ l)" 1 ) = l(N + l)" 1 - 1/2
+
+for / = 1,2,...,N. Sincep N (x) also majorizes ^(x), we must have
+^(/(^+1)"1) =1
+
+(7.22)
+
+for / - 1,2,...,M It follows (see Zygmund [Zyg, Vol. II, p. 23]) that the
+2N + 1 conditions (7.21) and (7.22) determine a unique polynomial of degree
+at most N. From (7.13)-(7.15) we see that these conditions are also satisfied by
+^ * JN(X) + (2N + 2)-1/:Ar(x). This completes our proof of the theorem.
+We now state a result which is the periodic analogue of Theorem 11. Here
+we suppose that ƒ : R -* C has period 1 and bounded variation on each closed
+interval of length 1. We also assume that ƒ satisfies the normalizing condition
+(1.16). The total variation of ƒ on [- \, x] will be denoted by Vf(x\ and
+v
+f = VfiiY w e write (dVf)* kN(x) for the convolution
+
+(dVf)*kN(x) = ff/2l / 2 kN(x - i) dVf(t).
+J
+
+• -\/2
+' T /o
+
+J
+
+THEOREM 19. The trigonometric polynomials f*iN(x),
+f*jN(x),
+(dVf) * kN(x) have degree at most N and satisfy
+a/2
+(7.23)
+/J / 2 \f(x) -f*iN(x)\ dx < (AN + 4)-lVf,
+-\/2
+
+and
+
+212
+
+J. D. VAALER
+
+and
+(7.24)
+
+\f{x)-f*jN{x)\^{2N
+
++
+
+2)-\dVf)*kN{x).
+
+In particular, iff is real valued, then
+m(f, N, x) = f * jN(x) +(2N + 2Yl(dVf)*
+
+(7.25)
+
+kN(x)
+
+has degree at most N, satisfies
+(7.26)
+
+f(x)<m(f9N9x),
+
+and
+f1/2 m(f9 N, x) - f(x) dx = {IN + 2)"lVf.
+
+(7.27)
+
+J
+
+-\/2
+
+PROOF. From (7.4) we have
+
+(d/dx)xP*iN(x)
+
+= 1-
+
+iN(x).
+
+This can be used to verify the identity
+(7.28)
+
+/ 1 / 2 ƒ(*-«)<*{*•'•*(«)-*(*)}
+•'-1/2
+
+= f/2 f(x - €){i - «•*(€)} # - / 1 / 2 ƒ(* - 0 <**(«)
+y
+
+y
+
+-l/2
+
+-l/2
+
+= ƒ ( * ) - ƒ *'AT(*)
+
+at all continuity points x of ƒ. Integrating the left side of (7.28) by parts, we
+find that
+(7.29)
+
+fl/2
+
+f1/2 **iN(x
+
+- «) - 4>(x - Z) dfU)-f(x)
+
+J' - 1 / 2
+
+- ƒ
+
+*iN(x)
+
+-\/2
+
+at all continuity
+inuity points x. Since ƒ is com
+continuous almost everywhere,
+l1/2
+/2
+ƒf-1/2
+l/(*) -ƒ*'*(*)! àx
+/2 r i /2/ 2
+fi/2
+
+< r r \4*iA* - o-M* -1)\ dxdvfd)
+-1/2 ' - 1 / 2
+
+= {4N + 4)-lVf.
+Similarly, we deduce (7.29), but with iN replaced by j N . Hence, at each
+continuity point x of ƒ we have
+(7.30)
+
+\f(x)-f*jN(x)\^f/2
+
+\**jN(x-t)-4,(x-t)\dVf(t)
+'-1/2
+-1
+
+fl/2
+
+< (27V + 2)" 1 f1/2 kN(x - {) dVfU)
+-1/2
+
+= (2N +
+
+v
+2)-\dV
+f) f)*kN(x)Using the normalization (1.9) we find that (7.24) holds for all real x. Of course,
+(7.26) is an immediate consequence of (7.30).
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+213
+
+8. The Erdös-Turan inequality. Let E denote an interval of R having length
+\E\ < 1 and let XE(X) be the normalized characteristic function of E.
+Throughout this section aE(x) will denote the periodic function
+(8.1)
+
+»*(*)=
+
+I
+
+XE(X + l)\
+
+-\E\.
+
+We also suppose that {^, £ 2 ,...} is a sequence of real numbers, and we write
+=
+£M
+(£i> £2*- -->£A/} f° r t n e first M terms. As is well known, the sequence
+{^,£2,...} is s a ^ t o ^ e uniformly distributed mod 1 if
+M
+
+Urn M"1 £ o E (| m ) = 0
+
+(8.2)
+
+M-* 00
+
+Î= 1
+
+for every interval £. By WeyPs criterion [K-N, p. 7] this is equivalent to the
+requirement that
+M
+
+lim M" 1 £ e ( / * J = 0
+M-
+
+m= l
+
+for every positive integer /.
+For each positive integer M we define the discrepancy A(£M) of f M by
+M
+
+A(É„) = supM" 1
+m= l
+
+Then another form of WeyPs criterion states that the sequence (£ x , £ 2 ,...} is
+uniformly distributed modi if and only if limM_^00A(^M) = 0. An important
+inequality of Erdös and Turân [E-T] provides an upper bound for the discrepancy A(£ M ) in terms of the sums M_1L^f=1e(/^m) for / in a finite range
+(see also [N-P] and [K-N, p. 112]). Our ability to majorize oE(x) by a
+trigonometric polynomial is ideally suited to proving results of this type. In
+fact, we could also use (8.1) and Selberg's function (1.5), which majorizes
+XE(X)- This application, as well as our Corollary 21, was first observed by H.
+L. Montgomery.
+THEOREM 20. For each interval E of length \E\ < 1 and every integer N > 1 we
+
+have
+M
+
+(8.3)
+
+E °Etem) ^(N+iy1
+
+M + 2 E 4 i W E e(n£m)
+
+m= l
+N
+
+M
+
+\sinim\E\ |
+
++ 2 £
+
+'°
+
+,
+«= 1
+
+*'~"/AH-I(*)
+
+mn
+
+^ u
+
+7
+
+E *("£*,)
+w= l
+
+214
+
+J. D. VAALER
+
+PROOF. If f(x)
+
+(8.4)
+
+satisfies the hypotheses of Theorem 19 and /(O) = 0, then
+
+M
+
+M
+
+E
+
+1
+f(U <(2JV+2)- £
+
+M
+
+(dVf)*kN(U
+
++ E
+
+f*jNUm)
+
+M
+
+<s (IN + ly'v, E
+
+KN+1(n) E *("£„)
+
+n = -N
+M
+
++ E
+
+\f(n)\JN+1(n) E
+
+e("èj
+
+n*0
+
+Now we let f(x) = oE(x). It follows that Vf = 2 and
+| / ( / i ) | = (flT/i^lsinflrnljE:!!
+for « =£ 0. Hence, inequahty (8.4) implies (8.3).
+If we ignore the factors KN+l and JN+1 on the right of (8.3), we obtain a
+bound on the discrepancy of the form
+A/
+
+A(f M ) « (N + I)" 1 + 2 EC {(^n)- 1 +(iV + I)" 1 } M- 1 E
+
+e(nU
+
+m= l
+
+=1
+
+Alternatively, if the length \E\ is small, the factor |sin9r«|£|| can be used to
+advantage.
+COROLLARY 21. Suppose that £v £ 2 ,... ,£ M ûtre ra*/ numbers satisfying \\£m\\
+> X~l for some real parameter X > 2. 77ze«
+M
+
+(8.5)
+
+M< 6
+
+£
+
+E e(«£j
+m= l
+
+-1
+
+1
+
+PROOF. Let E - (-X , A"" ) and N = [X]. Since the right side of (8.5) is
+continuous in each £m, we may suppose ||£J| > X~l. Then
+M
+
+(8.6)
+
+E MO
+
+M|£| = 2MX~l
+
+w= l
+
+and, using |sin 7r«|£|| < 7rn\E\, this is bounded from above by
+N
+
+M
+
+(8.7) (N + 1)_1M + 2 E {(# + 1 )" 1 +1^1} E *(«€*,)
+m= l
+M
+
+E *(*Éj
+
+rt = l m = l
+
+The corollary follows from (8.6) and (8.7).
+We note that (8.5) has been used recently in the work of Baker and Harman
+[B-H]
+
+EXTREMAL FUNCTIONS IN FOURIER ANALYSIS
+
+215
+
+REFERENCES
+[A-K] N. I. Achieser and M. G. Krein, Best approximation of differentiable periodic functions by
+means of trigonometric sums, Dokl. Akad. Nauk SSSR 15 (1937), 107-112. (Russian)
+[B-H] R. C. Baker and G. Harman, Small fractional parts of quadratic forms, Proc. Edinburgh
+Math. Soc. 25 (1982), 269-277.
+[vBe] P. van Beek, An application of Fourier methods to the problem of sharpening the Berry-Esseen
+inequality, Z. Wahrsch. verw. Gebiete. 23 (1972), 187-196.
+[Brn] S. N. Bernstein, Sur une propriété des fonctions entières, C. R. Acad. Sci. 176 (1923),
+1603-1605.
+[Brr] A. C. Berry, The accuracy of the Gaussian approximation to the sum of independent variâtes,
+Trans. Amer. Math. Soc. 49 (1941), 122-136.
+[Beu] A. Beurling, Sur les intégrales de Fourier absolument convergentes et leur application à une
+transformation fonctionelle, Neuvième Congrès Math. Scandinaves, Helsingfors, 1938.
+[Boa] R. P. Boas, Entire functions, Academic Press, New York, 1954.
+[Che] E. W. Cheney, Introduction to approximation theory, Chelsea, New York, 1982.
+[E-T] P. Erdös and P. Turân, On a problem in the theory of uniform distribution. I, Indag. Math. 10
+(1948), 370-378.
+[Ess] C. G. Esseen, On the Liapunov limit of error in the theory of probability, Ark. Mat.-Astr. Fys.
+28A (1942), 1-19.
+[Fav] J. Favard, Sur les meilleurs procédés d'approximation de certaines classes de fonctions par
+des polynômes trigonométriques, Bull. Sci. Math. 61 (1937), 209-224, 243-256.
+[Fej] L. Fejer, Einige S'àtze, die sich auf das Vorzeichen einer ganzen rationalen Function bezeihen
+nebst Anwendungen, Monatsh. Math. Phys. 35 (1928), 305-344.
+[Fel] W. Feller, An introduction to probability theory and its applications, Vol. II, Wiley, New
+York, 1971.
+[GV,] S. W. Graham and J. D. Vaaler, Extremal functions for the Fourier transform and the large
+sieve, Topics in Classical Number Theory (G. Halâsz, éd.), North-Holland, New York,
+1984.
+[GV2]
+, A class of extremal functions for the Fourier transform, Trans. Amer. Math. Soc.
+265 (1981), 283-302.
+[K-N] L. Kuipers and H. Niederreiter, Uniform distribution of sequences, Wiley, New York, 1974.
+[Loe] M. Loève, Probability theory, 3rd ed. van Nostrand, Princeton, N. J., 1963.
+[Log] B. F. Logan, Bandlimited functions bounded below over an interval, Notices Amer. Math.
+Soc. 24 (1977), A-331.
+[Mon] Hugh L. Montgomery, The analytic principle of the large sieve, Bull. Amer. Math. Soc. 84
+(1978), 547-567.
+[M-V] H. L. Montgomery and R. C. Vaughan, Hubert's inequality, J. London Math. Soc. (2) 8
+(1974), 73-81.
+[N-P] H. Niederreiter and W. Philipp, Berry-Esseen bounds and a theorem of Erdös and Turân on
+uniform distribution mod 1, Duke Math. J. 40 (1973), 633-649.
+[P-P] M. Plancherel and G. Polya, Fonctions entières et intégrales de Fourier multiples, (Seconde
+partie) Comment. Math. Helv. 10 (1938), 110-163.
+[PTJ] H. Prawitz, Limits for a distribution, if the characteristic function is given in a finite domain,
+Skand. Aktur Tidskr, (1972), 138-154.
+[Pr 2 ]
+, Ungleichungen fur den absoluten Betrag einer charakteristischen Funktion, Skand.
+Akturatidskr (1973), 11-16.
+[Pr 3 ]
+, Weiter Ungleichungen fur den absoluten Betrag einer charakteristischen Funktion,
+Scand. Actuarial J. (1975), 21-28.
+[Pr 4 ]
+, Zur Variationsrechnung fur die Verteilungsfuntionen, Skand. Aktuar Tidskr. (1972),
+202-208.
+[Pr5]
+, On the remainder in the central limit theorem, Scand. Actuarial J. (1975), 145-156.
+[Sel] A. Selberg, Remarks on sieves, Proc. 1972 Number Theory Conf. (Univ. of Colorado,
+Boulder), pp. 205-216.
+[Sha] H. S. Shapiro, Topics in approximation theory, Lecture Notes in Math., vol. 187, SpringerVerlag, New York, 1971.
+[SNa] B. Sz. Nagy, Über gewisse Extremalfragen bei transformierten trigonometrischen Entwicklungen. II, Ber. Math.-Phys. Kl. Sachs Akad. Wiss. Leipzig 91 (1939).
+
+216
+
+J. D. VAALER
+
+[StW] E. M. Stein and G. Weiss, Introduction to Fourier analysis on Euclidean spaces, Princeton
+Univ. Press, Princeton, N. J., 1971.
+[Tim] A. F. Timan, Theory of approximation of functions of a real variable, Pergamon Press-Macmillan, New York, (1963).
+[Zoj] V. M. Zolotarev, An absolute estimate of the remainder term in the central limit theorem,
+Theor. Probab. Appl. 11 (1966), 95-105.
+[Zo 2 ]
+, Some inequalities in probability theory and their application in sharpening the
+Lyapunov theorem, Soviet Math. Dokl. 8 (1967), 1427-1430.
+[Zo3]
+, A sharpening of the inequality of Berry-Esseen, Z. Wahrsch. verw. Gebiete. 8
+(1967), 332-342.
+[Zyg] A. Zygmund, Trigonometric series, Vols. I, II, Cambridge Univ. Press, 1968.
+DEPARTMENT OF MATHEMATICS, UNIVERSITY OF TEXAS, AUSTIN, TEXAS 78712
+
+

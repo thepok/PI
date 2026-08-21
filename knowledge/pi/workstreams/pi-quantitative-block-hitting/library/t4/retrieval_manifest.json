@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "item": "T4",
+  "retrieved_at_utc": "2026-07-22T10:36:32Z",
+  "canonical_target": {
+    "path_from_workspace": "knowledge/pi/statements/pi-quantitative-block-hitting.txt",
+    "sha256": "ab000220813f99eb40cfdc2d7fdae4ea7796291852df43dce7e6bf317c247449"
+  },
+  "t3_target": {
+    "path_from_workspace": "removed-workflow-record://todo-theory-pi-quantitative-block-hitting-t4-1784715687-r0/knowledge_library/t3/UniformPiAnalyticCover.lean",
+    "sha256": "473277f59fd2735f70c8ad03c26c0c7c024c1fd611a1375ab4afdba35d3cc2cc",
+    "definition_lines": "31-43",
+    "expanded_theorem_lines": "124-150"
+  },
+  "prior_audits": [
+    {
+      "role": "T6 BBP and Bailey-Crandall reduction map",
+      "path_from_workspace": ".research/proof-ledger-artifacts/sha256/bd/bd95aa34c512ea934801d9baa2d574854ecbb4dc7575670fc4d8304637928f33",
+      "sha256": "bd95aa34c512ea934801d9baa2d574854ecbb4dc7575670fc4d8304637928f33"
+    },
+    {
+      "role": "T12 base-transfer obstruction",
+      "path_from_workspace": ".research/proof-ledger-artifacts/sha256/65/655ff6e76113bc0d28bdb1b7ae9ba3b79dd0a932a816e4fd01ac68354f90cd0f",
+      "sha256": "655ff6e76113bc0d28bdb1b7ae9ba3b79dd0a932a816e4fd01ac68354f90cd0f"
+    },
+    {
+      "role": "T19 pi-specific post-frontier survey",
+      "path_from_workspace": ".research/proof-ledger-artifacts/sha256/18/18ac9bea801c28b38122926d91ae745686944091f36617bde000e6d2944d67af",
+      "sha256": "18ac9bea801c28b38122926d91ae745686944091f36617bde000e6d2944d67af"
+    },
+    {
+      "role": "T28 excluded generic almost-everywhere lacunary survey",
+      "path_from_workspace": ".research/proof-ledger-artifacts/sha256/48/4845c8661303b873bc4bb38dc8ee1005695fdd62b1fe4d16b36eaee61244abbd",
+      "sha256": "4845c8661303b873bc4bb38dc8ee1005695fdd62b1fe4d16b36eaee61244abbd"
+    }
+  ],
+  "extraction": {
+    "command": "pdftotext -layout INPUT.pdf OUTPUT.txt",
+    "authority": "The retained PDF is authoritative; extraction is a searchable aid. Quotations in T4_AUDIT.md were checked against the extracted text and page layout."
+  },
+  "sources": [
+    {
+      "id": "BBP1997",
+      "citation": "D. H. Bailey, P. Borwein, S. Plouffe, On the Rapid Computation of Various Polylogarithmic Constants, Mathematics of Computation 66 (1997), 903-913",
+      "doi": "https://doi.org/10.1090/S0025-5718-97-00856-9",
+      "url": "https://ntrs.nasa.gov/api/citations/19970009337/downloads/19970009337.pdf",
+      "file": "sources/bbp-1997.pdf",
+      "bytes": 536905,
+      "sha256": "e4e0b97fde01328ec41da5f2cd4d6ffc8bcd2b7bd7516b9d8afc320f6d1916c4",
+      "pdftotext_sha256": "f954de1a53e1c2232be84e262063b0b9301ab4efe36fb13f953cc85fa773839c",
+      "locator": "Theorem 1, report p. 3; extracted lines 108-127"
+    },
+    {
+      "id": "BC2001",
+      "citation": "D. H. Bailey, R. E. Crandall, On the Random Character of Fundamental Constant Expansions, Experimental Mathematics 10 (2001), 175-190",
+      "doi": "https://doi.org/10.1080/10586458.2001.10504441",
+      "url": "https://www.davidhbailey.com/dhbpapers/bcrandom.pdf",
+      "file": "sources/bailey-crandall-2001.pdf",
+      "bytes": 193239,
+      "sha256": "701067697e8c1dace60cd8695ef509edae31f9da3bffd64b548624ccc2e4cfa8",
+      "pdftotext_sha256": "d85c9de4771f9f5237409beeada7ebe0ba019c1124b49927c98545bb33b46406",
+      "locator": "Hypothesis A and Theorem 1.1, journal pp. 176-177; extracted lines 55-97"
+    },
+    {
+      "id": "BC2002",
+      "citation": "D. H. Bailey, R. E. Crandall, Random Generators and Normal Numbers, Experimental Mathematics 11 (2002), 527-546",
+      "doi": "https://doi.org/10.1080/10586458.2002.10504704",
+      "url": "https://www.davidhbailey.com/dhbpapers/bcnormal-em.pdf",
+      "file": "sources/bailey-crandall-2002.pdf",
+      "bytes": 407830,
+      "sha256": "9d1510fc72b6298295a3f10ca6d314936d083bc698982e0386e02bd8c9d9108f",
+      "pdftotext_sha256": "a48a060a5e2a5c0aea98921e726b5521e2df6aa996b49aaa94d0a6aff3ab285d",
+      "locator": "Theorem 2.2(5),(8),(9),(12), Hypothesis 3.1 and Theorem 3.3, journal pp. 529-531; extracted lines 192-317"
+    },
+    {
+      "id": "LAG2001",
+      "citation": "J. C. Lagarias, On the Normality of Arithmetical Constants, Experimental Mathematics 10 (2001), 355-368",
+      "doi": "https://doi.org/10.1080/10586458.2001.10504456",
+      "url": "https://arxiv.org/pdf/math/0101055",
+      "file": "sources/lagarias-2001.pdf",
+      "bytes": 216838,
+      "sha256": "a2a1171eb9c75c9fa3495ca3c3ceaa33c1d20b722bb56f82adb56d8c308209b9",
+      "pdftotext_sha256": "d4dcb5c31735fa51bbe15f7bb5bdcaa7f2cb86582f09b08665c8ec91aa08a346",
+      "locator": "Strong Dichotomy Hypothesis and Theorem 4.1, preprint pp. 9-10; extracted lines 490-547"
+    },
+    {
+      "id": "BL2010",
+      "citation": "J. Barral, P. Loiseau, Large Deviations for the Local Fluctuations of Random Walks and New Insights into the Randomness of Pi, arXiv:1004.3713; published SPA 121 (2011), 2272-2302",
+      "doi": "https://doi.org/10.1016/j.spa.2011.06.004",
+      "url": "https://export.arxiv.org/pdf/1004.3713",
+      "file": "sources/barral-loiseau-2010.pdf",
+      "bytes": 807635,
+      "sha256": "71bb0f4cfd41a6a315f7be3e1f0c927ec880794bc4cc059ce385dbe8cfbd6735",
+      "pdftotext_sha256": "eb7b9b3fbe896dabf42f38a320fb73c327f6d061c5b56b266978730ecacb6246",
+      "locator": "Property (P), Theorem 4.1 and Conjecture 4.1, preprint pp. 17-19; extracted lines 924-1023"
+    },
+    {
+      "id": "SCH1960",
+      "citation": "W. M. Schmidt, On Normal Numbers, Pacific Journal of Mathematics 10 (1960), 661-672",
+      "doi": "https://doi.org/10.2140/pjm.1960.10.661",
+      "url": "https://msp.org/pjm/1960/10-2/pjm-v10-n2-p22-s.pdf",
+      "file": "sources/schmidt-1960.pdf",
+      "bytes": 1051359,
+      "sha256": "28f1f9604d4000ada9cf9485c2d68532348065087c6bdc42a4dda982bddeea67",
+      "pdftotext_sha256": "6c1a682f0120c1637402668b2e684e2f92b31fa2635471e2cf8b71c37bfdbc2c",
+      "locator": "Theorem 1, printed p. 661; extracted lines 32-41"
+    },
+    {
+      "id": "BS2014",
+      "citation": "V. Becher, T. A. Slaman, On the Normality of Numbers to Different Bases, Journal of the London Mathematical Society 90 (2014), 472-494",
+      "doi": "https://doi.org/10.1112/jlms/jdu035",
+      "url": "https://arxiv.org/pdf/1311.0333",
+      "file": "sources/becher-slaman-2014.pdf",
+      "bytes": 304937,
+      "sha256": "8439c937ed2c2421daf9deb9bbc2cfb34c8e162793e53030fbec59d00109ac1f",
+      "pdftotext_sha256": "ab766d00d4b8fbceb160ef7c054505261682756a5a196c4f37d6d321d634b52d",
+      "locator": "Theorem 4, preprint p. 3; extracted lines 139-147"
+    },
+    {
+      "id": "BBG2004",
+      "citation": "J. M. Borwein, D. Borwein, W. F. Galway, Finding and Excluding b-ary Machin-Type Individual Digit Formulae, Canadian Journal of Mathematics 56 (2004), 897-925",
+      "doi": "https://doi.org/10.4153/CJM-2004-041-2",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BB7919C8E1AE66878AE8D7BC7F0EBFA3/S0008414X0003385Xa.pdf/div-class-title-finding-and-excluding-span-class-italic-b-span-ary-machin-type-individual-digit-formulae-div.pdf",
+      "file": "sources/borwein-borwein-galway-2004.pdf",
+      "bytes": 365689,
+      "sha256": "51d47633a37a9d4b024ccabfd782fe0d0ade85f554a8a6fc3fe2773832ecc2cb",
+      "pdftotext_sha256": "a29b85486b00149ee954c34cacba8531e939483161c3205e26ce27dc9000e412",
+      "locator": "Theorem 7, printed p. 918; extracted lines 1161-1205"
+    },
+    {
+      "id": "SGCF2025",
+      "citation": "V. M. Silva-Garcia, M. A. Cardona-Lopez, R. Flores-Carapia, An Upper Bound for Locating Strings with High Probability Within Consecutive Bits of Pi, Mathematics 13 (2025), 313",
+      "doi": "https://doi.org/10.3390/math13020313",
+      "url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-13-00313/article_deploy/mathematics-13-00313-v2.pdf",
+      "file": "sources/silva-garcia-et-al-2025.pdf",
+      "bytes": 506317,
+      "sha256": "12ed89e0b35503391aed362df4b1ba67cf96adda928f56969d71034dc71e0805",
+      "pdftotext_sha256": "99896d9ca2d1e4983b2b1805d8a7d4ebf5e57ba1a780a029ebf9c1f37a7992e5",
+      "locator": "Hypotheses 1-2, Theorem 1 and Corollary 1, printed pp. 7-12; extracted lines 344-649"
+    },
+    {
+      "id": "TRU2016",
+      "citation": "P. Trueb, Digit Statistics of the First 22.4 Trillion Decimal Digits of Pi, arXiv:1612.00489v1 (2016)",
+      "doi": "https://doi.org/10.48550/arXiv.1612.00489",
+      "url": "https://arxiv.org/pdf/1612.00489v1",
+      "file": "sources/trueb-2016.pdf",
+      "bytes": 395382,
+      "sha256": "d84f17f18ae88ab4b0a197299b00ec675be260a951a5007b4a99b463dd09247b",
+      "pdftotext_sha256": "55bb8f756437824d677fe41b3a3c8b279cd856b18a49c9a4caf6ebd1f875126a",
+      "locator": "Abstract and Conclusions, preprint pp. 1 and 3; extracted lines 8-18 and 149-153"
+    }
+  ],
+  "searches": [
+    {
+      "database": "Crossref",
+      "query": "pi decimal digit occurrence discrepancy quantitative normality",
+      "bound": "first 30 selected metadata records",
+      "url": "https://api.crossref.org/works?query.bibliographic=pi%20decimal%20digit%20occurrence%20discrepancy%20quantitative%20normality&rows=30&select=DOI,title,author,published,URL,type"
+    },
+    {
+      "database": "Crossref",
+      "query": "BBP formula normality pi base transfer",
+      "bound": "first 30 selected metadata records",
+      "url": "https://api.crossref.org/works?query.bibliographic=BBP%20formula%20normality%20pi%20base%20transfer&rows=30&select=DOI,title,author,published,URL,type"
+    },
+    {
+      "database": "OpenAlex",
+      "query": "pi decimal digits discrepancy normality BBP",
+      "bound": "first 25 metadata records",
+      "url": "https://api.openalex.org/works?search=pi%20decimal%20digits%20discrepancy%20normality%20BBP&per-page=25&select=id,doi,title,publication_year,primary_location,open_access"
+    },
+    {
+      "database": "arXiv",
+      "query": "all:pi AND (all:normality OR all:decimal OR all:BBP)",
+      "bound": "first 50 records sorted by relevance",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3Api%20AND%20%28all%3Anormality%20OR%20all%3Adecimal%20OR%20all%3ABBP%29&start=0&max_results=50&sortBy=relevance"
+    }
+  ],
+  "search_limitations": [
+    "The search is a dated finite corpus, not an exhaustive nonexistence proof.",
+    "T28 already covers Erdos-Gal, Philipp, and Fukuyama generic almost-everywhere lacunary results; they are intentionally excluded from the T4 candidate corpus.",
+    "Publisher and index responses are mutable. Retained PDFs and their hashes identify the exact evidence inspected; replayed search responses may differ."
+  ]
+}

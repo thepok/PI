@@ -1,0 +1,179 @@
+{
+  "audits": [
+    {
+      "H_n": 50,
+      "L_n": 10,
+      "frequency_range": [
+        1,
+        49
+      ],
+      "last_coefficient": -0.00039868452024668016,
+      "n": 2,
+      "rectangle_formula": 9,
+      "rectangle_over_L": 0.9,
+      "rectangle_size": 9,
+      "separation_values": {
+        "fejer_zero": {
+          "K_over_H": 1.521575623168717e-33,
+          "M_H": 0.31535494293327293,
+          "strict_incidence": false,
+          "x": 0.02
+        },
+        "strict_endpoint": {
+          "K_over_H": 0.4054180942257532,
+          "M_H": 0.9999999999999996,
+          "strict_incidence": false,
+          "x": 0.01
+        },
+        "vaaler_zero": {
+          "K_over_H": 0.04516520771260114,
+          "M_H": -5.551115123125783e-17,
+          "strict_incidence": false,
+          "x": 0.03
+        }
+      }
+    },
+    {
+      "H_n": 500,
+      "L_n": 10,
+      "frequency_range": [
+        1,
+        499
+      ],
+      "last_coefficient": -3.99986840574211e-06,
+      "n": 3,
+      "rectangle_formula": 17,
+      "rectangle_over_L": 1.7,
+      "rectangle_size": 17,
+      "separation_values": {
+        "fejer_zero": {
+          "K_over_H": 1.5195943605397382e-33,
+          "M_H": 0.3152227935688548,
+          "strict_incidence": false,
+          "x": 0.002
+        },
+        "strict_endpoint": {
+          "K_over_H": 0.4052860679053163,
+          "M_H": 1.0000000000000002,
+          "strict_incidence": false,
+          "x": 0.001
+        },
+        "vaaler_zero": {
+          "K_over_H": 0.04503297053139307,
+          "M_H": 6.331740687315346e-17,
+          "strict_incidence": false,
+          "x": 0.003
+        }
+      }
+    },
+    {
+      "H_n": 5000,
+      "L_n": 100,
+      "frequency_range": [
+        1,
+        4999
+      ],
+      "last_coefficient": -3.9999986840502505e-08,
+      "n": 4,
+      "rectangle_formula": 294,
+      "rectangle_over_L": 2.94,
+      "rectangle_size": 294,
+      "separation_values": {
+        "fejer_zero": {
+          "K_over_H": 1.048090153007247e-32,
+          "M_H": 0.3152214735539405,
+          "strict_incidence": false,
+          "x": 0.0002
+        },
+        "strict_endpoint": {
+          "K_over_H": 0.40528474790268476,
+          "M_H": 0.9999999999999987,
+          "strict_incidence": false,
+          "x": 0.0001
+        },
+        "vaaler_zero": {
+          "K_over_H": 0.04503165050770806,
+          "M_H": 5.908901840045999e-16,
+          "strict_incidence": false,
+          "x": 0.0003
+        }
+      }
+    },
+    {
+      "H_n": 50000,
+      "L_n": 100,
+      "frequency_range": [
+        1,
+        49999
+      ],
+      "last_coefficient": -3.9999999868285417e-10,
+      "n": 5,
+      "rectangle_formula": 390,
+      "rectangle_over_L": 3.9,
+      "rectangle_size": 390,
+      "separation_values": {
+        "fejer_zero": {
+          "K_over_H": 1.5195743655844259e-33,
+          "M_H": 0.31522146035393794,
+          "strict_incidence": false,
+          "x": 2e-05
+        },
+        "strict_endpoint": {
+          "K_over_H": 0.4052847347026844,
+          "M_H": 0.9999999999999999,
+          "strict_incidence": false,
+          "x": 1e-05
+        },
+        "vaaler_zero": {
+          "K_over_H": 0.04503163730770568,
+          "M_H": -1.6984365845164329e-15,
+          "strict_incidence": false,
+          "x": 3e-05
+        }
+      }
+    },
+    {
+      "H_n": 500000,
+      "L_n": 1000,
+      "frequency_range": [
+        1,
+        499999
+      ],
+      "last_coefficient": -3.9999999995924786e-12,
+      "n": 6,
+      "rectangle_formula": 4985,
+      "rectangle_over_L": 4.985,
+      "rectangle_size": 4985,
+      "separation_values": {
+        "fejer_zero": {
+          "K_over_H": 3.252240889983578e-32,
+          "M_H": 0.3152214602219358,
+          "strict_incidence": false,
+          "x": 2e-06
+        },
+        "strict_endpoint": {
+          "K_over_H": 0.40528473457068454,
+          "M_H": 0.99999999999998,
+          "strict_incidence": false,
+          "x": 1e-06
+        },
+        "vaaler_zero": {
+          "K_over_H": 0.045031637175705685,
+          "M_H": -2.2696010652453746e-15,
+          "strict_incidence": false,
+          "x": 3e-06
+        }
+      }
+    }
+  ],
+  "canonical_statement_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "label": "experiment",
+  "scope": {
+    "proves_C1": false,
+    "proves_C2": false,
+    "proves_C7": false,
+    "proves_T56_predicate": false,
+    "proves_fixed_pi_estimate": false,
+    "proves_universal_vaaler_formula": false
+  }
+}

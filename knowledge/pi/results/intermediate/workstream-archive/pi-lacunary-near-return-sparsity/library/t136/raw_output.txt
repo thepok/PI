@@ -1,0 +1,3 @@
+T136 verification: PASS
+sources: 6; domains: 3; survivor fingerprints: 0; negative cards: 3
+scope: no fixed-pi, C1, or C2 conclusion

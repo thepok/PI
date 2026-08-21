@@ -1,0 +1,2577 @@
+                                                      ON CONSTRUCTIONS OF FULL-DIMENSIONAL
+                                                      ABSOLUTELY NORMAL SETS OF UNIQUENESS
+
+                                                                        CHUN-KIT LAI AND YU-HAO XIE
+
+
+                                                 Abstract. We construct a class of homogeneous Cantor-Moran measures with all
+                                                 contraction ratios being reciprocal of integers, and prove that they are pointwise
+                                                 absolutely normal. Our approach relies on methods developed by Davenport, Erdős
+arXiv:2601.03402v1 [math.CA] 6 Jan 2026
+
+
+
+
+                                                 and LeVeque [12] and properties of order of integers in the multiplicative groups.
+                                                 The construction of these measures differs from the class of pointwise absolutely
+                                                 normal self-similar measures introduced by Hochman and Shmerkin [18], in which
+                                                 dynamical approaches were used.
+                                                    As an application, for all gauge functions φprq with r{φprq Ñ 0 as r Ñ 0, we
+                                                 obtain a set of uniqueness K with Hφ pKq ą 0. Moreover, we show that there exists a
+                                                 pointwise absolutely normal measure µ of dimension one fully supported on K. The
+                                                 result demonstrates that having a lot of absolutely normal numbers in a Cantor set,
+                                                 even with dimension one, cannot guarantee that it supports a measure with Fourier
+                                                 decay. It also shows that the DEL criterion being satisfied for all integers does not
+                                                 guarantee any Fourier decay nor the supporting set is a set of multiplicity.
+
+
+
+
+                                                                                1. Introduction
+                                          1.1. Sets of uniqueness. Riemann theory of trigonometric functions was initiated
+                                          in the mid-19th century and one of the goals of Riemann was to study whether a
+                                          trigonometric series vanishes identically on an interval implies that all coefficients
+                                          vanish. This was answered by George Cantor in a strong way and he introduced the
+                                          concept of the set of uniqueness that ultimately motivated him towards the intro-
+                                          duction of the set theory [21, p. 2]. A set E Ă r0, 1s is called a set of uniqueness
+                                          if
+                                                                  8
+                                                                  ÿ
+                                                                     pan cosp2πnxq ` bn sinp2πnxqq “ 0,
+                                                                    n“0
+
+                                          for all x P r0, 1szE implies that an “ bn “ 0 for each n. If E is not a set of uniqueness,
+                                          then we call E a set of multiplicity. Nowadays, it is still an active research area in
+                                          classifying such sets. Readers can refer to the books [21, 32, 39, 24] for the classical
+                                          theory about sets of uniqueness.
+                                             A set of uniqueness must have Lebesgue measure zero and all countable sets are
+                                          set of uniqueness. On the other hand, there are sets of uniqueness that are perfect
+                                          sets of fractional dimensions. Classical work of Salem and Zygmund [31] (see also
+                                          [21, Chapter III]) showed that symmetric Cantor sets with constant dissection ratio
+                                          ξ is a set of uniqueness if and only if ξ ´1 is a Pisot number. Recall that a θ is a
+                                          Pisot number if and only if it is an algebraic integer whose Galois conjugates have
+                                          modulus strictly less than 1.
+                                                                                          1
+2                             CHUN-KIT LAI AND YU-HAO XIE
+
+  The study of sets of uniqueness is closely related to the existence of measures
+without Fourier decay. In this paper, Fourier transform νp of a Borel probability
+measure ν is defined by
+                                     ż1
+                             νppξq “    e´2πiξx dνpxq.
+                                          0
+If νppξq Ñ 0 as |ξ| tends to infinity, then ν is called a Rajchman measure. Set of
+uniqueness does not support any Rajchman measures (See e.g. [39, p.348 Theorem
+6.13]). Therefore, we know the following implication holds:
+(1.1)      E supports a Rajchman measure ùñ E is a set of multiplicity.
+
+1.2. Pointwise absolute normality of a measure. Another closely related con-
+cept in our paper is the normality of numbers in the set. Let txn uně1 be a sequence of
+real numbers contained in the unit interval r0, 1s. Let ν be a Borel probability mea-
+sure on r0, 1s. We say txn uně1 is equidistributed in the interval r0, 1s with respect
+to the measure ν, if for any real numbers 0 ď a ă b ď 1,
+                            #t1 ď n ď N : xn P ra, bsu
+                     lim                                  “ νpra, bsq,
+                      N Ñ8                 N
+(see the definition in e.g. [9, p.1]). We say that x P R is b-normal if the sequence
+of fractional parts tbk xu is equidistributed with respect to the Lebesgue measure.
+This is equivalent to saying that when x is expanded in b-ary digit expansions under
+the bases b, every digit from t0, ¨ ¨ ¨ , b ´ 1u appears in the same frequency 1{b. The
+number x is referred to as absolutely normal if it is b-normal for all integers b ě 2.
+We will denote by A to be the set of all absolutely normal numbers in R. Note that
+A is a Borel set (see e.g. [6]).
+   In 1909, Borel famously proved that Lebesgue almost all x are absolutely normal.
+More generally, following the terminologies in [18, 2], we call a Borel probability
+measure µ is pointwise absolutely normal if µ almost all x are absolutely normal.
+In other words, µ is supported on a Borel set only consisting of absolutely normal
+numbers. In particular, Lebesgue measure on r0, 1s is pointwise absolutely normal.
+   Measures with a slightly faster Fourier decay must be pointwise absolutely normal
+via the following theorem by Davenport, Erdős and LeVeque.
+Theorem 1.1 ([12]). Let µ be a Borel probability measure on the real line and b ě 2
+an integer. Suppose for all non-zero integer h,
+                            8       N ´1 N ´1
+                           ÿ     1 ÿ ÿ
+(1.2)                             3
+                                              pphpbn ´ bm qq ă 8,
+                                              µ
+                           N “1
+                                N   m“0 n“0
+
+then for µ-a.e. x, x is normal in base b.
+  We will call (1.2) the DEL criterion throughout the paper. From a standard
+estimate (see e.g. [28]), if a Rajchman measure µ admits a Fourier decay of double
+poly-logarithmic order with power slightly larger than 1, i.e.
+(1.3)                          µpξq| “ Opplog log |ξ|q´1´ε q,
+                              |p
+then DEL criterion is satisfied and µ is pointwise absolutely normal. Based on the
+above discussions, there are four statements for a set E we are considering:
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                      3
+
+  (A). E is a set of multiplicity.
+  (B). E supports a pointwise absolutely normal measure.
+  (C). E supports a measure with DEL criterion for all integers b ě 2.
+  (D). E supports a Rajchman measure with double poly-logarithmic decay in (1.3).
+From Theorem 1.1, we know that pDq ùñ pCq ùñ pBq and pDq ùñ pAq (c.f.
+Equation (1.1)). It raises a natural question to see if the implications can be reversed
+and if there are any implication relationship between pAq and pBq. Indeed, there is
+none between pAq and pBq. Recently, Pramanik and Zhang [30, 29] showed that sets of
+points that are not normal to odd numbers, but it is normal to bases of even numbers
+supports a Rajchman measure. Hence, this set is a set of multiplicity. Their results
+also generalize to all choices of bases as well under the multiplicative independence
+assumption. Hence, pAq does not imply pBq. Here, we say two real numbers a, b ‰ 0
+are multiplicatively independent if the ratio plog |a|q{plog |b|q R Q.
+   pBq does not imply pAq either since we can pick a point x that is absolutely normal,
+then txu is a set of uniqueness and it trivially supports a pointwise absolutely normal
+measure (namely the Dirac mass at x). We are interested in the following definition
+and see if there could be more non-trivial examples:
+Definition 1.2. A compact set E is called an absolutely normal set of unique-
+ness if E is a set of uniqueness, A is dense in E and
+                              dimH pEq “ dimH pE X Aq.
+  Here, dimH denotes the Hausdorff dimension. The following question was first
+brought to the first-named author by Pramanik in 20241.
+(Qu): How large can an absolutely normal set of uniqueness be in terms of Hausdorff
+dimension?
+   We know that the set must have Lebesgue measure zero and it trivially exists.
+Intuitively, such sets appear to be difficult to construct, but it exists using a result
+by Hochman and Shmerkin, by involving some scales of irrational Pisot numbers (see
+the Subsection 1.4). The standard middle-third Cantor set cannot be an absolutely
+normal set of uniqueness as none of the points can be 3-normal. However, Cassels [11]
+and Schmidt [33] independently utilized Theorem 1.1 to show that if µ is the standard
+Cantor-Lebesgue measure on the middle-third Cantor set, then for µ almost every x,
+                                   log b
+x is b-normal whenever b satisfies log 3
+                                         R Q. Feldman and Smorosinsky [16] generalized
+Cassels and Schmidt’s results to all non-degenerate Cantor-Lebesgue measures. These
+results showed that satisfying the DEL condition (1.2) for some integer b does not
+imply there is some uniform Fourier decay.
+
+1.3. Main Results and Contributions. In this paper, we will first generalize the
+result of Cassels by constructing absolutely normal set of uniqueness via a class of
+Cantor sets using Moran construction with all contraction ratios being reciprocals of
+integers. Some special Moran sets of uniqueness have been studied in classical books
+such as [24] and [21]. The existence of pointwise absolutely normal Cantor-Moran
+measure (with reciprocals of integer contraction ratios) appears to be new. To put
+our results into context, let us begin our setup.
+  1Private communication
+4                                CHUN-KIT LAI AND YU-HAO XIE
+
+  Let tMn uně1 be a sequence of positive integers larger than or equal to 2, and let Dn
+be a subset of the set t0, 1, ¨ ¨ ¨ , Mn ´ 1u for each n ě 1. The Moran set associated
+with tMn uně1 and tDn uně1 is the Cantor set
+                                     #                                    +
+                                        8
+                                       ÿ      dn
+(1.4)           K “ KMn ,Dn “                          : dn P Dn for all n .
+                                       n“1
+                                           M1 ¨ ¨ ¨ Mn
+
+Here tMn uně1 are called the mixed radix bases and tDn uně1 the digit sets. Let
+tµ1 , ¨ ¨ ¨ , µn u be a family of Borel probability measures on R. The convolution
+˚ni“1 µi of these measures µ1, ¨ ¨ ¨ , µn is defined as follows: for any Borel set E Ă R,
+we have
+                 ˆn ˙           ż    ż
+
+               i“1
+                   ˚ µi pEq “ ¨ ¨ ¨ χE px1 ` ¨ ¨ ¨ ` xnqdµ1px1q ¨ ¨ ¨ dµnpxnq,
+                                  R     R
+
+where χE denotes the characteristic function of E. Moran set (1.4) naturally supports
+a Cantor-Moran measure µ defined by the following infinite convolution
+                                 ˜                           ¸
+                             8      ÿ 1
+(1.5)                   µ“˚                  δd¨pM1 ¨¨¨Mn q´1 ,
+                            n“1 dPD #Dn
+                                            n
+
+
+where δa represents the Dirac measure concentrated at the point a P R. Note that
+the Cantor-Moran measure is reduced to the self-similar measure if all Mn are equal
+to same integer and all Dn are equal to the same digit set. When all #Dn “ 2, the
+Cantor set is reduced to the symmetric Cantor set with sequence of dissection ratios
+equal to tMn´1 u8
+                n“1 (which was the setting in [21, 24]). We can readily express its
+Fourier transform as an infinite product of trigonometric polynomials.
+                     8
+                     ź                                                  1 ÿ ´2πidt
+(1.6)       µ
+            ppξq “         MDn ppM1 ¨ ¨ ¨ Mn q´1 ξq, where MDn ptq “           e   .
+                     n“1
+                                                                       #Dn dPD
+                                                                             n
+
+
+    Our first main result is the following:
+Theorem 1.3. Let Dn “ t0, 1u for all n ě 1. Then there exists a sequence of
+tMn u8n“1 such that the Cantor-Moran measure µ in ( 1.5) satisfies the DEL criterion
+for all integers b ě 2 and hence is a pointwise absolutely normal measure. Moreover,
+the Moran set ( 1.4) is a set of uniqueness.
+
+   We will present the more precise version of the theorem in Theorem 1.7. This
+result demonstrates that having the DEL criterion for all integers b ě 2 also does not
+imply there is some uniform Fourier decay. Hence, statement pCq does not imply it
+supports a Rajchman measure and hence it does not imply statement pDq. As it is
+also a set of uniqueness, this result also shows that pCq does not imply pAq.
+   Our second contribution is to give a strong answer to (Qu) via the Hausdorff gauge
+functions. Recall that if φ : r0, 8q Ñ r0, 8q is an increasing and continuous function
+with φp0q “ 0, it is called a gauge function and the associated Hausdorff measure
+of a set E is defined by
+                                  Hφ pEq “ lim Hδφ pEq,
+                                                δÑ0
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                      5
+
+where                             #                                            +
+                                      8
+                                      ÿ                      8
+                                                             ď
+                  Hδφ pEq “ inf             φp|Ui |q : E Ă         Ui , |Ui | ď δ .
+                                      i“1                    i“1
+
+The following is our second main theorem of our paper:
+Theorem 1.4. Let φ : r0, 8q Ñ r0, 8q be an increasing function with φp0q “ 0 and
+r{φprq Ñ 0 as r Ñ 0. We can always find a compact set K such that Hφ pKq ą 0
+and K is an absolutely normal set of uniqueness.
+
+  This theorem also shows that an arbitrarily large set of uniqueness in terms of
+gauge functions exist. Moreover, its absolutely normal points form a dense subset
+with Hausdorff dimension equal to that of the set itself. The ultimate ideal goal
+would be to study the largeness of K XA in terms of the corresponding gauge function
+to see if we can indeed have Hφ pK X Aq ą 0. We are not able to show this for all
+gauge functions at this moment. However, we will show that it holds under a stronger
+assumption on φ (see Theorem 6.8).
+
+1.4. Self-similar set of uniqueness. In literature, although most people may not
+notice, absolutely normal sets of uniqueness with positive Hausdorff dimension already
+exist if we introduce some irrational scales in the construction. Recall that a self-
+similar iterated function system (IFS) on R is a finite set Φ “ tSi pxq “ ri x `
+ai um
+    i“1 of contracting linear transformations on R. By Hutchinson [19], for a given
+self-similar IFS tSi um
+                      i“1 on R, there is a unique nonempty compact set, called the
+attractor, K Ă R such that
+                                         ďm
+                                     K“      Si pKq.
+                                                i“1
+
+The existence of a set fulfilling (Qu) with positive Hausdorff dimension can be de-
+duced from a breakthrough result by Hochman and Shmerkin [18, Theorem 1.4].
+To construct one with positive Hausdorff dimension, one can consider an iterated
+function system
+(1.7)                             Φ “ tα´1 x, α´1 x ` 1u,
+where α is an irrational Pisot number such that α ą 2. Note that α is multiplicatively
+independent to all integers n ě 2. It can be claimed that the attractor K of this IFS
+is a set of uniqueness and simultaneously supports a probability measure that is
+pointwise n-normal for all n.
+   The fact that it is a set of uniqueness follows from the classical work of Salem and
+Zygmund [32]. For absolute normality, by Hochman and Shmerkin [18, Theorem 1.4],
+who proved that for C 1`η -regular IFS such that at least one of the maps f whose
+asymptotic contraction ratio λ ȷ β where β ą 1 is a Pisot number, then the invariant
+measure µ is pointwise β-normal. Here, a point x can be normal to a Pisot number β
+by considering its β-expansion, which includes also the case that β is an integer where
+β-expansion is our usual b-ary digit expansion. We can apply this result to self-similar
+IFS with Pisot contraction ratios as stated in (1.7) to obtain that its equal-weighted
+self-similar measure is pointwise absolutely normal. This implies that the set K is an
+absolutely normal set of uniqueness. By taking more contraction maps, it is possible
+6                             CHUN-KIT LAI AND YU-HAO XIE
+
+to construct an absolutely normal set of uniqueness with dimensional arbitrarily close
+to 1, but they never attain 1 (see Proposition 1.5 below).
+   There are many advances concerning the absolute normality of the associated in-
+variant measures for an IFS after the result by Hochman and Shmerkin [18]. They
+include [18, 36, 3, 23, 8, 13, 4]. Readers can refer to the recent survey by Algom
+[1] for these recent advances. In particular, the result by Dayan, Ganguly and B.
+Weiss, who proved that if a R Q, then the standard measure generated by the IFS
+t3´1 x, 3´1 x ` au is pointwise absolutely normal and the attractor is also a set of
+uniqueness after a conjugation of an affine map. However, such construction cannot
+be made to a full-dimensional set of uniqueness (see below).
+   Varjú and Yu [37] completely classified when a self-similar set K generated by the
+self-similar IFS Φ is a set of uniqueness. It occurs if and only if K has Lebesgue
+measure zero and the IFS can be conjugated to an IFS such that ri “ rℓi for some r
+such that r´1 is a Pisot number and ℓ1 , ¨ ¨ ¨ , ℓm P Zą0 , with gcdpℓ1 , ¨ ¨ ¨ , ℓm q “ 1, and
+ai P Qprq, the smallest number field containing r. This result generalized the classical
+result by Salem and Zygmund. Because of the classification, we have the following
+proposition.
+Proposition 1.5. A self-similar set of uniqueness must have Hausdorff dimension
+strictly less than 1.
+Proof. Suppose, for contradiction, that there exists a 1-dimensional self-similar set K
+that is also a set of uniqueness. By the result Varjú and Yu [37, Theorem 1.4], K must
+have zero Lebesgue measure; moreover, after a conjugation, K is generated by the
+self-similar IFS Φ “ trℓi x ` ai u1ďiďm , where r´1 is a Pisot number, ℓ1 , ¨ ¨ ¨ , ℓm P Zą0 ,
+gcdpℓ1 , ¨ ¨ ¨ , ℓm q “ 1, and ai P Qprq. Indeed, such IFS must satisfy the finite type
+condition (see [26, Theorem 2.9]), and thus satisfies the weak separation condition (by
+[27]). However, by a result of Zerner [38] (see also [5, Theorem 4.2.16]), a self-similar
+set with Hausdorff dimension one generated by such an IFS has positive Lebesgue
+measure—this directly contradicts the earlier conclusion that K has zero Lebesgue
+measure.                                                                                   □
+   Consequently, while it is possible to construct an absolutely normal set of unique-
+ness via self-similar IFS, there is no such set with full Hausdorff dimension by merely
+considering self-similar sets.
+   On the other hand, we can still provide an absolutely normal set of uniqueness of
+dimension one by taking a countable union. The construction was provided to us by
+De-Jun Feng: Let βi ą 2 and βi Ñ 2 as i Ñ 8 be a sequence of Pisot numbers.
+Then we know that the self-similar set Ei generated by the IFS tβi´1 x, βi´1 ` 1u is an
+absolutely normal set of uniqueness with Hausdorff dimension log 2{ log βi . Note that
+the property of being a set of uniqueness is preserved by affine transformations (see
+e.g. [21, p.71]). If we define Fi “ 2´i pEi q ` 2´i and define
+                                          8
+                                          ď
+                                     E“       Fi Y t0u.
+                                           i“1
+
+Then each Fi is a closed set of uniqueness and t0u is also a set of uniqueness. By a
+theorem of Bari, which states that a countable union of closed sets of uniqueness is
+also a set of uniqueness (see e.g. [21, p.41]), so E is a set of uniqueness and E is still
+          A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                      7
+
+compact in this case. Note that dimH pEq “ 1 since dimH pFi q Ñ 1. Finally, as each Fi
+is an absolutely normal set of uniqueness as stated before, dimH pFi X Aq “ dimH pFi q,
+we see that E is also an absolutely normal set of uniqueness. This construction
+provides an answer to (Qu), but is by no mean satisfactory since all points, except
+the origin, locally do not have Hausdorff dimension one.
+
+1.5. Outline of the Proof. We now outline the main strategy for the proof of The-
+orem 1.3 and Theorem 1.4. Compared to the construction using self-similar IFS with
+Pisot contraction ratios or involving irrational translation digits, Moran construction
+is in some sense more natural since it uses only regular digit expansions with multi-
+scale integer bases (no non-integer basis or irrational digits are involved). Our proof
+will be divided into three steps.
+Step I: Moran Set of uniqueness For x ě 0, we denote the fractional part of x by txu.
+The following theorem provides one of the most basic criterion to construct sets of
+uniqueness. There are other variants of this criterion, see [21].
+Theorem 1.6. [32, p.50 Theorem II] Let C Ă r0, 1s be a compact set. Suppose there
+exists a non-degenerate interval I Ă r0, 1s, and an increasing sequence tkj ujě1 of
+positive integers such that
+(1.8)                       tkj xu R I, for all x P C, j ě 1,
+then C is a set of uniqueness.
+
+   There is an easy way to produce a Moran set of uniqueness, which was first observed
+by Lai [22]. Suppose that
+                                    max Dn
+                                sup          ď L ă 1{2.
+                                nPN   Mn
+Then K defined in (1.4) will be a set of uniqueness. Indeed, we can apply Theorem
+1.6 by taking kj “ M1 ¨ ¨ ¨ Mj and I “ p2L, 1q. Then for all x P K, for all j ě 1,
+tkj xu R p2L, 1q. Consequently, if we are only concerned about how large a Moran set
+of uniqueness can be, this criterion already allows us to construct a set of uniqueness
+with Hausdorff dimension one. We leave it for interested readers.
+Step II: A thin set of absolute normal set of uniqueness. Constructing an absolutely
+normal set of uniqueness using the Moran construction requires much more significant
+work and we have to choose tMn un more strategically.
+   Let tqn uně1 be a strictly increasing sequence of prime numbers with qn “ Opnd q
+for some d ě 1 and q1 ě 7. Here, qn “ Opnd q is the standard big O-notation which
+means that the prime numbers tqn un have at most a polynomial growth. Let ℓn “ nd
+for n ě 1 and                     #
+                                      1, for r “ 0
+                            Nr “
+                                      q1ℓ1 ¨ ¨ ¨ qrℓr , for r ě 1.
+We now use these tqn un to form a Cantor-Moran measure with Mn , Dn “ t0, 1u and
+weights ωn , 0 ă ωn ă 1 for all n P N. Let
+                          8 ℓs`1 ´1 ´                              ¯
+(1.9)                µ“˚ ˚           ωn δ0 ` p1 ´ ωn qδNs´1 q´pj`1q ,
+                                                            s`1
+                         s“0   j“0
+8                             CHUN-KIT LAI AND YU-HAO XIE
+
+where we can write out Mn explicitly as follows:
+                                s
+                                ÿ
+(1.10)    Mn “ qs`1 , if n “          ℓi ` pj ` 1q for some s ě 0 and 0 ď j ď ℓs`1 ´ 1.
+                                i“1
+
+In other words,
+                                      1 , ¨ ¨ ¨ , q1 , loooomoooon
+                        tMn uně1 “ tqloooomoooon       q2 , ¨ ¨ ¨ , q2 , ¨ ¨ ¨ u.
+                                             ℓ1 times       ℓ2 times
+
+The following theorem constructs the absolutely normal set of uniqueness and Theo-
+rem 1.3 follows immediately from this.
+Theorem 1.7. Let tqn uně1 be a strictly increasing sequence of prime numbers such
+that qn “ Opnd q for some d ě 1 with q1 ě 7. Suppose also that the weights tωn un
+satisfies
+                            0 ă inf ωn ď sup ωn ă 1.
+                                       nPN            nPN
+
+Then the Cantor-Moran measure ( 1.9) satisfies the DEL criterion for all integers
+b ě 2 and is pointwise absolutely normal. Moreover, the associated Moran set is a set
+of uniqueness.
+
+   We can easily verify that KMn ,Dn is a set of uniqueness using Theorem 1.6 with
+kn “ M1 ¨ ¨ ¨ Mn and I “ p1{2, 1q. By taking all ωn “ 1{2, Theorem 1.3 follows.
+   The proof of Theorem 1.7 will be based on checking the criterion (1.2) in Theorem
+1.1. It is the main technical part and will occupy three sections of the paper. The
+proof shares the same strategy in the proof of [11, Lemma 2] where Cassels proved
+the middle-third Cantor measure is b-normal for b ȷ 3. One of the key ingredient in
+Cassels’s proof was the observation that when we expand hbn , 1 ď n ď 3r ´1 for some
+r ą 0, into the 3-adic expansions, we can exhaust all possible digit expansions. This
+fact leads to Fourier decay along those frequency values. In our Moran construction,
+we will have a multiscale digit expansions using Mn . By studying carefully the order
+of integers in the multiplicative group of integers modulo prime powers, we will also
+obtain well-distributed sets of digit expansions in Proposition 4.1. Fourier decay along
+this set leads to the DEL criterion.
+   In this construction, the Hausdorff dimension of K is zero due to the rapid growth
+of the sequence tqn un and we have chosen only two digits in all the digit sets Dn . Even
+if we take qn to be all prime numbers, by the prime number theorem, the Hausdorff
+dimension is still equal to 0. However, we will soon see that this forms the basis for
+produce those desired large dimensional sets.
+Step III: Full-dimensional absolutely normal set of uniqueness .
+  In order to create the desired set with Hausdorff dimension 1, we form Mn as
+in (1.10). The key tool is to consider the convolution of the measures we found
+in Theorem 1.7 to form a set of large Hausdorff dimension. We lay out a general
+procedure and then we will carefully compute the dimensions on the sets in the
+Section 6.
+  Recall that Dn “ t0, 1u for all n ě 1 , and µ is the Cantor-Moran measure generated
+by tMn uně1 and tDn uně1 in (1.9) and ωn “ 1{2 for all n P N, so that we have Theorem
+             A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                     9
+
+1.7. Associated with µ, we define tEn uně1 to be a sequence of digit sets by
+(1.11) En “ t0, 2, 4, ¨ ¨ ¨ , an u, where 2 ă an ă Mn ´ 1, and an is an even number,
+for n ě 1. Let
+                                         8   1 ÿ
+                                  ν“˚               δd¨pM1 ¨¨¨Mn q´1
+                                        n“1 #En dPE
+                                                      n
+
+be the Cantor-Moran measure generated by tMn uně1 and tEn uně1 . Since convolution
+of the Dirac measures is supported on the arithmetic sum of the supports, we have
+that
+                                                      8
+                                             µ ˚ ν “ ˚ λn ,
+                                                     n“1
+where Fn “ Dn ` En and λn “ δDn ˚ δEn “ δFn . More explicitly,
+                                      Fn “ t0, 1, ¨ ¨ ¨ , an ` 1u,
+                                              an `1
+                                           1 ÿ
+                                   λn “             δj¨pM1 ¨¨¨Mn q´1 .
+                                          #Fn j“0
+Let K be the homogeneous Moran set generated by tMn uně1 and tFn uně1 , i.e.,
+                  #                                      +
+                     8                                             8
+                    ÿ         dn                                  č                ď
+(1.12)       K“                      : dn P Fn for all n “                                      Id1 ¨¨¨dn .
+                    n“1
+                         M1 ¨ ¨ ¨ Mn                              n“1 pd1 ,¨¨¨ ,dn qPF1 ˆ...ˆFn
+                 “řn             ´1 řn            ´1       ´1
+                                                              ‰
+Here Id1 ¨¨¨dn “     k“1 d k M k   ,  k“1 d k M k    ` M n      , where we write Mk “ M1 ¨ ¨ ¨ Mk
+in short. Note that tId1 ¨¨¨dn : n ě 1 and di P Fi for 1 ď i ď nu are the basic intervals
+that generate K.
+Proposition 1.8.   (1) µ ˚ ν is a pointwise absolutely normal measure fully sup-
+      ported on K.
+  (2) Suppose that
+                                                   an ` 1  5
+(1.13)                                   lim inf          ă .
+                                          nÑ8       Mn     6
+         Then K is a set of uniqueness.
+
+Proof. (1). We just need to use the fact that |z
+                                               µ ˚ ν| “ |p
+                                                         µ||p
+                                                            ν | ď |p
+                                                                   µ| as |p
+                                                                          ν p¨q| is bounded
+above by one, we obtain for all integer b ě 2 and non-zero integer h,
+          8       N ´1 N ´1                          8       N ´1 N ´1
+         ÿ     1 ÿ ÿ                  n     m
+                                                    ÿ     1 ÿ ÿ
+                3
+                             µ
+                            |z ˚ νphpb  ´ b   qq| ď        3
+                                                                        µphpbn ´ bm qq|.
+                                                                       |p
+         N “1
+              N   m“0 n“0                           N “1
+                                                         N   m“0 n“0
+
+It follows immediately from Theorem 1.7 that the above sum is finite. This conver-
+gence implies that µ ˚ ν is pointwise absolutely normal by Theorem 1.1.
+(2). The assumption (1.13) shows that we can find some c ă 5{6 and a subsequence
+tnj ujě1 such that panj ` 1qMn´1
+                               j
+                                 ď c. Recall that for all x P K, x is represented as
+                              8
+                              ÿ      dn
+                        x“                    , where dn P Fn for n ě 1.
+                              n“1
+                                  M1 ¨ ¨ ¨ Mn
+10                            CHUN-KIT LAI AND YU-HAO XIE
+
+Let tkj ujě1 be a sequence of integers defined by kj “ M1 ¨ ¨ ¨ Mnj ´1 , j ě 1. For all
+x P K and j ě 1, the fractional part of kj x is less than or equal to
+                                          8
+                                anj ` 1 ÿ     Mnj `i ´ 1
+                                       `
+                                 Mnj     i“1
+                                             Mnj ¨ ¨ ¨ Mnj `i
+                                     8
+                                     ÿ 1              1
+                              ďc `              “c`     ă 1,
+                                     i“1
+                                           7i         6
+where the first inequality holds since Mn are the primes qn in which we have chosen
+them to be at least 7. It follows that for all x P K and j ě 1,
+                                          ˆ         ˙
+                                                1
+                                 tkj xu R c ` , 1 .
+                                                6
+This shows that K is a set of uniqueness by Theorem 1.6.                             □
+   To prove Theorem 1.4, we need to choose a Moran measure ν so that µ ˚ ν has
+unequal weight. However, the Hausdorff dimension of the measure µ ˚ ν is still equal
+to 1, which means every Borel set E with µ ˚ νpEq ą 0 has Hausdorff dimension 1.
+The careful dimensional calculation will be given in Section 6.
+   The rest of the paper will be devoted to proving Theorem 1.7 and Theorem 1.4.
+It will be organized as follows. In Section 2, we provide some number theoretic
+preliminaries. In Section 3, we set up all the notations and constants that will be
+used in the proof Theorem 1.7. In Section 4, we obtain the structural information
+of the digit distribution that are prepared for the main estimates. In Section 5, we
+combine the conclusions in Section 3 and Section 4 to complete the proof of Theorem
+1.7. In Section 6, we prove Theorem 1.4 and other dimensional results. We end the
+paper with some open questions in Section 7.
+
+                                   2. Preliminaries
+   We will present results in elementary number theory that we will use in this paper.
+Most of them are standard (readers can skip this section if wanted). Since we will be
+applying these properties in some complicated expressions, it is more convenient to
+list out all these properties for the readers.
+
+2.1. Congruence, greatest common divisor and least common multiple. Let
+n be a positive integer. Two integers a and b are said to be congruent modulo n
+if there exists some integer k such that a ´ b “ kn. Usually, we use the following
+notation
+                                    a ” b pmod nq.
+Let a and b be two positive integers. We use gcdpa, bq to denote the greatest common
+divisor (gcd) of a and b. We say a is coprime to b if gcdpa, bq “ 1. We call b is
+divisible by a if there exists an integer k such that b “ ka. This is written as a|b.
+The remainder of b is divided by a is written as b pmod aq The following properties
+about gcd are well known (see e.g. [10]).
+Lemma 2.1. Let a, b, c, d be positive integers. The following statements hold:
+     (i) If gcdpa, cq “ 1, then gcdpa, bq “ gcdpa, bcq.
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                11
+
+    (ii) If gcdpa, bq “ d, then gcdpa{d, b{dq “ 1.
+   (iii) Suppose gcdpc, dq “ 1. Then a ” b pmod cq if and only if da ” db pmod cq.
+   (iv) a ” b pmod cq if and only if da ” db pmod dcq.
+    (v) a ” b pmod cq if and only if a ´ d ” b ´ d pmod cq.
+   (vi) Suppose gcdpa, bq “ 1. If a|c and b|c, then ab|c.
+
+  The following simple lemma will be used in Section 4.
+Lemma 2.2. Let a, b, c be positive integers and A a subset of N Y t0u. The following
+statements hold:
+    (i) Suppose gcdpa, cq “ 1, then
+                     #tax pmod cq : x P Au “ #tx pmod cq : x P Au.
+    (ii) #tx ´ b pmod cq : x P Au “ #tx pmod cq : x P Au.
+   (iii) Suppose b|c and b|x, for all x P A. Then
+                   #tx pmod cq : x P Au “ #tx{b pmod c{bq : x P Au.
+
+Proof. To prove part (i), let x1 , x2 P A. By Lemma 2.1 (iii), ax1 ” ax2 pmod cq if and
+only if x1 ” x2 pmod cq. This implies part (i). Similarly, part (ii) and part (iii) are
+direct corollaries of Lemma 2.1 (v) and (iv) respectively.                            □
+
+    Let n be a positive integer, and let a1 , ¨ ¨ ¨ , an be n positive integers. The least
+common multiple of a1 , ¨ ¨ ¨ , an is the least positive integer that is divisible by each
+ai , 1 ď i ď n. It is denoted by lcmpa1 , ¨ ¨ ¨ , an q. The following properties are also well
+known. We will skip the proof.
+Lemma 2.3. Let n be a positive integer. Let a1 , ¨ ¨ ¨ , an and b1 , ¨ ¨ ¨ , bn be positive
+integers. The following statements hold:
+     (i) lcmpa1 , ¨ ¨ ¨ , an q ď a1 ¨ ¨ ¨ an .
+    (ii) lcmpa1 b1 , ¨ ¨ ¨ , an bn q ď a1 ¨ ¨ ¨ an ¨ lcmpb1 , ¨ ¨ ¨ , bn q.
+   (iii) Let k be a positive integer. Then lcmpka1 , ¨ ¨ ¨ , kan q “ k ¨ lcmpa1 , ¨ ¨ ¨ , an q.
+   (iv) Suppose n ě 2 and gcdpai , b1 q “ 1, for 2 ď i ď n. Then
+                      lcmpa1 b1 , a2 , ¨ ¨ ¨ , an q “ b1 ¨ lcmpa1 , a2 , ¨ ¨ ¨ , an q.
+   (v) Suppose for all 1 ď i ‰ j ď n, gcdpai , aj q “ 1. Then
+                                pa1 ¨ ¨ ¨ an q | lcmpa1 b1 , ¨ ¨ ¨ , an bn q.
+
+2.2. Euler’s totient function and order of an integer modulo n. For n ě 1,
+let ϕpnq denote Euler’s totient function, which is the number of positive integers not
+exceeding n that are coprime to n. Let n P N. It is well known ϕpnq satisfies the
+following formula
+                                          źˆ        1
+                                                      ˙
+(2.1)                          ϕpnq “ n ¨      1´       ,
+                                          p|n
+                                                    p
+
+(See e.g. [10, Theorem 7.3]). In particular, if p is a prime number and k is a positive
+integer, then ϕppk q “ pp ´ 1qpk´1 (See e.g. [10, Theorem 7.1]).
+12                             CHUN-KIT LAI AND YU-HAO XIE
+
+  Fix the integer n ě 2. Let a ě 2 be an integer satisfying gcdpa, nq “ 1. The
+smallest positive integer m satisfying
+(2.2)                                  am ” 1 pmod nq
+is called the order of a modulo n. We denote this value by ordn paq. In particular,
+tam : m P Nu forms a cyclic group of order ordn paq in Zˆ
+                                                        n , the multiplicative group of
+integers (mod n) that are coprime to n. We record these properties in the following
+lemma.
+Lemma 2.4. [10, Theorem 8.1, Theorem 8.2] Let a, n ě 2 be two integers with
+gcdpa, nq “ 1. Then
+      (i) Let h be a non-negative integer. Then ah ” 1 pmod nq if and only if ordn paq|h.
+     (ii) am1 ” am2 pmod nq if and only if m1 ” m2 pmod ordn paqq.
+
+   By the famous Euler’s theorem, aϕpnq ” 1 pmod nq. Hence, by Lemma 2.4 (i),
+we know that ordn paq | ϕpnq. In particular, ordn paq ď ϕpnq. However, it is not
+always the case that the equality holds. A major part in elementary number theory
+is to determine for which n there exists an a, known as the primitive root, such that
+ordn paq “ ϕpnq. However, we are going to investigate the other opposite side by
+making use of the fact that ordn paq ă ϕpnq if n is a large prime power. They play a
+key role in constructing our example.
+Theorem 2.5. [25, Theorem 3.6] Let p be an odd prime. Let a ě 2 be an integer
+with gcdpa, pq “ 1. Let d “ ordp paq. Let k “ kpa, pq be the largest integer such that
+ad ” 1pmod pk q. Then
+                                     #
+                                      d,       j “ 1, ¨ ¨ ¨ , k
+(2.3)                    ordpj paq “      j´k
+                                      d¨p , j ěk
+
+  Moreover, the following lemma tells us how to compute order for general n if we
+know the prime powers.
+Lemma 2.6. [35, Page 71, Theorem 9 & Exercise 2] Let a ě 2 be an integer. Let
+p1 , ¨ ¨ ¨ , pn be n distinct primes with gcdpa, pi q “ 1 for 1 ď i ď n. Let m1 , ¨ ¨ ¨ , mn be
+n positive integers. Then
+                                                 ´                                ¯
+                       ordpm1
+                              1 ¨¨¨pmn paq “ lcm
+                                    n
+                                                   ord m1 paq, ¨ ¨ ¨ , ord mn paq
+                                                      p1                  pn        .
+
+     We also need the following simple properties about order and ϕpnq.
+Lemma 2.7. Let a ě 2 be an integer. Let n and m be two positive integers satisfying
+gcdpa, nq “ gcdpa, mq “ 1. Suppose n | m. Then
+      (i) ordn paq | ordm paq. In particular, ordn paq ď ordm paq.
+     (ii) ϕpnq | ϕpmq. In particular, ϕpnq ď ϕpmq.
+
+Proof. For part (i), denote t “ ordm paq and s “ ordn paq. It follows that m | at ´ 1.
+Since n | m, we get n | at ´ 1 (i.e. at ” 1(mod n)). By Lemma 2.4 (i), it follows s | t.
+  For part (ii), reader may refer to [10, Problems 7.2, Exercise 13].                □
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                             13
+
+  Throughout the remainder of this paper, a discrete interval ra : bs or pa : bq Ă Z is
+the set
+            ra : bs “ tn P Z : a ď n ď bu, pa : bq “ tn P Z : a ă n ă bu
+We say that a discrete interval I has length m if #I “ m (# denotes the cardinality).
+Lemma 2.4 (2) immediately implies the following corollary.
+Corollary 2.8. Suppose a, n ě 2 are integers with gcdpa, nq “ 1, and let I be a
+discrete interval in Zě0 with length at least ordn paq. Then
+                              #tam (mod nq : m P Iu “ ordn paq.
+Consequently, suppose I0 is a discrete interval of length ordn paq. Then all elements in
+tam (mod nq : m P I0 u are distinct and it consists of exactly ordn paq elements.
+
+2.3. Digit representation. Given a sequence of natural numbers tMn u8      n“1 where
+Mn ě 2, we can always use it to represent all natural numbers. For all non-negative
+integer N , there exists a unique sequence of digits tdn pN quně0 where 0 ď dn pN q ď
+Mn ´ 1, such that
+                                               8
+                                               ÿ
+(2.4)                         N “ d0 pN q `          dn pN q ¨ M1 ¨ ¨ ¨ Mn ,
+                                               n“1
+
+and dn pN q = 0 for all sufficiently large n. Typically, we refer to (2.4) as the digit
+representation of the number N under the mixed radix bases tMn u.
+  The following simple lemma, though elementary, but is the key observation that
+connects the digit representations with the residue classes taking modulo of radix
+bases. This fact will be exploited in Section 4 in Lemma 4.2. Because of its impor-
+tance, we prove it for completeness.
+Lemma 2.9. Let a, b be two non-negative integers. Then a ” b (mod M1 ¨ ¨ ¨ Mn q if
+and only if dj paq “ dj pbq for all 0 ď j ď n ´ 1.
+
+Proof. If dj paq “ dj pbq for all 0 ď j ď n ´ 1, then taking modulo of M1 ¨ ¨ ¨ Mn in
+(2.4), we see that
+                                   n´1
+                                   ÿ
+                 a ” d0 paq `            dj paq ¨ M1 ¨ ¨ ¨ Mj pmod M1 ¨ ¨ ¨ Mn q.
+                                   j“1
+
+Hence, a ” b (mod M1 ¨ ¨ ¨ Mn q. Conversely, if a ” b (mod M1 ¨ ¨ ¨ Mn q, then
+                        n´1
+                        ÿ                                        n´1
+                                                                 ÿ
+             d0 paq `         dj paq ¨ M1 ¨ ¨ ¨ Mj “ d0 pbq `          dj pbq ¨ M1 ¨ ¨ ¨ Mj
+                        j“1                                      j“1
+
+and the sum is equal because the above sum are lying in t0, ¨ ¨ ¨ , M1 ¨ ¨ ¨ Mn ´ 1u.
+But 0 ď d0 paq, d0 pbq ď M1 ´ 1 and the above implies that d0 paq ” d0 pbq (mod M1 ),
+so d0 paq “ d0 pbq. We can proceed by induction to show that all other digits are
+equal.                                                                             □
+14                           CHUN-KIT LAI AND YU-HAO XIE
+
+             3. Proof of Theorem 1.7 (I): Setup and Notations
+   The next three sections will be devoted to proving Theorem 1.7. We need to show
+that for the measure in (1.9), it satisfies the DEL criterion for all integers b ě 2 in
+Theorem 1.1. In this section, we will set up all the necessary notations and constants
+that will be used throughout.
+   As in the introduction, we fix a strictly increasing subsequence of primes tqn un with
+qn “ Opnd q for some d ě 1 , and q1 ě 7 (We need a slightly larger prime to make the
+estimation of trigonometric polynomials in Lemma 3.2 holds). Define also ℓn “ nd
+for n ě 1. Let
+                                  #
+                                       1, for r “ 0
+(3.1)                       Nr “
+                                       q1ℓ1 ¨ ¨ ¨ qrℓr , for r ě 1,
+
+(3.2)     Mn “ qs`1 , if n “ Ls ` pj ` 1q for unique s ě 0 and 0 ď j ď ℓs`1 ´ 1,
+where
+                                                      s
+                                                      ÿ
+                                  L0 :“ 0, Ls :“            ℓi ,
+                                                      i“1
+for s ě 1. Using this choice of Mn to form the mixed radix bases, we see that M1 ¨ ¨ ¨ Mn
+                     j
+are of the form Ns qs`1 . We therefore obtain a digit representation of all non-negative
+integers N as in (2.4), which can be written as
+                                  8 ℓs`1
+                                  ÿ   ÿ´1                       j
+(3.3)                       N“                dLs `j pN q ¨ Ns qs`1 ,
+                                  s“0   j“0
+
+for all non-negative integers N (all the digits will eventually be zero). The digits
+tdLs `j pN qusě0,0ďjďℓs`1 ´1 satisfy 0 ď dLs `j pN q ď qs`1 ´ 1, for s ě 0 and 0 ď j ď
+ℓs`1 ´ 1. For the rest of the paper, tdLs `j pN qu always represents the digit set in (3.3).
+   Next, we compute the Fourier transform of µ in (1.9) using (1.6). Since Dn “ t0, 1u
+for n ě 1, MDn pξq “ ωn ` p1 ´ ωn qe´2πiξ . We have
+                                               ˇ2
+            |MDn pξq|2 “ ˇωn ` p1 ´ ωn qe´2πiξ ˇ “ 1 ´ 2ωn p1 ´ ωn q p1 ´ cos p2πξqq ,
+                           ˇ
+(3.4)
+and
+
+                                             ˇ      ˜         ¸ˇ
+                                    8 ℓs`1
+                                        ź´1 ˇˇ
+                                   ź                     ξ     ˇ
+(3.5)                      µpξq| “           ˇM D n            ˇ.
+                                                               ˇ
+                          |p                              j`1
+                                   s“0 j“0
+                                             ˇ        Ns qs`1 ˇ
+
+  For x ě 0, let txu denote the fractional part of x. The following two lemmas show
+that the size of the Fourier transform (3.5) is determined by the distribution of the
+digit set tdLs `j pN qu.
+Lemma 3.1. Let N be a non-negative integer. Let s ě 0 and 0 ď k ď ℓs`1 ´ 1 be
+two integers. Then
+                                 "         *
+                   dLs `k pN q       N         dLs `k pN q ` 1
+(3.6)                          ď       k`1
+                                             ď                 .
+                     qs`1          Ns qs`1          qs`1
+             A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                 15
+
+Proof. Let M be the integer that is the digit representation of N at the length Ls `
+k ` 1, i.e.
+            $
+                k
+                   dj pN q ¨ q1j , if s “ 0,
+            ’
+            ’   ř
+            ’
+            &
+               j“0
+         M“
+            ’   ř ℓi`1
+               s´1   ř´1                      j
+                                                   k
+                                                   ř                   j
+            ’
+            ’
+            %             d Li `j pN  q ¨ N q
+                                           i i`1 `   dLs `j pN q ¨ Ns qs`1 , if s ě 1.
+                 i“0    j“0                         j“0
+
+                        k`1
+Clearly, M ” N pmod Ns qs`1 q. Notice that
+                                    k                                 k
+                  dLs `k pN q ¨ Ns qs`1 ď M ď pdLs `k pN q ` 1q ¨ Ns qs`1 .
+It follows
+                              dLs `k pN q     M      dL `k pN q ` 1
+                                          ď     k`1
+                                                    ď s             ,
+                                qs`1        Ns qs`1      qs`1
+which proves (3.6).                                                                 □
+Lemma 3.2. Let C “ inf ωn ą 0 and D “ sup ωn ă 1. For s ě 0 and 0 ď j ď
+ℓs`1 ´ 1, if
+                           Yq ]                      Yq ]
+                              s`1                      s`1
+(3.7)                              ď dLs `j pN q ď 2       ,
+                               3                        3
+then there exists a constant 0 ă γ ă 1 such that
+                                 ˇ    ˜          ¸ˇ
+                                 ˇ        N       ˇ
+(3.8)                            ˇMDn             ˇ ď γ,
+                                 ˇ                ˇ
+                                             j`1
+                                 ˇ      Ns qs`1 ˇ
+for all s ě 0 and 0 ď j ď ℓs`1 ´ 1.
+
+Proof. Recall that qs`1 ě 7 for all s ě 0 . By combining this with Lemma 3.1 and
+(3.7), we obtain the following two inequalities. First,
+                                               Yq ]
+            #         +                          s`1
+                 N         dLs `j pN q ` 1   2        `1  2    1    5
+                         ď                 ď      3      ď `      ď .
+                  j`1
+              Ns qs`1           qs`1             qs`1     3 qs`1    6
+
+Second,
+                                                  Yq         ]
+                  #             +                      s`1
+                        N               dLs `j pN q     3   1   1   1
+                          j`1       ě               ě      ě ´     ě .
+                      Ns qs`1             qs`1        qs`1  3 qs`1  6
+                                j`1 ´1
+This shows that cosp2πN ¨ pNs qs`1  q q ď 1{2. Putting back to (3.4), we see that
+                 ˇ    ˜         ¸ˇ2                  ˆ       ˙
+                 ˇ        N       ˇ                        1
+                 ˇMDn       j`1 ˇˇ ď 1 ´ 2Cp1 ´ Dq 1 ´         ă 1.
+                 ˇ                ˇ
+                 ˇ      Ns qs`1                            2
+
+Taking γ to be the square root on the right completes the proof.                    □
+
+                                                                       µpN q| ď γ w by
+  The above lemma tells us that if we have w digits satisfying (3.7), |p
+(3.5). This leads us into studying the digit distributions.
+16                           CHUN-KIT LAI AND YU-HAO XIE
+
+3.1. Constants for the proof of Theorem 1.7. Let 2 “ p1 ă p2 ă ¨ ¨ ¨ ă pn ă ¨ ¨ ¨
+be the sequence of all prime numbers, where pn denotes the n-th prime number.
+To verify (1.1), we will fix b, h P N throughout. Associated with b and h, we de-
+fine the following quantities depending on b and h. We first decompose them into
+prime factorization, so there exist two positive integers m1 , m2 and non-zero integers
+α1 , ¨ ¨ ¨ , αm1 , β1 , ¨ ¨ ¨ , βm2 such that
+                                                      α
+(3.9)                                b “ pα1 1 ¨ ¨ ¨ pmm1 1 ,
+                                                       β
+(3.10)                               h “ pβ1 1 ¨ ¨ ¨ pmm22 .
+We will consider the following positive integers:
+(3.11)                   r01 “ inftn ě 1 : qn ě maxtpm1 , pm2 uu,
+                      ␣                                                          (
+(3.12)        n0 “ inf n ě 1 : gcdphbn , Nr01 q “ gcdphbm , Nr01 q, for all m ě n ,
+
+(3.13)                             Q “ gcdphbn0 , Nr01 q.
+  We first justify the well-definedness of n0 and show that the gcd will remain the
+same after the bases Nr01 .
+Lemma 3.3.        (i) n0 ă 8.
+  (ii) For all n ě n0 , s ě r01 and 0 ď j ď ℓs`1 ´ 1,
+                                               j
+(3.14)                           gcdphbn , Ns qs`1 q “ Q.
+Proof. To prove n0 ă 8, we first note the following: the integer-valued function
+gcdphbn , Nr0 q is non-decreasing in n and bounded above by Nr0 for all n. Fur-
+thermore, since gcdphbn , Nr01 q takes an integer value for every n ě 1 , the limit
+limnÑ8 gcdphbn , Nr01 q exists—and this limit equals gcdphbm0 , Nr01 q for some integer
+m0 . Hence, n0 ă 8.
+   To prove (3.14), first, by the definition of n0 , for all n ě n0 ,
+(3.15)                             gcdphbn , Nr01 q “ Q.
+Next, let n ě n0 , and let s ě r01 , 0 ď j ď ℓs`1 ´ 1. By the definition of Ns ,
+    j
+Ns qs`1 {Nr01 is an integer with no prime factor less than or equal to qr01 . Therefore, by
+             j
+(3.11), Ns qs`1  {Nr01 is relatively prime to both b and h. Thus,
+                                             j
+(3.16)                         gcdphbn , Ns qs`1 {Nr01 q “ 1.
+                                     j
+Let x “ hbn , y “ Nr01 and z “ Ns qs`1  {Nr01 . (3.15) and (3.16) respectively says that
+we have gcdpx, yq “ Q and gcdpx, zq “ 1. Using the property of gcd in Lemma 2.1
+(i),
+                                j
+                  gcdphbn , Ns qs`1 q “ gcdpx, yzq “ gcdpx, yq “ Q.
+We conclude that (3.14) holds.                                                        □
+  The following lemma explains the reason for defining Q and r01 , which is to have a
+well-defined order for b when we consider large mixed radix basis in our sequence.
+Lemma 3.4. For s ě r01 and 0 ď j ď ℓs`1 , the following statements hold:
+                  j
+          `             ˘
+   (i) gcd b, Ns qs`1 {Q “ 1.
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                          17
+
+   (ii) gcdpb, qs`1 q “ 1.
+Consequently, ordNs qj {Q pbq and ordqs`1 pbq are well-defined for all s ě r01 and 0 ď j ď
+                     s`1
+ℓs`1 .
+Proof. For part (i), by applying Lemma 3.3 (ii) with n “ n0 , and then using a property
+of gcd in Lemma 2.1 (ii), we have
+                                      j
+                                 `                   ˘
+(3.17)                        gcd Ns qs`1 {Q, hbn0 {Q “ 1.
+Similarly, by applying Lemma 3.3 (ii) with n “ n0 ` 1, and then using Lemma 2.1
+(ii), it follows
+                                 j
+                            `                         ˘
+(3.18)                   gcd Ns qs`1 {Q, phbn0 {Qq ¨ b “ 1.
+By applying Lemma 2.1 (i), (3.17) combined with (3.18) yields that
+                      j                   j
+                 `             ˘      `                        ˘
+              gcd Ns qs`1 {Q, b “ gcd Ns qs`1 {Q, phbn0 {Qq ¨ b “ 1.
+  For part (ii), by part (i), for s ě r01 , we have gcdpb, Ns q “ gcdpb, Ns qs`1 q “ 1.
+Similar with the arguments in proving part (i), by applying Lemma 2.1 (i), it follows
+                             gcdpb, qs`1 q “ gcdpb, Ns ¨ qs`1 q “ 1.
+This completes the proof.                                                                  □
+
+3.2. Well-distributed sets. Lemma 3.2 tells us that to establish the DEL crite-
+rion, we need to estimate the Fourier transform by studying the digit distribution
+of dLs `j phbn ´ hbm q. The goal of this subsection is to formulate the notion of well-
+distributed set over a large portion of digit within rLs ` 1 : Ls`1 ´ 1s.
+   To quantify the portions that we need, we first use Theorem 2.5 for r ě r01 ` 1, let
+kpb, qr q be the largest integer such that
+(3.19)                            bordqr pbq ” 1 (mod qrkpb,qr q q.
+We define a sequence of integers tkr urě1 by
+                                  #
+                                   0,         1 ď r ď r01
+(3.20)                      kr “
+                                   kpb, qr q, r ě r01 ` 1
+Lemma 3.5. Let tkr urě1 be the sequence of integers defined in ( 3.20). Let c ą 0 be
+a constant such that qn ď c ¨ nd . Then for all r ě r01 ` 1,
+                                                        rd
+(3.21)                                kr ď c log b ¨         .
+                                                       log r
+Moreover, for all r ě r01 ` 1,
+(3.22)                            ordqrℓr pbq “ qrjr ¨ ordqrkr pbq.
+
+Proof. For r ě r01 ` 1, by (3.19), we must have qrkr ď bordqr pbq . Since ordqr pbq ď ϕpqr q “
+qr ´ 1, it follows qrkr ď bqr ´1 . Therefore,
+                                                     qr
+                                      kr ď log b ¨        .
+                                                   log qr
+Since qr ď crd and qr ě r for all r ě 1, we have (3.21).
+18                                     CHUN-KIT LAI AND YU-HAO XIE
+
+   For the second claim, by the definition of tkr urě1 in (3.20), for r ě r01 ` 1, kr is the
+largest integer such that
+                                bordqr pbq ” 1 (mod qrkr q.
+By Theorem 2.5, we have
+                                          ordqrℓr pbq “ qrℓr ´kr ¨ ordqr pbq
+(3.23)
+                                                         “ qrjr ¨ ordqr pbq.
+In addition, by Theorem 2.5 and the definition of kr , we have ordqrkr pbq “ ordqr pbq.
+This, combined with (3.23), leads to (3.22).                                         □
+   Recall that we have defined ℓr “ rd , we finally define the sequence of integers
+tjr urě1 by
+(3.24)                                          jr “ ℓr ´ kr , r ě 1.
+Note that by Lemma 3.5,
+                                                               ˆ                  ˙
+                                                           d            log b
+                                 jr “ ℓr ´ kr ě r                  1´c¨               Ñ8
+                                                                        log r
+as r Ñ 8. We let r02 be the smallest r so that jr ą 0. Then we define
+(3.25)                                            r0 “ maxtr01 , r02 u,
+where r01 was defined in (3.11). The fact that jr Ñ 8 will be crucial in the final
+estimate in (5.31). Over intervals of length jr digits, we now describe the digit
+distribution that we need.
+Definition 3.6. Let c, d P N Y t0u with r0 ď c ă d. Define
+(3.26)        Yc,d :“ t0, 1, ¨ ¨ ¨ , qc`1 ´ 1ujc`1 ˆ ¨ ¨ ¨ ˆ t0, 1, ¨ ¨ ¨ , qd ´ 1ujd Ă Rjc`1 `¨¨¨`jd .
+In addition, we define Πc,d : pm : 8q Ñ Yc,d by
+     n ÞÑpdLc `kc`1 phbn ´ hbm q, ¨ ¨ ¨ , dLc`1 ´1 phbn ´ hbm q, ¨ ¨ ¨ , dLd´1 `kd phbn ´ hbm q, ¨ ¨ ¨ ,
+          dLd ´1 phbn ´ hbm qq.
+Let Λ Ă pm : 8q with #Λ “ #Yc,d . We say Λ is well-distributed with respect to
+Πc,d if Πc,d pΛq “ Yc,d .
+     In particular, a well-distributed set Λ has the cardinality
+                                                               j
+                                                        c`1
+                                                 #Λ “ qc`1  ¨ ¨ ¨ qdjd .
+If we write in terms of the mixed radix bases, we have the following patterns:
+                                  1 , ¨ ¨ ¨ q1 , looomooon
+                       tMn u “ tqlooomooon       q1 , ¨ ¨ ¨ q1 , looomooon
+                                                                 q2 , ¨ ¨ ¨ q2 , looomooon
+                                                                                 q2 , ¨ ¨ ¨ q2 , ¨ ¨ ¨ u,
+                                      k1 times j1 times k2 times j2 times
+
+where ks ` js “ ℓs for all s ě 1. The condition about well-distributed sets Λ means
+that when n runs through all Λ, all possible choices of digits are attained in the range
+of the positions rLc `kc`1 : Lc`1 ´1sY¨ ¨ ¨YrLd´1 `kd : Ld ´1s (position corresponding
+to the later js many qs for all c ` 1 ď s ď d). These positions represent integers in
+the range
+                             kc`1
+                        rNc qc`1  : Nc`1 q Y ¨ ¨ ¨ Y rNd´1 qdkd : Nd q
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                          19
+
+(See the grey region in Figure 1), and they are all filled up by the image of the
+well-distributed set.
+
+
+3.3. Outline of the proof. Now we can outline the proof for the next two sections.
+   (1) Section 4 will be devoted to studying a number theoretic property. We will
+       show that all intervals I Ă pm : 8q of length ordNr {Q pbq is a disjoint union of
+       well-distributed sets with respect to Πr0 ,r . This property depends only on the
+       choice of our prime numbers qn .
+   (2) In Proposition 5.2, we will prove a uniform estimate that holds for all suffi-
+       ciently large r and for all well-distributed sets Λ with respect to Πr0 ,r :
+                                                                    řr
+                                             j `1
+                  ÿ
+                      µphbn ´ hbm q| ď A ¨ qr0r0`1
+                     |p                            ¨ ¨ ¨ qrjr ¨ e´B¨ i“r0 `1 ji ,
+                   nPΛ
+
+       where A and B are two positive constants. Combining with the well-distributed
+       partition in Step (1), we will obtain a similar estimate for all intervals I of
+       length ordNr {Q pbq.
+   (3) In Proposition 5.3, we cover the range rm ` 1 : Nr ´ 1s by intervals of length
+       ordNr {Q pbq and apply step (2), we will obtain
+                         Nÿ
+                          r ´1                                              řr
+                                  µphbn ´ hbm q| ď 2A ¨ Nr e´B¨ i“r0 `1 ji .
+                                 |p
+                         n“m`1
+
+   (4) Finally, decomposing the sum in the DEL criterion (1.2) into
+                 8        8                         N ´2 N ´1
+                ÿ     1   ÿ             ÿ        2 ÿ ÿ
+                        `                                      µphpbn ´ bm qq| ,
+                                                              |p
+                N “1
+                     N 2 r“1 N            ăN ďN
+                                                N 3
+                                                    m“0 n“m`1
+                                    r´1         r
+
+
+         we can carefully gather all the growth rate estimates to show that the sum is
+         finite. This will complete the proof.
+  Before we move towards the next section, let us establish that Step (1) is possible
+by showing the following proposition.
+                                                         r0 `1         ´j
+Proposition 3.7. For r ě r0 ` 1, J :“ ordNr {Q pbq ¨ qr0 `1    ¨ ¨ ¨ qr´jr is an integer.
+
+Proof. To show that J is an integer, for r ě r0 ` 1 ě r01 ` 1, note that
+                                                              ℓ
+                                 Nr {Q “ pNr0 {Qq ¨ qr0r0`1
+                                                          `1
+                                                             ¨ ¨ ¨ qrℓr .
+
+By the definition of Q (See (3.13)), Nr0 {Q is an integer. It follows
+                                          ℓ
+                                      qr0r0`1
+                                            `1
+                                               ¨ ¨ ¨ qrℓr | pNr {Qq.
+
+Combine this with Lemma 2.7 (i), we have
+(3.27)                             ord ℓr0 `1          pbq | ordNr {Q pbq.
+                                       qr `1 ¨¨¨qrℓr
+                                          0
+20                                   CHUN-KIT LAI AND YU-HAO XIE
+
+In addition, by Lemma 2.6 and (3.23),
+                                                    ˆ                                           ˙
+                ord ℓr0 `1         pbq “ lcm ord ℓr0 `1 pbq, ¨ ¨ ¨ , ordqrℓr pbq
+                   qr `1 ¨¨¨qrℓr                 qr `1
+                     0                             0
+(3.28)                                      ˆ                                                 ˙
+                                              jr0 `1                             jr
+                                       “ lcm qr0 `1 ¨ ord kr0 `1 pbq, ¨ ¨ ¨ , qr ¨ ordqrkr pbq .
+                                                                       qr `1
+                                                                           0
+
+
+                                                                                            j
+By Property of lcm in (v) of Lemma 2.3, it follows that qr0r0`1
+                                                              `1
+                                                                 ¨ ¨ ¨ qrjr divides
+                               ˆ                                                                ˙
+                                    j `1
+                         lcm       qr0r0`1 ¨ ordqkr0 `1 pbq, ¨ ¨ ¨ , qrjr ¨ ordqrkr pbq             .
+                                                     r0 `1
+
+
+
+In other words, by (3.28), we have
+
+                                       j
+(3.29)                                qr0r0`1
+                                            `1
+                                               ¨ ¨ ¨ qrjr | ord ℓr0 `1               pbq.
+                                                                 qr `1 ¨¨¨qrℓr
+                                                                   0
+
+
+
+Combine (3.27) and (3.29), we have
+
+                                            j
+                                           qr0r0`1
+                                                 `1
+                                                    ¨ ¨ ¨ qrjr | ordNr {Q pbq,
+
+which shows that J is an integer.                                                                       □
+
+  Finally, we compute ordNr {Q pbq. The formula is crucial in finding the well-distributed
+components.
+
+Lemma 3.8. For s ě r0 ,
+
+                                                  s`1        j
+(3.30)                         ordNs`1 {Q pbq “ qs`1  ¨ ordN qks`1 {Q pbq.
+                                                                               s s`1
+
+
+
+
+Proof. By the fundamental theorem of arithmetic, there exist an integer s1 with 1 ď
+s1 ď s , s1 positive integers γ1 , ¨ ¨ ¨ , γs1 and integers i1 , ¨ ¨ ¨ , is1 with 1 ď i1 ă ¨ ¨ ¨ ă
+is1 ď s such that
+                                                                           γ
+(3.31)                                          Ns {Q “ qiγ11 ¨ ¨ ¨ qiss11 .
+
+Then we have
+                                                                       γ         ℓ
+(3.32)                                 Ns`1 {Q “ qiγ11 ¨ ¨ ¨ qiss11 ¨ qs`1
+                                                                        s`1
+                                                                            ,
+
+and
+                                            k                              γ         k
+(3.33)                                    s`1
+                                     Ns qs`1  {Q “ qiγ11 ¨ ¨ ¨ qiss11 ¨ qs`1
+                                                                          s`1
+                                                                              .
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                               21
+
+It follows that
+     ordNs`1 {Q pbq “ ordqγ1 ¨¨¨qγs1 ¨qℓs`1 pbq pBy p3.32qq
+                          i1     i 1   s`1
+                           ˆ s                                           ˙
+                    “ lcm ordqiγ1 pbq, ¨ ¨ ¨ , ordqγs1 pbq, ordqℓs`1 pbq     pby Lemma 2.6q
+                                     1             i 1          s`1
+                                                    s
+                           ˆ                                                    ˙
+                                                             js`1
+                    “ lcm ordqiγ1 pbq, ¨ ¨ ¨ , ordqγs1 pbq, qs`1 ¨ ordqks`1 pbq    pby (3.22)q
+                                     1             i 1                  s`1
+                                                    s
+                                      ˆ                                         ˙
+                       js`1
+                    “ qs`1 ¨ lcm ordqiγ1 pbq, ¨ ¨ ¨ , ordqγs1 pbq, ordqks`1 pbq
+                                              1              i 1           s`1
+                                                              s
+                       j
+                       s`1
+                   “ qs`1  ¨ ordqγ1 ¨¨¨qγs1 ¨qks`1 pbq pby Lemma 2.6q
+                                  i1    i 1       s`1
+                                         s
+                       j
+                       s`1
+                   “ qs`1  ¨ ordN qks`1 {Q pbq pby p3.33qq,
+                                  s s`1
+
+                                                                       s`1       j
+where the fourth equation follows from Lemma 2.3 (iv), as qs`1                is coprime to all
+ordqi 1 pbq for all 1 ď j ď s . This holds since for all 1 ď i ď s , ordqi i pbq divides ϕpqiγi q,
+    γ                        1                                    1      γ
+    j
+
+and ϕpqiγi q “ pqi ´ 1qqiγi ´1 is coprime to qs`1 . This completes the proof of (3.30). □
+
+             4. Proof of Theorem 1.7 (II): Distribution of digits
+   The goal of this section is to prove the following proposition mentioned in Step (1)
+of the outline of the proof. The constants used in this section will be found in Section
+3. In particular, J defined in (4.1) below is an integer by Proposition 3.7.
+Proposition 4.1. (well-distributed partitions) Let m be an integer with m ě
+n0 ´ 1. Let I Ă pm : 8q be an interval of length ordNr {Q pbq. Then the interval I can
+be written as the disjoint union of
+                                                        ´j
+                                                       r0 `1
+(4.1)                          J :“ ordNr {Q pbq ¨ qr0 `1    ¨ ¨ ¨ qr´jr
+many subsets Λ1 , ¨ ¨ ¨ , ΛJ , where Λk is well-distributed associated with Πr0 ,r for all
+1 ď k ď J.
+
+  To begin, we first introduce the following natural map induced by the digit repre-
+sentation (3.3) of hbn ´ hbm for n P pm : 8q. Let N P N. Define
+                                       N
+                                       ź
+                             XN :“       t0, 1, ¨ ¨ ¨ , Mi ´ 1u Ă RN .
+                                       i“1
+
+Define ΦN : pm : 8q Ñ XN by
+(4.2)                  n ÞÑ pd0 phbn ´ hbm q, ¨ ¨ ¨ , dN ´1 phbn ´ hbm qq.
+  The following lemma is a direct corollary of Lemma 2.9.
+Lemma 4.2. Let N P N and Λ be a subset of pm : 8q. Then
+             #thbn ´ hbm (mod M1 ¨ ¨ ¨ MN q : n P Λu “ #tΦN pnq : n P Λu.
+
+  Let us first investigate the injectivity and surjectivity of ΦN below.
+22                             CHUN-KIT LAI AND YU-HAO XIE
+
+Lemma 4.3. Let r be an integer with r ě r0 `1. Let m be an integer with m ě n0 ´1.
+Let s and j be integers with r0 ď s ď r ´ 1 and 0 ď j ď ℓs`1 , respectively.
+  Then the following statements hold:
+     (i) Let I Ă pm : 8q be an interval whose length is at least ordNs qj                          pbq. Then
+                                                                                          s`1 {Q
+
+(4.3)                      #tΦLs `j pnq : n P Iu “ ordNs qj                pbq.
+                                                                  s`1 {Q
+
+     (ii) Let I0 Ă pm : 8q be an interval of length ordNs qj                    pbq. Let n1 , n2 P I0 . Then
+                                                                       s`1 {Q
+
+                          n1 “ n2 ðñ ΦLs `j pn1 q “ ΦLs `j pn2 q.
+         i.e. ΦLs `j is injective on I0 .
+Proof. We start by proving part (i). First, by Lemma 4.2,
+                                                            j
+(4.4)          #tΦLs `j pnq : n P Iu “ #thbn ´ hbm (mod Ns qs`1 q : n P Iu.
+By Lemma 2.2 (ii), the right hand side of (4.4) is equal to
+                                              j
+(4.5)                          #thbn (mod Ns qs`1 q : n P Iu.
+Note that for n P I, we have n ě m ` 1 ě n0 . Then by Lemma 3.3 (ii), for all n P I,
+we have
+                                               ˜            ¸
+                                                   n    j
+                              j                  hb Ns qs`1
+(4.6)           gcdphbn , Ns qs`1 q “ Q ùñ gcd       ,        “1
+                                                  Q    Q
+by a property of gcd (c.f. Lemma 2.1 (ii)). Therefore, another property of gcd implies
+(c.f. Lemma 2.2 (iii)),
+                                            #      ˜              ¸       +
+                                                n              j
+                           j                  hb          N  q
+                                                            s s`1
+         #thbn (mod Ns qs`1  q : n P Iu “ #         mod             :nPI .
+                                               Q             Q
+Hence, to prove (4.3), it suffices to show
+                   #       ˜                ¸        +
+                                        j
+                     hbn            Ns qs`1
+(4.7)           #            mod              : n P I “ ordNs qj {Q pbq.
+                      Q               Q                        s`1
+
+
+
+Note that for n P I,
+                                            ˆ          ˙
+                                    hbn         hbn0
+(4.8)                                   “                  ¨ bn´n0 .
+                                     Q           Q
+Combining (4.8), (4.6) with n “ n0 and Lemma 2.2 (i), we obtain
+        #       ˜               ¸        +   #       ˜                ¸     +
+                            j                                     j
+           hbn          Ns qs`1                             N s q s`1
+(4.9) #           mod             : n P I “ # bn´n0 mod                 :nPI .
+            Q             Q                                    Q
+                              j
+  By Lemma 3.4 (i), b and Ns qs`1 {Q are coprime, then by Corollary 2.8, we have
+                #        ˜                 ¸        +
+                                       j
+                                N  s q s`1
+(4.10)       # bn´n0 mod                     : n P I “ ordNs qj {Q pbq.
+                                    Q                         s`1
+
+
+
+Combining (4.9) and (4.10) gives (4.7). This completes the proof of part (i).
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                          23
+
+  For part (ii), we just need to establish the converse side. Suppose that ΦLs `j pn1 q “
+ΦLs `j pn2 q, where n1 , n2 P I0 . By Lemma 2.9, this is also equivalent to hbn1 ´ hbm ”
+                         j
+hbn2 ´ hbm (mod Ns qs`1     q. This is equivalent to
+                                                                ˜               ¸
+                                                      n1     n2              j
+                                        j          hb      hb           N  q
+                                                                          s s`1
+(4.11)         hbn1 ” hbn2 pmod Ns qs`1    q ðñ          ”        mod             ,
+                                                     Q      Q              Q
+                                                         j
+since Q is the common divisor of hbn1 , hbn2 and Ns qs`1    . Since n1 , n2 P I0 , we have
+                            ni        ni ´n0     n0
+n1 , n2 ě n0 . Note that hb {Q “ b           ¨ hb {Q for i “ 1, 2. Combining this with
+(4.6) (with n “ n0 ), we find that (4.11) holds if and only if the following congruence
+holds:
+                                               ˜            ¸
+                                                         j
+                                                    N  q
+                                                      s s`1
+(4.12)                      bn1 ´n0 ” bn2 ´n0 mod
+                                                       Q
+(c.f. Property of gcd in Lemma 2.1 (iii)). Note that the interval I0 has length
+ordNs qj {Q pbq. Then, by Corollary 2.8, (4.12) holds if and only if n1 ´ n0 “ n2 ´ n0 ,
+       s`1
+or equivalently, n1 “ n2 . This proves part (ii).                                    □
+
+  We recall the definition of Yc,d in (3.26). In particular, we have
+                             Ys,s`1 “ t0, 1 ¨ ¨ ¨ , qs`1 ´ 1ujs`1 .
+We also note that for n P N, by the definition ΦN and Πr,s , we have the following
+(4.13)                    ΦLs`1 pnq “ pΦLs `ks`1 pnq, Πs,s`1 pnqq.
+Lemma 4.4. Let r be an integer with r ě r0 `1. Let m be an integer with m ě n0 ´1.
+Let s be an integer satisfying r0 ď s ď r ´ 1, and let I Ă pm : 8q be an interval with
+length ordNs`1 {Q pbq. Then for all n1 P I and y P Ys,s`1 , there exists a unique n2 P I
+such that Πs,s`1 pn2 q “ y and
+(4.14)                       ΦLs`1 pn2 q “ pΦLs `ks`1 pn1 q, yq.
+Proof. By Lemma 4.3 (i), the following two equalities hold:
+ #tΦLs`1 pnq : n P Iu “ ordNs`1 {Q pbq, and #tΦLs `ks`1 pnq : n P Iu “ ordN qks`1 {Q pbq.
+                                                                                   s s`1
+
+By Lemma 3.8 and the above, we have
+                                          s`1  j
+(4.15)           #tΦLs`1 pnq : n P Iu “ qs`1  ¨ #tΦLs `ks`1 pnq : n P Iu.
+Let x1 , ¨ ¨ ¨ , xW be all the distinct elements in tΦLs `ks`1 pnq : n P Iu, where W “
+#tΦLs `ks`1 pnq : n P Iu. Let also
+               Ai :“ tΦLs`1 pnq : n P I, ΦLs `ks`1 pnq “ xi u, i “ 1, ¨ ¨ ¨ , W.
+We claim that Ai “ txi u ˆ Ys,s`1 . To see this, equality (4.15) can be rewritten as
+                                     W
+                                     ÿ             j
+                                                   s`1
+(4.16)                                     #Ai “ qs`1  ¨ W.
+                                     i“1
+                                 j
+                               s`1
+  As #tΠs,s`1 pnq : n P Iu ď qs`1  , with the first Ls ` ks`1 coordinates fixed, it follows
+              js`1
+that #Ai ď qs`1 for all 1 ď i ď W . On the other hand, (4.16) forces that for all
+                                       js`1
+1 ď i ď W , the cardinality of Ai is qs`1   . Note that for all 1 ď i ď W , clearly, Ai is
+24                               CHUN-KIT LAI AND YU-HAO XIE
+
+                                                                      s`1      j
+a subset of txi u ˆ Ys,s`1 and the cardinality of txi u ˆ Ys,s`1 is qs`1  . It follows that
+Ai “ txi u ˆ Ys,s`1 for 1 ď i ď W .
+  With the claim justified. We take any n1 P I. Since ΦLs `ks`1 pn1 q is an element in
+txi u1ďiďW . By the claim, we have
+         tΦLs`1 pnq : n P I, ΦLs `ks`1 pnq “ ΦLs `ks`1 pn1 qu “ tΦLs `ks`1 pn1 qu ˆ Ys,s`1 .
+Therefore, for all y P Ys,s`1 , there always exists n2 P I such that (4.14) holds.
+  Finally, we will show n2 satisfying (4.14) is unique. Suppose that we have n2 , n12
+both satisfy (4.14). Then it implies that
+                                     ΦLs`1 pn2 q “ ΦLs`1 pn12 q.
+Applying Lemma 4.3 (ii), n2 “ n12 follows.                                                     □
+Lemma 4.5. Let r be an integer with r ě r0 `1. Let m be an integer with m ě n0 ´1.
+Let s be an integer satisfying r0 ď s ď r ´ 1, and let I Ă pm : 8q be an interval with
+length ordNs`1 {Q pbq. Then
+    (1) for s ě r0 ` 1, for all x P Yr0 ,s , and y, z P Ys,s`1 ,
+                     `                       ˘      ` ´1              ˘
+(4.17)             # Π´1r0 ,s`1 tpx, yqu X I “ # Πr0 ,s`1 tpx, zqu X I ,
+
+        where px, yq, px, zq P Yr0 ,s ˆ Ys,s`1 .
+    (2) for all y, z P Yr0 ,r0 `1 ,
+                           `                     ˘   ` ´1               ˘
+(4.18)                  # Π´1   r0 ,r0 `1 tyu X I “ # Πr0 ,r0 `1 tzu X I .
+
+Proof. (1). It suffices to show that
+                     `                        ˘   ` ´1                  ˘
+(4.19)             # Π´1 r0 ,s`1 tpx, yqqu X I ď # Πr0 ,s`1 tpx, zqu X I .
+
+By the symmetry of y and z, the above is indeed an equality, which will therefore
+show (4.17). Take n1 P Π´1
+                        r0 ,s`1 tpx, yqu X I. Note that
+
+                               Πr0 ,s`1 pnq “ pΠr0 ,s pnq, Πs,s`1 pnqq .
+It follows that Πr0 ,s pn1 q “ x and Πs,s`1 pn1 q “ y. By Lemma 4.4, there exists unique
+n2 P I such that
+(4.20)                  ΦLs `ks`1 pn2 q “ ΦLs `ks`1 pn1 q, Πs,s`1 pn2 q “ z.
+From the definition of ΦLs `ks`1 in (4.2), it contains the coordinates corresponding
+to Πr0 ,s . We have Πr0 ,s pn2 q “ Πr0 ,s pn1 q “ x. In addition, note that Πs,s`1 pn2 q “ z.
+Hence, n2 P Π´1 r0 ,s`1 tpx, zqu X I. In order to show (4.19), it suffices to show that the
+map n1 ÞÑ n2 is an injective map, i.e. if n1 ‰ n11 , then the corresponding n2 ‰ n12 .
+  Suppose n1 ‰ n11 . By Lemma 4.3 (ii), it follows
+(4.21)                               ΦLs`1 pn1 q ‰ ΦLs`1 pn11 q.
+Note that for n P N,
+(4.22)                       ΦLs`1 pnq “ pΦLs `ks`1 pnq, Πs,s`1 pnqq.
+As Πs,s`1 pn1 q “ Πs,s`1 pn11 q “ y since n1 , n11 P Π´1 r0 ,s`1 tpx, yqu, combining this with
+                                                      1
+(4.21), it follows that ΦLs `ks`1 pn1 q ‰ ΦLs `ks`1 pn1 q. Then by (4.20),
+                                  ΦLs `ks`1 pn2 q ‰ ΦLs `ks`1 pn12 q,
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                   25
+
+which implies that
+                              ΦLs`1 pn2 q ‰ ΦLs`1 pn12 q.
+By Lemma 4.3 (ii), it follows n2 ‰ n12 . Therefore, the inequality (4.19) holds. This
+completes the proof.
+  (2). It is essentially the same proof. By symmetry, it suffices to show that
+                          `                   ˘     ` ´1                 ˘
+(4.23)                 # Π´1r0 ,r0 `1 tyu X I   ď #  Π r0 ,r0 `1 tzu X I   .
+We follow the same argument for (1). Take n1 P Π´1
+                                                r0 ,r0 `1 tyu X I. By Lemma 4.4,
+there exist unique n2 P I such that
+(4.24)                ΦLr0 `1 pn2 q “ ΦLr0 `kr0 `1 pn1 q, Πr0 ,r0 `1 pn2 q “ z.
+We just need to show that n1 ÞÑ n2 is injective. Following the same argument and
+replacing (4.22) by
+                         ΦLr0 `1 pnq “ pΦLr0 `kr0 `1 pnq, Πr0 ,r0 `1 pnqq.
+The rest of the proof will remain the same.                                                          □
+
+                                                js`1                                       j
+                                               qs`1  points                                 s`2
+                                                                                          qs`2  points
+
+
+0
+                                           k
+                                           s`1
+                                      Ns qs`1                 Ns`1                    ks`1
+                                                                                  Ns qs`1                 Ns`2
+
+         Figure 1. Corollary 4.6 showed that when hbn ´ hbm is expanded
+         into the digit expansion (3.3), where n runs over an interval of length
+                                                                 ks`1
+         ordNs`2 {Q pbq, all possible digit combinations in pNs qs`1  : Ns`1 q and
+                ks`2
+         pNs`1 qs`2 : Ns`2 q (the grey intervals above) are achieved and they all
+         have equal number of preimages. This is also true for all such intervals
+         starting from r0 . This leads to the partition in Proposition 3.6.
+
+Corollary 4.6. Let r be an integer with r ě r0 ` 1. Let m be an integer with
+m ě n0 ´ 1. Let s be an integer satisfying r0 ď s ď r ´ 1, and let I Ă pm : 8q be an
+interval with length ordNs`1 {Q pbq. Then
+    (1) for s ě r0 ` 1, for all x P Yr0 ,s and y P Ys,s`1 , the following equality holds:
+                     `               ˘     js`1   ` ´1                  ˘
+(4.25)             # Π´1r0 ,s txu X I “ qs`1 ¨ # Πr0 ,s`1 tpx, yqu X I ,
+
+    (2) for s “ r0 , for all y P Yr0 ,r0 `1 , we have
+                                             j `1      `                  ˘
+(4.26)              #I “ ordNr0 `1 {Q pbq “ qr0r0`1 ¨ # Π´1
+                                                         r0 ,r0 `1 tyu X I .
+
+Proof. (1). When s ě r0 ` 1, for x P Yr0 ,s , note that Π´1  r0 ,s txu X I is the disjoint union
+    ´1
+of Πr0 ,s`1 tpx, yqu X I over y P Ys,s`1 , we have
+                       `               ˘    ÿ      `                        ˘
+                     # Π´1r0 ,s txu X I “        # Π´1
+                                                     r0 ,s`1 tpx, yqu X I .
+                                           yPYs,s`1
+26                                           CHUN-KIT LAI AND YU-HAO XIE
+
+By (4.17) in Lemma 4.5, the cardinality in the sum are all the same for all y P Ys,s`1 ,
+                js`1
+and #Ys,s`1 “ qs`1   . This establishes (4.25).
+  (2). Since the interval I is the disjoint union of Π´1   r0 ,r0 `1 tyu X I over y P Yr0 ,r0 `1 , we
+have
+                                    ÿ        `                       ˘
+(4.27)                    #I “            # Π´1 r0 ,r0 `1 tyu   X  I   .
+                                                 yPYr0 ,r0 `1
+
+By (4.18) in Lemma 4.5, each set in the sum shares the same cardinality, then (4.26)
+follows.                                                                          □
+     Using Corollary 4.6, we are ready to establish our main result in this section.
+Proof of Proposition 4.1. Recall that I is an interval of length ordNr {Q pbq contained
+in pm : 8q. It suffices to claim the following:
+  Claim: For all y P Yr0 ,r ,
+                 `               ˘                       ´jr0 `1
+(4.28)        # Π´1                                                   ´jr
+                    r0 ,r tyu X I “ J :“ ordNr {Q pbq ¨ qr0 `1 ¨ ¨ ¨ qr .
+
+   Suppose the claim holds. We collect one element from each Π´1                 r0 ,r tyu X I to form
+S1 , ¨ ¨ ¨ , SJ . Hence, the interval I can be divided into J disjoint subsets S1 , ¨ ¨ ¨ , SJ ,
+                                          j `1
+where each Sk has cardinality qr0r0`1          ¨ ¨ ¨ qrjr for 1 ď k ď J. In addition, from our
+definition of Sk , we have Πr0 ,r pSk q “ Yr0 ,r . It follows that Sk is well-distributed with
+respect to Πr0 ,r for all 1 ď k ď J.
+   We will prove the claim (4.28) by induction on r. When r “ r0 ` 1. This has been
+already proved in Corollary 4.6 (See equality (4.26)). Suppose that (4.28) holds for
+r “ t, where r0 ` 1 ď t ď r ´ 1. We will show that (4.28) also holds for r “ t ` 1.
+   Let I be an interval of length ordNt`1 {Q pbq contained in pm : 8q. Let y P Yr0 ,t`1 .
+Then there exist y1 P Yr0 ,t and y2 P Yt,t`1 such that y “ py1 , y2 q. Note that
+the interval I can be divided into M disjoint intervals I1 , ¨ ¨ ¨ , IM , where M “
+ordNt`1 {Q pbq{ordNt {Q pbq (By Lemma 2.7 (i), M is an integer). We require that for
+all 1 ď k ď M , the interval Ik has length ordNt {Q pbq. By the induction hypothesis,
+for all 1 ď k ď M ,
+                          `                  ˘                   ´jr0 `1     ´jt
+(4.29)                  # Π´1r0 ,t ty1 u X Ik “ ordNt {Q pbq ¨ qr0 `1 ¨ ¨ ¨ qt .
+
+Since I is the disjoint union of I1 , ¨ ¨ ¨ , IM , it follows
+                                             M
+                                             ÿ
+              `                      ˘              `                   ˘
+          #       Π´1
+                   r0 ,t ty1 u X I       “         # Π´1
+                                                      r0 ,t ty1 u X I k
+                                             k“1
+(4.30)                                                               ´j
+                                                                  r0 `1
+                                         “ M ¨ ordNt {Q pbq ¨ qr0 `1    ¨ ¨ ¨ qt´jt     pby p4.29qq
+                                                                ´j
+                                                                r0 `1
+                                         “ ordNt`1 {Q pbq ¨ qr0 `1    ¨ ¨ ¨ qt´jt     pby the definition of M q.
+Next, applying the equality (4.25) in Corollary 4.6 with s “ t, we have
+                  `                  ˘     jt`1     ` ´1                       ˘
+(4.31)          # Π´1r0 ,t ty1 u X I   “ qt`1   ¨ #  Πr0 ,t`1 tpy1 , y2 qu X I   .
+Combining (4.30) and (4.31), it follows
+               `                          ˘                    ´jr0 `1      ´jt`1
+            # Π´1 r0 ,t`1 tpy1 , y2 qu X I “ ordNt`1 {Q pbq ¨ qr0 `1 ¨ ¨ ¨ qt`1 ,
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                             27
+
+which finishes the induction step and hence the proof of the claim. The proof of the
+proposition is now complete.                                                      □
+
+          5. Proof of Theorem 1.7 (III): Completion of the proof
+   We will complete the proof of Theorem 1.7 in this section. Without explicit men-
+tioning, we will continue using all constants and notations defined in Section 3. Let
+m ě 1. Recall in Lemma 3.2, if for some n ą m, we have
+                        Yq ]                              Yq ]
+                          s`1                 n    m         s`1
+(5.1)                           ď dLs `j phpb ´ b qq ď 2         ,
+                           3                                  3
+then the cosine factor will be at most γ ă 1. If we have w such digits, the Fourier
+transform |pµphbn ´ hbm q| will be at most γ w . Because of this, we first estimate the
+number of elements with such digit distribution in a well-distributed set.
+Lemma 5.1. Let m ě 1, r ě r0 ` 1 and let u “ ri“r0 `1 ji . Suppose that Λ is a
+                                                         ř
+well-distributed set associated with Πr0 ,r . For each 0 ď k ď u, we define
+        Bk “ tn P Λ : Πr0 ,r pnq contains exactly k entries such that p5.1q holdsu.
+Then we have
+                           ˆ ˙                  ˆ ˙k ˆ ˙u´k
+                            u jr0 `1         jr  1    2
+(5.2)                #Bk ď     qr0 `1 ¨ ¨ ¨ qr              “: Cpkq
+                            k                    2    3
+for all 0 ď k ď u. If u ě 6000, then there exist constants 0 ă α ď 0.998 and C
+                                                                             r ą 0,
+both of which are independent of r and u, such that
+                            ´Y u ]¯
+                          C         ďCr ¨ qrjr0`1
+                                                `1
+                                                   ¨ ¨ ¨ qrjr ¨ uαu .
+                                             0
+                               6
+Proof. Let s be an integer with r0 ď s ď r ´ 1. Since we have chosen q1 ě 7, we have
+                             Yq ]
+                               s`1
+                                     `1    1     1     1
+(5.3)                           3       ď `          ď ,
+                                 qs`1      3 qs`1      2
+and
+                               Yq ]                 qs`1
+                                  s`1
+                        qs`1 ´        ´1     qs`1 ´
+(5.4)                              3      ď           3 “ 2.
+                               qs`1              qs`1      3
+  To find an upper bound for the cardinality of the set Bk , we first recall that the
+definition
+              Yr0 ,r “ t0, 1, ¨ ¨ ¨ , qr0 `1 ´ 1ujr0 `1 ˆ ¨ ¨ ¨ ˆ t0, 1, ¨ ¨ ¨ , qr ´ 1ujr .
+Yr0 ,r consists of u dimensional vectors, denoted by py1 , ¨ ¨ ¨ , yu q.
+   For each coordinates yi , there corresponds a unique pair ps, jq such that the digit
+yi “ dLs `j phpbn ´ bm qq via the mapping Πr0 ,r . Let us fix k of the coordinates in Yr0 ,r
+and denote it by Y . Define
+            Bk pY q “ tn P Bk : p5.1q holds exactly at coordinates from Y u.
+If yi is a coordinate in Yr0 ,r , then there exists unique s P tr0 , ¨ ¨ ¨ , r ´ 1u such
+                                                                                      Y q that
+                                                                                             ] yi
+                                                                                         s`1
+takes values in t0, 1, ¨ ¨ ¨ , qs`1 ´1u. If (5.1) holds at yi P Y , there are exactly         `1
+                                                                                          3
+28                             CHUN-KIT LAI AND YU-HAO XIE
+                                                                            ´Y q ]     ¯
+                                                                                s`1
+many such digits to choose from. While if yi R Y , there are exactly qs`1 ´         `1
+                                                                                 3
+many digits to choose from. By the property that Λ is a well-distributed set, Πr0 ,r is
+a bijection. Therefore,
+             #Bk pY q
+              ź ´Y qs`1 ]             ¯ ź´                 Yq ]
+                                                               s`1
+                                                                         ¯
+            “                     `1 ¨             qs`1 ´           ´1
+              yi PY
+                           3              yi RY
+                                                                3
+                                      ¨ Y qs`1 ]        ˛         ¨         Yq ]
+                                                                                s`1
+                                                                                        ˛
+(5.5)                                              `  1             q s`1 ´         ´ 1
+               j `1
+                                      ˝ 3                                        3
+                                ź                           ź
+            “qr0r0`1 ¨ ¨ ¨ qrjr                         ‚¨        ˝                     ‚
+                                yi PY
+                                              q s`1        yi RY
+                                                                            q s`1
+
+                                ˆ ˙k ˆ ˙u´k
+               j `1                 1      2
+            ďqr0r0`1 ¨ ¨ ¨ qrjr                         pby p5.3q and p5.4qq.
+                                    2      3
+                         `u˘ union of Bk pY q over all possible pairs Y with exactly
+Note that Bk is the disjoint
+#Y “ k. Since there are k distinct ways to choose these k coordinates, we can use
+(5.5) to derive:
+                               ÿ
+                     #Bk “          #Bk pY q
+                                  Y :#Y “k
+(5.6)                            ˆ ˙                  ˆ ˙k ˆ ˙u´k
+                                  u jr0 `1         jr  1    2
+                               ď     qr0 `1 ¨ ¨ ¨ qr              .
+                                  k                    2    3
+This shows that (5.2) holds. To prove the second inequality, by a direct calculation,
+                                                         3u ´ 4
+                           Cpkq ă Cpk ` 1q ðñ k ă               .
+                                                             7
+In particular, it is enough for us to consider Cpkq on k ă tu{6u where it is increasing.
+By the Stirling’s formula, there exists a constant C1 ą 0 that is independent of r and
+u such that
+                       ˆ     ˙
+                         Yu
+                          u ]  “ ´Y u ]¯ ´
+                                           u!
+                                                Y u ]¯
+                          6             !   u ´       !
+                                    6             6
+(5.7)                                                uu
+                               ď C1 ¨                           [ _.
+                                      ´Y u ]¯ u ´       Y u ]¯u´ u
+                                              [ _
+
+                                               6 u´               6
+                                         6                6
+  Since u ě 6000, we have u{6 ´ 1 ě p999{6000qu. Combining this with (5.7), we
+have
+               ˆ     ˙
+                 Yu                       uu
+                  u ]  ď C1 ¨                      ¨      ˛
+                                      ˜
+                                        u   ¸        5u
+                  6           ´u    ¯ ´1 ˆ 5u ˙˝ ‚
+                                                      6
+                                  ´1 6
+(5.8)                           6               6
+                                           u
+                                          u                  ´u     ¯
+                       ď C1 ¨                              ¨    ´ 1
+                              p999u{6000qu{6 p5u{6qp5u{6q     6
+                           ď C1 ¨ u ¨ p6000{999qu{6 p6{5q5u{6 .
+            A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                       29
+                                                                  ´Y u ]¯
+Hence, we establish the following upper bound for C                      ,
+                                                                     6
+                    ´Y u ]¯ ˆ u ˙                               ˆ ˙ u ´1 ˆ ˙u´ u
+                                           j `1                  1 6       2   6
+                  C        ď Y u ] ¨ qr0r0`1       ¨ ¨ ¨ qrjr ¨
+(5.9)                  6                                         2         3
+                               6
+                            r ¨ qrjr0`1
+                           ďC         `1
+                                         ¨ ¨ ¨ qrjr ¨ uαu pby (5.8)q,
+                                   0
+
+
+where α “ p6000{999q1{6 p6{5q5{6 p1{2q1{6 p2{3q5{6 ď 0.998 and C
+                                                               r “ 2C1 .                 □
+  The following lemma obtains the estimate of the µ
+                                                  p over a well-distributed set.
+Proposition 5.2. Let µ be the measure defined in ( 1.9). Then there exist two positive
+constants A and B, and a large integer r1 such that for all r ě r1 , all
+(5.10)                                    m ě n0 ´ 1,
+and all well-distributed set Λ Ă pm : 8q , the following inequality holds:
+                                                                     řr
+                                             j `1
+                   ÿ
+(5.11)                 µphbn ´ hbm q| ď A ¨ qr0r0`1
+                      |p                            ¨ ¨ ¨ qrjr ¨ e´B¨ i“r0 `1 ji .
+                   nPΛ
+
+Moreover, for every interval I Ă pm : 8q with length ordNr {Q pbq and for all r ě r1 ,
+                 ÿ                                            řr
+(5.12)                µphbn ´ hbm q| ď A ¨ ordNr {Q pbq ¨ e´B¨ i“r0 `1 ji .
+                     |p
+                    nPI
+
+Proof. Let R be a large integer such that for all x ě R, the inequality
+(5.13)                                   p1.001qx ě x2
+holds. Next, define r1 “ r0 `maxt6000, Ru. Let r ě r1 . Let m be an integer satisfying
+(5.10), and let Λ Ă pm : 8q be a well-distributed set.
+  For 0 ď k ď u, let Bk be the set defined in Lemma 5.1. Since rřě r1 ě r0 ` 6000,
+and ji is a positive integer for all i ě r0 , it follows that u “ ri“r0 `1 ji ě 6000.
+By Lemma 5.1, we have #Bk ď Cpkq for all 0 ď k ď u, where Cpkq is defined in
+(5.2). Furthermore, Cpkq is increasing when k ď tu{6u, and there exist constants
+0 ă α ď 0.998 and C r ą 0, both of which are independent of r and u, such that
+                             ´Y u ]¯
+(5.14)                    C          ďCr ¨ qrjr0`1
+                                                 `1
+                                                    ¨ ¨ ¨ qrjr ¨ uαu .
+                                              0
+                                6
+  Since Λ “ uk“0 Bk and the union is disjoint, the left hand side of the inequality
+              Ť
+(5.11) can be written as
+                                ÿu ÿ
+(5.15)                                  µphbni ´ hbm q|.
+                                       |p
+                                   k“0 iPBk
+
+We proceed to provide an estimate of this summation (5.15). By (3.5), for n P N,
+                                            ˇ      ˜               ¸ˇ
+                                   8 ℓs`1
+                                       ź´1 ˇˇ           n      m
+                                  ź                  phb  ´ hb   q  ˇ
+(5.16)           µphbn ´ hbm q| “           ˇM D n                  ˇ.
+                                                                    ˇ
+                |p                                         j`1
+                                  s“0 j“0
+                                            ˇ          Ns qs`1      ˇ
+By combining Lemma 3.2 and the definition of Bk , for n P Bk ,
+(5.17)                                µphbn ´ hbm q| ď γ k ,
+                                     |p
+30                                 CHUN-KIT LAI AND YU-HAO XIE
+
+where γ was defined in Lemma 3.2. Moreover, since u “ ri“r0 `1 ji ě R, we have
+                                                          ř
+
+p1.001qu ě u2 (by (5.13)). Combining this with α ď 0.998, we have
+
+(5.18)                 u2 αu ď pα ` 0.001αqu ď pα ` 0.001qu ď p0.999qu .
+
+   We are going to show the inequality (5.11). We divide the summation (5.15) into
+two parts: the first over k from 0 to tu{6u, and the second over k from tu{6u ` 1 to
+u. For the first part, we just bound the left hand side of the inequality (5.11) using
+ µpξq| ď 1, we see that
+|p
+                    ÿ
+                         µphbn ´ hbm q| ď #Bk ď Cpkq ď C ptu{6uq
+                        |p
+                        nPBk
+
+by the monotonicity of Cp¨q. Hence,
+              tu{6u
+               ÿ       ÿ
+                              µphbn ´ hbm q| ď ptu{6u ` 1q Cptu{6uq
+                             |p
+              k“0 nPBk
+(5.19)                                                    j
+                                                  r ¨ qrr0`1
+                                                 ďC     0
+                                                           `1
+                                                              ¨ ¨ ¨ qrjr ¨ u2 αu           pby (5.14))
+                                                          j
+                                                  r ¨ qrr0`1
+                                                 ďC     0
+                                                           `1
+                                                              ¨ ¨ ¨ qrjr ¨ p0.999qu            pby (5.18)).
+
+For the second part, by (5.17),
+                             ÿ    ÿ                                    ÿ    ÿ
+                                         µphbn ´ hbm q| ď
+                                        |p                                        γk
+                         kątu{6u nPBk                              kątu{6u nPBk
+(5.20)
+                                                              ď#Λ ¨ γ u{6
+                                                                   j
+                                                              “qr0r0`1
+                                                                     `1
+                                                                        ¨ ¨ ¨ qrjr ¨ γ u{6 ,
+                                                                                       j
+where the last equality holds since the cardinality of Λ is qr0r0`1
+                                                                  `1
+                                                                     ¨ ¨ ¨ qrjr . Combining
+the estimations (5.19) and (5.20), we conclude that the summation (5.15) is bounded
+above by
+                                             j
+(5.21)                       A ¨ qr0r0`1
+                                       `1
+                                          ¨ ¨ ¨ qrjr ¨ e´Bu ,
+                                        "                     *
+                                                         1
+where A “ maxtC, 1u and B “ ´ max lnp0.999q, ln γ ą 0. This shows (5.11).
+               r
+                                                         6
+  We now prove (5.12). Applying Proposition 4.1, we can divide the interval I into
+                                                         r0 `1´j
+                                  J “ ordNr {Q pbq ¨ qr0 `1    ¨ ¨ ¨ qr´jr
+
+disjoint subsets Λ1 , ¨ ¨ ¨ , ΛJ , where Λk is well-distributed with respect to Πr0 ,r for all
+1 ď k ď J. Then the inequality (5.11) holds for all Λk , 1 ď k ď J. Namely, for all
+1 ď k ď J and r ě r1 ,
+                                                                        řr
+                                                 j `1
+                  ÿ
+(5.22)                  |pµphbn ´ hbm q| ď A ¨ qr0r0`1 ¨ ¨ ¨ qrjr ¨ e´B¨ i“r0 `1 ji .
+                      nPΛk
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                               31
+
+Consequently, decomposing I into disjoint union of Λ1 , ¨ ¨ ¨ , ΛJ ,
+                 ÿ                         J ÿ
+                                           ÿ
+                            n       m
+                        µphb ´ hb q| “
+                       |p                               µphbn ´ hbm q|
+                                                       |p
+                 nPI                       k“1 nPΛk
+(5.23)                                                 j
+                                                                            řr
+                                        ď J ¨ A ¨ qr0r0`1
+                                                        `1
+                                                           ¨ ¨ ¨ qrjr ¨ e´B¨ i“r0 `1 ji
+                                                                     řr
+                                        “ A ¨ ordNr {Q pbq ¨ e´B¨ i“r0 `1 ji .
+In the last step, we apply the definition of J. This completes the proof.                       □
+ We have the following proposition, in which we use Lemma 5.2 to obtain the esti-
+mate over the whole pm : Nr q.
+Proposition 5.3. Let µ be the measure defined in ( 1.9). Let r1 , A, B be the constants
+chosen in Lemma 5.2. Then for r ě r1 and n0 ´ 1 ď m ă Nr ´ 1, the following
+inequality holds:
+                        Nÿ
+                         r ´1                                        řr
+(5.24)                           µphbn ´ hbm q| ď 2A ¨ Nr e´B¨ i“r0 `1 ji .
+                                |p
+                        n“m`1
+
+Proof. Since we notice that |p      µpxq| “ |p
+                                             µp´xq|, x P R, it suffices to consider the case
+when h is a positive integer.
+   Let m be an integer with n0 ´ 1 ď m ă Nr ´ 1. We now cover rm ` 1 : Nr ´ 1s by
+discrete intervals of length t :“ ordNr {Q pbq. In addition, we require that these intervals
+are contained in pm : 8q. We need at most L “ rNr {ts ` 1 many intervals. Denote
+these intervals by J1 , ¨ ¨ ¨ , JL . By Proposition 5.2, all of these intervals satisfy (5.12)
+for all r ě r1 . Hence, we have for r ě r1 ,
+(5.25)
+ Nÿr ´1                      ÿL ÿ
+             n      m
+         µphb ´ hb q| ď
+        |p                             µphbn ´ hbm q|
+                                      |p
+n“m`1                      i“1 nPJi
+                                                            řr
+                         ď L ¨ A ¨ ordNr {Q pbq ¨ e´B¨ i“r0 `1 ji      pby p5.12qq
+                                                       řr
+                         ď A ¨ pNr {t ` 1qt ¨ e´B¨ i“r0 `1 ji       pby the definition of L and tq
+                                          řr
+                         ď 2A ¨ Nr e´B¨ i“r0 `1 ji ,
+where the last inequality holds since t “ ordNr {Q pbq ď ϕpNr {Qq ď ϕpNr q ď Nr .               □
+  We are now completely equipped to prove Theorem 1.7.
+Proof of Theorem 1.7. Recall that tqn un is a strictly increasing sequence of primes
+with qn “ Opnd q for some d ě 1. Let c be the positive constant chosen in Lemma 3.5.
+Let b ě 2 be an integer, and let h be a non-zero integer. Let n0 and r1 be the two
+integers chosen in (3.12) and Proposition 5.2 respectively. By Proposition 5.3, there
+exist two constants A, B ą 0 such that for all r ě r1 and n0 ´ 1 ď m ă Nr ´ 1, the
+following inequality holds:
+                        Nÿ
+                         r ´1                                        řr
+(5.26)                           µphbn ´ hbm q| ď 2A ¨ Nr e´B¨ i“r0 `1 ji .
+                                |p
+                        n“m`1
+32                               CHUN-KIT LAI AND YU-HAO XIE
+
+We are going to apply Theorem 1.1 by showing that DEL criterion holds. Inside the
+sum of (1.1), we first take out the diagonal terms n “ m in the double sum and
+then notice that the rest of the sums is symmetric between m and n, so (1.1) can be
+rewritten as
+                          8           8       N ´2 N ´1
+                         ÿ     1     ÿ     2 ÿ ÿ
+(5.27)                           2
+                                   `        3
+                                                         µphpbn ´ bm qq| .
+                                                        |p
+                         N “1
+                              N      N “2
+                                          N   m“0 n“m`1
+
+We just need to show that the second summation is finite. If n0 “ 1, we keep the
+original term. If n0 ě 2, discarding finitely many terms for 2 ď N ă n0 , the second
+sum on the right hand side of (5.27) is split as follows
+      8        n0 ´2 N ´1                     8          N ´2 N ´1
+      ÿ     2 ÿ      ÿ
+                                n   m
+                                             ÿ       2   ÿ    ÿ
+             3
+                           µphpb ´ b qq| `
+                          |p                           3
+                                                                    µphpbn ´ bm qq| ,
+                                                                   |p
+  N “n0 `1
+           N m“0 n“m`1                     N “n0 `1
+                                                    N m“n ´1 n“m`1
+                                                            0
+                                                    ř8
+and the first summation is upper bounded by N “n0 `1 N ´3 ¨ pn0 ´ 1q ¨ N ă 8.
+Therefore, we just need to show that
+                           8           N ´2   N ´1
+                           ÿ      2    ÿ      ÿ
+                                    3
+                                                    µphpbn ´ bm qq| ă 8.
+                                                   |p
+                         N “n `1
+                                 N    m“n ´1 n“m`1
+                             0                  0
+
+
+As this is also the sum of (5.27) when n0 “ 1, we just need to show that the above
+holds for all n0 ě 1.
+  To this end, we decompose the summation on N into blocks of discrete intervals
+pNr´1 : Nr s for r ě 1. Discarding finitely many terms, it suffices to show that
+                     8                  N ´2 N ´1
+                     ÿ       ÿ      2   ÿ    ÿ
+(5.28)                                3
+                                                   µphpbn ´ bm qq| ă 8.
+                                                  |p
+                 r“r1 Nr´1   ăN ďN
+                                   N m“n ´1 n“m`1
+                                      r             0
+
+
+We have the following estimations:
+                         8                       N ´2   N ´1
+                         ÿ           ÿ      2    ÿ      ÿ
+                                              3
+                                                              µphpbn ´ bm qq|
+                                                             |p
+                         r“r1 Nr´1   ăN ďN
+                                           N    m“n ´1 n“m`1
+                                            r               0
+
+                         8                Nÿ
+                                           r ´2     Nÿ
+                                                     r ´1
+                         ÿ 2Nr
+(5.29)               ď         3
+                                                                 µphpbn ´ bm qq|
+                                                                |p
+                         r“r1
+                              Nr´1 m“n0 ´1 n“m`1
+                              8
+                              ÿ   Nr3 ´B¨řri“r `1 ji
+                     ď4A ¨         3
+                                      e       0                      pby p5.26qq.
+                             r“r
+                                 Nr´1
+                                 1
+
+
+     Next, we have
+                                                                      r
+                                                                      ÿ
+(5.30)               Claim : DC0 ą 0 such that                                ji ě C0 rd`1 .
+                                                                    i“r0 `1
+
+                                                         rd
+Indeed, by Lemma 3.5, for r ě r0 ` 1, kr ď c log b ¨          . Recall that ℓr “ rd , then
+                                                        log r
+there exists a constant C1 “ C1 pb, cq ą 0 such that for large r, jr “ ℓr ´ kr ě C1 rd .
+It follows that there exists C0 “ C0 pb, c, dq ą 0 such that the claim (5.30) holds.
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                      33
+
+  Recall that qr ď c ¨ rd for r ě 1. By the definition of Nr ,
+             8                          8
+             ÿ    Nr3 ´B¨řri“r `1 ji    ÿ           řr
+                                             3ℓr ´B¨ i“r0 `1 ji
+                   3
+                      e        0     “     q r  e
+            r“r
+                 Nr´1                  r“r
+               1                               1
+                                            8
+                                            ÿ                       řr
+                                        ď          pc ¨ rd q3ℓr e´B¨ i“r0 `1 ji
+                                            r“r1
+                                            8
+(5.31)                                      ÿ          d                           d`1
+                                        ď          e3r ¨pd ln r`ln cq ¨ e´BC0 ¨r         pBy p5.30qq
+                                            r“r1
+                                            8
+                                            ÿ                                  d
+                                        “          ep3d ln r`3 ln c´BC0 ¨rqr
+                                            r“r1
+
+                                        ă 8,
+where the last inequality holds since 3d ln r`3 ln c´BC0 ¨r tends to negative infinity for
+large r. This justifies (5.28). Hence, the Davenport, Erdős and LeVeque’s criterion in
+Theorem 1.1 holds for all b ě 2, h P N. This completes the proof of Theorem 1.7. □
+  Finally, we remark that the assumption on the digit sets Dn Ă t0, 1, ¨ ¨ ¨ Mn ´ 1u
+and the weights of Theorem 1.7 can be weakened to
+                                                     ÿ
+(5.32)        sup sup |MDn pξq| ă 1, where MDn pξq “     ωd,n e´2πidξ ,
+              ně1 ξPr 1 , 5 s
+                       6 6                                            dPDn
+    ř
+and dPDn ωd,n “ 1, for n ě 1. Then Lemma 3.2 holds via this assumption and all
+the rest of the arguments in this section will remain the same. The interval r1{6, 5{6s
+and the range for which our digit lies within defined as in (5.1) were modified from
+the proof in [11, p.97-98]. It is possible to adjust these parameters to obtain some
+sharper conditions than (5.32). The only requirement is to ensure α in (5.9) can still
+be chosen to be less than 1. We do not plan to optimize the constants here as it is
+not necessary for the purpose of our paper.
+
+         6. Proof of Theorem 1.4 and other dimensional results
+6.1. Full Hausdorff dimension. We are going to prove Theorem 1.4 and some
+other large dimensional results in this section. As a warm-up, we begin by proving
+Proposition 6.1. There exists a Moran set K of Hausdorff dimension 1 such that
+K is an absolutely normal set of uniqueness.
+   We will fix tMn un to be the sequence of prime numbers we fixed since the introduc-
+tion. The explicit expression is in (3.2) in Section 3. For each 0 ă r ă 1, we define
+hprq to be the unique integer such that
+(6.1)                    pM1 ¨ ¨ ¨ Mhprq`1 q´1 ă r ď pM1 ¨ ¨ ¨ Mhprq q´1 .
+hprq will be used throughout this section. We begin with a growth rate estimate
+lemma.
+Lemma 6.2.
+                                             hprq
+                                         lim       “ 0.
+                                         rÑ0 log r
+34                                     CHUN-KIT LAI AND YU-HAO XIE
+
+              hprq                                       hprq
+Proof. Since        ď 0, it suffices to show lim inf rÑ0       ě 0. Let s0 be a positive
+              log r                                      log r
+integer. For sufficiently small r ą 0, there exist unique s ě s0 ` 1 and 1 ď j ď ℓs`1
+such that
+                                                ÿ s
+                               hprq “ Ls ` j “      ℓi ` j.
+                                                                        i“1
+Combining this with the definition of Mn in (1.10) and the upper bound in (6.1),
+                                                                    j
+                                              r ď pq1ℓ1 ¨ ¨ ¨ qsℓs qs`1 q´1 .
+Since tqn un is strictly increasing, it follows that
+                                                            `¨¨¨`ℓs `j ´1
+                                ´                                     ¯
+                                            ℓ       ℓ
+(6.2)                       r ď q1ℓ1 ¨ ¨ ¨ qss00 ¨ qss00 `1               .
+
+By (6.2), we have
+           hprq                              hprq
+                 ě                                                      ¯´1
+           log r
+                           ´
+                                           ℓ       ℓ       `¨¨¨`ℓs `j
+                     log       q1ℓ1 ¨ ¨ ¨ qss00 ¨ qss00 `1
+                                                       hprq
+                  “´                                                                        ,
+                       ℓ1 log q1 ` ¨ ¨ ¨ ` ℓs0 log qs0 ` phprq ´ ℓ1 ´ ¨ ¨ ¨ ´ ℓs0 q log qs0
+                     1
+which tends to ´            when r tends to 0 (since hprq tends to infinity as r Ñ
+                  log qs0
+                           hprq        1
+0). Therefore, lim inf rÑ0       ě´         . Let s0 tend to infinity, we complete the
+                           log r    log qs0
+proof.                                                                              □
+  Before we start the proof, let’s also recall the mass distribution principle that
+computes the Hφ -measure as well as the Hausdorff dimension.
+Theorem 6.3 (See e.g. [7] Theorem 4.3.3). Let ν be a Borel measure and let E Ă Rd
+be a Borel set. Let φ be a gauge function. If there exists some α ą 0 such that
+                                                         νpBpx, rqq
+(6.3)                                        lim sup                ă α,
+                                                rÑ0        φprq
+for all x P E, then Hφ pEq ě α´1 νpEq.
+Proof of Proposition 6.1. We just need to choose tan u8     n“1 appropriately to define
+tEn un in (1.11). To this end, we define
+                                        „    ȷ
+                                          Mn
+                               an “ 2 ¨        , for n ě 1.
+                                          4
+Then aMn `1
+         n
+             ď 12 ` 17 ă 65 for all n, so (1.13) is satisfied. By Proposition 1.8, the
+homogeneous Moran set K in (1.12) is a set of uniqueness and µ ˚ ν is compactly
+supported on K and is pointwise absolutely normal. Let η “ µ ˚ ν. We will complete
+the proof by showing that for all ε ą 0 and for all x P K, the ball of radius r around
+x, Bpx, rq, satisfies
+(6.4)                                          ηpBpx, rqq ď 8 ¨ r1´ε ,
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                 35
+
+for all r sufficiently small. As we know that η is pointwise absolutely normal, ηpK X
+Aq “ 1 and by the mass distribution principle, dimH pK X Aq ě 1 ´ ε. Taking ε Ñ 0
+completes the proof.
+   Note that η assigns equal mass to each k th generation intervals for each k. For
+0 ă r ď 1{M1 , if I is an phprq ` 1q-th level basic interval, then I has length
+pM1 ¨ ¨ ¨ Mhprq`1 q´1 , and
+                                           hprq`1
+                                            ź              1
+(6.5)                            ηpIq “                             .
+                                            k“1
+                                                    2 ¨ rMk {4s ` 2
+For all x P K, the ball Bpx, rq contains at most
+                              `“                     ‰    ˘
+(6.6)                       2 r{pM1 ¨ ¨ ¨ Mhprq`1 q´1 ` 1
+phprq ` 1q-th level basic interval. Combining (6.5) and (6.6), it follows
+                                                                       hprq`1
+                          `“                           ´1
+                                                            ‰     ˘     ź              1
+          ηpBpx, rqq ď2        r{pM1 ¨ ¨ ¨ Mhprq`1 q            `1 ¨
+(6.7)                                                                   k“1
+                                                                                2 ¨ rMk {4s ` 2
+                                hprq
+                     ď8r ¨ 2           .
+Using Lemma 6.2, for all ε ą 0 we can find r0 ą 0 such that for all 0 ă r ă r0 ,
+ hprq
+log2 r
+       ą ´ε. Thus, 2hprq ă r´ε for all r sufficiently small. This combines with (6.7)
+gives (6.4).    l
+   We remark that if we fix α P p0, 1q and we take an “ 2rMnα s. The same argument
+will result in an absolutely normal set of uniqueness of Hausdorff dimension α. This
+also gives another construction of absolutely normal set of uniqueness with arbitrary
+dimensions, other than the self-similar set with Pisot contraction ratios mentioned in
+the introduction.
+
+6.2. Proof of Theorem 1.4. We begin with the following lemma, whose conclusion
+is intuitively clear.
+Lemma 6.4. Let h be the function defined in ( 6.1). For all continuous g such that
+gprq Ñ 8 as r Ñ 0, there exists an infinite set of integers N such that
+(6.8)                                      2#Ar ď gprq,
+where Ar “ r1 : hprq ` 1s X N .
+Proof. Let grprq “ inftgptq : t ď ru. The function gr is continuous and satisfies
+grprq ď gprq. It suffices to show (6.8) with grprq on the right hand side. As grprq is
+decreasing when r increases and grprq ď gprq, by replacing g with gr if necessary, we
+will assume without loss of generality that g is a decreasing function. Let n1 “ 2. We
+now choose a subsequence tnk ukě1 of N such that the integral part rlog2 nk s ě k for
+all k. Let
+                              rk “ suptr ą 0 : gprq ě nk u.
+By further choosing a subsequence if necessary, we may assume that thprk quk is a
+strictly increasing sequence of integers. Define
+                           N “ thprk q ` 1 : k “ 1, 2, 3, ...u.
+36                              CHUN-KIT LAI AND YU-HAO XIE
+
+In this case, #Ark “ k ď rlog2 nk s. Thus, 2#Ark ď nk ď gprk q, where the second
+inequality holds by the definition of rk and the continuity of g. For all 0 ă r ă 1, we
+choose k so that rk`1 ă r ď rk . Then Ar “ Ark . Hence,
+                                  2#Ar ď nk ď gprk q ď gprq,
+since g is decreasing. This completes the proof.                                                 □
+
+Proof of Theorem 1.4. Fix N to be the subset of integers in Lemma 6.4 with gprq “
+φprq{r. We will now choose tEn uně1 to be a sequence of digit sets defined by
+                          #
+                            t0, 2, 4, ¨ ¨ ¨ , 2 ¨ rMn {4su, n P N
+(6.9)                En “
+                            t0, 1, 2, ¨ ¨ ¨ , Mn ´ 2u,      nRN
+for n ě 1. Let
+                                       8   1 ÿ
+                                ν“˚               δd¨pM1 ¨¨¨Mn q´1
+                                      n“1 #En dPE
+                                                   n
+
+be the Cantor-Moran measure generated by tMn uně1 and tEn uně1 . Since convolution
+of the Dirac measures is supported on the arithmetic sum of the supports, we have
+that
+                                                   8
+(6.10)                                     µ ˚ ν “ ˚ λn ,
+                                                  n“1
+
+where λn “ δDn ˚ δEn , or more explicitly,
+      $          1        ř2ˆrMn {4s`1
+      ’
+      &                     j“0         δj¨pM1 ¨¨¨Mn q´1 ,                             nPN
+ λn “    2 ¨ rM n {4s ` 2
+              1                                            1 řMn ´2
+      ’
+      %               pδ0 ` δpMn ´1q¨pM1 ¨¨¨Mn q´1 q `              δj¨pM1 ¨¨¨Mn q´1 , n R N
+         2pMn ´ 1q                                     Mn ´ 1 j“1
+  Let tFn uně1 be a sequence of digit sets defined by
+                          #
+                            t0, 1, ¨ ¨ ¨ , 2 ¨ rMn {4s ` 1u, n P N
+(6.11)               Fn “
+                            t0, 1, ¨ ¨ ¨ , Mn ´ 1u,          nRN
+for n ě 1. Indeed, Fn “ Dn ` En . Let K be the homogeneous Moran set generated
+by tMn uně1 and tFn uně1 , i.e.
+                  #                                      +
+                     8                                        8
+                    ÿ       ωn                                č               ď
+(6.12) K “                            : ωn P Fn for all n “                                Iω1 ¨¨¨ωn .
+                    n“1
+                        M 1 ¨ ¨ ¨ M n                        n“1 pω1 ,¨¨¨ ,ωn qPF1 ˆ...ˆFn
+                  “řn
+                                     , nk“1 ωk Mk ´1 ` Mn ´1 , where we write Mk “ M1 ¨ ¨ ¨ Mk
+                                  ´1  ř                     ‰
+Here Iω1 ¨¨¨ωn “     k“1 ωk Mk
+in short. Iω1 ¨¨¨ωn are known as the basic intervals that generate K. Note that µ ˚ ν is
+fully supported on K because it assigns positive measures to all basic intervals that
+generate K. The proof will be complete if we can prove the following claims:
+     (1) µ ˚ ν is pointwise absolutely normal.
+     (2) K is a set of uniqueness.
+     (3) Hφ pKq ą 0.
+     (4) dimH pK X Aq “ 1.
+           A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                        37
+
+We will omit the proofs of (1) and (2) since they are respectively the same proofs as
+in Proposition 1.8 and the proof of Proposition 6.1.
+(3). Next, we show that Hφ pKq ą 0. Let
+                                 8   1 ÿ
+                           η“˚                δd¨pM1 ¨¨¨Mn q´1
+                                n“1 #Fn dPF
+                                               n
+
+be the associated Cantor-Moran measure assigning equal measure on each basic in-
+terval at the same level. With the same definition of hprq in (6.1),
+                                 ź                1                   ź         1
+(6.13)         ηpIq “                                        ¨                      .
+                       kPt1,¨¨¨ ,hprq`1uXN
+                                           2 ¨ rMk {4s ` 2 kPt1,¨¨¨ ,hprq`1uzN Mk
+                                                          `“                          ‰   ˘
+For all x P K, the ball Bpx, rq contains at most 2 r{pM1 ¨ ¨ ¨ Mhprq`1 q´1 ` 1 phprq `
+1q-th level basic intervals (c.f.(6.6)) . For convenience, let Ar “ r1 : hprq ` 1s X N
+and Br “ r1 : hprq ` 1szN . Combining (6.13) and (6.6), it follows
+                      `“                          ‰      ˘ ź             1            ź 1
+       ηpBpx, rqq ď2 r{pM1 ¨ ¨ ¨ Mhprq`1 q´1 ` 1 ¨                                ¨
+                                                            kPAr
+                                                                  2 ¨ rMk {4s ` 2 kPB Mk
+                                                                                        r
+                                                     ź 1           ź 1
+                  ď4pr{pM1 ¨ ¨ ¨ Mhprq`1 q´1 q ¨                 ¨
+                                                    kPAr
+                                                          Mk {2 kPB Mk
+                                                                       r
+                      ˆ            ˆ      ˙˙
+                                       r
+                  “4 2#Ar ¨                    φprq ď 4φprq,
+                                     φprq
+                                       φprq
+using Lemma 6.4 by applying gprq “           in the last line. We have thus obtain the
+                                         r
+criterion for the mass distribution principle, it follows that Hφ pKq ą 0.
+(4). Consider λ “ µ ˚ ν in (6.10). We have already proved that λ is pointwise
+absolutely normal. We now consider the Hausdorff dimension of a measure λ, which
+is defined to be
+                    dimH λ “ inftdimH pEq : λpEq ą 0, E Borelu.
+We will prove the following proposition in the next subsection, since it requires some
+techniques from dimension theory.
+Proposition 6.5.
+                                       dimH λ “ 1.
+  Assuming this proposition holds, as we know that λpK XAq “ 1 ą 0, it immediately
+implies that dimH pK X Aq “ 1 “ dimH pKq.                                       □
+
+6.3. Proof of Proposition 6.5. This subsection is devoted to the proof of Propo-
+sition 6.5, which will complete the whole proof of Theorem 1.4. For each x P K,
+we let In pxq be the unique nth basic generation interval that contains x. From [20,
+Proposition 3.1], we can compute the local dimension using basic intervals as follows:
+Proposition 6.6 ([20] Proposition 3.1). Let K be the Cantor set defined in ( 6.12).
+Then for λ-a.e. x P K,
+                                               logpλpIn pxqq
+                         dimH λ “ lim inf                          .
+                                     nÑ8    logppM1 ¨ ¨ ¨ Mn q´1 q
+38                            CHUN-KIT LAI AND YU-HAO XIE
+
+   With respect to the notations in [20], we can take Qω1 ¨¨¨ωn “ ra, bq if Iω1 ¨¨¨ωn “ ra, bs,
+δn “ p3M1 ¨ ¨ ¨ Mn q´1 and γn “ pM1 ¨ ¨ ¨ Mn q´1 . It generates the filtration for K. It
+is straightforward to check that the assumptions (F1 ) to (F4 ) in [20] are satisfied.
+Hence, we can apply [20, Proposition 3.1] to obtain the above proposition.
+   We also need the following version of the strong law of large numbers due to Kol-
+mogorov, which can be found in [34, p.389].
+Proposition 6.7. Let tXk ukě1 be a sequence of independent random variables defined
+on a probability space. Suppose that
+                                        8
+                                        ÿ VarpXk q
+(6.14)                                                     ă 8.
+                                        k“1
+                                                k2
+
+Then almost surely
+                                    ˜                             ¸
+                                        n            n
+                                1       ÿ            ÿ
+                            lim               Xk ´         EpXk q     “ 0.
+                            nÑ8 n
+                                        k“1          k“1
+
+
+  For each n P N, we let Ωn “ t0, 1, ¨ ¨ ¨ , Mn ´ 1u and ηn be the probability measure
+on Ωn such that
+    (1) If n P N , then ηn ptiuq “ 2¨rMn1{4s`2 , @i P t0, ¨ ¨ ¨ , 2 ¨ rMn {4s ` 1u,
+    (2) If n R N , then ηn pt0uq “ ηn ptMn ´ 1uq “ 2pM1n ´1q , and ηn ptiuq “ Mn1´1 if
+        i P t1, ¨ ¨ ¨ , Mn ´ 2u.
+Let Ω “ 8
+          ś
+             n“1 Ωn and η be the product measure of ηn defined on Ω. Let rω1 ¨ ¨ ¨ ωn s
+denote the cylinder set determined by fixing the first n coordinates ω1 , ¨ ¨ ¨ , ωn . We
+will claim the following holds:
+
+
+                                   log ηprω1 ¨ ¨ ¨ ωn sq
+               Claim : lim inf                           ě 1 for η-a.e. ω P Ω.
+                           nÑ8    logppM1 ¨ ¨ ¨ Mn q´1 q
+
+                                                                             ř8                    ´1
+  Suppose the claim holds. Under the natural coding map ω ÞÑ                  k“1 ωk pM1 ¨ ¨ ¨ Mk q ,
+we have
+                                 ηprω1 ¨ ¨ ¨ ωn sq “ λpIω1 ¨¨¨ωn q.
+Therefore, the claim implies that
+                                           logpλpIn pxqq
+                              lim inf                          “ 1,
+                               nÑ8      logppM1 ¨ ¨ ¨ Mn q´1 q
+for λ-a.e. x. By Proposition 6.6, dimH λ “ 1 and thus Proposition 6.5 follows.
+  It remains to justify the claim. To this end, for k ě 1, let Xk be the random
+variable on Ω defined by
+
+                       Xk pωq “ log ηk ptωk uq, where ω “ ω1 ω2 ¨ ¨ ¨ .
+          A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                       39
+
+Then
+(6.15)                                      řn
+          log ηprω1 ¨ ¨ ¨ ωn sq                   Xk
+  lim inf                       “ lim inf řnk“1
+    nÑ8 logppM1 ¨ ¨ ¨ Mn q q´1      nÑ8 ´        log Mk
+                                          řn k“1                      řn
+                                              pXk ´ EpXk qq
+                                           k“1ř                            EpXk q
+                                ě lim inf      n            ` lim inf řk“1
+                                                                        n          .
+                                    nÑ8    ´ k“1 log Mk         nÑ8 ´
+                                                                        k“1 log Mk
+
+If k P N , Xk is a constant random variable, so its variance VarpXk q is zero. On the
+other hand, if k R N , by a standard computation,
+                                        Mk ´ 2
+                         VarpXk q “              plog 2q2 Ñ 0,
+                                       pMk ´ 1q2
+when
+  řn k Ñ 8. Hence, (6.14) is satisfied. By Proposition 6.7 and the fact that
+1
+n  k“1 log Mk ě log 2 since all Mk ě 2, we have
+                           řn
+                                 pX ´ EpXk qq
+                    lim inf k“1řn k           “ 0, for η-a.e. ω.
+                                 k“1 log Mk
+                      nÑ8
+
+On the other hand,
+                               #
+                                   logp2rMk {4s`2q
+                   ´EpXk q              log Mk
+                                                               if k P N
+                           “       logp2q{pMk ´1q`logpMk ´1q            .
+                   log Mk                    log Mk
+                                                               if k R N
+
+                                                                   ´EpXk q
+Both of them tend to 1 as k tends to infinity. It follows limkÑ8             “ 1. As
+řn                                                                  log Mk
+ k“1 log Mk strictly increases to infinity as n Ñ 8, by the Stolze-Cesàro theorem,
+                                      řn
+                                            EpXk q
+                               lim řk“1  n          “ 1.
+                                         k“1 log Mk
+                               nÑ8 ´
+
+Plugging back into (6.15), the claim follows.
+
+6.4. A slight improvement. In this subsection, we aim to improve Proposition 6.1
+slightly as follows.
+Theorem 6.8. If there exists a constant c ą 0 such that φ satisfies
+                                              ˜ ˆ                ˙ 14 ¸
+               rHprq                                 logp1{rq
+          lim         “ 0, where Hprq “ exp c                           ,
+          rÑ0 φprq                                 log logp1{rqq
+
+then we can find a compact set of uniqueness K such that Hφ pKq ą 0, and
+                                    Hφ pK X Aq ą 0.
+
+  In order to create the desired set for Theorem 6.8, we need to use following inter-
+esting result about the distribution of primes.
+Theorem 6.9. [15, Theorem 1.1] For all n ě exppexpp33.3qq, there is a prime between
+n3 and pn ` 1q3 .
+40                           CHUN-KIT LAI AND YU-HAO XIE
+
+   In the same paper, there is also a version that is valid for all n ě 1 by changing
+n to nm for some very large m. We notice that whether there are always primes
+ 3
+
+between n2 and pn ` 1q2 is still an open problem. We now let tqn un be a subsequence
+of primes such that
+(6.16)          pn ` Jq3 ď qn ď pn ` J ` 1q3 , where J “ exppexpp33.3qq.
+In the following, we will write an “ Θpbn q if there exists C, c ą 0 such that cbn ď
+an ď Cbn for all n P N. With this choice of qn , we have ℓs “ s3 , and
+                                 hprq “ Ls ` j “ Θps4 q.
+On the other hand, (6.1) shows that
+         ÿs                                         s
+                                                    ÿ
+             3
+            k log qk ` pj ` 1q log qs`1 ă ´ log r ď   k 3 log qk ` j log qs`1 .
+          k“1                                              k“1
+                                    řs       3
+Note that qn satisfies (6.16) and    k“1 k       log k “ Θps4 log sq, the above shows that
+(6.17)                logp1{rq “ Θps4 log sq “ Θ phprq ¨ logphprqqq .
+Let Hpxq “ x log x and W pxq be the Lambert W -function, i.e. the unique function
+W pxq such that
+                                W pxqeW pxq “ x, @x ą 0.
+It is not hard to see that H ´1 pyq “ eW pyq “ Wypyq for y ą 0. Next, we claim that
+                                        ˆ                ˙
+                                             logp1{rq
+(6.18)                        hprq “ Θ                     .
+                                           log logp1{rqq
+To see (6.18), by (6.17), there exist c, C ą 0 such that
+                      c ¨ logp1{rq ď hprq ¨ logphprqq ď C ¨ logp1{rq.
+Since H ´1 is increasing, it follows that
+                   H ´1 pc ¨ logp1{rqq ď hprq ď H ´1 pC ¨ logp1{rqq.
+                          y
+By applying H ´1 pyq “         , we obtain
+                       W pyq
+                        c ¨ logp1{rq              C ¨ logp1{rq
+(6.19)                                  ď hprq ď                  .
+                       W pc ¨ logp1{rqq          W pC ¨ logp1{rqq
+The asymptotic behavior of the Lambert W-function has been well studied to be
+W pxq “ log x ´ log log x ` Oplog log x{ log xq (see [14, p. 25]). Applying this to (6.19),
+we obtain (6.18).
+  We are now ready to prove Theorem 6.8. In the same argument as in the previous
+proof in Theorem 6.1, we are going to choose the appropriate tan uně1 . Let N be a
+sparse subset of integers to be determined. This time, we need to make an extreme
+choice of tan uně1 by               #
+                                      2 ¨ rMn {4s, n P N
+                              an “
+                                      Mn ´ 3,        n R N.
+(Note that Mn is odd, so the largest choice of an for every element in Dn ` En to be
+distinct is Mn ´3). Let γn “ 1´1{Mn so that an `2 ď γn Mn for all n (since Mn ě 7).
+          A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                            41
+
+Note that η “ µ ˚ ν is the equal weight Moran measure assigning equal mass to all
+k th generation basic intervals. Hence, similar to (6.7), ηpBpx, rqq is at most
+                                                        hprq`1      hprq`1
+               `“                       ´1
+                                             ‰      ˘    ź      1    ź           1
+           2        r{pM1 ¨ ¨ ¨ Mhprq`1 q        `1 ¨             ¨
+                                                             γ Mk k“1,kPN 2 ¨ rMk {4s ` 2
+                                                      k“1,kRN k
+(6.20)
+                        4r
+            ď                    ¨ 2#Ar .
+                γ1 ¨ ¨ ¨ γhprq`1
+Since qn satisfies (6.16), we have the following estimate for the product of γn over
+n “ 1, ¨ ¨ ¨ , hprq ` 1,
+                           hprq`1      s`1 ˆ               ˙j 3
+                            ź          ź            1
+                                  γn ě       1´          3
+                                                                .
+                            n“1        j“1
+                                                pj `  Jq
+For all 0 ă ε ă 1, we can find a large integer j0 such that all j ą j0 , we have
+´           ¯j 3
+        1
+ 1 ´ pj`Jq3      ą e´p1`εq . Hence, there exist C, c ą 0, independent of r such that
+                   hprq`1
+                                               ˜ ˆ                  ˙ 14 ¸
+                    ź                                   logp1{rq
+                          γn ě Ce´2s ě C exp ´c
+                    n“1
+                                                      log logp1{rqq
+by hprq “ Θps4 q and (6.18). Putting back to (6.20), we have
+                                  ˆ                      ˙
+                                       ´1 rHprq      #Ar
+                     ηpBpx, rqq ď 4C ¨            ¨2       φprq.
+                                            φprq
+Hence, by the assumption of the theorem and Lemma 6.4 we can choose N so that
+the above parenthesis is of Op1q. Hence, Hφ pKq ą 0. Similar to the proof of Theorem
+6.1, K is a set of uniqueness and η is pointwise absolutely normal, which means that
+Hφ pK X Aq ą 0. The proof is complete.
+
+                            7. Discussions and open problems
+   The main result of this paper established a special class of Moran sets, that forms
+a set of uniqueness as well as it supports pointwise absolutely normal measures. It
+raises questions to decide if these concepts are true in more general class Moran sets
+in (1.4) with mixed integer bases and integer digit sets.
+   Concerning sets of uniqueness, we have never found any Moran sets in (1.4) that
+can support a Rajchman measure. It is not hard to see that if #Dn “ 2 for all n ě 1,
+the resulting Moran set is a set of uniqueness. We conjecture that all of them are
+indeed sets of uniqueness.
+  Conjecture: Suppose that the Moran set in (1.4) has Lebesgue measure zero.
+Then it must be a set of uniqueness.
+  There have also been some classical studies of determining whether certain Moran
+Cantor sets is a set of uniqueness (see Meyer [24]). In the old terminologies, they
+considered symmetric Cantor sets with splitting into two subintervals in each iteration
+under contraction ratios defined by a sequence of dissection ratios pξn q8
+                                                                         n“1 such that
+0 ă ξřn ă 1{2. In [24, Chapter VIII], Meyer showed that symmetric Cantor sets
+with 8      2
+       n“1 ξi ă 8 are always sets of uniqueness. No satisfactory answers have been
+42                              CHUN-KIT LAI AND YU-HAO XIE
+
+provided since then. Our results shed some lights on this problem. Further discussion
+of symmetric Cantor sets can be found in [21].
+   Concerning supporting a pointwise absolutely normal measure, the following is an
+interesting question:
+  (Qu 1): Can we give a classification on the mixed integer bases tMn un , so that
+there exists some tDn un , for which the Moran set (1.4) fully supports a pointwise
+absolutely normal measure?
+  Our main result demonstrated an explicit example in which tMn un is a sequence
+of infinitely many prime numbers with polynomial growth. It is not hard to see
+that if tMn un is periodic, it cannot be a pointwise absolutely normal measure. From
+this evidence, it is possible that a characterization based on the number of primes
+appeared in tMn un can exist.
+  Finally, our paper demonstrated the existence of an absolutely normal set of unique-
+ness with positive Hausdorff measure, for which the gauge function can be made arbi-
+trarily close to r. However, we have not settled the largeness problem for every gauge
+function.
+  (Qu 2): For all gauge functions φ with r{φprq Ñ 0 as r Ñ 0, does there exist a
+set of uniqueness K such that Hφ pK X Aq ą 0?
+     In the dual direction, the question can also be asked for sets of multiplicity.
+  (Qu 3): For all gauge functions φ with φprq Ñ 0 as r Ñ 0, does there exist an
+absolutely normal set of multiplicity K such that Hφ pKq ă 8 and it supports a
+pointwise absolutely normal measure?
+   By considering diophantine approximation with arbitrarily fast rate of approxima-
+tions, Fraser and Nyugen recently showed that there exist arbitrarily thin sets that
+supports Rajchman measures ([17, Theorem 2.6]) and hence they are sets of multi-
+plicity. However, we do not expect these measures can have a sufficiently fast decay
+to verify the DEL criterion. Thus, we do not know if it supports pointwise absolutely
+normal measures. (Qu 3) thus remains open.
+Acknowledgments.The authors would like to thank Professor Malabika Pramanik
+for bringing up interesting questions that lead to this project. The project was initi-
+ated when C.-K Lai was visiting The Chinese University of Hong Kong. He would like
+to thank Professor De-Jun Feng for his hospitality. Both authors also thank De-Jun
+Feng for many useful discussions and suggestions over the paper. Chun-Kit Lai is
+partially supported by the AMS-Simons Research Enhancement Grants for Primarily
+Undergraduate Institution (PUI) Faculty.
+
+                                         References
+ [1] Amir Algom. Recent progress on pointwise normality of self-similar measures. arXiv:2504.18192.
+     6
+ [2] Amir Algom, Simon Baker, and Pablo Shmerkin. On normal numbers and self-similar measures.
+     Advances in Mathematics, 399:108276, 2022. 2
+ [3] Amir Algom, Federico Rodriguez Hertz, and Zhiren Wang. Pointwise normality and fourier
+     decay for self-conformal measures. Advances in Mathematics, 393:108096, 2021. 6
+             A FULL-DIMENSIONAL ABSOLUTELY NORMAL SET OF UNIQUENESS                                   43
+
+ [4] Balázs Bárány, Antti Käenmäki, Aleksi Pyörälä, and Meng Wu. Scaling limits of self-conformal
+     measures. arXiv:2308.11399. 6
+ [5] Balázs Bárány, Károly Simon, and Boris Solomyak. Self-similar and self-affine sets and mea-
+     sures, volume 276 of Mathematical Surveys and Monographs. American Mathematical Society,
+     Providence, RI, [2023]. 6
+ [6] Verónica Becher, Pablo Ariel Heiber, and Theodore A. Slaman. Normal numbers and the Borel
+     hierarchy. Fund. Math., 226(1):63–78, 2014. 2
+ [7] Christopher J. Bishop and Yuval Peres. Fractals in probability and analysis, volume 162 of
+     Cambridge Studies in Advanced Mathematics. Cambridge University Press, Cambridge, 2017.
+     34
+ [8] Julien Brémont. Self-similar measures and the rajchman property. Annales Henri Lebesgue,
+     4:973–1004, 2021. 6
+ [9] Yann Bugeaud. Distribution modulo one and Diophantine approximation, volume 193. Cam-
+     bridge University Press, 2012. 2
+[10] David Burton. Elementary number theory. McGraw Hill, seventh edition, 2010. 10, 11, 12
+[11] J. W. S. Cassels. On a problem of steinhaus about normal numbers. Colloquium Mathematicum,
+     7(1):95–101, 1959. 3, 8, 33
+[12] Harold Davenport, Paul Erdős, and William J LeVeque. On weyl’s criterion for uniform distri-
+     bution. Michigan Mathematical Journal, 10(3):311–314, 1963. 1, 2
+[13] Yiftach Dayan, Arijit Ganguly, and Barak Weiss. Random walks on tori and normal numbers
+     in self-similar sets. American Journal of Mathematics, 146(2):467–493, 2024. 6
+[14] N. G. de Bruijn. Asymptotic methods in analysis. Dover Publications, Inc., New York, third
+     edition, 1981. 40
+[15] Adrian W. Dudek. An explicit result for primes between cubes. Funct. Approx. Comment.
+     Math., 55(2):177–197, 2016. 39
+[16] Jacob Feldman and Meir Smorodinsky. Normal numbers from independent processes. Ergodic
+     Theory and Dynamical Systems, 12(4):707–712, 1992. 3
+[17] Robert Fraser and Thanh Nguyen. Sharp Fourier decay estimates for measures supported on
+     the well-approximable numbers. Ann. Fenn. Math., 50(2):483–510, 2025. 42
+[18] Michael Hochman and Pablo Shmerkin. Equidistribution from fractal measures. Inventiones
+     mathematicae, 202(1):427–479, 2015. 1, 2, 5, 6
+[19] John E Hutchinson. Fractals and self similarity. Indiana University Mathematics Journal,
+     30(5):713–747, 1981. 5
+[20] Antti Käenmäki, Bing Li, and Ville Suomala. Local dimensions in Moran constructions. Non-
+     linearity, 29(3):807–822, 2016. 37, 38
+[21] Alexander S. Kechris and Alain Louveau. Descriptive set theory and the structure of sets of
+     uniqueness, volume 128 of London Mathematical Society Lecture Note Series. Cambridge Uni-
+     versity Press, Cambridge, 1987. 1, 3, 4, 6, 7, 42
+[22] Chun-Kit Lai. Perfect fractal sets with zero Fourier dimension and arbitrary long arithmetic
+     progression. Ann. Acad. Sci. Fenn. Math., 42(2):1009–1017, 2017. 7
+[23] Jialun Li and Tuomas Sahlsten. Trigonometric series and self-similar sets. Journal of the Euro-
+     pean Mathematical Society, 24(1), 2022. 6
+[24] Yves Meyer. Algebraic numbers and harmonic analysis, volume Vol. 2 of North-Holland Math-
+     ematical Library. North-Holland Publishing Co., Amsterdam-London; American Elsevier Pub-
+     lishing Co., Inc., New York, 1972. 1, 3, 4, 41
+[25] Melvyn B Nathanson. Elementary methods in number theory. Springer, 2000. 12
+[26] Sze-Man Ngai and Yang Wang. Hausdorff dimension of self-similar sets with overlaps. J. London
+     Math. Soc. (2), 63(3):655–672, 2001. 6
+44                              CHUN-KIT LAI AND YU-HAO XIE
+
+[27] Nhu Nguyen. Iterated function systems of finite type and the weak separation property. Proc.
+     Amer. Math. Soc., 130(2):483–487, 2002. 6
+[28] Andrew D. Pollington, Sanju Velani, Agamemnon Zafeiropoulos, and Evgeniy Zorin. Inhomo-
+     geneous Diophantine approximation on M0 -sets with restricted denominators. Int. Math. Res.
+     Not. IMRN, (11):8571–8643, 2022. 2
+[29] Malabika Pramanik and Junqiang Zhang. Measures supported on partly normal numbers.
+     arXiv:2408.03473. 3
+[30] Malabika Pramanik and Junqiang Zhang. On odd-normal numbers. Indian J. Pure Appl. Math.,
+     55(3):974–998, 2024. 3
+[31] Raphael Salem. Sets of uniqueness and sets of multiplicity. Transactions of the American Math-
+     ematical Society, 54(2):218–228, 1943. 1
+[32] Raphaël Salem. Algebraic numbers and Fourier analysis. D. C. Heath and Company, Boston,
+     MA, 1963. 1, 5, 7
+[33] Wolfgang M Schmidt. On normal numbers. Pacific J. Math, 10:661–672, 1960. 3
+[34] A. N. Shiryaev. Probability, volume 95 of Graduate Texts in Mathematics. Springer-Verlag, New
+     York, russian edition, 1996. 38
+[35] James E. Shockley. Introduction to number theory. Holt, Rinehart and Winston, Inc., New
+     York-Toronto-London, 1967. 12
+[36] Damien Simon. Mixed radix numeration bases: Horner’s rule, Yang-Baxter equation and
+     Furstenberg’s conjecture. Comb. Theory, 5(2):Paper No. 17, 30, 2025. 6
+[37] Péter P. Varjú and Han Yu. Fourier decay of self-similar measures and self-similar sets of
+     uniqueness. Anal. PDE, 15(3):843–858, 2022. 6
+[38] Martin P. W. Zerner. Weak separation properties for self-similar sets. Proc. Amer. Math. Soc.,
+     124(11):3529–3539, 1996. 6
+[39] A. Zygmund. Trigonometric series. Vol. I, II. Cambridge University Press, third edition, 2002.
+     1, 2
+
+  Department of Mathematics, San Francisco State University, 1600 Holloway Av-
+enue, San ‘Francisco, CA 94132, USA,
+     Email address: cklai@sfsu.edu
+
+  Department of Mathematics, The Chinese University of Hong Kong, Shatin, Hong
+Kong,
+     Email address: yhxie@math.cuhk.edu.hk
+

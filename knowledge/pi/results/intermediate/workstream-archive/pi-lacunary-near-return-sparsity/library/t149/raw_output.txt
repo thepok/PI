@@ -1,0 +1,25 @@
+COMMAND: python3 verify_t149.py
+LABEL: experiment
+
+HASH cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8  canonical_statement.txt
+HASH ff8dd592069b95aaa1e5eba07e82a667641b31405e5a7cdb4b9b308235fc4983  gijswijt-schijver-tanaka-2006.pdf
+HASH f218bb3eb1b699528439435825490e32dd4e67db8131e957565f3c85ba841b4f  gijswijt-schijver-tanaka-2006.txt
+HASH b7554d0e58abc6b32f4f1aef6bcfd689f5add8d2c56de99bd48b67ff00c71d28  gijswijt-0910.4515v1.pdf
+HASH 932c043893872891f8fdb9ccacbe10ef0b7732e58d87731e099a699bee8571e9  gijswijt-0910.4515v1.txt
+HASH 95f0cc2e23c1c46438b51a331dcc69922cff0c1a266d646e47e2e16c78b8b0a0  baker-khalil-sahlsten-2407.16699v3.pdf
+HASH 418b7a5bff7b1f2aec6bacf1ee525f0cfed66f48044a081de452e129bd0d65d1  baker-khalil-sahlsten-2407.16699v3.txt
+HASH ba1d6ec4ee264e25eb4f0ca05fede6f582c416e36566f94a5db03693b37838e5  montgomery-vaughan-1973.pdf
+HASH c1be79a7b3f13f6496aff93727b19bfbb2b63e1226ee5c352524e56beb631c31  montgomery-vaughan-1973.txt
+HASH 1f1607b4accb32262c9decde945efab5a85d09391f988d4a8f5376ee1235df7a  prior_evidence.tar.gz
+ANCHORS_OK gijswijt-schijver-tanaka-2006.txt count=3
+ANCHORS_OK gijswijt-0910.4515v1.txt count=3
+ANCHORS_OK baker-khalil-sahlsten-2407.16699v3.txt count=3
+ANCHORS_OK montgomery-vaughan-1973.txt count=2
+PRIOR_EVIDENCE_OK members=9
+WEIGHTED_BALANCE_OK m=5 M=4
+CONSTANT_OK m=7 M=35 E=1225
+PERIOD_OK p=17 m=31 M=170 E=1700
+DEBRUIJN_OK q=10 r=2 m=201 M=300 E=900
+ATOM_CAP_IDENTITY_OK M=10 max=4 E=34
+REPORT_SENTINELS_OK verdict=1 successors=0
+ALL_T149_CHECKS_PASSED

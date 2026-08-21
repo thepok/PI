@@ -1,0 +1,148 @@
+{
+  "name": "T94 regular-paperfolding full-prefix collision transducer",
+  "scope": "regular paperfolding only",
+  "indexing": "one-based",
+  "paperfolding_rule": "p[2^a(2j+1)] = j mod 2",
+  "prefix_convention": {
+    "factor": "B(s,n)=p[s]...p[s+n-1]",
+    "starts": "1 <= s <= M",
+    "inspected_word_prefix": "p[1]...p[M+n-1] when M>0",
+    "pairs": "ordered, diagonal-inclusive, overlaps allowed"
+  },
+  "symbol_dfao": {
+    "digit_order": "least significant first, followed by two zero flush bits",
+    "initial": "Z",
+    "states": ["Z", "A", "O0", "O1"],
+    "output_one": ["O1"],
+    "transition": {
+      "Z": {"0": "Z", "1": "A"},
+      "A": {"0": "O0", "1": "O1"},
+      "O0": {"0": "O0", "1": "O0"},
+      "O1": {"0": "O1", "1": "O1"}
+    }
+  },
+  "tensor_square": {
+    "states": "all ordered pairs of symbol_dfao states",
+    "alphabet": "all ordered pairs of bits",
+    "transition": "componentwise symbol_dfao transition",
+    "equal_output": "both components have the same output bit"
+  },
+  "factor_pair_automaton": {
+    "digit_order": "least significant first",
+    "primitive_states": "D x Carry x Carry x symbol_dfao x symbol_dfao",
+    "primitive_state_count": 192,
+    "D": [-1, 0, 1],
+    "Carry": [0, 1],
+    "witness": "k with 0 <= k < n and p[i+k] != p[j+k]",
+    "determinized_state": "a subset of primitive_states, existentially projecting each bit of k",
+    "outer_state": "determinized_state x D x D x SeenOne x SeenOne",
+    "outer_state_bound": "36*2^192",
+    "public_bits": ["n_bit", "M_bit"],
+    "weighted_hidden_bits": ["i_bit", "j_bit"],
+    "matrix_row_weight": 4,
+    "terminal": "no mismatch witness, 1<=i<=M, and 1<=j<=M"
+  },
+  "profile_states": ["E", "A0", "A1", "K0", "K1"],
+  "profile_meanings": {
+    "E": "E(s,t,n): B(s,n)=B(t,n)",
+    "A0": "A_0(s,n): B(s,n) is the alternating word starting 0",
+    "A1": "A_1(s,n): B(s,n) is the alternating word starting 1",
+    "K0": "K_0(s,n): B(s,n) is constant 0",
+    "K1": "K_1(s,n): B(s,n) is constant 1"
+  },
+  "length_split": {"h": "ceil(n/2)", "l": "floor(n/2)"},
+  "guards": {
+    "eta(c,d,k)": "k=0 or c=d",
+    "gamma(c,d,k)": "k=0 or (k=1 and c=d)"
+  },
+  "profile_transition_rows": [
+    {
+      "state": "E", "parities": [0, 0],
+      "children": [
+        {"kind": "profile", "state": "E", "args": ["a", "b", "h"]},
+        {"kind": "guard", "state": "eta", "args": ["a%2", "b%2", "l"]}
+      ]
+    },
+    {
+      "state": "E", "parities": [1, 1],
+      "children": [
+        {"kind": "guard", "state": "eta", "args": ["a%2", "b%2", "h"]},
+        {"kind": "profile", "state": "E", "args": ["a+1", "b+1", "l"]}
+      ]
+    },
+    {
+      "state": "E", "parities": [0, 1],
+      "children": [
+        {"kind": "profile_dynamic_A", "selector": "b%2", "args": ["a", "h"]},
+        {"kind": "profile_dynamic_A", "selector": "a%2", "args": ["b+1", "l"]}
+      ]
+    },
+    {
+      "state": "E", "parities": [1, 0],
+      "children": [
+        {"kind": "profile_dynamic_A", "selector": "a%2", "args": ["b", "h"]},
+        {"kind": "profile_dynamic_A", "selector": "b%2", "args": ["a+1", "l"]}
+      ]
+    },
+    {
+      "state": "A0", "parities": [0],
+      "children": [
+        {"kind": "profile", "state": "K0", "args": ["a", "h"]},
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "1", "l"]}
+      ]
+    },
+    {
+      "state": "A0", "parities": [1],
+      "children": [
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "0", "h"]},
+        {"kind": "profile", "state": "K1", "args": ["a+1", "l"]}
+      ]
+    },
+    {
+      "state": "A1", "parities": [0],
+      "children": [
+        {"kind": "profile", "state": "K1", "args": ["a", "h"]},
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "0", "l"]}
+      ]
+    },
+    {
+      "state": "A1", "parities": [1],
+      "children": [
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "1", "h"]},
+        {"kind": "profile", "state": "K0", "args": ["a+1", "l"]}
+      ]
+    },
+    {
+      "state": "K0", "parities": [0],
+      "children": [
+        {"kind": "profile", "state": "K0", "args": ["a", "h"]},
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "0", "l"]}
+      ]
+    },
+    {
+      "state": "K0", "parities": [1],
+      "children": [
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "0", "h"]},
+        {"kind": "profile", "state": "K0", "args": ["a+1", "l"]}
+      ]
+    },
+    {
+      "state": "K1", "parities": [0],
+      "children": [
+        {"kind": "profile", "state": "K1", "args": ["a", "h"]},
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "1", "l"]}
+      ]
+    },
+    {
+      "state": "K1", "parities": [1],
+      "children": [
+        {"kind": "guard", "state": "gamma", "args": ["a%2", "1", "h"]},
+        {"kind": "profile", "state": "K1", "args": ["a+1", "l"]}
+      ]
+    }
+  ],
+  "instantiated_profile_transition_rows": 12,
+  "base_length_zero": "every profile predicate is true",
+  "count_states": ["C", "S", "H", "A[r,e]", "K[r,e]", "z"],
+  "count_output": "C(n,M)=S(n,M)+2H(n,M)"
+}

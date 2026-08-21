@@ -1,0 +1,1743 @@
+                                                                         The binary digits of n + t
+                                                              Lukas Spiegelhofer                               Michael Wallner
+                                                        Montanuniversität Leoben, Austria                    TU Wien, Austria
+arXiv:2005.07167v3 [math.NT] 29 Apr 2022
+
+
+
+
+                                                                                           Abstract
+                                                    The binary sum-of-digits function s counts the number of ones in the binary expansion of
+                                                 a nonnegative integer. For any nonnegative integer t, T. W. Cusick defined the asymptotic
+                                                 density ct of integers n ≥ 0 such that
+
+                                                                                        s(n + t) ≥ s(n).
+
+                                                 In 2011, he conjectured that ct > 1/2 for all t — the binary sum of digits should, more
+                                                 often than not, weakly increase when a constant is added. In this paper, we prove that
+                                                 there exists an explicit constant M0 such that indeed ct > 1/2 if the binary expansion of
+                                                 t contains at least M0 maximal blocks of contiguous ones, leaving open only the “initial
+                                                 cases” — few maximal blocks of ones — of this conjecture. Moreover, we sharpen a result
+                                                 by Emme and Hubert (2019), proving that the difference s(n + t) − s(n) behaves according
+                                                 to a Gaussian distribution, up to an error tending to 0 as the number of maximal blocks of
+                                                 ones in the binary expansion of t grows.
+
+
+
+                                           1     Introduction and main result
+                                           The binary expansion of an integer is a fundamental concept occurring most prominently in num-
+                                           ber theory and computer science. Its close relative, the decimal expansion, is found throughout
+                                           everyday life to such an extent that “numbers” are often understood as being the same as a
+                                           string of decimal digits. However, it is difficult to argue — mathematically — that base ten
+                                           is special; in our opinion the binary case should be considered first when a problem on digits
+                                           occurs.
+                                               The basic problem we deal with is the (not yet fully understood) addition in base two. Let
+                                           us consider two simple examples: 10 + 1 = 11 and 11 + 1 = 100. The difference between these
+                                           two, and what makes the second one more complicated, is the occurrence of carries and their
+                                           interactions via carry propagation. These carries turn the problem of addition into a complicated
+                                           case-by-case study and a complete characterization is unfortunately out of sight. In order to
+                                           approach this problem, we consider a parameter associated to the binary expansion — the
+                                           binary sum of digits s(n) of a nonnegative integer n. This is just the number of 1s in the binary
+                                               2010 Mathematics Subject Classification. Primary: 11A63, 05A20; Secondary: 05A16,11T71
+                                               Key words and phrases. Cusick conjecture, Hamming weight, sum of digits
+                                               Lukas Spiegelhofer was supported by the Austrian Science Fund (FWF), project F5502-N26, which is a part
+                                           of the Special Research Program “Quasi Monte Carlo methods: Theory and Applications”, and by the FWF-
+                                           ANR project ArithRand (grant numbers I4945-N and ANR-20-CE91-0006). Michael Wallner was supported by
+                                           an Erwin Schrödinger Fellowship and a stand-alone project of the Austrian Science Fund (FWF): J 4162-N35
+                                           and P 34142-N, respectively.
+
+
+
+                                                                                               1
+expansion of n, and equal to the minimal number of powers of two needed to write n as their
+sum. While we are only dealing with this parameter instead of the whole expansion, we believe
+that it already contains the main difficulties caused by carry propagation.
+   Cusick’s conjecture encodes these difficulties by simultaneously studying the sum-of-digits
+function of n and n + t. It states (private communication, 2011, 20151 ) that for all t ≥ 0,
+
+                                                 ct > 1/2,                                             (1.1)
+
+where
+                                     1 
+                            ct = lim     0 ≤ n < N : s(n + t) ≥ s(n)
+                               N →∞ N
+
+is the proportion of nonnegative integers n such that n + t contains it its binary representation
+at least as many 1s as n.
+    This easy-to-state conjecture seems to be surprisingly hard to prove. Moreover, it has an
+important connection to divisibility questions in Pascal’s triangle: the formula
+                                                               
+                                                            n+t
+                             s(n + t) − s(n) = s(t) − ν2                                    (1.2)
+                                                              t
+
+essentially due to Legendre links our research problem to the 2-valuation ν2 of binomial coeffi-
+cients, which is defined by ν2 (a) := max{e ∈ Z : 2e | a}. Note also that the last term in (1.2)
+is the number of carries appearing in the addition n + t, a result that is due to Kummer [16].
+The strong link expressed in (1.2), and the combination of simplicity and complexity, has been
+a major motivation for our research.
+    In order to better understand the conjecture, we start with some simple examples. For
+t = 0 we directly get c0 = 1. For t = 1 it suffices to consider the last two digits of n to obtain
+c1 = 3/4. Note that in the two binary additions above we have t = 1, where the first one satisfies
+s(n + 1) ≥ s(n), while the second does not. For more values of ct we used the recurrence (1.5)
+defined below and we verified ct > 1/2 for all t ≤ 230 numerically. In Figure 1 we illustrate the
+first values of ct .
+
+
+
+
+Figure 1: Cusick’s conjecture states that ct > 1/2 for all t ≥ 0, which is illustrated in this figure
+for all t ≤ 213 , and which we computationally confirmed for all t ≤ 230 . In this paper we prove
+that it holds for all t with sufficiently many blocks of 1s, so that only finitely many classes (each
+class is concerned with those t having a fixed number of maximal blocks of 1s) remain open.
+
+   1 The conjecture was initially termed “Cusick problem” or “Question by Cusick” in the community, but in an
+
+e-mail dated 2015 to the first author, Cusick upgraded it to “conjecture”.
+
+
+
+                                                     2
+   The full conjecture is still open, yet some partial results have been obtained [8,10–12,18,19].
+Among these, we want to stress a central limit-type result by Emme and Hubert [11], a lower
+bound due to the first author [19], and an almost-all result by Drmota, Kauers, and the first
+author [8] stating that for all ε > 0, we have
+                                                                         
+                                                                      T
+                        |{t < T : 1/2 < ct < 1/2 + ε}| = T − O              .
+                                                                    log T
+
+(The symbol O is used for Big O notation throughout this paper.) Moreover, Cusick’s conjecture
+is strongly connected to the Tu–Deng conjecture [22,23] in cryptography, which is also still open,
+yet with some partial results [6, 7, 13, 14, 20, 22]. We presented this connection in [20], in which
+we proved an almost-all result for the Tu–Deng conjecture and where we showed that the full
+Tu–Deng conjecture implies Cusick’s conjecture.
+    The main theorem of this paper is the following near-solution to Cusick’s conjecture, which
+significantly improves the previous results. Note that it happens repeatedly that difficult con-
+jectures are (more easily) provable for sufficiently large integers and recently even two more
+important ones have been resolved in this manner: Sendov’s conjecture [21] and the Erdős–
+Faber–Lovász conjecture [15]. Our method will combine several techniques such as recurrence
+relations, cumulant generating functions, and integral representations.
+
+Theorem 1.1. There exists a constant M0 with the following property: If the natural number t
+has at least M0 maximal blocks of 1s in its binary expansion, then ct > 1/2.
+
+Remark. We note the important observation that all constants in this paper could be given
+numerical values by following our proofs. In order to keep the technicalities at a minimum, we
+decided not to compute them explicitly. In this paper, we do not rely on arguments making it
+impossible to extract explicit values for our constants (such as certain proofs by contradiction).
+We are dealing with effective results, without giving a precise definition of this term.
+   The central objects to tackle the conjecture are the asymptotic densities
+                                   1 
+                     δ(j, t) = lim   # 0 ≤ n < N : s(n + t) − s(n) = j ,
+                              N →∞ N
+
+where j ∈ Z. The limit exists in our case; see Bésineau [4]. These densities lead to the useful
+decomposition                                X
+                                       ct =     δ(j, t).                                   (1.3)
+                                               j≥0
+
+The sum on the right hand side is in fact finite, since δ(j, t) = 0 for j > s(t), which follows
+from (1.2). Therefore we get equality in (1.3) — asymptotic densities are finitely additive.
+    Distinguishing between even and odd cases, one can show that the values δ(k, t) satisfy the
+following recurrence [8, 18, 19]:            (
+                                               0,    j > 1;
+                                   δ(j, 1) =    j−2
+                                                                                            (1.4)
+                                               2 , j ≤ 1,
+and for t ≥ 0,
+                               δ(j, 2t) = δ(j, t),
+                                          1           1                                        (1.5)
+                          δ(j, 2t + 1) = δ(j − 1, t) + δ(j + 1, t + 1).
+                                          2           2
+
+
+
+                                                 3
+In particular, the recurrence shows that δ( , t) is a probability mass function for each t:
+                                         X
+                                            δ(j, t) = 1,                                    (1.6)
+                                          j∈Z
+
+and δ(j, t) ≥ 0 by definition. Furthermore, the set
+
+                                  {n ∈ N : s(n + t) − s(n) = j}
+
+defining δ(j, t) is a finite union of arithmetic progressions a + 2m N, which can be seen along the
+same lines.
+    Our second main result gives an asymptotic formula for the densities δ(j, t) and is obtained
+in the course of establishing Theorem 1.1.
+
+Theorem 1.2. For integers t ≥ 1, let us define
+
+                                                                   κ2 (t) + κ2 (t + 1)
+             κ2 (1) = 2;    κ2 (2t) = κ2 (t);      κ2 (2t + 1) =                       + 1.
+                                                                            2
+If the positive integer t has M maximal blocks of 1s in its binary expansion, and M is larger
+than some constant M0 , then we have
+
+                                                 j2
+                                                      
+                                  1
+                                                         + O M −1 (log M )4
+                                                                            
+                     δ(j, t) = p         exp −
+                                2πκ2 (t)       2κ2 (t)
+
+for all integers j. The multiplicative constant in the error term can be made explicit.
+
+    Concerning the effectiveness of the constants, we refer to the remark after Theorem 1.1. We
+will see in Corollary 2.3 and in Lemma 2.4 that
+
+                                        M ≤ κ2 (t) ≤ CM
+
+for some constant C. Therefore, the main term dominates the error term for large M if
+                                                1p
+                                        |j| ≤     M log M .
+                                                2
+Note that the factor 1/2 is arbitrary and any value ρ < 1 is good enough (for M larger than some
+bound depending on ρ). Moreover, in the statement of Theorem 1.2, the lower bound M > M0
+is, in fact, not needed, as it can be taken care of by the constant C in the error term. Simply
+choose C so large that the error term is greater than 1 (for example, C = M0 is sufficient, since
+δ(j, t) ≤ 1). We decided to keep the theorem as it is, since we feel that increasing a constant
+only for reasons of brevity is somewhat artificial.
+     Without giving a full proof we note that, by summation, this theorem p
+                                                                          can be used for proving
+a statement comparing ∆(j, t) = j 0 ≥j δ(j 0 , t) and the Gaussian Φ −j/ κ2 (t) . This leads to
+                                    P                                            
+
+a sharpening of the main result
+                            √     in Emme and Hubert [11]. By summing the asymptotic formula
+in Theorem 1.2 from 0 to M log M , we also obtain the following corollary.
+
+Corollary 1.3. There exists a constant C such that
+                                                               5
+                                  ct ≥ 1/2 − CM −1/2 log M
+
+for all t ≥ 1, where M is the number of maximal blocks of 1s in t.
+
+
+                                                  4
+   The proof is straightforward, and left to the reader. This corollary is weaker than Theo-
+rem 1.1, but we stated it here since it gives a quantitative version of the main theorem in [19].
+Notation. In this paper, 0 ∈ N. We will use Big O notation, employing the symbol O. We let
+e(x) denote e2πix for real x. In our calculations, the number π will often appear with a factor
+2. Therefore we use the abbreviation τ = 2π.
+    We consider blocks of 0s or 1s in the binary expansion of an integer t ∈ N. Writing “block
+of 1s of length ν in t”, we always mean a maximal subsequence εµ = εµ+1 = · · · = εµ+ν−1 = 1
+(where maximal means that εµ+ν = 0 and either µ = 0 or εµ−1 = 0). “Blocks of 0s of length ν
+in t” are subsequences εµ = · · · = εµ+ν−1 = 0 such that εµ+ν = 1 and either µ = 0 or εµ−1 = 1.
+We call blocks of zeros bordered by 1s on both sides “inner blocks of 0s”. For example, 2k n
+and n have the same number of inner blocks of 0s. The number of blocks in t is the sum of the
+number of blocks of 1s and the number of blocks of 0s.
+    All constants in this paper are absolute and effective. The letter C is often used for constants;
+occurrences of C at different positions need not necessarily designate the same value.
+    In the remainder we give the proof of our main result, Theorem 1.1, followed by the proof
+of Theorem 1.2.
+
+Acknowledgments.
+On one of his first days as a PhD student in 2011, the first author was introduced to Cusick’s
+conjecture by Johannes F. Morgenbesser, whom he wishes to thank at this point. This conjecture
+has ever since been a source of inspiration and motivation to him. We also wish to thank Michael
+Drmota, Jordan Emme, Wolfgang Steiner, and Thomas Stoll for fruitful discussions on the topic.
+Finally, we thank Thomas W. Cusick for constant encouragement and interest in our work.
+
+
+2     Proof of the main theorem
+The proof of our main Theorem 1.1 is split into several parts. The main idea is to work with
+the cumulant generating function of the probability distribution given by the densities δ(j, t),
+which we define in Section 2.1. The crucial observation later on is that it is sufficient to work
+with an approximation using only the cumulants up to order 5. This approximation is analyzed
+in Section 2.2 and used in Section 2.3 inside an explicit integral representation of ct to prove
+our main result up to an exceptional set of ts. It remains to prove that these exceptional
+values, which are defined by the cumulants of order 2 and 3, satisfy an inequality involving
+the cumulants of order 4 and 5. For this reason, we needed to choose an approximation of the
+cumulant generating function up to order 5. Thus, in Section 2.4 we determine this exceptional
+set and in Section 2.5 we prove bounds on the cumulants of order 4 and 5. Finally, in Section 2.6
+we combine all ingredients to prove the inequality.
+
+2.1    Characteristic function and cumulant generating function
+We begin with the definition of the characteristic function of the probability distribution given
+by the densities δ(j, t). In particular, we use the following variant, involving a scaling factor
+τ = 2π. For t ≥ 0 and ϑ ∈ R we define
+                                              X
+                                     γt (ϑ) =    δ(j, t) e(jϑ).
+                                              j∈Z
+
+
+
+                                                 5
+Since δ( , t) defines a probability distribution and |e(x)| ≤ 1 for real x, we may interchange
+summation and integration by the dominated convergence theorem:
+                                                    X              Z 1/2
+                        X               1, k = j;
+              δ(j, t) =     δ(k, t) ·                 =      δ(k, t)        e((k − j)ϑ) dϑ
+                                        0, k 6= j                     −1/2
+                        k∈Z                              k∈Z
+                        Z 1/2                                 Z 1/2                        (2.1)
+                                        X
+                      =       e(−jϑ)      δ(k, t) e(kϑ) dϑ =         γt (ϑ) e(−jϑ) dϑ.
+                        −1/2           k∈Z                          −1/2
+
+
+The recurrence (1.5) directly carries over to the characteristic functions. For all t ≥ 0, we have
+
+                                  γ2t (ϑ) = γt (ϑ),
+                                             e(ϑ)          e(−ϑ)                               (2.2)
+                               γ2t+1 (ϑ) =        γt (ϑ) +       γt+1 (ϑ),
+                                               2             2
+and in particular
+                                                         e(ϑ)
+                                          γ1 (ϑ) =              .                              (2.3)
+                                                      2 − e(−ϑ)
+Therefore, for all t ≥ 1, we have
+                                          γt (ϑ) = ωt (ϑ)γ1 (ϑ),
+where ωt is a trigonometric polynomial such that ωt (0) = 1. These polynomials satisfy the same
+recurrence relation as γt . In particular, noting also that the denominator 2 − e(−ϑ) is nonzero
+near ϑ = 0, we have Re γt (ϑ) > 0 for ϑ in a certain disk
+
+                                      Dt = {ϑ ∈ C : |ϑ| < r(t)},
+
+where r(t) > 0. It follows that
+                                              Kt = log ◦ γt                                    (2.4)
+is analytic in Dt and therefore there exist complex numbers κj (t) for j ∈ N such that
+                                                                     
+                                                     X κj (t)
+                         γt (ϑ) = exp(Kt (ϑ)) = exp          (iτ ϑ)j                         (2.5)
+                                                         j!
+                                                            j≥0
+
+
+for all ϑ ∈ Dt . These numbers κj (t) are the cumulants of the probability distribution defined by
+δ( , t) (up to a scaling by τ ); see, e.g., [5]. They are real numbers since characteristic functions
+are Hermitian: γt (ϑ) = γt (−ϑ). The real-valuedness also follows directly from the fact that
+cumulants are defined via the logarithm of the moment generating function, which has real
+coefficients. The cumulant κ2 (t) is the variance: we have
+                                                   X
+                                          κ2 (t) =    j 2 δ(j, t).                              (2.6)
+                                                      j∈Z
+
+For t = 0, we have κj (t) = 0 for all j ≥ 0, as δ(k, 0) = 1 if k = 0 and δ(k, 0) = 0 otherwise. The
+recurrence (2.2) shows that
+                                         γt (ϑ) = 1 + O(ϑ2 )
+at 0, which implies κ0 (t) = κ1 (t) = 0. Let us write
+
+                      xj = κj (t),    yj = κj (t + 1),      and zj = κj (2t + 1).              (2.7)
+
+
+                                                       6
+Next, we will express the coefficients zj as functions of the coefficients xj and yj . Therefore we
+substitute the cumulant representation from (2.5) for γt (ϑ) into the recurrence (2.2) and obtain
+that these quantities are related via the fundamental identity
+                      z             z3              
+                         2
+                  exp      (iτ ϑ)2 + (iτ ϑ)3 + · · ·
+                        2            6
+                                   1             x2          x3              
+                                = exp iτ ϑ + (iτ ϑ)2 + (iτ ϑ)3 + · · ·                         (2.8)
+                                   2               2           6
+                                   1             y2          y3              
+                                + exp −iτ ϑ + (iτ ϑ)2 + (iτ ϑ)3 + · · · ,
+                                   2              2            6
+valid for ϑ ∈ D = Dt ∩ Dt+1 ∩ D2t+1 . From this equation, we derive the following lemma by
+comparing coefficients of the appearing analytic functions.
+Lemma 2.1. Assume that t ≥ 0 and let xj , yj , and zj be defined by (2.7). We have
+                      x2 + y2
+                 z2 =         + 1;                                                             (2.9)
+                         2
+                      x3 + y3   3
+                 z3 =         + (x2 − y2 );                                                  (2.10)
+                         2      2
+                      x4 + y4                3
+                 z4 =         + 2(x3 − y3 ) + (x2 − y2 )2 − 2;                               (2.11)
+                         2                   4
+                      x5 + y5   5             5
+                 z5 =         + (x4 − y4 ) + (x2 − y2 )(x3 − y3 ) − 10(x2 − y2 ).            (2.12)
+                         2      2             2
+In particular,
+                     κ2 (1) = 2,   κ3 (1) = −6,   κ4 (1) = 26,   κ5 (1) = −150.              (2.13)
+Proof. Extracting the coefficient of ϑ2 in (2.8), we obtain
+                                
+                      1                       x2        1       x2        2
+              z2 =         [ϑ ] 1 + i τ ϑ + (iτ ϑ)2 + i τ ϑ + (iτ ϑ)2
+                             2
+                    (iτ )2                     2        2        2
+                                                                  
+                                 y2      2     1        y2   2 2
+                                                                      x2 + y2
+                 + 1 − i τ ϑ + (iτ ϑ) + −i τ ϑ + (iτ ϑ)             =           + 1,
+                                  2            2        2                  2
+
+where [xk ] fk xk = fk denotes the coefficient extraction operator and this gives (2.9).
+           P
+
+   Similarly, we handle the higher coefficients. We proceed with [ϑ3 ]Kt (ϑ). From (2.8) we
+obtain by collecting the cubic terms
+                                                                                       
+                3     x3       3    1 x2      3  1    3   y3  3     1 y2      3  1    3
+        z3 =              (iτ ) + 2      (iτ ) + (iτ ) + (iτ ) − 2       (iτ ) − (iτ )
+              (iτ )3 6              2 2          6         6        2 2          6
+              x3 + y3      3
+           =           + (x2 − y2 ),
+                  2        2
+which is (2.10). For the next coefficient [ϑ4 ]Kt (ϑ), we have to take the quadratic term of the
+exponential on the left hand side of (2.8) into account. This yields, inserting the recurrence for
+z2 obtained before,
+
+                                                              z2
+         z                                                     
+           2          z3        z4                     z4
+                                                            + 2
+   4
+   ϑ exp     (iτ ϑ)2 + (iτ ϑ)3 + (iτ ϑ)4 = τ 4
+          2           6         24                      24     8
+                                                                               (x2 + y2 )2
+                                                                                          
+                                                              z4   1 x2 + y2
+                                                       = τ4      + +         +               .
+                                                              24 8      8          32
+
+
+                                                  7
+The coefficient of ϑ4 of the right hand side of (2.8) gives, collecting the quartic terms,
+
+                τ 4 x4                 x22
+                                                      
+                           1 x3                 1 x2             1
+                         +         +          +      3       +
+                 2 24 2 3              4        6      2        24
+                                                 y22
+                                                                           
+                            y4     1       y3              1  y2         1
+                          + +           − +             +      3       +
+                            24 2           3      4        6      2       24
+                                                                2      2
+                                                                                        
+                                  x 4 +  y 4    x 3 −  y3     x   +  y      x2 + y2    1
+                          = τ4               +            + 2          2
+                                                                         +          +      .
+                                      48            12            16          16      24
+
+Equation (2.11) follows. Finally, we need the quintic terms. The left hand side of (2.8) yields
+                z              z3         z4            z5                    z     z2 z3 
+        5        2                                                               5
+        ϑ exp        (iτ ϑ)2 + (iτ ϑ)3 + (iτ ϑ)4 +            (iτ ϑ)5 = (iτ )5       +
+                  2         6         24            120                     120
+                                                                                  12
+                              z5    1  x 2 +  y 2         x 3 +  y 3   3
+                 = (iτ )5         +               +1                 + (x2 − y2 )    ,
+                             120 12         2                  2       2
+
+while the right hand side of (2.8) yields
+
+       (iτ )5 x5                                              x22
+                                                                
+                         1  x2 x3      x4  1       x3                 1  x2        1
+                      +      2      +2       +      3 +3            +      4      +
+         2      120 2           12      24     6      6       4        24    2        120
+                                                          y22
+                                                                                     
+               y5      1  y2 y3      y4  1       y3                1  y2        1
+            +       +      2       −2      +     3 −3             −      4     −
+              120 2           12      24     6     6      4         24     2      120
+                                                                             x2 − y22
+                                                                               2
+                                                                                                 
+                    5   x5 + y5     x4 − y4    x3 + y3     x2 x3 + y2 y3                  x2 − y2
+            = (iτ )              +          +           +                  +           +            ,
+                          240         48          24              24             16         24
+
+which implies (2.12) after a short calculation. Finally, we compute the values κ2 (1), . . . , κ5 (1)
+by substituting t = 0 in (2.9)–(2.12).
+
+   In the following, we are not concerned with the original definition of κj , involving a disk Dt
+with potentially small radius. Instead, we only work with the recurrences (2.9)–(2.12), which
+we restate here explicitly as a main result of this section:
+
+                          κj (2t) = κj (t) for all j ≥ 0;
+                                    1                     
+                     κ2 (2t + 1) = κ2 (t) + κ2 (t + 1) + 1;
+                                    2
+                                    1                      3                   
+                     κ3 (2t + 1) = κ3 (t) + κ3 (t + 1) + κ2 (t) − κ2 (t + 1) ;
+                                    2                        2
+                                    1                                         
+                     κ4 (2t + 1) = κ4 (t) + κ4 (t + 1) + 2 κ3 (t) − κ3 (t + 1)                          (2.14)
+                                    2
+                                    3                    2
+                                  + κ2 (t) − κ2 (t + 1) − 2;
+                                    4
+                                    1                      5                   
+                     κ5 (2t + 1) = κ5 (t) + κ5 (t + 1) + κ4 (t) − κ4 (t + 1)
+                                    2                        2
+                                    5                                      
+                                  + κ2 (t) − κ2 (t + 1) κ3 (t) − κ3 (t + 1)
+                                    2                     
+                                  − 10 κ2 (t) − κ2 (t + 1) ,
+
+for all integers t ≥ 0. Note that κ2 (t) is obviously nonnegative, since it is a variance; this can
+also easily be seen from this recurrence.
+
+
+                                                     8
+Remarks. Let us discuss some properties and other appearances of κj (t).
+
+  1. The sequence κ2 is 2-regular [1–3]. More precisely, we define
+                                                                    
+                                 1     0 0                   1/2 1/2 1
+                        B0 = 1/2 1/2 1 ,          B1 =  0       1 0                        (2.15)
+                                 0     0 1                    0    0 1
+
+      and                                                    
+                                           S1 (n)       κ2 (n)
+                                   S(n) = S2 (n) = κ2 (n + 1) .
+                                           S3 (n)          1
+      Then for all n ≥ 0, the recurrence yields
+
+                              S(2n) = B0 S(n),         S(2n + 1) = B1 S(n).                    (2.16)
+
+      Thus κ2 is 2-regular, compare to [1, Theorem 2.2, item (e)].
+      In this manner, we can also prove 2-regularity of κ3 , κ4 , κ5 . Considering for example the
+      case κ5 , we introduce a sequence S` for each term that occurs in one of the recurrence
+      formulas (2.14), such as κ2 (n)κ3 (n + 1); we see that it is sufficient to consider two 16 × 16-
+      matrices.
+
+  2. The sequence dt = κ2 (t)/2 appears in another context too: it is the discrepancy of the van
+     der Corput sequence [9,17], and it satisfies d1 = 1, d2t = dt , d2t+1 = (dt + dt+1 + 1)/2. We
+     do not know yet if this connection between our problem and discrepancy is a meaningful
+     one. After all, it is no big surprise that one of the simplest 2-regular sequences occurs in
+     two different problems concerning the binary expansion.
+
+  3. By the same method of proof (or alternatively, by concatenating the power series for log
+     and γt (ϑ)) the list in Lemma 2.1 can clearly be prolonged indefinitely. For the proof of
+     our main theorem, however, we only need the terms up to κ5 . Without giving a rigorous
+     proof, we note that this also shows that κj is 2-regular for all j ≥ 0. Note the important
+     property that lower cumulants always appear as differences; we believe that this behavior
+     persists for higher cumulants.
+
+  4. More explicit values of κj (1) can be easily computed from the closed form (2.3). Note
+     that by (1.4) we know that these numbers are the cumulants of a geometric distribution
+     with parameter p = 1/2 and given by the OEIS sequence A000629 with many other
+     combinatorial connections.
+
+   In the next section we analyze an approximation of the cumulant generating function γt (ϑ)
+anticipating the fact that it captures all important properties for the subsequent proof.
+
+2.2    An approximation of the cumulant generating function
+Let us define the following approximation of γt . Set
+                                                                
+                                              X κj (t)
+                              γt∗ (ϑ) = exp             (iτ ϑ)j  .                           (2.17)
+                                                      j!
+                                               2≤j≤5
+
+
+
+                                                  9
+We are going to replace γt by γt∗ , and for this purpose we have to bound the difference
+                                           et (ϑ) = γt (ϑ) − γt∗ (ϑ).
+                                           γ
+Clearly, we have γ
+                 e2t (ϑ) = γ
+                           et (ϑ). Moreover,
+                         e(ϑ)                   e(−ϑ)
+                               et (ϑ) + γt∗ (ϑ) +                  ∗          ∗
+                                                                          
+              γ
+              e2t+1 (ϑ) =      γ                           γ
+                                                           et+1 + γt+1 (ϑ) − γ2t+1 (ϑ)
+                           2                          2                                            (2.18)
+                         e(ϑ)          e(−ϑ)
+                       =      γ
+                              et (ϑ) +         γ
+                                               et+1 (ϑ) + ξt (ϑ),
+                           2              2
+where
+                               e(ϑ) ∗       e(−ϑ) ∗           ∗
+                                   γt (ϑ) +
+                            ξt (ϑ) =              γt+1 (ϑ) − γ2t+1 (ϑ).                            (2.19)
+                                 2            2
+We prove the following rough bounds on differences of the cumulants κj .
+Lemma 2.2. We have
+                                         |κ2 (t + 1) − κ2 (t)| ≤ 2;                                (2.20)
+                                         |κ3 (t + 1) − κ3 (t)| ≤ 6;                                (2.21)
+                                         |κ4 (t + 1) − κ4 (t)| ≤ 28;                               (2.22)
+                                         |κ5 (t + 1) − κ5 (t)| ≤ 240.                              (2.23)
+Proof. We prove these statements by induction, inserting the recurrences (2.14). We have
+                                       κ2 (t) + κ2 (t + 1)                κ2 (t + 1) − κ2 (t)
+          κ2 (2t + 1) − κ2 (2t) =                          + 1 − κ2 (t) =                     +1
+                                                2                                  2
+and
+                                            κ2 (t) + κ2 (t + 1)     κ2 (t + 1) − κ2 (t)
+      κ2 (2t + 2) − κ2 (2t + 1) = κ2 (t + 1) −                  +1=                     − 1.
+                                                     2                       2
+Then, by induction, the first statement is an easy consequence. Next, we consider the second
+inequality. From (2.14) we get
+                                          κ3 (t + 1) − κ3 (t) 3                   
+                   κ3 (2t + 1) − κ3 (2t) =                   − κ2 (t + 1) − κ2 (t) ,
+                                                   2          2
+                                          κ3 (t + 1) − κ3 (t) 3                   
+              κ3 (2t + 2) − κ3 (2t + 1) =                    + κ2 (t + 1) − κ2 (t) ,
+                                                   2          2
+and using the first part and induction, the claim follows. Concerning (2.22),
+                                        κ4 (t + 1) − κ4 (t)                         
+                 κ4 (2t + 1) − κ4 (2t) =                    + 2 κ3 (t) − κ3 (t + 1)
+                                                 2
+                                        3                    2
+                                      + κ2 (t) − κ2 (t + 1) − 2,
+                                        4
+and the last three summands add up to a value bounded by 14 in absolute value, using the first
+two estimates and the fact that all cumulants are real numbers. An analogous statement for
+κ4 (2t + 2) − κ4 (2t + 1) holds. This implies the third line. Finally,
+                                 κ5 (t + 1) − κ5 (t) 5                    
+           κ5 (2t + 1) − κ5 (2t) =                  + κ4 (t) − κ4 (t + 1)
+                                          2          2
+                    5                                                             
+                  + κ2 (t) − κ2 (t + 1) κ3 (t) − κ3 (t + 1) − 10 κ2 (t) − κ2 (t + 1) ,
+                    2
+and the sum of the last three summands is bounded by 120 in absolute value. In complete
+analogy to the above, this implies (2.23).
+
+
+                                                      10
+Corollary 2.3. There exists a constant C such that for all t having M blocks of 1s we have
+
+               |κ2 (t)| ≤ CM,    |κ3 (t)| ≤ CM,        |κ4 (t)| ≤ CM,   |κ5 (t)| ≤ CM.
+
+Proof. We proceed by induction on the number of blocks of 1s in t. Appending 0r to the binary
+expansion, there is nothing to show by the identity κj (2t) = κj (t). We append a block of 1s of
+length r: Using the following (trivial) identity
+
+        κj 2r t + 2r − 1 = κj (t) + κj 2r t + 2r − 1 − κj (t + 1) − (κj (t) − κj (t + 1)) ,
+                                                                
+
+                                 
+and since κj 2r t + 2r − 1 + 1 = κj (t + 1) due to κj (2t) = κj (t), the result follows by
+Lemma 2.2.
+
+   The following lower bound is [17, Lemma 3.1], and essentially contained in [9]; see also [11].
+
+Lemma 2.4. Let M be the number of blocks of 1s in t. Then κ2 (t) ≥ M .
+
+   We prove the following upper bound for γ  et (ϑ), using the recurrence (2.14) as an essential
+input. This proposition is the central property in our proof of the main theorem, showing the
+crucial uniformity of our approximation.
+
+Proposition 2.5. There exists a constant C such that for |ϑ| ≤ min M −1/6 , τ −1 we have
+                                                                                   
+
+
+                                         et (ϑ) ≤ CM ϑ6 ,
+                                         γ
+                                         ξt (ϑ) ≤ Cϑ6 ,
+
+where M is the number of blocks of 1s in t.
+
+Proof. From (2.17) and (2.18) we see that by construction γ  et (ϑ) = O(ϑ6 ) and ξt (ϑ) = O(ϑ6 ) as
+                                                 0
+the Taylor coefficients at ϑ = 0 of γt (ϑ) and γt (ϑ) up to ϑ5 are the same. It remains to show
+that the constants are effective and uniform in t. To begin with, there is a constant C such
+that (2.24) holds for t ∈ {0, 1}; a numerical value can be extracted from the first few γet (ϑ) and
+ξt (ϑ), which have explicit expansions.
+     We proceed by induction on the length L of the binary expansion of t. As induction hypoth-
+esis, we choose the following strengthened statement:
+
+                                       et (ϑ) ≤ 2CM ϑ6 ;
+                                       γ
+                                    et+1 (ϑ) ≤ 2CM ϑ6 ;
+                                    γ
+                                      ξt (ϑ) ≤ Cϑ6                                          (2.24)
+      for all t whose binary expansion has a length bounded by L, and for all real
+      ϑ satisfying |ϑ| ≤ 1/τ and |ϑ| ≤ M −1/6 , where M is the number of blocks in
+      t.
+Note that in this proof, and in this proof only, we use the total number of blocks instead of the
+number of blocks of 1s because this works well with the induction statement. The statement of
+the proposition is not changed by this, since the numbers of blocks of 0s and blocks of 1s differ
+at most by one.
+   The statement holds for t ∈ {0, 1}. We therefore assume that (2.24) holds for all t whose
+binary expansion has a length strictly less than L, where L ≥ 2. Our strategy is now to first
+prove the inequalities for γ
+                           et (ϑ) and γ
+                                      et+1 (ϑ), and after that the one for ξt (ϑ). In order to make
+
+
+                                                  11
+the interplay between the statements in the induction hypothesis explicit, we rewrite (2.18) as
+a matrix recurrence for t ≥ 1:
+                                                                                !
+            
+               γ
+               e2t (ϑ)
+                             
+                                 γ
+                                 et (ϑ)
+                                          
+                                               0
+                                                                    1       0
+                         = A0             +          with A0 = e(ϑ) e(−ϑ) ;
+             γe2t+1 (ϑ)         γ
+                                et+1 (ϑ)    ξt (ϑ)
+                                                                              2     2
+
+                                                                           e(ϑ)   e(−ϑ)
+                                                                                    !
+             γe2t+1 (ϑ)          γ
+                                 et (ϑ)     ξ (ϑ)                            2      2
+                         = A1             + t              with     A1 =                      .
+             γe2t+2 (ϑ)         γ
+                                et+1 (ϑ)      0                               0    1
+
+The idea is now to use these relations to reduce the length of t. For this purpose, we regard the
+run of 0s or 1s at the very right of the binary expansion of t.
+   First, if we have a run of 0s, we can write t = 2k t0 , where t0 is odd. Iterating the first matrix
+equation above, we accumulate powers of A0 :
+                                                        X k−1−j  0 
+                      e2k t0 (ϑ)
+                      γ                      γ
+                                             et0 (ϑ)
+                                    = Ak0                +        A0
+                     γ
+                     e2k t0 +1 (ϑ)          γ
+                                            et0 +1 (ϑ)                   ξ2` t0 (ϑ)
+                                                           0≤j<k
+                                                                
+                                             γ
+                                             et0 (ϑ)           0
+                                    = Ak0                +           ,
+                                            γ
+                                            et0 +1 (ϑ)       E0 (ϑ)
+
+where, due to e(ϑ)j = e(jϑ), we have
+                                         X e(−(k − 1 − j)ϑ)
+                             E0 (ϑ) =                       ξ2j t0 (ϑ),
+                                               2k−1−j
+                                        0≤j<k
+
+which satisfies
+                                      E0 (ϑ) ≤ 2 max ξ2j t0 (ϑ) .
+                                                  0≤j<k
+                              j 0
+Now, the binary length of 2 t is strictly less than the binary length of t, therefore we can use
+our hypothesis in order to conclude that |E0 (ϑ)| ≤ 2Cϑ6 . Moreover, the number M 0 of blocks
+(of 0s or 1s) in t0 is the number M of blocks in t decreased by one (since t0 is odd). By the
+hypothesis and the fact that A0 has row-sum norm equal to 1, we obtain |e    γt (ϑ) ≤ 2CM ϑ6 and
+                    6            k 0
+ γt+1 (ϑ) ≤ 2CM ϑ for t = 2 t .
+|e
+    Second, appending a block of 1s to an even integer t0 , we obtain from the second matrix
+equation                                                            
+                          γ
+                          e2k t0 +2k −1 (ϑ)           γ
+                                                      et0 (ϑ)      E1 (ϑ)
+                                             = Ak1               +         ,
+                           γ
+                           e2k (t0 +1) (ϑ)           γ
+                                                     et0 +1 (ϑ)      0
+where
+                                       X e(−(k − 1 − j)ϑ)
+                          E1 (ϑ) =                        ξ2j t0 +2j −1 (ϑ)
+                                             2k−1−j
+                                      0≤j<k
+
+satisfies
+                                    E1 (ϑ) ≤ 2 max ξ2j t0 +2j −1 (ϑ) .
+                                                0≤j<k
+
+As above, we have by our induction hypothesis E1 (ϑ) ≤ 2Cϑ6 . Then, since the integer t0 has
+one block less than t and since A1 has row-sum norm equal to 1, we can use our induction
+                                                γt+1 (ϑ) ≤ 2CM ϑ6 for t = 2k t0 + 2k − 1.
+                           γt (ϑ) ≤ 2CM ϑ6 and |e
+hypothesis (2.24) and get |e
+
+
+
+
+                                                   12
+     It remains to consider the inequality for ξt (ϑ). We start by dividing Equation (2.19) by
+γt∗ (ϑ). This gives
+                                               X                                   
+                    ξt (ϑ)    e(ϑ) e(−ϑ)               κj (t + 1) − κj (t)        j
+                            =     +       exp                              (iτ ϑ)
+                    γt∗ (ϑ)     2     2                         j!
+                                                2≤j≤5
+                                         X                                             (2.25)
+                                               κj (2t + 1) − κj (t)
+                                  − exp                             (iτ ϑ)j
+                                                        j!
+                                           2≤j≤5
+
+
+As observed before, we have ξt (ϑ) = O(ϑ6 ) and consequently, dividing by the power series
+γt∗ (ϑ) = 1 + O(ϑ2 ), we see that the series of the right hand side also belongs to O(ϑ6 ). Next,
+we get by the triangle inequality and the induction hypothesis
+
+                              γt∗ (ϑ) ≤ γt (ϑ) + γ
+                                                 et (ϑ) ≤ 1 + 2CM ϑ6
+
+and since ϑ ≤ M −1/6 , we obtain
+                                            γt∗ (ϑ) = O(1).
+    Now we turn our attention to the right hand side of (2.25), where we will treat each summand
+separately. The first term e(ϑ)/2 has (i τ )k /(2 · k!) as coefficients; since τ ϑ ≤ 1, the contribution
+of the coefficients for k ≥ 6 is bounded by
+
+                          1 X (τ ϑ)k  1                        1
+                                     ≤ (τ ϑ)6 (e − 163/60) <      (τ ϑ)6 .
+                          2     k!    2                      1234
+                            k≥6
+
+    Next, we want to show that the contribution of the second term (i.e., the product of two
+exponentials) and the third term are each bounded by C(τ ϑ)6 . By Lemma 2.2, an upper bound
+for the coefficients of the second term is given by the coefficients of
+
+                                f (ϑ) = exp 2 (τ ϑ) + · · · + (τ ϑ)5 .
+                                                                    
+
+
+Clearly, the term ϑk in the j-fold product (ϑ + ϑ2 + · · · + ϑ5 )j appears at most 5j times, but
+only for j ≥ k/5. Therefore the coefficient [ϑk ]f (ϑ) is bounded by
+                                        X             5j      X 10j
+                                  τk             2j      ≤ τk       .
+                                                      j!         j!
+                                       k/5≤j≤k              j≥k/5
+
+
+Consequently, as we only need to consider coefficients of ϑk with k ≥ 6, and since |τ ϑ| ≤ 1, we
+get
+                 X                          X X 10j           X 10j j
+                       ϑk ϑk f (ϑ) ≤ (τ ϑ)6         ≤ 5(τ ϑ)6         ≤ C 0 ϑ6
+                          
+                                                 j!              j!
+                 k≥6                       k≥6 j≥k/5                j≥1
+
+
+for some absolute constant C 0 . The same holds for the third exponential in (2.25), as |κj (2t +
+1) − κj (t)| = |κj (2t + 1) − κj (2t)| ≤ 240. Collecting these results we get an absolute and effective
+constant C such that |ξt (ϑ)| ≤ Cϑ6 as long as ϑ ≤ M −1/6 and |τ ϑ| ≤ 1.
+
+
+
+
+                                                       13
+2.3     An integral representation of ct
+We use the following representation of the values ct .
+
+Proposition 2.6 ([19, Proposition 2.1]). Let t ≥ 0. We have
+                                                  Z 1/2
+                                1 δ(0, t) 1
+                         ct =     +      +                Im γt (ϑ) cot(πϑ) dϑ,              (2.26)
+                                2   2      2       −1/2
+
+where the integrand is a bounded, continuous function.
+
+   We split the integral at the points ±ϑ0 , where ϑ0 = M −1/2 R. Here M is the number of
+blocks of 1s in t and R is a small parameter to be chosen in a moment. For now, we assume
+that
+                              8 ≤ R ≤ M 1/3 and ϑ0 ≤ 1/τ                            (2.27)
+for technical reasons as, among others, we need to apply Proposition 2.5. Note that under these
+hypotheses,
+                                          ϑ0 ≤ M −1/6 ,
+so that the proposition will be applicable. We will choose R = log M ; then (2.27) will be satisfied
+for large M . The tails of the above integral will be estimated using the following lemma.
+
+Lemma 2.7 ([19, Lemma 2.7]). Assume that t ≥ 1 has at least M = 2M 0 + 1 blocks of 1s. Then
+                                    M 0
+                                 ϑ2              M 0 ϑ2             M ϑ2
+                                                                     
+                  |γt (ϑ)| ≤ 1 −         ≤ exp −          ≤ 2 exp −
+                                 2                2                  4
+
+for |ϑ| ≤ 1/2.
+
+   We have cot(x) = 1/x + O(1) for x ≤ 1/2. The contribution of the tail can therefore be
+bounded by
+                    Z 1/2
+                                    M ϑ2
+                                        
+                                                       1
+                              exp −        cot(πϑ) dϑ ≤ I + O (J) ,
+                     M −1/2 R        4                 π
+where                                      Z ∞
+                                                          M ϑ2 dϑ
+                                                             
+                                      I=            exp −
+                                           M −1/2 R        4    ϑ
+and                                        Z ∞
+                                                          M ϑ2
+                                                              
+                                      J=            exp −        dϑ.
+                                           M −1/2 R        4
+   The integral J is bounded by
+                                            
+                      O exp −M (M −1/2 R)2 /4 = O exp −R2 /4 .
+                                                            
+
+
+   In order to estimate I, we write
+
+                        X Z 2j+1 ϑ0       
+                                             M ϑ2
+                                                  
+                                                     dϑ     X      j 2
+                                                                     4 R
+                   I≤                  exp −              ≤   exp  −     .
+                              2j ϑ0           4     2j ϑ0              4
+                        j≥0                                      j≥0
+                                                                                      
+Using the hypothesis R ≥ 1, this is easily shown to be bounded by O exp −R2 /4 by a
+geometric series. For |ϑ| ≤ ϑ0 , we replace γt (ϑ) by γt∗ (ϑ) in the integral in (2.26), using
+
+
+                                                   14
+Proposition 2.5. Noting the hypotheses (2.27), we obtain |γt (ϑ) − γt∗ (ϑ)|  M |ϑ|6 , where M is
+the number of blocks in t. Therefore
+      Z 1/2                         Z ϑ0
+                                         Im γt (ϑ) cot(πϑ) dϑ + O exp −R2 /4
+                                                                              
+             Im γt (ϑ) cot(πϑ) dϑ =
+         −1/2                             −ϑ0
+                    Z ϑ0                                   Z ϑ0           !
+                           Im γt∗ (ϑ) cot(πϑ) dϑ + O M            ϑ5 dϑ       + O exp −R2 /4
+                                                                                            
+                =                                                                                  (2.28)
+                     −ϑ0                                    0
+                    Z ϑ0
+                =          Im γt∗ (ϑ) cot(πϑ) dϑ + O(E),
+                     −ϑ0
+
+where, due to ϑ0 = M −1/2 R, we have
+                                      E = M −2 R6 + exp −R2 /4 .
+                                                              
+
+Similarly, combining (2.1) with the above reasoning, we get
+                                        Z ϑ0
+                              δ(0, t) =      Re γt∗ (ϑ) dϑ + O(E).                                 (2.29)
+                                                −ϑ0
+
+Next we return to the definition of γt∗ (ϑ) from (2.17). By the Taylor expansion of exp, using
+Corollary 2.3, we have for |ϑ| ≤ ϑ0
+                               (τ ϑ)2
+                                      
+          ∗                                       κ3 (t)            κ4 (t)           κ5 (t)
+         γt (ϑ) = exp −κ2 (t)           × 1+             (iτ ϑ)3 +         (iτ ϑ)4 +        (iτ ϑ)5
+                                  2                 6                24               120
+                  1                   1                           1                  
+               + κ3 (t)2 (iτ ϑ)6 +      κ3 (t)κ4 (t)(iτ ϑ)7 +        κ3 (t)3 (iτ ϑ)9
+                 72                 144                         1296
+                + O M 2 ϑ8 + M 3 ϑ10 + iO M 2 ϑ9 + M 3 ϑ11 ,
+                                                                 
+
+where both error terms are real. We note that cot(πϑ) = 2/(τ ϑ) − τ ϑ/6 + O(ϑ3 ) for |ϑ| ≤ 1/2.
+Splitting into real and imaginary summands, of which there are three and four, respectively, we
+obtain by (2.28) and (2.29)
+           1 1 ϑ0                        (τ ϑ)2
+                  Z                            
+                                                         κ4 (t)            1
+      ct = +             exp −κ2 (t)                1+          (τ ϑ)4 − κ3 (t)2 (τ ϑ)6
+           2 2 −ϑ0                          2              24            72
+            
+                1                    1                   1
+          + − κ3 (t)(τ ϑ)3 +            κ5 (t)(τ ϑ)5 −      κ3 (t)κ4 (t)(τ ϑ)7
+                6                  120                 144
+                                             
+               1
+                   κ3 (t)3 (τ ϑ)9 cot(πϑ) dϑ + O E + E2
+                                                                    
+           +
+             1296
+           1 1 ϑ0                        (τ ϑ)2                          κ3 (t)2
+                  Z                            
+                                                         κ4 (t)                            κ3 (t)
+         = +             exp −κ2 (t)                1+          (τ ϑ)4 −          (τ ϑ)6 −        (τ ϑ)2
+           2 2 −ϑ0                          2              24                72              3
+                                                     κ3 (t)3
+                                                                                     
+             κ5 (t)      4     κ3 (t)κ4 (t)      6                 8   κ3 (t)      4
+                                                                                                         
+           +        (τ ϑ) −                 (τ ϑ) +          (τ ϑ) +          (τ ϑ) dϑ + O E + E2 ,
+               60                   72                648               36
+where                          Z ϑ0
+                                      M ϑ6 + M 2 ϑ8 + M 3 ϑ10 dϑ  M −5/2 R11 .
+                                                             
+                       E2 =
+                                −ϑ0
+We extend the integration limits again, introducing an error
+                  Z ∞
+                                         ϑ2
+                                           
+                                              1 + M ϑ 2 + M ϑ 4 + M 2 ϑ6 + M 3 ϑ8 .
+                                                                                 
+            E3             exp −κ2 (t)
+                   M −1/2 R               2
+In order to estimate this, we use the following lemma.
+
+
+                                                      15
+Lemma 2.8. For real numbers a > 0 and δ ≥ 0, and integers j ≥ 0, we define
+                                    Z ∞
+                               Ij =     xj exp(−ax2 ).
+                                              δ
+
+Then
+                                   δ
+                                     exp −aδ 2 ,
+                                              
+                              I2 
+                                   a
+                                     δ3
+                                           
+                                          δ
+                                        + 2 exp −aδ 2 ,
+                                                       
+                              I4 
+                                     a   a
+                                    5
+                                         δ3
+                                                   
+                                     δ           δ
+                                        + 2 + 3 exp −aδ 2 ,
+                                                         
+                              I6 
+                                     a   a      a
+                                    7
+                                         δ5     δ3
+                                                       
+                                     δ               δ
+                                        + 2 + 3 + 4 exp −aδ 2 .
+                                                             
+                              I8 
+                                     a   a      a    a
+
+Proof. We have
+                       ∂ m
+                          x exp −ax2 = mxm−1 − 2axm+1 exp −ax2 ,
+                                                            
+                       ∂x
+therefore
+                                     xm            ∞    m
+                          Im+1 = −      exp(−ax2 ) + Im−1 .
+                                     2a            δ    2a
+                          
+Noting that I0  exp −aδ 2 , we obtain the above estimates by recurrence.
+
+   We insert a = κ2 (t)/2 and δ = ϑ0 . By Lemma 2.4 we have a ≥ M/2 > 0, and by our
+hypothesis (2.27) we have R ≤ M 1/6 , which implies in particular that δ = M −1/2 R ≤ 1. By
+these estimates and Lemma 2.8, we obtain
+                                                                        
+                 E3  1 + M −1/2 R + M −3/2 R7 exp −κ2 (t)(M −1/2 R)2 /2
+                     exp −R2 /2  E.
+                                
+
+
+   Substituting τ ϑ by ϑ, we obtain
+                     Z ∞
+                                       ϑ2
+                                                                              
+             1     1                              κ3 (t) 2    κ3 (t) κ4 (t) κ5 (t) 4
+       ct = +             exp −κ2 (t)        1−         ϑ +         +      +        ϑ
+             2 2τ −∞                    2           3          36       24   60
+                                           κ3 (t)3 8
+                                                   
+                κ3 (t) κ4 (t)
+                                κ3 (t)ϑ6 +
+                                                                      
+          + −         −                           ϑ dϑ + O E + E2 .
+                  72      72                648
+
+Inserting standard Gaussian integrals, it follows that
+                           √ 
+                    1       2                   κ2 (t)−3/2 κ3 (t)
+               ct = + √ κ2 (t)−1/2 −
+                    2 4 π                              3
+                                                           
+                                  κ3 (t) κ4 (t) κ5 (t)
+                  + 3κ2 (t)−5/2           +        +
+                                   36        24        60                                 (2.30)
+                                                                              κ3 (t)3
+                                                                                    
+                                      κ3 (t) κ4 (t)
+                  + 15κ2 (t)−7/2 −          −          κ3 (t) + 105κ2 (t)−9/2
+                                       72        72                            648
+                           −2 11              2
+                                                   
+                  + O M R + exp −R /4
+
+
+
+                                                  16
+under the hypotheses that 8 ≤ R ≤ M 1/6 and M −1/2 R ≤ 1/τ , where M is the number of blocks
+of 1s in t. The multiplicative constant in the error term is absolute, as customary in this paper.
+In order to simplify the error term, we choose
+
+                                             R = log M.                               (2.31)
+
+Using the hypothesis R ≥ 8, we have exp −R2 /4 ≤ M −2 . Then, since κ2 (t) ≥ 0 for all t, we
+                                                    
+
+see that for ct > 1/2 it is sufficient to prove
+
+                                                 v(t) ≥ 0,
+
+where                                                                           
+                             4        3 κ3 (t)          κ3 (t) κ4 (t) κ5 (t)
+                                                         2
+                v(t) = κ2 (t) − κ2 (t)      + κ2 (t)          +         +
+                                        3                 12         8       20
+                                                                 3
+                                                                                              (2.32)
+                                 κ3 (t) κ4 (t)               κ3 (t)
+                     + 5κ2 (t) −       −         κ3 (t) + 35          − Cκ2 (t)5/2 R11 .
+                                  24      24                  216
+and C is large enough such that the error term in (2.30) is strictly dominated by Cκ2 (t)5/2 M −2 R11 .
+Usually the first term is the dominant one; the critical cases occur when the first two terms
+in (2.32) almost cancel. We couple these terms and write
+
+                                                                 κ3 (t)
+                                     D = D(t) = κ2 (t) −                .
+                                                                   3
+Let us rewrite the expression for v(t), eliminating κ3 (t). Clearly, we have κ3 (t)2 = 9κ2 (t)2 −
+18Dκ2 (t) + 9D2 and κ3 (t)3 = 27κ3 (t)3 − 81Dκ3 (t)2 + 81D2 κ3 (t) − 27D3 . Omitting the argument
+t of the functions κj for brevity, we obtain
+
+                                   1       1       1        1
+                     v(t) = Dκ32 + κ32 − Dκ22 + κ22 κ4 + κ22 κ5
+                                   4       4       8       20
+                              15      15        15        5        5
+                            − κ32 + Dκ22 − D2 κ2 − κ22 κ4 + Dκ2 κ4
+                              8       4         8        8       8
+                              35 3                                5/2
+                            +     κ2 − 3Dκ22 + 3D2 κ2 − D3 − Cκ2 R11                          (2.33)
+                              8
+                                    
+                                  11         1          1     77
+                          = D+         κ32 − κ22 κ4 + κ22 κ5 − Dκ22
+                                   4         2         20      8
+                              5           45 2       35 3     5/2 11
+                            + Dκ2 κ4 + D κ2 − D − Cκ2 R .
+                              8            4          8
+   We distinguish between small and large values of D. Note that |κj | ≤ CM , D ≤ CM for
+some absolute constant C (expressed in Corollary 2.3), moreover κ2 ≥ M (Proposition 2.4)
+and R = log M . Thus, we have |κj | ≤ Cκ2 and D ≤ Cκ2 . Therefore there exists an absolute
+constant D0 (which could be made explicit easily) such that
+
+                                 v(t) ≥ D(t) − D0 κ2 (t)3
+                                                    
+                                                                                    (2.34)
+
+for all t ≥ 1. Clearly this implies v(t) ≥ 0 for all t such that D(t) ≥ D0 . We have therefore
+proved the following result.
+
+Lemma 2.9. There exists a constant D0 such that, if κ2 (t) − κ3 (t)/3 ≥ D0 , then ct > 1/2.
+
+
+
+                                                    17
+    The remainder of the proof of Theorem 1.1 is concerned with the case D(t) < D0 . As D0
+is an absolute constant, independent of t and M , we see that D(t)/κ2 (t)λ with λ > 0 becomes
+arbitrarily small when the number of blocks in t increase. Thus, we obtain from (2.33) the
+following statement: for all ε > 0 there is an M0 such that for M ≥ M0 we have
+                                              
+                                        11           1          1
+                          v(t) ≥ D +        − ε κ32 − κ22 κ4 + κ22 κ5 .                 (2.35)
+                                         4           2         20
+
+We proceed by taking a closer look at the values D(t). We have
+
+                              κ2 (t) + κ2 (t + 1) κ3 (t) + κ3 (t + 1) κ2 (t) − κ2 (t + 1)
+            D(2t + 1) =                          −                   −                    + 1,
+                                       2                   6                   2
+therefore
+                                                 D(t) + D(t + 1) κ2 (t + 1) − κ2 (t)
+       D(2t) = D(t)          and D(2t + 1) =                    +                    + 1.        (2.36)
+                                                        2                 2
+By (2.13), we have D(1) = D(2) = 4, moreover the term (κ2 (t + 1) − κ2 (t))/2 + 1 is nonnegative
+by Lemma 2.2. This implies
+                                        D(t) ≥ 4.                                         (2.37)
+Choosing ε = 1/8 in (2.35), we see that it remains to show that
+                                                       2
+                                           53κ2 − 4κ4 + κ5 > 0                                   (2.38)
+                                                       5
+if t contains many blocks, and D(t) is bounded by some absolute constant D0 .
+     This is done in two steps: first, we determine the structure of the exceptional set of integers t
+such that D(t) is bounded. We will see that such an integer has few blocks of 0s of length ≥ 2,
+and few blocks of 1s of bounded length. As a second step, we prove lower bounds for the numbers
+−κ4 (t) and κ5 (t), if t is contained in this exceptional set.
+
+2.4    Determining the exceptional set
+We define the exceptional set
+                                              {t : D(t) < D0 },
+where D0 is the constant from Lemma 2.9. In this section we will derive some structural
+properties of its elements.
+   We begin with investigating the effect of appending a block of the form 01k .
+
+Lemma 2.10. For t ≥ 0 and k ≥ 0 we have
+                                                                                   
+                      k+1       k        (2k + 1)κ2 (t) (2k − 1)κ2 (t + 1) 3 2k − 1
+              κ2 (2         t + 2 − 1) =               +                  +          ,           (2.39)
+                                             2k+1             2k+1            2k
+                                         2k + 1        2k − 1
+              D(2k+1 t + 2k − 1) =         k+1
+                                                D(t) + k+1 D(t + 1)
+                                         2           2                                         (2.40)
+                                           1 k−1                                3k − 1
+                                       +     + k+1     κ2 (t + 1) − κ2 (t) + 1 +        .
+                                           2    2                                  2k
+
+
+
+
+                                                      18
+Proof. The proof of the first part is easy, using induction and the recurrence (2.14).
+   We continue with the second part. The statement is trivial for k = 0 and for k = 1 it follows
+from (2.39). We use the abbreviations ρk = 1/2 + (k − 1)/2k+1 and σk = 1 + (3k − 1)/2k . For
+k ≥ 1 we have by induction, using (2.36) and (2.39),
+
+                                 D(2k+1 t + 2k − 1) + D(2t + 1)
+       D(2k+2 t + 2k+1 − 1) =
+                                                 2
+               κ2 (2t + 1) − κ2 (2k+1 t + 2k − 1)
+            +                                      +1
+                                2
+            2k + 1          2k − 1              ρk                      σk
+          = k+2 D(t) + k+2 D(t + 1) +               κ2 (t + 1) − κ2 (t) +
+             2               2                   2                        2
+               D(t) + D(t + 1) κ2 (t + 1) − κ2 (t) 1 κ2 (t) + κ2 (t + 1) 1
+            +                     +                     + +                      +
+                        4                     4           2             4           2
+                   k
+                                     2k − 1              2k − 1
+                                                                
+               1 2 +1
+            −             κ2 (t) + k+1 κ2 (t + 1) + 3 k           +1
+               2 2k+1                 2                    2
+            2k+1 + 1           2k+1 − 1
+                                                                       
+                                                       ρk    1       1                       
+          =      k+2
+                       D(t) +       k+2
+                                          D(t + 1) +       +   +   k+2
+                                                                          κ2 (t + 1) − κ2 (t)
+               2                  2                     2    4 2
+               σk     1     3
+            +      + + k+1 ,
+                2     2 2
+which implies the statement.
+
+   We obtain the following corollary.
+
+Corollary 2.11. For all t ≥ 0 and k ≥ 1 we have
+                                                                         k
+                       D 2k+1 t + 2k − 1 ≥ min D(t), D(t + 1) +
+                                                            
+                                                                              .
+                                                                       2k−1
+                                             
+Proof. Set α = 2k + 1 /2k+1 and β = 2k − 1 /2k+1 . By the bound |κ2 (t + 1) − κ2 (t)| ≤ 2
+from Lemma 2.2, it follows from Equation (2.40) that
+
+                                                  1                         k
+         D 2k+1 t + 2k − 1 ≥ αD(t) + βD(t + 1) + κ2 (t + 1) − κ2 (t) + 2 + k−1
+                                                                       
+                                                  2                       2
+                                                     k
+                            ≥ min D(t), D(t + 1) + k−1 .
+                                                    2
+   We can now extract the contribution to the value of D of a block of the form 01k 0. For this,
+we use the notation                                        
+                                m(t) = min D(t), D(t + 1) .
+This notation is introduced in order to obtain the following monotonicity
+                                                                              property: by the
+recurrence (2.36) and the nonnegativity of a(t) = κ2 (t + 1) − κ2 (t) /2 + 1 we have
+                                                                                   
+                                                D(t) + D(t + 1)
+            min m(2t), m(2t + 1) = min D(t),                       + a(t), D(t + 1)
+                                                        2                                 (2.41)
+                                                        
+                                  ≥ min D(t), D(t + 1) = m(t)
+
+Note also m(t) ≥ 4 by (2.37). These properties will be used in an essential way in the important
+Corollary 2.13 below, where an induction along the binary expansion of t is used.
+
+
+                                                 19
+Corollary 2.12. For all t ≥ 0 and k ≥ 1 we have
+                                                                k
+                               m(2k+2 t + 2k+1 − 2) ≥ m(t) +       .
+                                                                2k
+Proof. We have D(2k+2 t + 2k+1 − 2) = D(2k+1 t + 2k − 1), and by Corollary 2.11 this is bounded
+                  k
+below by m(t) + 2k−1   . Also, D(2
+                                    k+2
+                                        t + 2k+1 − 2 + 1) = D(2k+2 t + 2k+1 − 1) ≥ m(t) + k+1
+                                                                                           2k
+                                                                                              and
+                k−1
+clearly, min k/2    , (k + 1)/2 ≥ k/2k .
+                                k
+
+
+   Moreover, we want to find the contribution of a block of 0s of length ≥ 2. For this, we
+append 001 and look what happens: note that
+                                 3κ2 (t) κ2 (t + 1) 3
+                    κ2 (4t + 1) =       +          + ,
+                                   4          4      2
+                                 3D(t) D(t + 1) κ2 (t + 1) − κ2 (t)
+                     D(4t + 1) =        +          +                +2
+                                   4         4           2
+by (2.39) and (2.40). Therefore, by the recurrence (2.36), we obtain
+                             D(t) + D(4t + 1) κ2 (4t + 1) − κ2 (t)
+                 D(8t + 1) =                 +                     +1
+                                    2                  2
+                             7       1         3                     11
+                            = D(t) + D(t + 1) + κ2 (t + 1) − κ2 (t) + .
+                             8       8         8                      4
+These formulas together with D(8t + 2) = D(4t + 1) and |κ2 (t + 1) − κ2 (t)| ≤ 2 show that
+
+                                      m(8t + 1) ≥ m(t) + 1.                                 (2.42)
+
+Corollary 2.13. Assume that k ≥ 2 and t ≥ 1 are integers. Let K be the number of inner
+blocks of 0s of length at least two in the binary expansion of t, and L be the number of blocks of
+1s of length ≤ k. Then
+                                                                 
+                                                      L − 2K − 1      k
+                           m(t) ≥ 4 + K + max 0,                         .
+                                                           2          2k
+    In particular, for all integers D0 ≥ 2 and k ≥ 2, there exists a bound B = B(D0 , k) with the
+following property: for all integers t ≥ 1 such that D(t) ≤ D0 , the number of inner blocks of 0s
+of length ≥ 2 in t and the number of blocks of 1s of length ≤ k in t are bounded by B.
+Proof. We are going to apply (2.42) K times and Corollary 2.12 b(L − 2K − 1)/2c times, using
+the monotonicity of m expressed in (2.41) in an essential way. We proceed by induction along
+the binary expansion of t, beginning at the most significant digit. The constant 4 is explained by
+the starting value m(1) = min(D(1), D(2)) = 4. Each inner block of 0s of length ≥ 2 (bordered
+by 1s on both sides) corresponds to a factor 001 in the binary expansion: we simply choose
+the block of length three starting at the second zero from the right. Therefore (2.42) explains
+the contribution K. For the application of Corollary 2.12 we need a block of the form 01r 0
+with r ≥ 1, but we cannot guarantee that the adjacent blocks of 0s have not already been used
+for (2.42). Therefore each of the K inner blocks of 0s of length ≥ 2 renders the two adjacent
+blocks of 1s unusable for the application of Corollary 2.12. Out of the remaining blocks of 1s of
+length ≤ k, we can only use each second block, and the first and the last blocks of 1s are excluded
+also. That is, if L − 2K ∈ {3, 4}, we can apply Corollary 2.12 once, for L − 2K ∈ {5, 6} twice,
+and so on. Finally, we note that k/2k is nonincreasing. This explains the last summand.
+
+   In the following, we will only use the “in particular”-statement of Corollary 2.13.
+
+
+                                                20
+2.5    Bounds for κ4 and κ5
+Lemma 2.14. Assume that t contains M blocks of 1s. Then
+
+                                                    κ4 (t) ≤ 26(M + 1).
+
+Proof. Recall that κ4 (1) = 26 by (2.13). Using (2.14) and the estimates from Lemma 2.2 we get
+                                                        κ4 (t) + κ4 (t + 1)
+                                       κ4 (2t + 1) ≤                        + 13.
+                                                                 2
+Using the geometric series, this implies
+                                                      
+                                   k
+                                        κ4 (t)
+                                            k   2k − 1 κ4 (t + 1)
+                         κ4 2 t + 2 − 1 ≤ k +                     + 26.                      (2.43)
+                                          2           2k
+The statement for M = 1 easily follows. We also study t0 = 2k t + 1: In this case, we have
+                                              
+                                        2k − 1 κ4 (t) κ4 (t + 1)
+                      κ4 2k t + 1 ≥
+                                  
+                                                     +           + 13                    (2.44)
+                                            2k            2k
+by induction. We consider the values n(t) = min(κ4 (t), κ4 (t + 1)) and prove the stronger
+statement that n(t) ≥ 26(M + 1) by induction. We append a block 1k to t and obtain t0 =
+2k t + 2k − 1. Then
+                              
+             0   κ4 (t) 2k − 1 κ4 (t + 1)
+        κ4 (t ) ≤ k +                     + 26 ≤ min(κ4 (t), κ4 (t + 1)) + 26 = n(t) + 26,
+                  2           2k
+and κ4 (t0 + 1) = κ4 (t + 1). Analogously, we append 0k to t and obtain t0 = 2k t. Clearly,
+κ4 (t0 ) = κ4 (t), and
+                                          
+                            0       2k − 1 κ4 (t) κ4 (t + 1)
+                       κ4 (t + 1) ≤              +           + 26 ≥ n(t) + 26.
+                                        2k            2k
+This implies the statement.
+
+    We want to find a lower bound for κ5 (t). In the following, we consider the behavior of the
+differences κj (t) − κj (t + 1) when a block of 1s is appended to t. We do so step by step, starting
+with κ2 (t). Assume that k ≥ 1 is an integer and set t(k) = 2k t + 2k − 1. Note that by (2.14) we
+have κj (t(k) + 1) = κj (t + 1). By the recurrence (2.9) we obtain
+                                                       
+                       (k)
+                                  (k)
+                                          κ2 t(k−1) + κ2 (t + 1)
+                  κ2 t       − κ2 t + 1 =                            + 1 − κ2 (t + 1)
+                                                        2
+                                             κ2 t(k−1) − κ2 (t + 1)
+                                          =                          + 1,
+                                                         2
+which gives by induction
+                                               κ2 (t) − κ2 (t + 1) 2k − 1
+                         κ2 t(k) − κ2 t(k) + 1 =
+                                
+                                                                   + k−1
+                                                        2k          2                       (2.45)
+                                               = 2 + O 2−k .
+
+We proceed to κ3 (t). For k ≥ 1, we have
+                                                               
+                                                      κ3 t(k−1) − κ3 (t + 1)
+                        (k)                (k)
+                                                                             + 3 + O 2−k
+                                                                                       
+                 κ3 t             − κ3 t         +1 =
+                                                                 2
+
+
+                                                            21
+by (2.10) and (2.45). By induction and the geometric series we obtain
+                                          κ3 (t) − κ3 (t + 1)
+                    κ3 t(k) − κ3 t(k) + 1 =                    + 6 + O k2−k
+                                                                           
+                                                   2k                                                 (2.46)
+                                          = 6 + O k2−k .
+
+   Concerning κ4 (t), we have by (2.11), (2.45), and (2.46)
+                                               
+           (k)         (k)
+                                 κ4 t(k−1) − κ4 (t + 1)
+                                                           + 2 κ3 t(k−1) − κ3 (t(k−1) + 1)
+                                                                                         
+      κ4 t       − κ4 t + 1 =
+                                                 2
+                  3                                2
+                           (k−1)          (k−1)
+                                 
+                +    κ2 t          − κ2 (t      + 1) − 2
+                  4          
+                  κ4 t(k−1) + κ4 (t + 1)                       3            2
+                =                            + 12 + O(k2−k ) +   2 + O(2−k ) − 2
+                             2                                4
+                  κ4 t(k−1) − κ4 (t + 1)
+                =                            + 13 + O(k2−k )
+                               2
+and by induction we obtain
+
+                             κ4 t(k) − κ4 t(k) + 1 = 26 + O k 2 2−k .
+                                                                 
+                                                                                                       (2.47)
+   Finally, we have by (2.12), (2.45), (2.46), and (2.47)
+                                                  
+           (k)           (k)
+                                   κ5 t(k−1) − κ5 (t + 1) 5                                      
+                                                                       κ4 t(k−1) − κ4 (t(k−1) + 1)
+                                                                               
+      κ5 t       − κ5 t + 1 =                                    +
+                                                    2               2
+            5        (k−1)           (k−1)
+                                                  
+                                                         (k−1)
+                                                                                   
+                                                                 − κ3 (t(k−1) + 1)
+                                                              
+         +       κ2 t          − κ2 (t        + 1) κ3 t
+            2
+                                                    κ t(k−1)  − κ (t + 1)
+                                                         5              5
+                       (k−1)            (k−1)
+                                                                                + 65 + O k 2 2−k
+                                                                                                
+         − 10 κ2 t              − κ2 (t       + 1) =
+                                                                    2
+            5              −k
+                                            −k
+                                                              −k
+                                                                   
+         + 2+O 2                  6 + O k2          − 20 + O 2
+            2            
+             κ5 t(k−1) − κ5 (t + 1)
+                                           + 75 + O k2−k .
+                                                           
+         =
+                           2
+and therefore by induction
+
+                             κ5 t(k) − κ5 t(k) + 1 = 150 + O k 3 2−k .
+                                                                  
+                                                                                                       (2.48)
+
+Proposition 2.15. Let k ≥ 1 be an integer. Assume that the integer t ≥ 1 has N0 inner blocks
+of zeros of length ≥ 2, and N1 blocks of 1s of length ≤ k. Define N = N0 + N1 . If N2 is the
+number of blocks of 1s of length > k, we have
+
+                               κ5 (t) ≥ 150N2 − C N + N2 k 3 2−k
+                                                                 
+
+
+with an absolute constant C.
+
+Proof. We proceed by induction on the number of blocks of 1s in t. The statement obviously
+holds for t = 0. Clearly, by the identity κ5 (2t) = κ5 (t) we may append 0s, preserving the
+truth of the statement (note that N and N2 are unchanged, since we only count inner blocks
+of 0s). We therefore consider, for r ≥ 1, appending a block of the form 01r to t, obtaining
+t0 = 2r+1 t + 2r − 1. Define the integers N 0 and N20 according to this new value t0 . If t is even, an
+
+                                                   22
+additional block of zeros of length ≥ 2 appears, therefore N 0 ≥ N +1, moreover N20 ≤ N2 +1. By
+the bound |κ5 (m + 1) − κ5 (m)| ≤ 240 from (2.23), κ5 (2n) = κ5 (n), and the induction hypothesis
+we have
+                  κ5 t0 = κ5 (t0 ) − κ5 (2t + 1) + κ5 (2t + 1) − κ5 (t) + κ5 (t)
+                                                                     
+
+                         ≥ κ5 (t) − 480 ≥ 150N2 − C N + N2 k 3 2−k + 480
+                                                                     
+                                                                                           (2.49)
+                                          0     0 3 −k
+                                                       
+                         ≥ 150N2 − C N + N2 k 2
+if C is chosen large enough. The case of odd t remains. The integer t ends with a block of 1s
+of length s ≥ 1. We distinguish between three cases. First, let r ≤ k. In this case, N 0 = N + 1
+and N20 = N2 , and reusing the calculation (2.49) yields the claim.
+    In the case r > k, we have N 0 = N and N20 = N2 + 1. This case splits into two subcases.
+Assume first that s 6= k. We first consider the integer t00 = 2t + 1. The quantities N 00 and N200
+corresponding to the integer t00 satisfy N 00 = N and N200 = N2 due to the restriction s 6= k, and
+by hypothesis — recall that the induction is on the number of blocks of 1s in t — we have
+                           κ5 (2t + 1) ≥ 150N2 − C N + N2 k 3 2−k .
+                                                                    
+                                                                                            (2.50)
+In this case, we need to extract the necessary gain of 150 from (2.48): this formula yields together
+with (2.50)
+                              κ5 (t0 ) = κ5 (2t + 1) + 150 + O k 3 2−k
+                                                                        
+
+                                       ≥ 150N20 − C N 0 + N20 k 3 2−k
+                                                                      
+
+if C is chosen appropriately. Finally, we consider the subcase s = k, and again we set t00 = 2t + 1
+and choose N 00 and N200 accordingly. Here we have N 00 = N − 1 = N 0 − 1 and N200 = N2 + 1 = N20 ,
+and therefore by hypothesis
+                      κ5 (2t + 1) ≥ 150N2 − C (N − 1) + (N2 + 1)k 3 2−k .
+                                                                          
+
+By the bound (2.23) we have
+                    κ5 (t0 ) ≥ κ5 (2t + 1) − 240 ≥ 150N20 − C N 0 + N20 k 3 2−k .
+                                                                               
+
+   This finishes the proof of Proposition 2.15.
+
+2.6    Finishing the proof of the main theorem
+By Lemma 2.9 there is a constant D0 such that ct > 1/2 if D(t) ≥ D0 . Assume that C is the
+constant from Proposition 2.15 and choose k large enough such that Ck 3 2−k ≤ 20. Choose
+B = B(D0 , k) as in Corollary 2.13 and assume that D(t) ≤ D0 . The number N0 of inner blocks
+of 0s of length ≥ 2 in t and the number N1 of blocks of 1s of length ≤ k in t are bounded by B
+by this corollary. Furthermore, recall that M = N1 + N2 , where N2 is the number of blocks of
+1s of length > k. Therefore by Proposition 2.15,
+                                       κ5 (t) ≥ 130M − CB.
+If t contains sufficiently many blocks of 1s, we therefore have by Lemmas 2.4 and 2.14
+                                    2                                          4
+               53κ2 (t) − 4κ4 (t) + κ5 (t) ≥ 53M − 104(M + 1) + 52M − CB
+                                    5                                          5
+                                                     4
+                                           = M − CB − 104.
+                                                     5
+For large M this is positive, and by (2.38) it follows that ct > 1/2 for sufficiently many (greater
+than some absolute bound) blocks of 1s. The proof is complete.
+
+
+                                                  23
+3    Normal distribution of δ(j, t)
+In this section we prove Theorem 1.2. By (2.1) we have
+                                                Z 1/2
+                                    δ(j, t) =            γt (ϑ) e(−jϑ) dϑ.
+                                                  −1/2
+
+As above, we truncate the integral at ±ϑ0 , where
+
+                                                ϑ0 = M −1/2 R,
+
+M = 2M 0 + 1 is the number of blocks of 1s in t, and R is chosen later. In analogy to the
+reasoning above, we assume that
+                                                               1
+                                    8 ≤ R ≤ M 1/6         and ϑ0 ≤
+                                                                 .
+                                                               τ
+Again, by our choice of R = log M below, this will be satisfied for a sufficiently large number M
+of blocks. We define a coarser approximation of γt (ϑ) than used for the proof of our main
+theorem, as it is sufficient to derive the normal distribution-statement. Let
+
+                                                         (τ ϑ)2
+                                                               
+                                    (2)
+                                  γt (ϑ) = exp −κ2 (t)             ,
+                                                            2
+                                      (2)                     (2)
+                                    et (ϑ) = γt (ϑ) − γt (ϑ).
+                                    γ
+
+The proof of the following estimate essentially only requires to change some numbers in the
+proof of Proposition 2.5 and we leave it to the interested reader.
+Proposition 3.1. There exists an absolute constant C such that we have
+                                                (2)
+                                            et (ϑ) ≤ CM ϑ3
+                                            γ
+
+for |ϑ| ≤ min M −1/3 , τ −1 , where M is the number of blocks of 1s in t.
+                           
+
+   Noting that ϑ0 ≤ M −1/3 and ϑ0 ≤ 1/τ for large M , we obtain from Lemma 2.7 and
+Proposition 3.1
+                         Z ϑ0
+                              γt (ϑ) e(−jt) dϑ + O exp(−R2 /4)
+                                                               
+               δ(j, t) =
+                            −ϑ0
+                           Z ϑ0
+                                   (2)
+                                  γt (ϑ) e(−jϑ) dϑ + O M −1 R4 + O exp(−R2 /4)
+                                                                              
+                       =
+                            −ϑ0
+
+if only M is large enough and R ≤ M 1/6 . We extend the integral to R, introducing an error
+               Z ∞
+                    exp −κ2 (t)ϑ2 /2 dϑ  exp −κ2 (t)R2 /(2M ) ≤ exp −R2 /2
+                                                                            
+                τ ϑ0
+
+since κ2 (t) ≥ M by Lemma 2.4. We obtain the representation
+                               Z ∞
+                                   exp −κ2 (t)(τ ϑ)2 /2 e(−jϑ) dϑ + O(E)
+                                                       
+                     δ(j, t) =
+                                −∞
+                               1 ∞
+                                 Z
+                                     exp −κ2 (t)ϑ2 /2 − ijϑ dϑ + O(E)
+                                                           
+                             =
+                               τ −∞
+
+                                                         24
+for large enough M and R ≤ M 1/6 , where
+
+                                   E = M −1 R4 + exp −R2 /4 .
+                                                           
+
+   Now, we choose R = log M . Our hypothesis R ≥ 8 implies exp −R2 /4 ≤ M −1 and therefore
+                                                                     
+
+                                                          4
+                                        E  M −1 log M         .
+
+  The appearing integral can be evaluated by completing to a square and evaluating a complete
+Gauss integral:
+                                                                      2
+                                                                             j2
+                                      
+                                                             ij
+                −κ2 (t)ϑ2 /2 − ijϑ = − (κ2 (t)/2)1/2 ϑ + √               −         .
+                                                           2κ2 (t)1/2      2κ2 (t)
+
+The imaginary shift is irrelevant due to the residue theorem, and after inserting the Gauss
+integral and slight rewriting we obtain the theorem.
+
+Data availability statement
+The datasets generated and analysed during the current study are available from the corre-
+sponding author on reasonable request.
+
+
+References
+ [1] Jean-Paul Allouche and Jeffrey Shallit, The ring of k-regular sequences, Theoret. Comput.
+     Sci. 98 (1992), no. 2, 163–197. MR 1166363 (94c:11021)
+
+ [2]          , Automatic Sequences. Theory, Applications, Generalizations, Cambridge Univer-
+       sity Press, Cambridge, 2003. MR 1997038 (2004k:11028)
+
+ [3]         , The ring of k-regular sequences. II, Theoret. Comput. Sci. 307 (2003), no. 1, 3–29,
+       Words. MR 2014728 (2004m:68172)
+
+ [4] Jean Bésineau, Indépendance statistique d’ensembles liés à la fonction “somme des chiffres”,
+     Acta Arith. 20 (1972), 401–416. MR 0304335
+
+ [5] Patrick Billingsley, Probability and Measure, Wiley Series in Probability and Statistics,
+     John Wiley & Sons, Inc., Hoboken, NJ, 2012. MR 2893652
+
+ [6] Thomas W. Cusick, Yuan Li, and Pantelimon Stănică, On a combinatorial conjecture,
+     Integers 11 (2011), A17, 17. MR 2798642
+
+ [7] Guixin Deng and Pingzhi Yuan, On a combinatorial conjecture of Tu and Deng, Integers
+     12 (2012), Paper No. A48, 9. MR 3083421
+
+ [8] Michael Drmota, Manuel Kauers, and Lukas Spiegelhofer, On a Conjecture of Cusick Con-
+     cerning the Sum of Digits of n and n+t, SIAM J. Discrete Math. 30 (2016), no. 2, 621–649,
+     arXiv:1509.08623. MR 3482392
+
+ [9] Michael Drmota, Gerhard Larcher, and Friedrich Pillichshammer, Precise distribution prop-
+     erties of the van der Corput sequence and related sequences, Manuscripta Math. 118 (2005),
+     no. 1, 11–41. MR 2171290
+
+
+                                                 25
+[10] Jordan Emme and Pascal Hubert, Normal distribution of correlation measures of binary
+     sum-of-digits functions, 2018, Preprint, http://arxiv.org/abs/1810.11234.
+
+[11]           , Central limit theorem for probability measures defined by sum-of-digits function in
+       base 2, Annali della Scuola Normale Superiore di Pisa XIX (2019), no. 2, 757–780.
+
+[12] Jordan Emme and Alexander Prikhod’ko, On the Asymptotic Behavior of Density of Sets
+     Defined by Sum-of-digits Function in Base 2, Integers 17 (2017), A58, 28.
+
+[13] Jean-Pierre Flori, Fonctions booléennes, courbes algébriques et multiplication complexe,
+     Ph.D. thesis, Télécom ParisTech, 2012.
+
+[14] Jean-Pierre Flori, Hugues Randriam, Gérard Cohen, and Sihem Mesnager, On a conjecture
+     about binary strings distribution, Sequences and their applications—SETA 2010, Lecture
+     Notes in Comput. Sci., vol. 6338, Springer, Berlin, 2010, pp. 346–358. MR 2830750
+
+[15] Dong Yeap Kang, Tom Kelly, Daniela Kühn, Abhishek Methuku, and Deryk Os-
+     thus, A proof of the Erdős-Faber-Lovász conjecture, 2021, Preprint, available at
+     http://arxiv.org/abs/2101.04698.
+
+[16] E. E. Kummer, Über die Ergänzungssätze zu den allgemeinen Reciprocitätsgesetzen, J. Reine
+     Angew. Math. 44 (1852), 93–146.
+
+[17] Lukas Spiegelhofer, Discrepancy results for the van der Corput sequence, Unif. Distrib.
+     Theory 13 (2018), no. 2, 57–69. MR 3883506
+
+[18]         , Approaching Cusick’s conjecture on the sum-of-digits function, Integers 19 (2019),
+       Paper No. A53, 8 pages.
+
+[19]           , A lower bound for Cusick’s conjecture on the digits of n+t, Math. Proc. Cambridge
+       Philos. Soc. (2021), Published online by Cambridge University Press: 24 February 2021,
+       1–23.
+
+[20] Lukas Spiegelhofer and Michael Wallner, The Tu–Deng conjecture holds almost surely, Elec-
+     tron. J. Combin. 26 (2019), no. 1, Paper 1.28, 28. MR 3919615
+
+[21] Terence Tao, Sendov’s conjecture for sufficiently high degree polynomials, 2021, Preprint,
+     available at http://arxiv.org/abs/2012.04125.
+
+[22] Ziran Tu and Yingpu Deng, A conjecture about binary strings and its applications on con-
+     structing Boolean functions with optimal algebraic immunity, Des. Codes Cryptogr. 60
+     (2011), no. 1, 1–14. MR 2795745
+
+[23]         , Boolean functions optimizing most of the cryptographic criteria, Discrete Appl.
+       Math. 160 (2012), no. 4-5, 427–435. MR 2876325
+
+
+
+                      Department Mathematics and Information Technology,
+                                   Montanuniversität Leoben,
+                          Franz-Josef-Strasse 18, 8700 Leoben, Austria
+                               lukas.spiegelhofer@unileoben.ac.at
+                                ORCID iD: 0000-0003-3552-603X
+
+                                                 26
+Institute of Discrete Mathematics and Geometry,
+                     TU Wien,
+ Wiedner Hauptstrasse 8–10, 1040 Wien, Austria
+           michael.wallner@tuwien.ac.at
+        ORCID iD: 0000-0001-8581-449X
+
+
+
+
+                      27
+

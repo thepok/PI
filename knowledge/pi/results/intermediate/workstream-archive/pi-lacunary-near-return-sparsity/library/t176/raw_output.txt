@@ -1,0 +1,4 @@
+T176 artifact replay: PASS
+domains=3 tuples=4 retained_fingerprints=1 ledger=T89-T175
+cantor_log_depth_floor=PASS symbolic_linear_mass_rejection=PASS short_sum_collision_rejection=PASS
+verdicts=1 successors=0 fixed_pi_claims=0

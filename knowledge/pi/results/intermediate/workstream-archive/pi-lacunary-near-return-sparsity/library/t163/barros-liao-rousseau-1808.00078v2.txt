@@ -1,0 +1,1286 @@
+                                                 ON THE SHORTEST DISTANCE BETWEEN ORBITS AND THE
+                                                        LONGEST COMMON SUBSTRING PROBLEM
+
+                                                                 VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+
+
+                                                   Abstract. In this paper, we study the behaviour of the shortest distance between orbits
+arXiv:1808.00078v2 [math.DS] 28 Dec 2018
+
+
+
+
+                                                   and show that under some rapidly mixing conditions, the decay of the shortest distance
+                                                   depends on the correlation dimension. For irrational rotations, we prove a different behaviour
+                                                   depending on the irrational exponent of the angle of the rotation. For random processes,
+                                                   this problem corresponds to the longest common substring problem. We extend the result
+                                                   of [5] on sequence matching to α-mixing processes with exponential decay.
+
+
+                                                                                      1. Introduction
+                                              Motivations to study sequence matching or sequence alignment can be found in various
+                                           fields of research (e.g. computer science, biology, bioinformatics, geology and linguistics, etc).
+                                           For instance, to compare two DNA strands, one can be interested in finding the longest
+                                           common substring, i.e. the longest string of DNA which appears in both strands. Thus, one
+                                           can measure the level of relationship of the two strands by studying the length of this common
+                                           substring. For example, for the following two strands
+                                                                            ACAAT GAGAGGAT GACCT T G
+
+                                                                            T GACT GT AACT GACACAAGC
+                                           a longest common substring is ACAA (TGAC is also a longest common substring) and is of
+                                           length 4 when the total length of the strands is 20.
+                                              Other quantities may be of interest in DNA comparison or more generally in sequence
+                                           alignment and we refer to [44, 50] for more information on the subject. Here we will con-
+                                           centrate on the behaviour of the length of the longest common substring when the length of
+                                           the strings grows, more precisely, for two sequences X and Y , the behaviour, when n goes to
+                                           infinity, of
+                                               Mn (X, Y ) = max{m : Xi+k = Yj+k for k = 1, . . . , m and for some 0 ≤ i, j ≤ n − m}.
+                                           This problem was studied by Arratia and Waterman [5], who proved that if X1 , X2 , . . . ,
+                                           Y1 , Y2 , . . . are i.i.d. such that P(X1 = Y1 ) = p ∈ (0, 1) then
+                                                                                                         
+                                                                                          Mn         2
+                                                                                 P lim         =            = 1.
+                                                                                   n→∞ log n      − log p
+                                           The same result was also proved for independent irreducible and aperiodic Markov chains on
+                                           a finite alphabet, and in this case p is the largest eigenvalue of the matrix [(pij )2 ] (where [pij ]
+                                           is the transition matrix).
+
+                                             This work was partially supported by CNPq and FAPESB.
+                                                                                                 1
+2                     VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+  In this paper, we generalize Arratia and Waterman’s result to α-mixing process with ex-
+ponential decay (or ψ-mixing with polynomial decay) and prove that if the Rényi entropy H2
+exists then
+                                                  
+                                         Mn      2
+                                P lim         =      = 1.
+                                    n→∞ log n   H2
+
+   Our theorem applies to both cases of [5] which are α-mixing with exponential decay.
+Other examples of α-mixing process with exponential decay include Gibbs states of a Hölder-
+continuous potential [14, 49]. One can see [15] for a nice introduction on strong mixing
+conditions of stochastic processes (or [16] for a more complete version).
+   Further developments of the work [5] (e.g. sequences of different lengths, different distri-
+butions, more than two sequences, extreme value theory for sequence matching) can be found
+in [6, 9, 7, 8, 33, 20, 37]. We also refer the reader to [43, 36, 3] for related sequence matching
+problems.
+   A generalization of the longest common substring problem for dynamical systems is to
+study the behaviour of the shortest distance between two orbits, that is, for a dynamical
+system (X, T, µ), the behaviour, when n goes to infinity, of
+                                                                          
+                             mn (x, y) =       min         d(T i x, T j y) .
+                                           i,j=0,...,n−1
+
+
+Indeed, when X = AN for some alphabet A and T is the shift on X, we can consider the
+distance between two sequences x, y ∈ X defined by d(x, y) = e−k where k = inf{i ≥ 0, xi 6=
+yi }.
+    Then, assuming that mn is not too small, that is − log mn (x, y) ≤ n (we will see in The-
+orem 1 that this condition is satisfied for almost all couples (x, y) if n is large enough), one
+can observe that almost surely
+
+                            Mn (x, y) ≤ − log mn (x, y) ≤ M2n (x, y).
+
+Thus Mn (x, y) and − log mn (x, y) have the same asymptotic behaviour.
+   Even if the shortest distance between two orbits seems to be something natural to define
+and study, to the best of our knowledge, it has not been done in the literature before. One can
+observe that this quantity shares some similarities with the correlation sum and the correlation
+integral of the Grassberger-Procaccia algorithm [26, 27] and the nearest neighbour analysis
+[19], with the synchronization of coupled map lattices [21], with dynamical extremal index
+[22], with the connectivity, proximality and recurrence gauges defined by Boshernitzan and
+Chaika [13] and also with logarithm laws and shrinking target properties (see e.g. the survey
+[10]). One can also remark that information on the hitting time (see e.g. [48]) can give
+information on the shortest distance. Indeed, if we define the hitting time of a point x in
+the ball B(y, r) as Wr (x, y) = inf{k ≥ 1, T k x ∈ B(y, r)} then if Wr (x, y) ≤ n, we have
+mn (x, y) < r.
+   In this paper, we show that the behaviour of the shortest distance mn is linked to the
+correlation dimension of the invariant measure µ, defined (when the limit exists) by
+                                          R
+                                       log X µ (B (x, r)) dµ(x)
+                              Cµ = lim                          .
+                                   r→0          log r
+                        ON THE SHORTEST DISTANCE BETWEEN ORBITS                                 3
+
+
+More precisely, if the correlation dimension exists, then under some rapid mixing conditions
+of the system (X, T, µ), we deduce that for µ ⊗ µ-almost every (x, y) ∈ X × X,
+                                        log mn (x, y)    2
+                                    lim               =    .
+                                   n→+∞    − log n      Cµ
+For irrational rotations, we prove that this result does not hold and that the previous limit
+depends on the irrationality exponent of the angle of the rotation. In the proof, the duality
+between hitting times and the shortest distance and the result of Kim and Seo [35] on hitting
+times for irrational rotations are useful.
+   Our main results on the shortest distance between orbits and its relation with the corre-
+lation dimension are stated in Section 2 and proved in Section 6. In Section 3 we state an
+equivalent formulation of our main theorem (Theorem 3) for random processes. More pre-
+cisely, we establish a relation between the longest common substring and the Rényi entropy.
+This result is proved in Section 7. The case of irrational rotations is treated in Section 4. We
+apply our results to multidimensional expanding maps in Section 5.
+
+
+                          2. Shortest distance between orbits
+   Let (X, d) be a finite dimensional metric space and A its Borel σ-algebra. Let (X, A, µ, T )
+be a measure preserving system (m.p.s.) which means that T : X → X is a transformation on
+X and µ is a probability measure on (X, A) such that µ is invariant by T , i.e., µ(T −1 A) = µ(A)
+for all A ∈ A.
+   We would like to study the behaviour of the shortest distance between two orbits:
+                                                                   
+                             mn (x, y) =    min     d(T i x, T j y) .
+                                          i,j=0,...,n−1
+
+We will show that the behaviour of mn as n → ∞ is linked with the correlation dimension.
+Before stating the next theorem, we recall the definition of the lower and upper correlation
+dimensions of µ:
+                   R                                              R
+                log X µ (B (x, r)) dµ(x)                       log X µ (B (x, r)) dµ(x)
+      C µ = lim                             and     C µ = lim                           .
+            r→0          log r                            r→0           log r
+When the limit exists we will denote the common value of C µ and C µ by Cµ . The existence of
+the correlation dimension and its relation with other dimensions can be found in [39, 40, 12].
+Theorem 1. Let (X, A, µ, T ) be a measure preserving system (m.p.s.) such that C µ > 0.
+Then for µ ⊗ µ-almost every (x, y) ∈ X × X,
+                                          log mn (x, y)    2
+                                    lim                 ≤    .
+                                   n→+∞      − log n      Cµ
+   Theorem 1 is a general result which can be applied to any dynamical system such that
+C µ > 0 and shows us that mn cannot be too small. If C µ = 0, one cannot expect to obtain
+such information since one can have mn (x, y) = 0 on a set of positive measure (for example
+if the measure µ is a finite linear combination of Dirac measures). We can also observe that
+the inequality in Theorem 1 can be strict (noting for example the trivial case when T is the
+identity; a more interesting example, irrational rotations, will be treated in Section 4) but
+under some natural rapidly mixing conditions we will prove an equality.
+4                     VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+  We need the following hypotheses.
+(H1) There exists a Banach space C, such that for all ψ, φ ∈ C and for all n ∈ N∗ , we have
+                     Z                Z       Z
+                               n
+                        ψ.φ ◦ T dµ −      ψdµ     φdµ ≤ kψkC kφkC θn ,
+                        X                 X       X
+with θn = an (0 ≤ a < 1) and where k · kC is the norm in the Banach space C.
+  There exist 0 < r0 < 1, c ≥ 0 and ξ ≥ 0 such that
+(H2) For any 0 < r < r0 , the function ψ1 : x 7→ µ(B(x, r)) belongs to the Banach space C and
+                                        kψ1 kC ≤ cr −ξ .
+(H3) For µ-almost every y ∈ X and any 0 < r < r0 , the function ψ2 : x 7→ 1B(y,r) (x) belongs
+to the Banach space C and
+                                    kψ2 kC ≤ cr −ξ .
+We observe that the hypothesis (H3) cannot be satisfied when the Banach space C is the space
+of Hölder functions since the characteristic functions are not continuous. We will treat this
+case separately in Theorem 6.
+   We will also need some topological information on the space X.
+Definition 2. A separable metric space (X, d) is called tight if there exist r0 > 0 and N0 ∈ N,
+such that for any 0 < r < r0 and any x ∈ X one can cover B(x, 2r) by at most N0 balls of
+radius r.
+   We observe that this is not a very restrictive condition. Indeed, any subset of Rn with the
+Euclidian metric is tight and any subset of a Riemannian manifold of bounded curvature is
+tight (see [29]). In [29] it was also proved that if (X, d) admits a doubling measure then it is
+tight and some examples of spaces which are not tight were given.
+   Now we can state our main result.
+Theorem 3. Let (X, A, µ, T ) be a measure preserving system, such that (X, d) is tight, satis-
+fying (H1), (H2), (H3) and such that Cµ exists and is strictly positive. Then for µ ⊗ µ-almost
+every (x, y) ∈ X × X,
+                                       log mn (x, y)     2
+                                  lim                =     .
+                                 n→+∞     − log n       Cµ
+   Since our hypotheses are similar to the ones in [25, 11], it is natural to apply our theorem
+to the same family of examples. Here, we give a short list of simple examples. In Section 5,
+we apply our results to a more interesting family of examples: multidimensional piecewise
+expanding maps.
+   Denote by Leb the Lebesgue measure.
+Example 4. Theorem 3 can be applied to the following systems:
+  (1) For m ∈ {2, 3, . . . }, let T : [0, 1] → [0, 1] be such that x 7→ mx mod 1 and µ = Leb.
+  (2) Let T : (0, 1] → (0, 1] be such that T (x) = 2k (x − 2−k ) for x ∈ (2−k , 2−k+1 ] and
+      µ = Leb.
+  (3) (β-transformations) For β > 1, let T : [0, 1] → [0, 1] be such that x 7→ βx mod 1
+      and µ be the Parry measure (see [38]), which is an absolutely continuous probability
+      measure with density ρ satisfying 1 − β1 ≤ ρ(x) ≤ (1 − β1 )−1 for all x ∈ [0, 1].
+                                                                      
+  (4) (Gauss map) Let T : (0, 1] → (0, 1] be such that T (x) = x1 and dµ = log1 2 1+x dx
+                                                                                         .
+                        ON THE SHORTEST DISTANCE BETWEEN ORBITS                                5
+
+
+In these examples it is easy to see that Cµ = 1. Moreover, (H1), (H2) and (H3) are satisfied
+with the Banach space C = BV of functions having bounded variations (see e.g. [24] Section
+4.1 and [41, 42, 32]).
+  One can observe that Theorem 3 is an immediate consequence of Theorem 1 and the next
+theorem.
+Theorem 5. Let (X, A, µ, T ) be a measure preserving system, such that C µ > 0 and such that
+(X, d) is tight, satisfying (H1), (H2) and (H3). Then for µ ⊗ µ-almost every (x, y) ∈ X × X,
+                                       log mn (x, y)    2
+                                    lim              ≥    .
+                                  n→+∞    − log n      Cµ
+  When the Banach space C is the space of Hölder functions Hα (X, R) we can adapt our
+proof and do not need to assume (H3). Moreover, (H2) can be replaced by a condition on the
+measure of an annulus:
+  (HA) There exist r0 > 0, ξ ≥ 0 and β > 0 such that for every x ∈ X and any r0 > r > ρ > 0,
+                             µ(B(x, r + ρ)\B(x, r − ρ)) ≤ r −ξ ρβ .
+In fact, we will show in the proof of the next theorem that (HA) implies (H2). Analogous
+conditions to (HA) have already appeared in the literature (e.g. [28, 48, 17, 31]) but in a
+local version. Here, we need a stronger global version. Nevertheless, one can easily observe
+that this assumption is still satisfied if the measure is Lebesgue or absolutely continuous with
+respect to Lebesgue with a bounded density.
+Theorem 6. Let (X, A, µ, T ) be a measure preserving system, such that C µ > 0 and such that
+(X, d) is tight, satisfying (H1) with C = Hα (X, R) and (HA) or (H2). Then for µ ⊗ µ-almost
+every (x, y) ∈ X × X,
+                                          log mn (x, y)    2
+                                     lim                ≥    .
+                                    n→+∞     − log n      Cµ
+   Here are some interesting examples where Theorem 6 applies: planar dispersing billiard
+maps (with finite and infinite horizon) and Lorenz maps (see [28] Section 4 and the references
+therein), expanding maps of the interval with a Gibbs measure associated to a Hölder potential
+(see [48] where (HA) is proved in Lemma 44) and C 2 endomorphism (of a d-dimensional com-
+pact Riemannian manifold) admitting a Young tower with exponential tail (see [23] Section
+6 and [18]).
+
+                        3. Longest common substring problem
+   As explained in the introduction, finding the shortest distance between two orbits corre-
+sponds, when working with symbolic dynamical systems, to a sequence matching problem:
+finding the size of the longest common substrings between two sequences.
+   We will consider the symbolic dynamical system (Ω, P, σ) where Ω = AN for some alphabet
+A, σ is the (left) shift on Ω and P is an invariant probability measure. For two sequences
+x, y ∈ Ω, we are interested in the behaviour of
+     Mn (x, y) = max{m : xi+k = yj+k for k = 1, . . . , m and for some 1 ≤ i, j ≤ n − m}.
+We will show that the behaviour of Mn is linked with the Rényi entropy of the system.
+  For y ∈ Ω we denote by Cn (y) = {z ∈ Ω : zi = yi for all 0 ≤ i ≤ n − 1} the n-cylinder
+containing y. Set F0n as the sigma-algebra over Ω generated by all n-cylinders.
+6                     VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+    We define the lower and upper Rényi entropy as the following limits:
+                              P                                      P
+                           log P(Ck )2                           log P(Ck )2
+               H 2 = lim                     and     H 2 = lim               ,
+                     k→+∞      −k                           k→+∞       −k
+where the sums are taken over all k-cylinders. When the limit exists, we will denote it H2 .
+   The existence of the Rényi entropy has been proved for Bernoulli and Markov measures,
+Gibbs states of a Hölder-continuous potential, weakly ψ-mixing processes [30] and recently
+for ψg -regular processes [1].
+   We say that our system is α-mixing if there exists a function α : N → R satisfying α(g) → 0
+when g → +∞ and such that for all m, n ∈ N, A ∈ F0n and B ∈ F0m :
+                             P(A ∩ σ −g−n B) − P(A)P(B) ≤ α(g).
+It is said to be α-mixing with an exponential decay if the function α(g) decreases exponentially
+fast to 0.
+   We say that our system is ψ-mixing if there exists a function ψ : N → R satisfying ψ(g) → 0
+when g → +∞ and such that for all m, n ∈ N, A ∈ F0n and B ∈ F0m :
+                        P(A ∩ σ −g−n B) − P(A)P(B) ≤ ψ(g)P(A)P(B).
+Now we are ready to state our next result.
+Theorem 7. If H 2 > 0, then for P ⊗ P-almost every (x, y) ∈ Ω × Ω,
+                                         Mn (x, y)   2
+                                      lim          ≤    .                              (1)
+                                  n→+∞ log n         H2
+Moreover, if the system is α-mixing with an exponential decay or if the system is ψ-mixing
+with ψ(g) = g −a for some a > 0 then, for P ⊗ P-almost every (x, y) ∈ Ω × Ω,
+                                        Mn (x, y)   2
+                                      lim         ≥    .                                     (2)
+                                    n→+∞ log n      H2
+Furthermore, if the Rényi entropy exists, then for P ⊗ P-almost every (x, y) ∈ Ω × Ω,
+                                        Mn (x, y)   2
+                                      lim         =    .
+                                    n→+∞ log n      H2
+   Remark that Theorem 7 generalizes the results in [5] since the processes treated there (i.i.d.
+and independent irreducible and aperiodic Markov chains on a finite alphabet) are α-mixing
+with an exponential decay and their Rényi entropies exist. Moreover, in [5] the authors used
+a different proof for each case, while here we present a single and simpler proof. Our proof
+which will be presented in Section 7 is an adaptation to symbolic dynamical systems of the
+results presented in Section 2.
+   One can apply our results to the following examples (which cannot be obtained from [5]).
+Example 8 (Gibbs states). Gibbs states of a Hölder-continuous potential φ are ψ-mixing with
+an exponential decay [14, 49]. Moreover, the Rényi entropy exists and H2 = 2P (φ) − P (2φ)
+where P (φ) is the pressure of the potential φ [30].
+Example 9 (Renewal process). Let 0 < qi < 1 for any i ∈ N. Consider the Markov chain
+(Yn )n with the following transition probabilities
+                                          
+                                           qi       if j = 0
+                              QY (i, j) =     1 − qi if j = i + 1
+                                          
+                                              0      otherwise
+                          ON THE SHORTEST DISTANCE BETWEEN ORBITS                              7
+
+
+for any i ∈ N, j ∈ N.
+   Let (Xn )n be the process defined by Xn = 1 when Yn = 0 and Xn = 0 when Yn 6= 0 and let
+P be its stationary measure. This process is called a binary renewal process.
+   Assuming that there exists a ∈ (0, 1/2) such that a ≤ qi ≤ 1 − a for any i ∈ N, then
+this process is α-mixing with exponential decay [2], thus we have the inequalities (1) and (2).
+However, we observe that the existence of the Rényi entropy in this case is not known.
+
+
+                                    4. Irrational rotations
+   In this section we consider the irrational rotations. For θ ∈ R \ Q, let Tθ be the irrational
+rotation on the unit circle T = R/Z defined by
+                                            Tθ x = x + θ.
+Then for any n ∈ Z, we have Tθn x = x + nθ and the shortest distance becomes
+                                mn (x, y) = min k(x − y) + jθk.
+                                            −n≤j≤n
+
+The limit behavior of mn (x, y) is thus linked to the inhomogeneous Diophantine approxima-
+tion.
+   Let
+                        η = η(θ) := sup{β ≥ 1 : lim inf j β kjθk = 0}
+                                                      j→∞
+be the irrationality exponent of θ. Now we will show that the result of Theorem 3 does not
+hold for Tθ .
+Theorem 10. For n ∈ N and (x, y) ∈ T2 , let mn (x, y) be the shortest distance between the
+orbits of x and y defined as above. Then for Lebesgue almost all (x, y) ∈ T2 , we have
+                            log mn (x, y)   1                   log mn (x, y)
+                  lim inf                 =     and   lim sup                 = 1.
+                   n→∞         − log n      η           n→∞        − log n
+Proof. Let
+                            WB(y,r) (x) := inf{n ≥ 1 : Tθn (x) ∈ B(y, r)}
+be the waiting time for x ∈ T entering the ball B(y, r) of center y ∈ T and radius r > 0. Kim
+and Seo ([35]) proved that for almost all x and y in T,
+                          log WB(y,r) (x)                       log WB(y,r) (x)
+                lim inf                   = 1 and     lim sup                   = η.        (3)
+                  r→0         − log r                   r→0         − log r
+Let us denote WfB(y,r) (x) the waiting time under the action of the irrational rotation of angle
+                                                  fB(y,r) (x).
+−θ. Since η(θ) = η(−θ), (3) is also satisfied for W
+  By definition, for the time k = WB(y,r) (x), Tθk x firstly enters the ball B(y, r). So, we
+have mn (x, y) < r, when WB(y,r) (x) ≤ n. On the other hand, when WB(y,r) (x) > n and
+fB(y,r) (x) > n, we have mn (x, y) > r.
+W
+  By the first equality of (3), there is a sequence (rk )k tending to 0 such that
+                                         log WB(y,rk ) (x)
+                                      lim                  = 1.
+                                     k→∞     − log rk
+8                        VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+Let nk = WB(y,rk ) (x). Then mnk (x, y) < rk . Thus,
+                     log mn (x, y)           log mnk (x, y)             log rk
+           lim sup                 ≥ lim sup                ≥ lim                      = 1.   (4)
+            n→∞         − log n        k→∞      − log n k    k→∞  − log W B(y,rk ) (x)
+
+    Using again the first equality of (3), for any 0 < ǫ < 1, we have
+                     WB(y,r) (x) > (1/r)1−ǫ        and     fB(y,r) (x) > (1/r)1−ǫ ,
+                                                           W
+provided r > 0 is small enough.
+  Therefore, taking 0 < ǫ < 1 and defining r = n−1/(1−ǫ) for n ≫ 1, we get
+
+                            WB(y,r) (x) > n        and     fB(y,r) (x) > n,
+                                                           W
+which implies
+                                      mn (x, y) > r = n−1/(1−ǫ) .
+Thus
+                                              log mn (x, y)    1
+                                    lim sup                 <     .
+                                     n→∞         − log n      1−ǫ
+By the arbitrariness of ǫ > 0, we have
+                                                log mn (x, y)
+                                      lim sup                 ≤ 1.                            (5)
+                                        n→∞        − log n
+    From the inequalities (4) and (5) we get the second part of the theorem.
+    By the same arguments and the second equality of (3), we deduce that for any ǫ > 0
+                                       WB(y,r) (x) ≤ (1/r)η+ǫ ,
+provided r > 0 small enough.
+  Hence, defining r = n−1/(η+ǫ) , n ≫ 1, we have WB(y,r) (x) ≤ n, which implies
+
+                                      mn (x, y) ≤ r = n−1/(η+ǫ) .
+Thus
+                                        log mn (x, y)    1
+                                    lim inf           ≥     .
+                                  n→∞      − log n      η+ǫ
+By the arbitrariness of ǫ > 0, we then obtain
+                                           log mn (x, y)  1
+                                      lim inf            ≥ .                                  (6)
+                                       n→∞    − log n     η
+    From the inequalities (5) and (6) we see that for η = 1 the following result holds
+                                           log mn (x, y)
+                                        lim              = 1.
+                                       n→∞    − log n
+Thus, from now on we can suppose η > 1 and it only remains to show
+                                                log mn (x, y)  1
+                                      lim inf                 ≤ .                             (7)
+                                       n→∞         − log n     η
+  We remark that the results of Kim and Seo ([35]) are not applicable for proving (7), so we
+will give a direct proof.
+                          ON THE SHORTEST DISTANCE BETWEEN ORBITS                              9
+
+
+  Let qk = qk (θ) be the denominators of the k-th convergent of the continued fraction of θ.
+Then (see for example Khintchine’s book [34])
+                                 1              1                  1
+                                      <               < kqn θk ≤      .                     (8)
+                              2qn+1         qn+1 + qn            qn+1
+By the theorem of best approximation (e.g. [45]), we have
+                                                         log qn+1
+                                      η(θ) = lim sup              .                         (9)
+                                                  n→∞     log qn
+  First note that since
+                                      mn (x, y) = mn (0, x − y),
+it is enough to show that for almost all y ∈ [0, 1]
+                                           log mn (0, y)  1
+                                      lim inf            ≤ .
+                                       n→∞    − log n     η
+  Second, we consider the following function
+                                                        log mn (0, y)
+                               f : y ∈ [0, 1] 7→ lim inf              .
+                                                    n→∞    − log n
+Observing
+               mn+1 (0, y) ≤ mn (0, Tθ y) =           min      ky + jθk ≤ mn−1 (0, y),
+                                                  −n+1≤j≤n+1
+we see that f is a Tθ -invariant function. By the ergodicity of the Lebesgue measure with
+respect to the irrational rotations, we conclude that f is a constant for almost all y ∈ [0, 1].
+Since we have already proved that
+                                                 log mn (0, y)  1
+                                      lim inf                  ≥ ,
+                                       n→∞          − log n     η
+we only need to show that for any δ > 0, the set
+                                                                                     
+                                                                  log mNk (0, y)  1
+  Eδ := y ∈ [0, 1] : there exists a sequence {Nk }k such that ∀k,                ≤ +δ
+                                                                      log Nk      η
+has positive Lebesgue measure. By the definition of mn (x, y), we can rewrite Eδ as
+                                                                                     
+                                                                                1 
+    Eδ = y ∈ [0, 1] : ∃ {Nk }k s.t. ∀ k, ∀j = −Nk + 1, ..., Nk − 1, kjθ − yk ≥ 1        .
+                                                                                η
+                                                                                   +δ 
+                                                                               Nk
+                                   δη        2
+  Let τ = η1 + δ and take 0 < ǫ < 1+δη . From the identity (9) there exists a subsequence
+{nk }k such that
+                                                         η
+                                     η− ǫ
+                          qnk +1 ≥ qnk 2 ≥ qnη−ǫ
+                                              k
+                                                 > qn1+δη
+                                                      k   , since qk ≥ 1.
+Without loss of generality, we still write {k} this subsequence.
+ Take Nk = ⌈qkη−ǫ ⌉ and define the following decreasing sequence of sets
+                                                                          
+                                                                         1
+             Eδ,k := y ∈ [0, 1] : ∀j = −Nk + 1, ..., Nk − 1, kjθ − yk ≥ τ .
+                                                                        Nk
+                                                                       c has Lebesgue
+Since Eδ = ∩k≥k0 Eδ,k for any k0 ∈ N, we only need to show that ∪k≥k0 Eδ,k
+measure strictly less than 1 for some k0 ∈ N.
+10                       VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+                         c =
+                                      S                    1
+                                                                         
+  Now observing that Eδ,k                 −Nk <j<Nk B jθ, Nkτ             , we only have to estimate the Lebesgue
+measure of the following set
+                                            [           [                      1 
+                                                                   B jθ,           .
+                                                                              Nkτ
+                                           k≥k0 −Nk <j<Nk
+                                    S                  
+     Let us first consider the union 0≤j<Nk B jθ, N1τ .
+                                                     k
+     By the definition of Nk and the facts η − ǫ > 1 and that {qk } ⊂ N is increasing we have
+                                                   qk ≤ Nk ≤ qk+1 .
+Therefore
+                                                        q −1 ⌈N[
+                                                               k /qk ⌉     
+                          [            1  [
+                                           k
+                                                                                         1 
+                                 B jθ, τ ⊂                                B (i + jqk )θ, τ .                  (10)
+                                      Nk                                                Nk
+                      0≤j<Nk                            i=0        j=0
+
+Moreover, we have
+                       1      1                         1                       1                1
+                        τ ≤ (η−ǫ)τ =                               =                       =          .       (11)
+                      Nk   q      k             qk
+                                                   (η−ǫ)( η1 +δ)          1+δη−ǫ( η1 +δ)
+                                                                         qk                    qk1+ǫ1
+
+where ǫ1 := δη − ǫ( η1 + δ) > 0.
+  To estimate the measure of the following set
+                                           ⌈Nk /qk ⌉    
+                                             [                        1 
+                                                       B (i + jqk )θ, τ ,
+                                                                     Nk
+                                             j=0
+
+one can observe that the distance between two consecutive centers of the balls in the union is
+                                 k(i + (j + 1)qk )θ − (i + jqk )θk = kqk θk.
+Thus                                                  
+                         ⌈Nk /qk ⌉
+                           [                                    
+                                                    1       Nk                2
+                 Leb                B (i + jqk )θ, τ    ≤      + 2 · kqk θk + τ .
+                                                   Nk        qk               Nk
+                           j=0
+
+     From the inequalities (8) and (11) we have
+                                                !
+           Nk                   2     qkη−ǫ + 1        1   2  3q η−ǫ  1   2
+              + 2 · kqk θk + τ ≤                +2 ·     + τ ≤ k · η− ǫ + τ
+           qk                 Nk          qk         qk+1 Nk   qk    q 2 Nk
+                                                                                                          k
+                                              3             2             5
+                                        ≤ 1+ ǫ + 1+ǫ1 ≤ 1+ǫ2 ,
+                                         qk 2   qk     qk
+
+where 0 < ǫ2 ≤ min{ǫ/2, ǫ1 }.
+  Let β > 1. For k large enough we obtain
+                                        
+                           [         1          5    5
+                  Leb        B jθ, τ  ≤ qk · 1+ǫ2 = ǫ2 ≤ 5β −ǫ2 k ,
+                                    Nk        qk     qk
+                             0≤j<Nk
+
+where the last inequality comes from the assumption η(θ) > 1.
+                            ON THE SHORTEST DISTANCE BETWEEN ORBITS                               11
+
+
+  By symmetry, we also deduce that
+                                                           
+                                 [                       1 
+                         Leb                      B jθ, τ    ≤ 5β −ǫ2 k .
+                                                        Nk
+                                        −Nk <j≤0
+
+  Therefore
+                                                           
+                                          [              1 
+                              Leb                 B jθ, τ    ≤ 10β −ǫ2 k .
+                                                        Nk
+                                       −Nk <j<Nk
+
+  Note that there exists k0 ≥ 1, such that
+                                   ∞
+                                   X             10β −ǫ2 k0
+                               10      β −ǫ2 k =            < 1.
+                                                 1 − β −ǫ2
+                                        k=k0
+
+Thus
+                                 [             [        [                  1 
+                                        c
+                                       Eδk =                      B jθ,
+                                                                          Nkτ
+                                k≥k0           k≥k0 −Nk <j<Nk
+has Lebesgue measure strictly less than 1. Therefore, (7) follows.
+  Hence, finally, we conclude that for almost all x and y,
+                            log mn (x, y)  1                           log mn (x, y)
+                  lim inf                 = ,        and     lim sup                 = 1.
+                   n→∞         − log n     η                     n→∞      − log n
+                                                                                                  
+
+                    5. Multidimensional piecewise expanding maps
+  In this section, we will apply our main result to a family of maps defined by Saussol [46]:
+multidimensional piecewise uniformly expanding maps. It was observed in [4] that these maps
+generalize Markov maps which also contain one-dimensional piecewise uniformly expanding
+maps.
+  Let N ≥ 1 be an integer. We will work in the Euclidean space RN . We denote by Bǫ (x)
+the ball with center x and radius ǫ. For a set E ⊂ RN , we write
+                                Bǫ (E) := {y ∈ RN : sup |x − y| ≤ ǫ}.
+                                                           x∈E
+
+Definition 11 (Multidimensional piecewise expanding systems). Let X be a compact subset
+of RN with X ◦ = X and T : X → X. The system (X, T ) is a multidimensional piecewise
+expanding system if there exists a family of at most countably many disjoint open sets Ui ⊂ X
+and Vi such that Ui ⊂ Vi and maps Ti : Vi → RN satisfying for some 0 < α ≤ 1, for some
+small enough ǫ0 > 0, and for all i:
+   (1) T |Ui = Ti |Ui and Bǫ0 (T Ui ) ⊂ Ti (Vi );
+   (2) Ti ∈ C 1 (Vi ), Ti is injective and Ti−1 ∈ C 1 (Ti Vi ). Moreover, there exists a constant c,
+       such that for all ǫ ≤ ǫ0 , z ∈ Ti Vi and x, y ∈ Bǫ (z) ∩ Ti Vi we have
+                            | det Dx Ti−1 − det Dy Ti−1 | ≤ cǫα | det Dz Ti−1 |;
+                 S
+   (3) Leb(X \ i Ui ) = 0;
+   (4) there exists s = s(T ) < 1 such that for all u, v ∈ T Vi with d(u, v) ≤ ǫ0 we have
+       d(Ti−1 u, Ti−1 v) ≤ sd(u, v);
+12                      VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+     (5) let G(ǫ, ǫ0 ) := supx G(x, ǫ, ǫ0 ) where
+                                         X Leb(Ti−1 Bǫ (∂T Ui ) ∩ B(1−s)ǫ0 (x))
+                        G(x, ǫ, ǫ0 ) =                                            ,
+                                                        m(B(1−s)ǫ0 (x))
+                                          i
+
+         then the number η = η(δ) := sα + 2 supǫ≤δ G(ǫ) α
+                                                    ǫα δ satisfies supδ≤ǫ0 η(δ) < 1.
+
+   We will prove that the multidimensional piecewise expanding systems satisfy the conditions
+of Theorem 3.
+Proposition 12. Let (X, T ) be a topologically mixing multidimensional piecewise expanding
+map and µ be its absolutely continuous invariant probability measure. If the density of µ is
+bounded away from zero, then for µ ⊗ µ-almost every (x, y) ∈ X × X,
+                                                 log mn (x, y)  2
+                                           lim                 = .
+                                         n→+∞       − log n     N
+  First of all, we define the Banach space involved in the mixing conditions. Let Γ ⊂ X be
+a Borel set. We define the oscillation of ϕ ∈ L1 (Leb) over Γ as
+
+                                osc(ϕ, Γ) = ess-sup(ϕ) − ess-inf(ϕ).
+                                                    Γ             Γ
+     Now, given real numbers 0 < α ≤ 1 and 0 < ǫ0 < 1 consider the following α-seminorm
+                                             Z
+                                          −α
+                             |ϕ|α = sup ǫ       osc(ϕ, Bǫ (x))dx.
+                                          0<ǫ≤ǫ0        X
+
+We observe (see [46]) that X ∋ x 7→ osc(ϕ, Bǫ (x)) is a measurable function and
+                                 supp(osc(ϕ, Bǫ (x))) ⊂ Bǫ (supp ϕ).
+     Let Vα be the space of L1 (Leb)−functions such that |ϕ|α < ∞ endowed with the norm
+                                         kϕkα = kϕkL1 (Leb) + |ϕ|α .
+Then (Vα , k · kα ) is a Banach space which does not depend on the choice of ǫ0 and Vα ⊂ L∞
+(see [46]).
+   Saussol ([46]) proved that for a piecewise expanding map T : X −→ X, where X ⊂ RN is
+a compact set, there exists an absolutely continuous invariant probability measure µ which
+enjoys exponential decay of correlations against L1 observables on Vα . More precisely, for all
+ψ ∈ Vα , for all φ ∈ L1 (µ) and for all n ∈ N∗ , we have
+                         Z                 Z       Z
+                                   n
+                            ψ.φ ◦ T dµ −     ψdµ      φdµ ≤ kψkα kφk1 θn ,
+                       X                X       X
+with θn      n
+          = a (0 ≤ a < 1). This means that the system (X, T, µ) satisfies the condition (H1)
+with C = Vα .
+   It remains to show that the system also satisfies the conditions (H2) and (H3) (with r0 = ǫ0 ).
+To this end, we need to estimate the norms kψ1 kα and kψ2 kα , where ψ1 and ψ2 are the
+functions defined in (H2) and (H3). Since ψ1 and ψ2 are both in L1 (Leb) we just need to
+estimate their α-seminorms.
+   From the above observation we notice that
+                                 supp osc(ψj , Bǫ (·)) ⊂ Xǫ , j = 1, 2,
+                             ON THE SHORTEST DISTANCE BETWEEN ORBITS                                                               13
+
+
+where Xǫ = {x ∈ RN , d(x, X) ≤ ǫ} is a compact set. Therefore
+                                        Z
+                                    −α
+                     |ψj |α = sup ǫ       osc(ψj , Bǫ (x))dx, j = 1, 2.
+                                           0<ǫ≤ǫ0             Xǫ
+
+  To estimate |ψj |α , j = 1, 2 we define
+                                                             Z
+                                           Sjǫ := ǫ−α               osc(ψj , Bǫ (x))dx,
+                                                               Xǫ
+
+and prove that Sjǫ is bounded from above by Cj ǫ1−α
+                                                  0   , for some Cj > 0, j = 1, 2.
+                             R
+  Let us start with S1ǫ = ǫ−α Xǫ osc(µ(B(·, r), Bǫ (x))dx. Suppose r ≤ ǫ. Since µ is absolutely
+continuous and its density is bounded away from zero, we can write
+                                                    Z
+                             ψ1 (y) = µ(B(y, r)) =         h(z)dz,                         (12)
+                                                                           B(y,r)
+
+where the density h belongs to Vα ⊂ L∞ . It means that 0 < c1 ≤ h ≤ c2 for some constants
+c1 and c2 .
+   By (12) we have
+                                                          Z                                        Z
+            osc(ψ1 , Bǫ (x)) = ess-sup                                 h(z)dz −     ess-inf                      h(z)dz.
+                                          y∈B(x,ǫ)∩X          B(y,r)              ỹ∈B(x,ǫ)∩X          B(ỹ,r)
+
+Therefore Sǫ1 becomes
+                    Z                               Z                                        Z                         !
+            1    −α
+          Sǫ = ǫ                     ess-sup                     h(z)dz −        ess-inf                   h(z)dz          dx.
+                         Xǫ      y∈B(x,ǫ)∩X             B(y,r)                 ỹ∈B(x,ǫ)∩X       B(ỹ,r)
+
+Since c1 ≤ h ≤ c2 ,
+                             Z                           Z                                   Z                     !
+              S1ǫ ≤ ǫ−α                    ess-sup                   c2 dz −     ess-inf                   c1 dz       dx
+                              Xǫ      y∈B(x,ǫ)∩X          B(y,r)               ỹ∈B(x,ǫ)∩X       B(ỹ,r)
+                                 Z
+                          −α
+                 ≤ C0 ǫ                   (c2 − c1 )r N dx ≤ C0 (c2 − c1 )ǫ−α+N Leb(Xǫ ),
+                                     Xǫ
+
+where C0 is the Lebesgue measure of the unit ball in RN . Using the facts that Xǫ ⊂ Xǫ0 and
+that Xǫ0 is compact, we have
+
+                                 S1ǫ ≤ (c2 − c1 )ǫ−α+N Leb(Xǫ0 ) ≤ Cǫ−α+N
+                                                                     0    .                                                      (13)
+  Now suppose r > ǫ. Then for each y ∈ B(x, ǫ) we have
+                                      B(x, r − ǫ) ⊂ B(y, r) ⊂ B(x, r + ǫ).
+Therefore
+                         Z                                Z                          Z
+    osc(ψ1 , Bǫ (x)) ≤                     h(z)dz −                      h(z)dz =          h(z)dz ≤ khk∞ Leb(D),                 (14)
+                             B(x,r+ǫ)                         B(x,r−ǫ)                 D
+
+where D = B(x, r + ǫ) \ B(x, r − ǫ). It is easy to see that
+                                          N
+                                          X −1  
+                                                N
+                        Leb(D) ≤ 2C0 ǫ               ≤ 2N +1 C0 ǫ.                                                               (15)
+                                                k
+                                                              k=0
+14                     VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+From the inequalities (14) and (15) we deduce that
+              S1ǫ ≤ ǫ−α khk∞ Leb(D)Leb(Xǫ ) ≤ 2N ǫ01−α khk∞ Leb(Xǫ0 ) ≤ Cǫ1−α
+                                                                          0   .                        (16)
+     Combining (13) and (16), we obtain
+                                             |ψ1 |α ≤ C1 ǫ01−α                                         (17)
+for some constant C1 .
+   It remains to estimate S2ǫ . First, let us estimate the oscilation of ψ2 (z) = 1B(y,r) (z) over
+the set B(x, ǫ) when r ≤ ǫ:
+                 osc(ψ2 , B(x, ǫ)) =        ess-sup 1B(y,r) (z) −           ess-inf     1B(y,r) (z̃)
+                                           z∈B(x,ǫ)∩X                     z̃∈B(x,ǫ)∩X
+
+                                      ≤    1B(y,r+ǫ) (x).
+Thus,
+                               Z
+                  S2ǫ := ǫ−α        osc(ψ2 , Bǫ (x))dx ≤ C0 ǫ−α (r + ǫ)N ≤ 2N ǫ0N −α .                 (18)
+                               Xǫ
+     When r > ǫ, we have
+                           osc(ψ2 , B(x, ǫ)) ≤ 1B(y,r+ǫ)\B(y,r−ǫ) (x).
+Using the same ideas as in the estimation of kψ1 kα and the last inequality, we obtain
+                                          S2ǫ ≤ 2N ǫ1−α
+                                                    0   Leb(Xǫ0 ).                                     (19)
+     Thus, (18) and (19) give us
+                                             |ψ2 |α ≤ C2 ǫ01−α                                         (20)
+for some constant C2 .
+   From the inequalities (17) and (20), we get (H2) and (H3).
+   Finally, a straightforward calculation leads to Cµ = N .
+
+
+                                   6. Proofs of the main results
+Proof of Theorem 1. For ε > 0, let us define
+                                 1
+                       kn =           (2 log n + log log n) and rn = e−kn .
+                               Cµ − ε
+We also define
+                                       Aij (y) = T −i B(T j y, e−kn )
+and                                                   X
+                                    Sn (x, y) =                   1Aij (y) (x).
+                                                  i,j=0,...,n−1
+
+Observe that
+                        {(x, y) : mn (x, y) < rn } = {(x, y) : Sn (x, y) > 0} .                        (21)
+Thus, we have
+ µ ⊗ µ ((x, y) : mn (x, y) < rn ) = µ ⊗ µ ((x, y) : Sn (x, y) > 0) = µ ⊗ µ ((x, y) : Sn (x, y) ≥ 1) .
+                        ON THE SHORTEST DISTANCE BETWEEN ORBITS                                            15
+
+
+Then, using Markov’s inequality, we obtain
+                                                       ZZ           X
+      µ ⊗ µ ((x, y) : mn (x, y) < rn ) ≤ E(Sn ) =                               1Aij (y) (x)dµ ⊗ µ(x, y)
+                                                                i,j=0,...,n−1
+                                                X           Z Z                      
+                                       =                             1Aij (y) (x)dµ(x) dµ(y)
+                                            i,j=0,...,n−1
+                                                X           Z
+                                                                               
+                                       =                        µ B(T j y, rn ) dµ(y),
+                                            i,j=0,...,n−1
+since µ is invariant.
+   Using again the invariance of µ, we get
+                                                                Z
+                                                            2
+                    µ ⊗ µ ((x, y) : mn (x, y) < rn ) ≤ n            µ(B(y, rn )dµ(y).
+
+By the definition of the lower correlation dimension and the definition of kn , for n large
+enough, we have
+                                                             C −ε      1
+                      µ ⊗ µ ((x, y) : mn (x, y) < rn ) ≤ n2 rn µ =         .
+                                                                     log n
+                                          2
+Finally, choosing a subsequence nℓ = ⌈eℓ ⌉, we have
+                                                                1      1
+                        µ ⊗ µ ((x, y) : mnℓ (x, y) < rnℓ ) ≤        ≤ 2.
+                                                             log nℓ   ℓ
+      P
+Thus ℓ µ⊗µ ((x, y) : mnℓ (x, y) < rnℓ ) < +∞. By the Borel-Cantelli Lemma, for µ⊗µ-almost
+every (x, y) ∈ X × X, if ℓ is large enough then
+                                        mnℓ (x, y) ≥ rnℓ
+and                                                                  
+                           log mnℓ (x, y)       1          log log nℓ
+                                           ≤           2+               .
+                              − log nℓ        Cµ − ε         log nℓ
+Finally, taking the limit superior in the previous equation and observing that (nℓ )ℓ is increas-
+                                       log nℓ
+ing, (mn )n is decreasing and lim log    nℓ+1 = 1, we have
+                               ℓ→+∞
+
+                             log mn (x, y)       log mnℓ (x, y)     2
+                       lim                 = lim                ≤        .
+                     n→+∞       − log n     ℓ→+∞    − log nℓ      Cµ − ε
+Then the theorem is proved since ε can be chosen arbitrarily small.                                        
+   Before proving Theorem 5 we state a few facts in order to simplify the calculations. At
+first let us recall the notion of (λ, r)-grid partition.
+Definition 13. Let 0 < λ < 1 and r > 0. A partition {Qi }∞        i=1 of X is called a (λ, r)-grid
+partition if there exists a sequence {xi }∞
+                                          i=1 such that for any i  ∈N
+                                   B(xi , λr) ⊂ Qi ⊂ B(xi , r).
+  Now we prove a technical lemma.
+Lemma 14. Under the hypotheses of Theorem 5, there exists a constant K > 0 such that
+    Z                          Z                     3/2
+                    2
+       µ (B(y, rn )) dµ(y) ≤ K     µ (B(y, rn )) dµ(y)     , for n large enough.
+         X                              X
+16                              VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+Proof. Since X is a metric space, there exist 0 < λ < 12 and R > 0 such that for any 0 < r < R
+there exists a (λ, r)-grid partition (see Proposition 2.1 in [29]).
+  Let us choose n large enough so that rn < min{R, r0 /2} (r0 as in Definition 2). Let {Qi }∞
+                                                                                            i=1
+be a (λ, r2n )-grid partition and {xi }∞ i=1 be such that
+                                           rn            r 
+                                                                n
+                                  B xi , λ       ⊂ Q i ⊂ B xi ,    .
+                                             2                  2
+Then we have
+                      Z                             XZ
+                                       2
+                          µ (B(y, rn )) dµ(y) =            µ (B(y, rn ))2 dµ(y).           (22)
+                              X                                             i        Qi
+
+     Now, fix a ball B(xi , 2rn ) and consider the set
+                                                Di = {xj : Qj ∩ B(xi , 2rn ) 6= ∅}.
+Since the space is tight, one can conclude that (see the proof of Theorem 4.1 in [29] ) there
+exists a constant K0 depending only on N0 such that the cardinality card(Di )≤ K0 . Therefore
+                                            [                                                K0
+                                                                                             [
+                                                  B(y, rn ) ⊂ B(xi , 2rn ) ⊂                       Qi,j ,
+                                        y∈Qi                                                 j=1
+
+where Qi,j are elements of the partition.
+  By (22) we have
+                                                                                                 2
+                Z                                       XZ                  K0
+                                                                            X
+                        µ (B(y, rn ))2 dµ(y) ≤                                      µ (Qi,j ) dµ(y)
+                    X                                       i      Qi       j=1
+                                                    23
+              X          K0
+                         X               X XK0                   K0
+                                                                XX
+            =   µ(Qi )     µ (Qi,j ) ≤      µ (Qi,j ) ≤ K02     µ (Qi,j )3 ,
+                    i                 j=1                          i        j=1                              i    j=1
+
+where the last inequality is deduced from Jensen’s inequality. Now, since the elements Qi,j
+cannot participate in more than K0 different sums (one can see the arguments leading to (12)
+in [29]) and since x 7→ x2/3 is a countably subbadditive function, we have
+                       Z                             X
+                          µ (B(y, rn ))2 dµ(y) ≤ K03   µ (Qi )3
+                                  X                                                  i
+                                                            !3/2                                                 !3/2
+                                       X                                             XZ
+                            ≤ K03               µ (Qi ))2          = K03                          µ (Qi ) dµ(y)         .
+                                            i                                            i   Qi
+
+Finally, note that for any y ∈ Qi , we have Qi ⊂ B(y, rn ). Thus
+                 Z                                                                                          !3/2
+                                                                       XZ
+                            µ (B(y, rn ))2 dµ(y) ≤ K03                               µ (B(y, rn ) dµ(y)            ,
+                        X                                               i       Qi
+
+and the result follows with K = K03 .                                                                                       
+
+     We are now ready to prove Theorem 5.
+                                ON THE SHORTEST DISTANCE BETWEEN ORBITS                                                   17
+
+
+Proof of Theorem 5. Without loss of generality, we will assume in the proof that θn = e−n .
+  For ε > 0, let us define
+                                       1
+                            kn =            (2 log n + b log log n) and rn = e−kn .
+                                     Cµ + ε
+Using the same notation as in the proof of Theorem 1, we recall that
+                                           Z
+                                         2
+                              E(Sn ) = n     µ(B(y, rn ))dµ(y).                                                         (23)
+
+Moreover, using (21) and Chebyshev’s inequality, we obtain
+                       µ ⊗ µ ((x, y) : mn (x, y) ≥ rn ) ≤ µ ⊗ µ ((x, y) : Sn (x, y) = 0)
+                                                                                         var(Sn )
+                    ≤µ ⊗ µ ((x, y) : |Sn (x, y) − E(Sn )| ≥ |E(Sn )|) ≤                           .                     (24)
+                                                                                         E(Sn )2
+Thus, we need to control the variance of Sn . First of all, we have
+                X
+  var(Sn ) =           cov(1Aij , 1Ai′ j′ )
+                 1≤i,i′ ,j,j ′ ≤n
+                      X             ZZ                    ZZ           ZZ
+             =                           1Aij 1Ai′ j′ −         1Aij        1Ai′ j′
+                 1≤i,i′ ,j,j ′ ≤n
+                      X             ZZ                                                      Z                    2
+                                         1B(T j y,rn ) (T i x)1B(T j′ y,rn ) (T i x) − n4
+                                                                                ′
+             =                                                                                    µ(B(y, rn )dµ(y) .
+                 1≤i,i′ ,j,j ′ ≤n
+
+Let g = g(n) = log(n4+4ξ/(C µ +ε) ). We will split the last sum into the following four parts:
+           X              X                  X                X                X
+                   =                 +                 +               +
+        1≤i,i′ ,j,j ′ ≤n     |i−i′ |>g,|j−j ′|>g      |i−i′ |>g,|j−j ′|≤g   |i−i′ |≤g,|j−j ′|>g   |i−i′ |≤g,|j−j ′|≤g
+                           =:I + II + III + IV.
+  At first we observe that if |i − i′ | > g, then by (H1) and (H3),
+                        ZZ
+                            1B(T j y,rn ) (T i−i x)1B(T j′ y,rn ) (x)dµ(x)dµ(y)
+                                                ′
+
+
+                        Z Z                           Z
+                    ≤           1B(T j y,rn ) (x)dµ(x) 1B(T j′ y,rn ) (x)dµ(x)
+                                                                     
+                        + θg · k1B(T j y,rn ) kC · k1B(T j′ y,rn ) kC dµ(y)
+                                      Z
+                                                                     ′
+                                                                            
+                    ≤ c2 rn−2ξ θg + µ B(T j y, rn ) µ B(T j y, rn ) dµ(y).                                              (25)
+
+Therefore
+                                                     X Z                             ′
+                                                                                               
+            I + II ≤n4 c2 rn−2ξ θg + n2                         µ B(T j y, rn ) µ B(T j y, rn ) dµ(y)
+                                                   |j−j ′ |>g
+                                      X Z                             ′
+                                                                                
+                            + n2                 µ B(T j y, rn ) µ B(T j y, rn ) dµ(y).
+                                    |j−j ′ |≤g
+18                         VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+     Now, in the case where |j − j ′ | > g, we use (H1) and (H2) to get
+                    Z
+                                              ′
+                                                      
+                       µ B(T j y, rn ) µ B(T j y, rn ) dµ(y)
+                    Z                       2
+                ≤       µ (B(y, rn )) dµ(y) + θg · kµ (B(·, rn )) kC · kµ (B(·, rn )) kC
+                      Z                       2
+                  ≤         µ (B(y, rn )) dµ(y) + c2 rn−2ξ θg .                            (26)
+
+Otherwise we use Hölder’s inequality and the invariance of the measure to obtain
+                 Z
+                                          ′
+                                                  
+                   µ B(T j y, rn ) µ B(T j y, rn ) dµ(y)
+                      Z                       1/2 Z            2    1/2
+                                   j
+                                         2                j′
+                  ≤         µ B(T y, rn ) dµ(y)       µ B(T y, rn ) dµ(y)
+                      Z
+                  =       µ (B(y, rn ))2 dµ(y).                                            (27)
+
+So the first two terms can be estimated as below
+                                               Z                     2
+                                4 2 −2ξ      4
+                     I + II ≤2n c rn θg + n        µ (B(y, rn )) dµ(y)
+                                     Z
+                              + 2n3 g µ (B(y, rn ))2 dµ(y).                                (28)
+
+  The third term can be treated exactly as the second one using the following symmetry on
+x and y:
+                     ZZ
+                         1B(T j y,rn ) (T i x)1B(T j′ y,rn ) (T i x)dµ(x)dµ(y)
+                                                                  ′
+
+
+                    ZZ
+                        1B(T i x,rn ) (T j y)1B(T i′ x,rn ) (T j y)dµ(y)dµ(x).
+                                                                ′
+                  =
+
+Finally, for the last term we use the boundedness of the indicator function and the invariance
+of the measure to obtain
+                           ZZ
+                               1B(T j y,rn ) (T i x)1B(T j′ y,rn ) (T i x)dµ(x)dµ(y)
+                                                                       ′
+
+
+                           ZZ
+                        ≤      1B(T j y,rn ) (T i x)dµ(x)dµ(y)
+                           Z
+                        ≤     µ (B(y, rn )) dµ(y).                                        (29)
+
+     Therefore,
+                                                             Z
+                          III + IV ≤n4 c2 rn−2ξ θg + 2gn3        µ (B(y, rn ))2 dµ(y)
+                                                  Z
+                                            2 2
+                                       + 4n g         µ (B(y, rn )) dµ(y).                 (30)
+                            ON THE SHORTEST DISTANCE BETWEEN ORBITS                                19
+
+
+  Combining together the estimates (23), (24), (28) and (30), we obtain
+                                                       R
+                 var(Sn )      3n4 c2 rn−2ξ θg + 4n2 g2 µ (B(y, rn )) dµ(y)
+                            ≤                  R               2
+                (E(Sn ))2                  n2 µ(B(y, rn )dµ(y)
+                                        R
+                                 4n3 g µ (B(y, rn ))2 dµ(y)
+                               +       R                  2 .
+                                   n2 µ(B(y, rn )dµ(y)
+  To estimate the first term, we use the information on the decay of correlations (H1) and
+the choice of g to obtain
+                      3n4 c2 rn−2ξ θg                     −2(C µ +ε) −2ξ
+                  R                    2    ≤ 3c2 θg rn            rn
+             n2       µ(B(y, rn ))dµ(y)
+                                                                                          2ξb
+                                             ≤ 3c2 θg n4 (log n)2b n4ξ/(C µ +ε) (log n) C µ +ε
+                                                                              
+                                                                         ξ
+                                                              2b 1+
+                                             ≤ 3c2 (log n)            C µ +ε
+                                                                                   .             (31)
+  For the second term, we use again our choice of g to get
+                R                                                 2
+         4n2 g 2 µ (B(y, rn )) dµ(y)      2       b          4ξ
+              R                  2 ≤ 4g (log n) = 4 4 +              (log n)2+b .               (32)
+            2
+           n µ(B(y, rn ))dµ(y)                             C µ + ε
+  For the last estimate, we use Lemma 14 to obtain
+                      R
+                4n3 g µ (B(y, rn ))2 dµ(y)         4Kg
+                     R                 2 ≤     R              1/2
+                  n2 µ(B(y, rn ))dµ(y)       n µ(B(y, rn )dµ(y)
+                                                      g − Cµ +ε
+                                                  ≤ 4K rn 2
+                                                      n
+                                                                  b
+                                                  = 4Kg · (log n) 2
+                                                                    
+                                                                4ξ               b
+                                                  = 4K 4 +             (log n)1+ 2 .             (33)
+                                                              Cµ + ε
+  Now, taking b < −2, and combining (24), (31), (32) and (33), we have
+                                                           var(Sn )                 b
+                      µ ⊗ µ ((x, y), mn (x, y) ≥ rn ) ≤            2
+                                                                     ≤ K1 (log n)1+ 2 ,
+                                                          (E(Sn ))
+for large enough n, and for some constant K1 .
+                                                      2
+   Thus, choosing b < −4 and the subsequence nℓ = ⌈eℓ ⌉, we can apply the Borel-Cantelli
+Lemma as in the proof of Theorem 1. Moreover, since by Theorem 1 mn (x, y) > 0 a.e., we
+can consider the quantity log mn (x, y) and we obtain
+                              log mn (x, y)       log mnℓ (x, y)     2
+                          lim               = lim                ≥        .
+                         n→+∞    − log n     ℓ→+∞    − log nℓ      Cµ + ε
+Then the theorem is proved since ε can be chosen arbitrarily small.                                
+  Now we explain how to modify the proof of Theorem 5 to prove Theorem 6.
+Proof of Theorem 6. When our Banach space C is the space of Hölder functions, (H3) cannot
+be satisfied since the characteristic functions are not continuous. Thus the only difference in
+the proof will be in (25) and (26) where we use the mixing hypothesis.
+20                    VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+   First, one can easily adapt (25) in this setting approximating the characteristic functions
+by Lipschitz functions exactly as in the proof of Lemma 9 in [47].
+   Then, to obtain (26) we just need to prove that if (HA) is satisfied then the function
+x 7→ µ(B(x, r)) is Hölder, i.e. (H2) is satisfied.
+   In fact, let x, y ∈ X and 0 < r < r0 . If kx − yk < r then by (HA),
+           kµ(B(x, r)) − µ(B(y, r))k ≤ µ (B(x, r + kx − yk)\B(x, r − kx − yk))
+                                        ≤ r −ξ kx − ykβ .
+If kx − yk ≥ r then
+                                                        2
+                       kµ(B(x, r)) − µ(B(y, r))k ≤ 2 ≤ kx − yk.
+                                                        r
+Thus, the function x 7→ µ(B(x, r)) is Hölder, one can applied (H1) and (H2) to obtain (26)
+and the theorem is proved.                                                               
+
+
+                              7. Proof of the symbolic case
+   The proof of the first part of Theorem 7 is a simple adaptation of the proof of Theorem
+1 and a simpler version was also proved in [5]. To do this adaptation, one must substitute
+− log mn (x, y) by Mn (x, y) and the balls B(x, e−k ) must be substituted by cylinders Ck (x).
+   We will just focus on the second part of the theorem and explain the main differences
+with Theorem 3. We will assume that the system is α-mixing with an exponential decay, the
+ψ-mixing case can be easily deduced using the same ideas.
+Proof of Theorem 7. For ε > 0, let us define
+                                      1
+                            kn =           (2 log n + b log log n).
+                                   H2 + ε
+We also define
+                                   Aij (y) = σ −i Ckn (σ j y)
+and                                           X
+                              Sn (x, y) =           1Aij (y) (x).
+                                             i,j=1,...,n
+We observe that                                   X
+                                    E(Sn ) = n2         P(Ckn )2 ,                          (34)
+                                                  Ckn
+where the sum is taken over all the cylinders of size kn .
+  Following the lines of the proof of Theorem 3, we have
+                                                                     var(Sn )
+                           P ⊗ P ((x, y) : Mn (x, y) ≤ kn ) ≤                 .             (35)
+                                                                     E(Sn )2
+Again, we will estimate the variance dividing the sum of var(Sn ) into 4 terms. Let g = log(n4 ).
+For i − i′ > g + kn , we have the equivalent of equation (25):
+                            ZZ
+                                1Ckn (σj y) (σi x)1Ckn (σj′ y) (σi x)dP(x)dP(y)
+                                                                  ′
+
+
+                                   Z
+                                                                  ′
+                                                                       
+                         ≤ α(g) + P Ckn (σ j y) P Ckn (σ j y) dP(y).
+                          ON THE SHORTEST DISTANCE BETWEEN ORBITS                            21
+
+
+If, moreover, j − j ′ > g + kn , we have the equivalent of (26), that is
+                             Z
+                                                      ′
+                                                           
+                                P Ckn (σ j y) P Ckn (σ j y) dP(y)
+                             Z                
+                                             ′
+                         =      P Ckn (σ j−j y) P (Ckn (y)) dP(y)
+                               X                                   ′
+                                                                             
+                         =           P(Ckn )P(Ck′ n )P Ckn ∩ σ −(j−j ) Ck′ n
+                             Ckn ,Ck′ n
+                               X                                                  
+                         ≤                P(Ckn )P(Ck′ n ) P(Ckn )P(Ck′ n ) + α(g)
+                             Ckn ,Ck′ n
+                                                          2
+                                              X
+                         ≤ α(g) +                  P(Ckn )2  .
+                                              Ckn
+
+However, if j − j ′ ≤ g + kn , we obtain the following inequality, equivalent of (27):
+                      Z
+                                                ′
+                                                             X
+                         P Ckn (σ j y) P Ckn (σ j y) dP(y) ≤       P(Ckn )3 .
+
+As in the proof of Lemma 14, using the subbaditivity of x 7→ x2/3 , we have
+                                 X                      X               3/2
+                                          P(Ckn )3 ≤          P(Ckn )2          .
+
+Finally, when |i − i′ | ≤ g + kn and |j − j ′ | ≤ g + kn , we have the equivalent of (29):
+                 ZZ                                                     X
+                       1Ckn (σj y) (σi x)1Ck (σj′ y) (σi x)dP(x)dP(y) ≤
+                                                        ′
+                                                                          P(Ckn )2 .
+                                                n
+
+
+  Then, one can gather these estimates to obtain
+
+               P ⊗ P ((x, y) : Mn (x, y) ≤ kn )
+                                         P           3/2                P
+                2n4 α(g) + 2n3 (g + kn )    P(Ckn )2      + n2 (g + kn )2 P(Ckn )2
+              ≤                              P                                     .
+                                         (n2 P(Ckn )2 )2
+
+Thus, for b < −2,
+                                                                                    b
+                         P ⊗ P ((x, y), Mn (x, y) ≤ kn ) = O((log n)1+ 2 ).
+To conclude the proof, we use the Borel-Cantelli Lemma, exactly as in the proof of Theorem
+3.                                                                                       
+
+
+
+
+Acknowledgements. The authors would like to thank Rodrigo Lambert and Mike Todd for
+various comments on a first draft of this article.
+22                       VANESSA BARROS, LINGMIN LIAO, JEROME ROUSSEAU
+
+
+                                               References
+ [1] M. Abadi and L. Cardeño, Rényi entropies and large deviations for the first match function, IEEE Trans.
+     Inform. Theory, 61 (2015), no. 4, 1629–1639.
+ [2] M. Abadi, L. Cardeño, and S. Gallo, Potential well spectrum and hitting time in renewal processes, J.
+     Stat. Phys., 159 (2015), no. 5, 1087–1106.
+ [3] M. Abadi and R. Lambert, From the divergence between two measures to the shortest path between two
+     observables, Ergodic Theory Dynam. Systems, published online.
+ [4] J. F. Alves, J. M. Freitas, S. Luzzatto, and S. Vaienti, From rates of mixing to recurrence times via large
+     deviations, Adv. Math., 228 (2011), no. 2, 1203–1236.
+ [5] R. Arratia and M. Waterman, An Erdös–Rényi law with shifts, Adv. Math., 55 (1985), 13–23.
+ [6] R. Arratia and M. Waterman, Critical phenomena in sequence matching, Ann. Probab., 13 (1985), no. 4,
+     1236–1249.
+ [7] R. Arratia and M. Waterman, The Erdös-Rényi strong law for pattern matching with a given proportion
+     of mismatches, Ann. Probab., 17 (1989), no. 3, 1152–1169.
+ [8] R. Arratia and M. Waterman, A phase transition for the score in matching random sequences allowing
+     deletions, Ann. Appl. Probab., 4 (1994), no. 1, 200–225.
+ [9] R. Arratia, L. Gordon and M. Waterman, An extreme value theory for sequence matching, Ann. Statist.,
+     14 (1986), no. 3, 971–993.
+[10] J. S. Athreya, Logarithm laws and shrinking target properties, Proceedings of the Indian Academy of
+     Sciences-Mathematical Sciences, Volume 119, Number 4, pages 541–559, 2009.
+[11] H. Aytaç, J. M. Freitas and S. Vaienti, Laws of rare events for deterministic and random dynamical
+     systems; Trans. Am. Math. Soc., 367 (2015), 8229–8278.
+[12] J.-M. Barbaroux, F. Germinet and S. Tcheremchantsev, Generalized fractal dimensions: equivalences and
+     basic properties, J. Math. Pures Appl. 80, 10 (2001), 977–1012.
+[13] M. Boshernitzan and J. Chaika, Diophantine properties of IETs and general systems: quantitative proxi-
+     mality and connectivity, Invent. Math. 192 (2013), no. 2, 375–412.
+[14] R. Bowen, Equilibrium States and the Ergodic Theory of Anosov Diffeomorphisms, Lecture Notes in Math,
+     Vol. 470, Springer, Berlin, 1975.
+[15] R. Bradley, Basic Properties of Strong Mixing Conditions. A Survey and Some Open Questions, Proba-
+     bility Surveys Vol. 2 (2005) 107–144.
+[16] R. Bradley, Introduction to strong mixing conditions, Vol. 1, 2 and 3, Kendrick Press, Heber City, UT,
+     2007.
+[17] J-R. Chazottes and P. Collet, Poisson approximation for the number of visits to balls in non-uniformly
+     hyperbolic dynamical systems, Ergodic Theory Dynam. Systems, 33 (2013), 49–80.
+[18] P. Collet, Statistics of closest return for some non-uniformly hyperbolic systems, Ergodic Theory Dynam.
+     Systems, 21 (2001), 401–420.
+[19] C. D. Cutler and D. A. Dawson, Estimation of dimension for spatially distributed data and related limit
+     theorems, J. Multivariate Anal., 28 (1989), no. 1, 115–148.
+[20] A. Dembo, S. Karlin and O. Zeitouni, Critical phenomena for sequence matching with scoring, Ann.
+     Probab., 22 (1994) 1993–2021.
+[21] D. Faranda, H. Ghoudi, P. Guiraud and S. Vaienti, Extreme value theory for synchronization of coupled
+     map lattices, Nonlinearity, 31 (2018), 3326–3358.
+[22] D. Faranda and S. Vaienti, Correlation dimension and phase space contraction via extreme value theory,
+     Chaos, 28 (2018), 041103.
+[23] A. C. M. Freitas, J. M. Freitas and M. Todd, Hitting time statistics and extreme value theory. Probab.
+     Theory Related Fields, 147 (2010), 675–710.
+[24] A. C. M. Freitas, J. M. Freitas and M. Todd, The extremal index, hitting time statistics and periodicity.
+     Adv. Math. 231 (2012), 2626–2665.
+[25] A. C. M. Freitas, J. M. Freitas and M. Todd, The compound Poisson limit ruling periodic extreme behaviour
+     of non-uniformly hyperbolic dynamics, Comm. Math. Phys., 321 (2013), no. 2, 483–527.
+[26] P. Grassberger and I. Procaccia, Measuring the strangeness of strange attractors, Physica D, 9 (1–2)
+     (1983), 189–208.
+[27] P. Grassberger and I. Procaccia, Characterization of strange attractors, Phys. Rev. Lett., 50 (1983),
+     346–349.
+                            ON THE SHORTEST DISTANCE BETWEEN ORBITS                                          23
+
+
+[28] C. Gupta, M. Holland and M. Nicol, Extreme value theory and return time statistics for dispersing billiard
+     maps and flows, Lozi maps and Lorenz-like maps, Ergodic Theory Dynam. Systems, 31 (2011), 1363–1390.
+[29] M. Guysinsky and S. Yaskolko, Coincidence of various dimensions associated with metrics and measures
+     on metric spaces, Discrete Contin. Dyn. Syst., 3 (1997) 591–603.
+[30] N. Haydn and S. Vaienti, The Rényi entropy function and the large deviation of short return times, Ergodic
+     Theory Dynam. Systems, 30 (2010), no. 1, 159–179.
+[31] N. T. A. Haydn and K. Wasilewska, Limiting distribution and error terms for the number of visits to balls
+     in non-uniformly hyperbolic dynamical systems, Discrete Contin. Dyn. Syst., 36 (2016), 2585–2611.
+[32] F. Hofbauer, G. Keller, Ergodic properties of invariant measures for piecewise monotonic transformations,
+     Math. Z., 180 (1982), no. 1, 119–140.
+[33] S. Karlin, F. Ost, Maximal length of common words among random letter sequences, Ann. Probab. 16
+     (1988) 535–563.
+[34] A. Ya. Khintchine, Continued Fractions, Univ. Chicago Press, Chicago, 1964.
+[35] D. H. Kim and B. K. Seo, The waiting time for irrational rotations, Nonlinearity, 16 (2003), 1861–1868.
+[36] I. Kontoyiannis, Asymptotic recurrence and waiting times for stationary processes, J. Theor. Probab., 11
+     (1998), no. 3, 795–811.
+[37] C. Neuhauser, A phase transition for the distribution of matching blocks, Combin. Probab. Comput., 5
+     (1996), 139–159.
+[38] W. Parry, On the β-expansions of real numbers, Acta Math. Acad. Sci. Hungar., 11 (1960) 401–416.
+[39] Y. Pesin, Dimension Theory in Dynamical Systems, University of Chicago Press, Chicago, 1997.
+[40] Y. Pesin and H. Weiss, A multifractal analysis of equilibrium measures for conformal expanding maps and
+     Moran-like geometric constructions, J. Stat. Phys., 86 (1997), 233–275.
+[41] W. Philipp, Some metric theorems in number theory, Pacific J. Math., 20 (1967) 109–127.
+[42] W. Philipp, Some metrical theorems in number theory II, Duke Math. J., 37 (1970) 447–458.
+[43] B. Pittel, Asymptotical growth of a class of random trees, Ann. Probab., 13 (1985), 414–427.
+[44] G. Reinert, S.Schbath and M. Waterman (2005). Applied Combinatorics on Words, volume 105 of Ency-
+     clopedia of Mathematics and its Applications, chapter Statistics on Words with Applications to Biological
+     Sequences. Cambridge University Press, 2005.
+[45] A. Rockett and P. Szüsz, Continued Fractions, World Scientific, 1992.
+[46] B. Saussol, Absolutely continuous invariant measures for multidimensional expanding maps, Israel J.
+     Math., 116 (2000), 223–248.
+[47] B. Saussol, Recurrence rate in rapidly mixing dynamical systems, Discrete Contin. Dyn. Syst., 15 (2006),
+     259–267.
+[48] B. Saussol, An introduction to quantitative Poincaré recurrence in dynamical systems, Rev. Math. Phys.,
+     21 (2009) 949–979.
+[49] P. Walters, Ruelle’s operator theorem and g-measures, Trans. Am. Math. Soc., 214, (1975), 375–387.
+[50] M. Waterman, Introduction to Computational Biology: Maps, Sequences and Genomes, Chapman and
+     Hall, London (1995).
+
+  Vanessa Barros and Jérôme Rousseau, Departamento de Matemática, Universidade Federal
+da Bahia, Av. Ademar de Barros s/n, 40170-110 Salvador, Brazil
+  E-mail address: vbarrosoliveira@gmail.com
+  URL: https://sites.google.com/site/vbarrosoliveira/home
+  E-mail address: jerome.rousseau@ufba.br
+  URL: http://www.sd.mat.ufba.br/~jerome.rousseau
+
+  Lingmin Liao, LAMA (Laboratoire d’Analyse et de Mathématiques Appliquées), Université
+Paris-Est Créteil Val de Marne, 61 avenue du Général de Gaulle, 94010 Créteil Cedex, France
+  E-mail address: lingmin.liao@u-pec.fr
+  URL: http://perso-math.univ-mlv.fr/users/liao.lingmin/
+

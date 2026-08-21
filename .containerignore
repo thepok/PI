@@ -1,0 +1,10 @@
+*
+!requirements.txt
+!lakefile.toml
+!lake-manifest.json
+!lean-toolchain
+!workflows/
+!workflows/runtime/
+!workflows/runtime/containers/
+!workflows/runtime/containers/Containerfile.allmath
+!workflows/runtime/containers/allmath-lean-gate.sh

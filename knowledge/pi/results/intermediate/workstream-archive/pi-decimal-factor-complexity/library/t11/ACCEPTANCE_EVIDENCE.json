@@ -1,0 +1,13 @@
+{
+  "claim_label_suggestion": "experiment",
+  "evidence": [
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/T28-lacunary-sum-audit.md",
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/HASHES.sha256",
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/reproduce-t28.sh",
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/erdos-gal-1955-part1.pdf",
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/philipp-1975-lacunary.pdf",
+    "removed-workflow-record://todo-theory-pi-digits-t28-1784683671-r0/theory_artifacts/fukuyama-2008-geometric-discrepancy.pdf"
+  ],
+  "notes": "The passed gate supplied every listed artifact. Independent replay of `reproduce-t28.sh verify` in a reconstructed layout verified all retained hashes and the canonical/T19 dependency hashes. The audit gives a theorem-by-theorem table with pinned EG, Philipp, and Fukuyama sources, exact statements/constants, explicit substitutions into T27, and the decisive fixed-pi failure: each usable asymptotic result is only almost-everywhere (with additionally ineffective pointwise thresholds). Its derivation of the T27 certificate uses the actual finite-frequency hypothesis, and it expressly makes no unconditional V1 or V3 claim. Crossref metadata confirmed all four DOI citations and their titles, authors, volumes, and page ranges.",
+  "verdict": "done"
+}

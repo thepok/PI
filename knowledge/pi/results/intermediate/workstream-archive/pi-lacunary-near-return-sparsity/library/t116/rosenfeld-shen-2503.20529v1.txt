@@ -1,0 +1,791 @@
+                                                   Local obstructions in sequences revisited
+                                                          Matthieu Rosenfeld, Alexander Shen
+                                                   LIRMM, Univ Montpellier, CNRS, Montpellier, France
+arXiv:2503.20529v1 [math.CO] 26 Mar 2025
+
+
+
+
+                                                                              Abstract
+                                                    In this article we consider some simple combinatorial game and a
+                                                 winning strategy in this game. This game is then used to prove several
+                                                 known results about non-repetitive sequences and approximations with
+                                                 denominators from a lacunary sequence. In this way we simplify the
+                                                 proofs, improve the bounds and get for free the computable versions
+                                                 that required a separate treatment.
+
+
+                                           1    Introduction
+                                           Fifty years ago Erdős [1, p. 96] asked the following question. Let nk be
+                                           a lacunary sequence of positive integers, i.e., nk+1 > (1 + ε)nk for some
+                                           ε > 0. Can we find a real θ such that all distances from nk θ to the nearest
+                                           integer are separated from 0 (exceed some positive δ for all k)? Several
+                                           authors then showed that this is indeed the case, and provide some lower
+                                           bounds for δ as a function of ϵ. The bounds improved over time, and the
+                                           best known asymptotic bound δ = Ω (ε/| log ε|) was obtained by Peres and
+                                           Schlag [2]; the computable version of this result was recently proved by
+                                           Mourad [3]. Peres ans Schlag proofs relies on (some variant of) the Lovász
+                                           Local Lemma, while Mourad’s proof relies on his computable version of the
+                                           Lefthanded Local Lemma.
+                                               We provide a simple proof of these results that uses some combinatorial
+                                           game and a winning strategy in this game (based on Miller’s argument
+                                           in [4]). It gives slightly better constants in the bounds and does not require
+                                           separate argument for the computable version.
+                                               The same game can be applied to sequences without repetitions. A
+                                           classical (1906) result of Thue [5] says that there exists an infinite sequence
+                                           in a three-letter alphabet that is square-free (does not contain substrings uu
+                                           for non-empty strings u). The same question may be asked in a more general
+                                           situation where the alphabet is large (even infinite) but for each position
+                                           only 3 letters are allowed (the list of the allowed letters may depend on the
+                                           position). The existence of such a sequence remains a conjecture [6, p. 215,
+                                           Conjecture 1], but for lists of size 4 the corresponding result is proven [7, 6],
+                                           and the computable version of this result is proven [3] for lists of size 6. We
+
+
+                                                                                   1
+note that all these results are easy corollaries of the game analysis, and the
+computable version does not require special treatment and is valid already
+for lists of size 4.
+    The paper is organized as follows. In Section 2 we explain the rules of
+the game and a sufficient condition for the existence of a winning strategy
+(Theorem 1). We note that this condition can be easily adapted to prove the
+existence of a computable winning strategy (Theorem 2). Then in Section 3
+we apply this game to the question about forbidden substrings considered
+by Miller in [4] (our strategy is a straightforward generalisation of Miller’s
+argument used there). In Section 4 we observe that the game can be used
+to prove the existence of square-free sequences for 4-list assignments. Then
+in Section 7 we show how the game can be applied to Erdős’s question.
+Finally, in Section 9 we provide some historical context and discuss the
+game approach.
+
+
+2    The game
+We consider a combinatorial game that appears to be the core of several
+existence proofs.
+    Alice and Bob play an infinite game on the k-ary rooted tree. Initially
+Bob is in the root of this tree. His goal is to escape (to infinity) along some
+branch of the tree, one edge at a time. Alice tries to block Bob by declaring
+some tree vertices as forbidden for him.
+    Alice and Bob alternate; Alice starts the game. At each step Alice adds
+some vertices to the set F of forbidden vertices (initially empty); then Bob
+moves along some tree edge (moving from a vertex to its child). Bob loses if
+he gets into a forbidden vertex. Alice loses if Bob never gets into a forbidden
+vertex. Of course, without additional restrictions Alice wins the game: she
+may forbid all vertices, or all children of current Bob’s vertex, or all vertices
+of some level ahead of Bob. To make the game non-trivial, we will require
+that Alice does not forbid too many vertices too close to Bob.
+    Before formulating the restrictions, let us note that the game can be
+reformulated as follows. First, only the subtree rooted at Bob’s current
+position matters (other vertices are inaccessible to Bob anyway). So we
+may think that at his turn Bob chooses an available (= not forbidden)
+child of the current position and the game continues on the corresponding
+subtree. At her turn Alice adds some vertices of this subtree to F (making
+them unavailable to Bob); the vertices forbidden earlier remain forbidden.
+Alice wins if at some point Bob has no available child to choose from, and
+Bob wins otherwise. (We also assume that Alice cannot forbid Bob’s current
+position, i.e., the root of the current subtree.)
+    To formulate the restrictions for Alice, let us fix some β in the range
+(1, k). Each vertex of the l-th level of the k-ary rooted tree has weight
+
+
+                                       2
+β −l (so the root has weight 1, each its child has weight 1/β, etc., cf. the
+definition of Hausdorff’s outer measure). The weight of a set of vertices is
+the sum of their weights. The restriction for Alice is as follows: for every
+move the weight of the newly forbidden vertices, measured in the current
+subtree, does not exceed some constant ω. In this way, for every choice of
+parameters β and ω, we get a game on a k-ary tree called (β, ω, k)-game in
+the sequel.
+
+Theorem 1. Assume that for some integer k > 1, some β in (1, k) and
+some ω > 0 the inequality
+                          β(1 + ω) ⩽ k                           (1)
+holds. Then Bob has a winning strategy in the (β, ω, k)-game.
+
+Proof. The winning strategy for Bob is to maintain the following invariant:
+after his move (and before the next move of Alice) the total weight of the
+forbidden vertices in the current subtree (rooted at Bob’s position) is less
+than 1. (This implies that the current position is not forbidden.)
+    Initially (before the first move of Alice) this is true, since the weight
+is 0. Let us check that Bob can maintain this invariant. After Alice adds
+new forbidden vertices (with total weight at most ω) the total weight of
+the forbidden vertices in the current subtree is less than 1 + ω, and the
+root of the subtree is not forbidden. So all the forbidden vertices are split
+among k children of the root, and there is a child whose share is less than
+(1 + ω)/k. Bob moves to this child; this increases all the weights in its
+subtree by factor β since the obstacles become one step closer, and we note
+that β(1 + ω)/k ⩽ 1 by assumption.
+
+    We can use a computable version of this result to construct a computable
+path in the tree by playing against the computable strategy for Alice (for
+computable β and ω). More precisely, the next move of Alice should consist
+of programs that compute
+
+   • a set F of newly forbidden vertices;
+
+   • a modulus of convergence for their total weight.
+
+The first program says for each vertex whether it becomes forbidden, and
+the second program gives for every rational ε > 0 some integer N such that
+the total weight of all F -vertices of height greater than N is less than ε.
+    A special case: Alice explicitly gives a finite list of newly forbidden
+vertices.
+
+Theorem 2. Assume that β and ω are computable real numbers satisfying
+the same condition as in Theorem 1, and Alice uses a computable strategy.
+Then Bob can win against this strategy using a computable path in the k-ary
+tree.
+
+                                     3
+Proof. Bob can maintain the invariant as before, keeping the total weight of
+the forbidden vertices in the subtree as a computable number. Since Alice
+behaves computably (in the sense explained above), Bob can update this
+data after her move. Then he computes the weights for the children until
+he finds a good child (note than the inequality is strict, so such a child can
+be found effectively if it exists).
+
+   Note that, since the only thing needed to compute Bob strategy is to be
+able to compute the weight of the set of forbidden vertices, if we can do so
+quickly then we can quickly compute Bob’s move.
+
+
+3    Miller’s argument
+The idea behind this technique of β-weights was first used by J. Miller [4]
+to prove the existence of an infinite sequence avoiding some set of forbidden
+factors (contiguous substrings). Let us present his proof as an application
+of Theorem 1.
+Theorem 3. Let A be a finite alphabet and let F ⊆ A+ be a set of A-words.
+Suppose there exists β in (1, |A|) such that
+                                             
+                                  X
+                         β 1 +       β −|f |  ⩽ |A| .
+                                 f ∈F
+
+Then there exists an infinite sequence in AN that avoids F.
+Proof. Let k be the size of A. Consider the k-ary tree where children are
+indexed by letters. Bob constructs a path in this tree, and at every move
+Alice forbids all elements of F starting from Bob’s position.
+
+   The computable version can be obtained in the same way using Theo-
+rem 2:
+Theorem 4. Let A be a finite alphabet and let F ⊆ A+ be a computable set
+of A-words. Suppose there exists a computable β ∈ (1, k) such that
+                                           
+                                X
+                        β 1 +      β −|f |  ⩽ |A|
+                                 f ∈F
+
+and the series in the left hand side converges computably. Then there exists
+an infinite computable sequence in AN that avoids F.
+   The construction given by Miller [4, Proposition 2.1] is exactly the same
+(he uses letter S instead of F, as well as n instead of k, and c instead of
+1/β in our notation). However, extracting a combinatorial game from this
+argument allows us to apply the same technique to several other questions
+considered in the following sections.
+
+                                        4
+4    Nonrepetitive words
+A square is a word of the form uu with u a non-empty word, and a square-free
+word is a word that contains no squares as factors. For instance, hotshots
+is a square, infinite is square-free and repetition contains the square
+titi. In 1906, Thue proved that there exists an infinite square-free word
+over a three-letter alphabet [5]. This result is often called the first result
+in combinatorics on words and many its variants have been studied. Using
+Theorem 1, we can construct square-free sequences for all k ⩾ 4. This is
+still weaker than Thue’s result, but our argument can in fact be applied to
+the more general case where the alphabet is large (even infinite), but only
+four letters are allowed for each position.
+     More formally, consider an infinite alphabet S and some k-list assign-
+ment, i.e., a function α : N → P(S) that for every n ∈ N specifies which
+k letters from S are allowed in n-th position (so |α(n)| = k). We say that
+a sequence w0 w1 . . . respects α if wi ∈ α(i) for all i. In 2011, Grytczuk,
+Przybylo and Zhu [7] proved that for any 4-list assignment L there exists
+an infinite square-free sequence that respects L; several other proofs using
+different tools appeared later (see Section 9). Recently a computable version
+of this result was proven by Mourad [3] but only for 6-list assignments. In
+this section we note that these results are easy corollaries of the game and
+get the computable version for 4-lists as a byproduct (thus improving a bit
+the result from [3]).
+Theorem 5. For every 4-list assignment α there exists an infinite square-
+free sequence that respects α. If the assignment is computable, then there
+exists a computable square-free sequence that respects α.
+Proof. We consider the game over the 4-ary tree that describes which letters
+can be added at each step according to α. Every vertex at level d has 4 chil-
+dren labeled with letters in α(d). Vertices of this tree correspond to S-words
+that satisfy α-restrictions, and infinite paths are sequences respecting α.
+    Consider the following strategy for Alice. When Bob’s position is some
+word w, she forbids all the vertices corresponding to words wv for all v
+that are non-empty suffixes of w (thus preventing vv from appearing in the
+sequence). In this way every possible non-empty square will be forbidden
+by Alice at the moment when the first half of this square appears.
+    To show that Bob has a winning strategy, let β = 2. The β-weight of
+Alice’s move is at most
+                                1 1
+                                  + + ... < 1
+                                2 4
+since Alice forbids at most one string of each positive length. For ω = 1 the
+conditions of Theorems 1 and 2 are fulfilled; indeed, 2(1 + 1) ⩽ 4.
+
+Remark 1. In our setting for every position there are four letters allowed in
+this position. The same argument can be applied if the set of four allowed
+
+                                      5
+letters depends on the previous letters and not only of the height of the
+vertex (i.e., when we consider a 4-ary tree whose edges are labeled by letters
+from S).
+    Note that after n steps there are at most O(n2 ) forbidden vertices in the
+current subtree, and they can easily be found in polynomial time in n as
+long as the list of each position can be computed in polynomial time. Under
+this condition, the square-free sequence that respects the list assignment can
+be computed in polynomial (in n) time.
+
+
+5    Separated occurrences
+The following result proven by Mourad [3] is a computable version of a
+result of Beck [8] that was the historically first application of the Lovász
+Local Lemma to sequences. It can be seen as a generalization of Thue’s
+result: now two occurrences of the same string not only cannot follow each
+other, but have to be far apart.
+
+Theorem 6 ([3]). For every c < 2 there exist a constant N and a computable
+infinite binary sequence α such that for every string x of length n ⩾ N any
+two occurrences of x in α are far away: the distance between them is at
+least cn .
+
+    The distance between two occurrences starting at positions i and j is
+defined as |i − j|. Note that c cannot be greater than 2 since then we require
+more than 2n substrings of length n to be different.
+
+Proof of Theorem 6. This result is also an easy application of the combina-
+torial game of Section 2. Bob constructs α bit by bit, and Alice does not
+allow α to violate the statement of the theorem. Namely, if x is a substring
+already present in α (not too long ago), Alice prevents x from appearing
+again (starting from the current position).
+                                               n
+                            x
+                                                 x
+                            n
+                               ⩽ cn
+In this way each move of Alice forbids at most cn vertices of level n (for all
+n ⩾ N ), and we know that Bob can win if
+                                         
+                                   X cn
+                          β 1 +          ⩽2
+                                       βn
+                                   n⩾N
+
+
+
+
+                                      6
+for some β ∈ (1, 2). Note that this condition is satisfied if β is chosen
+arbitrarily in (c, 2), and N is large enough (so the tail of the geometric
+series is small).
+    This would finish the proof if not one minor problem that needs to be
+dealt with: the distance between two potential occurrences of x may be
+small and Alice does not have at hand the string that she needs to prevent
+(the end of this string is not determined yet).
+                                                   x
+
+                                               x
+
+    Still she can reconstruct the string to be avoided: choosing some bit in
+the right occurrence of x, she already knows the corresponding bit in the
+left occurrence (either it was in the already constructed part of α, or it was
+already chosen previously in the context of right occurrence).
+
+    If we want to know how N depends on c, we need to choose the optimal
+value of β that makes the left hand side of the inequality minimal. Note
+also that, as in the previous section, the result holds for the list setting and
+even if the lists are chosen by Alice dynamically.
+    In this case, every forbidden vertex is uniquely determined by 3 positions
+from the current word (the start and end of the first occurrence of x, and the
+start of the second occurrence of x). So the number of forbidden vertices in
+the current subtree is bounded by a polynomial in the number of steps. We
+may assume without loss of generality that c is a rational number (it can be
+increased if necessary), so the n-bit prefix of the sequence we construct can
+be computed polynomially (in n).
+
+
+6    Making adjacent blocks very different
+Mourad also considered another computable generalization of Thue’s result
+(non-computable version was first mentioned as an exercise in [9]).
+
+Theorem 7 ([3]). For any ε > 0, there is some N and a computable infinite
+binary sequence α such that any two adjacent blocks in α of length n ⩾ N
+differ in at least (1/2 − ε)n places.
+
+    In the previous section we required two blocks to be different if they are
+not very far apart; now we consider two adjacent blocks but require them
+to be “very different”. We provide a simple proof of this result based on our
+combinatorial game.
+
+Proof of Theorem 7. First we note that the fraction of n-bit strings where
+frequency of ones is less than 1/2 − ε is exponentially small (Chernoff’s
+bound). So the number of n-bit strings that differ from a given string x in
+
+
+                                       7
+less than (1/2 − ε)n places is bounded by cn , where c < 2 is some constant
+(depending on ε).
+    Again Bob constructs α bit by bit and Alice forbids the undesirable
+continuations. If Bob’s position corresponds to a word w, then for all suffixes
+v of w of length n ⩾ N Alice forbids not only the extension v but all v ′ of
+length n that differ from v in less than (1/2 − ε)n places (there are at most
+cn of them). Bob can win if
+                                           
+                                     X cn
+                            β 1 +          ⩽2
+                                         βn
+                                    n⩾N
+
+and again for arbitrary β ∈ (c, 2) it happens for sufficiently large N .
+
+     This result is a corollary of Miller’s theorem (Theorem 3): we forbid all
+the factors vv ′ where v is long enough and v ′ is close to v, and there are not
+many of them. But the game argument gives a bit more: it shows that the
+result holds also in the list setting, even if the lists are chosen at the last
+moment by Alice. It gives also a better bound on N (as function of ε) since
+now we specify the forbidden extensions later (when the first half is already
+known).
+     Note that Alice adds exponentially many forbidden vertices at every step,
+so this algorithm does not imply immediately the existence of a polynomial
+time computable sequence with desired property. However, this can be easily
+fixed: the number of strings that differ from a given string at most by a given
+distance is a sum of (polynomially many) binomial coefficients and can be
+easily computed. The distribution of these strings between children is also
+easy to compute (since the condition is again about distance). The only
+problem appears because the same string can be prohibited many times —
+to avoid this problem, we may consider the multiset of forbidden strings and
+compute the β-weights accordingly.
+     The game technique can be applied to other questions related to word
+combinatorics and repetitions; it seems that many results about sequences
+obtained by the entropy compression technique (e.g. [6, 10, 11]), the power
+series method (e.g. [12, 13, 14]) and the counting argument (e.g., [15]) can
+be proven using the game technique with the same bounds, but with the
+added benefit of computability (and simpler proofs). On the other hand,
+it is unclear whether the variant of the counting argument used in [16, 17]
+can be replaced by a game argument (it is also unclear whether the entropy-
+compression technique can be used in that case).
+
+
+7    Application to denominators
+In this section we apply the combinatorial game described in Section 2 to
+a number-theoretic question and consider rational approximations with re-
+
+                                       8
+stricted denominators, giving a new proof of results from [3, 2] (we also
+slightly improve the bounds from both papers and provide a computable
+version of the result that appeared in [3]).
+    Let θ be some real number. To find its best rational approximation with
+a given (positive integer) denominator t, we multiply θ by t and take the
+closest integer. The “quality” of approximation can be measured by d(tθ, Z),
+the distance between tθ and the nearest integer. This distance is a number
+between 0 (ideal approximation) and 1/2 (the worst case). We will prove
+that for every sparse enough set of denominators there exists a real number
+that is hard to approximate using denominators from this set, and that this
+number can be made computable if the set of denominators is computable.
+    We will use the following terminology: a real θ is ε-regular for denom-
+inator t if d(tθ, Z) > ε. Here ε > 0 is some threshold, and t is a positive
+integer; this condition means that θ is “not too easy to approximate with
+denominator t”. Assume that a sparse set T of positive integers (allowed
+denominators) is given. By sparsity we mean that that for every j there are
+only O(1) integers between 2j and 2j+1 that belong to T . Then there exists
+some real θ and some positive ε such that θ is ε-regular for all denominators
+t ∈ T . This question (in a slightly different form, see Section 9) was first
+raised by Erdős [1].
+    Let us start with some simple remarks. Obviously for a given t and for
+every ε < 1/2 there are reals that are ε-regular for t. Moreover, for small ε
+most reals are ε-regular for t: the reals that are not ε-regular for t, form
+stripes around k/t (for integer values of k) of width 2ε/t (going ε/t left and
+ε/t right). Those stripes cover 2ε-fraction of all points.
+                                        1
+                                        t
+                          k                         k+1
+                          t                          t
+
+                         ± εt         1−2ε
+                                        t
+                                                    ± εt
+
+The union bound then allows us to prove the existence of a real that is
+ε-regular with respect to several denominators t1 , . . . , tk , assuming that
+2kε < 1.
+    This argument is not enough to construct a number that is ε-regular for
+infinitely many denominators (and some fixed ε). And indeed it is not possi-
+ble if T contains all integers: the Dirichlet theorem says that for every ε > 0
+there is no real θ that is ε-regular for all denominators. (Indeed, consider
+the sequence nθ (mod 1) and find two points n1 θ and n2 θ that are ε-close;
+then t = n2 −n1 is a denominator that provides a good approximation, since
+tθ is ε-close to 0.) This is why sparsity is needed. Informally speaking, it
+guarantees that the fragmentation happens on different levels: stripe pat-
+terns for small and large values of t are (almost) independent, similar to the
+Lovász local lemma (though it is not true literally: e.g., stripes for t are not
+independent with stripes for 2t). We utilize this structure and construct a
+
+                                       9
+decreasing sequence of dyadic intervals whose common point is ε-regular for
+every t ∈ T . Here is the exact statement.
+
+Theorem 8. Let T be a set of positive real numbers such that
+
+                              |T ∩ (2j , 2j+1 ]| ⩽ C
+
+for all integers j and some constant C. Assume that for some k ⩾ 3 there
+exists β ∈ (1, 2) such that
+                                   3C
+                              β + k−1 ⩽ 2 .                          (∗)
+                                  β
+Then there exists a real θ ∈ [0, 1] that is 2−k -regular with respect to all
+t ∈ T . Moreover, if T is computable then there exists a computable θ with
+this property.
+
+    Note that for large k we can find β that satisfies (∗); moreover, for every
+β ∈ (1, 2) all sufficiently large k satisfy this inequality. So indeed for every T
+that contains at most O(1) elements in every interval (2j , 2j+1 ] we can find
+some ε > 0 and a real θ that is ε-regular with respect to all denominators
+t ∈ T . (To find how ε depends on C, we should optimize the choice of β,
+see Theorem 10 below.)
+
+Proof of Theorem    8. For any ℓ, an ℓ-dyadic interval is an interval of the
+form 2uℓ , u+1
+               
+            2ℓ
+                 where   u is an integer. We consider a tree formed by dyadic
+intervals inside [0, 1]. The root of this tree is the 0-dyadic interval [0, 1], and
+each vertex has two children (left and right half). An infinite branch in this
+tree is a sequence of nested dyadic intervals, and we will construct θ as the
+(unique) common point of such a sequence for a suitable chosen branch.
+    Let us split all the denominators we care about into groups:
+
+                          Pj = {t ∈ T : 2j < t ⩽ 2j+1 }
+
+Here j ⩾ −1 is an integer (for j = −1 only 1 can be in Pj ). By assumption
+|Pj | ⩽ C for all j. At every step of the construction we consider one group
+of denominators. Let us say that an ℓ-diadic interval I is valid if each of
+its point is 2−k -regular for all denominators t ∈ Pℓ−k . Note that ℓ − k is
+negative for small ℓ and the group Pℓ−k may be undefined; in this case all
+ℓ-diadic intervals are valid. (We will see later how this shift by k helps.)
+     We consider the game between Alice and Bob. When Bob is at level m
+of the tree, Alice forbids all the vertices of level m + k − 2 that correspond
+to invalid dyadic intervals. (Again, we will see later why k − 2 helps; note
+that according to our conventions we use denominators from Pm−2 to define
+valid intervals of level m + k − 2.)
+
+
+
+
+                                        10
+                         m+k−2
+
+                                     m
+
+
+
+Lemma 1. At each step Alice forbids at most 3C vertices.
+Proof. Vertices are prohibited at step m because the corresponding interval
+at level m + k − 2 is not valid, i.e., contains some point that is close to
+a fraction with denominator in Pm−2 . There are only C denominators in
+Pm−2 , so it is enough to show that each denominator causes at most 3
+forbidden intervals. We need to show that the “bad stripes” of width 2ε/t
+(where ε = 2−k ) separated by gaps of length (1−2ε)/t may intersect at most
+3 dyadic intervals of level m + k − 2 that are parts of the dyadic interval at
+level m (corresponding to the current position of Bob).
+    Consider some denominator t in Pm−2 , so 2m−2 < t ⩽ 2m−1 . The
+distance between two bad stripes is (1 − 2ε)/t. Since k ⩾ 3, we have ε =
+2−k ⩽ 1/8; recalling that t ⩽ 2m−1 we see that the distance is bigger that
+2−m (the length of an m-dyadic interval):
+                             1 − 2ε      3/4     1
+                                    ⩾ m−1 > m .
+                                t      2        2
+Therefore only one stripe matters, and we need to check that it may intersect
+at most three (m + k − 2)-dyadic intervals. For that it is enough to show
+that the width of the stripe is less than two times the length of the interval
+(if the stripe touches four intervals, it necessarily contains two),
+
+
+and indeed
+                2ε  2−k+1
+                   < m−2 = 2−k−m+3 = 2 · 2−(m+k−2) .
+                 t   2
+Lemma 1 is proven.
+   Now we combine the Lemma and the criterion from Theorem 1 and
+show that Bob can win the game. Indeed, Alice forbids 3C vertices, each
+has weight 1/β k−2 , so the inequality from Theorem 1 requires that
+                                         
+                                      3C
+                              β 1 + k−2 ⩽ 2,
+                                     β
+and that is what is guaranteed by the condition.
+    Note that at step n we have chosen n bits of θ and consider denominators
+that are O(2n ). Since we add at most 3C forbidden vertices at every step, the
+set of forbidden vertices and its weight can be computed in time polynomial
+in n (given the list of denominators as an oracle). So the n-th bit in the
+binary expansion of θ is polynomialy (in n) computable with the same oracle.
+
+                                     11
+8    Optimizing the choice of parameters
+The parameter β does not appear in the claim of Theorem 8, so for given C
+and k we may choose β that makes the left hand side of the inequality (i.e.,
+β + 3C/β k−1 ) minimal and verify that this minimal value does not exceed 2.
+This minimal value is easy to find; for example, we may split β into a sum
+of k − 1 terms β/(k − 1) and note that we minimize the sum of k quantities
+whose product is constant, so the minimal value is achieved when all the
+terms are equal:
+                                 β       3C
+                                     = k−1 .
+                              k−1       β
+This gives 3C(k − 1) = β k , or β = (3C(k − 1))1/k , and the minimal value is
+                        k      k
+                           β=     (3C(k − 1))1/k .
+                       k−1    k−1
+It does not exceed 2 when
+                   k                    k−1
+                 k                      k
+                       · 3C(k − 1) =            · 3Ck ⩽ 2k .
+               k−1                     k−1
+
+The first factor is an approximation (from below) to e = 2.71828 . . ., so we
+get the following version of Theorem 8 where β is eliminated:
+
+Theorem 9. Let T be a set of positive integers such that
+
+                             |T ∩ (2j , 2j+1 ]| ⩽ C
+
+for all integers j and some constant C. Assume that for some k ⩾ 3 the
+inequality
+                               3eCk ⩽ 2k
+holds. Then there exists a real θ ∈ [0, 1] that is 2−k -regular with respect to
+all t ∈ T . Moreover, if T is computable then there exists a computable θ
+with this property.
+
+    For example, for C = 1 (minimal possible value) we may take k = 6 and
+conclude that there exists a real that is (1/64)-regular with respect to all
+t ∈ T . For bigger values of C we should take the minimal value of k that fits
+the condition of Theorem 9; it guarantees the existence of a ε(C)-regular θ
+with respect to all denominators in T for ε(C) = 2−k(C) . Asymptotically
+(as C → ∞) this value is
+                                           1
+                         ε(C) =
+                                  (3e + o(1))C log2 C
+Indeed,
+              k(C) ≈ log2 (3eCk(C)) = log2 (3eC) + log2 k(C),
+
+                                      12
+so
+               k(C) = (1 + o(1)) log2 (3eC) = (1 + o(1)) log2 C
+and
+               log2 k(C) = log2 (3eC) + log2 ((1 + o(1)) log2 C).
+If we want a bound that is valid for all C ⩾ 2, one can estimate the values
+of the parameters for small C and see that
+                                           1
+                              θ(C) =
+                                       64C log2 C
+is enough (here we use 64 instead of the asymptotic value 3e = 8.15 . . .).
+This gives the following corollary:
+Theorem 10. Let C ⩾ 2 be an integer and let T be a [computable] set of
+positive integers that contains at most C elements in every interval (2j , 2j+1 ].
+Then there exists a [computable] real θ that is 1/(64C log2 C)-regular for all
+t ∈ T.
+     This result slightly improves the bound from [2] and its computable
+version in [3]. Moreover, if we can compute in time polynomial in n the n
+first bits of the n first elements of T , then we can compute in time polynomial
+in n the n first bits of θ.
+
+
+9     Historical remarks
+9.1    Erdős’ question
+The original formulation of Erdős’ question in [1, p. 96] was: “Finally I state
+a few disconnected problems. Let n1 < n2 < . . . be an infinite sequence of
+integers satisfying nk+1 /nk > c > 1. Is it true that there always is an
+irrational α for which the sequence (nk α) is not everywhere dense?” (The
+parentheses in (nk α) mean that the sequence is considered modulo 1.) Note
+that Erdős’ asks this sequence not to be dense, and we discuss a bit stronger
+requirement: the sequence is never ε-close to 0.
+    Another difference is that the condition for the denominators is stronger:
+Erdős requires that nk+1 /nk > c for some c > 1 while we use only that each
+interval (s, 2s] contains O(1) denominators.
+    There was a sequence of improvements related to Erdős’ question that
+is summarized by Peres and Schlag [2]: first bounds of Mathan (1980) and
+Pollington (1979) had O(C 4 log C) in the denominator; Katznelson (2001)
+improved the bound replacing the denominator by O(C 2 log C); then Akhun-
+zhanov and Moshchevitin (2004) got O(C 2 ) (no logarithmic factor), and such
+a bound with better explicit constant was also obtained by Dubickas (2006).
+Peres and Schlag [2] provide O(C log C) bound; Mourad used additional
+ideas to get the computable version (though with slightly worse constant
+
+                                       13
+1/360 instead of 1/240 by Peres and Schlag). Our constant 1/64 is approxi-
+mately five times better. As explained by Peres and Schlag, it is not possible
+to do better than Ω(C), but it is still open whether the log n term can be
+removed.
+
+9.2   Forbidden factors
+The questions about forbidden factors appeared several times from differ-
+ent perspectives (algebra, computer science, combinatorics on words). From
+the computer science perspective the story goes as follows. Leonid Levin
+noted long ago that there exist an everywhere complex sequence, a bit se-
+quence such the every its n-bit substring has Kolmogorov complexity at
+least 0.99n − O(1). (Here 0.99 can be replaced by any constant smaller
+than 1.) Levin proved this result using Kolmogorov complexity (this proof
+is reproduced in [18]). This result can be translated into a combinatorial
+language as follows: if for every n we declare at most 20.99n strings as “for-
+bidden”, there exists a constant c and an infinite sequence that does not
+contain forbidden strings of length greater than c. (See [19, section 8.5,
+p. 241] for details.) It was noted by Rumyantsev and Ushakov [20] that
+one can prove this combinatorial statement using Lovász local lemma (LLL)
+and this argument can be generalized to the multidimensional case (where
+the original complexity argument by Levin does not work): there exists a
+2-dimensional bit configuration where every rectangle has almost maximal
+complexity. Rumyantsev [21] used this technique (Kolmogorov complexity
+and Lovász local lemma) for word combinatorics (construction of a sequence
+with given critical exponent). Miller [4] gave a much more precise condition
+for the existence of a sequence that avoids a given set of forbidden strings (re-
+produced above as Theorem 3) that can be easily applied to the computable
+case — unlike LLL that (in its natural form) uses König’s lemma that dis-
+rupts computability. However, after the Moser–Tardos effective proof of the
+Lovász local lemma was discovered, Fortnow suggested to look for an infi-
+nite computable version of the LLL, and indeed Rumyantsev found such a
+version [22, 23]. The Moser–Tardos proof used some compressibility argu-
+ment that can be transformed into a compressibility argument for Miller’s
+criterion (see [24, 25] for details and references) with exactly the same condi-
+tion. This looks quite mysterious (why exactly the same condition appears
+in two completely different arguments) — moreover, a closely related condi-
+tion appeared much earlier (1964) in algebraic context (Golod–Shafarevich
+theorem, see [25, Appendix] for details), and reappeared in the counting
+argument that reproves Miller’s result and was found by the first author,
+see [26]. The latter argument was also used in [16] where the first author of
+this note gave another proof of this result based on a new counting argument
+which also implies that the numbers of square-free words of length n that
+respect the 4-list assignment grows exponentially with n.
+
+
+                                       14
+    Note also that different modification of LLL (and its computable ver-
+sions) were also used to prove results about square-free words and Erdős
+question. In particular, Pegden in 2011 introduced his Left-handed Lovász
+Local Lemma to study nonrepetitive games (one player wants to avoid
+squares or other repetitions while the other want to create them, and they
+alternate in adding letters to a string) [27]. In 2013, Grytczuk, Kozik and
+Micek used another proof of this result based on the so-called entropy com-
+pression technique, which also implies that there is an efficient algorithm to
+construct finite square-free words respecting L [6].
+
+
+Acknowledgement
+The first author would like to thank Yann Bugeaud for motivating this
+research by asking whether the counting argument introduced in [26] could
+be applied to the lacunary sequence problem. The answer is yes, but the
+current argument yields identical bounds and provide a computable result.
+    This research was funded in part by the French National Research Agency
+(ANR) under the projects ANR-24-CE48-3758-01 and ANR-21-CE48-0023.
+
+
+References
+ [1] Paul Erdős. Repartition Modulo 1. Lecture Notes in Math., 475, 1975.
+
+ [2] Yuval Peres and Wilhelm Schlag. Two Erdős problems on lacunary
+     sequences: Chromatic number and Diophantine approximation. Bull.
+     London Math. Soc., 42(2):295–300, April 2010.
+
+ [3] Daniel Mourad. Computing Non-Repetitive Sequences with a Com-
+     putable Lefthanded Local Lemma. arXiv, June 2024.
+
+ [4] Joseph S. Miller. Two notes on subshifts. Proceedings of the American
+     Mathematical Society, 140(5):1617–1622, 2012.
+
+ [5] Axel Thue. Über unendliche Zeichenreihen. Norske Vid. Selsk. Skr. I.
+     Mat. Nat. Kl. Christiania, 7:1–22, 1906.
+
+ [6] Jaroslaw Grytczuk, Jakub Kozik, and Piotr Micek. New approach to
+     nonrepetitive sequences. Random Structures Algorithms, 42(2):214–
+     225, March 2013.
+
+ [7] Jaroslaw Grytczuk, Jakub Przybylo, and Xuding Zhu. Nonrepetitive
+     list colourings of paths. Random Structures Algorithms, 38(1-2):162–
+     173, January 2011.
+
+
+
+
+                                     15
+ [8] József Beck. An application of Lovász local lemma: there exists an
+     infinite 01-sequence containing no near identical intervals. In Finite
+     and Infinite Sets, pages 103–107. North-Holland, January 1984.
+ [9] Noga Alon, Joel H Spencer, and Paul Erdős. The Probabilistic Method.
+     John Wiley & Sons, 1992.
+[10] Pascal Ochem and Alexandre Pinlou. Application of Entropy Com-
+     pression in Pattern Avoidance. Electron. J. Combin., page P2.7, April
+     2014.
+[11] Joanna Chybowska-Sokól, Michal Debski, Jaroslaw Grytczuk, Kon-
+     stanty Junosza-Szaniawski, Barbara Nayar, Urszula Pastwa, and
+     Krzysztof Wesek. Fractional meanings of nonrepetitiveness. J. Combin.
+     Theory Ser. A, 189:105598, July 2022.
+[12] Jason P. Bell and Teow Lim Goh. Exponential lower bounds for the
+     number of words of uniform length avoiding a pattern. Inform. And
+     Comput., 205(9):1295–1306, September 2007.
+[13] Narad Rampersad. Further Applications of a Power Series Method for
+     Pattern Avoidance. Electron. J. Combin., page P134, June 2011.
+[14] Pascal Ochem. Doubled Patterns are 3-Avoidable. Electron. J. Com-
+     bin., page P1.19, February 2016.
+[15] Matthieu Rosenfeld. Lower-Bounds on the Growth of Power-Free Lan-
+     guages Over Large Alphabets. Theory Comput. Syst., 65(7):1110–1116,
+     October 2021.
+[16] Matthieu Rosenfeld. Avoiding squares over words with lists of size three
+     amongst four symbols. Math. Comput., 91(337):2489–2500, September
+     2022.
+[17] Matthieu Rosenfeld. Ann wins the nonrepetitive game over four let-
+     ters and the erase-repetition game over six letters. Eur. J. Combin.,
+     118:103924, May 2024.
+[18] Bruno Durand, Leonid A. Levin, and Alexander Shen. Complex tilings.
+     Journal of Symbolic Logic, 73(2):593–613, 2008.
+[19] Alexander Shen, Vladimir A. Uspensky, and Nikolay Vereshchagin. Kol-
+     mogorov Complexity and Algorithmic Randomness. Mathematical Sur-
+     veys and Monographs. American Mathematical Society, 2017.
+[20] Andrey Yu. Rumyantsev and Maxim A. Ushakov. Forbidden substrings,
+     kolmogorov complexity and almost periodic sequences. In Bruno Du-
+     rand and Wolfgang Thomas, editors, STACS 2006, 23rd Annual Sym-
+     posium on Theoretical Aspects of Computer Science, Marseille, France,
+
+                                     16
+    February 23-25, 2006, Proceedings, volume 3884 of Lecture Notes in
+    Computer Science, pages 396–407. Springer, 2006.
+
+[21] Andrey Yu. Rumyantsev. Kolmogorov complexity, lovász local lemma
+     and critical exponents. In Volker Diekert, Mikhail V. Volkov, and An-
+     drei Voronkov, editors, Computer Science - Theory and Applications,
+     Second International Symposium on Computer Science in Russia, CSR
+     2007, Ekaterinburg, Russia, September 3-7, 2007, Proceedings, volume
+     4649 of Lecture Notes in Computer Science, pages 349–355. Springer,
+     2007.
+
+[22] Andrei Yu. Rumyantsev and Alexander Shen. Probabilistic construc-
+     tions of computable objects and a computable version of lovász local
+     lemma. CoRR, abs/1305.1535, 2013.
+
+[23] Andrei Yu. Rumyantsev and Alexander Shen. Probabilistic construc-
+     tions of computable objects and a computable version of lovász local
+     lemma. Fundam. Informaticae, 132(1):1–14, 2014.
+
+[24] Alexander Shen. Compressibility and probabilistic proofs. In Jarkko
+     Kari, Florin Manea, and Ion Petre, editors, Unveiling Dynamics and
+     Complexity - 13th Conference on Computability in Europe, CiE 2017,
+     Turku, Finland, June 12-16, 2017, Proceedings, volume 10307 of Lecture
+     Notes in Computer Science, pages 101–111. Springer, 2017.
+
+[25] Alexander Shen. Compressibility and probabilistic proofs.      CoRR,
+     abs/1703.03342, 2017.
+
+[26] Matthieu Rosenfeld. Another Approach to Non-Repetitive Colorings of
+     Graphs of Bounded Degree. Electron. J. Combin., page P3.43, Septem-
+     ber 2020.
+
+[27] Wesley Pegden. Highly nonrepetitive sequences: Winning strategies
+     from the local lemma. Random Structures Algorithms, 38(1-2):140–161,
+     January 2011.
+
+
+
+
+                                    17
+

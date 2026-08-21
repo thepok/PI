@@ -1,0 +1,577 @@
+ACTA ARITHMETICA
+  LXXXIX.3 (1999)
+
+
+
+
+               A metric result on the pair correlation
+                  of fractional parts of sequences
+                                          by
+
+                      Zeév Rudnick (Tel Aviv) and
+                  Alexandru Zaharescu (Montreal, Que.)
+
+
+     1. Introduction. Our purpose in this note is to show that the pair cor-
+relation function of several sequences of fractional parts behaves like those of
+random numbers. The pair correlation density for a sequence of N numbers
+θ1 , . . . , θN ∈ [0, 1] which are uniformly distributed as N → ∞, measures the
+distribution of spacings between the numbers at distances of order of the
+mean spacing 1/N . Precisely, if kxk = distance(x, Z) then for any interval
+[−s, s] set
+                          1
+(1.1)       R2 ([−s, s], N ) =
+                            #{1 ≤ j 6= k ≤ N : kθj − θk k ≤ s/N }.
+                         N
+For random numbers θj chosen uniformly and independently,
+                                 R2 ([−s, s], N ) → 2s
+with probability tending to 1 as N → ∞. In this case one says that the pair
+correlation function is Poissonian. A smooth form of (1.1) is to take a test
+function f ∈ Cc∞ (R) and set
+                                   1   X
+                     R2 (f, N ) :=            FN (θj − θk )
+                                   N
+                                     1≤j6=k≤N
+                 P
+where FN (y) = m∈Z f (N (y + m)). The Poisson case is that in the limit
+                       T∞
+N → ∞, R2 (f, N ) → −∞ f (x) dx.
+    We will show that the pair correlation function of many sequences of
+fractional parts of the form {αa(x)}, x = 1, . . . , N with a(x) integers, have
+Poissonian pair correlation for almost all α. Our main tool is:
+
+    1991 Mathematics Subject Classification: Primary 11K99.
+    Supported in part by grants from the Israel Science Foundation, the U.S.–Israel Bi-
+national Science Foundation and the Hermann Minkowski Center for Geometry at Tel
+Aviv University.
+
+                                         [283]
+284                     Z. Rudnick and A. Zaharescu
+
+    Theorem 1. Let a(x) be a sequence of integers so that a(x) 6= a(y) if
+x 6= y and furthermore suppose that there are at most O(M N 2+ε ) solutions
+to the equation
+(1.2)              n1 (a(x1 ) − a(y1 )) = n2 (a(x2 ) − a(y2 ))
+with 1 ≤ xi 6= yi ≤ N , and 1 ≤ |ni | ≤ M , M  N R for some R > 0, and
+all ε > 0. Then for almost all α, we have
+                                         ∞\
+                          R2 (f, N ) →        f (x) dx.
+                                         −∞
+
+    A result of this kind was proved by Rudnick and Sarnak [4] for the spac-
+ings of αnd , where d ≥ 2 is an integer. Crucial use is made there of Weyl’s
+differencing
+       P     argument [1, 5] to get cancellations in sums of the exponential
+sums n≤N e(αF (n)), where F (n) is a polynomial of degree d ≥ 1, and α
+is of diophantine type. No such estimate is available when we replace poly-
+nomials by functions such as the exponential function g n (this is a key issue
+in the study of “normal” numbers). The idea here is to avoid this issue for
+individual α, and instead to prove this kind of result for almost all α (see
+Proposition 4).
+    Theorem 1 reduces the study of the generic behavior of the pair corre-
+lation of the sequence of fractional parts of a(x) to estimating the number
+of solutions of the equation (1.2). In [4] it was shown that the number of
+solutions of this equation for a(x) = xd , d ≥ 2, is indeed O(M N 2+ε ). In
+Section 4 we show that the same estimate holds if a(x) is lacunary:
+    Proposition 2. Let a(x) > 0 be an increasing sequence of positive in-
+tegers so that there is some c > 1 for which
+                              a(x + 1) ≥ ca(x).
+Then the equation (1.2) has at most O(M N 2 log2 N ) solutions in 0 < |ni |
+≤ M , 1 ≤ xi 6= yi ≤ N , where M  N R for some R > 0.
+    An example of such a sequence is a(x) = g x , g ≥ 2 an integer. Thus we
+get:
+   Corollary 3. Let g ≥ 2 be an integer. Then for almost all α, the
+sequence of fractional parts of αg n has Poisson pair correlation.
+    It seems plausible that for almost all α, all correlation functions should
+be Poissonian in this case, and in particular the nearest neighbor spacing
+distribution should be exponential.
+                                                               n
+    Other examples would be the sequences a(n) = n! or g g for an integer
+g ≥ 2, or the integer parts [cn ] where c > 1 is any real number.
+                        A metric result on pair correlation                285
+
+   2. A metric result for sums of exponential sums. Suppose we are
+given a sequence a(x) ∈ Z+ , satisfying a(x) 6= a(y) if x 6= y. Define the Weyl
+sum                                   X
+                       Sα (n, N ) =        e(αna(x))
+                                        1≤x≤N
+
+and for each N suppose we choose M = M (N ) = N 1+1/100 , and set
+                                X
+                     HN (α) =       |Sα (n, N )|2 .
+                                     1≤n≤M
+
+   Proposition 4. For almost all α, we have
+                            HN (α) α M N 2−1/4 .
+    P r o o f. The method of proof follows standard steps in the metric theory
+of uniform distribution of sequences (see [2, 3]): Because a(x) 6= a(y) if
+x 6= y, we clearly have
+                             \
+                             1
+                                 |Sα (n, N )|2 dα = N
+                             0
+and so
+                             \
+                             1
+                                 HN (α) dα = M N.
+                             0
+Therefore we can estimate the measure of the set of α for which HN (α) >
+M N 2−1/4 by
+                                     1               \
+ meas{α : HN (α) > M N 2−1/4 } ≤                               HN (α) dα
+                                 M N 2−1/4               2−1/4
+                                                    {α:HN (α)>M N     }
+
+                                            1       \
+                                                    1
+                                    ≤                   HN (α) dα
+                                        M N 2−1/4 0
+                                            1
+                                    =         M N = N −3/4 .
+                                    M N 2−1/4
+   It follows from the Borel–Cantelli lemma that if we take a sequence of
+                                           P      −3/4
+Nm ’s which is sufficiently sparse so that m Nm         converges, then along
+that sequence we find that for all α in a set of full measure,
+                              2−1/4
+(2.1)           HNm (α) ≤ Mm Nm                 for all m > m0 (α).
+For simplicity, we take Nm = m2 .
+   Now fix α for which (2.1) holds. We now show that if Nm < N < Nm+1 ,
+then
+(2.2)                  |HN (α) − HNm (α)|  M N 3/2 ,
+which together with (2.1) proves our proposition.
+286                             Z. Rudnick and A. Zaharescu
+
+      Note that N − Nm < Nm+1 − Nm = 2m + 1  N 1/2 , and further
+         M − Mm = N 101/100 − Nm
+                               101/100
+                                       < (m + 1)202/100 − m202/100
+                         m102/100 = N 1/2+1/100 .
+We have
+                        X                       X
+ HN − HNm =                   |Sα (n, N )|2 −          |Sα (n, Nm )|2
+                        n≤M                     n≤Mm
+                        X                                                X
+                    =          (|Sα (n, N )|2 − |Sα (n, Nm )|2 ) +             |Sα (n, N )|2
+                        n≤Mm                                         Mm <n≤M
+
+                    = I + II.
+      We use the trivial bound |Sα (n, N )|2 ≤ N 2 to estimate the term II:
+                    II  (M − Mm )N 2  N 1/2+1/100 N 2 = M N 3/2 .
+For
+P the term I, note that if we square out the summands         |Sα (n, N )|2 =
+                                                         2
+  x,y≤N e(nα(a(x) − a(y))) and likewise for |Sα (n, Nm )| , we find that
+       X      X                    X
+  I=                e(−αna(y))           e(αna(x)) + complex conjugate
+         n≤Mm Nm <y≤N                       1≤x≤Nm
+              X           X                     2
+         +                         e(αna(x))
+             n≤Mm       Nm <x≤N
+
+      = I1 + I 1 + I2 .
+      For the term I2 we use the trivial bound on the inner sum to get
+                                I2  Mm (N − Nm )2  M N.
+      For I1 we get
+              X           X                                          X
+       I1                         |Sα (n, Nm )| = (N − Nm )             |Sα (n, Nm )|.
+              n≤Mm Nm <y≤N                                        n≤Mm
+
+By Cauchy–Schwarz we find
+                      X                 1/2
+                 1/2
+ I1  (N − Nm )Mm         |Sα (n, Nm )|2       N 1/2 Mm
+                                                       1/2
+                                                           HNm (α)1/2
+                                  n≤Mm
+             1/2    1/2
+       ≤N          Mm   (Mm N 2−1/4 )1/2  M N 3/2−1/8 < M N 3/2 .
+   Together with the estimates on II and I2 we get (2.2) and so prove the
+proposition.
+   Remark. The choice of exponents 2 − 1/2, 1 + 1/100 is completely
+arbitrary. All we needed was some improvement on the trivial bound
+HN ≤ M N 2 .
+                             A metric result on pair correlation                        287
+
+   3. Proof of Theorem 1. In this section we deduce Theorem 1 from
+Proposition 4. The argument follows closely the one given in [4].
+   3.1. Bounding the variance. Let f ∈ Cc∞ (R) be a test function and set
+                                1   X
+                  R2 (f, N ) :=           FN (θj − θk )
+                                N
+                                              1≤j6=k≤N
+
+where
+                                         X
+                              FN (y) =          f (N (y + m)).
+                                         m∈Z
+Using the Fourier expansion of FN (y) we find
+                                   X
+                         1 Xb n
+            R2 (f, N ) = 2     f                                e(n(θj − θk )),
+                        N          N
+                                   n∈Z               1≤j6=k≤N
+
+that is,
+                                              
+                                        1 Xb n
+(3.1)                   R2 (f, N )(α) = 2  f    soff (n, N )
+                                       N      N
+                                               n∈Z
+
+where
+                                         X
+                    soff (n, N ) :=                 e(nα(a(x) − a(y))).
+                                      1≤x6=y≤N
+
+   As a function of α, R2 (f, N )(α) is periodic and from (3.1) its Fourier
+expansion is
+                                      X
+                     R2 (f, N )(α) =      bl (N )e(lα)
+                                                    l∈Z
+where for l 6= 0,
+                                                                   
+                                  1 X                X
+                                                                b  n
+(3.2)                   bl (N ) = 2                             f     .
+                                 N                                 N
+                                       n6=0     1≤x6=y≤N
+                                              n(a(x)−a(y))=l
+
+   The mean of R2 (f, N )(α) is
+        \
+        1
+                                       1                  X                   
+                                                                             1 b
+          R2 (f, N )(α) dα = b0 (N ) = 2                       fb(0) =    1−    f (0)
+        0
+                                      N                                      N
+                                                    1≤x6=y≤N
+
+so that
+                    \
+                    1                          ∞\
+                        R2 (f, N )(α) dα =           f (x) dx + O(1/N ).
+                    0                          −∞
+This is the expected value for a random sequence.
+   We next estimate the variance of R2 (f, N ):
+288                                Z. Rudnick and A. Zaharescu
+
+      Proposition 5. Under the assumption of Theorem 1,
+                        \
+                        1
+                            |R2 (f, N )(α) − fb(0)|2 dα  N −99/100+ε
+                        0
+
+for any ε > 0, the implied constants depending on ε and f .
+  P r o o f. We first note that since fb(n/N ) is negligible if |n|  N 101/100
+= M , we can bound bl (N ) by
+                       X          X           
+                 1                         b   n
+      bl (N )  2                          f
+               N                               N
+                            0<|n|M      1≤x6=y≤N
+                                       n(a(x)−a(y))=l
+                    1
+                      #{0 < |n|  M, x 6= y ≤ N : n(a(x) − a(y)) = l}.
+                    N2
+By Parseval,
+\
+1                               b 2 X
+                                f (0)                1   1
+  |R2 (f, N )(α) − fb(0)| dα = 2
+                                      + |bl (N )|2  2 + 4 A(M, N )
+0
+                                  N                 N   N
+                                                        l6=0
+
+where A(M, N ) is the number of solutions of the equation
+                            n1 (a(x1 ) − a(y1 )) = n2 (a(x2 ) − a(y2 ))
+with 0 < |n1 |, |n2 |  M , and x1 6= y1 , x2 6= y2 ≤ N . By the assumption of
+Theorem 1, A(M, N )  M N 2+ε so since M = N 1+1/100 we find
+           1\
+                |R2 (f, N )(α) − fb(0)|2 dα  M N −2+ε  N −1+1/100+ε
+           0
+as required.
+   3.2. Almost everywhere convergence. In order to prove Theorem 1 from
+the decay of the variance of the pair correlation (Proposition 5), we first
+show that for each f ∈ Cc∞ (R), there is a set of full measure, depending
+on f , so that for all α in this set
+                              R2 (f, Nm )(α) → fb(0)
+for a subsequence Nm which grows faster than m.
+    Set
+                     XN (α) = R2 (f, N )(α) − fb(0).
+By Proposition 5, kXN k22 ε N −99/100+ε for all ε > 0 and so if we take
+Nm ∼ m101/99 then
+                    \
+                    1X
+                                        2
+                                                X 1\
+                             |XNm (α)| dα =             |XNm (α)|2 dα < ∞
+                    0 m                          m 0
+                        A metric result on pair correlation               289
+
+       P
+and so m |XNm |2 ∈ L1 (0, 1). Thus the sum is finite almost everywhere,
+and so XNm (α) → 0 as m → ∞ for almost all α.
+   We next show
+   Lemma 6. If Nm ∼ m101/99 , Nm ≤ N < Nm+1 then for almost every α,
+                           XN (α) − XNm (α) → 0.
+    Since XNm (α) → 0 for almost all α, this lemma shows that R2 (f, N )(α)
+   b
+→ f (0) for a set of full measure of α which depends on the test function f .
+By a diagonalization argument we can pass to a subset of full measure of
+α’s which works for all f ∈ Cc∞ (R); for the details see [4].
+    3.3. Proof of Lemma 6. Recall that for almost all α we have, by Propo-
+sition 4,
+                      X
+                            |Sα (n, N )|2  M N 2−1/4
+                       1≤n≤M
+and applying Cauchy–Schwarz we get
+                     X
+(3.3)                     |Sα (n, N )|  M N 1−1/8
+                       1≤n≤M
+
+for all N  1, and M = N 101/100 .
+                                       2/101
+    We write N = Nm + k, with 0 ≤ k  Nm . Then we claim that
+(3.4)   XNm +k (α) − XNm (α)
+                        X          
+                    1        b    n
+                = 2          f       {soff (n, Nm + k) − soff (n, Nm )}
+                   Nm            Nm
+                        0<|n|≤M
+
+                          −1/4+1/100+2/101
+                     + O(Nm                ).
+Indeed, since fb is rapidly decreasing, the trivial estimate
+                  |soff (n, N )| ≤ N + |S(n, N )|2 ≤ N + N 2
+gives
+                               X        
+                     1               b  n
+            XN (α) = 2               f    soff (n, N ) + O(N −A )
+                    N                   N
+                           0<|n|≤M
+for all A  1. From now on we ignore this rapidly decreasing term.
+    Further, from Proposition 4 and |soff (n, N )| ≤ N + |S(n, N )|2 we have
+   X                                           X
+          |soff (n, Nm + k)| ≤ M (Nm + k) +          |S(n, Nm + k)|2
+0<|n|≤M                                        0<|n|≤M
+
+                            M (Nm + k) + M (Nm + k)2−1/4  M Nm
+                                                               2−1/4
+                                                                     .
+Next we claim that
+290                           Z. Rudnick and A. Zaharescu
+
+                            X                 
+             1                          n
+(3.5)                                fb          soff (n, Nm + k)
+          (Nm + k)2                  Nm + k
+                         06=|n|≤M
+                          X           
+                   1             b   n                            −1/4+1/100+2/101
+              =     2
+                                f        soff (n, Nm + k) + O(Nm                   ).
+                  Nm                Nm
+                        06=|n|≤M
+
+This will immediately give (3.4). Indeed, write
+                                       
+              1          1           k        1        −3+2/101
+                    2
+                      = 2 +O          3
+                                          = 2 + O(Nm            )
+           (Nm + k)     Nm          Nm      Nm
+and
+                               
+          n       n         nk
+              =       +O
+      Nm + k     Nm         N2
+                          m          
+                  n            M            n        −1+1/100+2/101
+              =       +O      2−2/101
+                                        =       + O(Nm              )
+                 Nm         Nm             N m
+                               101/100           2/101
+so that for |n| ≤ M ∼ Nm        , k < Nm ,
+                                                  
+               b    n         b    n            M
+              f            =f           +O     2−2/101
+                  Nm + k          Nm         Nm
+                                     
+                                   n
+                           = fb         + O(Nm−1+1/100+2/101
+                                                             ).
+                                  Nm
+Therefore
+                        X                 
+       1                              n
+                              fb            soff (n, Nm + k)
+  (Nm + k)2                         Nm + k
+                   06=|n|≤M
+                                                     X           
+                                             1             b    n
+                                         − 2               f        soff (n, Nm + k)
+                                            Nm                 Nm
+                                                  06=|n|≤M
+                                     
+            1           1
+        =    2
+               +O     3−2/101
+           Nm       N
+               X                                
+                    b    n         −1+1/100+2/101
+          ×         f         + O(Nm              ) soff (n, Nm + k)
+                        Nm
+              06=|n|≤M
+
+                        X            
+             1                 b    n
+           − 2                 f       soff (n, Nm + k)
+            Nm                     Nm
+                    06=|n|≤M
+                            X
+           −3+2/101
+         Nm                         |soff (n, Nm + k)|
+                         06=|n|≤M
+
+           −3+2/101      2−1/4    −1/4+1/100+2/101
+         Nm        · M Nm      Nm                               by (3.3)
+as required. This proves (3.5) and so (3.4).
+                          A metric result on pair correlation                         291
+
+    As our last step we express the difference soff (n, Nm + k) − soff (n, Nm )
+in the form
+   soff (n, Nm + k) − soff (n, Nm )
+                                         NX
+                                          m +k                        X
+                               = 2 Re             e(−nαa(y))              e(nαa(x))
+                                        y=Nm +1                 1≤x≤Nm
+                                             X
+                                  +                      e(nα(a(x) − a(y))).
+                                      Nm +1≤x6=y≤Nm +k
+
+                                                          4/101
+We estimate the second term trivially by k 2  Nm                 :
+          |soff (n, Nm + k) − soff (n, Nm )| ≤ k|S(n, Nm + k)| + k 2 .
+Then inserting this into (3.4) and using (3.3) we get
+   XNm +k − XNm
+             1  X
+          2                  (k|S(n, Nm + k)| + k 2 ) + Nm
+                                                          −1/4+1/100+2/101
+            Nm
+                    0<|n|≤M
+
+               k      X                      M k2    −1/4+1/100+2/101
+               2
+                              |S(n, N )| +     2
+                                                  + Nm
+              Nm                             Nm
+                    0<|n|≤M
+
+               k      7/8   M k2    −1/4+1/100+2/101
+               2
+                  M N m   +   2
+                                 + Nm                                 by (3.3)
+              Nm            Nm
+             −1/8+2/101+1/100    −1+1/100+2/101    −1/4+1/100+2/101
+           Nm                + Nm              + Nm
+             −1/8+2/101+1/100
+           Nm                .
+This proves our lemma.
+
+   4. Proof of Proposition 2. We assume that a(x) > 0 is an increasing
+sequence of positive integers so that there is some c > 1 for which
+(4.1)                             a(x + 1) ≥ ca(x),
+and we will show that the equation
+(4.2)               n1 (a(x1 ) − a(y1 )) = n2 (a(x2 ) − a(y2 )),
+has at most O(M N 2 log2 N ) solutions in 0 < |ni | ≤ M , 1 ≤ xi 6= yi ≤ N ,
+where M  N R for some R > 0.
+   By changing the sign of ni and exchanging the roles of x1 and y1 and of
+x2 and y2 as needed, we may assume that
+(4.3)                 x1 > y1 ,       x2 > y2 ,     n1 , n2 > 0.
+292                       Z. Rudnick and A. Zaharescu
+
+Moreover, by changing the roles of the right- and left-hand sides of (4.2),
+we may further assume
+(4.4)                                     x1 ≥ x2 .
+   We begin by observing that for solutions of (4.2) satisfying the above
+normalization conditions (4.3), (4.4), we must have
+(4.5)                             x1 − x2  logc M.
+Indeed, the LHS of (4.2) is by (4.1) at least
+(4.6)   n1 (a(x1 ) − a(y1 ))
+               ≥ 1 · (a(x1 ) − a(y1 )) ≥ a(x1 ) − a(x1 − 1) ≥ a(x1 )(1 − 1/c).
+The RHS of (4.2) is at most
+                          n2 (a(x2 ) − a(y2 )) ≤ M a(x2 ).
+From (4.1) we have
+                            a(x1 ) ≥ cx1 −x2 a(x2 )
+so that the RHS of (4.2) is at most
+                                              M a(x1 )
+(4.7)                              RHS ≤               .
+                                              cx1 −x2
+Combining (4.6) and (4.7) gives
+                                          
+                                         1      M a(x1 )
+                              a(x1 ) 1 −     ≤ x1 −x2
+                                         c      c
+so that
+                                  x1 − x2 ≤ logc M.
+    Now fix n1 , x1 , y1 . We need to show that the number of triples (n2 , x2 , y2 )
+solving (4.2) and the normalization conditions (4.3), (4.4) is at most
+O(log2 M ). Since x1 − x2 ≤ logc M we may also fix x2 and show that the
+number of pairs (n2 , y2 ) solving (4.2) and the normalization conditions (4.3),
+(4.4) is at most O(log M ). Since y2 will now determine n2 , it suffices to de-
+termine y2 . For this, it suffices to show that there is at most one solution
+with x2 − y2 > 2 logc M .
+    Indeed, if (n2 , y2 ) is a solution with x2 − y2 > 2 logc M then
+                                          a(x2 )   a(x2 )
+                               a(y2 ) ≤    x −y
+                                                 <        .
+                                          c 2 2     M2
+Thus the LHS of (4.2) equals
+                                                                    
+                                        a(y2 )                       1
+   n2 (a(x2 ) − a(y2 )) = n2 a(x2 ) 1 −          = n2 a(x2 ) 1 + O        .
+                                        a(x2 )                       M2
+If (n02 , y20 ) is another such solution then
+                     n2 (a(x2 ) − a(y2 )) = n02 (a(x2 ) − a(y20 ))
+                              A metric result on pair correlation                               293
+
+so that we find
+                                                       
+                          n02   1 + O(1/M 2 )        1
+                              =               =1+O       .
+                          n2    1 + O(1/M 2 )        M2
+However, since n2 , n02 ≤ M this forces n2 = n02 . Thus there are at most
+1 + 2 logc M solutions of (4.2) with n1 , x1 , y1 , x2 fixed (and satisfying the
+normalization conditions). This shows that the total number of solutions of
+(4.2) is O(M N 2 log2 N ).
+
+
+                                           References
+
+[1]   H. D a v e n p o r t, Analytic Methods for Diophantine Equations and Diophantine In-
+      equalities, Ann Arbor Publ., Ann Arbor, Mich., 1962.
+[2]   M. D r m o t a and R. F. T i c h y, Sequences, Discrepancies and Applications, Lecture
+      Notes in Math. 1651, Springer, Berlin, 1997.
+[3]   L. K u i p e r s and H. N i e d e r r e i t e r, Uniform Distribution of Sequences, Wiley, New
+      York, 1974.
+[4]   Z. R u d n i c k and P. S a r n a k, The pair correlation function of fractional parts of
+      polynomials, Comm. Math. Phys. 194 (1998), 61–70.
+[5]   H. W e y l, Über die Gleichverteilung von Zahlen mod. Eins, Math. Ann. 77 (1916),
+      313–352.
+
+Raymond and Beverly Sackler School                  Department of Mathematics and Statistics
+of Mathematical Sciences                                                   McGill University
+Tel Aviv University                                                            Burnside Hall
+Tel Aviv 69978, Israel                                            805 Sherbrooke Street West
+E-mail: rudnick@math.tau.ac.il                                             Montreal, Quebec
+                                                                           Canada, H3A-2K6
+                                                       E-mail: zaharesc@scylla.math.mcgill.ca
+
+
+
+                                    Received on 23.10.1998
+                               and in revised form on 16.2.1999                             (3489)
+

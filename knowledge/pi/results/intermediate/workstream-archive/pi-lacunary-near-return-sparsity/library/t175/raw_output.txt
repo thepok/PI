@@ -1,0 +1,10 @@
+T175 artifact replay: PASS
+canonical hash: PASS
+searched domains: 3
+new source/theorem tuples: 3 (cap 8)
+candidates: 3 (cap 3)
+independent prescribed-point tests: 3
+prior comparisons: 10
+scoped verdicts: 1
+successors: 0
+bounded cover arithmetic samples: 72

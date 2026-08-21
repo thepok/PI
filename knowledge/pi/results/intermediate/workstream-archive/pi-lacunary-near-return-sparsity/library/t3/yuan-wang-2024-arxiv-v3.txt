@@ -1,0 +1,825 @@
+                                               MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX
+                                                          TRANSFORMATIONS OF TORI
+
+                                                                       NA YUAN AND SHUAILING WANG∗
+
+
+
+                                                    Abstract. We calculate the Hausdorff dimension of the fractal set
+                                                      n         Y                                                      o
+arXiv:2304.07532v3 [math.DS] 21 Jan 2024
+
+
+
+
+                                                       x ∈ Td :     |Tβni (xi ) − xi | < ψ(n) for infinitely many n ∈ N ,
+                                                                  1≤i≤d
+
+                                                    where the Tβi is the standard βi -transformation with βi > 1, ψ is a pos-
+                                                    itive function on N and | · | is the usual metric on the torus T. Moreover,
+                                                    we investigate a modified version of the shrinking target problem, which
+                                                    unifies the shrinking target problems and quantitative recurrence prop-
+                                                    erties for matrix transformations of tori. Let T be a d × d non-singular
+                                                    matrix with real coefficients. Then, T determines a self-map of the d-
+                                                    dimensional torus Td := Rd /Zd . For any 1 ≤ i ≤ d, let ψi be a positive
+                                                    function on N and Ψ(n) := (ψ1 (n), . . . , ψd (n)) with n ∈ N. We obtain
+                                                    the Hausdorff dimension of the fractal set
+                                                           x ∈ Td : T n (x) ∈ L(fn (x), Ψ(n)) for infinitely many n ∈ N ,
+                                                         
+
+                                                    where L(fn (x, Ψ(n))) is a hyperrectangle and {fn }n≥1 is a sequence of
+                                                    Lipschitz vector-valued functions on Td with a uniform Lipschitz con-
+                                                    stant.
+
+
+                                                                               1. Introduction
+
+                                             Let (X, d) be a metric space, and let T : X → X be a transformation. If µ is
+                                           a T -invariant Borel probability measure on X and T is ergodic with respect to the
+                                           measure µ, Birkhoff’s ergodic theorem implies that for any ball B ⊂ X of positive
+                                           measure, the subset S = {x ∈ X : T n x ∈ B for i.m. n ∈ N} has full µ-measure.
+                                           Here and throughout the paper, ‘i.m.’ stands for ‘infinitely many’. This means that
+                                           the trajectories of almost all points will enter the ball B infinitely often. In general,
+                                           one may wonder what will happen if B shrinks with time. Let ψ be a function on N
+                                           and z ∈ X, the investigation of the size in terms of measure and dimension of the set
+
+                                                           S(ψ, z) = {x ∈ X : T n x ∈ B(z, ψ(n)) for i.m. n ∈ N},
+
+                                           is called shrinking target problems by Hill and Velani [13], where B(z, ψ(n)) ⊂ X
+                                           is a ball of center z and radius ψ(n). On the other hand, motivated by Poincaré’s
+
+                                             2020 Mathematics Subject Classification. 37A05, 37B20, 28A80.
+                                             Key words and phrases. Shrinking target problem; Fractal sets; Hausdorff dimension.
+                                             * Corresponding author.
+                                                                                         1
+2                          NA YUAN AND SHUAILING WANG∗
+
+recurrence theorem in dynamical systems, one is also interested in the quantitative
+recurrence set(see[5, 6])
+                R(ψ) := {x ∈ X : T n x ∈ B(x, ψ(n)) for i.m. n ∈ N}.
+
+   The measures and dimensions of the fractal sets S(ψ, z) and R(ψ) have already
+been extensively investigated in many dynamical systems. For the measure aspect,
+the reader is referred to [1, 2, 9, 10, 12, 16, 17, 19–21] and references therein. With
+regards to the dimension aspect, let us cite some but far from all concrete cases.
+The dimension aspect has been studied for expanding rational maps of Julia sets [13,
+14], matrix transformations of tori [15, 21], β-transformations [18, 27, 29], conformal
+iterated function systems [22, 24, 26]. For the more results, the reader is referred to
+[3, 4, 23, 33] and references therein.
+  It should be observed that in many systems, the fractal dimensional formulae for
+the two sets S(ψ) and R(ψ) are the same. In [28, 31, 32, 34], the dimensions of S(ψ)
+and R(ψ) were unified in some dynamical systems by using a Lipschitz function. We
+are interested in finding out if they can be unified when T is a matrix transformation
+on the torus Td .
+   We start by laying out some necessary definitions and notations. Let Td := Rd /Zd
+be a d-dimensional torus endowed with the usual metric in Td induced by the Eu-
+clidean metric. Let T be a d × d non-singular matrix with real coefficients. Then,
+T determines a self-map of the d-dimensional torus Td , namely, for any x ∈ Td ,
+T : x → T (x) ( mod1). In what follows, T will denote both the matrix and the trans-
+formation. Denote by T n the n-th iteration of the transformation T with n ∈ N. Let
+R+ be the set of positive numbers.
+  We explore two special sets that are relevant to the classical theory of Diophantine
+approximation. For any 1 ≤ i ≤ d, let ψi be a positive function on N and Ψ(n) :=
+(ψ1 (n), . . . , ψd (n)) with n ∈ N. For any y = (y1 , y2 , . . . , yd) ∈ Td , let
+                                n                                                  o
+                 L(y, Ψ(n)) := x ∈ Td : |xi − yi | < ψi (n) for any 1 ≤ i ≤ d ,
+and                               n           Y                       o
+                                         d
+                   P (y, ψ(n)) := x ∈ T :            |xi − yi | < ψ(n) ,
+                                             1≤i≤d
+where |·| is the usual metric on T. Then L(y, ψ(n)) is a hyperrectangle and P (y, ψ(n))
+is a hyperboloid. Define
+               Hd (T, ψ) = x ∈ Td : T n (x) ∈ P (x, ψ(n)) for i.m. n ∈ N .
+                          
+
+The set Hd (T, ψ) is intimately related to sets studied within the multiplicative theory
+of Diophantine approximation.
+  Let {fn }n≥1 be a sequence of vector-valued functions on Td with a uniform Lipsitz
+constant, i.e., there exists c ∈ R+ such that for any n ∈ N and x, y ∈ Td ,
+(1.1)                         |fn (x) − fn (y)| ≤ c|x − y|,
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 3
+
+where we also use | · | for the usual metric on Td induced by the Euclidean metric.
+Then, (1.1) means that for any n ∈ N and x, y ∈ T,
+(1.2)                               |fn(i) (x) − fn(i) (y)| ≤ c|x − y|
+        (i)
+where fn is the function fn restricted to the direction of the i-th axis.
+  Define the modified shrinking target set associated to Ψ and {fn }n≥1 by
+        W (T, Ψ, {fn }) = x ∈ Td : T n (x) ∈ L(fn (x), Ψ(n)) for i.m. n ∈ N .
+                         
+
+If ψ1 = ψ2 = · · · = ψd = ψ, we write
+         W (T, ψ, {fn }) = x ∈ Td : T n (x) ∈ L(fn (x), ψ(n)) for i.m. n ∈ N .
+                           
+
+Note that if fn = y for all n ∈ N, where y is a fixed point in Td , then the fractal set
+W (T, ψ, {fn }) is an analogue of the sets explored by the classical simultaneous theory
+of Diophantine approximation.
+  Denote by dimH the Hausdorff dimension. Let
+                                        − log ψ(n)
+                           τ := lim inf            .
+                                  n→∞       n
+  Our results are listed below.
+Theorem 1.1. Let T be a real, non-singular matrix transformation of the torus Td .
+Suppose that T is diagonal and all eigenvalues β1 , β2 , . . . , βd are of modulus strictly
+larger than 1. Assume that 1 < β1 ≤ β2 ≤ · · · ≤ βd . Then
+                                                     log βd
+                       dimH Hd (T, ψ) = d − 1 +                  .
+                                                   τ + log βd
+
+  Let C(Ψ) be the set of accumulation points t = (t1 , . . . , td ) of the sequence
+                        n − log ψ (n)       − log ψd (n) o
+                                 1
+                                      ,...,                     .
+                               n                 n         n≥1
+
+The following Theorem 1.2 gives the value of dimH W (T, Ψ, {fn }) when T is a real,
+non-singular diagonal matrix transformation of the torus Td .
+Theorem 1.2. Let T be a real, non-singular matrix transformation of the torus Td .
+Suppose that T is diagonal with all eigenvalues βi > 1, i ≥ 1 and 1 < β1 ≤ β2 ≤
+· · · ≤ βd . Let {fn }n≥1 be a sequence of vector-valued functions on Td with a uniform
+Lipsitz constant and Ψ = (ψ1 , ψ2 , . . . , ψd ), where ψi : N → R+ . If C(Ψ) is bounded,
+then
+                         dimH W (T, Ψ, {fn }) = sup min {λi (t)},
+                                                           t∈C(Ψ) 1≤i≤d
+where
+                            X            X                  tj         X log βj
+                λi (t) :=           1+           (1 −               )+
+                                                        log βi + ti       log βi + ti
+                            j∈Q1i        j∈Q2i                          3
+                                                                      j∈Qi
+and
+Q1i := {1 ≤ j ≤ d : log βj > log βi + ti }, Q2i := {1 ≤ j ≤ d : log βj + tj ≤ log βi + ti },
+4                           NA YUAN AND SHUAILING WANG∗
+
+                             Q3i := {1, 2, . . . , d}\(Q1i ∪ Q2i ).
+Remark 1.3. Note that the Hausdorff dimension of the set W (T, Ψ, {fn }) is inde-
+pendent of the sequence {fn }n≥1.
+
+  If for each 1 ≤ i, j ≤ d, ψi = ψj = ψ in Theorem 1.2, we can obtain the following
+Corollary 1.4.
+Corollary 1.4. Let {fn }n≥1 be a sequence of vector-valued functions on Td with a
+uniform Lipsitz constant. Let T be a real, non-singular matrix transformation of the
+torus Td . Suppose that T is diagonal with all eigenvalues βi > 1, i ≥ 1. Assume that
+1 < β1 ≤ β2 ≤ · · · ≤ βd , then
+                                (           P                                   P       )
+                                  i log βi − j:βj >βieτ (log βj − log βi − τ ) + j>i βj
+ dimH W (T, ψ, {fn }) = min                                                              .
+                          1≤i≤d                          τ + log βi
+
+Remark 1.5. In particular, the work in [15] concerned about the Hausdorff dimension
+of W (T, Ψ, {fn }), where fn is a constant function for each n ≥ 1. However, when
+T satisfies the conditions in Corollary 1.4 and fn = zn with n ≥ 1, our result of
+determining dimH W (T, ψ, {fn }) is new.
+
+   The following Theorem 1.6 extends Corollary 1.4 from diagonal matrix to the ma-
+trix which can be diagonalizable over Z.
+Theorem 1.6. Let T be an integer, non-singular matrix transformation of the torus
+Td . Let {fn }n≥1 be a sequence of vector-valued functions on Td with a uniform Lipsitz
+constant and ψ : N → R+ . Suppose that T is diagonalizable over Z with all eigenvalues
+βi > 1, i ≥ 1. Assume that 1 < β1 ≤ β2 ≤ · · · ≤ βd . Then
+                                (           P                                   P       )
+                                  i log βi − j:βj >βieτ (log βj − log βi − τ ) + j>i βj
+ dimH W (T, ψ, {fn }) = min                                                              .
+                          1≤i≤d                          τ + log βi
+
+  Our paper is organized as follows. Section 2 begins with some preparations on
+β-transformation and some useful Lemma. Section 3 provides the proof of Theorem
+1.1. The proof of Theorem 1.2 and Corollary 1.4 can be found in Section 4. More
+precisely, we establish the upper bound of dimH W (T, Ψ, {fn }) in Section 4.1, and
+obtain the lower bound of dimH W (T, Ψ, {fn }) in Section 4.2. Section 4.3 gives the
+proof of Corollary 1.4. The proof of Theorem 1.6 is presented in Sections 5.
+
+                                    2. Preliminaries
+
+    Let β > 1. Define the β-transformation Tβ : [0, 1) → [0, 1) by
+                                   Tβ (x) = βx − ⌊βx⌋,
+where ⌊ζ⌋ stands for the largest integer no more than ζ. The system ([0, 1), Tβ )
+is called β-dynamical system. Then every real number x ∈ [0, 1) can be expressed
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 5
+
+uniquely as a finite or an infinite series
+                                    ǫ1 (x, β)       ǫn (x, β)
+(2.1)                         x=              +···+           +··· ,
+                                        β               βn
+where, for n ≥ 1, ǫn (x, β) = ⌊βTβn−1 x⌋ is called n-th digit of x (with respect to base
+β). Then formula (2.1) or the digit sequence ε(x, β) := (ǫ1 (x, β), ǫ2 (x, β), . . . ) is called
+the β-expansion of x. Sometimes we rewrite (2.1) as
+                                 x = (ǫ1 (x, β), . . . , ǫn (x, β), . . . ).
+It is clear that, for n ≥ 1, the n-th digit ǫn (x, β) ∈ Aβ = {0, 1, . . . , ⌈β − 1⌉}, where
+⌈β − 1⌉ = min{j ∈ N : j ≥ β − 1}. While, not all sequence ω ∈ ANβ would be a
+β-expansion of some x ∈ [0, 1]. We call a finite or an infinite sequence (ǫ1 , ǫ2 , . . . )
+admissible if there exists an x ∈ [0, 1) such that the β-expansion of x begins with
+(ǫ1 , ǫ2 , . . . ). For n ≥ 1, let Σnβ be the set of all admissible sequences of length n.
+  The following widely recognized result from Rényi.
+Lemma 2.1 ([25]). Let β > 1. Then for any n ≥ 1,
+                                                           β n+1
+                                        β n ≤ #Σnβ ≤             ,
+                                                           β−1
+where # denotes the cardinality of a finite set.
+Definition 2.2. For any (ε1 , ε2 , . . . , εn ) ∈ Σnβ , the set
+                 In,β (ε1 , ε2 , . . . , εn ) = {x ∈ [0, 1) : εi (x, β) = εi , 1 ≤ i ≤ n}
+is called a cylinder of order n (with respect to base β).
+Remark 2.3. The set In,β (ε1 , ε2, . . . , εn ) is a left-closed and right-open interval.
+Moreover, the length of In,β (ε1 , ε2 , . . . , εn ) satisfies |In,β (ε1 , ε2 , . . . , εn )| ≤ β1n , where
+the | · | denotes the length of a cylinder.
+Definition 2.4. Let w ∈ Σnβ . Then In,β (w) is called a full cylinder of order n if
+|In,β (w)| = β1n .
+
+  The following property of full cylinders plays an important role in the proofs of
+Theorem 1.2.
+Lemma 2.5. ([8, Theorem 1.2]) For each n ≥ 1, there exists at least one full cylinder
+among every n + 1 consecutive cylinders of order n.
+
+  We can get the following lemma by similar idea as in the proof of [32, Lemma 4].
+Lemma 2.6. ([32, lemma 4]) Let {gn }n≥1 be a sequence of functions on T with a
+uniform Lipsitz constant. Then for any full cylinder In (w) and for any ε > 0, there
+exists a point xn,w ∈ In (w) such that
+                                       Tβn xn,w − gn (xn,w ) < ε.
+6                              NA YUAN AND SHUAILING WANG∗
+
+   The following lemma shows that the Hausdorff dimension of a set is invariant under
+bi-Lipschitz maps.
+
+Lemma 2.7 ([11]). Let X be a subset of Rd and g be a bi-Lipschitz map, i.e., there
+exist 0 < c1 ≤ c2 < ∞ such that for any x, y ∈ X,
+                          c1 |x − y| ≤ |g(x) − g(y)| ≤ c2 |x − y|.
+Then dimH g(X) = dimH X.
+
+  Now we will introduce the Mass Transference Principle for rectangles that is useful
+to get the lower bound of dimH W (T, Ψ, {fn }) in Theorem 1.2. For our purpose, we
+only need the following special case of [30, Theorem 3.4].
+
+Lemma 2.8. ([30, Theorem 3.4]) Let Td be d-dimensional torus and Ld be the d-
+dimensional Lebesgue measure on Td . For any 1 ≤ i ≤ d and n ≥ 1, let xi,n ∈ T,
+ri,n > 0 and B(xi,n , ri,n ) be a ball. Suppose that ri,n → 0 as n → ∞ for each i ≥ 1. If
+                                          d
+                                          Y
+                           d                              ai
+(2.2)                    L (lim sup             B(xi,n , ri,n ))) = Ld (Td ),
+                                n→∞
+                                          i=1
+
+where ai ≥ 0 for all 1 ≤ i ≤ d. Then for any choice of (ui , vi ) with ui , vi ≥ 0 and
+  ui
+ui +vi
+       = ai , 1 ≤ i ≤ d (if ui = vi = 0, then ai = 0),
+                                          d
+                                          Y
+                        dimH (lim sup            B(xi,n , ri,n )) ≥ min s(q),
+                                 n→∞                                q∈A
+                                           i=1
+
+where A = {ui + vi , 1 ≤ i ≤ d}, and for each q ∈ A,
+                              X         X         vi  X ui
+                     s(q) :=       1+        (1 − ) +
+                                1         2
+                                                  q    3
+                                                         q
+                                i∈Q (q)          i∈Q (q)             i∈Q (q)
+
+the sets Q1 (q),Q2 (q), Q3 (q) form a partition of {1, . . . , d} defined as
+    Q1 (q) = {1 ≤ i ≤ d : ui ≥ q},                   Q2 (q) = {1 ≤ i ≤ d : ui + vi ≤ q}\Q1 (q)
+and
+                          Q3 (q) = {1 ≤ i ≤ d}\(Q1 (q) ∪ Q2 (q)).
+
+
+                           3. Proof of the Theorem 1.1
+
+    We begin by presenting some lemma that we will use to prove Theorem 1.1.
+
+Lemma 3.1. Let β > 1 and w ∈ Σnβ with n ≥ 1. For any n > logβ 2 and any
+0 ≤ δ1 < δ2 , the set
+                  En,β (w, δ1 , δ2 ) := x ∈ In,β (w) : δ1 ≤ |Tβn x − x| ≤ δ2
+                                       
+
+can be covered by 4 intervals of length (δ2 − δ1 )β −n .
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 7
+
+Proof. Note that inside the cylinder In,β (w),
+                        n          n
+                                           w1          w2 
+                      Tβ x − x = β x −         − · · · − n − x,
+                                            β           β
+is a linear map with slope β n − 1, where x = (w1 , w2 , . . . , wn , . . . ). Thus, for any
+n > logβ 2, En,β (w, δ1 , δ2 ) consists of at most two intervals of length
+                                  δ2 − δ1
+                                    n
+                                          ≤ 2(δ2 − δ1 )β −n .
+                                  β −1
+                                                                                          
+
+  Let δ > 0 and define
+                              n                                     d
+                                                                    Y           o
+                                                                d
+                   Hd (δ) = y = (y1 , · · · , yd ) ∈ [0, 1] :             yi ≤ δ .
+                                                                    i=1
+
+The following result is important in the proofs of Theorem 1.1.
+
+Lemma 3.2. ([7, Lemma 1]) Let d ∈ N and δ be a sufficiently small positive number.
+Let n be a sufficiently large integer. Then, for any s ∈ (d − 1, d), the set Hδ has a
+covering B by d-dimensional cubes B such that
+                                  X
+                                      |B|s ≪ δ s−d+1 ,
+                                      B∈B
+
+where |B| is the length of a side of B and ≪ implies an inequality with a factor
+independent of δ.
+
+  For a cube B ⊂ Td , write it as
+                           B = [aB , bB ]d , with bB − aB = |B|.
+Define
+                     n                                   d
+                                                         Y                       o
+             En (δ) = x = (x1 , x2 , . . . , xd ) ∈ Td :   |Tβni (xi ) − xi | < δ .
+                                                             i=1
+By Lemma 3.2, we obtain a cover of En (δ) in the following Lemma 3.3.
+
+Lemma 3.3. With the same notation given in Lemma 3.2, we have
+                                [             [          d
+                                                         Y
+(3.1)               En (δ) ⊂                                 En,βi (wi , aB , bB ).
+                               B∈B w1 ∈Σn            n i=1
+                                        β ,··· ,wd ∈Σβ
+                                          1          d
+
+
+
+Proof. For each x ∈ En (δ), it is direct that
+                       |Tβn1 (x1 ) − x1 |, · · · , |Tβnd (xd ) − xd | ∈ Hd (δ).
+                                                                     
+
+Thus for some B ∈ B,
+                      aB ≤ |Tβni (xi ) − xi | ≤ bB , for all 1 ≤ i ≤ d.
+8                               NA YUAN AND SHUAILING WANG∗
+
+This gives that
+                       d
+                       Y
+                          xi ∈ [0, 1) : aB ≤ |Tβni (xi ) − xi | ≤ bB
+                         
+                    x∈
+                          i=1
+
+                                  [              d
+                                                 Y
+                      =                              En,βi (wi , aB , bB ).
+                          w1 ∈Σn             n i=1
+                               β1 ,··· ,wd ∈Σβd
+
+
+                                                                                          
+
+    We now begin to prove Theorem 1.1. Recall that
+                               d
+                                Y                                     
+                             d       n
+          Hd (T, ψ) = x ∈ T :     |Tβi xi − xi | ≤ ψ(n) for i.m. n ∈ N .
+                                       i=1
+
+Let
+                                     d
+                                      Y                      
+                                   d      n
+                     En (ψ) = x ∈ T :   |Tβi xi − xi | < ψ(n) .
+                                                 i=1
+
+Then Hd (T, ψ) = lim supn→∞ En (ψ).
+  We divided the proof into two parts: the upper bound and the lower bound, as is
+typical when calculating the Hausdorff dimension of a set.
+   As usual, the upper bound is obtained by finding an efficient cover of Hd (T, ψ).
+First, for sufficiently large n, we find an efficient cover of En (ψ). By Lemmas 3.2 and
+3.3, with δ = ψ(n) and n > logβ1 2, for any s ∈ (d − 1, d), there exists a collection B
+of cubes B such that
+                                 [               [           d
+                                                             Y
+(3.2)               En (ψ) ⊂                                     En,βi (wi , aB , bB ).
+                                 B∈B w1 ∈Σn            n i=1
+                                          β ,··· ,wd ∈Σβ
+                                             1           d
+
+
+and
+                                    X
+(3.3)                                     |B|s ≪ (ψ(n))s−d+1 .
+                                    B∈B
+
+By Lemma 3.1, we obtain that En,βi (wi , aB , bB ) can be covered by 4 intervals of length
+(bB − aB )βi−n for any 1 ≤ i ≤ d. Thus, di=1 En,βi (wi , aB , bB ) can be covered by 4d
+                                                Q
+
+hyperrectangles, and the side length of these hyperrectangles in the direction of the
+i-th axis is (bB − aB )βi−n = |B|βi−n .
+   We now cover di=1 En,βi (wi , aB , bB ) by balls with diameter equal to βd−n . Note that
+                  Q
+
+for any 1 ≤ i ≤ d, βi−n ≥ βd−n , then we can find a collection Cn of balls with diameter
+βd−n |B| that cover di=1 En,βi (wi , aB , bB ) with
+                    Q
+
+                        d  −n                       d  −n               d
+                                                                            βi−n
+                                                                
+                     d
+                       Y    βi |B|                d
+                                                    Y   βi             d
+                                                                         Y
+            #Cn ≤ 4                   +   1   = 4            + 1   ≤ 8           .
+                       i=1
+                            βd−n |B|                i=1
+                                                        βd−n                β −n
+                                                                         i=1 d
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 9
+
+Hence for any N > logβ1 2,
+              ∞ [
+              [                   [          [                    ∞ [
+                                                                  [                  [         [
+Hd (T, ψ) ⊆                                             s
+                                                    (B̂) =                                           (βd−n |B|)s .
+              n=N B∈B w1 ∈Σn             n
+                           β1 ,··· ,wd ∈Σβd B̂∈Cn              n=N B∈B w1 ∈Σn             n
+                                                                            β1 ,··· ,wd ∈Σβd B̂∈Cn
+
+
+Given ε > 0, we choose N large enough so that for any n ≥ max{N, logβ1 2} and
+any ball B ∈ B, βd−n |B| < ε. Then, according to the definition of the s-dimensional
+Hausdorff measure, for any s > 0
+                              ∞ XY    d      
+                             X                                  s
+             s
+           Hε (Hd (T, ψ)) ≤              #Σnβi · #Cn · βd−n |B|
+                                      n=N B∈B    i=1
+                                      ∞ XY
+                                          d                                 d
+                                      X                                    Y β −n              s
+(3.4)                             ≤                    #Σnβi       ·8   d       i
+                                                                                    ·   βd−n |B| .
+                                      n=N B∈B    i=1
+                                                                               β −n
+                                                                            i=1 d
+                                                            n+1
+On the one hand, by Lemma 2.1, #Σnβ ≤ ββ−1 . This together with (3.3) and (3.4)
+implies there exists c ∈ R such that for any s ∈ (d − 1, d) and sufficiently large N
+                  ∞ Y  d               d
+                          βin+1          βi−n −ns
+                 X                Y         
+  s                                 d
+Hε (Hd (T, ψ)) ≤                  8        −n βd  c(ψ(n))s−d+1
+                         β
+                 n=N i=1 i
+                            −  1         β
+                                      i=1 d
+                         ∞
+                         X
+                     d         n(d−s)
+                ≤4           βd         cψ(n)s−d+1
+                         n=N
+                           ∞                                                    
+                    d
+                          X                       log ψ(n)              log ψ(n) 
+                =4 c     exp n d log βd − (d − 1)          − s(log βd −         ) .
+                     n=N
+                                                      n                     n
+Therefore, for any
+                                                          log βd
+                                        s> d−1+                    ,
+                                                        log βd + τ
+Hs (Hd (T, ψ)) = 0, which implies that
+                                                                     log βd
+                               dimH Hd (T, ψ) ≤ d − 1 +                       .
+                                                                   log βd + τ
+  Now, we will give the proof of the lower bound of dimH Hd (T, ψ).
+Lemma 3.4 ([11]). Let F be a subset of Rd and E be a subset of the xd -axis. Assume
+that for all x ∈ E
+                                dimH F ∩ Lx ≥ t
+where Lx is the plane parallel to all other axis through the point (0, . . . , 0, x). Then
+                                         dimH F ≥ t + dimH E.
+
+  For any n ≥ 1, letting fn (x) = x and d = 1 in Theorem 1.2, we have that
+                                                                                                  log βd
+   dimH H1 (T, ψ) = dimH {x ∈ T : |Tβnd x − x| ≤ ψ(n) for i.m. n ∈ N} =                                    ,
+                                                                                                log βd + τ
+where τ = lim inf n→∞ − lognψ(n) .
+10                              NA YUAN AND SHUAILING WANG∗
+
+     For any xd ∈ H1 (T, ψ),
+                            [0, 1)d−1 × H1 (T, ψ) ∩ Lxd = [0, 1)d−1,
+                                                 
+
+which follows that
+                                                              
+                                    [0, 1)d−1 × H1 (T, ψ) ∩ Lxd ≥ d − 1.
+                                                         
+                       dimH
+By Lemma 3.4, we arrive at
+                     
+                           d−1
+                                                                                log βd
+(3.5)          dimH [0, 1)     × H1 (T, ψ) ≥ d − 1 +                                      .
+                                                                               log βd + τ
+Recalling the definition of Hd (T, ψ), we obtain that
+(3.6)                          [0, 1)d−1 × H1 (T, ψ) ⊂ Hd (T, ψ).
+Therefore, by (3.5) and (3.6), we have
+                                                                         log βd
+                            dimH Hd (T, ψ) ≥ d − 1 +                              .
+                                                                       log βd + τ
+
+                   4. Proof of Theorem 1.2 and Corollary 1.4
+
+  We first provide the upper and lower bounds of dimH W (T, Ψ, fn ) separately in
+Sections 4.1 and 4.2. Then we will give the proof of Corollary 1.4 in Section 4.3.
+  Suppose T is a diagonal matrix, there exist β1 , . . . , βd ∈ R+ such that T =
+diag(β1 , β2 , . . . , βd ). Then
+ W (T, Ψ, {fn }) = x ∈ Td : |Tβni (xi ) − fn(i) (xi )| ≤ ψi (n)(1 ≤ i ≤ d) for i.m. n ∈ N ,
+                           
+
+where Tβi is the standard β-transformation with β = βi .
+
+4.1. The upper bound part. Recall that C(Ψ) is the set of accumulation point
+t = (t1 , . . . , td ) of the sequence { − lognψ1 (n) , . . . , − lognψd (n) }n≥1 .
+     We first assume that C(Ψ) contains only one point, then for any 1 ≤ i ≤ d,
+                                                  − log ψi (n)
+                                          lim                  = ti .
+                                         n→∞           n
+For any wi ∈ Σnβi , 1 ≤ i ≤ d, let
+                Jn,βi (wi ) = xi ∈ In,βi (wi ) : |Tβn xi − fn(i) (xi )| < ψi (n) .
+                             
+
+Then we have
+                                          [              [
+(4.1) W (T, Ψ, {fn }) = lim sup                   ···             Jn,β1 (w1 ) × Jn,β2 (w2 ) × · · · × Jn,βd (wd ).
+                             n→∞
+                                        w1 ∈Σn
+                                             β1         wd ∈Σn
+                                                             βd
+
+
+For any xi , x′i ∈ Jn,βi (wi ), we have
+                       2ψi (n) ≥ |Tβni xi − fn(i) (xi )| + |Tβni x′i − fn(i) (x′i )|
+                                   ≥ |Tβni xi − Tβni x′i | − |fn(i) (xi ) − fn(i) (x′i )|
+                                   ≥ (βin − c)|xi − x′i |.
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 11
+
+Therefore, for sufficiently large n, we obtain that for all 1 ≤ i ≤ d,
+(4.2)                                      |Jn,βi (wi )| ≤ 4ψi (n)βi−n .
+By (4.1), for any N ≥ 1,
+                                                                        ∞
+                                                                        [
+(4.3)                                     W (T, Ψ, {fn }) ⊂                   Dn ,
+                                                                        n=N
+
+where                     [              [
+                Dn =              ···             Jn,β1 (w1 ) × Jn,β2 (w2 ) × · · · × Jn,βd (wd ).
+                        w1 ∈Σn
+                             β1         wd ∈Σn
+                                             βd
+
+The upper bound of dimH W (T, Ψ, {fn }) can be proven using the (4.2) and (4.3) in a
+manner similar to [21, Proposition 4].
+
+4.2. The lower bound part. In this section, we will prove that
+(4.4)                       dimH W (T, Ψ, {fn }) ≥ sup min {λi (t)}.
+                                                               t∈C(Ψ) 1≤i≤d
+
+Now we will construct a subset of Jn,βi (wi ) for all full cylinder In,βi (wi ). Denote
+(4.5)                     Σ̄nβ := {u ∈ Σnβ : In,β (u) is a full cylinder }.
+For any full cylinder In,βi (wi ), by Lemma 2.6, there exists a point xn,wi ∈ In,βi (wi ) such
+that
+                                                             1
+                              |Tβni xn,wi − fn(i) (xn,wi )| < ψi (n).
+                                                             2
+                    log c
+Then for any n ≥ log βi , x ∈ In,βi (wi ) and |x − xn,wi | ≤ 14 βi−n ψi (n),
+
+  |Tβni x − fn(i) (x)| ≤ |Tβn1 x − Tβni xn,wi | + |Tβni xn,wi − fn(i) (xn,wi )| + |fn(i) (xn,wi ) − fn(i) (x)|
+                                                     1
+                       ≤ (βin + c)|x − xn,wi | + ψi (n)
+                                                     2
+                       ≤ ψi (n).
+Let a and b be the left and right endpoints of the cylinder In,βi (wi ). If
+                                                       1
+                     max |xn,wi − a|, |xn,wi − b| ≤ βi−n ψi (n),
+                          
+                                                       4
+                              ∗
+then we can choose a point xn,wi ∈ In,βi (wi ) such that
+                                1                          1
+             |x∗n,wi − xn,wi | ≤ βi−n ψi (n) and B(x∗n,wi , βi−n ψi (n)) ⊂ Jn,βi (wi ).
+                                8                          8
+If min |xn,wi − a|, |xn,wi − b| > 41 βi−n ψi (n), let x∗n,wi := xn,wi . Therefore,
+      
+
+                              [ [               [               1
+ W (T, Ψ, {fn }) ⊃ lim sup                ···        B(x∗n,w1 , β1−n ψ1 (n))
+                     n→∞        n      n           n
+                                                                8
+                                  w1 ∈Σ̄β w2 ∈Σ̄β         wd ∈Σ̄β
+                                           1         2              d
+
+                                                           1                                 1
+                                               × B(x∗n,w2 , β2−n ψ2 (n)) × · · · × B(x∗n,wd , βd−n ψd (n)).
+                                                           8                                 8
+12                                NA YUAN AND SHUAILING WANG∗
+
+By Lemmas 2.3 and 2.5, we know that the distance between any consecutive n-th full
+cylinder along the i-th axis is less than (n + 3)βin , which implies that
+
+                             T ⊂ B(xn,wi , (n + 3)βi−n ) : wi ∈ Σ̄nβi .
+                                
+(4.6)
+
+With inequalities (4.4)-(4.6) and Lemma 2.8, the lower bound of dimH W (T, Ψ, {fn })
+can be proved in the similar way as [21, Proposition 5].
+
+
+4.3. The proof of Corollary n         1.4. Recall that C(Ψ) isothe set of accumulation points
+t = (t1 , . . . , td ) of the sequence − lognψ1 (n) , . . . , − lognψd (n) . If ψ1 = ψ2 = · · · = ψd =
+                                                                              n≥1
+ψ, we use C(ψ) instead of C(Ψ). Thus, for any t ∈ C(ψ), t = {t, t, . . . , t}.
+     If τ = lim inf n→∞ − lognψ(n) < ∞, then C(ψ) is bounded. By Theorem 1.2,
+
+              dimH W (T, ψ, {fn }) = sup min {λi (t)} = sup min {λi (t)},
+                                               t∈C(Ψ) 1≤i≤d                  t∈C(Ψ) 1≤i≤d
+
+
+for any 1 ≤ i ≤ d,
+                            X                 X           log βi            X              log βj
+(4.7)          λi (t) =                 1+                         +                                .
+                                                        log βi + t                       log βi + t
+                          j:βj >βi et        j:βj ≤βi                  j:βi et ≥βj >βi
+
+
+Note that λi (t) is a decreasing function in t, then
+                              (           P                                    P       )
+                                i log βi − j:βj >βi eτ (log βj − log βi − τ ) + j>i βj
+  sup min {λi (t)} = min                                                                 .
+ t∈C(ψ) 1≤i≤d           1≤i≤d                           τ + log βi
+
+ If τ = ∞, for any M > 0, let ψM : R+ → R+ : x → e−xM . Then C(ψM ) = {M}.
+We can choose M sufficiently large such that
+
+                                 W (T, ψ, {fn }) ⊂ W (T, ψM , {fn }),
+
+which yields that
+
+(4.8)        0 ≤ dimH W (T, ψ, {fn }) ≤ dimH W (T, ψM , {fn }) ≤ min λi (M),
+                                                                                         1≤i≤d
+
+
+where
+                          X                  X      log βi                   X                log βj
+            λi (M) =                 1+                    +                                          .
+                                          j:β ≤β
+                                                 log βi+M                                  log βi + M
+                       j:βj >βi eM            j    i                    j:βi eM ≥βj >βi
+
+
+Then we obtain for any 1 ≤ i ≤ d, limM →∞ λi (M) = 0. Therefore,
+
+(4.9)                                   dimH W (T, ψ, {fn }) = 0.
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 13
+
+                                 5. Proof of Theorem 1.6
+
+  Recall that
+           W (T, ψ, {fn }) = x ∈ Td : T n (x) ∈ B(fn (x), ψ(n)) for i. m. n ∈ N ,
+                            
+
+and T is diagonalizable over Z with the eigenvalues 1 < β1 ≤ β2 ≤ · · · ≤ βd . Then,
+there exists a diagonal integer matrix D and an invertible mapping φ satisfying φ◦T =
+D ◦ φ. Note that φ is a bi-Lipschitz map, there exist two constants 0 < c1 ≤ c2 < ∞
+such that for any x, y ∈ Td ,
+(5.1)                        c1 |x − y| ≤ |φ(x) − φ(y)| ≤ c2 |x − y|.
+Let
+                                                  c2
+              S := x ∈ Td : T n (x) ∈ B fn (φ(x)), ψ(n) for i.m. n ∈ N
+                                                      
+                                                  c1
+and
+                  d   n                  c22
+         Sj = x ∈ T : D (x) ∈ B(φ(fn (x)), ψ(n)) i.m. n ∈ N                   for j = 1, 2.
+                                          cj
+Since {fn } is a uniform Lipschitz sequence and φ is a bi-Lipschitz map, {φ ◦ fn } is
+also a uniform Lipschitz sequence. By Corollary 1.4, we can obtain that
+                              (           P                                    P       )
+                                i log βi − j:βj >βi eτ (log βj − log βi − τ ) + j>i βj
+  dimH S1 = dimH S2 = min                                                               ,
+                        1≤i≤d                           τ + log βi
+which implies that the Hausdorff dimension of Sj is independent of the uniform Lip-
+schitz sequence {fn }. We claim that
+(5.2)                                    S2 ⊂ φ(S) ⊂ S1 ,
+then dimH S1 = dimH S2 = dimH φ(S). By Lemma 1.2 and the definition of φ, we can
+obtain dimH φ(S) = dimH S. Therefore, we need only to prove the claim (5.2).
+  For any y ∈ φ(S), there exists a point x0 ∈ S such that y = φ(x0 ). Due to the fact
+that φ ◦ T = D ◦ φ and (5.1),
+      |D n φ(x0 ) − φ(fn (φ(x0 )))| = |φ(T n x0 ) − φ(fn (φ(x0 )))| ≤ c2 |T n x0 − fn (φ(x0 ))|.
+Note that x0 ∈ S, then |T n x0 − fn (φ(x0 ))| < cc12 ψ(n) for infinity many n ∈ N, which
+implies that
+                                                                           c22
+                 |D n (y) − φ(fn (y))| = |D n φ(x0 ) − φ(fn (φ(x0 )))| ≤       ψ(n).
+                                                                           c1
+Thus, y = φ(x0 ) ∈ S1 , which implies that φ(S) ⊂ S1 .
+  For any z ∈ S2 , there exists x1 ∈ Td such that z = φ(x1 ), which yields that
+              |D n φ(x1 ) − φ(fn (φ(x1 )))| = |φ(T n x1 ) − φ(fn (φ(x1 )))| ≤ c2 ψ(n),
+for infinity many n ∈ N. This together with
+                      |φ(T n x1 ) − φ(fn (φ(x1 )))| ≥ c1 |T n x1 − fn (φ(x1 ))|
+14                          NA YUAN AND SHUAILING WANG∗
+
+implies that x1 ∈ S and z = φ(x1 ) ∈ φ(S), then S2 ⊂ φ(S).
+     Thus, we complete the proof of the claim.
+
+
+Acknowledgements. This work was supported partially by Guangdong Natural
+Science Foundation 2023A1515010691 and China Scholarship Council.
+
+
+
+                                      References
+ 1. D. Allen, S. Baker, and B. Bárány, Recurrence rates for shifts of finite type, (2022),
+    preprint, arxiv:2209.01919.
+ 2. S. Baker and M. Farmer, Quantitative recurrence properties for self-conformal
+    sets., Proc. Amer. Math. Soc. 149 (2021), no. 3, 1127–1138.
+ 3. B. Bárány and M. Rams, Shrinking targets on Bedford–McMullen carpets, Proc.
+    Lond. Math. Soc. 117 (2018), no. 5, 951–995.
+ 4. B. Bárány and S. Troscheit, Dynamically defined subsets of generic self-affine
+    sets, Nonlinearity 35 (2022), no. 10, 4986–5013.
+ 5. L. Barreira and B. Saussol, Hausdorff dimension of measures via Poincaré recur-
+    rence, Comm. Math. Phys. 219 (2001), no. 2, 443–463.
+ 6. M. D. Boshernitzan, Quantitative recurrence results, Invent. Math. 113 (1993),
+    no. 3, 617–631.
+ 7. J. D. Bovey and M. M. Dodson, The fractional dimension of sets whose simul-
+    taneous rational approximations have errors with a small product, Bull. London
+    Math. Soc. 10 (1978), no. 2, 213–218.
+ 8. Y. Bugeaud and B.-W. Wang, Distribution of full cylinders and the diophantine
+    properties of the orbits in β-expansions, J. Fractal Geom. 1 (2014), no. 2, 221–241.
+ 9. Y.-Y. Chang, M. Wu, and W. Wu, Quantitative recurrence properties and homo-
+    geneous self-similar sets, Proc. Amer. Math. Soc. 147 (2019), no. 4, 1453–1465.
+10. N. Chernov and D. Kleinbock, Dynamical borel-cantelli lemmas for gibbs mea-
+    sures, Israel J. Math. 122 (2001), no. 1, 1–27.
+11. K. J. Falconer, Fractal geometry-mathematical foundations and application, Wiley,
+    New York, 1990.
+12. Y.-B He and L.-M. Liao, Quantitative recurrence properties for piecewise expand-
+    ing map on [0, 1]d, (2023), arxiv.2302.05149.
+13. R. Hill and S. L. Velani, The ergodic theory of shrinking targets, Invent. Math.
+    119 (1995), no. 1, 175–198.
+14.         , Metric Diophantine approximation in julia sets of expanding rational
+    maps, Publ. Math. Inst. Hautes Études Sci. 85 (1997), no. 1, 193–216.
+15.         , The shrinking target problem for matrix transformations of tori, J. Lon-
+    don Math. Soc. 60 (1999), no. 2, 381–398.
+16.         , A zero–infinity law for well-approximable points in Julia sets, Ergodic
+    Theory and Dynam. Systems 22 (2002), no. 6, 1773–1782.
+  MODIFIED SHRINKING TARGET PROBLEM FOR MATRIX TRANSFORMATIONS OF TORI 15
+
+17. M. Hussain, B. Li, D. Simmons, and B.-W. Wang, Dynamical Borel-Cantelli
+    lemma for recurrence theory, Ergodic Theory Dynam. Systems 42 (2022), no. 6,
+    1994–2008.
+18. M. Hussain and W.-L Wang, Two dimensional shrinking target problem in beta
+    dynamical systems, Bull. Aust. Math. Soc. 97 (2017), no. 1, 33–42.
+19. M. Kirsebom, P. Kunde, and T. Persson, On shrinking targets and self-returning
+    points, Ann. Sc. Norm. Super. Pisa Cl. Sci 24 (2023), no. 3, 1499–1535.
+20. D. Kleinbock and J.-J. Zheng, Dynamical Borel-Cantelli lemma for recurrence
+    under Lipschitz twists, Nonlinearity 36 (2023), no. 2, 1434–1460.
+21. B. Li, L.-M. Liao, S. Velani, and E. Zorin, The shrinking target problem for matrix
+    transformations of tori: Revisiting the standard problem, Adv. Math. 421 (2023),
+    108994.
+22. B. Li, B.-W. Wang, J. Wu, and J. Xu, The shrinking target problem in the dy-
+    namical system of continued fractions, Proc. Lond. Math. Soc. 108 (2014), no. 1,
+    159–186.
+23. T. Persson and M. Rams, On shrinking targets for piecewise expanding interval
+    maps, Ergodic Theory Dynam. Systems 37 (2017), no. 2, 646–663.
+24. H. W. Reeve, Shrinking targets for countable Markov maps, (2011), preprint,
+    arxiv.1107.4736.
+25. A. Rényi, Representations for real numbers and their ergodic properties, Acta
+    Math. Acad. Sci. Hungar. 8 (1957), 477–493.
+26. S. Seuret and B.-W. Wang, Quantitative recurrence properties in conformal iter-
+    ated function systems, Adv. Math. 280 (2015), 472–505.
+27. L.-M. Shen and B.-W. Wang, Shrinking target problems for beta-dynamical sys-
+    tem, Sci. China Math. 56 (2013), no. 1, 91–104.
+28. Z.-P. Shen, Modified shrinking target problems on self-conformal sets, J. Math.
+    Anal. Appl. 517 (2023), no. 2, 126659.
+29. B. Tan and B.-W. Wang, Quantitative recurrence properties for beta-dynamical
+    system, Adv. Math. 228 (2011), no. 4, 2071–2097.
+30. B.-W. Wang and J. Wu, Mass transference principle from rectangles to rectangles
+    in diophantine approximation, Math. Ann. 381 (2021), no. 1-2, 243–317.
+31. W.-L. Wang, Modified shrinking target problem in beta dynamical systems, J.
+    Math. Anal. Appl. 468 (2018), no. 1, 423–435.
+32. Y.-F. Wu, Inhomogeneous and simultaneous Diophantine approximation in beta
+    dynamical systems, J. Math. Anal. Appl. 519 (2023), no. 1, 126781.
+33. Y.-L. Wu and N. Yuan, Recurrent set on some Bedford-McMullen carpets, (2022),
+    preprint, arxiv:2209.07315.
+34. N. Yuan and B. Li, Hausdorff dimensions of recurrent and shrinking target sets
+    under Lipschitz functions for expanding Markov maps, Dyn. Syst. 38 (2023), no. 3,
+    365–394.
+16                            NA YUAN AND SHUAILING WANG∗
+
+  School of Mathematics, Guangdong University of Education, Xingang Middle
+Road, 351, Guangzhou, P. R. China
+     Email address: yna@gdei.edu.cn
+
+  Department of Mathematics, South China University of Technology, Guangzhou,
+510641, P. R. China
+     Email address: scslwang@scut.edu.cn
+

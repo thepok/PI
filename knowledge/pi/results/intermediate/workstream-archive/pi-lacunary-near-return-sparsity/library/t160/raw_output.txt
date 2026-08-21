@@ -1,0 +1,9 @@
+HASHES: 7/7 exact
+SOURCE_ANCHORS: 13/13 located; S1/S3 physical pages checked
+CAPS: sources=6/8 candidates=3/3 domains=3/3
+BIBLIOGRAPHY: S3 journal metadata and S6 six-author list exact
+LEDGER: T89-T157 consecutive; T158 pinned and T159 unverified-note mechanisms reserved
+CONTENT: definitions=7 substitutions=3 mandatory-comparators=13
+SEPARATORS: constant periodic doubled-de-Bruijn shared-prefix multi-core PASS
+FIREWALL: labels separated; fixed-pi/A1/C1/C2 claims none
+ENDPOINT: scoped verdicts=1 successors=0

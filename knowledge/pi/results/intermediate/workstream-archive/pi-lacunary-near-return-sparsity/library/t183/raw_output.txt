@@ -1,0 +1,8 @@
+T183 deterministic replay: PASS
+canonical statement pin: PASS
+source theorem tuples: 3; supported domains: 3
+exact overlap counts and expectation identity: PASS
+McDiarmid baseline guardrails: PASS
+self-bounding certificate and gamma=3 algebra: PASS
+required prior comparisons: 12
+scoped verdicts: 1; bounded successors: 1

@@ -1,0 +1,15 @@
+EVIDENCE_LABEL: experiment (exact finite validation only)
+canonical_and_comparator_hashes: OK
+atoms: [('0', '1/3', 0, 3, '1/7'), ('1/3', '1/2', 1, 3, '3/7'), ('1/2', '2/3', -2, 3, '4/7'), ('2/3', '1', -1, 3, '5/7')]
+minimum_atom_width: 1/6; universal Farey bound: 1/9
+accessible_states: [(0, 0), (1, 0), (1, 1), (2, 1)]
+cycle_means: ['-1', '-1', '-1/2', '0', '0']
+mu_plus: 0
+positive_atom_bound_claim: 1/3 (refuted)
+D_2(3): 4; uniform_bound_claim: 1/4 (refuted)
+access_digits: 110 LSDF; access_length: 3
+periodic_cycle_potentials: [1, -1, -1]; cycle_weight: -1
+exact_zero_flush_from_positive_state: 1; uniform_zero_flush_bound: 2
+counterfamily_scaling_validation: 1 <= t <= 16; proof is algebraic
+finite_valuation_sweep: 0 <= n < 4096, all valuations <= 0
+validation: PASS

@@ -1,0 +1,1578 @@
+                                            Computability of probability measures and
+                                            Martin-Löf randomness over metric spaces
+
+
+                                                                       Mathieu Hoyrup
+                                                 LIENS, Ecole Normale Supérieure, Paris. email: hoyrup@di.ens.fr
+arXiv:0709.0907v2 [cs.IT] 23 Jul 2008
+
+
+
+
+                                                                       Cristóbal Rojas
+                                        LIENS, Ecole Normale Supérieure and CREA, Ecole Polytechnique, Paris. email:
+                                                                       rojas@di.ens.fr
+
+
+
+                                        Abstract
+
+                                        In this paper we investigate algorithmic randomness on more general spaces than
+                                        the Cantor space, namely computable metric spaces. To do this, we first develop a
+                                        unified framework allowing computations with probability measures. We show that
+                                        any computable metric space with a computable probability measure is isomorphic
+                                        to the Cantor space in a computable and measure-theoretic sense. We show that
+                                        any computable metric space admits a universal uniform randomness test (without
+                                        further assumption).
+
+
+                                        Key words: Computability, computable metric spaces, computable measures,
+                                        Kolmogorov complexity, algorithmic randomness, randomness tests.
+
+
+
+
+                                        1    Introduction
+
+
+                                        The theory of algorithmic randomness begins with the definition of individual
+                                        random infinite sequence introduced in 1966 by Martin-Löf [1]. Since then,
+                                        many efforts have contributed to the development of this theory which is now
+                                        well established and intensively studied, yet restricted to the Cantor space. In
+                                        order to carry out an extension of this theory to more general infinite objects
+                                        as encountered in most mathematical models of physical random phenomena,
+                                        a necessary step is to understand what means for a probability measure on a
+                                        1   partly supported by ANR Grant 05 2452 260 ox
+
+
+                                        Preprint submitted to Information and Computation
+general space to be computable (this is very simple expressed on the Cantor
+Space). Only then algorithmic randomness can be extended.
+
+The problem of computability of (Borel) probability measures over more gen-
+eral spaces has been investigated by several authors: by Edalat for compact
+spaces using domain-theory ([2]); by Weihrauch for the unit interval ([3]) and
+by Schröder for sequential topological spaces ([4]) both using representations;
+and by Gács for computable metric spaces ([5]). Probability measures can be
+seen from different points of view and those works develop, each in its own
+framework, the corresponding computability notions. Mainly, Borel probabil-
+ity measures can be regarded as points of a metric space, as valuations on open
+sets or as integration operators. We express the computability counterparts of
+these different views in a unified framework, and show them to be equivalent.
+
+Extensions of the algorithmic theory of randomness to general spaces have
+previously been proposed: on effective topological spaces by Hertling and
+Weihrauch (see [6],[7]) and on computable metric spaces by Gács (see [5]),
+both of them generalizing the notion of randomness tests and investigating
+the problem of the existence of a universal test. In [7], to prove the existence
+of such a test, ad hoc computability conditions on the measure are required,
+which a posteriori turn out to be incompatible with the notion of computable
+measure. The second one ([5]), carrying the extension of Levin’s theory of ran-
+domness, considers uniform tests which are tests parametrized by measures.
+A computability condition on the basis of ideal balls (namely, recognizable
+Boolean inclusions) is needed to prove the existence of a universal uniform
+test.
+
+In this article, working in computable metric spaces with any probability mea-
+sure, we consider both uniform and non-uniform tests and prove the following
+points:
+
+• uniformity and non-uniformity do not essentially differ,
+• the existence of a universal test is assured without any further condition.
+
+Another issue addressed in [5] is the characterization of randomness in terms of
+Kolmogorov Complexity (a central result in Cantor Space). There, this char-
+acterization is proved to hold (for a compact computable metric space X with
+a computable measure) under the assumption that there exists a computable
+injective encoding of a full-measure subset of X into binary sequences. In the
+real line for example, the base-two numeral system (or binary expansion) con-
+stitutes such encoding for the Lebesgue measure. This fact was already been
+(implicitly) used in the definition of random reals (reals with a random binary
+expansion, w.r.t the uniform measure).
+
+We introduce, for computable metric spaces with a computable measure, a
+notion of binary representation generalizing the base-two numeral system of
+
+
+                                       2
+the reals, and prove that:
+
+
+
+• such a binary representation always exists,
+• a point is random if and only if it has a unique binary expansion, which is
+  random.
+
+
+
+Moreover, our notion of binary representation allows to identify any com-
+putable probability space with the Cantor space (in a computable-measure-
+theoretic sense). It provides a tool to directly transfer elements of algorith-
+mic randomness theory from the Cantor space to any computable probabil-
+ity space. In particular, the characterization of randomness in terms of Kol-
+mogorov complexity, even in a non-compact space, is a direct consequence of
+this.
+
+
+
+The way we handle computability on continuous spaces is largely inspired
+by representation theory. However, the main goal of that theory is to study,
+in general topological spaces, the way computability notions depend on the
+chosen representation. Since we focus only on Computable Metric Spaces (see
+[8] for instance) and Enumerative Lattices (introduced in setion 2.2) we shall
+consider only one canonical representation for each set, so we do not use
+representation theory in its general setting.
+
+
+
+Our study of measures and randomness, although restricted to computable
+metric spaces, involves computability notions on various sets which do not
+have natural metric structures. Fortunately, all these sets become enumerative
+lattices in a very natural way and the canonical representation provides in each
+case the right computability notions.
+
+
+
+In section 2, we develop a language intended to express computability con-
+cepts, statements and proofs in a rigorous but still (we hope) transparent way.
+The structure of computable metric space is then recalled. In section 3, we
+introduce the notion of enumerative lattices and present two important ex-
+amples to be used in the paper. Section 4 is devoted to the detailed study of
+computability on the set of probability measures. In section 5 we define the
+notion of binary representation on any computable metric space with a com-
+putable measure and show how to construct such a representation. In section
+6 we apply all this machinery to algorithmic randomness.
+
+
+                                       3
+2   Basic definitions
+
+
+2.1 Recursive functions.
+
+
+The starting point of recursion theory was the mathematization of the intu-
+itive notion of function computable by an effective procedure or algorithm. The
+different systems and computation models formalizing mechanical procedures
+on natural numbers or symbols have turned out to coincide, and therefore have
+given rise to a robust mathematical notion which grasps (this is Church-Turing
+thesis) what means for a (partial) function ϕ : N → N to be algorithmic, and
+which can be made precise using any one of the numerous formalisms pro-
+posed. Following the usual denomination, we call such a function a (partial)
+recursive function. To show that a function ϕ : N → N is recursive, we will
+exhibit an algorithm A which on input n halts and outputs ϕ(n) when it is
+defined, runs forever otherwise.
+
+In the same vein, a robust notion of (partial) recursive function F : NN → NN
+can be characterized by different formal definitions:
+
+Via domain theory (see [9]). This approach takes the notion of recursive
+ function as primitive, which avoids the definition of a new computation
+ model. A partial function F : NN → NN is recursive if there is a recursive
+ function F ′ : N∗ → N∗ which is monotone for the prefix ordering, such that
+ for all σ ∈ dom(F ), F (σ) is the infinite sequence obtained at the limit by
+ computing F ′ on the finite prefixes of σ (precisely, the Baire space can be
+ embedded into the set of finite and infinite sequences of integers ordered by
+ the prefix relation, which is an ω-algebraic domain).
+Via oracle Turing machines (used by Ko and Friedman, see [10], [11]).
+ An oracle Turing machine M[σ] is a Turing machine which works with a
+ sequence σ ∈ NN provided as oracle and is allowed to read elements σn of
+ the oracle sequence. On an input n ∈ N, it may stop and output a natural
+ number, interpreted as F (σ)n .
+Via type-two Turing machines (defined by Weihrauch, see [12]). Expressed
+ differently, it is essentially the same computation model (it works on sym-
+ bols instead of integers).
+
+Again, to show that a function F : NN → NN is recursive, we will exhibit an
+algorithm A which given σ ∈ NN as oracle and n as input, halts and outputs
+F (σ)n . The algorithm together with σ in the oracle is denoted A[σ] .
+
+A sequence σ ∈ NN is recursive if the function n 7→ σn is recursive. Given
+a family (σi )i∈N of recursive sequences, σi is recursive uniformly in i if
+the function hi, ni 7→ σi,n is recursive, where h, i denotes some computable
+bijection between tuples and natural numbers.
+
+
+                                      4
+2.2 Representations and constructivity
+
+
+A representation on a set X is a surjective (partial) function ρ : NN → X. Let
+X and Y be sets with fixed representations ρX and ρY .
+
+Definition 2.2.1 (Constructivity notions)
+
+(1) An element x ∈ X is constructive if there is a recursive sequence σ
+    such that ρX (σ) = x.
+(2) The elements of a sequence (xi )i∈N are uniformly constructive if there
+    is a family (σi )i of uniformly recursive sequences such that ρX (σi ) = xi
+    for all i.
+(3) A function f :⊆ X → Y is constructive on D ⊆ X if there exists a re-
+    cursive function F : NN → NN such that the following diagram commutes
+    on ρ−1
+         X (D):
+
+                     F
+               NN −→ NN
+              ρX ↓       ↓ ρY     (that is, f ◦ ρX = ρY ◦ F on ρ−1
+                                                                X (D))
+                     f
+                X −→ Y
+
+We say that y is x-constructive if there is a function f :⊆ X → Y con-
+structive on {x} with f (x) = y. If x is constructive, x-constructivity and
+constructivity are equivalent. Note that two sequences of natural numbers can
+be merged into a single one, so the product X × Y of two represented sets
+has a canonical representation. In particular, it makes sense to speak about
+(x, y)-constructive elements.
+
+
+2.3 Objects
+
+
+There is a canonical way of defining a representation on a set X when 1) some
+collection of elementary objects of X can be encoded into natural numbers
+and 2) an element of X can be described by a sequence of these elementary
+objects. Once encoded into natural numbers, the elementary objects inherit
+their finite character and may be output by algorithms. Let us make it precise:
+
+Definition 2.3.1 A numbered set O is a countable set together with a total
+surjection νO : N → O called the numbering. We write on for ν(n).
+
+A numbered set O and a (partial) surjection δ : ON → X induce canonically
+a representation ρ = δ ◦ νO . At least in this paper, all representations will be
+obtained in this way. A sequence of finite objects which is mapped by δ to x
+is called a description of x.
+
+
+                                       5
+An algorithm may then be seen as outputting objects:
+
+Given a numbered set O, we say that an algorithm (plain or with oracle)
+enumerates a sequence of objects (oni )i∈N if on input i it outputs ni . Given
+a representation (O, δ) on a set X, an algorithm enumerating a description of
+x ∈ X is said to describe x.
+
+An algorithm may also take objects as inputs, with a restriction:
+
+Definition 2.3.2 An algorithm A is said to be extensional on an element
+x ∈ X if for all σ such that ρX (σ) = x, A[σ] describes the same element y ∈ Y .
+
+We then say that A x-describes y or that A[x] describes y.
+
+The constructivity notions of definition 2.2.1 can then be expressed using this
+language, which will be used throughout this paper.
+
+(1) An element x ∈ X is constructive if there is an algorithm describing x,
+(2) The elements of a sequence (xi )i∈N are uniformly constructive if there is
+    an algorithm A such that A(hi, .i) describes xi ,
+(3) A function f :⊆ X → Y is constructive on D ⊆ X if there exists an
+    algorithm which x-describes f (x) for all x ∈ D.
+
+A x-constructive element y may be x-described by an algorithm which is
+extensional only on x, and thus induce a function which is defined only at x.
+
+
+2.4 Computable Metric Spaces
+
+
+Definition 2.4.1 A computable metric space is a triple X = (X, d, S),
+where:
+
+• (X, d) is a separable complete metric space (polish metric space),
+
+• S = {si : i ∈ N} is a countable dense subset of X,
+
+• The real numbers d(si , sj ) are all computable, uniformly in hi, ji.
+
+The elements of S are called the ideal points. The numbering νS defined
+by νS (i) := si makes S a numbered set. Without loss of generality, νS can
+be supposed to be injective: as d(si , sj ) > 0 can be semi-decided, νS can be
+effectively transformed into an injective numbering. Then a sequence of ideal
+points can be uniquely identified with the sequence of their names.
+
+The numbered sets S and Q>0 induce the numbered set of ideal balls B :=
+{B(si , qj ) : si ∈ S, qj ∈ Q>0 }, the numbering being νB (hi, ji) := B(si , qj ).
+
+
+                                       6
+We write Bhi,ji for νB (hi, ji). The closed ball {x ∈ X : d(s, x) ≤ r} is de-
+noted B(s, q) and may not coincide with the closure of the open ball B(s, q)
+(typically, if the space has disconnection).
+
+We now recall some important examples of computable metric spaces:
+
+examples:
+                                                                            ′
+(1) (ΣN , d, S) where Σ is a finite alphabet, d(ω, ω ′) := 2− min{n∈N:ωn 6=ωn } and
+    S := {w000 . . . : w ∈ Σ∗ } where Σ∗ is the set of finite words on Σ and 0
+    is some fixed symbol from Σ,
+(2) (Rn , dRn , Qn ) with the euclidean metric and the standard numbering of
+    Qn ,
+(3) The product (X × Y, d, SX × SY ) of two computable metric spaces has
+    a canonical computable metric space structure, with d((x, y), (x′, y ′)) =
+    max{dX (x, x′ ), dY (y, y ′)}.
+
+For further examples, like functions spaces C[0, 1] and Lp for computable p ≥ 1
+we refer to [Weihrauch]. A sequence (xn )n∈N of points is said to be a fast
+Cauchy sequence, or simply a fast sequence if d(xn , xn+1 ) < 2−n for all n.
+
+Definition 2.4.2 On a computable metric space (X, d, S), the canonical rep-
+resentation is the Cauchy representation (S, δC ) defined by δC (−
+                                                                 →
+                                                                 s ) = x for all
+              →
+              −
+fast sequence s of ideal points converging to x.
+
+Again, each set X with a computable metric structure (X, d, S) will be implic-
+itly represented using the Cauchy representation. Then canonical constructiv-
+ity notions derive directly from definition 2.2.1. It is usual to call a construc-
+tive element of X a computable point, and a constructive function between
+computable metric space, a computable function. Remark that the com-
+putable real numbers are the computable points of the computable metric
+space (R, d, Q).
+
+The choice of this representation is justified by the classical result: every com-
+putable function between computable metric spaces is continuous (on its do-
+main of computability).
+
+Proposition 2.4.1 The distance d : X × X → R is a computable function.
+
+Proposition 2.4.2 For a point x ∈ X, the following statements are equiva-
+lent:
+
+• x is a computable point,
+
+• all d(x, si ) are upper semi-computable uniformly in i,
+
+• dx := d(x, .) : X → R is a computable function.
+
+
+                                        7
+Several metrics and effectivisations of a single set are possible, and induce
+in general different computability notions: two computable metric structures
+(s, S) and (d′ , S ′ ) are said to be effectively equivalent if id : (X, d, S) →
+(X, d′ , S ′ ) is a computable homeomorphism (with computable inverse). In this
+case, all computability notions are preserved replacing one structure by the
+other (see [8] for details).
+
+
+
+3   Enumerative Lattices
+
+
+3.1 Definition
+
+
+We introduce a simple structure using basic order theory, on which a natural
+representation can be defined. The underlying ideas are those from domain
+theory, but the framework is lighter and (hence) less powerful. Actually, it is
+sufficient for the main purpose: proposition 3.1.1. This will be applied in the
+last section on randomness.
+
+Definition 3.1.1 An enumerative lattice is a triple (X, ≤, P) where (X, ≤
+) is a complete lattice and P ⊆ X is a numbered set such that every element
+x of X is the supremum of some subset of P.
+
+We then define P↓ (x) := {p ∈ P : p ≤ x} (note that x = sup P↓ (x)). Any
+element of X can be described by a sequence −→p of elements of P. Note that
+the least element ⊥ need not belong to P: it can be described by the empty
+set, of which it is the supremum.
+
+Definition 3.1.2 The canonical representation on an enumerative lattice (X, ≤
+, P) is the induced by the partial surjection δ≤ (−
+                                                  →
+                                                  p ) = sup −
+                                                            →
+                                                            p (where the se-
+        →
+        −
+quence p may be empty).
+
+From here and beyond, each set X endowed with an enumerative structure
+(X, ≤, P) will be implicitly represented using the canonical representation.
+Hence, canonical constructivity notions derive directly from definition 2.2.1.
+Let us focus on an example: the identity function from X to X is computed
+by an algorithm outputting exactly what is provided by the oracle. Hence,
+when the oracle is empty, which describes ⊥, the algorithm runs forever and
+outputs nothing, which is a description of ⊥.
+
+examples:
+
+(1) (R, ≤, Q) with R = R ∪ {−∞, +∞}: the constructive elements are the
+    so-called lower semi-computable real numbers,
+
+
+                                       8
+(2) (2N , ⊆, {finite sets}): the constructive elements are the r.e sets from clas-
+    sical recursion theory,
+(3) ({⊥, ⊤}, ≤, {⊤}) with ⊥ < ⊤.
+
+We recall that a real number x is computable if both x and −x are lower
+semi-computable.
+
+Here is the main interest of enumerative lattices:
+
+Proposition 3.1.1 Let (X, ≤, P) be an enumerative lattice. There is an enu-
+meration (xi )i∈N of all the constructive elements of X such that xi is construc-
+tive uniformly in i.
+
+proof: there is an enumeration ϕ of the r.e subsets of N: for every r.e subset
+E of N, there is some i such that E = Ei := {ϕ(hi, ni) : n ∈ N}. Moreover, we
+can take ϕ such that whenever Ei 6= ∅ the function ϕ(hi, .i) : N → N is total
+(this is a classical construction from recursion theory, see [13]). Then consider
+the associated algorithm Aϕ = νP ◦ ϕ: for every constructive element x there
+is some i such that Aϕ (hi, .i) : N → P enumerates x (∅ is an enumeration of
+⊥).                                                                            
+
+Remark 3.1.1 Observe that on every enumerative lattice the Scott topology
+can be defined: a Scott open set O is an upper subset (x ∈ O, x ≤ y ⇒ y ∈ O)
+such that for each sequence −     →p = (pni )i∈N such that sup −
+                                                               →
+                                                               p ∈ O, there is some
+k such that sup{pn0 , . . . , pnk } ∈ O.
+
+If Y and Z have enumerative lattice structures, a function f : Y → Z is
+said to be Scott-continuous if it is monotonic and commutes with suprema of
+increasing sequences (one can prove that f is Scott-continuous if and only if
+it is continuous for the Scott topologies on Y and Z) and is easy to see that
+a Scott-continuous function f : Y → Z such that all f (sup{pn1 , . . . , pnk }) are
+constructive uniformly in hn1 , . . . , nk i, is in fact a constructive function.
+
+
+3.2 Functions from a computable metric space to an enumerative lattice
+
+
+Given a computable metric space (X, d, S) and an enumerative space (Y, ≤, P),
+we define the numbered set F of step functions from X to Y :
+                                       
+                                        pj
+                                       
+                                              if x ∈ Bi
+                           fhi,ji (x) = 
+                                       ⊥     otherwise
+
+
+We then define C(X, Y ) as the closure of F under pointwise suprema, with
+the pointwise ordering ⊑. We have directly:
+
+
+                                        9
+Proposition 3.2.1 (C(X, Y ), ⊑, F ) is an enumerative lattice.
+                       +
+example: the set R = [0, +∞) ∪ {+∞} has an enumerative lattice structure
+  +                                                       +
+(R , ≤, Q+ ), which induces the enumerative lattice C(X, R ) of positive lower
+                                        +
+semi-continuous functions from X to R . Its constructive elements are the
+positive lower semi-computable functions.
+
+
+We now show that the constructive elements of C(X, Y ) are exactly the con-
+structive functions from X to Y .
+
+To each algorithm A we associate a constructive element of C(X, Y ), enumerat-
+ing a sequence of step functions: enumerate all hn, i0 , . . . , ik i with d(sij , sij+1 ) <
+2−(j+1) for all j < k (prefix of a super-fast sequence). Keep only those for which
+the computation of A[i0 ,...,ik ,0,0,...] (n) halts without trying to read beyond ik .
+For each one, the latter computation outputs some element pl : then output
+the step function fhi,li where Bi = B(sik , 2−k ). We denote by fA the supremum
+of the enumerated sequence of step functions.
+
+Lemma 3.2.1 For all x on which A is extensional, fA (x) is the element of
+Y described by A[x] .
+
+proof: let y be the element described by A[x] .
+
+For all hn, i0 , . . . , ik i for which some fhi,ji is enumerated with x ∈ Bi , there is a
+fast sequence −   →                                                                −
+                                                                                   →
+                   s converging to x starting with si0 , . . . , sik , for which A[ s ] (n) =
+pj . Then y ≥ pj = fhi,ji (x). Hence y ≥ fA (x).
+
+There is a super-fast sequence −→                               −
+                                                                →
+                                s converging to x: for all n, A[ s ] (n) stops
+and outputs some pjn , so there is some in with x ∈ Bin such that fhin ,jni is
+enumerated. Hence, y = supn pjn = sup fhin ,jn i (x) ≤ fA (x).              
+
+Proposition 3.2.2 The constructive elements of C(X, Y ) are exactly the (to-
+tal) constructive functions from X to Y .
+
+proof: the supremum of a r.e subset E of F is a total constructive function:
+semi-decide in dovetail x ∈ Bi for all fhi,ji ∈ E, and enumerate pj each time a
+test stops.
+
+Given a total constructive function f , there is an algorithm A which on each
+x ∈ X is extensional and describes f (x), so f = fA .                      
+
+The proof even shows that the equivalence is constructive: the evaluation of
+any f : X → Y on any x ∈ X can be achieved by an algorithm having access
+to any description of f ∈ C(X, Y ), and any algorithm evaluating f can be
+converted into an algorithm describing f ∈ C(X, Y ). More precisely:
+
+
+                                            10
+Proposition 3.2.3 Let X, X ′ be computable metric spaces and Y be an enu-
+merative lattice:
+
+Evaluation: The function Eval : C(X, Y ) × X → Y is constructive,
+
+Curryfication: If a function f : X ′ ×X → Y is constructive then the function
+from X ′ to C(X, Y ) mapping x′ ∈ X ′ to f (x′ , .) is constructive.
+
+Lemma 3.2.1 and proposition 3.2.2 implie:
+
+Corollary 3.2.1 The x-constructive elements of Y are exactly the images of
+x by total constructive functions from X to Y .
+
+This is a particular property of the enumerative lattice structure: a partial con-
+structive function from some represented space to another cannot in general
+be extended to a total constructive one.
+
+
+3.3 The Open Subsets of a computable metric space
+
+
+Following [14], [15], we define constructivity notions on the open subsets of
+a computable metric space. The topology τ induced by the metric has the
+numbered set B of ideal balls as a countable basis: any open set can then be
+described as a countable union of ideal balls. Actually (τ, ⊆, B) is an enumer-
+ative space (cf section 3), the supremum operator being union. The canonical
+representation on enumerative lattices (definition 3.1.2) induces constructivity
+notions on τ , a constructive open set being called a recursively enumerable
+(r.e) open set.
+
+On the integers, it may be unnatural to show that some subset is recursively
+enumerable, and the equivalent notion of semi-decidable set is often used.
+This notion can be extended to subsets of a computable metric space, and it
+happens to be very useful in the applications. We recall from section 3 that
+{⊥, ⊤} is an enumerative lattice, which induces canonically the enumerative
+lattice C(X, {⊥, ⊤}).
+
+Definition 3.3.1 A subset A of X is said to be semi-decidable if its indi-
+cator function 1A : X → {⊥, ⊤} (mapping x ∈ A to ⊤ and x ∈ / A to ⊥) is
+constructive.
+
+In other words, A is semi-decidable if there is a recursive function ϕ such that
+for all x ∈ X and all description −
+                                  →          −
+                                             →
+                                  s of x, ϕ[ s ] stops if and only if x ∈ A. It is
+a well-known result (see [15]) that the two notions are effectively equivalent:
+
+Proposition 3.3.1 A subset of X is semi-decidable if and only if it is a r.e
+
+
+                                       11
+open set. Moreover, the enumerative lattices (τ, ⊆, B) and C(X, {⊥, ⊤}) are
+constructively isomorphic.
+
+The isomorphism is the function U 7→ 1U and its inverse f 7→ f −1 (⊤). In
+other words, f −1 (⊤) is f -r.e uniformly in f and 1U is U-lower semi-computable
+uniformly in U. It implies in particular that:
+
+Corollary 3.3.1 The intersection (U, V ) 7→ U ∩V and union (U, V ) 7→ U ∪V
+are constructive functions from τ × τ to τ .
+
+For computable functions between computable metric spaces, we have the
+following useful characterization:
+
+Proposition 3.3.2 Let (X, dX , SX ) and (Y, dY , SY ) be computable metric spaces.
+A function f : X → Y is computable on D ⊆ X if and only if the preim-
+ages of ideal balls are uniformly r.e open (in D) sets. That is, for all i,
+f −1 (Bi ) = Ui ∩ D where Ui is a r.e open set uniformly in i.
+
+We will use the following notion:
+
+Definition 3.3.2 A Π02 -set is a set of the form     n Un where (Un )n is a se-
+                                                   T
+
+quence of uniformly r.e open sets.
+
+
+
+4   Computing with probability measures
+
+
+4.1 Measures as points of the computable metric space M(X)
+
+
+Here, following [5], we define computable measures in the following way: first
+the space M(X) is endowed with a computable metric space structure com-
+patible with the weak topology and then computable measures are defined as
+the constructive points.
+
+Given a metric space (X, d), the set M(X) of Borel probability measures over
+X can be endowed with the weak topology, which is the finest topology for
+which µn → µ if and only if f dµn → f dµ for all continuous bounded
+                                R        R
+
+function f : X → R. This topology is metrizable and when X is separable
+and complete, M(X) is also separable and complete (see [16]). Moreover, a
+computable metric structure on X induces in a canonical way a computable
+metric structure on M(X).
+
+Let D ⊂ M(X) be the set of those probability measures that are concen-
+trated in finitely many points of S and assign rational values to them. It
+can be shown that this is a dense subset ([16]). The numberings νS of ideal
+
+
+                                      12
+points of X and νQ of the rationals numbers induce a numbering νD of ideal
+measures: µhhn1 ,...,nk i,hm1 ,...,mk ii is the measure concentrated over the finite set
+{sn1 , . . . , snk } where qmi is the weight of sni .
+
+
+4.1.1 The Prokhorov metric
+
+Let us consider the particular metric on M(X):
+
+Definition 4.1.1 The Prokhorov metric ρ on M(X) is defined by:
+
+       ρ(µ, ν) := inf{ǫ ∈ R+ : µ(A) ≤ ν(Aǫ ) + ǫ for every Borel set A}.             (1)
+
+where Aǫ = {x : d(x, A) < ǫ}.
+
+It is known that it is indeed a metric, which induces the weak topology on
+M(X) (see [16]). Moreover, we have that:
+
+Proposition 4.1.1 (M(X), D, ρ) is a computable metric space.
+
+proof: We have to show that the real numbers ρ(µi , µj ) are all computable,
+uniformly in hi, ji. First observe that if U is a r.e open subset of X, µi (U) is
+lower semi-computable uniformly in i and U. Indeed, if (sn1 , qm1 ), . . . , (snk , qmk )
+are the mass points of µi together with their weights (recoverable from i)
+then µi (U) = snj ∈U qmj . As the snj which belong to U can be enumerated
+                  P
+
+from any description of U, this sum is lower-semi-computable. In particular,
+µi (Bi1 ∪ . . . ∪ Bik ) is lower semi-computable and µi (B i1 ∪ . . . ∪ B ik ) is upper
+semi-computable, both of them uniformly in hi, i1 , . . . , ik i
+
+Now we prove that ρ(µi , µj ) is computable uniformly in hi, ji.
+
+Observe that if µi is an ideal measure concentrated over Si , then (1) becomes
+ρ(µi , µj ) = inf{ǫ ∈ Q : ∀A ⊂ Si , µi (A) < µj (Aǫ ) + ǫ}. Since µj is also an ideal
+measure and Aǫ is a finite union of open ideal balls, the number µj (Aǫ ) is lower
+semi-computable (uniformly) and then ρ(µi , µj ) is upper semi-computable,
+uniformly in hi, ji. To see that ρ(µi , µj ) is lower-semicomputable, uniformly
+in hi, ji, observe that ρ(µi , µj ) = sup{ǫ ∈ Q : ∃A ⊂ Si , µi (A) > µj (Aǫ ) + ǫ},
+where Aǫ = {x : d(x, A) ≤ ǫ} (a finite union of closed ideal balls when A ⊂ Si )
+and use the upper semi-computability of µj (Aǫ ).                                  
+
+Definition 4.1.2 A measure µ is computable if it is a constructive point
+of (M(X), D, ρ).
+
+The effectivization of the space of Borel probability measures M(X) is of
+theoretical interest, and opens the question: what kind of information can be
+(algorithmically) recovered from a description of a measure as a point of the
+computable metric space M(X) ? The two most current uses of a measure are
+
+
+                                          13
+to give weights to measurable sets and means to measurable functions. Can
+these quantities be computed ?
+
+
+4.1.2 The Wasserstein metric
+
+In the particular case when the metric space X is bounded, an alternative
+metric can be defined on M(X). When f is a real-valued function, µf denotes
+  f dµ.
+R
+
+
+Definition 4.1.3 The Wasserstein metric on M(X) is defined by:
+
+                        W (µ, ν) =       sup       (|µf − νf |)               (2)
+                                     f ∈1−Lip(X)
+
+
+where 1 − Lip(X) is the space of 1-Lipschitz functions from X to R.
+
+We recall (see [17]) that W has the following properties:
+
+Proposition 4.1.2
+
+(1) W is a distance and if X is separable and complete then M(X) with this
+    distance is a separable and complete metric space.
+(2) The topology induced by W is the weak topology and thus W is equivalent
+    to the Prokhorov metric.
+
+Moreover, if (X, S, d) is a computable metric space (and X bounded), then:
+
+Proposition 4.1.3 (M(X), D, W ) is a computable metric space.
+
+proof: We have to show that the distance W (µi , µj ) between ideal measures
+is uniformly computable. From hi, ji we can compute the set Si,j = supp(µi ) ∪
+supp(µj ). Let s0 ∈ Si,j , then we can suppose that the supremum in (2) is
+taken over 1 − Lip0s0 (X) := {f ∈ 1 − Lip(X) : 1 − Lip0s0 (X)f (s) = 0}. Given
+some precision ǫ we construct a finite set Nǫ ⊂ 1−Lip0s0 (X) made of uniformly
+computable functions such that for each f ∈ 1 −Lip0s0 (X) there is some l ∈ Nǫ
+satisfying sup{|f (x) − l(x)| : x ∈ Si,j } < ǫ: compute an integer m such that
+Si,j ⊂ B(s, m); then |f | < m for every f ∈ 1 − Lip0s (X). Let n be such that
+m/n < 2ǫ. For each s ∈ Si,j and a ∈ { lm      }m
+                                            n l=−m
+                                                    let us consider the functions
+               +                            −
+defined by φs,l (x) := a + d(s, x) and φs,l (x) := a − d(s, x). Then it is not
+difficult to see that Nǫ defined as the set of all possible combinations of max
+and min made with the φ+−  s,l (x) satisfy the required condition.
+
+
+Therefore, since sup(|f − g|) < ǫ implies |µ(f − g)| < ǫ we have that:
+
+            W (µi , µj ) ∈ [ sup (|µi g − µj g|), sup (|µi g − µj g|) + 2ǫ]
+                           g∈Nǫ                 g∈Nǫ
+
+
+
+                                         14
+where the µi g are computable, uniformly in i. The result follows.                
+
+When X is bounded, the effectivisation using the Prokhorov or the Wasserstein
+metrics turn out to be equivalent.
+
+Theorem 4.1.1 The Prokhorov and the Wasserstein metrics are computably
+equivalent. That is, the identity function id : (M(X), D, ρ) → (M(X), D, W )
+is a computable isomorphism, as well as its inverse.
+
+proof: Let M be an integer such that supx,y∈X d(x, y) < M. Suppose ρ(µ, ν) <
+ǫ/(M + 1). Then, by the coupling theorem [16], for every f ∈ 1 − Lip(X) it
+holds |µf − νf | ≤ ǫ, then W (µ, ν) < ǫ. Conversely, suppose W (µ, ν) < ǫ2 < 1.
+Let A be a Borel set and define gǫA := |1−d(x, A)/ǫ|+. Then ǫgǫA ∈ 1−Lip(X).
+W (µ, ν) < ǫ2 implies µǫgǫA < νǫgǫA +ǫ2 and since µ(A) ≤ µgǫA and νgǫA ≤ ν(Aǫ ),
+we conclude µ(A) ≤ ν(Aǫ ) + ǫ and then ρ(µ, ν) < ǫ. Therefore, given a fast
+sequence of ideal measures converging to µ in the Prokhorov metric, we can
+construct a fast sequence of ideal measures converging to µ in the W metric
+and vice-versa.                                                              
+
+This equivalence offers an alternative method to prove computability of mea-
+sures. It is used for example in [18] to show the computability of the physical
+measures for some classes of dynamical systems.
+
+
+4.2 Measures as valuations
+
+
+We now investigate the first problem: can the measure of sets be computed
+from the Cauchy description of a measure? Actually, the answer is positive
+for a very small part of the Borel sigma-field. It is a well-known fact that a
+Borel (probability) measure µ is characterized by the measure of open sets,
+which generate the Borel sigma-field. That is, by the valuation vµ : τ → [0, 1]
+which maps an open set to its µ-measure. The question is then so study this
+characterization from a computability viewpoint.
+
+The first result is that the measure of open sets can be lower semi-computed,
+using the Cauchy description of the measure.
+
+Proposition 4.2.1 The valuation operator v : M(X) × τ → [0, 1] mapping
+(µ, U) to µ(U) is lower semi-computable.
+
+proof: as vµ = v(µ, .) is Scott-continuous (see remark 3.1.1), it suffices to
+show that it is uniformly lower semi-computable on finite unions of balls.
+
+We first restrict to ideal measures µi : we have already seen (proof of proposi-
+tion 4.1.1) that all µi (Bi1 ∪ . . . ∪ Bik ) are lower semi-computable real numbers,
+
+
+                                        15
+uniformly in hi, i1 , . . . , ik i.
+
+Now let (µkn )n∈N a description of a measure µ, that is a fast sequence converg-
+ing to µ for the Prokhorov distance: then ρ(µkn , µ) ≤ ǫn where ǫn = 2−n+1 .
+For n ≥ 1, and U = B(si1 , qj1 ) ∪ . . . ∪ B(sik , qjk ) define:
+                                         [
+                                  Un =         B(sim , qjm − ǫn )
+                                         m≤k
+
+           ǫn
+note that Un−1 ⊆ Un and Unǫn ⊆ U. We show that µ(U) = supn (µjn (Un ) − ǫn ):
+
+• µjn (Un ) ≤ µ(U) + ǫn for all n, so µ(U) ≥ supn (µjn (Un ) − ǫn ).
+
+• µ(Un−1 ) ≤ µjn (Un ) + ǫn for all n. As Un−1 increases towards U as n → ∞,
+µ(U) = supn (µ(Un−1 ) − 2ǫn ) ≤ supn (µjn (Un ) − ǫn ).
+
+As the quantity µjn (Un ) − ǫn is lower semi-computable uniformly in n, we are
+done (observe that everything is uniform in the finite description of U).   
+
+The second result is stronger: the lower semi-computability of the measure of
+the r.e open sets even characterizes the computability of the measure.
+
+Theorem 4.2.1 Given a measure µ ∈ M(X), the following are equivalent:
+
+(1) µ is computable,
+(2) vµ : τ → [0, 1] is lower-semi-computable,
+(3) µ(Bi1 ∪ . . . ∪ Bik ) is lower-semi-computable uniformly in hi1 , . . . , ik i.
+
+proof:
+
+[1 ⇒ 2] Direct from proposition 4.2.1. [2 ⇒ 3] Trivial. [3 ⇒ 1] We show that
+ρ(µn , µ) is upper semi-computable uniformly in n, and then use proposition
+2.4.2. Since ρ(µn , µ) < ǫ iff µn (A) < µ(Aǫ ) + ǫ for all A ⊂ Sn where Sn is the
+finite support of µn , and µ(Aǫ ) is lower semi-computable (Aǫ is a finite union
+of open ideal balls) ρ(µn , µ) < ǫ is semi-decidable, uniformly in n and ǫ. This
+allows to construct a fast sequence of ideal measures converging to µ.         
+
+It means that a representation which would be “tailor-made” to make the val-
+uation constructive, describing a measure µ by the set of integers hi1 , . . . , ik , ji
+satisfying µ(Bi1 ∪ . . . ∪ Bik ) > qj , would be constructively equivalent to the
+Cauchy representation. This is the approach taken in [3] for the special case
+X = [0, 1] and in [4] on an arbitrary sequential topological space. In both case,
+the topology on M(X) induced by this representation is proved to be equiva-
+lent to the weak topology. A domain theoretical approach was also developed
+in [2] on a compact space, the Scott topology being proved to induce the weak
+topology.
+
+
+                                                16
+4.2.1 The examples of the Cantor space and the unit interval.
+
+On the Cantor space ΣN (where Σ is a finite alphabet) with its natural com-
+putable metric space structure, the ideal balls are the cylinders. As a finite
+union of cylinders can always be expressed as a disjoint (and finite) union of
+cylinders, and the complement of a cylinder is a finite union of cylinders, we
+have:
+
+Corollary 4.2.1 A measure µ ∈ M(ΣN ) is computable iff the measures of
+the cylinders are uniformly computable.
+
+On the unit real interval, ideals balls are open rational intervals. Again, a
+finite union of such intervals can always be expressed as a disjoint (and finite)
+union of open rational intervals. Then:
+
+Corollary 4.2.2 A measure µ ∈ M([0, 1]) is computable iff the measures of
+the rational open intervals are uniformly lower-semi-computable.
+
+If µ has no atoms, a rational open interval is the complement of at most
+two disjoint open rational intervals, up to a null set. In this case, µ is then
+computable iff the measures of the rational intervals are uniformly computable.
+
+
+4.3 Measures as integrals
+
+
+We now answer the second question: is the integral of functions computable
+from the description of a measure ?
+
+The computable metric space structure of X and the enumerative lattice struc-
+          +                                                             +
+ture of R induce in a canonical way the enumerative space C(X, R ) (see
+section 3.2), which is actually the set of lower semi-continuous functions from
+        +
+X to R . We have:
+                                                                                             +   +
+Proposition 4.3.1 The integral operator                        : M(X) × C(X, R ) → R                 is
+                                                           R
+
+lower semi-computable.
+
+proof: the integral of a finite supremum of step functions can be expressed
+by induction on the number of functions: first, fhi,ji dµ = qj µ(Bi ) and
+                                               R
+
+
+    Z
+        sup{fhi1 ,j1i , . . . , fhik ,jk i }dµ = qjm µ(Bi1 ∪ . . . ∪ Bik ) +
+                                             Z
+                                                 sup{fhi1 ,j1′ i , . . . , fhik ,jk′ i }dµ
+
+where qjm is minimal among {qj1 , . . . , qjk } and qj1′ = qj1 − qjm , qj2′ = qj2 −
+qjm , etc. Note that fhim ,jm
+                            ′ i being the zero function can be removed.
+
+
+
+
+                                                 17
+Now, m can be computed and by proposition 4.2.1 the measure of finite unions
+of ideal balls can be uniformly µ-lower semi-computed, so the integral above
+can be uniformlyR µ-lower semi-computed. For any fixed measure µ, the in-
+                               +        +
+tegral operator dµ : C(X, R ) → R is Scott-continuous, so it is lower
+semi-computable.                                                          
+
+Again, the lower semi-computability of the integral of lower semi-computable
+functions characterizes the computability of the measure:
+
+Corollary 4.3.1 Given a measure µ ∈ M(X), the following are equivalent:
+
+(1) µ is computable,
+                    +        +
+(2) R dµ : C(X, R ) → R is lower semi-computable,
+    R
+
+(3) sup{fi1 , . . . , fik }dµ is lower-semi-computable uniformly in hi1 , . . . , ik i.
+
+proof:
+
+[2 ⇔ 3] holds by Scott-continuity of the operator,
+
+[1 ⇒ 2] is a direct consequence of proposition 4.3.1,
+
+[2 ⇒ 1] is a direct consequence of theorem 4.2.1, composing the integral opera-
+                                        +
+tor with the function from τ to C(X, R ) mapping an open set to its indicator
+function (which is computable, see proposition 3.3.1).                       
+
+It means that a representation of measures which would be “tailor-made” to
+make the integration constructive,          describing a measure by the set of integers
+hi1 , . . . , ik , ji satisfying sup{fi1 , . . . , fik }dµ > qj , would be constructively
+                                R
+
+equivalent to the Cauchy representation.
+
+A corollary of proposition 4.3.1 will be used in the last section: let (fi )i be
+a sequence of uniformly computable functions, i.e. such that the function
+(i, x) 7→ fi (x) is computable. If moreover fi R has a bound Mi computable
+uniformly in i, then the function (µ, i) → fi dµ is computable. Indeed,
+fi +  Mi (resp.  Mi − fi ) is uniformly lower (resp. upper) semi-computable,
+so fi dµ = (fi + Mi )dµ − Mi = Mi − (Mi − fi )dµ and proposition 4.3.1
+    R         R                           R
+
+allow to conclude.
+
+
+
+5   Computable Probability Spaces
+
+
+The representation induced by the binary numeral system of real numbers is
+generally presented as not adequate for computability purposes since simple
+functions as x 7→ 3x are not computable with respect to it. This lies in the
+fact that the real interval and the space of sequences are not homeomorphic.
+
+
+                                          18
+On the other hand, if we are insterested in probabilistic issues, the binary
+representation is actually suitable, and may even be preferred: almost every
+real has a unique binary expansion.
+
+More generally, computability notions from computable analysis are effec-
+tive versions of topological ones (semi-decidable sets are open, computable
+functions are continuous, etc). What about effective versions of measure-
+theoretical/probabilistic notions?
+
+In this section we study a computable version of probability spaces, that is,
+metric spaces equipped with a fixed computable Borel probability measure.
+This will give us a framework allowing to talk about almost everywhere com-
+putability or decidability notions. Let us then introduce:
+
+Definition 5.0.1 A computable probability space is a pair (X , µ) where
+X is a computable metric space and µ a computable Borel probability measure
+on X.
+
+Definition 5.0.2 A morphism of computable probability spaces F :
+(X , µ) → (Y, ν), is a computable measure-preserving function F : DF ⊆ X →
+Y where DF is a (full-measure) Π02 -set.
+
+An isomorphism (F, G) : (X , µ) ⇄ (Y, ν) is a pair (F, G) of morphisms
+such that G ◦ F = id on F −1 (DG ) and F ◦ G = id on G−1 (DF ).
+
+We recall that F is measure-preserving if ν(A) = µ(F −1(A)) for all Borel set
+A.
+
+
+
+5.1 Generalized binary representations
+
+
+The Cantor space 2ω (2 denotes {0, 1}) is a privileged place for computability.
+This can be understood by the fact that it is the countable product (with the
+product topology) of a finite space (with the discrete topology). A consequence
+of this is that membership of a basic open set (cylinder) boils down to a
+pattern-matching and is then decidable. As decidable sets must be clopen, this
+property cannot hold in connected spaces. As a result, a computable metric
+space is not in general constructively homeomorphic to the Cantor space.
+
+Nevertheless, the real unit interval [0, 1] is not so far away from the Cantor
+space. The binary numeral system provides a correspondence between real
+numbers and binary sequences, which is certainly not homeomorphic, unless
+we remove the small set of dyadic numbers. In particular, the remaining set
+is totally disconnected, and the dyadic intervals form a basis of clopen sets.
+
+
+                                     19
+Actually, this correspondence makes the computable probability space [0, 1]
+with the Lebesgue measure isomorphic to the Cantor space with the uniform
+measure. This fact has been implicitly used, for instance, to extend algorithmic
+randomness from the Cantor space with the uniform measure to the unit
+interval with the Lebesgue measure.
+
+We generalize this to any computable probability space, over which we define
+the notion of binary representation. We show that every computable probabil-
+ity space has a binary representation. This implies, in particular, that every
+computable probability space is isomorphic to the Cantor space with a com-
+putable measure. To carry out this generalization, let us briefly scrutinize the
+binary numeral system on the unit interval:
+
+δ : 2ω → [0, 1] is a total surjective morphism. Every non-dyadic real has a
+unique expansion, and the inverse of δ, defined on the set D of non-dyadic num-
+bers, is computable. Moreover, D is large both in a topological and measure-
+theoretical sense: it is a residual (a countable intersection of dense open sets)
+and has measure one. (δ, δ −1 ) is then an isomorphism.
+
+In our generalization, we do not require every binary sequence to be the ex-
+pansion of a point, which would force X to be compact.
+
+Definition 5.1.1 A binary representation of a computable probability space
+(X , µ) is a pair (δ, µδ ) where µδ is a computable probability measure on 2ω and
+δ : (2ω , µδ ) → (X , µ) is a surjective morphism such that, calling δ −1 (x) the set
+of expansions of x ∈ X:
+
+• there is a dense full-measure Π02 -set D of points having a unique expansion,
+
+• δ −1 : D → δ −1 (D) is computable.
+
+Remark that when the support of the measure (the smallest closed set of full
+measure) is the whole space X, like the Lebesgue measure on the interval,
+a full-measure Π02 -set is always a residual, but in general it is only dense on
+the support of the measure: that is the reason why we explicitly require D to
+be dense. Also remark that a binary representation δ always induces an iso-
+morphism (δ, δ −1 ) between the Cantor space and the computable probability
+space.
+
+The sequel of this section is devoted to the proof of the following result:
+
+Theorem 5.1.1 Every computable probability space (X , µ) has a binary rep-
+resentation.
+
+The space, restricted to the domain D of the isomorphism, is then totally
+disconnected: the preimages of the cylinders form a basis of clopen and even
+
+
+                                        20
+decidable sets. In the whole space, they are not decidable any more. Instead,
+they are almost decidable.
+
+Definition 5.1.2 A set A is said to be almost decidable if there are two
+r.e open sets U and V such that:
+
+          U ⊂ A,     V ⊆ AC ,     U ∪ V is dense and has measure one
+
+Definition 5.1.3 A measurable set A is said to be µ-continuous or a µ-
+continuity set if µ(∂A) = 0 where ∂A = A ∩ X \ A is the boundary of A.
+
+Remark that, as for subsets of N, a set is almost decidable if and only if its
+complement is a.s. decidable. An almost decidable set is always a continuity
+set. Let B(s, r) be a µ-continuous ball with computable radius: in general it is
+not an almost decidable set (for instance, isolated points may be at distance
+exactly r from s). But if there is no ideal point is at distance r from s, then
+B(s, r) is almost decidable: take U = B(s, r) and V = X \ B(s, r).
+
+We say that the elements of a sequence (Ai )i∈N are uniformly a.s. decidable if
+there are two sequences (Ui )i∈N and (Vi )i∈N of uniformly r.e sets satisfying the
+conditions above.
+
+Lemma 5.1.1 There is a sequence (rn )n∈N of uniformly computable reals such
+that (B(si , rn ))hi,ni is a basis of uniformly almost decidable balls.
+
+proof: define Uhi,ki = {r ∈ R+ : µ(B(si , r)) < µ(B(si , r)) + 1/k}: by com-
+putability of µ, this is a r.e open subset of R+ , uniformly in hi, ki. It is further-
+more dense in R+ : the spheres Sr = B(si , r) \ B(si , r) form a partition of the
+space when r varies in R+ and µ is finite, so the set of r for which µ(Sr ) ≥ 1/k
+is finite.
+
+Define Vhi,ji = R+ \ {d(si , sj )}: this is a dense r.e open set, uniformly in hi, ji.
+
+Then by the computable Baire Category Theorem (see [19], [20]), the dense Π02 -
+set hi,ki Uhi,ki ∩ hi,ji Vhi,ji contains a sequence (rn )n∈N of uniformly computable
+   T              T
+
+real numbers which is dense in R+ . In other words, all rn are computable,
+uniformly in n. By construction, for any si and rn , B(si , rn ) is almost decidable.
+
+We recall that from an enumeration (In )n∈N of all the rational compact inter-
+vals of R+ , rn is constructed computing a nested shrinking sequence (Jkn )k∈N
+of rational compact intervals starting from J0n = In , and such that Jk+1
+                                                                        n
+                                                                            ⊆
+ n                           T n
+Jk ∩ Uk ∩ Vk . Then {rn } = k Jk .                                          
+
+We will denote B(si , rn ) by Bkµ where k = hi, ni. Note that different algorith-
+mic descriptions of the same µ may yield different sequences (rn )n∈N , so Bkµ
+is an abusive notation. It is understood that some algorithmic description of
+µ has been chosen and fixed. This can be done only because the measure µ
+
+
+                                         21
+is computable, which is then a crucial hypothesis. We denote X \ B(si , rn ) by
+Ckµ and define:
+
+Definition 5.1.4 For w ∈ 2∗ , the cell Γ(w) is defined by induction on |w|:
+
+
+        Γ(ǫ) = X,    Γ(w0) = Γ(w) ∩ Ciµ           and         Γ(w1) = Γ(w) ∩ Biµ
+where ǫ is the empty word and i = |w|.
+
+This an almost decidable set, uniformly in w.
+
+
+proof: (of theorem 5.1.1). We construct an encoding function b : D → 2ω , a
+decoding function δ : Dδ → X, and show that δ is a binary representation,
+with b = δ −1 .
+
+Encoding.
+
+Let D = i Biµ ∪Ciµ : this is a dense full-measure Π02 -set. Define the computable
+         T
+
+function b : D → 2ω by:
+                                      
+                                      1
+                                      
+                                               if x ∈ Biµ
+                            b(x)i =
+                                      0       if x ∈ Ciµ
+                                      
+
+
+
+Let x ∈ D: ω = b(x) is also characterized by {x} = i Γ(ω0..i−1). Let µδ be
+                                                                   T
+
+the image measure of µ by b: µδ = µ ◦ b−1 . b is then a morphism from (X, µ)
+to (2ω , µδ ).
+
+Decoding.
+
+Let Dδ be the set of binary sequences ω such that                i Γ(ω0..i−1 ) is a singleton.
+                                                               T
+
+We define the decoding function δ : Dδ → X by:
+                                      \
+                        δ(ω) = x if       Γ(ω0..i−1 ) = {x}
+                                      i
+
+
+
+ω is called an expansion of x. Remark that x ∈ Biµ ⇒ ωi = 1 and x ∈ Ciµ ⇒
+ωi = 0, which implies in particular that if x ∈ D, x has a unique expansion,
+which is b(x). Hence, b = δ −1 : δ −1 (D) → D and µδ (Dδ ) = µ(D) = 1.
+
+We now show that δ : Dδ → X is a surjective morphism. For seek of clarity,
+the center and the radius of the ball Biµ will be denoted si and ri respectively.
+Let us call i an n-witness for ω if ri < 2−(n+1) , ωi = 1 and Γ(ω0..i ) 6= ∅.
+
+• Dδ is a Π02 -set: we show that Dδ =         n {ω ∈ 2
+                                                         ω
+                                                             : ω has a n-witness}.
+                                          T
+
+
+
+                                          22
+Let ω ∈ Dδ and x = δ(ω). For each n, x ∈ B(si , ri ) for some i with ri < 2−(n+1) .
+Since x ∈ Γ(ω0..i ), we have that Γ(ω0..i ) 6= ∅ and ωi = 1 (otherwise Γ(ω0..i ) is
+disjoint of Biµ ). In other words, i is an n-witness for ω.
+
+Conversely, if ω has a n-witness in for all n, since Γ(ω0..in ) ⊆ Biµn whose
+radius tends to zero, the nested sequence (Γ(ω0..in ))n of closed cells has, by
+completeness of the space, a non-empty intersection, which is a singleton.
+
+• δ : Dδ → X is computable. For each n, find some n-witness in of ω: the
+sequence (sin )n is a fast sequence converging to δ(ω).
+
+• δ is surjective: we show that each point x ∈ X has at least one expansion.
+To do this, we construct by induction a sequence ω = ω0 ω1 . . . such that
+for all i, x ∈ Γ(ω0 . . . ωi ). Let i ≥ 0 and suppose that ω0 . . . ωi−1 (empty
+when i = 0) has been constructed. As Biµ ∪ Ciµ is open dense and Γ(ω0..i−1) is
+open, Γ(ω0..i−1) = Γ(ω0..i−1 ) ∩ (Biµ ∪ Ciµ ) which equals Γ(ω0..i−10)∪Γ(ω0..i−1 1).
+Hence, one choice for ωi ∈ {0, 1} gives x ∈ Γ(ω0..i ).
+
+By construction, x ∈ i Γ(ω0..i−1). As (Biµ )i is a basis and ωi = 1 whenever
+                        T
+
+x ∈ Biµ , ω is an expansion of x.                                         
+
+
+
+5.2 Another characterization of the computability of measures
+
+
+The existence of a basis of almost decidable sets also leads to another char-
+acterization of the computability of measures, which is reminiscent of what
+happens on the Cantor space (see corollary 4.2.1). Let us say that two bases
+(Ui )i and (Vi )i of the topology τ are constructively equivalent if both idτ :
+(τ, ⊆, U) → (τ, ⊆, V) and its inverse are constructive functions between enu-
+merative lattices.
+
+Corollary 5.2.1 A measure µ ∈ M(X) is computable if and only if there
+is a basis U = (Ui )i∈N of uniformly almost decidable open sets which is con-
+structively equivalent to B and such that all µ(Ui1 ∪ . . . ∪ Uik ) are computable
+uniformly in hi1 , . . . , ik i.
+
+proof: if µ is computable, the a.s. decidable balls Uhi,ni = B(si , rn ) are basis
+which is constructively equivalent to B: indeed, B(si , rn ) = qj <rn B(si , qj )
+                                                                  S
+
+and B(si , qj ) = rn <qj B(si , rn ), and rn is computable uniformly in n.
+                 S
+
+
+For the converse, the valuation function fµ is lower semi-computable. Indeed,
+the r.e open sets are uniformly r.e relatively to the basis U, so their mea-
+sures can be lower-semi-computed, computing the measures of finite unions of
+elements of U. Hence µ is computable by theorem 4.2.1.                     
+
+
+                                        23
+6   Algorithmic randomness
+
+
+On the Cantor space with a computable measure µ, Martin-Löf originally
+defined the notion of an individual random sequence as a sequence passing
+all µ-randomness tests. A µ-randomness test à la Martin-Löf is a sequence of
+uniformly r.e open sets (Un )n satisfying µ(Un ) ≤ 2−n . The set n Un has null
+                                                                  T
+
+measure, in an effective way: it is then called an effective null set.
+
+Equivalently, a µ-randomness test can be defined as a positive lower semi-
+computable function t : 2ω → R satisfying tdµ ≤ 1 (see [21] for instance).
+                                               R
+
+The associated effective null set is {x : t(x) = +∞} = n {x : t(x) > 2n }.
+                                                             T
+
+Actually, every effective null set can be put in this form for some t. A point
+is then called µ-random if it lies in no effective null set.
+
+Following Gács, we will use the second presentation of randomness tests which
+is more suitable to express uniformity.
+
+
+6.1 Randomness w.r.t any probability measure
+
+
+Definition 6.1.1 Given a measure µ ∈ M(X), a µ-randomness test is
+                                    +
+a µ-constructive element t of C(X, R ), such that tdµ ≤ 1. Any subset of
+                                                 R
+
+{x ∈ X : t(x) = +∞} is called a µ-effective null set.
+
+A uniform randomness test is a constructive function T from M(X) to
+      +
+C(X, R ) such that for all µ ∈ M(x), T µ dµ ≤ 1 where T µ denotes T (µ).
+                                    R
+
+
+Note that T can be also seen as a lower-semi-computable function from M(X)×
+       +
+X to R (see section 3.2).
+
+A presentation à la Martin-Löf can be directly obtained using the constructive
+                      +                                +
+functions F : C(X, R ) → τ N and G : τ N → C(X, R ) defined by: F (t)n :=
+t−1 (2n , +∞) and G((Un )n )(x) := sup{n : x ∈ i≤n Ui }. They satisfy F ◦ G =
+                                                T
+
+id : τ N → τ N and preserve the corresponding effective null sets.
+
+A uniform randomness test T induces a µ-randomness test T µ for all µ. We
+show two important results which hold on any computable metric space:
+
+• the two notions are actually equivalent (theorem 6.1.1),
+
+• there is a universal uniform randomness test (theorem 6.1.2).
+
+The second result was already obtained by Gács, but only on spaces which
+have recognizable Boolean inclusions, which is an additional computability
+
+
+                                      24
+property on the basis of ideal balls.
+                                                                      +
+By proposition 3.2.2, constructive functions from M(X) to C(X, R ) can be
+                                                                             +
+identified to constructive elements of the enumerative lattice C(M(X), C(X, R )).
+Let (Hi )i∈N be an enumeration of all its constructive elements (proposition
+3.1.1): Hi = supk fϕ(i,k) where ϕ : N2 → N is some recursive function and the
+fn are step functions.
+                                                                              +
+Lemma 6.1.1 There is a constructive function T : N × M(X) → C(X, R )
+satisfying:
+
+• for all i, Ti = T (i, .) is a uniform randomness test,
+
+• if       Hi (µ)dµ < 1 for some µ, then Ti (µ) = Hi (µ).
+       R
+
+
+proof:   To enumerate only tests, we would like to be able to semi-decide
+  supk<n fϕ(i,k) (µ)dµ < 1. But supk<n fϕ(i,k) (µ) is only lower semi-computable
+R
+
+(from µ). To overcome this problem, we use another class of basic function.
+
+Let Y be a computable metric space: for an ideal point s of Y and positive
+rationals q, r, ǫ, define the hat function:
+
+                         hq,s,r,ǫ(y) := q.[1 − [d(y, s) − r]+ /ǫ]+
+
+where [a]+ = max{0, a}. This is a continuous function whose value is q in
+B(s, r), 0 outside B(s, r+ǫ). The numberings of S and Q>0 induce a numbering
+(hn )n∈N of all the hat functions. They can be taken as an alternative to step
+                                                +
+functions in the enumerative lattice C(Y, R ): they yield the same computable
+structure. Indeed, step functions can be constructively expressed as suprema
+of such functions: fhi,ji = sup{hqj ,s,r−ǫ,ǫ : 0 < ǫ < r} where Bi = B(s, r), and
+conversely.
+
+We apply this to Y = M(X)×X endowed with the canonical computable met-
+                                                                          +
+ric structure. By Curryfication it provides functions hn ∈ C(M(X), C(X, R ))
+with which the Hi can be expressed: there is a recursive function ψ : N2 → N
+such that for all i, Hi = supk hψ(i,k) .
+
+Furthermore, hn (µ) (strictly speaking, Eval(hn , µ), see proposition 3.2.3) is
+bounded by a constant         computable from n and independent of µ. Hence, the
+integration operator : M(X) × N → [0, 1] which maps (µ, hi1 , . . . , ik i) to
+                            R
+
+  sup{hi1 (µ), . . . , hik (µ)}dµ is computable.
+R
+
+
+We are now able to define    T : T (i, µ) = sup{Hik (µ) : Hik (µ)dµ < 1} where
+                                                               R
+
+Hik = supn<k hψ(i,n) . As Hik (µ)dµ can be computed from i, k and a description
+                         R
+                                                                +
+of µ, T is a constructive function from N × M(X) to C(X, R ).                 
+
+
+                                           25
+As a consequence, every randomness test for a particular measure can be
+extended to a uniform test:
+
+Theorem 6.1.1 (Uniformity vs non-uniformity) Let µ0 be a measure. For
+every µ0 -randomness test t there is a uniform randomness test T : M(X) →
+       +
+C(X, R ) with T (µ0 ) = 12 t.
+
+proof: let µ0 be a measure and t a µ0 -randomness test: 12 t is then a µ0 -
+                                                         +
+constructive element of the enumerative lattice C(X, R ), so by lemma 3.2.1
+                                                        +
+there is a constructive element H of C(M(X), C(X, R )) such that H(µ0) =
+1
+2
+  t. There is some i such that H = Hi : Ti isR a uniform randomness test satis-
+                 1
+fying Ti (µ0 ) = 2 t because Hi (µ0 )dµ0 = 21 tdµ0 < 1.
+                            R
+                                                                             
+
+Theorem 6.1.2 (Universal uniform test) There is a universal uniform ran-
+domness test, that is a uniform test Tu such that for every uniform test T there
+is a constant cT with Tu ≥ cT T .
+
+proof: it is defined by Tu := i 2−i−1 Ti : as every Ti is a uniform randomness
+                              P
+
+test, Tu is also a uniform randomness test, and if T is a uniform impossibility
+                                                                          +
+test, then in particular 21 T isR a constructiveRelement of C(M(X), C(X, R )),
+so 21 T = Hi for some i. As Hi (µ)dµ = 21 T (µ)dµ < 1 for all µ, Ti (µ) =
+Hi (µ) = 21 T (µ) for all µ, that is Ti = 21 T . So Tu ≥ 2−i−2 T .           
+
+Definition 6.1.2 Given a measure µ, a point x ∈ X is called µ-random if
+Tuµ (x) < ∞. Equivalently, x is µ-random if it lies in no µ-effective null set.
+
+The set of µ-random points is denoted by Rµ . This is the complement of the
+maximal µ-effective null set {x ∈ X : Tuµ (x) = +∞}.
+
+
+
+6.2 Randomness on a computable probability space
+
+
+We study the particular case of a computable measure. As a morphism of
+computable probability spaces is compatible with measures and computability
+structures, it shall be compatible with algorithmic randomness. Indeed:
+
+Proposition 6.2.1 Morphisms of computable probability spaces are defined
+on random points and preserve randomness.
+
+To prove it, we shall use the following lemma:
+
+Lemma 6.2.1 In a computable probability space (X , µ), every random point
+lies in every r.e open set of full measure.
+
+
+                                     26
+proof: let U = hi,ji∈E B(si , qj ) be a r.e open set of measure one, with E a
+                    S
+
+r.e subset of N. Let F be the r.e set {hi, ki : ∃j, hi, ji ∈ E, qk < qj }. Define:
+
+                                                      VnC =
+                        [                                          [
+         Un =                     B(si , qk )   and                            B(si , qk )
+                 hi,ki∈F ∩[0,n]                               hi,ki∈F ∩[0,n]
+
+
+
+Then Un and Vn are r.e uniformly in n, Un ր U and U C = n Vn . As µ(Un )
+                                                                                T
+
+is lower semi-computable uniformly in n, a sequence (ni )i∈N can be computed
+such that µ(Uni ) > 1 − 2−i . Then µ(Vni ) < 2−i , and U C = i Vni is a µ-Martin-
+                                                            T
+
+Löf test. Therefore, every µ-random point is in U.                            
+
+proof: (of proposition 6.2.1) let F : D ⊆ X → Y be a morphism. From lemma
+6.2.1, every random point is in D which is an intersection of full-measure r.e
+open sets.
+                  +                                                                          +
+Let t : Y → R be the universal ν-test. The function t ◦ F : D → R is
+lower semi-computable. Let A be any algorithm lower semi-computing it: the
+                                                        +
+associated lower semi-computable function fA : X → R extends t ◦ F to the
+whole space   X (see lemma 3.2.1). As µ(D) R= 1, t ◦ F Rdµ is well defined and
+                                                R
+
+equals fA dµ. As F is measure-preserving, t ◦ F dµ = tdν ≤ 1. Hence fA is
+       R
+
+a µ-test. Let x ∈ X be a µ-random point: as x ∈ D, t(F (x)) = fA (x) < +∞,
+so F (x) is ν-random.                                                        
+
+Corollary 6.2.1 Let (F, G) : (X , µ) ⇄ (Y, ν) be an isomorphism of com-
+putable probability spaces. Then F|Rµ and G|Rν are total computable bijections
+between Rµ and Rν , and (F|Rµ )−1 = G|Rν .
+
+In particular:
+
+Corollary 6.2.2 Let δ be a binary representation on a computable probability
+space (X , µ). Each point having a µδ -random expansion is µ-random and each
+µ-random point has a unique expansion, which is µδ -random.
+
+This proves that algorithmic randomness over a computable probability space
+could have been defined encoding points into binary sequences using a binary
+representation: this would have led to the same notion of randomness. Using
+this principle, a notion of Kolmogorov complexity characterizing Martin-Löf
+randomness comes for free. For x ∈ D, define:
+
+                   Hn (x) = H(ω0..n−1) and Γn (x) = δ([ω0..n−1])
+
+where ω is the expansion of x and H is the prefix Kolmogorov complexity.
+
+Corollary 6.2.3 Let δ be a binary representation on a computable probability
+space (X , µ). Then x is µ-random if and only if there is c such that for all n:
+
+                                  Hn (x) ≥ − log µ(Γn (x)) − c
+
+
+                                                27
+All this allows to treat algorithmic randomness within probability theory over
+general metric spaces. In [22] for instance, it is applied to show that in ergodic
+systems over metric spaces, algorithmically random points are well-behaved:
+they are typical with respect to any ergodic endomorphism of computable
+probability space, generalizing what has been proved in [23] for the Cantor
+space.
+
+
+
+Aknowledgments
+
+
+We would like to thank Stefano Galatolo, Peter Gács and Giuseppe Longo for
+useful comments and remarks.
+
+
+References
+
+
+[1] P. Martin-Löf, The definition of random sequences, Information and Control
+    9 (6) (1966) 602–619.
+
+[2] A. Edalat, The Scott topology induces the weak topology, in: LICS ’96:
+    Proceedings of the 11th Annual IEEE Symposium on Logic in Computer
+    Science, IEEE Computer Society, Washington, DC, USA, 1996, p. 372.
+
+[3] K. Weihrauch, Computability on the probability measures on the borel sets of
+    the unit interval, Theoretical Computer Science 219 (1999) 421–437.
+
+[4] M. Schröder, Admissible representations of probability measures., Electronic
+    Notes in Theoretical Computer Science 167 (2007) 61–78.
+
+[5] P. Gács, Uniform test of algorithmic randomness over a general space,
+    Theoretical Computer Science 341 (2005) 91–137.
+
+[6] P. Hertling, K. Weihrauch, Randomness spaces, in: K. G. Larsen, S. Skyum,
+    G. Winskel (Eds.), Automata, Languages and Programming, Vol. 1443 of
+    Lecture Notes in Computer Science, Springer, Berlin, 1998, pp. 796–807, 25th
+    International Colloquium, ICALP’98, Aalborg, Denmark, July 1998.
+
+[7] P. Hertling, K. Weihrauch, Random elements in effective topological spaces with
+    measure, Information and Computation 181 (1) (2003) 32–56.
+
+[8] A. Hemmerling, Effective metric spaces and representations of the reals, Theor.
+    Comput. Sci. 284 (2) (2002) 347–372.
+
+[9] S. Abramsky, A. Jung, Domain theory, in: S. Abramsky, D. Gabbay, T. S. E.
+    Maibaum (Eds.), Handbook of Logic in Computer Science Volume 3, Oxford
+    University Press, 1994, pp. 1–168.
+    URL citeseer.ist.psu.edu/abramsky94domain.html
+
+
+                                       28
+[10] K.-I. Ko, H. Friedman, Computational complexity of real functions, Theoretical
+     Computer Science 20 (3) (1982) 323–352.
+
+[11] K.-I. Ko, Complexity Theory of Real Functions, Birkhauser Boston Inc.,
+     Cambridge, MA, USA, 1991.
+
+[12] K. Weihrauch, Computable Analysis, Springer, Berlin, 2000.
+
+[13] J. Hartley Rogers, Theory of Recursive Functions and Effective Computability,
+     MIT Press, Cambridge, MA, USA, 1987.
+
+[14] V. Brattka, K. Weihrauch, Computability on subsets of euclidean space i: Closed
+     and compact subsets, Theor. Comput. Sci. 219 (1-2) (1999) 65–93.
+
+[15] V. Brattka, G. Presser, Computability on subsets of metric spaces, Theoretical
+     Computer Science 305 (2003) 43–76.
+
+[16] P. Billingsley, Convergence of Probability Measures, John Wiley, New York,
+     1968.
+
+[17] L. Ambrosio, N. Gigli, G. Savaré, Gradient flows: in metric spaces and in the
+     space of probability measures, Birkhauser, Zürich, 2005.
+
+[18] S. Galatolo, M. Hoyrup, C. Rojas, A constructive Borel-Cantelli lemma.
+     Constructing orbits with required statistical properties, Submitted.
+     URL http://arxiv.org/abs/0709.0907
+
+[19] M. Yasugi, T. Mori, Y. Tsujii, Effective properties of sets and functions in metric
+     spaces with computability stqucture, Theoretical Computer Science 219 (1-2)
+     (1999) 467–486.
+
+[20] V. Brattka, Computable versions of Baire’s category theorem, in: MFCS:
+     Symposium on Mathematical Foundations of Computer Science, 2001.
+
+[21] V. Vovk, V. Vyugin, On the empirical validity of the bayesian method, Journal
+     of the Royal Statistical Society B 55 (1) (1993) 253–266.
+
+[22] S. Galatolo, M. Hoyrup, C. Rojas, Effective symbolic dynamics, random points,
+     statistical behavior, complexity and entropy, Submitted.
+     URL http://arxiv.org/abs/0801.0209
+
+[23] V. V. V’yugin, Effective convergence in probability and an ergodic theorem for
+     individual random sequences, SIAM Theory of Probability and Its Applications
+     42 (1) (1997) 39–50.
+
+
+
+
+                                          29
+

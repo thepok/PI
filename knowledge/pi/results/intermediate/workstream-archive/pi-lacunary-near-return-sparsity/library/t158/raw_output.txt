@@ -1,0 +1,13 @@
+canonical_hash: PASS
+primary_source_hashes_and_anchors: 4/4 PASS
+primary_source_cap: 4 <= 8 PASS
+exclusion_ledger: T89-T157 69/69 PASS
+refreshed_comparators: T156_rejected,T157_pinned PASS
+graph_normalization_endpoints_gap_stationary_firewall: PASS
+repeated_debruijn_zero_census_gap_obstruction: PASS
+ordered_diagonal_collision_identity: PASS
+separator_tests: 5/5 PASS
+named_comparisons: T121,T128,T131,T153,T156,T157 PASS
+claim_labels_and_scope_firewall: PASS
+scoped_verdict_count: 1 PASS
+successor_count: 0 PASS

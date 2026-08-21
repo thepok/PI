@@ -1,0 +1,716 @@
+                                                   Tree-degenerate graphs and nested dependent random choice
+                                                                              Tao Jiang ∗             Sean Longbrake†
+
+                                                                                         January 27, 2022
+arXiv:2201.10699v1 [math.CO] 26 Jan 2022
+
+
+
+
+                                                                                              Abstract
+
+                                                   The celebrated dependent random choice lemma states that in a bipartite graph an average vertex
+                                                   (weighted by its degree) has the property that almost all small subsets S in its neighborhood
+                                                   has common neighborhood almost as large as in the random graph of the same edge-density.
+                                                   Two well-known applications of the lemma are as follows. The first is a theorem of Füredi [12]
+                                                   and of Alon, Krivelevich, and Sudakov [2] showing that the maximum number of edges in an
+                                                   n-vertex graph not containing a fixed bipartite graph with maximum degree at most r on one
+                                                   side is O(n2−1/r ). This was recently extended by Grzesik, Janzer and Nagy [14] to the family of
+                                                   so-called (r, t)-blowups of a tree. A second application is a theorem of Conlon, Fox, and Sudakov
+                                                   [5], confirming a special case of a conjecture of Erdős and Simonovits and of Sidorenko, showing
+                                                   that if H is a bipartite graph that contains a vertex complete to the other part and G is a graph
+                                                   then the probability that the uniform random mapping from V (H) to V (G) is a homomorphism
+                                                               h          i|E(H)|
+                                                                 2|E(G)|
+                                                   is at least |V  (G)| 2         .
+                                                   In this note, we introduce a nested variant of the dependent random choice lemma, which might
+                                                   be of independent interest. We then apply it to obtain a common extension of the theorem of
+                                                   Conlon, Fox, and Sudakov and the theorem of Grzesik, Janzer, and Nagy, regarding Turán and
+                                                   Sidorenko properties of so-called tree-degenerate graphs.
+
+
+                                           1       Introduction
+                                           Given a graph G, let |G| denote its number of vertices. A homomorphism from a graph H to a
+                                           graph G is a mapping f : V (H) → V (G) such that for each edge uv in H, f (u)f (v) is an edge in G.
+                                           Let hH (G) denote the number of homomorphisms from H to G and tH (G) = hH (G)/|G||H| . Thus
+                                           tH (G) represents the fraction of mappings from V (H) to V (G) that are homomorphisms. Viewed
+                                           probabilistically, tH (G) is the probability that the uniform random mapping from V (H) to V (G)
+                                           is a homomorphism. A beautiful conjecture of Sidorenko [22] is as follows.
+
+                                           Conjecture 1.1 (Sidorenko[21]). For every bipartite graph H and every graph G,
+
+                                                                                       tH (G) ≥ [tK2 (G)]e(H) .
+                                               ∗
+                                                Department of Mathematics, Miami University, Oxford, OH 45056, USA. Email: jiangt@miamioh.edu. Research
+                                           supported by National Science Foundation grant DMS-1855542.
+                                              †
+                                                Department of Mathematics, Miami University, Oxford, OH 45056, USA. Email:       longbrsa@miamioh.edu.
+                                           Research partially supported by National Science Foundation grant DMS-1855542.
+
+
+                                                                                                  1
+                              e(H)
+Since [tK2 (G)]e(H) = 2e(G)n 2        , one may view Sidorenko’s conjecture as saying that the number
+of homomorphic copies of H in an n-vertex graph G is asymptotically at least as large as in the
+n-vertex random graph with the same edge-density. The following lemma, based on tensor products,
+(see Remark 2 in the English version of [21] for instance), is commonly known and is used in many
+earlier papers (see [1],[5],[18] for instance). It reduces the conjecture to a slightly weaker statement.
+
+Lemma 1.2 ([21]). Let H be a bipartite graph. If there exists a positive constant c depending only
+on H such that for all graphs G tH (G) ≥ c[tK2 (G)]e(H) holds, then for all G, tH (G) ≥ [tK2 (G)]e(H) .
+
+When the edge-density of G is sufficiently high, it is expected that many of the homomorphisms
+from H to G are injective. Erdős and Simonovits [10] made several conjectures regarding the
+number of injective homomorphisms. As usual, let ex(n, H) denote the Turán number of H, which
+is the maximum number of edges in an n-vertex graph not containing H. Let h∗H (G) denote
+the number of injective homomorphisms from H to G, and let t∗H (G) = h∗H (G)/|G|H| . The first
+conjecture of Erdős and Simonovits from [10] states that for every c > 0 there is a c′ > 0 such
+that if e(G) > (1 + c) ex(n, H) then t∗H (G) ≥ c′ tK2 (G)e(H) . The second, weaker, conjecture from
+[10] says if ex(n, H) = O(n2−α ) then there exist constants 0 ≤ α̃ ≤ α, c, c′ > 0 such that if
+e(G) > cn2−α̃ then t∗H (G) ≥ c′ tK2 (G)e(H) . It is known (see [21]) that this weaker version is
+equivalent to Sidorenko’s conjecture. However, compared to the stronger conjecture of Erdős and
+Simonovits, Sidorenko’s conjecture does not give an explicit sharp edge-density threshold on when
+to guarantee the stated number of injective homomorphisms. There is yet another version of the
+Erdős-Simonovits conjecture, given in [19], that is equivalent to saying that there exist two constants
+c, c′ > 0 such that if G is an n-vertex graph G with e(G) > c ex(n, H) then t∗H (G) ≥ c′ [tK2 (G)]e(H) .
+Sidorenko [22] verified his own conjecture when H is a complete bipartite graph, an even cycle, a
+tree, or a bipartite graph with at most four vertices on one side. Hatami [15] proved that hypercubes
+satisfy Sidorenko’s conjecture by developing a concept of norming graphs. The first major progress
+on Sidorenko’s conjecture was made by Conlon, Fox and Sudakov [5], who used the celebrated
+dependent random choice method (see [11] for a survey) to show
+
+Theorem 1.3 (Conlon-Fox-Sudakov [5]). If H is a bipartite graph with m edges which has a vertex
+complete to the other part, then H satisfies Sidorenko’s conjecture.
+
+In fact, Conlon, Fox and Sudakov proved the stronger theorem that H contains a vertex complete
+                                                                                                     m
+to the other part and the minimum degree in the first part is at least d then tH (G) ≥ [tKr,d (G)] rd .
+From Theorem 1.3, Conlon, Fox, and Sudakov [5] also deduced an approximate version of Sidorenko’s
+conjecture. Since the work of Conlon, Fox, and Sudakov, there has been a lot of further progress
+on Sidorenko’s conjecture. Li and Szegedy [20] used entropy method (presented in the form of
+logarithmic convexity inequalities) to the extend the result of Conlon, Fox and Sudakov to a more
+general family of graphs H, which they refer to as reflection trees. These ideas were further developed
+by Kim, Lee and Lee [18], who proved the conjecture for what they called tree-arrangeable graphs
+and showed that if T is a tree and H is a bipartite graph that satisfies Sidorenko’s conjecture then
+the Cartesian product of T and H also satisfies Sidorenko’s conjecture. Subsequently, Conlon, Kim,
+Lee and Lee [6, 7] and independently Szegedy [23] established more families of bipartite graphs H for
+
+                                                   2
+which Sidorenko’s conjecture holds. These include bipartite graphs that admit a certain type of tree
+decomposition, subdivisions of certain graphs including cliques, and certain cartesian products, and
+etc. More recently, Conlon and Lee [8] showed that Sidorenko’s conjecture holds for any bipartite
+graph H with a bipartition (A, B) where the number of vertices in B of degree k satisfies a certain
+divisibility condition for each k. As a corollary, for every bipartite graph H with a bipartition (A, B)
+                                                         p
+there is a positive integer p such that the blowup HA      formed by taking p vertex-disjoint copies of
+H and gluing all copies of A along corresponding vertices satisfies Sidorenko’s conjecture.
+Another line of work that motivates our result is related to a long-standing conjecture of Erdős
+regarding the Turán number of so-called r-degenerate graphs. Given a positive integer r, a graph
+H is r-degenerate if its vertices can be linearly ordered such that each vertex has back degree at
+most r.
+Conjecture 1.4 (Erdős [9]). Let r be a fixed positive integer. Let H be any r-degenerate bipartite
+graph. Then ex(n, H) = O(n2−1/r ).
+The first major progress on Conjecture 1.4 was the following theorem, which was first obtained by
+Füredi [12] in an implicit form and then later reproved by Alon, Krivelevich, and Sudakov [2] using
+the dependent random choice method.
+Theorem 1.5 (Füredi [12], Alon-Krivelevich-Sudakov [2]). Let r be a positive integer. Let H be a
+bipartite graph with maximum degree at most r on one side. Then ex(n, H) = O(n2−1/r ).
+The family of graphs satisfying the condition of Theorem 1.5 forms a very special family of r-
+degenerate bipartite graphs, which we will refer to as one side r-bounded bipartite graphs. Recently,
+Grzesik, Janzer, and Nagy [14], among other things, extended Theorem 1.5 to a broader family of
+graphs, called (r, t)-blowups of a tree.
+Definition 1.6 ((r, t)-blowups of a tree). Let r ≤ t and m be positive integers. A bipartite graph
+H is an (r, t)-blowup of a tree (or (r, t)-blowup in short) with root block B0 and non-root blocks
+B1 , . . . , Bm if B0 , B1 , . . . , Bm partition V (H), |B0 | = r, |B1 | = · · · = |Bm | = t and H can be
+constructed by joining B1 completely to B0 and for each 2 ≤ i ≤ m joining Bi completely to a
+r-subset of Bγ(i) for some γ(i) ≤ i − 1.
+Theorem 1.7 (Grzesik-Janzer-Nagy [14]). Let r ≤ t be positive integers. If H is an (r, t)-blowup
+of a tree, then ex(n, H) = O(n2−1/r ).
+Since every one-side r-bounded graph is a subgraph of an (r, t)-blowup with two blocks B0 , B1 ,
+Theorem 1.7 substantially generalizes Theorem 1.5.
+In this paper, we give a common strengthening of Theorem 1.3 and Theorem 1.7 by proving a
+general theorem on the Turán and Sidorenko properties of so-called tree-degenerate graphs.
+Definition 1.8 (Tree-degenerate graphs). A bipartite graph H is tree-degenerate with root block
+B0 and non-root blocks B1 , . . . , Bm if B0 , B1 , . . . , Bm partition V (H) and H can be constructed by
+letting P (B1 ) = B0 and joining B1 completely to B0 and for each 2 ≤ i ≤ m joining Bi completely
+to a subset P (Bi ) of Bγ(i) for some 1 ≤ γ(i) ≤ i − 1, such that for all i ≥ 2 |P (Bγ(i) )| ≤ |P (Bi )|. We
+call P (Bi ) the parent set of Bi and Bγ(i) the parent block of Bi and we call P the parent function.
+We call (B0 , . . . , Bm , P ) a block representation of H.
+
+                                                     3
+We present our main result in terms of so-called r-norm density. We will explain the advantage
+of doing so after the presenting the theorem. Let G be a graph with n vertices. For each positive
+integer r, we define the the r-norm density of G, denoted by pr (G), as
+
+                                          pr (G) := tK1,r (G)1/r .
+
+Note that p1 (G) = tK2 (G) = 2e(G)
+                              n2 , is the usual edge-density of G. In general, one may view pr (G)
+as a modified measure of edge-density of G that takes the degree distribution into account. Using
+convexity, one can show that pr (G) ≥ ps (G) whenever r ≥ s (see Lemma 2.3).
+
+Theorem 1.9 (Main theorem). For any graph G and positive integer ℓ, let pℓ (G) = tK1,ℓ (G)1/ℓ .
+Let H be a tree-degenerate graph with a block representation (B0 , B1 , . . . , Bm , P ). Let s = |B0 | and
+r = maxi |P (Bi )|. There exist positive constants c1 = c1 (H), c2 = c2 (H), c3 = c3 (H) depending only
+on H such that for any graph G
+
+                               tH (G) ≥ c1 [ps (G)]e(H) ≥ c1 [tK2 (G)]e(H) .
+
+Furthermore, if hK1,r (G) > c2 nr , where n = |G|, then
+
+                               t∗H (G) ≥ c3 [pr (G)]e(H) ≥ c3 [tK2 (G)]e(H) .
+
+The first part of the theorem and Lemma 1.2 imply the following.
+
+Corollary 1.10. Let H be a tree-degenerate graph. Then H satisfies Sidorenko’s conjecture.
+
+Since a bipartite graph H containing a vertex complete to the other part is tree-degenerate with
+|B0 | = 1 and γ(i) = 1 for all i ≥ 2, Corollary 1.10 generalizes Theorem 1.3.
+A special case of the second part of Theorem 1.9 yields the following.
+
+Corollary 1.11. Let r ≤ t be positive integers. Let H be an (r, t)-blowup of a tree with h vertices.
+Then ex(n, H) = O(n2−1/r ). Furthermore, there exist constants c, c′ > 0 such that every n-vertex
+graph G with hK1,r (G) ≥ cnr contains at least c′ nh ( 2e(G)
+                                                        n2
+                                                             )e(H) copies of H.
+
+Corollary 1.11 strengthens Theorem 1.7 in two ways. First, it relaxes the density requirement on
+G from e(G) = Ω(n2−1/r ) to hK1,r (G) = Ω(nr ) (i.e. from p1 (G) = Ω(n−1/r ) to pr (G) = Ω(n−1/r )).
+Second, it not only gives at least one copy of H, but an optimal number (up to a multiplicative
+constant) of copies of H. A closer examination of the proof of Theorem 1.7 given by Grzesik,
+Janzer, and Nagy in [14] shows that their proof can be strengthened to also give Corollary 1.11.
+However, Theorem 1.9 is more general than Corollary 1.11, as the counting statement applies to
+any tree-degenerate graph H, where parent set sizes can vary, instead of just to (r, t)-blowups.
+The relaxation of p1 (G) = Ω(n−1/r ) to pr (G) = Ω(n−1/r ) is also a useful feature, as in bipartite
+Turán problems sometimes we need to handle cases where the host graph has very uneven degree
+distribution and hence high r-norm density, despite having relatively low 1-norm density (see [17]
+for an instance of this kind).
+
+
+
+                                                     4
+To prove Theorem 1.9, we introduce a notion of goodness and prove a lemma that might be viewed
+as a nested variant of the dependent random choice lemma. Once we establish the lemma, the proof
+of Theorem 1.9 readily follows. Conceivably this variant could find more applications.
+We organize our paper as follows. In Section 2, we introduce some preliminary lemmas. In Section
+3, we establish the nested goodness lemma. In Section 4, we prove Theorem 1.9. In Section 5, we
+give some concluding remarks.
+
+
+2    Preliminary lemmas
+In this section, we first give some useful lemmas. They will be used in motivating some definitions
+and will also be used in the proofs in later sections. We start with a standard convexity-based
+inequality, which is sometimes referred to as the power means inequality. We include a proof for
+completeness.
+
+Lemma 2.1. Let n be a positive integer. Let 1 ≤ a ≤ b be reals. Let x1 , . . . , xn be reals. Then
+
+                                   n                      n
+                                                                      !a/b
+                                   X                      X
+                                         xai ≤ n1−a/b ·         xbi          .
+                                   i=1                    i=1
+
+Equivalently,
+                                         n
+                                              !1/a          n
+                                                                       !1/b
+                                    1X a                  1X b
+                                      xi             ≤      xi                   .
+                                    n                     n
+                                      i=1                  i=1
+
+Proof. Since the function xb/a is either linear or is concave up, by Jensen’s inequality, we have
+Pn     b
+           Pn     a b/a ≥ n[ 1
+                               Pn    a b/a . Rearranging, we obtain the desired inequalities.
+  i=1 xi =  i=1 (xi )        n  i=1 xi ]
+
+Let G be a graph with n vertices. Let r be a positive integer. Recall that pr (G) := tK1,r (G)1/r .
+                                                                                      P                   1/r
+Lemma 2.2. For any graph G and positive integers r, pr (G) = n1                      n
+                                                                                      1
+                                                                                           v∈V (G) d(v)
+                                                                                                       r          .
+
+Proof. Let n = |G|. Recall that t1,r (G) = hK1,r (G) /nr+1 , where hK1,r (G) is the number of
+                                                                                           r
+                                                                             P
+homomorphisms from K1,r to G. It is easy to see that hK1,r (G) =               v∈V (G) d(v) . Hence,
+                                           1/r                      1/r
+                          1 P                      1 1 P
+pr (G) = tK1,r (G)1/r = nr+1  v∈V (G) d(v)r      = n n   v∈V (G) d(v)r      .
+
+Lemma 2.2 and Lemma 2.1 imply the following useful fact.
+
+Lemma 2.3. For any graph G and positive integers r ≥ s, we have pr (G) ≥ ps (G).
+
+
+3    Nested goodness Lemma
+Given a set W and a sequence S of elements of W , we call S a sequence in W for brevity. The
+length of S is defined to be number of elements in the sequence S (multiplicity counted) and is
+denoted by |S|. Given a positive integer k, we let W k denote the set of sequences of length k in W
+and we let Wk denote the set of sequences of length k in W in which the k elements are all different.
+
+                                                     5
+Given a graph G and a sequence S in V (G), the common neighborhood N (S) is the set of vertices
+adjacent to every vertex in S.
+We now introduce a goodness notion that is inspired by Lemma 2.1 of [5]. A more specialized
+version of it was introduced in [16].
+
+Definition 3.1 (i-good sequences). Let 0 < α, β < 1 be reals. Let h, r be positive integers. Let
+G be an n-vertex graph. Let p = pr (G) = tK1,r (G)1/r . For each 0 ≤ i ≤ h, we define an i-good
+sequence in V (G) relative to (α, β, h, r) (or simply i-good in short) as follows. We say that a sequence
+T in V (G) is 0-good if |N (T )| ≥ αp|T | n. For all 1 ≤ i ≤ h, we say that a sequence S of length
+at most h in V (G) is i-good if S is 0-good and for each |S| ≤ k ≤ h, the number of (i − 1)-good
+sequences of length k in N (S) is at least (1 − β)|N (S)|k .
+
+Below is our main theorem on the goodness notion.
+
+Theorem 3.2 (Nested goodness lemma). Let h ≥ r be positive integers. Let 0 < β < 1 be a real.
+There is a positive real α depending on h, r and β such that the following is true. Let G be any
+graph on n vertices. Let p = pr (G) = tK1,r (G)1/r . For any i, j ∈ [h], let Ai,j denote the set of i-good
+sequences of length j relative to (α, β, h, r) in V (G). Then for each i ∈ [h] and r ≤ j ≤ h
+                                     X
+                                            |N (S)|r ≥ (1 − β)nj+r pjr .
+                                   S∈Ai,j
+
+
+In particular, there exists an i-good sequence S of size j such that |N (S)| ≥ (1 − β)1/r pj n.
+
+Applying Theorem 3.2 with r = 1, we get the following theorem that is of independent interest.
+
+Theorem 3.3. Let h be a positive integer. Let 0 < β < 1 be a real. There is a positive real
+α depending on h and β such that the following is true. Let G be any graph on n vertices. Let
+p = 2e(G)
+        n2
+            . For any i, j ∈ [h], let Ai,j denote the set of i-good sequences of length j relative to
+(α, β, h, 1) in V (G). Then, for all i ∈ [h]
+                                      X
+                                             |N (S)| ≥ (1 − β)nj+1 pj .
+                                    S∈Ai,j
+
+
+In particular, there exists an i-good sequence S of size j such that |N (S)| ≥ (1 − β)pj n.
+
+Loosely speaking, one may think of the usual dependent random choice lemma as saying that for
+any positive integers j, h and real 0 < β < 1, there is a 1-good sequence S of size j relative to
+(α, β, h, 1) for some appropriate α > 0 such that most of the subsets T in N (S) of size at most
+h have their common neighborhood fractionally as large as expected in the random graph of the
+same edge-density. In that regard, one may view Theorem 3.3 as a strengthening of the dependent
+random choice lemma to a stronger notion of goodness. Theorem 3.2 follows from the following
+more technical lemma.
+
+Lemma 3.4. Let h ≥ r be positive integers. Let 0 < β < 1 be a real. There exists a positive real α
+depending on h, r and β such that the following is true. Let G be a graph on n vertices. Let G be any
+
+                                                      6
+graph on n vertices. Let p = pr (G) = tK1,r (G)1/r . For each 0 ≤ i ≤ h and 1 ≤ j ≤ h, let Ai,j denote
+the set of i-good sequences of length j relative to (α, β, h, r) in V (G) and let Bi,j = [V (G)]j \ Ai,j .
+Then for each 0 ≤ i ≤ h, 1 ≤ j ≤ h and 1 ≤ ℓ ≤ j,
+                                                X
+                                                        |N (S)|ℓ ≤ βnj+ℓ pjℓ .
+                                               S∈Bi,j
+
+
+Proof. Suppose α has been specified, we define a sequence αi , 0 ≤ i ≤ h, by letting α0 = α and
+αi = α + h(αi−1 /β)1/h for each i ∈ [h]. For fixed h and β, it is easy to see that by choosing α to
+be small enough, we can ensure that αi in increasing in i and αh < β. Let us fix such an α. Now,
+let Ai,j and Bi,j be defined as stated. We use induction on i to prove that for all 0 ≤ i ≤ h, j ∈ [h],
+and 1 ≤ ℓ ≤ j                          X
+                                           |N (S)|ℓ ≤ αi nj+ℓpjℓ .
+                                            S∈Bi,j
+
+For the basis step, let i = 0. Let j, ℓ ∈ [h] where ℓ ≤ j. By definition,
+                             X
+                                     |N (S)|ℓ ≤ nj (αpj n)ℓ ≤ αnj+ℓ pjℓ ≤ α0 nj+ℓ pjℓ .               (1)
+                            S∈B0,j
+
+
+Hence the claim holds for i = 0. For the induction step, let i ≥ 1 and suppose the claims hold when
+i is replaced with i − 1. Let j ∈ [h]. For each j ≤ k ≤ h, let Ci,j k denote the set of sequences S
+
+in Bi,j such that the number of sequences of length k in N (S) that are not (i − 1)-good is at least
+β|N (S)|k . By definition, Bi,j = B0,j ∪ hk=j Ci,j
+                                               k . Let F be the collection of pairs (S, T ), where
+                                        S
+                                                          k
+       k
+S ∈ Ci,j and T is a sequence of length k in N (S) that is not (i − 1)-good. By our definition,
+                                            X                           X
+                                 |Fk | ≥            β|N (S)|k = β ·             |N (S)|k .
+                                              k
+                                           S∈Ci,j                         k
+                                                                       S∈Ci,j
+
+
+On the other hand, for each sequence T of length k in V (G) that is not (i − 1)-good, the number
+of sequences S of length j that satisfy (S, T ) ∈ Fk is most |N (T )|j . Hence,
+                                                  X
+                                     |Fk | ≤               |N (T )|j ≤ αi−1 nj+k pjk ,
+                                               T ∈Bi−1,k
+
+
+where the last inequality follows from the induction hypothesis. Combining the lower and upper
+bounds on |Fk |, we get           X
+                                      |N (S)|k ≤ (αi−1 /β)nj+k pjk .                       (2)
+                                           k
+                                        S∈Ci,j
+
+Let ℓ ∈ [h] such that ℓ ≤ j. Since j ≤ k, we have ℓ ≤ k. Applying Lemma 2.1 with a = ℓ, b = k and
+        k | ≤ nj , we get
+using |Ci,j
+               X
+                       |N (S)|ℓ ≤ (nj )1−ℓ/k (αi−1 /β)ℓ/k (nj+k pjk )ℓ/k ≤ (αi−1 /β)1/h nj+ℓ pjℓ ,
+                 k
+              S∈Ci,j
+
+
+
+
+                                                               7
+where we used the fact that αi−1 /β < 1. By (1) and (2), we have
+
+     X                     X                    h X
+                                                X
+            |N (S)|ℓ ≤            |N (S)|ℓ +                  |N (S)|ℓ ≤ [α + h(αi−1 /β)1/h ]nj+ℓ pjℓ ≤ αi nj+ℓ pjℓ .
+   S∈Bi,j                S∈B0,j                 k=j S∈Ci,j
+                                                       k
+
+
+
+This completes the induction and the proof.
+
+We need another quick lemma. Given two positive integers n, j, let nj = n(n − 1) · · · (n − j + 1).
+
+Lemma 3.5. Let G be a graph on n vertices and j, r positive integers. Let p = pr (G) = tK1,r (G)1/r .
+                                                                                  1
+Then S∈[V (G)]j |N (S)|r ≥ nj+r pjr . If p > 4jn−1/r then S∈[V (G)]j |N (S)|r ≥ 2j+1 nj+r pjr .
+    P                                                    P
+
+                                                                                                 r+1 pr . Hence, by convexity
+                                P
+Proof. First, note that             T ∈[V (G)]r |N (T )| = hK1,r (G) = ntK1,r (G) = n
+
+                                                      P                          !j
+                                                          T ∈[V (G)]r |N (T )|
+                      X
+                                |N (T )|j ≥ nr                                        = nr (npr )j = nj+r pjr .
+                                                                 nr
+                  T ∈[V (G)]r
+
+
+If p > 4jn−1/r , then
+                                    X                                                1
+                                                    |N (T )|j ≥ nj+r pjr − nr (2j)j ≥ nj+r pjr .
+                                                                                     2
+                         T ∈[V (G)]r ,|N (T )|≥2j
+
+
+Hence,
+                         X                                       X                                     1 j+r jr
+                                          |N (T )|j ≥                              (|N (T )|/2)j ≥        n p .
+                                                                                                     2j+1
+               T ∈[V (G)]r ,|N (T )|≥2j                 T ∈[V (G)]r ,|N (T )|≥2j
+
+To prove the first statement, note that S∈[V (G)]j |N (S)|r counts pairs (S, T ), where S is a se-
+                                                 P
+
+quence of length j and T is a sequence of length r in N (S). By double counting, we have
+                     r                         j    j+r pjr .
+P                        P
+   S∈[V (G)]j |N (S)| =    T ∈[V (G)]r |N (T )| ≥ n
+For the second statement, note that S∈[V (G)]j |N (S)|r counts pairs (S, T ), where S is a sequence
+                                           P
+
+of length j with no repetition and T is sequence of length r in N (S). By double counting and
+                                                                   1
+convexity, we have S∈[V (G)]j |N (S)|r = T ∈[V (G)]r |N (T )|j ≥ 2j+1 nj+r pjr .
+                       P                         P
+
+
+Now we are ready to prove Theorem 3.2.
+Proof of Theorem 3.2: Let h ≥ r be positive integers and 0 < β < 1 a real. Let α be defined as in
+Lemma 3.4. Let i ∈ [h] and r ≤ j ≤ h. Let Ai,j denote the set of i-good sequences of length j relative
+to (α, β, h, r) in V (G) and let Bi,j = [V (G)]j \ Ai,j . By Lemma 3.5, S∈[V (G)]j |N (S)|r ≥ nj+r pjr .
+                                                                       P
+
+By Lemma 3.4, S∈Bi,j |N (S)|r ≤ βnj+r pjr . Hence, S∈Ai,j |N (S)|r ≥ (1 − β)nj+r pjr , as desired.
+                   P                                      P
+
+This proves the first part of the theorem. Now, since |Ai,j | ≤ nj , by averaging, there exists an
+S ∈ Ai,j such that |N (S)|r ≥ (1 − β)pjr and hence |N (S)| ≥ (1 − β)1/r pj n. This proves the second
+part of the theorem.                                                                                 
+In order to prove the second part of Theorem 1.9, we need the following variant of Theorem 3.3.
+We omit the proof since it is almost identical to that of Theorem 3.3, except that we use the second
+statement of Lemma 3.5 instead of the first statement.
+
+
+                                                                  8
+Lemma 3.6. Let h ≥ r be positive integers. Let 0 < β < 1 be a real. There is a positive real α
+depending on h, r and β such that the following is true. Let G be any graph on n vertices. Let
+p = pr (G) = tK1,r (G)1/r . For any i, j ∈ [h], let A∗i,j denote the set of i-good sequences of length
+j relative to (α, β, h, r) in V (G) that has no repetition. If p > 4jn−1/r , then for each i ∈ [h] and
+r≤j≤h
+                                   X                  1
+                                        |N (S)|r ≥ ( j+1 − β)nj+r pjr .
+                                      ∗
+                                                    2
+                                    S∈Ai,j
+
+
+
+4     Proof of Theorem 1.9
+                                                         1
+Proof of Theorem 1.9: Let n = |G| and h = |H|. Let β = 2h+2 . Let α be the positive constant
+given by Theorem 3.2 for the given h, β, and r. Let
+                                                               Pm
+                            c1 = c1 (H) = (1 − β)|B1 |/|B0 | α   i=2 |Bi |   (1 − hβ)m−1 .
+
+Let
+                                                                                      2
+                              c2 = c2 (H) = 4h/α, and c3 = c3 (H) = c1 /2h .
+
+Suppose H has root block B0 and non-root blocks B1 , . . . , Bm such that B1 is completely joined
+to its parent set P (B1 ) = B0 and for each i = 2, . . . , m, Bi is completely joined to its parent set
+P (Bi ) where P (Bi ) ⊆ Bγ(i) for some 1 ≤ γ(i) < i and |P (Bi )| ≥ |P (Bγ(i) )|. For each i ∈ [m], let
+Fi denote the collection of all the parent sets P (Bj ) that are contained in Bi . Let T be a tree with
+V (T ) := {v0 , v1 , . . . , vm } and edge set E(T ) := v0 v1 ∪ {vi vγ(i) :∈ [m]}. We call T the auxiliary tree
+for H. For each i ∈ [m], define the depth of Bi , denoted by di , to be the distance from v0 to vi in
+T . Let q denote the maximum depth of a block. Then clearly q ≤ m ≤ h − 1.
+Let G be any graph. For convenience, we say that a sequence in V (G) is i-good if it is i-good
+relative to (α, β, h, r). As in Theorem 3.2, for each 0 ≤ i ≤ h and r ≤ j ≤ h, let Ai,j be the set
+of i-good sequences of length j in V (G). Let Bi,j = [V (G)]j \ Ai,j . Let A∗i,j be the set of i-good
+sequences of length j in V (G) that contains no repetition. Let f be the uniform random mapping
+from V (H) to V (G).
+Let
+
+        E1 =       the event that f (B0 ) ∈ Aq,|B0| and f (B1 ) ∈ [N (f (B0 ))]|B1 | ,
+        F1 =       the event that each sequence in F1 is mapped to a (q − 1)-good sequence ,
+        E1∗   =    the event that f (B0 ) ∈ A∗q,|B0| and f (B1 ) ∈ [N (f (B0 ))]|B1 | .
+
+For each i ∈ {2, . . . , m}, let
+
+        Ei =       the event that f (Bi ) ∈ [N (f (P (Bi ))]|Bi | ,
+        Fi =       the event that each sequence in Fi is mapped to an (q − di )-good sequence
+        Li =       the event that f is injective on B0 ∪ B1 ∪ · · · ∪ Bi .
+
+
+
+
+                                                         9
+Recall that s = |B0 | and r = maxi |P (Bi )|. By Theorem 3.2,
+                                                                                                    2
+                                                           X
+                                                                      |N (S)|s ≥ (1 − β)n2s ps .                                            (3)
+                                                        S∈Aq,|B0 |
+
+
+Furthermore, by Lemma 3.6 if p ≥ 4jn−1/r then
+                                                         X                       1            2
+                                                                   |N (S)|s ≥ ( j+1 − β)n2s ps .                                            (4)
+                                                                               2
+                                                      S∈A∗q,|B |
+                                                              0
+
+
+Hence, since |B1 | ≥ |B0 | = s, using (3) and convexity we get
+  X                                X                               |B1 |      1              2 |B1 |
+                                                                                                          |B1 |
+             |N (S)||B1 | =                       (|N (S)|s ) s ≥ ns (          s
+                                                                                  (1−β)n2s ps ) s = (1−β) |B0 | n|B0 |+|B1 | p|B0 ||B1 | ,
+                                                                              n
+S∈Aq,|B0 |                    S∈Aq,|B0 |
+
+
+and if p ≥ 4jn−1/r then
+                                      X                                 1       |B1 |
+                                                      |N (S)||B1 | = ( j+1 − β) |B0 | n|B0 |+|B1 | p|B0 ||B1 | ,
+                                                                      2
+                               S∈A∗q,|B |
+                                               0
+
+
+Hence,
+
+
+                    X             1           |N (S)||B1 |      1                    X                                   |B1 |
+    P(E1 ) =                      |B |
+                                       ·           B
+                                                           = |B |+|B |                         |N (S)||B1 | ≥ (1 − β) |B0 | p|B0 ||B1 | ,   (5)
+                              n       0          n  1       n 0     1
+                 S∈Aq,|B0 |                                                       S∈Aq,|B0 |
+
+
+and if p ≥ 4jn−1/r then
+
+                           X                  1         |N (S)||B1 |       1       |B1 |
+                                                                                                         1
+             P(E1∗ ) =                        |B |
+                                                   ·         B
+                                                                     ≥ (  j+1
+                                                                              − β) |B0 | |B0 ||B1 |
+                                                                                         p          ≥ ( h+2 )|B1 | p|B0 ||B1 | .            (6)
+                                          n       0        n  1          2                             2
+                         S∈A∗q,|B |
+                                      0
+
+We now bound P(F1 |E1 ). Recall that F1 consists of parent sets P (Bj ) that are contained in B1 .
+By requirement, these sets have size at least |P (B1 )| = |B0 |. Let S be any fixed sequence in Aq,|B0| .
+By the definition of Aq,|B0| , for each |B0 | ≤ k ≤ h, the number of (q − 1)-good sequences of length
+k in N (S) is at least (1 − β)|N (S)|k . So, conditioning on f mapping B0 to S and B1 to N (S),
+the probability that f maps any particular sequence in F1 to an (q − 1)-good sequence is at least
+(1 − β). Since there are clearly at most h sequences in F1 , the probably that f maps every sequence
+in F1 to a (q − 1)-good sequence is at least 1 − hβ. Hence
+
+                                                                   P(F1 |E1 ) ≥ 1 − hβ.                                                     (7)
+
+For each i = 2, . . . , h, we estimate P(Ei |E1 F1 . . . Ei−1 Fi−1 ). Assume the event E1 F1 · · · Ei−1 Fi−1 .
+Since P (Bi ) ⊆ Bγ(i) , where γ(i) < i, by our assumption, P (Bi ) is mapped to a (q − dγ(i) )-good
+sequence. Since a (q − dγ(i) )-sequence is 0-good by definition, we have |N (f (P (Bi )))| ≥ αp|P (Bi )| n.
+
+
+                                                                             10
+Hence,
+
+                                            |N (f (P (Bi ))|Bi |   (αp|P (Bi )| n)|Bi |
+          P(Ei |E1 F1 . . . Ei−1 Fi−1 ) =                        ≥                      = α|Bi | p|P (Bi )||Bi | .        (8)
+                                                   n|Bi |               n|Bi |
+
+Now assume E1 F1 . . . Ei−1 Fi−1 Ei . Since S := f (P (Bi )) is a (q − dγ(i) )-good sequence, by definition,
+for each |S| ≤ k ≤ h the number of (q − 1 − dγ(i) )-good sequences is at least (1 − β)|N (S)|k . Since
+there are at most h sequences in Fi , as in deriving (7), we have
+
+                                   P(Fi |E1 F1 . . . Ei−1 Fi−1 Ei ) ≥ 1 − hβ.                                             (9)
+
+By (5), (7), (8), and (9),
+
+      P(f is a homomorphism) ≥ P(E1 F1 . . . Em−1 Fm−1 Em )
+                                                   |B1 |   Pm                                      Pm
+                                   ≥ (1 − β) |B0 | α        i=2 |Bi |   (1 − hβ)m−1 p|B0 ||B1 |+    i=2 |P (Bi )||Bi |   (10)
+                                            e(H)
+                                   = c1 p          .
+
+The proves the first and the main part of the theorem.
+For the second statement, suppose hK1,r (G) > c2 nr . Then
+
+                                                                1/r
+                        p = pr = (hK1,r /nr+1 )1/r ≥ c2 n−1/r ≥ (4h/α)1/r n−1/r .
+
+For each i ≥ 2, we bound P(Li |E1∗ F1 E2 F2 L2 . . . Li−1 Ei Fi ). Assume E1∗ F1 E2 F2 L2 . . . Li−1 Ei Fi . By
+our assumption P (Bi ) is mapped to a (q − dγ(i) )-good sequence and Bi is mapped into N (f (P (Bi )).
+Since f (P (Bi )) is 0-good, |N (f (P (Bi ))| ≥ αp|P (Bi )| n ≥ α[(4h/α)1/r n−1/r ]r n = 4h, where we used
+the fact that |P (Bi )| ≤ r. Given E1∗ F1 E2 F2 L2 . . . Li−1 Fi−1 , the probability that f maps Bi injec-
+tively into N (F (P (Bi )) and avoids f (B0 ∪ B1 ∪ · · · ∪ Bi−1 ) is at least (3h)|Bi | /(4h)|Bi | > (1/2)|Bi | .
+Hence,
+                              P(Li |E1∗ F1 E2 F2 L2 . . . Li−1 Ei Fi ) > (1/2)|Bi | .                       (11)
+
+By (6), (11), and a similar calculation as in (10), we have
+
+              P(f is an injective homomorphism) ≥ P(E1∗ F1 E2 F2 L2 . . . Em Fm Lm )
+                                                     1          1
+                                                ≥ ( h+2 )|B1 | ( )|B2 |+···+|Bm | c1 pe(H)
+                                                   2            2
+                                                   1
+                                                ≥     c1 pe(H) = c3 pe(H) .
+                                                  2h2
+This proves the second part of the theorem.                                                                                
+
+
+5    Concluding remarks
+
+In this note, we used a nested variant of the dependent random choice to not only embed an
+appropriate tree-degenerate bipartite graph H in a host graph G, but also give tight (up to a
+
+
+                                                            11
+multiplicative factor) counting bound on the number of copies of H in G. In this variant, we get
+extra goodness features almost for free. It will be interesting to find more applications of it.
+Another interesting feature of Theorem 1.9 is that the condition of the host graph is relaxed from 1-
+norm density to r-norm density, which makes the result more flexible for applications. In principle,
+one could study the so-called r-norm Turán problem for bipartite graphs, where one wants to
+determine the maximum r-norm density of an H-free graph on n-vertices for a given bipartite graph
+H. The problem seems particularly natural for the family of r-degenerate graphs. For hypergraph
+co-degree problems, such a study has recently been initiated by Balogh, Clemen, and Lidický [3, 4].
+Last but not least, it will be highly desirable to make more progress on Conjecture 1.4 beyond the
+following general bound obtained by Alon, Krivelevich, and Sudakov [2], which has stood as the
+best known bound in the last two decades.
+
+Theorem 5.1 ([2]). If H is an r-degenerate bipartite graph, then ex(n, H) = O(n2−1/4r ).
+
+
+References
+ [1] N. Alon, I.Z. Ruzsa, Non-averaging subsets and non-vanishing transversals, J. Combin. Theory
+     Ser. A 86 (1999), 1-13.
+
+ [2] N. Alon, M. Krivelevich, B. Sudakov, Turán numbers of bipartite graphs and related Ramsey-
+     type questions, Combin. Probab. Comput. 12 (2003), 477-494.
+
+ [3] J. Balogh, F.C. Clemen,         B. Lidický,     Hypergraph Turán Problems in ℓ2 -Norm,
+     arXiv:2108.10406.
+
+ [4] J. Balogh, F.C. Clemen, B. Lidický, Solving Turán’s Tetrahedron Problem for the ℓ2 -norm,
+     London. J. Math., to appear.
+
+ [5] D. Conlon, J. Fox, and B. Sudakov, An approximate version of Sidorenko’s conjecture, Geom.
+     Funct. Anal. 20 (2010), 1354-1366.
+
+ [6] D. Conlon, J.H. Kim, C. Lee, and J. Lee, Some advances on Sidorenko’s conjecture, J. Lond.
+     Math. Soc. (2) 98 (2018), 593-608.
+
+ [7] D. Conlon, J.H. Kim, C. Lee, and J. Lee, Sidorenko’s conjecture for higher tree decompositions,
+     unpublished note, available at arXiv:1805.02238[math.CO], 2018.
+
+ [8] D. Conlon, J. Lee, Sidorenko’s conjecture for blowups, Discrete Anal. (2021), paper No.2, 13pp.
+
+ [9] P. Erdős, Some recent results on extremal problems in graph theory. In Theory of Graphs
+     (Rome, 1966), Gordan and Breach, New York, 117-123.
+
+[10] P. Erdős, M. Simonovits, Cube-supersaturated graphs and related problems, Progress in Graph
+     theory (Waterloo, Ont., 1982), 203-218, Academic Press, Toronto, 1984.
+
+[11] J. Fox, B. Sudakov, Dependent random choice, Random. Struct. Alg. 38 (2011), 68-99.
+
+
+                                                 12
+[12] Z. Füredi, On a Turán type problem of Erdős, Combinatorica 11 (1991), 75-79.
+
+[13] Z. Füredi and M. Simonovits, The history of the degenerate (bipartite) extremal graph prob-
+     lems, Erdős centennial, Bolyai Soc. Math. Stud. 25, 169-264, János Bolyai Math. Soc., Bu-
+     dapest, 2013. See also arXiv:1306.5167.
+
+[14] A. Grzesik, O. Janzer, Z. Nagy, The Turán number of blowups of trees, to appear in J. Combin.
+     Theory Ser. B. See also arXiv:1904.07219v1.
+
+[15] H. Hatami, Graph norms and Sidorenko’s conjecture, Israel J. Math. 175 (2010), 125-150.
+
+[16] T. Jiang and A. Newman, Small dense subgraphs of a graph, SIAM J. Discrete Math. 31
+     (2017), 124-142.
+
+[17] O. Janzer, A. Methuku, Z. Nagy. On the Turán number of the blow-up of the hexagon,
+     arXiv:2006.05897.
+
+[18] J.H. Kim, C. Lee, and J. Lee, Two approaches to Sidorenko’s conjecture, Trans. Amer. Math.
+     Soc. 368 (2016), 5057-5074.
+
+[19] M. Simonovits, Extremal graph problems, degenerate extremal problems and super-saturated
+     graphs, in “Progress in Graph Theory (Waterloo, Ont., 1982)”, Academic Press, Toronto, ON
+     (1984), 419-437.
+
+[20] J.L. Li, B. Szegedy, On the logarithmic calculus and Sidorenko’s conjecture, to appear in
+     Combinatorica. See also arXiv:1107.1153v1.
+
+[21] A.F. Sidorenko, Inequalities for functionals generated by bipartite graphs, Diskret. Mat. 3
+     (1991), 50-65 (in Russian), Discrete Math. Appl. 2 (1992), 489-504 (English translation).
+
+[22] A.F. Sidorenko, A correlation inequality for bipartite graphs, Graph. Combin. 9 (1993), 201-
+     204.
+
+[23] B. Szegedy,      An information       theoretic   approach     to   Sidorenko’s    conjecture,
+     arXiv:1406.6738[math.CO].
+
+
+
+
+                                                13
+

@@ -1,0 +1,1234 @@
+                                           ODOMETERS AND TOEPLITZ SYSTEMS REVISITED IN THE
+                                                  CONTEXT OF SARNAK’S CONJECTURE
+
+
+                                                            TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+arXiv:1502.02307v1 [math.DS] 8 Feb 2015
+
+
+
+
+                                                   Abstract. Although Sarnak’s conjecture holds for compact group rotations
+                                                   (irrational rotations, odometers), it is not even known whether it holds for all
+                                                   Jewett-Krieger models of such rotations. In this paper we show that it does,
+                                                   as long as the model is at the same a topological extension. In particular, we
+                                                   reestablish (after [AKL]) that regular Toeplitz systems satisfy Sarnak’s con-
+                                                   jecture, and, as another consequence, so do all generalized Sturmian subshifts
+                                                   (not only the classical Sturmian subshift). We also give an example of an
+                                                   irregular Toeplitz subshift which fits our criterion. We give an example of a
+                                                   model of an odometer which is not even Toeplitz (it is weakly mixing), hence
+                                                   does not fit our criterion. However, for this example, we manage to produce
+                                                   a separate proof of Sarnak’s conjecture. Next, we provide a class of Toeplitz
+                                                   sequences which fail Sarnak’s conjecture (in a weak sense); all these examples
+                                                   have positive entropy. Finally, we examine the example of a Toeplitz sequence
+                                                   from [AKL] (which fails Sarnak’s conjecture in the strong sense) and prove
+                                                   that it has positive entropy, as well (this proof has been announced in [AKL]).
+                                                   This paper can be considered a sequel to [AKL], it also fills some gaps of [D].
+
+
+
+
+                                                                               1. Introduction
+                                             This note results from the discussions the authors held with Mariusz Lemańczyk
+                                          about topological (in particular symbolic) models of odometers in the context of
+                                          Sarnak’s conjecture. We refer the readers to the recent paper of Lemańczyk et al
+                                          [AKL] for results concerning Sarnak’s conjecture for Morse systems, where some
+                                          indispensable facts concerning regular Toeplitz subshifts were obtained partly in-
+                                          dependently and partly jointly, and inspired this work.
+                                             First of all, it has been discovered that although regular Toeplitz subshifts are the
+                                          best known symbolic models (the precise meaning of a “model” will be given in the
+                                          next section) of odometers, there are also other possibilities, the existence of which
+                                          was not fully realized before. In the preceding work of the first author [D] there are
+                                          some erroneous statements about regularity, and this note fixes them; there exist
+                                          irregular Toeplitz models of their underlying odometers. For completeness, we also
+                                          give examples of models which are not even Toeplitz (in fact topologically mixing).
+                                          Sarnak’s conjecture can be shortly proved for both regular and irregular Toeplitz
+                                          models, as long as they are topological extensions of the modeled odometers. The
+                                          method uses the sole property of the Möbius function, that it is orthogonal to any
+                                          periodic sequence, otherwise it relies on an easy spectral argument. As a digres-
+                                          sion, we apply a similar spectral method (but a different property of the Möbius
+
+                                             2010 Mathematics Subject Classification. Primary: 37B05; Secondary: 37B10, 37A35, 11Y35.
+                                             Key words and phrases. Odometer, Toeplitz flow, Almost 1-1 extension, Möbius function,
+                                          Sarnak’s conjecture, Entropy.
+                                                                                          1
+2                   TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+function) to prove Sarnak’s conjecture for isomorphic extensions of other equicon-
+tinuous systems, in particular for generalized Sturmian subshifts. Our method fails
+for other (e.g. topologically weakly mixing) models of equicontinuous systems and
+the case remains a challenge. Nonetheless, we are able to successfully apply it to
+our topologically mixing example. By this occasion we also give relatively simple
+examples of Toeplitz subshifts which massively fail Sarnak’s conjecture (at many
+points including Toeplitz sequences), showing that just being a union of periodic
+sequences is insufficient. We also copy from [AKL] an example in which a Toeplitz
+sequence fails the conjecture so bad that the limit inferior of the absolute values of
+the averages is positive. As one might expect, the counterexamples have positive
+entropy, of which we give detailed proofs (which are skipped in [AKL]).
+
+                       2. Preliminaries on Toeplitz systems
+   The notation and terminology of this section is consistent with that of [D], where
+we also refer for references to earlier papers. To make this paper selfcontained, the
+most crucial definitions will be repeated. By a scale we mean an increasing sequence
+of positive integers H = (pk )k≥1 such that pk |pk+1 for every k. The adding machine
+with scale H is the topological group G obtained as the inverse limit of the cyclic
+groups Zpk = Z/pk Z:
+                                              ←−
+                                         G = lim Zpk .
+                                                k
+
+By an odometer we will mean the topological dynamical system (G, τ ) where τ
+is the homeomorphism g 7→ g + 1 of G into itself, where 1 = (1, 1, . . . ) is the
+topological generator of G. The odometer is minimal, equicontinuous and zero-
+dimensional, and the conjunction of these three properties characterizes odometers
+among topological dynamical systems. Odometers are uniquely ergodic, with the
+Haar measure λ being the unique invariant measure. For us, an odometer also
+means the ergodic system (G, λ, τ ). By a (Jewett–Krieger) model of an ergodic
+system we will understand any strictly ergodic (minimal and uniquely ergodic)
+topological dynamical system isomorphic (for its unique invariant measure1) to
+the given ergodic system. Note that there may (and usually do) exist mutually not
+conjugate models of the same ergodic system. For instance, an odometer is a model
+for itself, but there are other models as well, for example some symbolic systems
+over finite alphabets (which are never equicontinuous, so they cannot be conjugate
+to the odometer).
+    We will be mostly concerned with Toeplitz systems2, understood slightly more
+generally than usually, i.e., we will not require that they are symbolic, nonetheless,
+all our examples will be symbolic. Toeplitz systems can be defined in a multitude of
+ways, which is captured in the theorem below. The relevant definitions and proofs
+can be found in [D] (for the reader’s convenience, the definitions are also given in
+footnotes).
+Theorem 2.1. The following conditions are equivalent for a topological dynamical
+system (X, T ). A system satisfying them is called a Toeplitz system.
+
+    1Convention: isomorphism is measure-theoretic while conjugacy is topological.
+   2In the literature they are often called “Toeplitz flows”; we find this notation confusing, as
+they are discrete time systems.
+                     ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                                      3
+
+
+    (1) (X, T ) is the orbit closure of a regularly recurrent point3;
+    (2) (X, T ) is a minimal almost 1-1 extension4 of an odometer (G, τ );
+    (3) (X, T ) is a semicocycle extension5 of an odometer (G, τ ).
+   The conditions (1) and (2) are additionally related:
+Theorem 2.2. If π is the almost 1-1 factor map from a Toeplitz system (X, T ) to
+an odometer (G, τ ) then x ∈ X is regularly recurrent if and only if π −1 (π(x)) = {x}.
+   In Theorem 2.1, the odometer (G, τ ) appearing in (2) is the maximal equicon-
+tinuous factor 6 of (X, T ). The adding machine G appearing in (3) (with the action
+of τ ) is the maximal equicontinuous factor of (X, T ) if and only if the semicocy-
+cle has the additional property of being invariant under no rotations 7. Otherwise,
+the maximal equicontinuous factor of (X, T ) acts on a quotient group of G8 and
+(G, τ ) is not even a factor of (X, T ) (let alone maximal equicontinuous). We can
+strengthen condition (3) as follows:
+Theorem 2.3. Every Toeplitz system is conjugate to a semicocycle extension of
+its maximal equicontinuous factor.
+
+   An important class of Toeplitz systems, called regular 9, is described by the con-
+ditions given below:
+Theorem 2.4. Let π be the almost 1-1 factor map from a Toeplitz system (X, T )
+to an odometer (G, τ ). The following conditions are equivalent:
+    (1) The set of points g ∈ G such that #π −1 (g) = 1 has full measure λ;
+    (2) The set of regularly recurrent points in (X, T ) has full measure for every
+        invariant measure on X;
+    (3) The set of discontinuities Df of the relevant semicocycle f on G has λ
+        measure zero.
+   The following is obvious by (1):
+Theorem 2.5. A regular Toeplitz system (X, T ) is strictly ergodic and it is isomor-
+phic to its maximal equicontinuous factor (G, τ ), and the isomorphism is provided
+by the almost 1-1 topological factor map π.
+  In particular, a regular Toeplitz system is a model for the underlying odometer.
+Unless π is 1-1 everywhere, (X, T ) is not conjugate to (G, τ ).
+
+    3A point x is regularly recurrent if, for every open U 3 x, the set of return times to U contains
+an arithmetic progression nZ.
+    4The factor map π : X → G is almost 1-1 if π −1 (π(x)) = {x} holds on a residual subset of X.
+    5A semicocycle is a function f : G → K into a compact space, which is continuous on a
+residual subset of G. Let F denote the multifunction defined by the closure of the graph of f . Let
+XF = {x ∈ K Z : (∃g ∈ G)(∀n ∈ Z) x(n) ∈ F (g + n)}. This set is closed and shift-invariant, and
+has a unique minimal subset which we denote by Xf . Xf with the action of the shift is called the
+semicocycle extension (associated with f ).
+    6Any other equicontinuous factor of (X, T ) factors through (G, τ ).
+    7A semicocycle f on an adding machine G is invariant under no rotations if F ◦ (· + g) =
+F =⇒ g = 0.
+    8This quotient group is G/H, where H = {g : F ◦ (· + g) = F }.
+    9The coincidence of this term with “regular recurrence” is incidental: the latter term was
+coined independently from those who invented “regular Toeplitz systems”.
+4                   TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+   In [D] Theorem 13.1 (5) and (6) it is claimed that a strictly ergodic Toeplitz sys-
+tem isomorphic to its maximal equicontinuous factor is necessarily regular. More-
+over, it is claimed that strict ergodicity need not be assumed if an isomorphism
+exists for some invariant measure. Unfortunately, the statement (even with strict
+ergodicity assumed) is false. Relevant counterexample is provided in the following
+sections.
+   Let us return to the general case. In symbolic systems regularly recurrent points
+are called Toeplitz sequences 10. Toeplitz subshifts (and Toeplitz sequences) were
+the first examples of almost 1-1 extensions of odometers and they are the most
+important. In this class we have an additional simplification:
+Theorem 2.6. Every Toeplitz subshift over a finite alphabet Λ is conjugate to a
+semicocycle extension of its maximal equicontinuous factor with the semicocycle
+taking values in Λ.
+   The advantage of having the finite-valued semicocycle is that its set of discon-
+tinuities Df ⊂ G is then closed. The elements of Toeplitz subshifts have specific
+structure, as described below.
+Definition 2.7. Let (X, T ) be a Toeplitz subshift and let (G, τ ) be the maximal
+equicontinuous factor of (X, T ). For x ∈ X and p ∈ N we denote
+                                                                     [
+  Perp (x) = {n ∈ Z : (∀m ∈ Z) x(n) = x(n + mp)}, Aper(x) = Z \         Perp (x).
+                                                                            p∈N
+
+and call these sets the p-periodic part and aperiodic part, respectively.
+   The union of periodic parts will not change if we unite over a scale (pk )k∈N of
+the adding machine G (then the union is increasing). It is important to know that
+Perpk (x) and Aper(x) depend only on π(x). Clearly, x is a Toeplitz sequence if and
+only if its aperiodic part is empty.
+   Recall that for a set A ⊂ Z the forward and backward densities of A are de-
+fined as dens+ (A) = limn n1 #(A ∩ [0, n − 1]), dens− (A) = limn n1 #(A ∩ [−n, −1]),
+respectively (provided the limits exist) and in case they coincide we call them the
+density of A and denote by dens(A).
+Theorem 2.8. Let (X, T ) be a Toeplitz subshift. Then, for every p ∈ N, dens(Perp (x))
+exists and is constant throughout X. Let d = 1 − supk dens(Perpk (x)). Then
+    (1) d = λ(Df );
+    (2) dens(Aper(x)) ≤ d for every x ∈ X;
+    (3) dens(Aper(x)) = d for µ-almost every x ∈ X, for every invariant measure
+        µ on X.
+   In particular, regularity of (X, T ) is equivalent to d = 0, and to dens(Aper(x)) = 0
+at every point.
+   Let (X, T ) be an irregular Toeplitz subshift. Consider the set of such points
+x ∈ X that dens(Aper(x)) = d (by (3) above, this set has full invariant measure).
+Since Aper(x) is constant throughout every fiber of π, our set equals π −1 (E) for
+some E ⊂ G. For x ∈ π −1 (E) we enumerate Aper(x) = {ni }i∈Z assuming that the
+sequence (ni ) is increasing and letting n0 be the smallest nonnegative element of
+    10Regular recurrence takes on the form (∀n ∈ Z)(∃p ∈ N)(∀m ∈ Z) x(n) = x(n + mp).
+                  ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                            5
+
+
+the sequence. We let yx = (x(ni ))i∈Z ∈ ΛZ and call it the aperiodic readout of x.
+For g ∈ E we let Yg = {yx : x ∈ π −1 (g)}.
+Definition 2.9. We say that the Toeplitz subshift (X, T ) satisfies the condition
+SAR ( same aperiodic readouts) if Yg is the same for every g ∈ E. We then denote
+the common space Yg by Y .
+   It is easy to see that in this case Y is closed and shift invariant. The following
+theorem plays the crucial technical role in most of our examples (for proofs see [D]):
+Theorem 2.10. Let (X, T ) be an irregular Toeplitz subshift satisfying the condition
+SAR. Let Tf be the skew product acting on G × Y given by
+                              Tf (g, y) = (τ (g), S g (y)),
+where S g equals the shift or the identity, depending on whether g ∈ Df or not,
+respectively. Then
+    (1) There is a bijection between invariant measures of (X, T ) and invariant
+         measures of (G × Y, Tf );
+    (2) Every invariant measure on (X, T ) is isomorphic to its corresponding in-
+         variant measure on the skew product;
+    (3) Every invariant measure on the skew product has marginals λ on G and
+         some shift-invariant measure ν on Y ;
+    (4) Every shift-invariant measure ν on Y appears as the marginal for at least
+         one invariant measure on the skew product (for example for λ × ν);
+    (5) The entropy of the skew product with respect to an invariant measure equals
+         d times the entropy of the corresponding marginal on Y .
+    (6) The topological entropy of the skew product (which equals the topological
+         entropy of (X, T )) equals d times the topological entropy of the shift on Y .
+  We will refer the the above facts several times.
+
+  3. Preliminaries on the Möbius function and Sarnak’s conjecture
+  The Möbius function denoted by µ is defined on positive integers as follows
+                   
+                    1
+                             if n = 1,
+           µ(n) =      0      if n has a repeated prime factor,
+                          r
+                       (−1) if n is a product of r distinct primes.
+                   
+
+This function has been introduced by A. F. Möbius in [M] to obtain inversion for-
+mulas for arithmetic functions [CDM]. It plays an important role in number theory.
+The reader is referred to the rich literature in that area for more information, let
+us quote only two fundamental monographs: [P], [W].
+Definition 3.1. Let ξ(n) and η(n) be two bounded complex-valued sequences over
+N. We say that these sequences are uncorrelated if
+                                    n
+                                 1X
+                             lim       ξ(i)η(i) = 0.
+                               n n
+                                   i=1
+
+   One of the intriguing properties of the Möbius function is its apparent random-
+ness in the distribution of its values. It is well known that the forward density of
+square-free numbers (i.e., of the set {n : |µ(n)| = 1}) exists and equals π62 (see [N],
+6                    TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+Thm 21.8 and the following Corollary). On the other hand, the densities of posi-
+tive and negative values are equal implying that µ is uncorrelated to the constant
+sequence (see [P], Thm 5.1).
+   Moreover, it is uncorrelated to any periodic function (an elementary proof can
+be found in [GL]), a fact which is connected with the laws of the distribution of
+primes along arithmetic progressions (see [Sa]). Let us remark that a more detailed
+analysis of this phenomenon, more precisely, of the behavior of the partial sums of
+the Möbius function, is an important area of study, connected to many fundamental
+number theoretical problems, see e.g. classical works [W], [Sch] and more recent
+papers [RR], [HS].
+   Sarnak [Sa] conjectures that µ is uncorrelated to any sequence obtained by read-
+ing any continuous function along any orbit in any topological dynamical system
+with topological entropy zero, as follows:
+Conjecture 3.2. Let (X, T ) be a topological dynamical system with topological
+entropy zero. Let f : X → C be a continuous function. Fix an x ∈ X and let
+ξ(n) = f (T n x) (for n ≥ 1). Then ξ and µ are uncorrelated.
+   The conjecture is known to hold for relatively few types of dynamical systems,
+in particular for odometers, irrational rotations, nilsequences [GT], horocycle flows
+[BSZ]. See also [B1], [B], [ALR], [G], [KL], [LS], [MR], for other results. We remark,
+that validity of Sarnak’s conjecture for odometers follows directly from the fact that
+the Möbius function is uncorrelated to any periodic sequence. The validity for irra-
+tional rotations can be proved by a criterion from [BSZ] or by completely different
+property of the Möbius function, discovered by Davenport [Da]. It is a folklore fact
+that the conjecture holds for the classical Sturmian subshift; the proof uses heavily
+the fact that this subshift has complexity11 c(n) = n+1 ([MH]). Recently, in [AKL]
+Sarnak’s conjecture has been proved for some Morse subshifts. Every continuous
+function on such a system decomposes as the sum of a function depending on the
+Toeplitz factor and an orthogonal one. Thus the method relies on two ingredients:
+for continuous functions orthogonal to the Toeplitz factor some specific spectral
+and disjointness methods are used. To handle the other ingredient the authors
+simply prove the conjecture for regular Toeplitz subshifts. In this note we extend
+the latter proof (in fact, we only notice that essentially the same proof applies) to
+a class slightly larger than regular Toeplitz systems, that of isomorphic extensions
+of compact monothetic group rotations. This includes some not necessarily regular
+Toeplitz systems and generalized Sturmian subshifts.
+
+              4. Sarnak’s conjecture for isomorphic extensions
+    The following fact has been observed jointly by the first author and M. Lemańczyk.
+Theorem 4.1. Let (X, T ) and (Y, S) be strictly ergodic topological dynamical sys-
+tems, with invariant measures µ and ν, respectively, and let π : X → Y be a
+topological factor map which is, at the same time, an isomorphism. If Sarnak’s
+conjecture holds for (Y, S) then it also holds for (X, T ).
+Proof. Let f : X → C be continuous. Then f ∈ L2 (µ) and f 0 = f ◦ π −1 ∈ L2 (ν) (f 0
+                                                                 2
+is defined ν-almost everywhere onR Y ). Since C(Y ) is dense in
+                                                              R L (ν), there exists a
+continuous g 0 : Y → C such that |f 0 − g 0 |2 dν < 2 , hence |f 0 − g 0 | dν < . The
+    11the number of words of length n in the subshift
+                    ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                                    7
+
+
+function g = g 0 ◦ π is continuous on X and |f − g| dµ < . Because in strictly
+                                               R
+                                                         Pn
+ergodic systems every point is generic12, we have limn n1 i=1 |f (T i x)−g(T i x)| < ,
+for any x ∈ X. Now, we write
+          n                     n                    n
+       1X                    1X                   1X
+             f (T i x)µ(i) ≤       g(T i x)µ(i) +       |f (T i x) − g(T i x)||µ(i)|.
+       n i=1                 n i=1                n i=1
+                                                       Pn
+The first average on the right hand side equals n1 i=1 g 0 (S i y)µ(i) , where y =
+π(x), and is small for large n, because Sarnak’s conjecture holds on (Y, S). The
+last average does not exceed, for large n, the arbitrarily small . Thus the left hand
+side tends zero with growing n.                                                      
+
+   In [AKL] the reader will find a slightly different statement, in which (Y, S) is
+assumed coalescent 13 and the assumption that the isomorphism between (X, T )
+and (Y, S) is realized by the same topological factor map π is dropped (it is then
+fulfilled automatically). Recall that odometers and other ergodic group rotations
+are coalescent.
+   We now draw conclusions concerning particular types of topological dynamical
+systems. It seems that items (1b) and (2) below are new. Notice that for the
+classical Sturmian subshift we have obtained a new proof not relying on the exact
+complexity.
+
+Corollary 4.2. Sarnak’s conjecture holds for:
+    (1) regular semicocycle extensions of any minimal equicontinuous systems14, in
+        particular
+             (1a) regular Toeplitz systems (see also [AKL]);
+             (1b) generalized Sturmian subshifts15;
+    (2) some irregular Toeplitz subshifts as in the Example 5.1 below.
+
+Proof. To be absolutely clear, let us argue why does the conjecture hold for minimal
+equicontinuous systems. By the Halmos–von Neumann Theorem, every such system
+is uniquely ergodic and the space L2 (µ) is spanned by (at most countably many)
+continuous eigenfunctions. Thus every continuous function can be approximated
+in L2 (µ) (hence also in L1 (µ)) by a finite sum of continuous eigenfunctions. Now,
+by an argument as in the preceding proof, it suffices to verify the conjecture for
+continuous eigenfunctions. But every such function arises as a continuous function
+defined on either an odometer (if the eigenvalue is rational) or an irrational rotation
+(otherwise).                                                                          
+
+
+   12fulfills the ergodic theorem for every continuous function
+   13every endomorphism from the system to itself is an isomorphism
+   14Notice that semicocycle extensions can be as well defined on any strictly ergodic system, not
+necessarily on an odometer. Regularity means that the set of discontinuities of the semicocycle
+has measure zero.
+   15A classical Sturmian subshift is obtained as the semicocycle extension of the irrational ro-
+tation by an angle α, where the semicocycle is precisely the characteristic function of [0, α]. In
+generalized Sturmian subshifts the semicocycle is admitted characteristic function of any nonde-
+generate subinterval or even a finite union of intervals.
+8                  TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+                     5. Examples of models of odometers
+Example 5.1. There exist irregular Toeplitz subshifts which are strictly ergodic and
+isomorphic (via the same topological factor map) to their maximal equicontinuous
+factor odometers (for these Sarnak’s conjecture holds).
+Sketch of the construction. An explicit example of such a system is generated by
+the (unilateral) Toeplitz sequence described below.
+   Pick a block B1 = 000...01000...0 of some length r1 consisting of zeros but one
+symbol 1 (somewhere). We place this block p1 -periodically (for some = p1 > r1 ,
+we also let q1 = p1 ) (see Figure 1).
+
+
+0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100∗∗∗ 0100...
+
+                Figure 1. On this figure B1 = 0100, r1 = 4 and p1 = 7.
+
+   The unfilled places (the stars) come in blocks of length Q1 = q1 − r1 . We pick a
+block B2 of some length r2 Q1 , consisting of zeros but one symbol 1. We write this
+block into r2 consecutive empty blocks and repeat p2 -periodically, where p2 = q2 p1 ,
+for some q2 > r2 (see Figure 2).
+
+
+0100000 0100100 0100000 0100∗∗∗0100∗∗∗0100∗∗∗0100000 0100100 0100000 0100...
+
+             Figure 2. On this figure B2 = 000100000, r2 = 3 and q2 = 6.
+
+    Now the unfilled positions come in clusters of q2 − r2 blocks of length q1 − r1 .
+     We continue in this manner: in step k + 1 we use a block Bk+1 consisting of all
+zeros but one symbol 1, whose length equals rk+1 (a freely chosen number) times
+Qk = (p1 − r1 )(p2 − r2 ) . . . (pk − rk ) (the number of unfilled positions in [0, pk − 1]
+in the so far constructed sequence), we use this block to fill all unfilled places in
+[0, rk+1 pk − 1], then we repeat it with a period pk+1 = qk pk for some freely chosen
+                                                                          QN
+qk > rk . Two more details must be taken care of: the products k=1 (1 − rqkk ),
+representing the density of unfilled positions after step N , must converge to a
+number d > 0. The second requirement is that for each k the symbol 1 appears in
+the future blocks Bk0 (k 0 > k) at positions whose remainders modulo Qk assume
+every possible value infinitely many times. With such an arrangement it is not very
+hard to see that:
+       (1) the generated (bilateral) Toeplitz subshift (X, T ) is an almost 1-1 extension
+           of the odometer (G, τ ) with scale H = (pk );
+       (2) (X, T ) is irregular and satisfies the condition SAR with the space Y of
+           aperiodic readouts consisting of all {0, 1}-valued sequences having at most
+           one symbol 1.
+Clearly, Y supports only one invariant measure ν, the pointmass at the fixpoint
+(. . . 000 . . . ). Theorem 2.10 (1)–(3) implies that (X, T ) is uniquely ergodic, the
+unique invariant measure µ is isomorphic to the only measure with marginals λ
+and ν, which is λ × ν. Since ν is supported by one point, the factor map π provides
+an isomorphism between µ and λ, as required. 
+                   ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                                 9
+
+
+   There exist strictly ergodic systems (also subshifts) isomorphic to an odometer
+(G, τ ), yet whose maximal equicontinuous factor (G0 , τ 0 ) is a proper factor of (G, τ )
+and Theorem 4.1 does not apply to such systems. For G which is not simple16, such
+examples are easily obtained with G0 being an adding machine and the system is an
+almost 1-1 extension of (G0 , τ 0 ), while the remaining eigenvalues of G are realized
+by discontinuous eigenfunctions (see [DL]). There exist also models for which the
+maximal equicontinuous factor is trivial (hence all eigenvalues of (G, τ ) are realized
+by discontinuous eigenfunctions and the system is topologically weakly mixing).
+Such examples can be produced for all odometers, including the simple ones. Below
+we give an example with even stronger property of topological mixing.17
+Example 5.2. Given an odometer (G, τ ), there exists a strictly ergodic topologically
+mixing subshift (X, T ) isomorphic to (G, τ ).
+Sketch of the construction. Since we will be dealing with subshifts, T will always
+denote the shift transformation, regardless of the domain. Let H = (pk ) denote
+the scale of the odometer. Let (X0 , T ) be a regular Toeplitz subshift with max-
+imal equicontinuous factor (G, τ ), and let x0 ∈ X0 be a Toeplitz sequence. We
+will produce a sequence of topological conjugacies of (X0 , T ), converging almost
+everywhere to an isomorphism with the desired subshift (X, T ).
+   In step 1, choose some r1 ∈ N and find all periodic repetitions in x0 of the central
+block C1 = x0 [−r1 , r1 ]. The period of the repetitions is some p1 ∈ H. Choose q1
+such that p1 q1 ∈ H and choose every q1 th periodic occurrence of C1 in x0 (avoiding
+the central one). Let us call these places 1-windows. Now comes the modification:
+within each 1-window we shift the contents one position to the left (sending the
+leftmost symbol to the right end). The modification passes over, in an obvious way,
+to all elements of X0 and is invertible if q1 is large enough18. This is our conjugacy
+Φ1 : X0 → X1 between two Toeplitz subshifts. We denote by x1 the Toeplitz
+sequence Φ1 (x0 ).
+   In step 2 we choose some r2 and we denote C2 = x1 [−r2 , r2 ]. We must take care
+of two details: C2 must be long enough to include several 1-windows, moreover, its
+ends must fall far from the 1-windows, for instance, approximately in the middle
+between two of them. In the future this will prevent an accumulation of the end-
+irregularities. We find all periodic occurrences of C2 in x1 , and their period p2 ∈ H.
+Next we choose some large q2 such that p2 q2 ∈ H and we mark every q2 th copy of
+C2 in x2 (avoiding the central one) as 2-windows. Like before, we shift the contents
+of each 2-window one position to the left, sending the leftmost symbol to the right
+end. This modification spreads naturally to a conjugacy Φ2 : X1 → X2 between
+Toeplitz subshifts. We let x2 = Φ2 (x1 ) = Φ2 Φ1 (x0 ).
+   We proceed in this manner infinitely many times, assuring that the densities of
+the positions affected by consecutive modifications (i.e., the ratios ρk = 2rpkkq+1
+                                                                                 k
+                                                                                    ) are
+summable, and that the ends of the k-windows fall, for every k 0 < k approximately
+in the middle between the a pair k 0 -windows (see Figure 3).
+
+   16An odometer is simple when its scale is (pk ) for a prime number p. Simple odometers have
+no infinite proper factors, other do.
+   17It is known ([L]) that every aperiodic ergodic system has a topologically mixing strictly
+ergodic model. Here we provide a particular example.
+   18q must be long enough so that the p -periodic part of any x ∈ X can be determined by
+       1                                     1                       0
+viewing any block of length p1 q1 − 2r1 − 1.
+10                    TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+
+
+           Figure 3. The colors show the k-windows (i.e., areas affected by Φk ):
+           original – black, 1-windows – red, 2-windows – green, 3-windows – blue
+           (the next 3-window too far to be shown). The shift by one position of
+           red within green, and that of green and red within blue are to small to
+           be seen.
+
+
+   Let x∞ denote the sequence obtained as the limit of xk (which exists because
+every position in x0 is affected by the modifications at most finitely many times),
+and we let X∞ be the shift orbit closure of x∞ and finally X, a minimal subset
+of X∞ .19 Notice that the maps Ψk = Φk . . . Φ2 Φ1 converge at every point of X0
+whose every coordinate is affected at most finitely many times. We let Ψ be the
+(partially defined) limit map on X0 .
+   The following observations are standard and we skip their proofs:
+      (1) (X∞ , T ) is topologically mixing (can be checked directly by the definition).
+      (2) Ψ is defined almost everywhere on X0 and acts into X∞ .
+      (3) For each k, on X we can define the following map ψk : in each element of
+          X we can easily identify and reverse the consequences of the modification
+          Φ1 , Φ2 , Φ3 , . . . , Φk (although we “invert” Φk in a seemingly wrong order,
+          these inverses commute). Attention: the maps ψk are not precisely inverses
+          of Ψk ; they are defined on X∞ , not on Xk .
+      (4) The limit of the above maps ψk (call it ψ) is defined almost everywhere on
+          X∞ for every invariant measure.
+      (5) The range of ψ is contained in X0 and ψ inverts Ψ wherever the latter is
+          defined.
+The last four facts imply that (X∞ , T ) is uniquely ergodic and isomorphic to
+(X0 , T ). Since the minimal subset X ⊂ X∞ supports an invariant measure, it
+supports the unique one, hence (X, T ) is isomorphic to (X0 , T ) and, additionally,
+minimal. Thus (X, T ) is the desired example. 
+  Although we have no general proof of Sarnak’s conjecture for all models of
+odometers, interestingly, it does hold in the above topologically mixing example.
+Again, we will only sketch the argument.
+Sketch of proof of Sarnak’s conjecture in Example 5.2. Since every continuous
+function on X can be approximated in L1 (µ) by a (continuous) linear combination
+of characteristic functions of cylinders corresponding to finite blocks, it suffices to
+verify the conjecture for such characteristic functions. We will do that for blocks of
+length 1, i.e., for the occurrences of the symbol 1. The argument for longer blocks
+is identical.
+    Fix anP > 0 and let k be such that the density of places where x∞ differs from
+             ∞
+xk (i.e., k0 =k+1 ρk0 ) is less than . Since xk is regular Toeplitz, there are l and
+N such that the pl -periodic part occupies a fraction at least 1 −  in every block
+of length N appearing in any element of Xk . The problem we are facing is that
+the (slightly perturbed) pl -periodic part in x ∈ X does not come from a continuous
+
+     19This step allows us to avoid verifying whether X
+                                                      ∞ is minimal.
+                        ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                                                11
+
+
+function on X any more, and we have no guarantee that all points realize the
+ergodic theorem for it. We need more subtle observations.
+   We can assume that N is large enough so that
+                                              n
+                                              X
+                                                     ξ(i)µ(i) < n
+                                               i=1
+
+for every {0, 1}-valued pl -periodic sequence ξ and every n ≥ N . Let x ∈ X and
+consider the initial block x[1, n] for n ≥ N (this is an arbitrary block B of length n
+appearing in x∞ ). We will argue that there are (at most) three blocks B1 , B2 , B3
+appearing in Xk , with lengths summing to n, such that x[1, n] nearly equals the
+concatenation B1 B2 B3 in the sense that the fraction of disagreements is at most
+2. Once this is proved, we can write B1 = x0 [1, m], B2 = x00 [m + 1, m0 ], B3 =
+x000 [m0 + 1, n] for some x0 , x00 , x000 ∈ Xk and m, m0 ∈ [1, n], m ≤ m0 , and then have
+the following estimation
+                                                            0
+        n                          m                       m                       n
+        X                    2n   X
+                                          0
+                                                           X                       X
+                  x(i)µ(i) ≈             x (i)µ(i) +              x00 (i)µ(i) +             x000 (i)µ(i) =
+            i=1                    i=1                    i=m+1                   i=m0 +1
+                         0                                                                    0
+m
+X                      m
+                       X                      m
+                                              X                     n
+                                                                    X                   m
+                                                                                        X
+        0                     00                     00                    000
+       x (i)µ(i) +           x (i)µ(i) −            x (i)µ(i) +           x (i)µ(i) −             x000 (i)µ(i) < 10n,
+ i=1                   i=1                    i=1                   i=1                     i=1
+
+because
+        • the sums shorter than N contribute at most sN < sn (s ≤ 4 is the number
+          of such sums),
+        • in each sum not shorter than N
+             – x0 , x00 or x000 can be replaced by a pl -periodic sequence and this will
+               change the sum by less than  times the summing length,
+             – once the above replacement is done, the absolute value of the sum does
+               not exceed  times the summing length,
+        • the sum of the summing lengths equals (5 − s)n.
+   Clearly, this estimation ends the proof.
+   So, it remains to break a block B of length n appearing in x∞ into at most three
+subblocks, as desired. We can think of B as of a block B0 appearing somewhere
+in xk , affected by some finitely many modifications Φk+1 , . . . , ΦK . If B is entirely
+contained in a K-window without its endpoints, then ΦK shifts the entire contents
+one position to the left, so that the result is the same as if we started from the block
+B00 lying in xk one position to the left with respect to B0 and pretended that ΦK
+did not affect it. In this manner, we can ignore all such cases and move on to the
+largest index (and denote this one by K) for which only part of B is affected by ΦK ,
+that is, B contains an endpoint of a K-window. Now there are three possibilities:
+    (1) B intersects two or more K-windows,
+    (2) B contains one or both endpoints of just one K-window.
+In case (1) the fraction of modifications introduced by ΦK in B is at most 2ρK (and
+ρk0 for earlier modifications with k 0 = k + 1, . . . , K − 1), so B differs from B0 on a
+fraction of at most 2 places and there is no need to partition it (we put B1 = B0 ,
+there is no B2 or B3 ). In case (2) we cut B at the endpoints of the K-window.
+This produces two or three subblocks B10 , B20 , B30 . Notice that ΦK affects only one
+12                TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+of these subblocks and only by shifting it “in one piece”. So, we only need to see
+how much each subblock is affected by the earlier modifications. Recall that for
+each k 0 < K the endpoints of the k 0 -windows fall approximately pk02qk0 places away
+from the endpoints of the K-window. This implies that if a modification Φk0 does
+affect a subblock Bi0 (i = 1, 2 or 3), then the fraction of the modifications in this
+subblock is at most 2ρk0 . So each Bi0 differs from a subblock of xk on a fraction of
+at most 2 places. This completes the argument.                                    
+
+         6. Toeplitz sequences which fail Sarnak’s conjecture
+  We will say that sequences P ξ and η are weakly (resp. strongly) correlated if the
+                                 n
+upper (resp. lower) limit of n1 i=1 ξ(i)η(i) is positive.
+6.1. Weak failure.
+Example 6.1. There exists an irregular {−1, 1}-valued Toeplitz subshift X such
+that some x ∈ X are strongly correlated with µ. The set of such points x is dense
+in X. Moreover, weak correlation holds on a residual subset of X.
+The example is very simple, once the general construction of Toeplitz systems is
+understood: Consider an irregular Toeplitz subshift satisfying the condition SAR
+and such that Y , (the space of aperiodic readouts) is the full shift on two symbols
+{−1, 1} (we skip the detailed construction of such a subshift; it is done by a “stan-
+dard method” e.g., the Oxtoby technique, see [D]). Let π : X → G denote the
+maximal equicontinuous factor map onto the underlying adding machine and let λ
+be the Haar measure on G. Then, by Theorem 2.8 (and the explanations following
+that theorem), there is a set G0 ⊂ G with λ(G0 ) = 1 which satisfy the following two
+conditions:
+    (1) all points x in the fiber π −1 (g) agree along a common periodic part whose
+        density equals 1 − d,
+    (2) as x ranges over π −1 (g), all possible {−1, 1}-valued sequences occur along
+        the aperiodic part of x.
+In particular, if we arrange that d > 1 − π32 (≈ 0.7) (which is easily done within
+the “standard method”) then, for every g ∈ G0 and x ∈ π −1 (g) the set A =
+Aper(x) ∩ {n ≥ 0 : µ(n) 6= 0} has positive lower forward density at least d0 =
+d + π62 − 1 > π32 . There exists a point x0 ∈ π −1 (g) such that for n ∈ A it equals
+µ(n). It is obvious that (even in the “worst case scenario”, when x(i) = −µ(i) and
+|µ(i)| = 1 everywhere on the periodic part of x) we still have
+                                  n
+                               1X
+(6.1)                lim inf         x0 (i)µ(i) ≥ d0 − (1 − d) > 0.
+                       n       n i=1
+   Next, we will show that points x0 as constructed above (satisfying (6.1)) lie
+densely in X. Consider a basic open set U in X, i.e., a cylinder corresponding to
+a block B ∈ {−1, 1}2k+1 occurring in X at the coordinates [−k, k]. By minimality,
+the same block occurs (perhaps at a different place) in the generating Toeplitz
+sequence, which implies that the same block occurs somewhere in the periodic part
+of every element of X, in particular in an element x ∈ π −1 (G0 ). Notice (directly
+from the definition) that the set G0 is invariant (equivalently, π −1 (G0 ) is shift-
+invariant). Thus, by an appropriate shifting, we obtain a new point x such that B
+occurs in x at the coordinates [−k, k] and still belongs to the periodic part of x,
+                  ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                           13
+
+
+and g = π −1 (x) belongs to G0 . Using this particular g in the above construction of
+x0 we produce the point x0 such that x0 [−k, k] = B (x0 belongs to the same fiber
+as x and thus agrees with x along the periodic part, which includes the coordinates
+[−k, k]). In other words, we have constructed a point x0 ∈ U satisfying (6.1).
+   Next we observe that if we weaken (6.1) by requiring that the upper limit is
+larger than or equal to a positive  < d0 − (1 − d), then it holds on a residual set.
+Indeed, we can write
+
+
+  (                  n
+                                    )
+                  1X
+      x : lim sup       x(i)µ(i) >  ⊂
+             n    n i=1
+                                   (      n
+                                                         )
+                           \ [         1X
+                                    x:       x(i)µ(i) >  ⊂
+                                       n i=1
+                          m≥1 n≥m
+                                                 (               n
+                                                                                )
+                                                              1X
+                                                  x : lim sup       x(i)µ(i) ≥  .
+                                                         n    n i=1
+
+
+The first set contains the dense set of points satisfying (6.1), the middle set is of
+type Gδ (hence it is a dense Gδ ) and thus the last set is residual. The example is
+completed. 
+
+
+  Since Toeplitz sequences form a residual subset inside a Toeplitz subshift, we
+conclude that
+
+Corollary 6.2. There exist (irregular) Toeplitz sequences weakly correlated with
+the Möbius function.
+
+   We remark, that the Toeplitz subshift of the above example has positive entropy
+(equal to d ln 2), hence it stands in no collision with the Sarnak’s conjecture.
+
+
+
+
+6.2. Strong failure. The following example is replicated from [AKL].
+
+Example 6.3. There exists a one-sided Toeplitz sequence strongly correlated with
+the Möbius function.
+
+We begin by describing a general scheme (used in [AKL]) of producing a one-sided
+Toeplitz sequence from another symbolic sequence. Let y = (yn )n≥1 be a one-
+sided sequence over a finite alphabet Λ. Let H = (pk ) be a scale of an adding
+         P that p1 ≥ 3. Since pk+1 ≥ 2pk for every k, this condition implies
+machine such
+that ρ = k≥1 p1k < 1. We define the associated one-sided Toeplitz sequence x as
+14                      TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+follows:                            
+                                    
+                                       y1 ,       n = 1 mod p1
+                                    
+                                        y2 ,       n = 2 mod p2
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                     .
+                                      ..
+                                    
+                                    
+                                    
+                                       yp1 ,       n = p1 mod pp1
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    yp +1 , n = p1 + 2 mod pp1 +1
+                                    
+                                            1
+                           xy (n) =
+                                    
+                                      y  p 1 +2
+                                                 , n = p1 + 3 mod pp1 +2
+                                    
+                                    
+                                      .
+                                       ..
+                                    
+                                    
+                                    
+                                    
+                                        y2p1 −1 , n = 2p1 mod p2p1 −1
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                     y   2p1 ,    n = 2p1 + 3 mod p2p1
+                                    
+                                    .
+                                     .
+                                      .
+We refrain from further detailed listing, as it becomes too complicated. The simple
+rule behind the scheme is that yk is placed at the first position available after steps
+1, 2, . . . , k−1 and then it is repeated periodically with the period pk . This concludes
+the description of the scheme.
+    For further considerations, it will be convenient to highlight, for each k, the first
+placement of yk in xy (it is shown in boldface, while its further periodic repetitions
+are printed in the normal font). While reading the following text and diagrams it
+is important to distinguish between boldface symbols yk and normal font symbols
+yk . The diagram below shows the filling scheme in case pk = 3k with the boldface
+terms marked.
+y1 y2 y3 y1 y4 y5 y1 y6 y7 y1 y2 y8 y1 y9 y10 y1 y11 y12 y1 y2 y13 y1 y14 y15 y1 y16 y17 y1 y2 y3 y1 y18 y19 y1 y20 ...
+
+
+The authors of [AKL] show that the lower density of the boldface symbols (which
+they call initials) is at least 1 − ρ (combining this with Lemma 7.1 (3) below we
+see that in fact these symbols have density 1 − ρ), which can be made arbitrarily
+close to 1. They select y so that xy (n) = µ(n) whenever xy (n) is a boldface
+symbol. If 1 − ρ > 1 − π32 then, for the same reasons as in (6.1) (with 1 − ρ in
+the role of d), they obtain that x is strongly correlated with µ. Of course, in view
+of Sarnak’s conjecture, one is obliged to compute the topological entropy of the
+generated Toeplitz subshift (at least to check whether it is positive). We will do so
+in Section 8. 
+
+                                   7. Properties of the scheme
+    We are interested in properties of Toeplitz sequences obtained through the above
+scheme for general sequences y. In particular, we would like to know whether
+positive entropy follows automatically from positive entropy of the orbit closure Y
+of y. As we soon show, the answer is negative. This is quite unfortunate, because
+it forces us to estimate the entropy of the example of [AKL] using tedious methods
+adapted the the particular example.
+   So, consider a general sequence y and the associated Toeplitz sequence xy with
+the boldface symbols marked. The following lemma addresses the distribution of
+the boldface symbols in xy . The statement (5) will be used immediately in Example
+                   ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                             15
+
+
+7.3, while statement (4) only in Section 8. Statements (1) and (2) are necessary to
+prove (4), while (3) is just a digression noted in passing.
+Lemma 7.1. Let z be the {0, 1}-valued sequence given by the rule z(n) = 1 ⇐⇒
+xy (n) is a boldface symbol. Then
+    (1) The frequency of zeros in the block Bk,0 = z[1, pk ] converges to ρ from
+         below, as k → ∞.
+    (2) For every k every block of the form Bk,j = Bk,j [1, pk ] = z[jpk + 1, (j + 1)pk ]
+         (n ≥ 0) can be obtained from Bk,0 by only replacing some 1’s by 0’s.
+    (3) The symbols 0 in z have lower Banach density ρ.
+    (4) Given  > 0 there is a δ > 0 and n0 ∈ N, such that, for any n ≥ n0 , the
+         cardinality of different blocks B of length n, appearing in z and in which
+         the frequency of 0’s is at most ρ + δ, does not exceed 2n .
+    (5) For every natural m, z contains a block consisting of m single symbols 1
+         separated by blocks of zeros of lengths at least m. In particular, the upper
+         Banach density of zeros in z is 1.
+Remark 7.2. (3) and (5) imply that the subshift generated by z is not uniquely
+ergodic; at least one invariant measure assigns to the cylinder of 0 the value ρ and
+at least one – the value 1 (perhaps there are more possibilities). (4) implies that
+every measure of the first kind has entropy zero. We have not verified whether this
+subshift has topological entropy zero (regardless of the scale H = (pk )).
+Proof. For (1) it suffices to observe that the frequency of zeros in Bk,0 equals
+                             X               X 
+                          1       pk                1
+                         pk     ( p 0 − 1) =       p0 − k−1
+                                                         pk .
+                                    k                  k
+                            k0 <k              k0 <k
+
+Indeed, in step k 0 ≤ k, in xy [1, pk ] we have placed ppk0 symbols, of which one was
+                                                          k
+boldface. Hence the formula.
+   For (2) note that Bk,0 (i) = 0 if and only if xy (i) is a normal font (i.e., repeated)
+symbol yk0 for some k 0 . This is possible only when pk0 < pk . But then pk is a
+multiple of pk0 which implies that Bk,j (i) = 0 for every j.
+   Clearly, (1) implies that the lower density (and lower Banach density) of zeros is
+at most ρ. By (2), the frequency of 0’s in any Bk,j may only be larger than that in
+Bk,0 (which is close to ρ). Every sufficiently long block B in z is a concatenation
+of the blocks Bk,j and negligibly small prefix and suffix, so the frequency of 0’s in
+B is not less than ρ minus a negligibly small error term. This proves (3).
+   For (4) we argue as above: every block B of large length n, after removing
+negligibly small prefix and suffix, becomes a concatenation of the blocks Bk,j (with a
+large parameter k). By (2), this concatenation can be viewed as a periodic repetition
+of Bk,0 with some 1’s replaced by 0’s. But the number of replaced symbols 1 cannot
+essentially exceed nδ, otherwise the overall frequency of 0’s would be too large. Such
+a replacement can be performed in approximately en(−δ ln δ−(1−δ) ln(1−δ)) different
+ways, which, for an appropriately small δ, is smaller than 2n .
+   For (5), we will need the following (somewhat lengthy)
+Claim. For every m ≥ 1, after some number km of steps of filling xy (i.e., after
+having placed the periodic repetitions of y1 , . . . , ykm ), xy starts with the following
+configuration (later referred to as C): a continuous entirely filled block (with both
+boldface and normal font symbols) ending with the boldface ykm followed by a
+16                 TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+single unfilled coordinate, next a continuous block filled with normal font terms
+followed by a single unfilled position, next again a continuous block filled with
+normal font terms followed by a single unfilled position, and so on. The continuous
+filled blocks (including the first one) have strictly decreasing lengths and there is
+m of them (see the diagram below for m = 6, most of the indices are omitted). We
+do not require that the last unfilled position is single (it may be followed by more
+unfilled positions).
+              y1 y y y y y y ykm y y y y y y y y y y y y y y y y y y y y
+
+Proof of the Claim. For m = 1 the condition is fulfilled after k1 = 1 steps, so
+the induction starts. Suppose the claim holds for some m ≥ 1. The pattern C
+is repeated periodically with the period pkm and the repetitions cannot overlap
+(because the lengths of the filled blocks are all different). This implies that the
+pattern C is contained in xy [1, pkm ]. Let us move to the first repetition of the
+pattern C further to the right (call it C 0 ). It starts at the position pkm +1 and clearly,
+here all symbols are printed in normal font. Notice that at least two preceding
+positions: pkm and pkm − 1 are not occupied (because pkm = 0 mod pk and pkm −
+1 = pk − 1 mod pk for any k ≤ km , while the positions filled with the symbol yk
+have values mod pk positive and much smaller than pk ). Now we perform the
+construction steps km + 1, km + 2, etc., of filling in xy , until we fill the position
+pkm − 1 (with a boldface symbol yk0 for some k 0 > km ). Notice that the pattern
+C 0 reaches to at most the position 2pkm , which is smaller than pkm +1 + 1, so the
+repeated (normal font) symbols added in these new steps fall to the right of C 0
+(i.e., they do not affect it). In this manner we fill all the unfilled positions within
+xy [1, pkm − 1] creating (together with C 0 ) a pattern as required for m + 1 in the
+induction (with km+1 = k 0 ). Note that the new initial continuously filled block
+xy [1, pkm − 1] has length pkm − 1 larger than or equal to the length of the pattern
+C 0 (perhaps without counting its last empty cell), in particular, for m > 1, it is
+strictly longer than the first completely filled block of C 0 . For m = 1 this also
+holds, because, in this case, the length of the first (and unique) filled block of C 0 is
+1, while p1 − 1 > 1. The claim is thus proved.
+    In the following construction steps, the unfilled positions in the pattern C are
+filled with the boldface symbols ykm +1 , ykm +2 , . . . , ykm +m . Because the lengths of
+the separating normal font blocks strictly decrease, and there is m − 1 of them,
+the first one has length at least m − 1, the next one m − 2 and so on. Thus,
+taking for simplicity m to be even, we obtain that each of the boldface terms
+ykm +1 , ykm +2 , . . . , ykm + m2 is followed (and preceded) by a block of normal font
+symbols of length at least m                     m
+                                   2 . Renaming 2 as m ends the proof.                  
+   It follows from the construction (or we can easily arrange it by choosing a sub-
+sequence) that km+1 > km + m for each m ≥ 1.
+Example 7.3. There exists a one-sided symbolic sequence y such that its orbit
+closure Y has positive topological entropy and supports many invariant measures,
+yet the associated Toeplitz subshift Xy (the orbit closure of xy ) is strictly ergodic
+with entropy zero.
+We just need to decide about the contents of the sequence y. Let Λ = {0, 1}. For
+each m ≥ 1 we let y[km + 1, km + m] be a block Am and y[km + m + 1, km+1 ]
+be the block consisting entirely of zeros. We arrange that the sequence of blocks
+                   ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                             17
+
+
+(Am )m≥1 generates a positive entropy subshift Y0 with many invariant measures
+(for example, the full shift on two symbols). It is clear that the orbit-closure Y of
+y contains Y0 , hence has positive entropy and many invariant measures.
+      Let us ignore “accidental” periodic repetitions of symbols in xy . This is to say,
+we will denote by Perk (xy ) the set of positions of the pk0 -periodic repetitions of the
+                                                                    Pk
+symbols yk0 for k 0 ≤ k. The density of so defined Perk (xy ) is k0 =1 p1 0 .
+                                                                            k
+      It follows from the general facts concerning Toeplitz subshifts, that if µ is an
+invariant measure on Xy , then µ-almost every x ∈ Xy has the “non-accidental”
+periodic part of density ρ < 1, and the remaining part (which we denote by Aper(x),
+although at the moment we only know it contains the true aperiodic part). Clearly,
+Aper(x) is infinite as it has density 1 − ρ.
+      Suppose Aper(x) contains two positions n and n + m such that x(n) = x(n +
+m) = 1. This implies that in xy there are infinitely many positions n0 such that
+x(n0 ) = x(n0 + m) = 1 and n0 and n0 + m both belong to arbitrarily high periodic
+parts. This is to say, xy (n0 ) = yk0 (or yk0 ) and xy (n0 + m) = yk00 (or yk00 ), where
+k 0 , k 00 are arbitrarily large, for instance larger than both k and km and such that
+pk0 , pk00 > m. Suppose k 0 < k 00 (the other case is symmetric). Shift (if necessary)
+the window [n0 , n0 + m] to the left by a multiple of pk0 so it starts with the boldface
+symbol yk0 . Say, this is now [n00 , n00 + m]. The position n00 + m cannot be occupied
+by yk000 with k 000 ≤ k 0 because then n0 + m would also be occupied by the same yk000
+(while it is by yk00 or yk00 with k 00 > k 0 ). This implies that n00 + m is occupied by
+some yk000 or yk000 with k 000 > k 0 . But in such case, since m is smaller than pk000 , it
+must be the first occurrence, i.e., yk000 . Since yk0 = 1, k 0 must belong to an interval
+[km0 , km0 + m0 ] for some m0 and since k 0 > km , m0 must be larger than or equal to
+m. This implies that the occurrence of yk0 in xy (it occurs as xy (n00 )) is followed
+by a block of at least m normal font symbols. This is a contradiction since we have
+just shown that xy (n00 + m) is a boldface symbol.
+      We have proved that if x has an infinite aperiodic part, this part is filled with
+zeros except perhaps one 1. This immediately implies that Xy has entropy zero
+and is strictly ergodic (in fact, it is isomorphic to the odometer, like the system of
+Example 5.1).
+   Although the above statement already captures the most important properties
+of the Toeplitz subshift Xy , we have not yet guaranteed that
+    (1) the sequence xy is irregular with the density of a “true” aperiodic part
+         equal to 1 − ρ,
+    (2) the odometer (G, τ ) is a factor of Xy .
+All these features must be arranged separately, by delicate modifications of y, yet,
+which do not destroy what we have already achieved. We will only outline what
+needs to be done, skipping the tedious and not very interesting details.
+   We must realize that the construction steps of filling in xy corresponds to suc-
+cessively defining the associated semicocycle as constant on some clopen subsets
+Ck ⊂ G. The positions of these subsets are determined by the scheme; they form a
+dense subset of G and have jointly the Haar measure ρ.
+   For (1) we need to assure that the cocycle is discontinuous at every point of the
+complementary set D ⊂ G. This can be done by making sure that we assign at
+least two different values in every neighborhood of every point of D, which can be
+achieved by modifying (if necessary) the values of y along a very sparse subsequence,
+18                TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+so sparse that it would not affect other properties. Notice that every neighborhood
+of every point in D contains infinitely many sets Ck , so we can choose an arbitrarily
+sparse subsequence of these sets which visits all such neighborhoods.
+   Likewise, for (2) we need the semicocycle to be invariant under no rotation. For
+this is suffices that we arrange a discontinuity point “unlike any other”. This can
+also be done by very sparse modifications of y. 
+
+                        8. Entropy of the Example 6.3
+   We have eliminated the possibility of an “automatic” proof that the entropy in
+Example 6.3 is positive just based on the fact that µ generates a subshift with
+positive topological entropy. On the other hand, in view of Sarnak’s conjecture, we
+are obliged to check positivity of its topological entropy.
+
+Proof of positivity of the entropy of Example 6.3. For short, we will call the squares
+of prime numbers the p-squares. They will be denoted by d1 , d2 , d3 , ....
+   Let B denote an arbitrary block appearing in the subshift generated by |µ|. Let
+n denote the length of B, which we assume is large. Our goal is to indicate a place
+(an interval of n consecutive coordinates) where B occurs in |µ| and in the Toeplitz
+sequence xy the number of boldface symbols is close to n(1 − ρ) (i.e., nearly realizes
+the upper Banach density of such symbols). Recall that ρ is the sum of the inverses
+of the periods pk and is smaller than π32 . First we will argue that finding such places
+(for all long enough blocks B) suffices for positivity of the topological entropy of
+Xy .
+   Indeed, let C denote the block appearing in xy over this interval. Then B
+can be reconstructed knowing C and two additional data: the positions of all the
+normal font symbols in xy in the considered interval and the contents of |µ| at these
+positions. Since the number of normal font symbols is not larger than n(ρ + δ),
+Lemma 7.1 implies that there are at most 2n possibilities as to how the normal
+font symbols are distributed, and then there are at most 2n(ρ+δ) possibilities as to
+their contents in |µ|. This produces the estimate
+                            #{B} ≤ #{C} · 2n · 2n(ρ+δ) ,
+where #{B} and #{C} denote the cardinalities of blocks of length n in |µ| and
+in xy , respectively. Since |µ| generates a subshift of entropy π62 log 2, i.e., #{B} is
+             2                                                                     2
+nearly 26n/π , the cardinality #{C} is (ignoring the small terms) nearly 2n(6/π −ρ) ,
+which yields positive topological entropy of Xy whenever ρ < π62 (while we have
+assumed it is smaller even than half of that number).
+   So, we focus on finding an interval, as specified at the start of the proof. Find
+an interval I of length n where B occurs in |µ| (there is such). Positions of zeros
+in I can be divided in two classes: first class – coordinates divisible by any of the
+p-squares d1 , . . . , dL , where dL is the largest p-square smaller than n, and second
+class – the remaining ones (which are divisible by larger p-squares). Note that for
+each p-square larger than or equal to n only one of its multiples can occur in I.
+Now by the Chinese Reminder Theorem (see e.g. [N],Chap. I) we can shift the
+interval I (and call the shifted interval I 0 ), so that
+    (1) the shift is by a multiple of d1 d2 · · · dK , where dK is the largest p-square
+         smaller than 4n2 , and
+                   ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                             19
+
+
+    (2) zeros of the second class become (after shifting) divisible by some a pri-
+        ori selected large p-squares e1 , ..., eq (the choice of these p-squares will be
+        specified in a moment).
+The zeros of the first class appearing in |µ| over the interval I 0 are precisely the
+shifted zeros of the first class over I. All zeros of the second class occurring over
+I correspond (via the shift) to zeros of the second class occurring over I 0 , but the
+later interval can have more zeros of the second class (some new zeros divisible by
+p-squares larger than 4n2 and different from e1 , e2 , . . . , eq can occur here). The
+configuration of zeros inherited from I is repeated in |µ| in every interval I 00 along
+an arithmetic progression starting with I 0 and advancing with step
+                               M = d1 · · · dK · e1 · · · eq ,
+(this need not be the smallest step, just one which is sure). From now on we
+will observe only the intervals I 00 appearing along this progression. In every such
+interval the additional zeros (if there are any) must be divisible by p-squares larger
+than or equal to 4n2 . Using Lemmas 8.2 and 8.3, provided at the end of the paper,
+one easily obtains, that the percentage (among the observed intervals) of intervals
+where there are any additional zeros does not exceed
+                                             
+                                 Y                   n       1
+                       n 1 −       (1 − d1j ) ≤ p       ≤ .
+                                                    dK+1     2
+                                j>K
+
+In other words, in at least around 1/2 of the observed intervals in |µ| there occurs
+precisely the block B.
+   It now suffices to arrange that majority (a bit over 1/2 is enough) of these
+intervals are such that in the Toeplitz sequence xy there are nearly n(1−ρ) boldface
+symbols.
+   Recall that H = (pk ) is the scale used to construct xy , and for each k ≥ 1,
+pk+1 is an essential multiple of pk (at least times 2). We are going to mark three
+“important points” k1 , k2 , k3 on the axis of the parameter k (these points bear
+hidden dependence on n, not visible in the denotation).
+    k1 : Let k1 be the largest k such that pk < n. Notice that pk ≥ 2k implies
+         k1 < ln n/ ln 2, which (for large enough n) is smaller than [n/ ln n].
+   Next “important points” require auxiliary functions. Let Nk be the number of
+prime factors (in the meaning sum of their multiplicities) of the largest common
+divisor of pk and d1 · · · dK . The function k 7→ Nk is nondecreasing and becomes
+constant before it reaches 2K + 1. This implies it eventually lies below the line k/2.
+    k2 : Let k2 be the largest k (if such exists), for which Nk ≥ k/2. Notice that
+         Nk ≤ 2K implies k2 ≤ 4K, which (for n large) is small compared to n (equal
+         to four times the number of primes smaller than 2n, i.e., approximately
+         8n/ ln 2n). At this point we agree that if k2 < 8n/ ln 2n (or does not exist
+         at all), then we put k2 = [8n/ ln 2n]. In particular, this guarantees that
+         k2 > k1 .
+    k3 : Let k3 be some place, not smaller than k2 , where the function Nk has
+         already reached its maximum. At this moment we define the numbers
+         e1 , ..., eq , to be relatively prime with pk3 +4q . We can do it now, because the
+20                   TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+         particular values of e1 , . . . , eq have not been used in defining the preceding
+         points.
+   Now consider a similar auxiliary function Mk defined analogously as Nk with M
+in place of d1 · · · dK . Note that to the right of k3 + 4q the function Nk does not
+grow, while Mk may increase by at most 2q (possibly even in one jump), however,
+thank to the specific choice of e1 , ..., eq , this function will never again cross the line
+k/2.
+   The “important points” are shown on the figure below
+
+
+
+                                                                 k/2
+                                                                         maxMk
+
+                                                  maxNk
+
+
+
+
+                  k1       k2                   k3               k3+4q
+
+
+              Figure 4. The function Nk is shown in red, and Mk in green.
+
+
+   The positions of normal font symbols in xy (equivalently, of zeros in z) we divide
+into arithmetic progressions with periods pk (along such a progression xy (i) = yk )
+and we classify these progressions in three groups.
+     (1) k = 1, . . . , k1
+     (2) k = k1 + 1, . . . , k2
+     (3) k > k2
+(The number k3 is needed only to define e1 , . . . , eq and is not used to separate the
+groups.) We will now analyze the progressions according to this classification.
+1. Each progression from the first group occupies in every interval of length n
+approximately n/pk positions (at most 2n/pk ) for the largest k in the group). The
+union of these progressions occupies not more than n(ρ + ) (for large enough n).
+2. Every progression from the second group is represented in every interval of length
+n by at most one coordinate. Jointly these groups occupy at most 4K positions,
+which does not essentially exceed 8n/ ln 2n, i.e., negligibly little compared to n.
+   So far we have been estimating the number of normal font symbols in an interval
+of length n, and so far it came out close to nρ (i.e., as we need it). From now on we
+will estimate the percentage of the “observed” intervals I 00 which are disjoint from
+the progressions belonging to the third class.
+   3. Consider a k in the third group. The period pk has with M no more than
+k/2 common prime divisors. However, pk has at least k prime factors, each equal
+to at least 2. This implies that pk /gcd(pk , M ) ≥ 2k/2 . Applying Lemma 8.1 we
+conclude that the percentage of intervals I 00 intersecting the progressions from the
+                    ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                                  21
+
+
+third group does not exceed n k>k2 2−k/2 . Since k2 ≥ 8n log 2n, this estimate is
+                                P
+arbitrarily small for large n.
+   To summarize, we can arrange that more than half of the observed intervals I 00
+do not intersect any of the progressions from the third and fourth groups. In such
+intervals |µ| reads B. Combining this with a previous estimate we obtain that there
+exist intervals in which both |µ| reads B and in xy there are nearly n(1−ρ) boldface
+symbols, as required. This completes the proof.                                   
+
+   Now the missing lemmas.
+
+Lemma 8.1. Consider a collection of arithmetic progressions of natural numbers
+Aj = {kpj + rj : k ∈ N}, where rj ≥ 0 and pj /j → ∞ as j → ∞. Let M be a
+natural number and r a nonnegative integer. The upper density of the set
+                                             [
+                          {k ∈ N : kM + r ∈     Aj }
+                                                       j≥1
+
+                           P      1            0       pj
+is less than or equal to      j≥1 p0j , where pj = gcd(pj ,M ) for j ≥ 1.
+
+Proof. Given n let Jn denote the maximal number j such that nM + r ≥ pj . Note
+that for any n and j:
+                                                                 n
+                        |{k ∈ N : k ≤ n, kM + r ∈ Aj }| ≤            +1
+                                                                 p0j
+
+and the set on the left hand side is empty if j > Jn . It follows that
+ 1
+                                                                                   SJ n
+       ∈ N : k ≤ n, kM + r ∈ j≥1 Aj }| = n1 |{k ∈ N : k ≤ n, kM + r ∈
+                                  S
+ n |{k
+    PJn                                         PJn n                                j=1 Aj }| ≤
+ 1                                          1
+ n    j=1 |{k ∈ N : k ≤ n, kM + r ∈ Aj }| ≤ n (( j=1 p0j ) + Jn )
+
+
+Thanks to our assumption on pj , Jnn → 0 as n → ∞, thus the assertion follows. 
+
+Lemma 8.2. In the family of all subsets of N (or of Z) which have well defined
+density, density can be viewed as a finitely additive probability measure. Then
+any finite collection of periodic sets with relatively prime periods is stochastically
+independent.
+
+Proof. Since every periodic set with period p decomposes as a disjoint union of
+finitely many arithmetic progressions with step p, it suffices to prove the lemma for
+arithmetic progressions (notice that the density of a progression with step p equals
+1
+p ). So, let A1 , A2 , . . . , Ak be arithmetic progressions with steps p1 , p2 , . . . , pk . We
+need to show that the density of their intersection equals p1 p21...pk . This, however
+is obvious, because due to the relative primeness, this intersection is an arithmetic
+progression with step p1 p2 . . . pk .                                                          
+
+Lemma 8.3. For any k ≥ 1 we have
+                         Y
+                            (1 − d1j ) ≥ 1 − √1d .
+                                                             k
+                                  j≥k
+22                        TOMASZ DOWNAROWICZ AND STANISLAW KASJAN
+
+
+Proof. Recall that dj = qj2 , where qj denote the consecutive primes. Thus
+
+     Y                    Y                        N
+                                                   Y                        N
+                                                                            Y
+           (1 − d1j ) =         (1 − q12 ) = lim         (1 − q12 ) ≥ lim          (1 − n12 ) =
+                                      j    N →∞                j    N →∞
+     j≥k                  j≥k                      j=k                      n=qk
+                                                         qk − 1 N + 1
+                                                     lim       ·      = 1 − q1k = 1 − √1d .
+                                                    N →∞   qk    N                       k
+
+
+                                                                                                  
+
+                                              References
+[B1] J. Bourgain, Moebius-Walsh correlation bounds and an estimate of Mauduit and Rivat, J.
+     d’Anal. Math. 119 (2013), 147–163, arXiv:1112.1423
+[B] J. Bourgain, On the correlation of the Moebius function with rank-one system, Journal
+     d’Anal. Math. 120 (2013) 105–130, arXiv:1112.1032.
+[BSZ] J. Bourgain, P. Sarnak, T. Ziegler, Disjointness of Möbius from horocycle flows, in: From
+     Fourier and Number Theory to Radon Transforms and Geometry, in memory of Leon Ehren-
+     preiss, Developments in Mathematics, 28 (2012), 6783, Springer Verlag. arXiv:1110.0992.
+[CDM] H. Cohen, F. Dress and M. El Marraki, Explicit estimates for summatory functions linked
+     to the Möbius µ-function, Funct. Approx. Comment. Math. 37 (2007), 51–63.
+[Da] H. Davenport, On some infinite series involving arithmetical functions. II, Quart. J. Math.
+     Oxf. 8 (1937), 313-320
+[D] T. Downarowicz, Survey of odometers and Toeplitz flows, Contemporary Mathematics, Al-
+     gebraic and Topological Dynamics (Kolyada, Manin, Ward eds), 385 (2005), 7–38
+[DL] T. Downarowicz and Y. Lacroix Almost 1-1 extensions of Furstenberg-Weiss type, Studia
+     Math. 130 (1998), 149–170
+[AKL] H. El Abdalaoui, S. Kasjan and M. Lemańczyk, 0-1 sequences of the Thue-Morse type and
+     Sarnaks conjecture, preprint, arXiv:1304.3587v2
+[ALR] H. El Abdalaoui, M. Lemańczyk and T. de la Rue, On spectral disjointness of powers
+     for rank-one transformations and Möbius orthogonality, J. Functional Analysis (to appear),
+     arXiv:1301.0134
+[GL] A.O. Gelfond and Yu. V. Linnik, Elementary methods in the analytic theory of numbers.
+     International Series of Monographs in Pure and Applied Mathematics, Vol. 92 Pergamon
+     Press, 1966
+[G] B. Green, On (not) computing the Möbius function using bounded depth circuits, Combin.
+     Probab. Comput. 21 (2012), 942–951
+[GT] B. Green and T. Tao, The Möbius function is strongly orthogonal to nilsequences, Annals
+     Math. 175 (2012), 541–566
+[HS] K. Halupczok and B. Suger. Partial sums of the Möbius function in arithmetic progressions
+     assuming GRH, Funct. Approx. Comment. Math. 48 (2013), 61–90
+[KL] J. Kulaga-Przymus and M. Lemańczyk, The Möbius function and continuous T-extensions
+     of rotations, preprint, arXiv:1310.2546
+[L] E. Lehrer Topological Mixing and Uniquely Ergodic Systems, Israel J. of Math. 57 (1987),
+     239–255
+[LS] Y. Liu, P. Sarnak, The Möbius function and distal flows, arXiv:1303.4957
+[MR] C. Mauduit, J. Rivat, Prime numbers along Rudin-Shapiro sequences (2013),
+     http://iml.univ-mrs.fr/r̃ivat/preprints/PNT-RS.pdf
+[M] A.F. Möbius, Uber eine besondere Art von Untersuchrung des Reihen, J. reine Angew. Math.
+     9 (1832), 105–123
+[MH] M. Morse, G. A. Hedlund, Symbolic Dynamics II: Sturmian Trajectories, Amer. J. Math.
+     62 (1940), 1–42
+[N] W. Narkiewicz, Number theory, World Scientific, Singapore, 1977
+[P] K. Prachar Primzahlverteilung, Springer-Verlag, 1957
+[RR] O. Ramaré and R. Rumely, Primes in arithmetic progressions, Math. Comp. 65 (1996),
+     397–425
+[Sa] P. Sarnak, Three Lectures on the Möbius Function Randomness and Dynamics
+     http://www.math.ias.edu/files/wam/2011/PSMobius.pdf
+                   ODOMETERS AND TOEPLITZ SYSTEMS REVISITED                               23
+
+
+[Sch] L. Schoenfeld, An improved estimate for the summatory function of the Möbius function,
+     Acta Arithmetica 15 (1969), 221–233
+     I. Vinogradov, Some theorems concerning the theory of primes. Recueil Math. 2, 179195,
+     1937b.
+[W] A. Walfisz, Weylsche Exponentialsummen in der neueren Zahlentheorie. Mathematische
+     Forschungsberichte, XV. VEB Deutscher Verlag der Wissenschaften, Berlin 1963
+
+   Tomasz Downarowicz: Institute of Mathematics of the Polish Academy of Sci-
+ence, Śniadeckich 8, 00-956 Warszawa, Poland and Institute of Mathematics and Com-
+puter Science, Wroclaw University of Technology, Wybrzeże Wyspiańskiego 27, 50-370
+Wroclaw, Poland
+   E-mail address: downar@pwr.wroc.pl
+
+   Stanislaw Kasjan: Faculty of Mathematics and Computer Science, Nicolaus Coper-
+nicus University, 12/18 Chopin street, 87-100 Toruń, Poland
+   E-mail address: skasjan@mat.umk.pl
+

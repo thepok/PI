@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "item": "T24",
+  "frozen_at_utc": "2026-07-23T00:00:00Z",
+  "limits": {
+    "primary_sources": 5,
+    "maximum_primary_sources": 6,
+    "theorem_rows": 6,
+    "maximum_theorem_rows": 12
+  },
+  "replay_bundle": {
+    "file": "EVIDENCE.tar",
+    "root_after_extraction": "evidence",
+    "manifest": "EVIDENCE_HASHES.sha256",
+    "scope": "The immutable statement, accepted T23 and collision bridges, all five T24 primary sources and text extractions, the complete accepted T5 package, and every content-addressed object named by T5 or T24 are retained in this archive. No surrounding workspace or knowledge_library directory is required for replay."
+  },
+  "canonical_target": {
+    "path_from_workspace": "knowledge/pi/statements/pi-positive-lower-block-density.txt",
+    "sha256": "11ec455612e8ab182b7f6c71ba1a64c3b5b30beb5f3ded632cb2ecdc50129cc8",
+    "statement": "For every integer k >= 1 and every decimal word w of length k, including leading-zero words, liminf as N tends to infinity of A_pi(w,N)/N is strictly positive.",
+    "status": "open"
+  },
+  "T23": {
+    "path_from_record": "EVIDENCE.tar::evidence/knowledge_library/t23/T23FiniteCylinderEnergyCriterion.lean",
+    "sha256": "8e8f560806f13a8e56bd4432aef2b689309837c8a1adb2bab72cf7c9349e6aa6",
+    "definition_locator": "E_pi lines 32-36; PiFullDimensionalCylinderEnergyDecay lines 38-45; quantifier audit lines 47-55; E_pi_eq_normalizedPiCylinderCollisionEnergy lines 467-475",
+    "exact_quantifiers": "For every real s with 0 < s < 1, there exist a real C >= 1 and a natural N0 such that for every natural N >= N0 and every natural m >= 1, E_pi(m,N) <= C*(10^(-s*m) + 1/N). C and N0 may depend on s, but not on N or m.",
+    "conditional_C1_locator": "piFullDimensionalCylinderEnergyDecay_implies_piPositiveLowerBlockDensity, lines 344-394",
+    "scope_warning": "T23 proves only this hypothesis implies C1; it does not prove the hypothesis for pi."
+  },
+  "collision_bridge": {
+    "finite_energy_source": {
+      "path_from_workspace": "EVIDENCE.tar::evidence/TheoryLib/PiLacunaryNearReturnSparsity/T7FiniteCylinderEnergy.lean",
+      "sha256": "cac7b8da11c9369510e2e6e76b8bc74820b50ffe0285310475c7cf8ee1cfe91c",
+      "locators": "piCylinderCollisionEnergy lines 36-47; diagonal lower bound lines 173-197; comparison theorem lines 292-345",
+      "statement": "T7 proves normalizedPiCylinderCollisionEnergy(m,N) <= Q_pi(m,N)/N^2 <= 3*normalizedPiCylinderCollisionEnergy(m,N). T23 lines 467-475 identify its E_pi with that normalized energy."
+    },
+    "lag_source": {
+      "path_from_workspace": "EVIDENCE.tar::evidence/TheoryLib/PiLacunaryNearReturnSparsity/T1LagDecomposition.lean",
+      "sha256": "932faf3f1515b5073e07ba81f70aae3cdea9d168bb7ea280bd57e2300e643a68",
+      "locators": "pow_lag_factorization lines 43-48; Q_pi_orderedPair_lag_decomposition lines 218-230",
+      "statement": "For m,N >= 1, Q_pi(m,N)=N+2*sum_{r=1}^{N-1} #{0 <= n < N-r : ||10^n*(10^r-1)*pi|| < 10^(-m)}."
+    },
+    "variables": {
+      "m": "positive decimal cylinder length and near-return exponent",
+      "N": "number of orbit starts 0,...,N-1",
+      "r": "positive lag, 1 <= r <= N-1",
+      "n": "lower start, 0 <= n < N-r"
+    }
+  },
+  "generic_translation": {
+    "structured_denominator": "Q(n,r)=10^n*(10^r-1), for n >= 0 and r >= 1; hence Q >= 9.",
+    "nearest_integer_step": "For P nearest to Q*pi, ||Q*pi||=|Q*pi-P|=Q*|pi-P/Q|.",
+    "source_form": "If |pi-p/q| >= q^(-mu) for the applicable p,q, then ||Q*pi|| >= Q^(1-mu). Strict source inequalities remain strict.",
+    "substitution": "With a=mu-1, ||10^n*(10^r-1)*pi|| >= 10^(-a*n)*(10^r-1)^(-a).",
+    "pair_exclusion": "The strict near return at radius 10^(-m) is excluded whenever the source denominator condition holds and m >= a*(n+log10(10^r-1)).",
+    "simple_sufficient_region": "Since log10(10^r-1)<r, m >= a*(n+r) is a simpler sufficient exclusion condition.",
+    "global_energy_translation": "For a bound valid at every Q>=9, put L=min(N-1,floor(m/a)). Every unordered pair with upper index n+r<=L is excluded, so Q_pi(m,N)<=N^2-L*(L+1) and E_pi(m,N)<=1-L*(L+1)/N^2. If m>=a*(N-1), only the N diagonal pairs remain and E_pi(m,N)=1/N.",
+    "scale_mismatch": "For m=o(N), the retained upper bound tends to 1 rather than to 0. In particular m=floor(sqrt(N)) leaves order N^2 unresolved pairs, while T23 requires an upper bound tending to 0 for every fixed 0<s<1."
+  },
+  "verdict_policy": {
+    "FULL": "The cited theorem, with every premise discharged, proves T23's exact every-s, all-later-N, all-positive-m energy hypothesis.",
+    "PARTIAL": "The cited theorem unconditionally applies to fixed pi on a nonempty, explicitly displayed denominator or scale region, but leaves part of T23's (n,r,m,N) range unresolved.",
+    "NONE": "The cited theorem has no unconditional fixed-pi consequence for the requested structured denominators or has an indispensable scope mismatch.",
+    "C1_rule": "PARTIAL scale control neither proves nor supports C1. C1 may be claimed only after the complete T23 hypothesis or another verified sufficient premise is discharged."
+  },
+  "sources": [
+    {
+      "id": "MAH1953",
+      "citation": "K. Mahler, On the Approximation of pi, Proc. Koninklijke Nederlandse Akademie van Wetenschappen A 56 / Indagationes Mathematicae 15 (1953), 30-42; authorized reprint in Mahler Selecta (2019), 557-570",
+      "doi": "https://doi.org/10.1016/S1385-7258(53)50005-8",
+      "reprint_doi": "https://doi.org/10.4171/dms/8/31",
+      "url": "https://ems.press/content/book-chapter-files/27418",
+      "file": "sources/mahler-1953-reprint.pdf",
+      "file_scope": "artifact",
+      "bytes": 5207459,
+      "sha256": "de3831e81b20706a1b241a01e36306e9676f233372d6197ee3eb038ed54f2db5",
+      "text_file": "text/mahler-1953-reprint.txt",
+      "text_file_scope": "artifact",
+      "pdftotext_layout_sha256": "1e2078a709f2bd824f09aefe177c255e6d4b17d230d037828d95e379a801c69b",
+      "locators": "Reprint summary p. 557; Theorem 1, reprint p. 561 / original p. 33; extraction lines 14-20 and 229-278"
+    },
+    {
+      "id": "MIG1974",
+      "citation": "M. Mignotte, Approximations rationnelles de pi et quelques autres nombres, Memoires de la Societe Mathematique de France 37 (1974), 121-132",
+      "doi": "https://doi.org/10.24033/msmf.139",
+      "url": "https://www.numdam.org/item/10.24033/msmf.139.pdf",
+      "file": "sources/mignotte-1974.pdf",
+      "file_scope": "artifact",
+      "bytes": 629674,
+      "sha256": "55411f22110bae877483c5e8a8e0cda033874a7ff86cca5b8ae07178ca179eed",
+      "text_file": "text/mignotte-1974.txt",
+      "text_file_scope": "artifact",
+      "pdftotext_layout_sha256": "9cdbfaf41eed00c7a14e45bb1e800af1c25be75bec14a33b2c8eae808d83c7a4",
+      "locators": "Theoreme 1, printed p. 125 (PDF page 6), extraction lines 268-300; formula was visually checked because extraction garbles superscripts"
+    },
+    {
+      "id": "HATA1993",
+      "citation": "M. Hata, Rational approximations to pi and some other numbers, Acta Arithmetica 63 (1993), 335-349",
+      "doi": "https://doi.org/10.4064/aa-63-4-335-349",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/107787?download.pdf",
+      "file": "sources/hata-1993.pdf",
+      "file_scope": "artifact",
+      "bytes": 211691,
+      "sha256": "c3294d1987dfd013ec4d13f93737233177817d50c9c102ea95033e986cd9e3df",
+      "text_file": "text/hata-1993.txt",
+      "text_file_scope": "artifact",
+      "pdftotext_layout_sha256": "ba9053ed473dccfe7bff22b3bb00ea92ee3cdb291ee924632441b40c1d3987aa",
+      "locators": "Definition of irrationality measure, printed p. 335; Theorem 1.1 and pi corollary, printed p. 336; extraction lines 23-29 and 72-94"
+    },
+    {
+      "id": "SAL2008",
+      "citation": "V. Kh. Salikhov, On the irrationality measure of pi, Russian Mathematical Surveys 63 (2008), 570-572",
+      "doi": "https://doi.org/10.1070/RM2008v063n03ABEH004543",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=rm&paperid=9175&what=fullteng&option_lang=eng",
+      "file": "sources/salikhov-2008.pdf",
+      "file_scope": "artifact",
+      "bytes": 145229,
+      "sha256": "a871a3fd09a7d606c3b0d6402094e2af7777bf007254aec89a36aee2150ab60d",
+      "text_file": "text/salikhov-2008.txt",
+      "text_file_scope": "artifact",
+      "pdftotext_layout_sha256": "e05fcf2c6941386ab51d0bb2705110f4e67660d7669d9f2a92d9c3e9a9466699",
+      "locators": "Theorem 1, printed p. 570; final exponent calculation, printed p. 571; extraction lines 7-18 and 117-124"
+    },
+    {
+      "id": "ZZ2020",
+      "citation": "D. Zeilberger and W. Zudilin, The irrationality measure of pi is at most 7.103205334137..., Moscow Journal of Combinatorics and Number Theory 9 (2020), 407-419",
+      "doi": "https://doi.org/10.2140/moscow.2020.9.407",
+      "url": "https://msp.org/moscow/2020/9-4/moscow-v9-n4-p06-s.pdf",
+      "file": "sources/zeilberger-zudilin-2020.pdf",
+      "file_scope": "artifact",
+      "bytes": 804062,
+      "sha256": "3b11c4bf3e25927227ac8f7f4e49d7f1d3efeb42beecd7f3b8c64efb162d20b5",
+      "text_file": "text/zeilberger-zudilin-2020.txt",
+      "text_file_scope": "artifact",
+      "pdftotext_layout_sha256": "49ca4907538e4ccea23cee27f051f5b33832ed2cf3e3093b4aab58a13c814a68",
+      "locators": "Definition and claimed bound, printed p. 407; Propositions 7-8 and World record calculation, printed pp. 417-418; extraction lines 27-49 and 630-691"
+    }
+  ],
+  "rows": [
+    {
+      "id": "MAH-42",
+      "source_id": "MAH1953",
+      "source_sha256": "de3831e81b20706a1b241a01e36306e9676f233372d6197ee3eb038ed54f2db5",
+      "locator": "Theorem 1, reprint p. 561 / original p. 33",
+      "exact_source_statement": "For all positive integers p and q with p>=2 and q>=2, |pi-p/q|>q^(-42).",
+      "mu_decimal": "42",
+      "a_decimal": "41",
+      "denominator_scope": "All q>=2; no eventual onset. For Q(n,r)>=9 the nearest numerator is positive and at least 2.",
+      "norm_consequence": "||10^n*(10^r-1)*pi|| > 10^(-41*n)*(10^r-1)^(-41) for every n>=0,r>=1.",
+      "controlled_region": "Every pair with m>=41*(n+log10(10^r-1)); in particular every pair with n+r<=m/41.",
+      "unresolved_region": "Pairs with m<41*(n+log10(10^r-1)); for an N-prefix this includes almost all pairs whenever m=o(N).",
+      "prefix_consequence": "With L=min(N-1,floor(m/41)), E_pi(m,N)<=1-L*(L+1)/N^2; if m>=41*(N-1), E_pi(m,N)=1/N.",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "The theorem controls a fine region linear in N, not every m>=1. It supplies no T23 constants C(s),N0(s) valid for all later N and all m.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    },
+    {
+      "id": "MIG-20.6",
+      "source_id": "MIG1974",
+      "source_sha256": "55411f22110bae877483c5e8a8e0cda033874a7ff86cca5b8ae07178ca179eed",
+      "locator": "Theoreme 1, printed p. 125 (PDF page 6), first inequality",
+      "exact_source_statement": "For a positive rational p/q with q>=2, |pi-p/q|>q^(-20.6).",
+      "mu_decimal": "20.6",
+      "a_decimal": "19.6",
+      "denominator_scope": "All q>=2. If p/Q is not reduced, applying the theorem to its reduced denominator q'<=Q only strengthens q'^(-20.6)>=Q^(-20.6).",
+      "norm_consequence": "||10^n*(10^r-1)*pi|| > 10^(-19.6*n)*(10^r-1)^(-19.6) for every n>=0,r>=1.",
+      "controlled_region": "Every pair with m>=19.6*(n+log10(10^r-1)); in particular every pair with n+r<=m/19.6.",
+      "unresolved_region": "Pairs above the triangular boundary n+r>m/19.6. For m=o(N), order N^2 pairs remain uncontrolled.",
+      "prefix_consequence": "With L=min(N-1,floor(m/19.6)), E_pi(m,N)<=1-L*(L+1)/N^2; if m>=19.6*(N-1), E_pi(m,N)=1/N.",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "This is the strongest retained all-denominator row, but T23 is all-m. The derived upper bound tends to 1 for m=o(N), whereas T23 requires full-dimensional decay.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    },
+    {
+      "id": "MIG-20",
+      "source_id": "MIG1974",
+      "source_sha256": "55411f22110bae877483c5e8a8e0cda033874a7ff86cca5b8ae07178ca179eed",
+      "locator": "Theoreme 1, printed p. 125 (PDF page 6), second inequality",
+      "exact_source_statement": "For a positive rational p/q with q>=exp(e^110), |pi-p/q|>q^(-20).",
+      "mu_decimal": "20",
+      "a_decimal": "19",
+      "denominator_scope": "Explicit enormous onset Qstar=exp(e^110). The same theorem's first clause covers 2<=q<Qstar with exponent 20.6.",
+      "norm_consequence": "For Q=10^n*(10^r-1)>=Qstar, ||Q*pi||>Q^(-19)=10^(-19*n)*(10^r-1)^(-19).",
+      "controlled_region": "Q>=Qstar and m>=19*(n+log10(10^r-1)); using the companion 20.6 clause, all prefix pairs are excluded if m>=max(19*(N-1),19.6*log10(Qstar)).",
+      "unresolved_region": "Below that fine-scale prefix boundary. The improved exponent does not control the all-m region m=o(N).",
+      "prefix_consequence": "Combining both clauses of Theoreme 1 gives E_pi(m,N)=1/N when m>=max(19*(N-1),19.6*e^110/log(10)).",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "The explicit onset removes ineffectivity but leaves a quantified scale mismatch: eventual collision freedom only when m is about 19N, not for all positive m.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    },
+    {
+      "id": "HATA-8.0161",
+      "source_id": "HATA1993",
+      "source_sha256": "c3294d1987dfd013ec4d13f93737233177817d50c9c102ea95033e986cd9e3df",
+      "locator": "Theorem 1.1 and its displayed pi corollary, printed p. 336",
+      "exact_source_statement": "Theorem 1.1 has: for every epsilon>0 there is H0(epsilon) such that |p+q*pi+r*log(2)|>=H^(-mu-epsilon), H=max(|q|,|r|)>=H0, with mu=7.016045... . The printed corollary states |pi-p/q|>=q^(-8.0161) for all integers p,q with q>=q0.",
+      "mu_decimal": "8.0161",
+      "a_decimal": "7.0161",
+      "denominator_scope": "All q>=an existential q0; no numerical q0 is printed.",
+      "norm_consequence": "For Q=10^n*(10^r-1)>=q0, ||Q*pi||>=Q^(-7.0161)=10^(-7.0161*n)*(10^r-1)^(-7.0161).",
+      "controlled_region": "Q>=q0 and m>=7.0161*(n+log10(10^r-1)).",
+      "unresolved_region": "All Q<q0 lack a source-numerical patch, and all pairs below the displayed m boundary remain uncontrolled.",
+      "prefix_consequence": "No replayable numerical full-prefix frontier follows because q0 is unspecified; even after an existential finite patch the frontier is linear m approximately 7.0161N.",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "The fixed-pi result is genuine but has both an unspecified onset and the same all-m scale mismatch.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    },
+    {
+      "id": "SAL-7.60630853",
+      "source_id": "SAL2008",
+      "source_sha256": "a871a3fd09a7d606c3b0d6402094e2af7777bf007254aec89a36aee2150ab60d",
+      "locator": "Theorem 1, p. 570, and final calculation, p. 571",
+      "exact_source_statement": "For all natural p,q with q>=q0, |pi-p/q|>=q^(-nu); the final calculation establishes the inequality for every fixed nu>7.60630852... . This row fixes nu=7.60630853.",
+      "mu_decimal": "7.60630853",
+      "a_decimal": "6.60630853",
+      "denominator_scope": "All q>=an existential q0(7.60630853); no numerical q0 is printed.",
+      "norm_consequence": "For Q=10^n*(10^r-1)>=q0, ||Q*pi||>=Q^(-6.60630853)=10^(-6.60630853*n)*(10^r-1)^(-6.60630853).",
+      "controlled_region": "Q>=q0 and m>=6.60630853*(n+log10(10^r-1)).",
+      "unresolved_region": "Q<q0 and every pair below the displayed m boundary; most prefix pairs remain unresolved for m=o(N).",
+      "prefix_consequence": "After a non-numerical finite patch one would get collision freedom only above m=6.60630853*(N-1)+O(1), not at all scales.",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "The better exponent moves the linear boundary but supplies no aggregate bound in T23's complementary lag-scale region.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    },
+    {
+      "id": "ZZ-7.104",
+      "source_id": "ZZ2020",
+      "source_sha256": "3b11c4bf3e25927227ac8f7f4e49d7f1d3efeb42beecd7f3b8c64efb162d20b5",
+      "locator": "Irrationality-measure definition and title claim, p. 407; Propositions 7-8 and World record, pp. 417-418",
+      "exact_source_statement": "The irrationality measure of pi is at most 7.1032053341370017275... . By the source definition, fixing 7.104 gives an existential Q0 such that |pi-p/q|>q^(-7.104) for every integer p and all q>=Q0.",
+      "mu_decimal": "7.104",
+      "a_decimal": "6.104",
+      "denominator_scope": "All q>=an existential Q0(7.104); the paper does not print a numerical onset. No endpoint claim at 7.103205... is used.",
+      "norm_consequence": "For Q=10^n*(10^r-1)>=Q0(7.104), ||Q*pi||>Q^(-6.104)=10^(-6.104*n)*(10^r-1)^(-6.104).",
+      "controlled_region": "Q>=Q0(7.104) and m>=6.104*(n+log10(10^r-1)).",
+      "unresolved_region": "Q<Q0(7.104) is not numerically delimited, and all pairs below the displayed m boundary remain uncontrolled.",
+      "prefix_consequence": "Even granting an existential finite patch, collision freedom occurs only above m=6.104*(N-1)+O(1). For m=o(N), the theorem leaves order N^2 pairs unresolved.",
+      "T23_verdict": "PARTIAL",
+      "T23_comparison": "This is the best retained exponent but not a full T23 input: it has an unspecified onset and controls individual separation only in a fine linear-scale region.",
+      "C1_consequence": "None. Partial scale control neither proves nor supports C1."
+    }
+  ],
+  "bounded_conclusion": "There is no FULL row. Every retained theorem gives a genuine fixed-pi exclusion region, so each is PARTIAL rather than NONE, but none bounds the aggregate unresolved pairs at all positive m. The explicit Mignotte theorem yields E_pi(m,N)=1/N only at m at least about 19N; the best eventual exponent lowers this to about 6.104N after an unspecified onset. T23 requires every m>=1 for all later N and every 0<s<1. Therefore this corpus does not prove or support C1."
+}

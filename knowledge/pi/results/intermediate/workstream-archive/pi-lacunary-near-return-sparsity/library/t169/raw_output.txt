@@ -1,0 +1,16 @@
+T169 finite falsification replay (experiment; not proof)
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+enumerated_cases=10
+selected_rows: K m M distinct cmax E
+2 1 189 10 20 3681
+2 2 188 99 3 382
+3 2 2888 100 32 85626
+3 3 2887 999 5 8831
+4 1 38889 10 4000 152346321
+4 4 38886 9999 7 159436
+complete_start_records=PASS
+ordered_pair_class_reconstruction=PASS
+exact_high_stratum_formula=PASS
+exact_centered_energy_identity=PASS
+finite_checks_are_proof=no
+status=PASS

@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "item": "T5",
+  "frozen_at_utc": "2026-07-22T16:30:00Z",
+  "limits": {
+    "required_core_sources": 4,
+    "additional_primary_sources": 2,
+    "maximum_additional_primary_sources": 6,
+    "theorem_rows": 11,
+    "maximum_theorem_rows": 16
+  },
+  "targets": {
+    "C1": {
+      "statement": "For every integer k >= 1 and every w in {0,...,9}^k, liminf as N tends to infinity of A_pi(w,N)/N is strictly positive.",
+      "scope": "The fixed nonterminating base-10 expansion of pi; all nonempty contiguous words including leading-zero words; overlapping starts 0 <= n < N.",
+      "canonical_path": "knowledge/pi/statements/pi-positive-lower-block-density.txt",
+      "canonical_sha256": "11ec455612e8ab182b7f6c71ba1a64c3b5b30beb5f3ded632cb2ecdc50129cc8"
+    },
+    "T3": {
+      "statement": "For every k >= 1 there are H,N0 in N and epsilon,eta in R with N0 >= 1, epsilon >= 0, eta > 0, eta <= (1-H*epsilon-1/((H+1)*10^(-2k)))/(H+1), and for every N >= N0 and every nonzero integer h with |h| <= H, |sum_{j=0}^{N-1} exp(2*pi*i*h*fract(10^j*pi))| <= epsilon*N.",
+      "scope": "The fixed decimal pi orbit; one threshold N0 works for every later N and every signed frequency in the finite cutoff; witnesses may depend on k.",
+      "formal_path": "knowledge_library/t3/T3FiniteFourierLowerDensity.lean",
+      "formal_sha256": "50f169aef3efd7d940cefd1447673fc3f828db9317251dda86b5d563e631befa",
+      "formal_locator": "finiteFourierLowerBound lines 33-37; eventual hypothesis lines 84-102; pi specialization lines 139-182"
+    }
+  },
+  "verdict_policy": {
+    "YES": "The cited result, with every premise source-verified, proves the exact target for fixed decimal pi.",
+    "CONDITIONAL": "A deterministic source-defined implication reaches the exact target after the stated unproved fixed-pi premise; there is no remaining base or quantifier mismatch after that premise.",
+    "NO": "The cited result has an indispensable scope, point, base, or conclusion mismatch. NO is only a corpus applicability verdict, not evidence that the target is false."
+  },
+  "sources": [
+    {
+      "id": "BC2001",
+      "role": "required Bailey-Crandall (2001)",
+      "citation": "D. H. Bailey and R. E. Crandall, On the Random Character of Fundamental Constant Expansions, Experimental Mathematics 10 (2001), 175-190",
+      "doi": "https://doi.org/10.1080/10586458.2001.10504441",
+      "url": "https://www.davidhbailey.com/dhbpapers/bcrandom.pdf",
+      "file": "sources/bailey-crandall-2001.pdf",
+      "bytes": 193239,
+      "sha256": "701067697e8c1dace60cd8695ef509edae31f9da3bffd64b548624ccc2e4cfa8",
+      "extraction": "pdftotext -layout SHA-256 d85c9de4771f9f5237409beeada7ebe0ba019c1124b49927c98545bb33b46406"
+    },
+    {
+      "id": "LAG2001",
+      "role": "required Lagarias (2001)",
+      "citation": "J. C. Lagarias, On the Normality of Arithmetical Constants, Experimental Mathematics 10 (2001), 355-368; arXiv:math/0101055",
+      "doi": "https://doi.org/10.1080/10586458.2001.10504456",
+      "url": "https://arxiv.org/pdf/math/0101055",
+      "file": "sources/lagarias-2001.pdf",
+      "bytes": 216838,
+      "sha256": "a2a1171eb9c75c9fa3495ca3c3ceaa33c1d20b722bb56f82adb56d8c308209b9",
+      "extraction": "pdftotext -layout SHA-256 d4dcb5c31735fa51bbe15f7bb5bdcaa7f2cb86582f09b08665c8ec91aa08a346"
+    },
+    {
+      "id": "KN1974",
+      "role": "required named standard uniform-distribution reference",
+      "citation": "L. Kuipers and H. Niederreiter, Uniform Distribution of Sequences, Wiley, 1974",
+      "doi": null,
+      "url": "https://web.maths.unsw.edu.au/~josefdick/preprints/KuipersNied_book.pdf",
+      "file": "sources/kuipers-niederreiter-1974.pdf",
+      "bytes": 4185358,
+      "sha256": "b52cc1f9a3fa41489d6cb09897608e80644319a3de4a77c284a3671117068b98",
+      "extraction": "pdftotext -layout SHA-256 f275c64a4382da3d73cd81575c3d6183189d1974b4870be47a4e7c0ffb01c613"
+    },
+    {
+      "id": "WEYL1916",
+      "role": "required named standard uniform-distribution reference",
+      "citation": "H. Weyl, Ueber die Gleichverteilung von Zahlen mod. Eins, Mathematische Annalen 77 (1916), 313-352",
+      "doi": "https://doi.org/10.1007/BF01475864",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0077/LOG_0036.pdf",
+      "file": "sources/weyl-1916.pdf",
+      "bytes": 2421933,
+      "sha256": "6c5d8e384f62ea01cd4b0240ed48246324880d991cd14299ff260dd4ca7e4531",
+      "extraction": "Image scan. pdftotext extracts only repository metadata. Printed p. 315 was rendered with pdftoppm and OCRed with tesseract as an approximate aid; the formula and wording used in the audit were checked visually against the retained scan."
+    },
+    {
+      "id": "PH1975",
+      "role": "additional primary source found by retained T5 bounded title search and interpreted using locked T28",
+      "citation": "W. Philipp, Limit theorems for lacunary series and uniform distribution mod 1, Acta Arithmetica 26 (1975), 241-251",
+      "doi": "https://doi.org/10.4064/aa-26-3-241-251",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/100600?download.pdf",
+      "file": "sources/philipp-1975.pdf",
+      "bytes": 445185,
+      "sha256": "4d0edc8170fe1ddf368ada0fd64ed7ec48411840ab6c07fdd658e44fbae84e3a",
+      "extraction": "Image scan; pdftotext page-break-only SHA-256 7b2aa16484b6ad79ef5bec51da3501f5079367b625da44bf97468422d27e8e95. Exact locators and visual checks are imported from locked T28, not rerun."
+    },
+    {
+      "id": "FU2008",
+      "role": "additional primary source found by retained T5 bounded title search and interpreted using locked T28",
+      "citation": "K. Fukuyama, The law of the iterated logarithm for discrepancies of {theta^n x}, Acta Mathematica Hungarica 118 (2008), 155-170",
+      "doi": "https://doi.org/10.1007/s10474-007-6201-8",
+      "url": "https://da.lib.kobe-u.ac.jp/da/kernel/90003836/90003836.pdf",
+      "file": "sources/fukuyama-2008.pdf",
+      "bytes": 142460,
+      "sha256": "59b263e7d74aa627606181646c75c02803c41d42af4d1780f7ff8de28f917266",
+      "extraction": "pdftotext -layout stable SHA-256 f0f50d8450f05bbe5bcf78d76a5448232631c3c974369103048f6e4a0064c808; repository PDFs may be dynamically re-encrypted, as locked T28 records"
+    }
+  ],
+  "rows": [
+    {
+      "id": "BC-A",
+      "source_id": "BC2001",
+      "locator": "Hypothesis A and Theorem 1.1, retained author PDF pp. 2-3; explicit pi recurrence (3), retained PDF p. 3",
+      "exact_scope_quantifiers": "For every integer b >= 2 and rational-polynomial perturbation satisfying the degree and nonsingularity assumptions, Hypothesis A conjectures finite attractor or equidistribution. Conditional on it, Theorem 1.1 makes fixed pi normal to base 2; the displayed pi recurrence has base 16.",
+      "base": "16 for the pi recurrence, hence 2; not 10",
+      "conditional_status": "Explicitly conditional on unproved Hypothesis A.",
+      "C1": {
+        "verdict": "NO",
+        "first_unmatched_premise": "Hypothesis A is unproved; independently, even granting it the pi conclusion is base 16/2 rather than base 10.",
+        "exact_comparison": "Base-10 normality would imply C1, but no cross-base theorem in this result supplies decimal positive lower frequency."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "No conclusion concerns the orbit {10^j*pi}; the conditional orbit is {16^j*pi}.",
+        "exact_comparison": "No eventual bound is obtained for any decimal pi exponential sum, let alone one common N0 for all N >= N0 and 0 < |h| <= H."
+      }
+    },
+    {
+      "id": "BC-ORBIT",
+      "source_id": "BC2001",
+      "locator": "Definition 2.1, retained author PDF p. 4; Theorem 2.2, retained PDF p. 5",
+      "exact_scope_quantifiers": "For every real alpha and integer base b >= 2, alpha is normal to base b iff ({b^n alpha}: n >= 1) is equidistributed; normality means every length-k word has limiting frequency b^(-k).",
+      "base": "arbitrary integer b; specialize b=10",
+      "conditional_status": "Unconditional equivalence, but neither side is established for fixed pi at b=10.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "Equidistribution of the fixed decimal orbit {10^n*pi}, equivalently base-10 normality of pi, is unproved.",
+        "exact_comparison": "The source conclusion would give A_pi(w,N)/N -> 10^(-k) for every k,w, which is stronger than C1."
+      },
+      "T3": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "Equidistribution of {10^n*pi} is unproved.",
+        "exact_comparison": "Combined with the Weyl criterion, equidistribution gives normalized sum convergence for each h; finite intersection supplies a common N0 for a chosen finite H, and H,epsilon can be chosen so the displayed eta bound is positive."
+      }
+    },
+    {
+      "id": "BC-TRANSFER",
+      "source_id": "BC2001",
+      "locator": "Theorem 2.4, retained author PDF p. 6",
+      "exact_scope_quantifiers": "If alpha is normal to base b, then it is normal to every integer base c=b^r with nonzero rational r; the surrounding text warns that unrestricted transfer fails for bases not related by rational powers.",
+      "base": "base-transfer theorem; 16 and 10 are multiplicatively independent",
+      "conditional_status": "Unconditional transfer theorem whose premise and conclusion do not connect the available pi base to decimal.",
+      "C1": {
+        "verdict": "NO",
+        "first_unmatched_premise": "There is no nonzero rational r with 10=16^r.",
+        "exact_comparison": "Even a proof of base-16 normality of pi would not yield base-10 C1 by this theorem."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The theorem supplies no transfer from the base-16 pi orbit to {10^j*pi}.",
+        "exact_comparison": "No decimal exponential-sum hypothesis is obtained."
+      }
+    },
+    {
+      "id": "LAG-ORBIT",
+      "source_id": "LAG2001",
+      "locator": "Theorem 2.1(1)-(2), preprint p. 5 / journal pp. 358-359",
+      "exact_scope_quantifiers": "For every integer b >= 2 and theta in [0,1], digit-density is equivalent to density of the base-b remainder orbit, and base-b normality is equivalent to uniform distribution of that orbit.",
+      "base": "arbitrary integer b; specialize b=10",
+      "conditional_status": "Unconditional equivalences; the fixed-pi decimal premise is not proved.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "Uniform distribution of the base-10 remainder orbit of pi is unproved.",
+        "exact_comparison": "Uniform distribution gives limiting frequency 10^(-k), hence C1; mere density/digit-density gives occurrence but not positive lower frequency."
+      },
+      "T3": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "Uniform distribution of the fixed decimal pi orbit is unproved.",
+        "exact_comparison": "The same finite-frequency Weyl argument as row BC-ORBIT would give T3 for every k."
+      }
+    },
+    {
+      "id": "LAG-DICHOTOMY",
+      "source_id": "LAG2001",
+      "locator": "Strong Dichotomy Hypothesis and Theorem 4.1, preprint pp. 9-10 / journal pp. 361-362",
+      "exact_scope_quantifiers": "For every BBP number to base b satisfying deg(q)>deg(p), the unproved Strong Dichotomy Hypothesis implies that the number is rational or normal to its BBP base.",
+      "base": "the known pi BBP base is 16, not 10",
+      "conditional_status": "Explicitly conditional on the Strong Dichotomy Hypothesis.",
+      "C1": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The Strong Dichotomy Hypothesis is unproved; independently, the pi conclusion is in base 16 and does not transfer to base 10.",
+        "exact_comparison": "The theorem does not establish decimal block frequencies."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "No decimal BBP specialization for pi supplies uniform distribution of {10^j*pi}.",
+        "exact_comparison": "The theorem has no conclusion about the decimal sums in T3."
+      }
+    },
+    {
+      "id": "WEYL-CRITERION",
+      "source_id": "WEYL1916",
+      "locator": "Section 1, equation (2) and Satz 1, printed pp. 313-315 (Satz 1 on p. 315)",
+      "exact_scope_quantifiers": "For an arbitrary real sequence alpha_n, uniform distribution implies vanishing normalized exponential sums for every nonzero integer m; Satz 1 proves the converse when sum_{h=1}^n exp(2*pi*i*m*alpha_h)=o(n) for every m != 0.",
+      "base": "base-neutral; specialize alpha_j=fract(10^j*pi)",
+      "conditional_status": "Unconditional criterion, conditional application at the named point pi.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "The source does not prove the required o(N) sums for alpha_j=fract(10^j*pi).",
+        "exact_comparison": "If those sums held for every h, the orbit would be uniformly distributed and the orbit-normality rows would imply the stronger limit 10^(-k)."
+      },
+      "T3": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "For fixed pi, o(N) cancellation is unproved for every nonzero integer h.",
+        "exact_comparison": "For each k choose H with H+1>10^(2k), then epsilon small enough for a positive eta. Convergence at the finitely many |h|<=H gives one N0 valid for every N>=N0, exactly matching T3."
+      }
+    },
+    {
+      "id": "KN-WEYL",
+      "source_id": "KN1974",
+      "locator": "Chapter 1, Section 2, Theorem 2.1 (Weyl Criterion), p. 7",
+      "exact_scope_quantifiers": "A sequence x_n is uniformly distributed mod 1 iff for every nonzero integer h, (1/N) sum_{n=1}^N exp(2*pi*i*h*x_n) tends to zero.",
+      "base": "base-neutral; specialize x_n=fract(10^(n-1)*pi)",
+      "conditional_status": "Unconditional iff criterion; no fixed-pi sum estimate is supplied.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "Normalized exponential-sum convergence for the fixed decimal pi orbit is unproved.",
+        "exact_comparison": "With that premise, uniform distribution and the decimal cylinder correspondence give limiting frequency 10^(-k), stronger than C1."
+      },
+      "T3": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "The criterion supplies no proof of the fixed-pi convergence it tests.",
+        "exact_comparison": "Finite intersection over a chosen H converts the source's per-h limits into T3's common eventual N0; no effective threshold is required by T3."
+      }
+    },
+    {
+      "id": "KN-ERDOS-TURAN",
+      "source_id": "KN1974",
+      "locator": "Chapter 2, Section 2, Theorem 2.5 (Theorem of Erdos-Turan), equation (2.33), p. 112",
+      "exact_scope_quantifiers": "For every finite real sequence x_1,...,x_N and every positive integer m, D_N <= 6/(m+1)+(4/pi) sum_{h=1}^m (1/h-1/(m+1))*|(1/N)sum_{n=1}^N exp(2*pi*i*h*x_n)|.",
+      "base": "base-neutral; specialize to the decimal pi orbit",
+      "conditional_status": "Finite deterministic inequality; supplies no pi-specific exponential-sum estimate.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "One still needs fixed-pi finite-frequency bounds making the right side eventually smaller than every fixed decimal-cylinder length with positive margin.",
+        "exact_comparison": "Such bounds would yield positive visits to every length-k cylinder; the theorem is a bridge, not a verification of those bounds."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The inequality assumes the exponential sums as inputs and gives no upper bound for them at pi.",
+        "exact_comparison": "It does not prove T3's eventual sum hypothesis; rather, T3-type bounds can be substituted into it."
+      }
+    },
+    {
+      "id": "PH-LIL",
+      "source_id": "PH1975",
+      "locator": "Theorem 1, equation (1.5), printed pp. 241-242",
+      "exact_scope_quantifiers": "For every fixed integer sequence n_j with n_(j+1)/n_j >= q>1, for Lebesgue-almost every x, the limsup of N*D_N({n_j*x})/sqrt(N*log log N) lies between the stated positive lower constant and C(q), with C(q)<=166+664/(sqrt(q)-1).",
+      "base": "set n_j=10^(j-1), so the lacunary base is exactly 10",
+      "conditional_status": "Metric theorem for almost every initial point, not a pointwise theorem.",
+      "C1": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The source does not show that the named point x=pi lies in its conull set.",
+        "exact_comparison": "The theorem proves a strong positive-density/normality analogue for almost every x, but no fixed-pi conclusion."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The almost-everywhere quantifier cannot be specialized to x=pi.",
+        "exact_comparison": "For almost every x the discrepancy scale would otherwise yield eventual finite-frequency cancellation, but this is not a fixed-pi proof."
+      }
+    },
+    {
+      "id": "PH-DETERMINISTIC",
+      "source_id": "PH1975",
+      "locator": "Deterministic inequality (3.9) and note added, printed p. 250",
+      "exact_scope_quantifiers": "For every finite real point sequence, |sum_{j<=N} exp(2*pi*i*x_j)| <= sqrt(32)*N*D_N; the note added improves sqrt(32) to 4.",
+      "base": "base-neutral; take x_j=h*10^(j-1)*pi",
+      "conditional_status": "Deterministic at fixed pi, conditional on an unproved discrepancy estimate for that point sequence.",
+      "C1": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "No pinned theorem proves D_N({h*10^j*pi}) -> 0 for fixed pi at the needed frequencies.",
+        "exact_comparison": "A sufficiently strong fixed-pi discrepancy premise would imply the T3 sums and hence C1."
+      },
+      "T3": {
+        "verdict": "CONDITIONAL",
+        "first_unmatched_premise": "A fixed-pi discrepancy bound tending to zero for each required h is unproved.",
+        "exact_comparison": "For chosen finite H, finitely many discrepancy onsets can be maximized to one N0; the inequality then gives |S_N(h,pi)|<=epsilon*N for every N>=N0."
+      }
+    },
+    {
+      "id": "FU-GEOMETRIC",
+      "source_id": "FU2008",
+      "locator": "Main Theorem and Corollary, manuscript pp. 1-2 / journal pp. 155-156",
+      "exact_scope_quantifiers": "For every fixed theta>1, for Lebesgue-almost every x, the normalized limsup discrepancies of {theta^k*x} equal Sigma_theta; for integer theta=10 the corollary gives the exact constant Sigma_10=sqrt(220)/27.",
+      "base": "exactly theta=10",
+      "conditional_status": "Metric theorem for almost every x; no explicit exceptional set or named-point membership.",
+      "C1": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The theorem does not establish its conclusion at x=pi.",
+        "exact_comparison": "Exact base-10 discrepancy for almost every x cannot be labeled as positive lower block density for fixed pi."
+      },
+      "T3": {
+        "verdict": "NO",
+        "first_unmatched_premise": "The conull set is not known to contain pi (or h*pi/10 for the finite frequencies).",
+        "exact_comparison": "For an almost-everywhere analogue, finite intersection plus the deterministic Philipp inequality matches T3; it supplies no fixed-pi theorem."
+      }
+    }
+  ],
+  "bounded_conclusion": "Within these six frozen sources and eleven rows, there is no YES verdict for C1 or T3 at fixed decimal pi. The criterion and deterministic rows identify conditional routes; the metric rows remain almost-everywhere only. This says nothing about sources outside the frozen corpus and is not evidence that C1 or T3 is false."
+}

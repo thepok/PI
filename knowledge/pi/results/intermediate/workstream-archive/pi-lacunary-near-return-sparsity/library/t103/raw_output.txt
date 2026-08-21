@@ -1,0 +1,6 @@
+T103 replay: PASS
+checked 1 retained candidate and 2 retained primary sources
+checked source hashes and authenticated text markers
+checked stage-hole formulas through R=20 and enumerated through R=5
+checked pointwise periods, collisions, and exact T14-sibling decrement
+finite checks are experiments; universal claims remain a proof sketch

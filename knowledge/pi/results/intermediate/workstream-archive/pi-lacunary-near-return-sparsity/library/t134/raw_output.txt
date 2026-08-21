@@ -1,0 +1,5 @@
+T134 verification PASS
+primary_sources=6 cap=8 retained_candidates=3 cap=3
+zero_fiber_identity=PASS threshold_substitutions=PASS
+comparison_markers=33/33 active_boundary=T132,T133
+verdict=close successors=0 fixed_pi_claim=none C1_claim=none C2_claim=none

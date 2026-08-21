@@ -1,0 +1,21 @@
+CANONICAL QUESTION
+Let D = {0,...,9}, and let pi = 3.d_1 d_2 d_3 ... be its unique nonterminating decimal expansion, with d_i in D for every integer i >= 1. Is there an integer C >= 1 such that, for every integer k >= 1 and every word w = (w_0,...,w_(k-1)) in D^k, there is an integer i >= 1 satisfying i+k-1 <= C*k*10^k and d_(i+j) = w_j for every integer j with 0 <= j < k? Equivalently, if L_pi(k) is the least prefix length containing every length-k word as a contiguous factor, with L_pi(k) = infinity when no such prefix exists, is L_pi(k) <= C*k*10^k for all k >= 1 for one uniform C? Status: OPEN pending a source-pinned literature check; the accumulated sources establish no such pi-specific bound. This is stronger than local:pi-digits and is expected to be hard.
+
+PROVENANCE
+Formulated by this system on 2026-07-22 from local:pi-digits, the formal orbit-density bridge in TheoryLib.PiDigits.T20BaseTenOrbitDensity, the finite exponential-cylinder bridge in TheoryLib.PiDigits.T27FiniteExponentialCylinderCoverage, and the formal Champernowne development T22-T25. The scale k*10^k is motivated by word-cover/coupon-collector heuristics and by the prospect of a quantitative Champernowne analogue; neither motivation is evidence about pi. Relevant quantitative word-cover, discrepancy, and lacunary-sum literature must be source-pinned before use.
+
+RECORDED AMBIGUITIES
+A1 (CANONICAL): one uniform integer C works for every k and every decimal word, including leading-zero words; factors are contiguous, may overlap, start in the fractional expansion, and are fully contained in the bounded prefix. Status: OPEN.
+A2: for every k some unrestricted C_k works. This is equivalent to local:pi-digits and is not the quantitative target. Status: OPEN.
+A3: the A1 bound holds only for all sufficiently large k. This is equivalent to A1 after increasing C, since coverage at one large length supplies all shorter words.
+A4: require only i <= C*k*10^k rather than full containment. This is equivalent to A1 up to changing C, not with the same numerical constant.
+A5: L_pi(k) <= C*10^k. This is stronger than A1. Status: OPEN.
+A6: L_pi(k) <= C*k^A*10^k for some C,A, or L_pi(k) = 10^(k+o(k)). These are weaker growth variants when A > 1 and are not canonical. Status: OPEN.
+A7: allow the constant to depend on w or k. This removes the uniform rate and collapses to word-by-word occurrence.
+A8: exclude leading-zero words, use subsequences, use prefix-only occurrences, require aligned or nonoverlapping starts, include the integer digit 3, or change the base. These are different problems and are excluded.
+A9: require repeated occurrences, infinite recurrence, or near-uniform frequencies by the deadline. These are stronger quantitative recurrence or normality variants. Status: OPEN for pi.
+A10: verify A1 only for k <= K. This is a finite sibling result, not the universal claim.
+A11: base-10 normality, Weyl cancellation, and discrepancy estimates are sufficient-strategy targets, not equivalent readings of the stated rate.
+
+VERIFICATION RULES
+This problem is subject to VERIFICATION.md in full. Finite computation of pi digits, including exact values of L_pi(k) for finitely many k, is heuristic or bounded sibling evidence only and cannot prove A1. Every sibling variant must be labeled with its exact quantifiers. Literature claims require pinned sources and hypotheses; formal claims require checked artifacts. No result about Champernowne, random streams, generic reals, or almost-everywhere lacunary behavior resolves the canonical pi statement without a separately verified transfer theorem.

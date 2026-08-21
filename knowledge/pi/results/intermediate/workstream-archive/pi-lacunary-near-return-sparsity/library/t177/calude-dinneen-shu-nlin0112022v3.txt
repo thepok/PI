@@ -1,0 +1,814 @@
+                                                         Computing A Glimpse of Randomness
+                                                        Cristian S. Calude, Michael J. Dinneen, Chi-Kou Shu
+                                                           Department of Computer Science, University of Auckland,
+arXiv:nlin/0112022v3 [nlin.CD] 11 Feb 2002
+
+
+
+
+                                                                 Private Bag 92019, Auckland, New Zealand
+                                                              E-mails: {cristian,mjd,cshu004}@cs.auckland.ac.nz
+
+
+
+                                                                                      Abstract
+
+                                                      A Chaitin Omega number is the halting probability of a universal Chaitin (self-
+                                                  delimiting Turing) machine. Every Omega number is both computably enumerable
+                                                  (the limit of a computable, increasing, converging sequence of rationals) and ran-
+                                                  dom (its binary expansion is an algorithmic random sequence). In particular, every
+                                                  Omega number is strongly non-computable. The aim of this paper is to describe a
+                                                  procedure, which combines Java programming and mathematical proofs, for com-
+                                                  puting the exact values of the first 64 bits of a Chaitin Omega:
+
+                                                      0000001000000100000110001000011010001111110010111011101000010000.
+
+                                                  Full description of programs and proofs will be given elsewhere.
+
+
+
+                                             1    Introduction
+                                             Any attempt to compute the uncomputable or to decide the undecidable is without doubt
+                                             challenging, but hardly new (see, for example, Marxen and Buntrock [25], Stewart [33],
+                                             Casti [11]). This paper describes a hybrid procedure (which combines Java program-
+                                             ming and mathematical proofs) for computing the exact values of the first 64 bits of a
+                                             concrete Chaitin Omega number, ΩU , the halting probability of the universal Chaitin
+                                             (self-delimiting Turing) machine U, see [13]. Note that any Omega number is not only
+                                             uncomputable, but random, making the computing task even more demanding.
+                                                 Computing lower bounds for ΩU is not difficult: we just generate more and more
+                                             halting programs. Are the bits produced by such a procedure exact? Hardly. If the
+                                             first bit of the approximation happens to be 1, then sure, it is exact. However, if the
+                                             provisional bit given by an approximation is 0, then, due to possible overflows, nothing
+                                             prevents the first bit of ΩU to be either 0 or 1. This situation extends to other bits as
+                                             well. Only an initial run of 1’s may give exact values for some bits of ΩU .
+                                                 The paper is structured as follows. Section 2 introduces the basic notation. Com-
+                                             putably enumerable (c.e.) reals, random reals and c.e. random reals are presented in
+                                             Section 3. Various theoretical difficulties preventing the exact computation of any bits
+                                             of an Omega number are discussed in Section 4. The register machine model of Chaitin
+[13] is discussed in Section 5. In section 6 we summarize our computational results con-
+cerning the halting programs of up to 84 bits long for U. They give a lower bound for
+ΩU which is proved to provide the exact values of the first 64 digits of ΩU in Section 7.
+    Chaitin [18] has pointed out that the self-delimiting Turing machine constructed in
+the preliminary version of this paper [8] is universal in the sense of Turing (i.e., it is
+capable to simulate any self-delimiting Turing machine), but it is not universal in the
+sense of algorithmic information theory because the “price” of simulation is not bounded
+by an additive constant; hence, the halting probability is not an Omega number (but a
+c.e. real with some properties close to randomness). The construction presented in this
+paper is a self-delimiting Turing machine. Full details will appear in [27].
+
+
+2     Notation
+We will use notation that is standard in algorithmic information theory; we will assume
+familiarity with Turing machine computations, computable and computably enumerable
+(c.e.) sets (see, for example, Bridges [2], Odifreddi [26], Soare [29], Weihrauch [34]) and
+elementary algorithmic information theory (see, for example, Calude [3]).
+   By N, Q we denote the set of nonnegative integers (natural numbers) and rationals,
+respectively. If S is a finite set, then #S denotes the number of elements of S. Let
+Σ = {0, 1} denote the binary alphabet. Let Σ∗ be the set of (finite) binary strings, and
+Σω the set of infinite binary sequences. The length of a string x is denoted by |x|. A
+subset A of Σ∗ is prefix-free if whenever s and t are in A and s is a prefix of t, then
+s = t.
+    For a sequence x = x0 x1 · · · xn · · · ∈ Σω and an nonnegative integer n ≥ 1, x(n)
+denotes the initial segment of length n of x and xi denotes the ith digit of x, i.e. x(n) =
+x0 x1 · · · xn−1 ∈ Σ∗ . Due to Kraft’s inequality, for every prefix-free set A ⊂ Σ∗ , ΩA =
+P         −|s|
+  s∈A 2        lies in the interval [0, 1]. In fact ΩA is a probability: Pick, at random using
+the Lebesgue measure on [0, 1], a real α in the unit interval and note that the probability
+that some initial prefix of the binary expansion of α lies in the prefix-free set A is exactly
+ΩA .
+    Following Solovay [30, 31] we say that C is a (Chaitin) (self-delimiting Turing) ma-
+chine, shortly, a machine, if C is a Turing machine processing binary strings such that
+its program set (domain) P ROGC = {x ∈ Σ∗ | C(x) halts} is a prefix-free set of strings.
+Clearly, P ROGC is c.e.; conversely, every prefix-free c.e. set of strings is the domain
+of some machine. The program-size complexity of the string x ∈ Σ∗ (relatively to C) is
+HC (x) = min{|y| | y ∈ Σ∗ , C(y) = x}, where min ∅ = ∞. A major result of algorithmic
+information theory is the following invariance relation: we can effectively construct a
+machine U (called universal ) such that for every machine C, there is a constant c > 0
+(depending upon U and C) such that for every x, y ∈ Σ∗ with C(x) = y, there exists
+a string x′ ∈ Σ∗ with U(x′ ) = y (U simulates C) and |x′ | ≤ |x| + c (the overhead
+for simulation is no larger than an additive constant). In complexity-theoretic terms,
+HU (x) ≤ HC (x) + c. Note that P ROGU is c.e. but not computable.
+
+
+
+                                              2
+  If C is a machine, then ΩC = ΩP ROGC represents its halting probability. When
+C = U is a universal machine, then its halting probability ΩU is called a Chaitin Ω
+number, shortly, Ω number.
+
+
+3      Computably Enumerable and Random Reals
+Reals will be written in binary, so we start by looking at random binary sequences. Two
+complexity-theoretic definitions can be used to define random sequences (see Chaitin
+[12, 17]): an infinite sequence x is Chaitin random if there is a constant c such that
+H(x(n)) > n − c, for every integer n > 0, or, equivalently, limn→∞ H(x(n)) − n = ∞.
+Other equivalent definitions include Martin-Löf [24, 23] definition using statistical tests
+(Martin-Löf random sequences), Solovay [30] measure-theoretic definition (Solovay ran-
+dom sequences) and Hertling and Weihrauch [21] topological approach to define random-
+ness (Hertling–Weihrauch random sequences). Independent proofs of the equivalence
+between Martin-Löf and Chaitin definitions have been obtained by Schnorr and Solovay,
+cf. [13, 19]. In what follows we will simply call “random” a sequence satisfying one of
+the above equivalent conditions. Their equivalence motivates the following “randomness
+hypothesis”(Calude [4]): A sequence is “algorithmically random” if it satisfies one of the
+above equivalent conditions. Of course, randomness implies strong non-computability
+(cf., for example, Calude [3]), but the converse is false.
+    A real α is random if its binary expansion x (i.e. α = 0.x) is random. The choice
+of the binary base does not play any role, cf. Calude and Jürgensen [10], Hertling and
+Weihrauch [21], Staiger [32]: randomness is a property of reals not of names of reals.
+    Following Soare [28], a real α is called c.e. if there is a computable, increasing
+sequence of rationals which converges (not necessarily computably) to α. We will start
+with several characterizations of c.e. reals (cf. Calude, Hertling, Khoussainov and Wang
+[9]). If 0.y is the binary expansion of a real α with infinitely many ones, then α =
+P        −n−1
+  n∈Xα 2      , where Xα = {i | yi = 1}.
+
+Theorem 1 Let α be a real in (0, 1]. The following conditions are equivalent:
+
+    1. There is a computable, nondecreasing sequence of rationals which converges to α.
+
+    2. The set {p ∈ Q | p < α} of rationals less than α is c.e.
+
+    3. There is an infinite prefix-free c.e. set A ⊆ Σ∗ with α = ΩA .
+
+    4. There is an infinite prefix-free computable set A ⊆ Σ∗ with α = ΩA .
+
+    5. There is a total computable function f : N2 → {0, 1} such that
+
+       (a) If for some k, n we have f (k, n) = 1 and f (k, n + 1) = 0 then there is an l < k
+           with f (l, n) = 0 and f (l, n + 1) = 1.
+        (b) We have: k ∈ Xα ⇐⇒ limn→∞ f (k, n) = 1.
+
+
+                                             3
+    We note that following Theorem 1, 5), given a computable approximation of a c.e.
+real α via a total computable function f , k ∈ Xα ⇐⇒ limn→∞ f (k, n) = 1; the values
+of f (k, n) may oscillate from 0 to 1 and back; we will not be sure that they stabilized
+until 2k changes have occurred (of course, there need not be so many changes, but in
+this case there is no guarantee of the exactness of the value of the kth bit).
+    Chaitin [12] proved the following important result:
+
+Theorem 2 If U is a universal machine, then ΩU is c.e. and random.
+
+   The converse of Theorem 2 is also true: it has been proved by Slaman [22] based
+on work reported in Calude, Hertling, Khoussainov and Wang [9] (see also Calude and
+Chaitin [7], Calude [5], Downey [20]):
+
+Theorem 3 Let α ∈ (0, 1). The following conditions are equivalent:
+
+    1. The real α is c.e. and random.
+    2. For some universal machine U, α = ΩU .
+
+
+4     The First Bits of An Omega Number
+We start by noting that
+
+Theorem 4 Given the first n bits of ΩU one can decide whether U(x) halts or not on
+an arbitrary string x of length at most n.
+
+   The first 10,000 bits of ΩU include a tremendous amount of mathematical knowledge.
+In Bennett’s words [1]:
+
+      [Ω] embodies an enormous amount of wisdom in a very small space
+      . . . inasmuch as its first few thousands digits, which could be written on a
+      small piece of paper, contain the answers to more mathematical questions
+      than could be written down in the entire universe.
+      Throughout history mystics and philosophers have sought a compact key to
+      universal wisdom, a finite formula or text which, when known and understood,
+      would provide the answer to every question. The use of the Bible, the Koran
+      and the I Ching for divination and the tradition of the secret books of Hermes
+      Trismegistus, and the medieval Jewish Cabala exemplify this belief or hope.
+      Such sources of universal wisdom are traditionally protected from casual use
+      by being hard to find, hard to understand when found, and dangerous to use,
+      tending to answer more questions and deeper ones than the searcher wishes to
+      ask. The esoteric book is, like God, simple yet undescribable. It is omniscient,
+      and transforms all who know it . . . Omega is in many senses a cabalistic
+      number. It can be known of, but not known, through human reason. To know
+      it in detail, one would have to accept its uncomputable digit sequence on faith,
+      like words of a sacred text.
+
+                                             4
+   It is worth noting that even if we get, by some kind of miracle, the first 10,000 digits
+of ΩU , the task of solving the problems whose answers are embodied in these bits is
+computable but unrealistically difficult: the time it takes to find all halting programs of
+length less than n from 0.Ω0 Ω2 . . . Ωn−1 grows faster than any computable function of n.
+   Computing some initial bits of an Omega number is even more difficult. According to
+Theorem 3, c.e. random reals can be coded by universal machines through their halting
+probabilities. How “good” or “bad” are these names? In [12] (see also [15, 16]), Chaitin
+proved the following:
+
+Theorem 5 Assume that ZF C 1 is arithmetically sound.2 Then, for every universal
+machine U, ZF C can determine the value of only finitely many bits of ΩU .
+
+    In fact one can give a bound on the number of bits of ΩU which ZF C can determine;
+this bound can be explicitly formulated, but it is not computable. For example, in [15]
+Chaitin described, in a dialect of Lisp, a universal machine U and a theory T , and
+proved that U can determine the value of at most H(T ) + 15, 328 bits of ΩU ; H(T ) is
+the program-size complexity of the theory T , an uncomputable number.
+      Fix a universal machine U and consider all statements of the form
+
+                    “The nth binary digit of the expansion of ΩU is k”,                (1)
+
+for all n ≥ 0, k = 0, 1. How many theorems of the form (1) can ZF C prove? More
+precisely, is there a bound on the set of non-negative integers n such that ZF C proves a
+theorem of the form (1)? From Theorem 5 we deduce that ZF C can prove only finitely
+many (true) statements of the form (1). This is Chaitin information-theoretic version of
+Gödel’s incompleteness (see [15, 16]):
+
+Theorem 6 If ZF C is arithmetically sound and U is a universal machine, then almost
+all true statements of the form (1) are unprovable in ZF C.
+
+   Again, a bound can be explicitly found, but not effectively computed. Of course, for
+every c.e. random real α we can construct a universal machine U such that α = ΩU and
+ZF C is able to determine finitely (but as many as we want) bits of ΩU .
+   A machine U for which Peano Arithmetic can prove its universality and ZF C cannot
+determine more than the initial block of 1 bits of the binary expansion of its halting
+probability, ΩU , will be called Solovay machine.3 To make things worse Calude [6]
+proved the following result:
+
+Theorem 7 Assume that ZF C is arithmetically sound. Then, every c.e. random real
+is the halting probability of a Solovay machine.
+  1
+    Zermelo set theory with choice.
+  2
+    That is, any theorem of arithmetic proved by ZF C is true.
+  3
+    Clearly, U depends on ZF C.
+
+
+
+                                                 5
+   For example, if α ∈ (3/4, 7/8) is c.e. and random, then in the worst case ZF C can
+determine its first two bits (11), but no more. For α ∈ (0, 1/2) we obtained Solovay’s
+Theorem [31]:
+
+Theorem 8 Assume that ZF C is arithmetically sound. Then, every c.e. random real
+α ∈ (0, 1/2) is the halting probability of a Solovay machine which cannot determine any
+single bit of α. No c.e. random real α ∈ (1/2, 1) has the above property.
+
+    The conclusion is that the worst fears discussed in the first section proved to mate-
+rialize: In general only the initial run of 1’s (if any) can be exactly computed.
+
+
+5     Register Machine Programs
+First we start with the register machine model used by Chaitin [13]. Recall that any
+register machine has a finite number of registers, each of which may contain an arbitrarily
+large non-negative integer. The list of instructions is given below in two forms: our
+compact form and its corresponding Chaitin [13] version. The main difference between
+Chaitin’s implementation and ours is in the encoding: we use 7 bit codes instead of 8
+bit codes.
+
+L: ? L1                                                                     (L: GOTO L1)
+
+    This is an unconditional branch to L1. L1 is a label of some instruction in the program
+    of the register machine.
+
+L: ∧ R L1                                                                (L: JUMP R L1)
+
+    Set the register R to be the label of the next instruction and go to the instruction
+    with label L1.
+
+L: @ R                                                                  (L: GOBACK R)
+
+    Go to the instruction with a label which is in R. This instruction will be used in
+    conjunction with the jump instruction to return from a subroutine. The instruction
+    is illegal (i.e., run-time error occurs) if R has not been explicitly set to a valid label
+    of an instruction in the program.
+
+L: = R1 R2 L1                                                          (L: EQ R1 R2 L1)
+
+    This is a conditional branch. The last 7 bits of register R1 are compared with the
+    last 7 bits of register R2. If they are equal, then the execution continues at the
+    instruction with label L1. If they are not equal, then execution continues with the
+    next instruction in sequential order. R2 may be replaced by a constant which can be
+    represented by a 7-bit ASCII code, i.e. a constant from 0 to 127.
+
+                                              6
+L: # R1 R2 L1                                                        (L: NEQ R1 R2 L1)
+
+   This is a conditional branch. The last 7 bits of register R1 are compared with the
+   last 7 bits of register R2. If they are not equal, then the execution continues at
+   the instruction with label L1. If they are equal, then execution continues with the
+   next instruction in sequential order. R2 may be replaced by a constant which can be
+   represented by a 7-bit ASCII code, i.e. a constant from 0 to 127.
+
+L: ) R                                                                        (L: RIGHT R)
+
+
+   Shift register R right 7 bits, i.e., the last character in R is deleted.
+
+L: ( R1 R2                                                              (L: LEFT R1 R2)
+
+   Shift register R1 left 7 bits, add to it the rightmost 7 bits of register R2, and then
+   shift register R2 right 7 bits. The register R2 may be replaced by a constant from 0
+   to 127.
+
+L: & R1 R2                                                                (L: SET R1 R2)
+
+   The contents of register R1 is replaced by the contents of register R2. R2 may be
+   replaced by a constant from 0 to 127.
+
+L: ! R                                                                        (L: READ R)
+
+   One bit is read into the register R, so the numerical value of R becomes either 0 or
+   1. Any attempt to read past the last data-bit results in a run-time error.
+
+L: /                                                                            (L: DUMP)
+
+   All register names and their contents, as bit strings, are written out. This instruction
+   is also used for debugging.
+
+L: %                                                                             (L: HALT)
+
+
+   Halts the execution. This is the last instruction for each register machine program.
+
+
+    A register machine program consists of finite list of labeled instructions from the
+above list, with the restriction that the HALT instruction appears only once, as the last
+instruction of the list. The data (a binary string) follows immediately the HALT instruc-
+tion. The use of undefined variables is a run-time error. A program not reading the
+whole data or attempting to read past the last data-bit results in a run-time error. Be-
+cause of the position of the HALT instruction and the specific way data is read, register
+machine programs are Chaitin machines.
+
+                                              7
+  To be more precise, we present a context-free grammar G = (N, Σ, P, S) in Backus-
+Naur form which generates the register machine programs.
+
+(1) N is the finite set of nonterminal variables:
+
+                      N    = {S} ∪ IN ST ∪ T OKEN
+
+                 IN ST     = {hRMSIns i, h?Ins i, h∧Ins i, h@Ins i, h=Ins i, h#Ins i,
+                             h)Ins i, h(Ins i, h&Ins i, h!Ins i, h/Ins i, h%Ins i}
+
+              T OKEN       = {hDatai, hLabeli, hRegisteri, hConstanti,
+                             hSpeciali, hSpacei, hAlphai, hLSi}
+
+
+(2) Σ, the alphabet of the register machine programs, is a finite set of terminals, disjoint
+from N:
+                      Σ      =    hAlphai ∪ hSpeciali ∪ hSpacei ∪ hConstanti
+                hAlphai      =    {a, b, c, . . . , z}
+               hSpeciali     =    {:, /, ?, ∧, @, =, #, ), (, &, !, ?, %}
+                 hSpacei     =    {‘space’,‘tab’}
+             hConstanti      =    {d | 0 ≤ d ≤ 127}
+
+
+(3) P (a subset of N × (N ∪ Σ)∗ ) is the finite set of rules (productions):
+
+                    S → hRMSIns i∗ h%Ins ihDatai
+
+              hDatai → (0|1)∗
+
+             hLabeli → 0 | (1|2| . . . |9)(0|1|2| . . . |9)∗
+
+                 hLSi → : hSpacei∗
+
+         hRegisteri → hAlphai(hAlphai ∪ (0|1|2| . . . |9))∗
+
+           hRMSIns i → h?Ins i | h∧Ins i | h@Ins i | h=Ins i | h#Ins i |
+                       h)Ins i | h(Ins i | h&Ins i | h!Ins i | h/Ins i
+
+                        (L: HALT)
+              h%Ins i → hLabelihLSi%
+
+                         (L: GOTO L1)
+               h?Ins i → hLabelihLSi?hSpacei∗ hLabeli
+
+                         (L: JUMP R L1)
+               h∧Ins i → hLabelihLSi ∧ hSpacei∗ hRegisterihSpacei+ hLabeli
+
+                         (L: GOBACK R)
+               h@Ins i → hLabelihLSi@hSpacei∗ hRegisteri
+
+                                                 8
+               (L: EQ R 0/127 L1 or L: EQ R R2 L1)
+     h=Ins i → hLabelihLSi = hSpacei∗ hRegisterihSpacei+ hConstantihSpacei+
+               hLabeli | hLabelihLSi = hSpacei∗ hRegisterihSpacei+ hRegisteri
+               hSpacei+ hLabeli
+
+               (L: NEQ R 0/127 L1 or L: NEQ R R2 L1)
+     h#Ins i → hLabelihLSi#hSpacei∗ hRegisterihSpacei+ hConstantihSpacei+
+               hLabeli | hLabelihLSi#hSpacei∗ hRegisterihSpacei+
+               hRegisterihSpacei+ hLabeli
+
+                (L: RIGHT R)
+      h)Ins i → hLabelihLSi)hSpacei∗ hRegisteri
+
+                (L: LEFT R L1)
+      h(Ins i → hLabelihLSi(hSpacei∗ hRegisterihSpacei+ hConstanti |
+                hLabelihLSi(hSpacei∗ hRegisterihSpacei+ hRegisteri
+
+               (L: SET R 0/127 or L: SET R R2)
+     h&Ins i → hLabelihLSi&hSpacei∗ hRegisterihSpacei+ hConstanti |
+               hLabelihLSi&hSpacei∗ hRegisterihSpacei+ hRegisteri
+
+                (L: READ R)
+      h!Ins i → hLabelihLSi!hSpacei∗ hRegisteri
+
+               (L: DUMP)
+     h/Ins i → hLabelihLSi/
+
+
+(4) S ∈ N is the start symbol for the set of register machine programs.
+
+    It is important to observe that the above construction is universal in the sense of
+algorithmic information theory (see the discussion of the end of Section 1). Register
+machine programs are self-delimiting because the HALT instruction is at the end of any
+valid program. Note that the data, which immediately follows the HALT instruction, is
+read bit by bit with no endmarker. This type of construction has been first programmed
+in Lisp by Chaitin [13, 17].
+    To minimize the number of programs of a given length that need to be simulated,
+we have used “canonical programs” instead of general register machines programs.
+A canonical program is a register machine program in which (1) labels appear in
+increasing numerical order starting with 0, (2) new register names appear in increasing
+lexicographical order starting from ‘a’, (3) there are no leading or trailing spaces, (4)
+operands are separated by a single space, (5) there is no space after labels or operators,
+(6) instructions are separated by a single space. Note that for every register machine
+program there is a unique canonical program which is equivalent to it, that is, both
+programs have the same domain and produce the same output on a given input. If x is
+a program and y is its canonical program, then |y| ≤ |x|.
+
+
+                                            9
+    Here is an example of a canonical program:
+
+     0:!a 1:^b 4 2:!c 3:?11 4:=a 0 8 5:&c 110 6:(c 101 7:@b 8:&c 101
+     9:(c 113 10:@b 11:%10
+
+   To facilitate the understanding of the code we rewrite the instructions with additional
+comments and spaces:
+     0:! a         // read the first data bit into register a
+     1:^ b 4       // jump to a subroutine at line 4
+     2:! c         // on return from the subroutine call c is written out
+     3:? 11        // go to the halting instruction
+     4:= a 0 8     // the right most 7 bits are compared with 127; if they
+                   // are equal, then go to label 8
+     5:& c ‘n’     // else, continue here and
+     6:( c ‘e’     // store the character string ‘ne’ in register c
+     7:@ b         // go back to the instruction with label 2 stored in
+                   // register b
+     8:& c ‘e’     // store the character string ‘eq’ in register c
+     9:( c ‘q’
+     10:@ b
+     11:%          // the halting instruction
+     10            // the input data
+   For optimization reasons, our particular implementation designates the first maximal
+sequence of SET/LET instructions as (static) register pre-loading instructions. We “com-
+press” these canonical programs by (a) deleting all labels, spaces and the colon symbol
+with the first non-static instruction having an implicit label 0, (b) separating multiple
+operands by a single comma symbol, (c) replacing constants with their ASCII numerical
+values. The compressed format of the above program is
+
+        !a^b,4!c?11=a,0,8&c,110(,c,101@b&,c,101(,c,113@b%10
+
+    Note that compressed programs are canonical programs because during the process
+of “compression” everything remains the same except for the elimination of space. Com-
+pressed programs use an alphabet with 49 symbols (including the halting character). The
+length is calculated as the sum of the program length and the data length (7 times the
+number of characters). For example, the length of the above program is 7×(49+2) = 357.
+    For the remainder of this paper we will be focusing on compressed programs.
+
+
+6     Solving the Halting Problem for Programs Up to
+      84 Bits
+A Java version interpreter for register machine compressed programs has been imple-
+mented; it imitates Chaitin’s universal machine in [13]. This interpreter has been used
+
+                                           10
+to test the Halting Problem for all register machine programs of at most 84 bits long.
+The results have been obtained according to the following procedure:
+
+  1. Start by generating all programs of 7 bits and test which of them stops. All strings
+     of length 7 which can be extended to programs are considered prefixes for possible
+     halting programs of length 14 or longer; they will simply be called prefixes. In
+     general, all strings of length n which can be extended to programs are prefixes
+     for possible halting programs of length n + 7 or longer. Compressed prefixes are
+     prefixes of compressed (canonical) programs.
+
+  2. Testing the Halting Problem for programs of length n ∈ {7, 14, 21, . . . , 84} was
+     done by running all candidates (that is, programs of length n which are exten-
+     sions of prefixes of length n − 7) for up to 100 instructions, and proving that
+     any generated program which does not halt after running 100 instructions never
+     halts. For example, (uncompressed) programs that match the regular expression
+     "0:\^ a 5.* 5:\? 0" never halt on any input.
+
+   For example, the programs "!a!b!a!b/%10101010" and "!a?0%10101010" produce
+a run-time errors; the first program ‘under reads’ the data and the second one ‘over
+reads’ the data. The program "!a?1!b%1010" loops.
+
+    One would naturally want to know the shortest program that halts with more than
+100 steps. If this program is larger than 84 bits, then all of our looping programs never
+halt. The trivial program with a sequence of 100 dump instructions runs for 101 steps
+but can we do better? The answer is yes. The following family of programs {P1 , P2 , . . .}
+recursively count to 2i but have linear growth in size. The programs P1 through P4 are
+given below:4
+
+  /&a,0=a,1,5&a,1?2%
+  /&a,0&b,0=b,1,6&b,1?3=a,1,9&a,1?2%
+  /&a,0&b,0&c,0=c,1,7&c,1?4=b,1,10&b,1?3=a,1,13&a,1?2%
+  /&a,0&b,0&c,0&d,0=d,1,8&d,1?5=c,1,11&c,1?4=b,1,14&b,1?3=a,1,17&a,1?2%
+
+   In order to create the program Pi+1 from Pi only 4 instructions are added, while
+updating ‘goto’ labels.
+    The running time t(i), excluding the halt instruction, of program Pi is found by the
+following recurrence: t(1) = 6, t(i) = 2·t(i−1)+4. Thus, since t(4) = 86 and t(5) = 156,
+P5 is the smallest program in this family to exceed 100 steps. The size of P5 is 86 bytes
+(602 bits), which is smaller than the trivial dump program of 707 bits. It is an open
+question on what is the smallest program that halts after 100 steps. An hybrid program,
+given below, created by combining P2 and the trivial dump programs is the smallest
+known.
+
+      &a,0/&b,0/////////////////////=b,1,26&b,1?2=a,1,29&a,1?0%
+  4
+      In all cases the data length is zero.
+
+
+                                              11
+    This program of 57 bytes (399 bits) runs for 102 steps.
+   Note that the problem of finding the smallest program with the above property is
+undecidable (see [16]).
+   The distribution of halting compressed programs of up to 84 bits for U, the universal
+machine processing compressed programs, is presented in Table 1. All binary strings
+representing programs have the length divisible by 7.
+
+
+     Program plus         Number of           Program plus          Number of
+      data length      halting programs        data length       halting programs
+             7                     1                 49                   1012
+            14                     1                 56                   4382
+            21                     3                 63                  19164
+            28                     8                 70                  99785
+            35                    50                 77                 515279
+            42                   311                 84                2559837
+
+                       Table 1. Distribution of halting programs
+
+
+
+
+7     The First 64 Bits of ΩU
+Computing all halting programs of up to 84 bits for U seems to give the exact values of
+the first 84 bits of ΩU . False! To understand the point let’s first ask ourselves whether
+the converse implication in Theorem 4 is true? The answer is negative. Globally, if we
+can compute all bits of ΩU , then we can decide the Halting Problem for every program for
+U and conversely. However, if we can solve for U the Halting Problem for all programs
+up to N bits long we might not still get any exact value for any bit of ΩU (less all values
+for the first N bits). Reason: A large set of very long halting programs can contribute
+to the values of more significant bits of the expansion of ΩU .
+
+    So, to be able to compute the exact values of the first N bits of ΩU we need to be
+able to prove that longer programs do not affect the first N bits of ΩU . And, fortunately,
+this is the case for our computation. Due to our specific procedure for solving the
+Halting Problem discussed in Section 6, any compressed halting program of length n
+has a compressed prefix of length n − 7. This gives an upper bound for the number of
+possible compressed halting programs of length n.
+
+    Let ΩnU be the approximation of ΩU given by the summation of all halting programs
+of up to n bits in length.
+
+    Compressed prefixes are partitioned into two cases — ones with an HALT (%) instruc-
+tion and ones without. Hence, halting programs may have one of the following two forms:
+either “x y HALT u”, where x is a prefix of length k not containing HALT, y is a sequence
+
+                                            12
+of instructions of length n − k not containing HALT and u is the data of length m ≥ 0, or
+“x u”, where x is a prefix of length k containing one occurrence of HALT followed by data
+(possibly empty) and u is the data of length m ≥ 1. In both cases the prefix x has been
+extended by at least one character. Accordingly, the “tail” contribution to the value of
+                                      ∞
+                                      X           X
+                               ΩU =                              2−|w|
+                                      n=0 {|w|=n, U (w) halts}
+
+
+is bounded from above by the sum of the following two convergent series (which reduce
+to two independent sums of geometric progressions):
+
+ ∞ X
+ X ∞
+         #{x | prefix x not containing HALT, |x| = k} · 47 n−k
+                                                        | {z } · |{z} 2m ·128−(n+m+1) ,
+                                                                  1 · |{z}
+ m=0 n=k
+         |                       {z                          }
+                                 x                                   y       HALT     u
+
+
+and             ∞
+                X
+                                                               2m ·128−(m+k) .
+                    #{x | prefix x containing HALT, |x| = k} · |{z}
+                m=0
+                    |                   {z                           }
+                                        x                                u
+
+
+    The number 47 comes from the fact that the alphabet has 48 characters and the last
+instruction before the data is HALT (%).
+
+    There are 402906842 prefixes not containing HALT and 1748380 prefixes containing
+HALT. Hence, the “tail” contribution of all programs of length 91 or greater is bounded
+by:
+      ∞ X
+      X ∞                                                        ∞
+                                                                 X
+                 402906842 · 47n−13 · 2m · 128−(n+m+1) +             1748380 · 2m · 128−(m+13)
+      m=0 n=13                                               m=0
+
+                                          ∞         n
+                              64          X    47                                 1
+             = 402906842 ·          13
+                                       ·                  + 1748380 ·                   < 2−68 ,   (2)
+                           128 · 47      n=13 128                            63 · 12813
+
+that is, the first 68 bits of Ω84
+                               U “may be” correct by our method. Actually we do not have
+68 correct bits, but only 64 because adding a 1 to the 68th bit may cause an overflow up
+to the 65th bit. From (2) it follows that no other overflows may occur.
+
+   The following list presents the main results of the computation:
+
+Ω7U = 0.0000001
+Ω14
+  U = 0.00000010000001
+Ω21
+ U = 0.000000100000010000011
+Ω28
+ U = 0.0000001000000100000110001000
+Ω35
+ U = 0.00000010000001000001100010000110010
+Ω42
+ U = 0.000000100000010000011000100001101000110111
+Ω49
+ U = 0.0000001000000100000110001000011010001111101110100
+Ω56
+ U = 0.00000010000001000001100010000110100011111100101100011110
+ 63
+ΩU = 0.000000100000010000011000100001101000111111001011101100111011100
+
+                                               13
+Ω70
+ U = 0.0000001000000100000110001000011010001111110010111011100111001111001001
+Ω77
+ U = 0.0000001000000100000110001000011010001111110010111011101000001110000010
+      1001111
+Ω84
+ U  = 0.0000001000000100000110001000011010001111110010111011101000010000011110
+      11011011011101
+
+
+The exact bits are underlined in the 84 approximation:
+Ω84
+ U = 0.0000001000000100000110001000011010001111110010111011101000010000011110
+     11011011011101
+
+In summary, the first 64 exact bits of ΩU are:
+
+0000001000000100000110001000011010001111110010111011101000010000
+
+
+8    Conclusions
+The computation described in this paper is the first attempt to compute some initial
+exacts bits of a random real. The method, which combines programming with mathe-
+matical proofs, can be improved in many respects. However, due to the impossibility of
+testing that long looping programs never actually halt (the undecidability of the Halting
+Problem), the method is essentially non-scalable.
+    As we have already mentioned, solving the Halting Problem for programs of up to n
+bits might not be enough to compute exactly the first n bits of the halting probability.
+In our case, we have solved the Halting Problem for programs of at most 84 bits, but we
+have obtained only 64 exact initial bits of the halting probability.
+    Finally, there is no contradiction between Theorem 8 and the main result of this
+paper. Ω’s are halting probabilities of Chaitin universal machines, and each Ω is the
+halting probability of an infinite number of such machines. Among them, there are those
+(called Solovay machines in [6]) which are in a sense “bad” as ZF C cannot determine
+more than the initial run of 1’s of their halting probabilities. But the same Ω can be
+defined as the halting probability of a Chaitin universal machine which is not a Solovay
+machine, so ZF C, if supplied with that different machine, may be able to compute more
+(but always, as Chaitin proved, only finitely many) digits of the same Ω. Such a machine
+has been used for the Ω discussed in this paper.
+   The web site ftp://ftp.cs.auckland.ac.nz/pub/CDMTCS/Omega/ contains all pro-
+grams used for the computation as well as all intermediate and final data files (3 giga-
+bytes in gzip format).
+
+
+Acknowledgement
+We thank Greg Chaitin for pointing out an error in our previous attempt to compute
+the first bits of an Omega number [8], for continuous advice and encouragement.
+
+                                           14
+References
+ [1] C. H. Bennett, M. Gardner. The random number omega bids fair to hold the mys-
+     teries of the universe, Scientific American 241 (1979) 20–34.
+
+ [2] D. S. Bridges. Computability—A Mathematical Sketchbook, Springer Verlag, Berlin,
+     1994.
+
+ [3] C. S. Calude. Information and Randomness. An Algorithmic Perspective, Springer-
+     Verlag, Berlin, 1994.
+
+ [4] C. S. Calude. A glimpse into algorithmic information theory, in P. Blackburn, N.
+     Braisby, L. Cavedon, A. Shimojima (eds.). Logic, Language and Computation, Vol-
+     ume 3, CSLI Series, Cambridge University Press, Cambridge, 2000, 67–83.
+
+ [5] C. S. Calude. A characterization of c.e. random reals, Theoret. Comput. Sci., 217
+     (2002), 3-14.
+
+ [6] C. S. Calude. Chaitin Ω numbers, Solovay machines and incompleteness, Theoret.
+     Comput. Sci., to appear.
+
+ [7] C. S. Calude, G. J. Chaitin. Randomness everywhere, Nature, 400 22 July (1999),
+     319–320.
+
+ [8] C. S. Calude, M. J. Dinneen, C. Shu. Computing 80 Initial Bits of A Chaitin Omega
+     Number: Preliminary Version, CDMTCS Research Report 146, 2000, 12 pp.
+
+ [9] C. S. Calude, P. Hertling, B. Khoussainov, and Y. Wang. Recursively enumerable
+     reals and Chaitin Ω numbers, in: M. Morvan, C. Meinel, D. Krob (eds.), Proceed-
+     ings of the 15th Symposium on Theoretical Aspects of Computer Science (Paris),
+     Springer–Verlag, Berlin, 1998, 596–606. Full paper in Theoret. Comput. Sci. 255
+     (2001), 125-149.
+
+[10] C. Calude, H. Jürgensen. Randomness as an invariant for number representations,
+     in H. Maurer, J. Karhumäki, G. Rozenberg (eds.). Results and Trends in Theoretical
+     Computer Science, Springer-Verlag, Berlin, 1994, 44-66.
+
+[11] J. L. Casti. Computing the uncomputable, The New Scientist, 154/2082, 17 May
+     (1997), 34.
+
+[12] G. J. Chaitin. A theory of program size formally identical to information theory, J.
+     Assoc. Comput. Mach. 22 (1975), 329–340. (Reprinted in: [14], 113–128)
+
+[13] G. J. Chaitin. Algorithmic Information Theory, Cambridge University Press, Cam-
+     bridge, 1987. (third printing 1990)
+
+[14] G. J. Chaitin. Information, Randomness and Incompleteness, Papers on Algorithmic
+     Information Theory, World Scientific, Singapore, 1987. (2nd ed., 1990)
+
+[15] G. J. Chaitin. The Limits of Mathematics, Springer-Verlag, Singapore, 1997.
+
+
+                                           15
+[16] G. J. Chaitin. The Unknowable, Springer-Verlag, Singapore, 1999.
+
+[17] G. J. Chaitin. Exploring Randomness, Springer-Verlag, London, 2000.
+
+[18] G. J. Chaitin. Personal communication to C. S. Calude, November 2000.
+
+[19] G. J. Chaitin. Personal communication to C. S. Calude, December 2001.
+
+[20] R. G. Downey. Some Computability-Theoretical Aspects of Reals and Randomness,
+     CDMTCS Research Report 173, 2002, 42 pp.
+
+[21] P. Hertling, K. Weihrauch. Randomness spaces, in K. G. Larsen, S. Skyum, and
+     G. Winskel (eds.). Automata, Languages and Programming, Proceedings of the 25th
+     International Colloquium, ICALP’98 (Aalborg, Denmark), Springer-Verlag, Berlin,
+     1998, 796–807.
+
+[22] A. Kučera, T. A. Slaman. Randomness and recursive enumerability, SIAM J. Com-
+     put., 31, 1 (2001), 199-211.
+
+[23] P. Martin-Löf. Algorithms and Random Sequences, Erlangen University, Nürnberg,
+     Erlangen, 1966.
+
+[24] P. Martin-Löf. The definition of random sequences, Inform. and Control 9 (1966),
+     602–619.
+
+[25] H. Marxen, J. Buntrock. Attacking the busy beaver 5, Bull EATCS 40 (1990), 247–
+     251.
+
+[26] P. Odifreddi. Classical Recursion Theory, North-Holland, Amsterdam, Vol.1, 1989,
+     Vol. 2, 1999.
+
+[27] C. Shu. Computing Exact Approximations of a Chaitin Omega Number, Ph.D. The-
+     sis, University of Auckland, New Zealand (in preparation).
+
+[28] R. I. Soare. Recursion theory and Dedekind cuts, Trans. Amer. Math. Soc. 140
+     (1969), 271–294.
+
+[29] R. I. Soare. Recursively Enumerable Sets and Degrees, Springer-Verlag, Berlin, 1987.
+
+[30] R. M. Solovay. Draft of a paper (or series of papers) on Chaitin’s work . . . done for
+     the most part during the period of Sept.–Dec. 1974, unpublished manuscript, IBM
+     Thomas J. Watson Research Center, Yorktown Heights, New York, May 1975, 215
+     pp.
+
+[31] R. M. Solovay. A version of Ω for which ZF C can not predict a single bit, in
+     C.S. Calude, G. Păun (eds.). Finite Versus Infinite. Contributions to an Eternal
+     Dilemma, Springer-Verlag, London, 2000, 323-334.
+
+[32] L. Staiger. The Kolmogorov complexity of real numbers, in G. Ciobanu and Gh.
+     Păun (eds.). Proc. Fundamentals of Computation Theory, Lecture Notes in Comput.
+     Sci. No. 1684, Springer–Verlag, Berlin, 1999, 536-546.
+
+                                            16
+[33] I. Stewart. Deciding the undecidable, Nature 352 (1991), 664–665.
+
+[34] K. Weihrauch. Computability, Springer-Verlag, Berlin, 1987.
+
+
+
+
+                                          17
+

@@ -1,0 +1,22 @@
+All finite calculations below are EXPERIMENT checks, not universal proofs.
+HASH OK canonical_statement.txt cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+HASH OK singh-venkataramana-1208.6460v2.pdf edc121df43a7921658c4e5ab4d728ad3021de746f9712ba5f92db933d0b0c1b3
+HASH OK adamczewski-bell-smertnig-2003.03429v2.pdf c70932ece1c4cdcf5a62b39f91103c98841b3b958f3f622d58550322b9469353
+HASH OK badziahin-zorin-1707.06677v1.pdf f8de296ba104cca97f4f6c3d45647e21c3db3d2207274facaf2c16b445483d15
+SOURCE ANCHORS OK exact bounded PDF-text anchors
+PRIOR ARCHIVE OK 13 byte-pinned members
+REPORT CONTRACT OK numeric caps, cards, comparisons, premise, one verdict, zero successors
+TRANSITIONS OK all 15 quotient transitions from all 30 carry transitions
+VALUATIONS OK product/factorial/floor/digit/transducer n=0..100
+EXTREMA EXPERIMENT r=1 min=-2 max=1
+EXTREMA EXPERIMENT r=2 min=-3 max=3
+EXTREMA EXPERIMENT r=3 min=-4 max=4
+EXTREMA EXPERIMENT r=4 min=-5 max=5
+EXTREMA EXPERIMENT r=5 min=-6 max=6
+EXTREMA EXPERIMENT r=6 min=-7 max=7
+EXTREMA EXPERIMENT r=7 min=-8 max=8
+EXTREMA EXPERIMENT r=8 min=-9 max=9
+EXTREMAL DP OK exact symbolic rows k=0..10 and brute blocks r=1..8
+REDUCTION/THRESHOLD/ORDER/OCCUPANCY OK bounded exact replay
+N ASYMP LOG Q KILL TEST OK bounded substitutions
+T133 REPLAY PASS

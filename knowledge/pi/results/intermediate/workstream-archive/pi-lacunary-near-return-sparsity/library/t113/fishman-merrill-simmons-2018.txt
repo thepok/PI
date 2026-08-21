@@ -1,0 +1,1340 @@
+                                                                                 eprints@whiterose.ac.uk
+                                                                            https://eprints.whiterose.ac.uk
+                                                      Universities of Leeds, Sheffield and York
+
+
+Deposited via The University of York.
+
+White Rose Research Online URL for this paper:
+https://eprints.whiterose.ac.uk/id/eprint/126995/
+
+Version: Published Version
+
+Article:
+Fishman, Lior, Merrill, Keith and Simmons, David (2018) Uniformly de Bruijn sequences
+and symbolic Diophantine approximation on fractals. ANNALS OF COMBINATORICS. pp.
+271-293. ISSN: 0218-0006
+
+https://doi.org/10.1007/s00026-018-0384-2
+
+
+
+
+Reuse
+This article is distributed under the terms of the Creative Commons Attribution (CC BY) licence. This licence
+allows you to distribute, remix, tweak, and build upon the work, even commercially, as long as you credit the
+authors for the original work. More information and the full terms of the licence here:
+https://creativecommons.org/licenses/
+
+Takedown
+If you consider content in White Rose Research Online to be in breach of UK law, please notify us by
+emailing eprints@whiterose.ac.uk including the URL of the record and the reason for the withdrawal request.
+Ann. Comb. 12 (2009) 479–492
+                                                            Annals of Combinatorics
+https://doi.org/10.1007/s00026-018-0384-2
+© 2018 The Author(s)
+
+
+
+
+Uniformly de Bruijn Sequences and Symbolic
+Diophantine Approximation on Fractals
+Lior Fishman1, Keith Merrill2, and David Simmons3
+1Department of Mathematics, University of North Texas, 1155 Union Circle #311430, Denton,
+ TX 76203-5017, USA
+ lior.ﬁshman@unt.edu
+2Department of Mathematics, Brandeis University, 415 South Street, Waltham, MA 02454-
+ 9110, USA
+ merrill2@brandeis.edu
+3Department of Mathematics, University of York, Heslington, York YO10 5DD, UK
+ David.Simmons@york.ac.uk
+
+Received June 25, 2016
+
+                                      Mathematics Subject Classification: 11J04, 11J83, 05C45
+
+
+Abstract. Intrinsic Diophantine approximation on fractals, such as the Cantor ternary set, was
+undoubtedly motivated by questions asked by K. Mahler (1984). One of the main goals of this
+paper is to develop and utilize the theory of inﬁnite de Bruijn sequences in order to answer
+closely related questions. In particular, we prove that the set of inﬁnite de Bruijn sequences
+in k ≥ 2 letters, thought of as a set of real numbers via a decimal expansion, has positive
+Hausdorff dimension. For a given k, these sequences bear a strong connection to Diophantine
+approximation on certain fractals. In particular, the optimality of an intrinsic Dirichlet function
+on these fractals with respect to the height function deﬁned by symbolic representations of
+rationals follows from these results.
+
+Keywords: de Bruijn sequences, Diophantine approximation, iterated function systems, Eule-
+rian paths, badly approximable points, height functions, Hausdorff dimension
+
+
+
+1. Introduction
+
+In this paper, we give a novel application of combinatorics to the ﬁeld of Diophantine
+approximation. Since we do not assume that the reader is familiar with this ﬁeld, let
+us ﬁrst recall some important concepts and ideas. We refer the reader to Section 5
+where we rigorously deﬁne and discuss these notions.
+    Classically, the ﬁeld of Diophantine approximation sought to quantify how well
+real numbers can be approximated by rationals, weighing the distance to the rational
+point against some function of its denominator. The inaugural result in the ﬁeld is
+Dirichlet’s theorem, Theorem 5.2, which states that every irrational real number has
+2                                                 L. Fishman, K. Merrill, and D. Simmons
+
+
+
+inﬁnitely many rational points p/q that lie within distance 1/q 2 of it. This result
+raises the question of whether that function, 1/q 2, can be improved. That it cannot
+be, in a sense made precise in Section √ 5, is due to a result of Liouville, who showed
+that quadratic irrational numbers, like 2, admit no better rate of approximation. In
+modern terminology, we call such points badly approximable.
+     A more complete description of the set of badly approximable numbers, in this
+and related contexts, was the subject of much activity in the early-to-mid twentieth
+century. Via a characterization of badly approximable numbers in terms of contin-
+ued fraction expansions one can show that the set of badly approximable numbers
+is uncountable, but it is also relatively easy to show that this set is a Lebesgue null
+set [5, Theorem 1.9 and Corollary 1.6], so we must turn to other notions of “size”.
+One such notion, particularly well-suited to disntinguishing between sets of measure
+zero, is that of Hausdorff dimension. Jarnı́k showed that despite being a Lebesgue
+null set, the set of badly approximable real numbers has full Hausdorff dimension, so
+it is still “large” in some sense.
+     As discussed further in Section 5, the core questions of Diophantine approxima-
+tion can be formulated in many diverse contexts, essentially whenever we have a
+complete metric space X, a countable dense subset Q, and some notion of “height”
+deﬁned on Q (this would be the size of the denominator in the classical case above).
+Over the last decade, a plethora of results regarding Diophantine approximation on
+fractals have emerged [3, 4, 7, 9–11, 13, 14, 18]. Many of these results were moti-
+vated by the following question(s) posed by Mahler in 1984 [16, §2]: “How close can
+irrational elements of Cantor’s set be approximated by rational numbers
+
+(1) in Cantor’s set, and
+(2) by rational numbers not in Cantor’s set?”
+
+     In this paper, we will restrict our attention to Mahler’s ﬁrst question; see Section
+6 for details. We remark that while in [11], the ﬁrst- and third-named authors were
+able to exhibit an optimal Dirichlet function (see Deﬁnition 5.3) corresponding to
+Mahler’s second question, it seems that ﬁnding an analogous answer to his ﬁrst ques-
+tion is signiﬁcantly harder, see, e.g., [4,6,11] for detailed discussions and conjectures
+regarding this question.
+     In [11], a new height function was deﬁned on the rational points of the Cantor
+set (see Section 6), and a Dirichlet-type theorem was proven [11, Corollary 2.2 and
+its proof]. The purpose of this paper is to demonstrate the optimality of that Dirich-
+let theorem, and give an estimate on the Hausdorff dimension of the set of “badly
+approximable” points. This set, as noted in [11], admits a precise combinatorial de-
+scription, although at the time we had been unable to exhibit any members belonging
+to it. In the present paper, we focus on a combinatorially deﬁned subset of the set of
+badly approximable points, the set of uniformly de Bruijn sequences. The existence
+of uniformly de Bruijn sequences demonstrates the optimality of the Dirichlet func-
+tion (Theorem 6.3), and by estimating from below the Hausdorff dimension of the set
+of uniformly de Bruijn sequences (Theorem 2.1), we are able to get a positive lower
+bound for the Hausdorff dimension of the set of badly approximable points (Corol-
+lary 6.4), a ﬁrst step towards a Jarnı́k-type result. See Section 6 for a more nuanced
+discussion of these points.
+Uniformly de Bruijn Sequences and Diophantine Approximation                                                    3
+
+
+
+2. Finite and Inﬁnite de Bruijn Sequences
+
+Let A be a ﬁnite alphabet of cardinality k ≥ 2. We recall that a (non-cyclic) de Bruijn
+sequence of order n in A is a sequence ω of length k n + n − 1 in the alphabet A
+that has the property that every sequence of length n in A appears as a consecu-
+tive substring of ω exactly once. For example, in the alphabet {0, 1}, the sequence
+00110 is a de Bruijn sequence of order 2 while in the alphabet {0, 1, 2}, the sequence
+00010020110120210221112122200 is a de Bruijn sequence of order 3. We say that
+an inﬁnite sequence ω ∈ AN is infinitely de Bruijn if the set
+                     def
+                 Bω = {n ∈ N : the initial segment of ω of length k n + n − 1
+                             is a de Bruijn sequence of order n}                                          (2.1)
+is inﬁnite. We say that ω is totally de Bruijn if Bω = N, and uniformly de Bruijn if Bω
+has bounded gap sizes. The construction of inﬁnitely de Bruijn sequences goes back
+to Becher and Heiber [1],∗ who showed that when k ≥ 3, totally de Bruijn sequences
+could be constructed recursively by extending each de Bruijn sequence of order n to
+a de Bruijn sequence of order (n + 1). We shall discuss their method in more detail
+below. When k = 2, it is known that no totally de Bruijn sequence exists, but Becher
+and Heiber do construct a uniformly de Bruijn sequence such that Bω = 2N.
+     In order to state our main theorem for this section, let us brieﬂy recall the def-
+inition and basic properties of the Hausdorff dimension of a fractal † F ⊆ Rd , see,
+e.g., [8, Chapters 2-3]. Let d denote the standard metric on R d , and let diam(U)
+denote the diameter of a set U ⊆ Rd . Fix δ > 0 and let F ⊆ Rd . We say that
+                                                                          
+                                                                               a count-
+able collection {U j : j ∈ N} of subsets of Rd is a δ -cover of F if F ⊆ ∞j=1 U j and
+diam(U j ) ≤ δ for every j. For each s ≥ 0, let
+                                                                        
+                                   ∞
+                       def
+             Hδs (F) = inf        ∑ diam(U j )s : {U j : j ∈ N} is a δ -cover of F                .
+                                  j=1
+
+Then the s-dimensional Hausdorff measure of F is the number
+                                                   def
+                                         Hs (F) = lim Hδs (F),
+                                                         δ →0
+
+and the Hausdorff dimension of F is the number
+                           def
+             dimH (F) = inf{s ≥ 0 : Hs (F) = 0} = sup{s ≥ 0 : Hs (F) = ∞}.
+It is well known that for every F ⊆ Rd we have 0 ≤ dimH (F) ≤ d, and that if
+dimH (F) > 0, then F is uncountable, but not vice versa.‡
+∗ Note that in [1], the phrase “inﬁnite de Bruijn sequence” has a different meaning;           we do not use
+  that meaning in this paper because it makes an ad hoc distinction between the k = 2 case and the
+  k ≥ 3 case.
+† The word “fractal” normally has a connotative but not a denotative meaning in mathematics; a set is
+
+  called a fractal if it is “sufﬁciently complicated at ﬁne scales”. The Cantor ternary set, i.e., the set of all
+  numbers in [0, 1] that can be written in base 3 with only the digits 0 and 2, is a canonical example of a
+  fractal; further examples are given in Subsection 5.2.
+‡ The set of Liouville numbers on the real line is a standard example of a comeager (and thus uncountable)
+
+  set of Hausdorff dimension 0.
+4                                                              L. Fishman, K. Merrill, and D. Simmons
+
+
+
+    We also recall that if b ≥ 2 is an integer, then the base b expansion of a number
+x ∈ [0, 1] is the series
+                                                   ∞
+                                                         ωi
+                                                   ∑ bi ,
+                                                   i=1
+
+where ω1 , ω2 , . . . ∈ {0, 1, . . . , b − 1} are chosen so that the value of the series is equal
+to x. This choice is unique unless x is a rational number whose denominator is a power
+of b, in which case there are exactly two ways in which the inﬁnite word ω = ω 1 ω2 · · ·
+can be chosen.
+
+Theorem 2.1. Fix an integer b ≥ 2, and let C(b) = {0, 1, . . . , b − 1}. Fix A ⊆ C(b)
+              def
+such that k = #(A) ≥ 2. Denote by δ the Hausdorff dimension of the set F consisting
+                                                      ωi
+of all numbers that can be written in the form ∑∞i=1 bi with ωi ∈ A for every i ∈ N, i.e.,
+the set of all numbers in F that have at least one base b expansion composed entirely
+of digits from A.§ Then the set S consisting of all elements of F that have at least one
+base b expansion that is uniformly de Bruijn satisﬁes
+
+                                                              log(k!)
+                             0 < αk δ ≤ dimH (S) ≤                     δ < δ,
+                                                              k log(k)
+
+where
+                                                                       k = 2,
+                               
+                               
+                                1/49,
+                               
+                           αk = (8 · (9 log4 (3) − 1)) ,               k = 3,
+                                                      −1
+                               
+                                log(k−2)! ,
+                               
+                                                                       k ≥ 4.
+                                        k log(k)
+
+In particular, S has positive Hausdorff dimension but not full Hausdorff dimension.
+
+                                                                           log(k!)
+                                                                               1
+Note that for large values of k, Stirling’s formula gives αk ∼ k log(k) ∼ 1− log(k) (where
+x ∼ y means (1 − x)/(1 − y) → 1), and in particular αk → 1 as k → ∞. Thus S gets
+closer and closer to having full dimension as the number of allowed digits increases.
+
+
+3. Preliminaries
+
+We begin by recalling some key deﬁnitions used in Becher and Heiber’s paper, as
+well as the proof of the well-known BEST¶ theorem.
+
+Deﬁnition 3.1. ([1]) Given an alphabet A and an integer n ∈ N, the de Bruijn graph
+                                                                       def
+of order n on A is the directed graph G = Gn (A) with vertex set V (G) = An and edge
+           def
+set E(G) = {(ω , τ ) : ωi+1 = τi ∀i ≤ n − 1}. Note that every vertex has in-degree and
+                                  def
+out-degree both equal to k = #(A), for a total of k n vertices and k n+1 edges.
+
+§ It is well known that δ = log(k)/ log(b), see Subsection 5.2.
+¶ An acronym after the people who discovered it: de Bruijn, van Aardenne-Ehrenfest, Smith, and Tutte.
+Uniformly de Bruijn Sequences and Diophantine Approximation                                                   5
+
+
+
+   If ω is a sequence of length ℓ ≥ n in A, then the path induced by ω on G is the
+path γ = γ1 · · · γℓ−n+1 in G deﬁned by the formula
+                                        def
+                                      γi = ωi · · · ωi+n−1 ∈ V (G).
+
+Observation 3.2. Let ω be a sequence of length ℓω = k m + m−1, and let γ be the path
+induced by ω on Gn (A). Note that the length of γ is ℓγ = ℓω − n = k m + m − n − 1; in
+particular, ℓγ = k n+1 if m = n + 1, and ℓγ < k n if m ≤ n. Moreover,
+ (I) If m = n + 1, then ω is de Bruijn if and only if γ is Eulerian.
+(II) If m ≤ n and ω is de Bruijn, then γ is a simple path.
+Remark 3.3. If m = n and ω is de Bruijn, then γ is a simple path that visits each
+vertex exactly once. However, since γ starts and ends at different vertices, it is not a
+Hamiltonian cycle, contrary to [1, p. 931, ﬁrst para.]. In particular, the edge set of γ
+does not form a regular graph on V (Ω), as is claimed in [1, Proof of Lemma 3, last
+para.]. Consequently, the proof given there is technically incorrect; it can be trivially
+ﬁxed by adding a step where γ is extended to a Hamiltonian cycle; cf. the ﬁrst two
+paragraphs of the proof of Corollary 4.3 below. Similar remarks apply to [1, Proof of
+Lemma 5, last para.].
+    Now let X = (V (X), E(X)) be a directed graph such that for each vertex x ∈ V (X),
+the in-degree and out-degree of x are nonzero and equal to each other (though they
+may depend on x). Fix a vertex x0 ∈ V (X), and let E be the set of Eulerian paths of
+X that start and end at x0 . Note that, unlike standard convention, we consider two
+Eulerian paths to be different if they are formally different as sequences of vertices
+even if they are cyclically equivalent. Let T be the set of directed spanning trees of
+X rooted at x0 with edges pointing towards x0 .
+    Since both the conclusion of the BEST theorem and its proof will be important
+for our argument, we recall them now. We once again remind the reader that our
+statement differs slightly from the usual one because of our convention about count-
+ing Eulerian paths: we do not consider cyclically equivalent paths to be the same.
+But the difference is easy to quantify: the number of Eulerian paths in each cyclic
+equivalence class that start and end at x0 is equal to the degree of x0 (we recall that
+by assumption the in-degree and out-degree are equal). So our count will be off from
+the conventional one by a factor of deg(x0 ).
+Theorem 3.4. (BEST theorem) We have
+
+                          #(E) = #(T ) · deg(x0 ) ·         ∏ [deg(x) − 1]! .                            (3.1)
+                                                         x∈V (X)
+
+Proof. Let T ∈ T be a directed spanning tree rooted at x0 . For each x ∈ V (X), let
+Ex denote the set of edges in X with initial vertex x, and let Tx = E(T ) ∩ Ex , where
+ In this paper a “path” in a directed graph is a sequence of vertices such that each pair of consecutive
+
+ vertices is connected by an edge from the ﬁrst vertex to the second vertex. The length of a path is the
+ number of such edges, or equivalently, the number of vertices minus one (counting multiplicity in both
+ cases). A path is simple if all its vertices are distinct except possible the ﬁrst and last, and Eulerian if it
+ contains each edge exactly once.
+    6                                                       L. Fishman, K. Merrill, and D. Simmons
+
+
+
+    E(T ) denotes the edge set of T . If x = x0 , then Tx is a singleton, say, Tx = {vx }, while
+    Tx0 = . Now let Ord(S) denote the set of total orderings of a set S, and note that the
+    cardinality of the set
+                                         def
+                                 O(T ) = ∏ Ord(Ex \ Tx )
+                                                x∈V (X)
+
+   is exactly deg(x0 ) · ∏x∈V (X) [deg(x) − 1]! . Now for each o = (ox )x∈V (X) ∈ O(T ) we let
+    f (T, o) be the Eulerian path that starts and ends at x0 deﬁned recursively as follows:
+   suppose that the points x0 = γ0 , γ1 , . . . , γi have been deﬁned, and let x = γi . Then the
+   next vertex γi+1 must be chosen so that γi γi+1 ∈ Ex , but γi γi+1 = γ j γ j+1 for all j < i.
+   We make this choice so as to minimize γi γi+1 according to the ordering ox subject
+   to these restrictions. If the edges of Ex \ Tx have been exhausted, then if x = x0 we
+   choose the vertex vx , and if x = x0 , then we terminate the path. There is some work
+   to do to show that f (T, o) is indeed an Eulerian path, and that every Eulerian path
+   that starts and ends at x0 can be represented uniquely as f (T, o) for some T ∈ T and
+   o∈ O(T ), see, e.g., [17, pp. 445–446]. This implies that f is a bijection between
+een T ∈T O(T ) = {(T, o) : T ∈ T , o ∈ O(T )} and E, which completes the proof.
+        We will also need the following sufﬁcient condition for the right-hand side of
+    (3.1) to be nonzero:
+    Lemma 3.5. If X is connected, then there is at least one directed spanning tree rooted
+    at x0 , i.e., T =
+                     .
+    Proof. Let T be a maximal directed tree rooted at x0 . By the maximality of T , there is
+    no edge from any vertex not in T to any vertex in T . Since each vertex of X has equal
+    in-degree and out-degree, the number of edges from V (T ) to V (X) \V (T ) is equal to
+    the number of edges from V (X) \ V (T ) to V (T ), which is equal to zero. Since X is
+    connected, this means that either V (T ) =  or V (X) \ V (T ) = . But x 0 ∈ V (T ) by
+    construction, so V (X) \ V (T ) =  and thus T is a spanning tree, i.e., T ∈ T .
+
+
+    4. Proof of Theorem 2.1
+
+    4.1. The Upper Bound
+    We begin by establishing the upper bound of Theorem 2.1. To do this we will use the
+    Hausdorff-Cantelli lemma, a very useful tool for establishing upperbounds onthe
+    Hausdorff dimensions of certain sets, see, e.g., [2, Lemma 3.10]. Let U j : j ∈ N be
+    a countable collection of sets in Rd , and let U be the set consisting of those elements
+    of Rd that belong to inﬁnitely many of the sets U j ( j ∈ N). In other words,
+
+                                    def
+                                                          ∞ 
+                                                           ∞
+                                   S = lim sup U j =                Uj.
+                                           j→∞            N=1 j=N
+
+    Lemma 4.1. (Hausdorff-Cantelli Lemma) Let U j : j ∈ N ⊆ Rd be a countable
+                                                                 
+
+    collection of sets, and let S = lim sup j U j . Fix s > 0. If
+                                          ∞
+                                          ∑ diam(U j )s < ∞,                                (4.1)
+                                          j=1
+Uniformly de Bruijn Sequences and Diophantine Approximation                           7
+
+
+
+then Hs (S) = 0 and thus dimH (U) ≤ s.
+                                                                      
+    It turns out to be convenient toconsider a collection U j : j ∈ N that naturally
+                                                     
+splits up into subcollections, say, U j : j ∈ N = m Cm for some sequence of col-
+lections (Cm )∞
+              m=1 . In this case, the summability condition (4.1) is equivalent to the
+condition
+                                   ∞
+                                  ∑ costs (Cm ) < ∞,
+                                  m=1
+
+where
+                                        def
+                             costs (Cm ) =     ∑ diam(U)s
+                                              U∈Cm
+                                                s
+is the s-dimensional
+                1
+                       s of Cm . Note that cost (Cm ) should be distinguished from the
+                     cost
+expression cost (Cm ) , which denotes instead the 1-dimensional cost of Cm raised
+to the power of s. The set S can be written in terms of the collections (C m )∞  m=1 as
+follows:
+                                                ∞ 
+                                                  ∞        
+                        S = lim sup        U=                     U.
+                              m→∞ U∈C            N=1 m=N U∈Cm
+                                      m
+
+In what follows we will abuse terminology somewhat by calling costs (Cm ) the “cost”
+             def 
+of the set Sm = U∈Cm U, although strictly speaking, it depends not only on S m but
+also on how it is decomposed.
+Proof of upper bound. For each m, let Sm be the set consisting of all elements of F
+corresponding to base b expansions whose initial segments of length k m +m−1 are de
+Bruijn sequences of order m in A. Then the lim sup of the sequence (S m )∞
+                                                                         m=1 consists
+of those elements of F with inﬁnitely de Bruijn base b expansions. In particular, the
+set S consisting of those elements of F with uniformly de Bruijn base b expansions
+satisﬁes
+                                                 ∞ 
+                                                  ∞
+                            S ⊆ lim sup Sm =               Sm .
+                                  m→∞            N=1 m=N
+
+By the Hausdorff-Cantelli lemma, if we can ﬁnd an s such that
+                                   ∞
+                                  ∑ costs (Sm ) < ∞,                               (4.2)
+                                  m=1
+
+then we can conclude that dimH (S) ≤ s. We will show that (4.2) holds for all s >
+δ klog(k!)
+    log(k) .
+     For each m, we view Sm as the union of the collection
+           def  ω                                                         
+        Cm = S m   : ω is a de Bruijn sequence of order m in the alphabet A ,
+
+where for each ω , Sm ω is the set of points x ∈ F corresponding to base b expansions
+
+whose initial segments of length k m + m − 1 are equal to ω . Let G be the de Bruijn
+graph of order (m − 1) on A (see Deﬁnition 3.1), so that #(V (G)) = k m−1 . By Ob-
+servation 3.2(I), the collection Cm is in bijection with the set of Eulerian paths on G.
+Fix a vertex x0 ∈ V (G). We can estimate the number of Eulerian paths starting and
+8                                                              L. Fishman, K. Merrill, and D. Simmons
+
+
+
+ending at x0 via the BEST theorem. Speciﬁcally, we have ∏x∈V (G) (deg(x) − 1)! =
+(k − 1)!#(V (G)) , since every vertex x ∈ V (G) has degree equal to k. The number of
+spanning trees rooted at x0 is at most k#(V (G))−1 , since an edge must be chosen ema-
+nating from each vertex x = x0 , and each vertex has out-degree k. And for the same
+reason, deg(x0 ) = k. Therefore, the number of Eulerian paths starting and ending at
+x0 is at most
+
+             #(T ) · deg(x0 ) ·     ∏ [deg(x) − 1]! ≤ k#(V (G))−1 · k · (k − 1)!#(V(G))
+                                  x∈V (G)
+
+                                                           = k!#(V (G))
+                                                                   m−1
+                                                           = k!k         .
+
+ Since there are #(V (G)) = k m−1 possible choices for x0 , the number of de Bruijn
+                                                  m−1
+sequences of order m in A is at most k m−1 · k!k .∗ Now, if ω is a de Bruijn sequence
+of order m in A, then the length of ω is k m + m − 1, and thus the diameter of Sm
+                                                                                ω is at
+       −k m −m+1
+most b           . So the s-dimensional cost of Sm according to the decomposition Cm
+is at most                                      m      s
+                                          m−1
+                              k m−1 · k!k     · b−k −m+1 .
+
+Now ﬁx ε > 0 and set
+                                            def 1
+                                            s=       logb (k!) + ε .                                  (4.3)
+                                                 k
+Then
+                        ∞                    ∞                                       s
+                                                                m−1           m
+                        ∑ costs (Sm ) ≤ ∑ k m−1 (k!)k                      b−k −m+1        .
+                       m=1                  m=1
+
+By the ratio test, this series converges as long as limm→∞ |am+1 /am | < 1, where am
+denotes the mth term. A straightforward computation yields:
+
+                                  |am+1 /am | = k · b−ε (k               ) · b−s ,
+                                                             m+1 −k m
+
+
+
+
+which tends to 0 as m → ∞.
+   Thus by Lemma 4.1, we have
+
+                                        1             log(k!)   log(k!)
+                        dimH (S) ≤        logb (k!) =         =         δ,
+                                        k             k log(b) k log(k)
+
+since δ = log(k)/ log(b) (see Subsection 5.2).
+    Since for all k ≥ 2 we have k! < k k and thus klog(k!)
+                                                    log(k) < 1, we deduce that the
+Hausdorff dimension of S is strictly less than δ .
+
+∗ In fact, the exact count for such sequences is known, but we prefer this estimate because it is simpler and
+
+    yields the same upper bound on the Hausdorff dimension.
+Uniformly de Bruijn Sequences and Diophantine Approximation                             9
+
+
+
+4.2. The Lower Bound
+The proof of the lower bound is signiﬁcantly more involved, and will require a few
+preliminary results. We begin with the following proposition:
+Proposition 4.2. Let X be a k-regular connected directed graph, ﬁx x 0 ∈ V (X), and
+let E be the set of Eulerian paths of X that start and end at x 0 . Then there exists
+E ′ ⊆ E such that:
+ (i) #(E ′ ) = k · (k − 1)!#(V(X)) ;
+(ii) If δ is a path of length ℓδ starting at x0 , then the number of paths in E ′ that
+     extend δ is at most k · (k − 1)!#(V(X))−ℓδ /k .
+Proof. Since X is connected, by Lemma 3.5 there exists a directed spanning tree
+T rooted at x0 . Let E ′ be the set of Eulerian paths δ that start and end at x0 such
+that for all xy ∈ E(X) and xz ∈ E(T ) with y = z, the edge xy appears in δ before xz
+does. Equivalently, E ′ = { f (T, o) : o ∈ O(T )} where the notation is as in the proof
+of the BEST theorem. Then the proof of the BEST theorem implies that #(E ′ ) =
+#(O(T )) = k · (k − 1)!#(V (X)) . Now let δ be a path starting at x0 that has at least one
+extension in E ′ . For each o ∈ O(T ), the path f (T, o) is an extension of δ if and only
+if the algorithm described in the proof of the BEST theorem produces δ on input o.
+Equivalently, f (T, o) is an extension of δ if for each edge xy of δ , the rank of xy
+according to ox is the same as its rank according to its location in δ . The number of
+elements o ∈ O(T ) satisfying this condition is given by the formula
+
+                      Nδ =     ∏ [#(Ex \ (E(δ ) ∪ E(T ))]!
+                              x∈V (X)
+
+                          = #(Ex0 \ E(δ )) ·      ∏ [#(Ex \ E(δ )) − 1]!
+                                                 x∈V (X)
+
+                          ≤ k·    ∏ [#(Ex \ E(δ )) − 1]!,
+                                 x∈V (X)
+
+where Ex denotes the set of edges with initial vertex x, and E(δ ) denotes the edge
+set of δ . Here we use the convention (−1)! = 1, since if E x \ E(δ ) = , then there
+is exactly one ordering ox satisfying the appropriate condition, namely, the ordering
+determined by δ , and by hypothesis the element vx comes last in this ordering. Now
+since
+                       (i − 1)! ≤ (k − 1)!i/k , ∀ i = 0, . . . , k,
+we have
+                                        Nδ ≤ k · (k − 1)!M/k ,
+where
+              def
+            M=        ∑ #(Ex \ E(δ )) = #(E(X) \ E(δ )) = k#(V (X)) − ℓδ .
+                    x∈V (X)
+
+   The next result will furnish the lower bound for k ≥ 4. Although it is valid for
+k = 3, it provides no useful information in this case since 0 is always a (trivial) lower
+bound on the dimension.
+10                                                           L. Fishman, K. Merrill, and D. Simmons
+
+
+
+Corollary 4.3. Let the notation be as in Theorem 2.1, and let S be the set of numbers
+in F with totally de Bruijn base b expansions. Assume that k ≥ 4. Then the Hausdorff
+dimension
+                              by αk δ > 0, where δ is the Hausdorff dimension of
+           of S is bounded below
+F and equals log(k)/ log(b) , and
+
+                                                  log(k − 2)!
+                                          αk =                ·                                        (4.4)
+                                                    k log(k)
+
+    Before we turn to the proof, we recall the so-called Mass Distribution Principle,
+an extremely useful tool for bounding the Hausdorff dimension from below.
+
+Lemma 4.4. ([8, Principle 4.2]) Let F be a metric space, and let µ be a measure on
+F such that 0 < µ (F) < ∞. Fix s, ε > 0, and suppose that there exists C > 0 such that
+µ (U) ≤ C · diam(U)s for every set U ⊆ F such that diam(U) ≤ ε . Then
+
+                                             dimH (F) ≥ s.
+
+Proof of Corollary 4.3. Fix n ∈ N, and let ω = ω1 · · · ωk n +n−1 be a de Bruijn sequence
+of order n in A. Since the path induced by ω on Gn−1 (A) is an Eulerian path in a
+directed graph in which each vertex has equal in-degree and out-degree, it must start
+and end at the same vertex, which means that the ﬁrst (n − 1) letters of ω are the same
+as the last (n − 1) letters, i.e., ωk n +i = ωi for all i = 1, . . . , n − 1.∗ Now let ωk n +n = ωn
+and ω ′ = ω1 · · · ωk n +n . Then the ﬁrst n letters of ω ′ are the same as the last n letters,
+but no other block of n letters is repeated in ω ′ .
+    Let G = Gn (A) be the de Bruijn graph of order n on A, and let γ = γ1 · · · γk n +1
+be the path induced by ω ′ on G. Then γ is a Hamiltonian cycle (i.e., a simple path
+traversing each vertex once). The collection of de Bruijn sequences of order (n + 1)
+that extend ω ′ is isomorphic to the collection of Eulerian paths on G that extend γ .
+            def
+    Let x0 = γ1 = γk n +1 be the common initial and terminal vertex of γ . Then the
+collection of Eulerian paths of G that extend γ is isomorphic to the set of Eulerian
+              def
+paths of Xω = G \ E(γ ) that start and end at x0 , which we denote by E(ω ). Since Xω
+is a (k − 1)-regular connected directed graph whose vertex set has size k n (see the
+proof of [1, Lemma 3] for connectedness), we may use Proposition 4.2 to extract a
+subset E ′ (ω ) ⊆ E(ω ). Pulling this subset back via the appropriate correspondences
+gives us a set S ′ (ω ), contained in the set of all de Bruijn sequences of order (n + 1)
+extending ω ′ (and thus also extending ω ), with the following properties:
+                                            n
+ (i) # (S ′ (ω )) = (k − 1) · (k − 2)!k .
+(ii) If τ is a sequence of length ℓτ extending ω , then the number of sequences in
+                                                          n
+     S ′ (ω ) that extend τ is at most (k − 1) · (k − 2)!k −(ℓτ −ℓω −1)/k , where ℓω = k n +
+     n − 1 is the length of ω .
+∗ This phenomenon is related to the fact that we consider non-cyclic de Bruijn sequences instead of cyclic
+
+ ones: each cyclic de Bruijn sequence ω = ω1 ··· ωk n corresponds to a non-cyclic de Bruijn sequence
+ ω1 ··· ωk n ω1 ··· ωn−1 that is longer but has the same number of consecutive substrings. This correspon-
+ dence makes it obvious that the ﬁrst (n − 1) letters of a non-cyclic de Bruijn word are expected to be the
+ same as the last (n − 1) letters. However, by itself this is not a proof, because our deﬁnition of non-cyclic
+ de Bruijn sequences did not assume that they were constructed from cyclic ones.
+Uniformly de Bruijn Sequences and Diophantine Approximation                                  11
+
+
+
+Now we proceed to deﬁne a probability measure µ on F ≡ E N via a random algo-
+rithm: start with a ﬁxed de Bruijn sequence ω (1) of order 1, and if ω (n) is a de Bruijn
+sequence of order n, then let ω (n+1) ∈ S ′ (ω (n) ) be chosen randomly with respect to
+the uniform measure on S ′ (ω (n) ), independent of all previous selections. Let ω be the
+unique inﬁnite sequence that extends all of the ﬁnite sequences ω (n) (n ∈ N). Then
+ω is a base b expansion of a unique point π (ω ) ∈ F. (The point π (ω ) may have a
+base b expansion other than ω , but there is no other point with base b expansion ω .)
+We let µ be the probability measure describing the distribution of the random vari-
+able π (ω ). (The existence of such a µ can be guaranteed, e.g., by the Kolmogorov
+extension theorem.)
+      To demonstrate that µ satisﬁes the hypotheses of the mass distribution principle,
+we ﬁrst estimate the measure of cylinder sets of a certain length, then arbitrary cylin-
+der sets, then balls. Here a cylinder set is a set of the form [τ ] = {π (ω ) : ω i = τi ∀ i =
+1, . . . , ℓτ }, where τ = τ1 · · · τℓτ is a ﬁnite sequence in the alphabet A. Our ﬁrst estimate
+is easy: if ℓτ = k n+1 + n for some n, then [τ ] is precisely the set of π (ω ) in the above
+construction such that ω (n+1) = τ , so µ ([τ ]) is just the probability that ω (n+1) = τ ,
+i.e.,
+               n                n
+                       1                     1                       −(k n +k n−1 +n/k)
+     µ ([τ ]) = ∏        (i)
+                             = ∏                        i ≤ (k − 2)!                      (4.5)
+              i=1 #(S (τ ))
+                     ′                                k
+                               i=1 (k − 1) · (k − 2)!
+
+if it is possible that ω (n+1) = τ , and µ ([τ ]) = 0 otherwise. Now consider the more
+general case where the length of τ satisﬁes k n + n − 1 < ℓτ ≤ k n+1 + n for some n.
+                                                                n      n
+Then by (ii) above, [τ ] contains at most (k − 1) · (k − 2)!k −(ℓτ −(k +n))/k cylinders of
+length k n+1 + n. Combining with (4.5) shows that
+       µ ([τ ]) ≤ (k − 1) · exp(k−2)! k n − (ℓτ − (k n + n))/k) − k n + k n−1 + n/k
+                                                                                  
+
+
+             = (k − 1) · (k − 2)!−ℓτ /k .
+                                                     def
+Here and hereafter we use the notation expx (y) = xy .
+    To apply the mass distribution principle (Lemma 4.4), we now need to relate this
+measure to the diameter of the cylinder [τ ]. Since elements of [τ ] have the ﬁrst ℓ τ
+digits of their base b expansions ﬁxed, the diameter of [τ ] is approximately b −ℓτ (to
+be precise, it is c · b−ℓτ for some constant 0 < c ≤ 1). Thus
+                                                          
+                                        log(k − 2)! log(k)
+      diam([τ ])αk δ = cαk δ expb −ℓτ                        = cαk δ · (k − 2)!−ℓτ /k ,
+                                          k log(k) log(b)
+so
+                                  µ ([τ ]) ≤ C · diam([τ ])s ,
+where C = (k − 1) · c−αk δ and s = αk δ . But any subset of F can be covered by at most
+two cylinder sets with comparable diameter, so a similar formula holds for arbitrary
+sets. Thus by Lemma 4.4, we have dimH (S) ≥ s = αk δ .
+    As is evident from Corollary 4.3, we now have to deal with the cases k = 2 and
+k = 3 separately, since in those cases the formula (4.4) gives α2 = α3 = 0, which is
+not a useful bound. Note that the Cantor ternary set falls into the case k = 2, since its
+set of admissible numerators is A = {0, 2}.
+12                                                    L. Fishman, K. Merrill, and D. Simmons
+
+
+
+Proposition 4.5. If k = 2 and ω is a de Bruijn sequence of order (n − 2) in A, then
+                                                                                n−2
+the number of de Bruijn sequences of order (n + 1) that extend ω is at least 2 2 .
+    In the case where k = 3 and ω is a de Bruijn sequence of order (n − 1) in A, then
+                                                                                n−1
+the number of de Bruijn sequences of order (n + 1) that extend ω is at least 4 3 .
+
+Proof. For convenience, we let ∆ = 2 if k = 3, and ∆ = 3 if k = 2; then ω is a de
+Bruijn sequence of order (n − ∆ + 1). The ﬁrst paragraph of Corollary 4.3 shows that
+the ﬁrst (n − ∆) letters of ω are the same as the last (n − ∆) letters. So if we extend ω
+to a word ω ′ of length k n−∆+1 + n by letting ωk n−∆+1 +i = ωi for i = n − ∆ + 1, . . ., n,
+then the ﬁrst n letters of ω ′ are the same as the last n letters, but no other block of n
+letters is repeated.
+    Let G be the de Bruijn graph of order n on A, and let γ be the path induced by ω ′
+on G. The length of γ is ℓγ = k n−∆+1, and γ is a simple path that starts and ends at the
+same vertex x0 . As in the proof of Corollary 4.3, we let X = Xω = G \ E(γ ), where
+E(γ ) is the edge set of γ . The collection of de Bruijn sequences of order (n + 1) that
+extend ω is isomorphic to the collection of Eulerian paths on G that extend γ , which
+in turn is isomorphic to the collection of Eulerian paths on Xω that start and end at x0 .
+By the BEST theorem, the cardinality of this collection is
+                      def
+                   N = #(T ) · deg(x0 ; Xω ) ·    ∏ [deg(x; Xω ) − 1]!.
+                                                 x∈V (G)
+
+If k = 3, we complete the proof with the following calculation:
+
+                      N≥        ∏ [deg(x; Xω ) − 1]!
+                              x∈V (G)
+
+                            = exp2 (#{x ∈ V (G) : deg(x; Xω ) = 3})
+                                                 
+                            = exp2 #(V (G)) − ℓγ
+
+                            = exp2 3n − 3n−1
+                                             
+
+                                   n−1
+                            = 43         .
+
+In the ﬁrst inequality, we have used Lemma 3.5 and the proof of [1, Lemma 3] to
+deduce that #(T ) ≥ 1.
+    For the remainder of the proof, we assume that k = 2. In this case, the strategy
+of the above calculation cannot work, since we have [deg(x; Xω ) − 1]! = 1 for all
+x ∈ V (G) and thus N ≤ 2#(T ). Instead we must estimate the number of spanning
+trees in Xω .
+    Let S be the set of sequences of length (n − 1) that do not occur in ω , and note
+that #(S) = 2n−1 − 2n−2 = 2n−2 . For each τ ∈ S, let Eτ = {aτ b : a, b ∈ A} ⊆ E(Xω ),
+where aτ b is shorthand for (aτ )(τ b), the edge from the vertex aτ to the vertex τ b.
+Note that the sets Eτ (τ ∈ S) are disjoint.
+
+Lemma 4.6. If T is a directed spanning tree and τ ∈ S, then there exists a directed
+spanning tree T ′ = T such that T ′ \ Eτ = T \ Eτ .
+Uniformly de Bruijn Sequences and Diophantine Approximation                             13
+
+
+
+Proof. By contradiction, suppose that the conclusion of the lemma is false, i.e., that
+there exists no such spanning tree T ′ .
+    Denote the partial order on V (G) induced by the tree T by <, i.e., write x < y if
+there is a path in T from x to y, and write x ≤ y if either x < y or x = y. We write
+x <∗ y if x is a direct descendant of y, i.e., if xy ∈ E(T ). For each a ∈ A, let f (a) ∈ A
+be chosen to satisfy aτ f (a) ∈ E(T ), and let g(a) = σ ( f (a)), where σ : A → A is
+the permutation that swaps the two elements of A. Consider the graph T ′ = T ∪
+{aτ g(a)} \ {aτ f (a)}. Then T ′ = T and T ′ \ Eτ = T \ Eτ , so by the contradiction
+hypothesis, T ′ is not a directed spanning tree, which implies that τ g(a) ≤ aτ . On the
+other hand, we have aτ <∗ τ f (a) since aτ f (a) ∈ T . Now write A = {a, b}, c = f (a),
+and d = σ (c) = g(a). Then either f (b) = c or f (b) = d, and thus we have one of the
+following two diagrams:
+
+              τ d ≤ aτ < ∗ τ c >∗ bτ ≥ τ d    or    τ d ≤ aτ < τ c ≤ bτ < τ d.
+
+Both diagrams are impossible for directed trees: the left-hand diagram is impossible
+because if aτ and bτ are siblings, then they have no common descendants, while the
+right-hand diagram is disjoint because it is a nontrivial directed loop. This is the
+desired contradiction.
+    It follows from Lemma 4.6 that there exists a function φ : T × S → T such that
+for all T ∈ T and τ ∈ S, we have φ (T, τ ) = T and φ (T, τ ) \ Eτ = T \ Eτ .
+    Now by Lemma 3.5 and the proof of [1, Lemma 5], X has a directed spanning tree
+T0 rooted at x0 . Let (τi )Ni=1 be an indexing of S, where N = 2n−2. Given ω ∈ {0, 1}N ,
+we deﬁne recursively
+                                                   
+                                                     Tω , i−1 ,          ωi = 0,
+              Tω , 0 = T0 ,               Tω , i =
+                                                     φ (Tω , i−1 , τi ), ωi = 1.
+
+Then the map {0, 1}N ∋ ω → Tω , N ∈ T is injective. Thus N ≥ #(T ) ≥ # {0, 1}N =
+                                                                             
+  n−2
+22 , which completes the proof.
+
+Corollary 4.7. Let the notation be as in Theorem 2.1. Suppose that k ≤ 3, and let
+                                                          
+              1/49,                      if k = 2,            3, if k = 2,
+      αk =                                             ∆=
+              (8 · (9 log4 (3) − 1)) , if k = 3.
+                                    −1                        2, if k = 3.
+
+Then the Hausdorff dimension of the set
+
+         {π (ω ) ∈ F : Bω contains an arithmetic progression with gap size ∆}
+
+is at least αk δ .
+
+Proof. Let B = 2 if k = 2 and B = 4 if k = 3. Then
+
+                                                1
+                            αk =                                ,
+                                   (k∆ − 1) · (k∆ logB (k) − 1)
+14                                                  L. Fishman, K. Merrill, and D. Simmons
+
+
+
+and Proposition 4.5 can be expressed uniformly as follows: if ω is a de Bruijn se-
+quence of order n in A, then the number of de Bruijn sequences of order n + ∆ that
+extend ω is at least expB (k n ). We denote the set of all such extensions by S ′ (ω ).
+    As in the proof of Corollary 4.3, we deﬁne a probability measure µ by a random
+algorithm: let ω (1) be a ﬁxed de Bruijn sequence of order ∆, and if ω (n) is a de
+                                             (n+1) be chosen randomly with respect to the
+Bruijn sequence of order
+                        ′
+                           n∆,
+                             (n)
+                                 then let ω
+uniform measure on S ω            , independent of all previous selections. As before we
+let ω ∈ AN be the unique common extension, we let π (ω ) ∈ F be the unique number
+for which ω is a base b expansion, and we let µ be the probability measure describing
+the distribution of π (ω ).
+    As before, we ﬁrst estimate the measure of special cylinders, then arbitrary cylin-
+ders, then balls. For ease of notation we ﬁx k = 3 in this proof; for the case k = 2 one
+can apply the substitutions 9 → 8, 8 → 7, 4 → 2, 3 → 2, and 2 → 3. Fix n ∈ N and let
+τ be a sequence of length 9n + 2n − 1 in A. Then
+                     n−1             n−1                  n     
+                              1              1              9 −9
+           µ ([τ ]) ≤ ∏      ′ (i)
+                                    ≤∏          2i
+                                                   = exp4 −        .
+                      i=1 #(S (τ ))  i=1 exp4 (3 )          9−1
+
+Now let τ be an arbitrary sequence of length 9n + 2n − 1 < ℓτ ≤ 9n+1 + 2(n + 1) − 1.
+There are two ways that we could bound µ ([τ ]):
+
+ 1. Since [τ ] ⊆ τ (n) , we have
+                     
+
+                                                     n     
+                                                       9 −9
+                           µ ([τ ]) ≤ µ τ (n) ≤ exp4 −
+                                           
+                                                              .
+                                                         8
+                                                                                   
+ 2. Since [τ ] can be written as the union of at most exp3 9n+1 + 2(n + 1) − 1 − ℓτ
+    cylinder sets corresponding to de Bruijn sequences of order 2(n + 1), we have
+                                                          n+1   
+                             n+1                          9 −9
+             µ ([τ ]) ≤ exp3 9 + 2(n + 1) − 1 − ℓτ · exp4 −        .
+                                                              8
+
+    Which of these bounds is better depends on the value of ℓ τ . Now, as in the proof
+of Corollary 4.3, we have diam([τ ]) = c · b−ℓτ for some constant c. Fix 0 < s < α3 δ .
+To apply the mass distribution principle, we need to show that
+
+                                µ ([τ ]) ≤ C · diam([τ ])s ,
+
+for some constant C. It is enough to show that
+            n                                         
+       min 4−9 /8 , exp3 9n+1 + 2n − ℓτ · 4−9
+                                             −n+1 /8
+                                                         ≤ C · b−sℓτ = C · 3−tℓτ ,
+
+possibly with a different value of C, where t = s/δ < α3 < 1. Equivalently, we need
+to show that
+                      n                                       
+                min 4−9 /8 · 3tℓτ , 39 · 9n · 4−9 /8 · 3(t−1)ℓτ ≤ C.
+                                      n+1        n+1
+Uniformly de Bruijn Sequences and Diophantine Approximation                           15
+
+
+
+Now the ﬁrst input to the binary operator min is an increasing function of ℓ τ , while
+the second input is a decreasing function of ℓτ . It follows that the largest value the
+left-hand side can attain is the value attained when the two inputs to min are equal,
+i.e., when
+                          4−9 /8 = 39 · 9n · 4−9 /8 · 3−ℓτ ,
+                              n       n+1        n+1
+
+
+
+at which point the left-hand side is
+                                       n+1                 t
+                              4−9 /8 · 39 · 9n · 49 /8−9 /8 .
+                                 n                 n    n+1
+
+
+
+
+We need this expression to be bounded as n → ∞. Applying the change of variables
+x = 9n , we need to show that
+                                                         t
+                       lim sup 4−x/8 · 39x · x · 4x/8−9x/8 < ∞.
+                          x→∞
+
+This is true if and only if
+                                   4−1/8 · (39 · 4−1 )t < 1,
+which in turn is true if and only if t < α3 . This proves that the hypothesis of the mass
+distribution principle holds for cylinder sets. As in the proof of Corollary 4.3, any
+subset of F can be covered by at most two cylinder sets with comparable diameter,
+so the hypothesis of the mass distribution principle holds for arbitrary sets as well.
+    Combining Corollaries 4.3 and 4.7 yields Theorem 2.1.
+
+Remark 4.8. Either of the strategies used in this proof, the (simpler) strategy for the
+k = 3 case or the (more complicated) strategy for the k = 2 case, could have been used
+(after minor modiﬁcation) in the case k ≥ 4 as well, but the resulting bound would
+have been signiﬁcantly worse, measured by the fact that the analogues of α k would
+not have tended to 1. Similarly, the strategy for the k = 2 case could have been used
+for the k = 3 case, again resulting in a worse bound. In general, the principle is that
+whatever techniques work for one value of k will also work for higher values of k, but
+may not give very good estimates for higher values of k.
+
+
+5. Intrinsic Diophantine Approximation
+
+5.1. Diophantine Approximation — a Brief Survey
+
+We ﬁrst recall some deﬁnitions and state some well-known classical theorems:
+
+Deﬁnition 5.1. Let H : Q → R>0 be a function. We think of H as a “height function”,
+and for all p ∈ Z and q ∈ N, we deﬁne the height of p/q to be the number H(p/q). We
+say that a function ψ : R>0 → R>0 is a Dirichlet function (with respect to the height
+function H) if for every x ∈ R \ Q there exist inﬁnitely many rationals p/q such that
+                                       
+                               x − p/q < ψ (H(p/q)).
+16                                                             L. Fishman, K. Merrill, and D. Simmons
+
+
+
+     Historically speaking, the only height function considered on the unit interval
+[0, 1] was the function Hstd (p/q) = q, where p and q are chosen in reduced form,
+i.e., gcd(p, q) = 1. We will refer to this as the standard height. It is readily veriﬁed
+that, for example, ψ0 (q) = 1 and ψ1 (q) = 1/q are Dirichlet functions with respect to
+the standard height function and using the terminology of Deﬁnition 5.1, Dirichlet’s
+approximation theorem may be stated as follows:
+Theorem 5.2. (Dirichlet) ψ2 (q) = q12 is a Dirichlet function with respect to the stan-
+dard height function.∗
+    For our purposes, although of interest in its own right, an improvement of a
+Dirichlet function by a multiplicative constant is not signiﬁcant. More precisely:
+Deﬁnition 5.3. We say that a Dirichlet function ψ is optimal if there does not exist a
+Dirichlet function φ for which limq→∞ ψφ (q)
+                                         (q) → 0.
+
+    It is clear that Dirichlet’s theorem implies that the Dirichlet functions ψ0 and ψ1
+deﬁned above are not optimal. The optimality of the function ψ 2 (q) = 1/q2 was
+demonstrated by Liouville, who proved that quadratic irrationals are badly approx-
+imable. A real number x is called badly approximable if there exists c(x) > 0 such
+that
+                          x − p/q > c(x) , for all p/q ∈ Q.
+                                   
+                                        q2
+Liouville’s result was later signiﬁcantly improved by Jarnı́k, who proved that the
+Hausdorff dimension of the set of badly approximable numbers is 1.
+
+5.2. Iterated Function Systems, Limit Sets, and Hausdorff Dimension
+Let k ≥ 2 be an integer. In what follows, we shall consider a ﬁnite famiily (S i )ki=1
+of contracting similarities on the unit interval I = [0, 1]. This means that for every
+1 ≤ i ≤ k, the map Si : I → I satisﬁes
+
+                             |Si (x) − Si (y)| = ci |x − y|,        ∀ x, y ∈ I,
+
+for some 0 < ci < 1. We shall call such a family of similarities an Iterated Function
+System or IFS. A nonempty compact set F ⊆ I is said to be the attractor or the limit
+set of the IFS if
+                                                    
+                                                    k
+                                             F=           Si (F).
+                                                    i=1
+It is well known (see, e.g., [8, Chapter 9]) that the attractor F exists and is unique.
+Furthermore, if there exists a bounded nonempty open set U such that
+
+                                             
+                                             k
+                                                   Si (U) ⊆ U,
+                                             i=1
+∗ In fact, Dirichlet’s theorem furnishes a similar result for all dimensions d. It was recently pointed out to
+
+ us by Y. Bugeaud that the one-dimensional version of this result is actually much older, coming directly
+ from the theory of continued fractions (see, e.g., [15, displayed equation on p. 28]). Nevertheless, we call
+ the theorem “Dirichlet’s theorem” so as to conform to usual practice.
+Uniformly de Bruijn Sequences and Diophantine Approximation                                             17
+
+
+
+with the union disjoint, then the IFS is said to satisfy the open set condition. In this
+case, the Hausdorff dimension of the attractor is equal to the unique solution s > 0 of
+the equation
+                                                k
+                                               ∑ c si = 1.                                            (5.1)
+                                               i=1
+
+We say that the IFS (Si )ki=1 satisﬁes the strong separation condition if
+
+                                         Si (F) ∩ S j (F) = ,
+
+for all i = j, where F is the attractor.†
+    A particularly important example of an iterated function system is the system
+                                     i+x                   def
+                          Si (x) =       ,      i ∈ C(b) = {0, . . . , b − 1},                        (5.2)
+                                      b
+                                                                                     
+where b ≥ 2 is ﬁxed. This system satisﬁes the open set condition with U = (0, 1)
+but not the strong separation condition, and its attractor is the entire interval I. In
+some sense this IFS encodes the base b expansion(s) of any number in the interval
+[0, 1], since the number
+                                                                          ∞
+                                                                             ωi
+                           x = π (ω ) = 0.ω1 ω2 · · · (base b) = ∑             i
+                                                                         i=1 b
+
+can be written as
+                                     x = lim Sω1 ◦ · · · ◦ Sωn (0).
+                                          n→∞
+By looking at subsystems of the system (5.2), we can ﬁnd IFSes whose limit sets can
+be described in terms of base b expansions. Fix A ⊆ C(b), and consider the subsystem
+of (5.2) consisting of the similarities (Si )i∈A . We call such a subsystem a base b IFS.
+Its limit set is precisely the set of all numbers in [0, 1] that have at least one base b
+expansion whose digits all lie in A, i.e.,
+                                                                    
+                                                              ∞
+                                                                 ω i
+                      F = x ∈ [0, 1] : ∃ω ∈ AN with x = ∑ i .                       (5.3)
+                                                             i=1 b
+
+For example, if b = 3 and A = {0, 2}, then F is the standard Cantor ternary set, i.e.,
+the set of all numbers in [0, 1] that have at least one base 3 expansion containing only
+the digits 0 and 2.
+    It follows directly from (5.1) that the Hausdorff dimension of the base b IFS
+corresponding to an alphabet A ⊆ C(b) is precisely log #(A)/ log(b).
+    We remark that it is easy to check whether a base b IFS satisﬁes the strong sepa-
+ration condition:
+Observation 5.4. The base b IFS deﬁned by the alphabet A ⊆ C(b) satisﬁes the strong
+separation condition if and only if at least one of the following is true:
+(1) 0 ∈
+      / A.
+† Note that the strong separation condition implies (but is not implied by) the open set condition.
+18                                                L. Fishman, K. Merrill, and D. Simmons
+
+
+
+(2) b − 1 ∈
+          / A.
+(3) A does not contain any pair of consecutive integers.
+
+     If a base b IFS satisﬁes the strong separation condition, then every element of
+its limit set F has exactly one base b expansion whose digits come from A. In this
+case, there is no ambiguity about talking about “the base b expansion” of a number in
+F, since we understand that if there is more than one base b expansion, then we are
+talking about the one whose digits come from A.
+
+5.3. Intrinsic Approximation on Limit Sets
+
+Let F ⊆ R be a closed set, which we will think of as a fractal. The ﬁeld of intrinsic
+Diophantine approximation is concerned with ﬁnding rational approximations to an
+irrational number x ∈ F by rational numbers that lie on the fractal F. Thus Mahler’s
+ﬁrst question is about intrinsic approximation on the Cantor set. More generally, one
+may ask about intrinsic approximation on the attractor of any similarity IFS. This
+leads to the following deﬁnition:
+
+Deﬁnition 5.5. Let F ⊆ R be a closed set, and let H : F ∩ Q → R >0 be a height
+function. We say that a function ψ : R>0 → R>0 is an intrinsic Dirichlet function on
+F (with respect to the height function H) if for every x ∈ F \ Q there exist inﬁnitely
+many rationals p/q ∈ F ∩ Q such that
+                                      
+                              x − p/q < ψ (H(p/q)).
+
+Optimality of intrinsic Dirichlet functions can be deﬁned in the same way as in Deﬁ-
+nition 5.3.
+
+     We have the following result:
+
+Proposition 5.6. ([4, Corollary 2.2]) Let F be the limit set of a base b IFS, and let
+δ be the Hausdorff dimension of F. Then for all x ∈ F, there exist inﬁnitely many
+rational numbers p/q ∈ F (p ∈ Z, q ∈ N) such that
+                                     
+                              x − p/q <        1
+                                                         ·
+                                            q(logb q)1/δ
+
+In other words, the function ψ∗ (q) = q · (logb q)1/δ
+                                                     −1
+                                                          is an intrinsic Dirichlet func-
+tion on F for the standard height function.
+
+
+6. The Symbolic Height Function
+
+Let F be the limit set of a base b IFS satisfying the strong separation condition, and
+ﬁx a rational number r ∈ F ∩ Q. It is well known that the base b expansion of r is
+preperiodic, i.e.,
+                        r = 0.ω1 · · · ωi ωi+1 · · · ωi+ j (base b),             (6.1)
+Uniformly de Bruijn Sequences and Diophantine Approximation                                            19
+
+
+
+for some i ≥ 0, j ≥ 1, and ω1 , . . . , ωi+ j ∈ A. Here the bar indicates that the string
+ωi+1 · · · ωi+ j is inﬁnitely repeated. Rewriting the right-hand side as a sum of fractions
+yields
+                                                ∞
+                                 ω1 · · · ωi       ωi+1 · · · ωi+ j
+                            r=
+                                    b  i
+                                             + ∑      bi+m j
+                                               m=1
+
+                                 ω1 · · · ωi ωi+1 · · · ωi+ j     1/b j
+                             =              +                 ·
+                                    bi            bi            1 − 1/b j
+                                ω1 · · · ωi ωi+1 · · · ωi+ j     1
+                             =        i
+                                           +         i
+                                                             · j   ,
+                                   b               b          b −1
+where ω1 · · · ωi and ωi+1 · · · ωi+ j are integers that have been written in base b. Adding
+the two resulting fractions
+                           together, we end up with a (complicated) expression whose
+denominator is bi b j − 1 . Further cancellations may or may not be possible, but we
+can always write therational number as a fraction of two integers, the denominator
+of which is bi b j − 1 .
+    This fact leads to a natural height function on F ∩ Q related to the base b structure
+of the fractal F:
+                                              def
+                                    Hsym (r) = bi · b j − 1 ,
+                                                            
+                                                                                        (6.2)
+where the indices i and j are the smallest integers such that r can be written in the
+form (6.1). The function Hsym is called the symbolic height function. It was studied
+in a more general context in [11]. Notice the symbolic height of a rational number
+may not be the same as its standard height (i.e., its denominator in reduced form).
+For example, the rational number 0.203 in the Cantor ternary set is equal to 34 , so its
+standard height is 4. Nonetheless, the symbolic height of 0.203 is 30 · 32 − 1 = 8. It
+                                                                             
+
+should be thought of as the denominator resulting from the following calculation:
+                                                m
+                                        203 ∞     1
+                              0.203 = 0 ∑
+                                         3 m=1 32
+
+                                               6   1/32
+                                           =     ·
+                                               1 1 − 1/32
+                                               6 1/9
+                                           =    ·
+                                               1 8/9
+                                         6
+                                      = ·
+                                         8
+Although more cancellation is possible at the end of this calculation, this will not
+always be the case,‡ so in a principled way we have stopped reducing the fraction
+here. The calculation illustrates the fact that the symbolic height of a rational number
+r can be thought of as a “symbolic denominator”, i.e., the denominator of a certain
+representation of r as the quotient of two integers. The numerator of this representa-
+tion can be thought of as a “symbolic numerator” (in the above example the symbolic
+‡ For example, the fraction at the end of the calculation 0.270       29 709    1     2·80+7·9   223
+                                                                  9 = 9 + 9 · 92 −1 =   9·80   = 720   is
+ already in reduced form.
+20                                                L. Fishman, K. Merrill, and D. Simmons
+
+
+
+numerator would be 2), but as usual, for purposes of Diophantine approximation it is
+simpler to just work with the denominator. Note that the standard height is by def-
+inition smaller than the symbolic one, since we have p std /qstd = psym /qsym , but the
+left-hand side is in reduced form.
+     We remark that heuristically, if we are given two rational numbers r1 and r2 , and
+we are told that r1 lies in the limit set of a base b IFS, but we are not told anything
+about r2 , then we should expect the (multiplicative) discrepancy between the standard
+height and the symbolic height to be smaller for r1 than for r2 . This is because if
+we choose the numerator and denominator of a rational randomly, then the numbers
+i and j satisfying (6.1) may be comparable to the standard height of the rational
+(meaning that the symbolic height is an exponential function of the standard height),
+but the number would be exceedingly unlikely to lie in any base b limit set, since its
+digits would essentially be random. By contrast, if we choose the digits of a rational
+randomly out of a ﬁxed alphabet A (with a ﬁxed period and preperiod), then the
+amount of cancellation we expect to see in the symbolic representation of the rational
+will be much smaller, so the standard height and symbolic height will be relatively
+close. More heuristics regarding the relation between the symbolic height function
+and the standard one were discussed in [11].
+     One reason the symbolic height function is interesting is that it naturally shows
+up in the proofs of results regarding the standard height function. For example, the
+proof of Proposition 5.6 can easily be modiﬁed to bound |x − p/q| in terms of the
+symbolic height of p/q rather than the standard height:
+
+Proposition 6.1. ([4, Proof of Corollary 2.2]) Let F be the limit set of a base b IFS,
+and let δ be the Hausdorff dimension of F. Then for all x ∈ F, there exist inﬁnitely
+many rational numbers r = psym /qsym ∈ F such that
+                                  
+                           x − p/q <            1
+                                                         1/δ ·
+                                         qsym logb qsym
+
+In other words, the function ψ∗ (q) = q · (logb q)1/δ
+                                                     −1
+                                                          is an intrinsic Dirichlet func-
+tion on F for the symbolic height function.
+
+     In fact, the proof of [4, Corollary 2.2] essentially proceeds by ﬁrst proving Propo-
+sition 6.1 and then using the inequality Hstd ≤ Hsym to deduce Proposition 5.6. It
+appears extremely difﬁcult to prove any improvement (either for all points or only
+for some) of Proposition 5.6 for the standard height without just proving the same
+bound for the symbolic height. So in some way, the symbolic height is measuring the
+“strength of our techniques”.
+     Although the symbolic height function is motivated in terms of the standard height
+function, it can also be analyzed on its own terms. For example, we can ask whether
+the intrinsic Dirichlet function ψ∗ appearing in Proposition 6.1 is optimal for the
+symbolic height function. This is the same (cf. [12, §2.1]) as asking whether there
+exist any points in F that are badly symbolically approximable with respect to ψ ∗ :
+
+Deﬁnition 6.2. (Special case of [11, Deﬁnition 4.7]) Let F be a base b limit set,
+and let δ denote the Hausdorff dimension of F. A number x ∈ F is called badly
+Uniformly de Bruijn Sequences and Diophantine Approximation                           21
+
+
+
+symbolically approximable (with respect to ψ∗ ) if there exists κ > 0 such that for
+every r = psym /qsym ∈ F ∩ Q, we have
+                                                    κ
+                             |x − r| ≥                          .                   (6.3)
+                                           qsym (logb qsym )1/δ
+Theorem 6.3. (Corollary of [11, Lemma 4.9]; or see below) Let F be the limit set of
+a base b IFS satisfying the strong separation condition. Then any x ∈ F whose base
+b expansion is uniformly de Bruijn is badly symbolically approximable.
+   Combining with Theorem 2.1 gives:
+Corollary 6.4. With F as above, the set of badly symbolically approximable points
+has dimension at least αk δ > 0, where
+                                                     k = 2,
+                            
+                            
+                             1/49,
+                            
+                     αk = (8 · (9 log4 (3) − 1)) , k = 3,
+                                                −1
+                            
+                             log(k−2)! ,
+                            
+                                                     k ≥ 4.
+                                k log(k)
+
+In particular, the intrinsic Dirichlet function φ∗ appearing in Proposition 6.1 is opti-
+mal.
+    We remark that the optimality assertion follows directly from combining Theorem
+6.3 with [1, Corollary 7]; Theorem 2.1 is not needed.
+    In contrast to Proposition 6.1, Theorem 6.3 and Corollary 6.4 are weaker than
+their (unproven) analogues for the standard height function. This is because while
+Proposition 6.1 is about ﬁnding good approximations to points, in Theorem 6.3 and
+Corollary 6.4 we show that for certain points, good approximations cannot exist.
+But the inequality Hstd ≤ Hsym means that the quality of an approximation is better
+according to the standard height than according to the symbolic height, which yields
+the appropriate implications.
+    We remark that Theorem 6.3 is only a one-way implication: there may be (and
+almost certainly are) badly symbolically approximable numbers whose base b expan-
+sions are not uniformly de Bruijn. A combinatorial characterization of the base b
+expansions of badly symbolically approximable numbers was given in [11, Lemma
+4.9]. As a consequence of the one-sidedness of the implication, Theorem 6.3 yields a
+lower bound on the dimension of the set of badly symbolically approximable points
+but not an upper bound. In fact, we believe that there is no nontrivial upper bound:
+we conjecture that the Hausdorff dimension of the set of badly symbolically approx-
+imable points of any base b limit set F is equal to the Hausdorff dimension of F. This
+conjecture is motivated by other situations in Diophantine approximation where the
+dimension of the set of badly approximable points has always turned out to be full.
+However, Theorem 2.1 shows that this conjecture cannot be proven using uniformly
+de Bruijn sequences.
+    Although Theorem 6.3 is a consequence of the much more general result [11,
+Lemma 4.9], we prove it here for completeness and ease of exposition.
+Proof of Theorem 6.3. Let x ∈ F be a number whose base b expansion, which we
+denote by ω , is uniformly de Bruijn. Let ℓ denote the size of the largest gap in the set
+22                                                    L. Fishman, K. Merrill, and D. Simmons
+
+
+
+Bω deﬁned by (2.1). Fix r ∈ F ∩ Q, and let the representation r = 0.τ1 · · · τi τi+1 · · · τ j
+be chosen so as tominimize i and j. Then the symbolic height of r, as deﬁned in
+(6.2), is qsym = bi b j−i − 1 ≤ b j . Since the IFS deﬁning F is assumed to satisfy
+the strong separation condition, the distance between x and r is comparable to b −m ,
+where m is the largest index for which ωi = τi for all i ≤ m. In fact, a careful analysis
+shows that |x − r| ≥ b−(m+2) , though the precise constant factor is not relevant. We
+claim that if j ≥ ℓ, then
+                                             b−ℓ
+                                    b−m ≥ j 1/δ ,                                    (6.4)
+                                           b j
+which demonstrates that (6.3) holds with κ = b−(ℓ+2). We now separate into two
+cases:
+Case 1: m ≤ j + ℓ. In this case, we have
+
+                                                       b−ℓ
+                                 b−m ≥ b− j b−ℓ ≥             ,
+                                                     b j j1/δ
+as required.
+Case 2: m > j + ℓ. In this case, by the mth letter, the sequence τ will have already be-
+gun to repeat. The longest repeated string in the sequence τ1 · · · τm is τi+1 · · · τm−( j−i)
+= τ j+1 · · · τm . Note that although the two sides of this equation represent distinct
+instances of the same string as a substring of τ1 · · · τm , the two instances may over-
+lap with each other; this happens if and only if m > 2 j − i. For the purposes of our
+calculations, it does not matter whether these two instances overlap or not.
+    By the deﬁnition of m, we have ω1 · · · ωm = τ1 · · · τm , so ω also has a repeated
+string ωi+1 · · · ωm−( j−i) = ω j+1 · · · ωm of length (m− j) occurring in the ﬁrst m letters.
+On the other hand, by the deﬁnition of ℓ, there exists m − j − ℓ < n ≤ m − j such that
+n ∈ Bω , which implies that ω has no repeated string of length n occurring in the ﬁrst
+k n + n − 1 letters of ω . Since n ≤ m − j, it follows that m > k n + n − 1, and thus
+
+                                 k n ≤ m − n < j + ℓ ≤ 2 j.
+
+Since k ≥ 2 and n ≥ m − j − ℓ + 1, this implies
+
+                                         k m− j−ℓ ≤ j.
+
+Raising both sides to the power of 1/δ gives
+
+                                       bm− j−ℓ ≤ j1/δ ,
+
+and rearranging gives (6.4).
+
+
+Acknowledgments. The ﬁrst-named author was supported in part by the Simons Foundation
+grant #245708. The third-named author was supported in part by the EPSRC Programme
+Grant EP/J018260/1. The authors would like to thank Joseph Kung for valuable comments on
+an earlier version of the paper, and Jonah Ostroff for introducing us to the notion of de Bruijn
+sequences. The authors thank the anonymous referee for valuable comments.
+Uniformly de Bruijn Sequences and Diophantine Approximation                                              23
+
+
+
+References
+
+ 1. Becher, V., Heiber, P.: On extending de Bruijn sequences. Inform. Process. Lett. 111(18),
+    930–932 (2011)
+ 2. Bernik, V., Dodson, M.: Metric Diophantine Approximation on Manifolds. Cambridge
+    Tracts in Math., Vol. 137. Cambridge University Press, Cambridge (1999)
+ 3. Broderick, R., Fishman, L., Kleinbock, D., Reich, A., Weiss, B.: The set of badly approx-
+    imable vectors is strongly C 1 incompressible. Math. Proc. Cambridge Philos. Soc. 153(2),
+    319–339 (2012)
+ 4. Broderick, R., Fishman, L., Reich, A.: Intrinsic approximation on Cantor-like sets, a prob-
+    lem of Mahler. Mosc. J. Combin. Number Theory 1(4), 291–300 (2011)
+ 5. Bugeaud, Y.: Approximation by Algebraic Numbers. Cambridge Tracts in Mathematics,
+    Vol. 160. Cambridge University Press, Cambridge (2004)
+ 6. Bugeaud, Y., Durand, A.: Metric Diophantine approximation on the middle-third Cantor
+    set. J. Eur. Math. Soc. (JEMS) 18(6), 1233–1272, (2016)
+ 7. Einsiedler, M., Fishman, L., Shapira, U.: Diophantine approximations on fractals. Geom.
+    Funct. Anal. 21(1), 14–35 (2011)
+ 8. Falconer, K.: Fractal Geometry: Mathematical Foundations and Applications. John Wiley
+    & Sons, Ltd., Chichester (1990)
+ 9. Fishman, L.: Schmidt’s game on fractals. Israel J. Math. 171(1), 77–92 (2009)
+10. Fishman, L., Simmons, D.: Intrinsic approximation for fractals deﬁned by rational iterated
+    function systems - Mahler’s research suggestio. Proc. Lond. Math. Soc. (3) 109(1), 189–
+    212 (2014)
+11. Fishman, L., Simmons, D.: Extrinsic Diophantine approximation on manifolds and frac-
+    tals. J. Math. Pures Appl. (9) 104(1), 83–101 (2015)
+12. Fishman, L., Simmons, D., Urbański, M.: Diophantine approximation in Banach spaces.
+    J. Théor. Nombres Bordeaux 26(2), 363–384 (2014)
+13. Kleinbock, D., Lindenstrauss, E., Weiss, B.: On fractal measures and Diophantine approx-
+    imation. Selecta Math. 10(4), 479–523 (2004)
+14. Kleinbock, D., Weiss, B.: Badly approximable vectors on fractals. Israel J. Math. 149,
+    137–170 (2005)
+15. Legendre, A.-M.: Essai sur la théorie des nombres (Essay on number theory). Second
+    Edition. Cambridge University Press, Cambridge (2009)
+16. Mahler, K.: Some suggestions for further research. Bull. Austral. Math. Soc. 29(1), 101–
+    108 (1984)
+17. Martin, A.: A Course in Enumeration. Graduate Texts in Mathematics, Vol. 238. Springer,
+    Berlin (2007)
+18. Weiss, B.: Almost no points on a Cantor set are very well approximable. R. Soc. Lond.
+    Proc. Ser. A Math. Phys. Eng. Sci. 457(2008), 949–952 (2001)
+
+Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0
+International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use,
+distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s)
+and the source, provide a link to the Creative Commons license, and indicate if changes were made.
+

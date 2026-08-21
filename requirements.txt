@@ -1,0 +1,10 @@
+sympy==1.14.0
+networkx==3.5
+numpy==2.3.1
+scipy==1.17.1
+hypothesis==6.135.26
+matplotlib==3.10.3
+pytest==8.4.1
+PyYAML==6.0.2
+python-sat==1.9.dev5
+jsonschema==4.23.0

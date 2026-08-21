@@ -1,0 +1,22 @@
+EXPERIMENT: pinned input hashes OK
+EXPERIMENT: displayed model atoms=3 positive=2 d=3 H=2 D=4
+EXPERIMENT: p=2 a=(2,) b=(1, 1) atoms=2 positive=1
+EXPERIMENT: p=3 a=(2,) b=(1, 1) atoms=2 positive=1
+EXPERIMENT: p=5 a=(2,) b=(1, 1) atoms=2 positive=1
+EXPERIMENT: p=2 a=(3,) b=(1, 2) atoms=4 positive=2
+EXPERIMENT: p=3 a=(3,) b=(1, 2) atoms=4 positive=2
+EXPERIMENT: p=5 a=(3,) b=(1, 2) atoms=4 positive=2
+EXPERIMENT: p=2 a=(3,) b=(1, 1, 1) atoms=3 positive=2
+EXPERIMENT: p=3 a=(3,) b=(1, 1, 1) atoms=3 positive=2
+EXPERIMENT: p=5 a=(3,) b=(1, 1, 1) atoms=3 positive=2
+EXPERIMENT: p=2 a=(4,) b=(1, 1, 2) atoms=4 positive=3
+EXPERIMENT: p=3 a=(4,) b=(1, 1, 2) atoms=4 positive=3
+EXPERIMENT: p=5 a=(4,) b=(1, 1, 2) atoms=4 positive=3
+EXPERIMENT: p=2 a=(5,) b=(1, 2, 2) atoms=6 positive=4
+EXPERIMENT: p=3 a=(5,) b=(1, 2, 2) atoms=6 positive=4
+EXPERIMENT: p=5 a=(5,) b=(1, 2, 2) atoms=6 positive=4
+EXPERIMENT: p=2 a=(5,) b=(2, 3) atoms=8 positive=4
+EXPERIMENT: p=3 a=(5,) b=(2, 3) atoms=8 positive=4
+EXPERIMENT: p=5 a=(5,) b=(2, 3) atoms=8 positive=4
+EXPERIMENT: bounded multinomial census models=18 OK
+EXPERIMENT: finite computations do not prove the universal theorem

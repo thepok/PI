@@ -1,0 +1,12 @@
+n,L_n,long_lag_first,long_lag_last,ordered_long_count,ordered_long_count_over_L_n,positive_lag_count,largest_contributing_lag,selected_guard_digits,prefix_candidate_pairs,raw_short_ordered_count,T71_W5_ordered,unresolved_boundary_cases
+2,10,2,9,2,1/5,1,6,4,1,0,0,0
+3,10,3,9,0,0/1,0,,4,0,0,0,0
+4,100,4,99,0,0/1,0,,4,0,0,0,0
+5,100,5,99,0,0/1,0,,4,0,0,0,0
+6,1000,6,999,2,1/500,1,293,4,1,0,2,0
+7,1000,7,999,0,0/1,0,,4,0,0,0,0
+8,10000,8,9999,0,0/1,0,,4,0,0,0,0
+9,10000,9,9999,0,0/1,0,,4,0,0,0,0
+10,100000,10,99999,4,1/25000,2,54109,4,2,0,0,0
+11,100000,11,99999,0,0/1,0,,4,0,0,0,0
+12,1000000,12,999999,2,1/500000,1,410309,4,1,0,0,0

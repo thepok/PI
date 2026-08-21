@@ -1,0 +1,15 @@
+T153 deterministic replay
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8: PASS
+sources=6/12 unique_theorem_tuples=6 domains=4: PASS
+candidates=1/4 mechanism_cards=1: PASS
+novelty_rows=T89-T150 (62/62): PASS
+duplicate_fixtures=T104/T138 source+theorem+mechanism,T136/T146 3x source+theorem+mechanism: REJECTED
+refreshed_sketch_exclusions=T151,T152: PASS
+substitution M=84 K=2 A=3 m=7 B=2 max<=4 E<=336 target=336: PASS
+debruijn r=1 P=10 m=11 M=20 max=2 E=40: PASS
+debruijn r=2 P=100 m=101 M=200 max=2 E=400: PASS
+debruijn r=3 P=1000 m=1001 M=2000 max=2 E=4000: PASS
+kill_tests=5/5: PASS
+labels=literature-checked,proof-sketch,experiment,unproved-transfer: PASS
+verdict=close (1/1) successor=none (0/1): PASS
+fixed_pi_A1_C1_C2_claims=none: PASS

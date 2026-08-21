@@ -1,0 +1,14 @@
+source hashes: verified (10 files)
+T79 prime: certified by trial division; ord_P(10)=12262760; lift coefficient=4247150 != 0
+T79 stated range E<P: terminal exponent is uniquely least-valued
+p=5 scope check: full E=1 sum cancels although second-family residue is 4
+P^2+2=21654041020040643: ties=[21654041020040643, 21654041020040641], normalized rows=[(21654041020040643, 0, 2, 57367864), (21654041020040641, 2, 1, 140118245)], sum=50332988 != 0
+P^2+2 denominator valuations: v2=21654041020040638, v5=21654041020040643, vP=21654041020040643, transient=21654041020040643
+P-primary order: ord_(P^E)(10)=12262760*147153121^(E-1), which divides ord_m(10)
+transfer occupancy: N+n+4<=E+1 implies N<t=E; tail length is zero
+small case P=3, B=1, E=11: ties=[11, 9], leading=1, vP(q)=11, predicted_layer=11, v2(q)=6, v5(q)=11, t=11, q=6089428125000000, m=1948617, m_factors={3: 11, 11: 1}, ord10=39366, tail_length=12, collisions=12
+small case P=7, B=3, E=51: ties=[51, 49], leading=0, vP(q)=50, predicted_layer=51, v2(q)=46, v5(q)=51, t=51, q=4443178576606349409975463081101373485514240886722103443946343750000000000000000000000000000000000000000000000, m=142181714451403181119214818595243951536455708375107310206283, m_factors={3: 3, 7: 50, 11: 1, 13: 1, 17: 1, 19: 1, 23: 1, 29: 1, 31: 1, 37: 1, 41: 1, 43: 1, 47: 1}, ord10=46801198881236085232621466691166760779943931120, tail_length=12, collisions=12
+strict reversal P=3,E=29: e=27 is uniquely least-valued
+three-way tie P=3,E=3486784421: [(3486784421, 0), (3486784419, 2), (3486784401, 20)]
+short-arc obstruction checked symbolically for N=1..19
+all T85 exact-arithmetic checks passed

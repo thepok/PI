@@ -1,0 +1,639 @@
+              A
+          IER N
+
+
+
+                  NA
+   FOUR
+
+
+
+                    LES DE
+UT
+
+
+      L’IN TIT
+          S                      ANNALES
+                                                 DE
+
+           L’INSTITUT FOURIER
+
+          Yann BUGEAUD
+          On the rational approximation to the Thue–Morse–Mahler numbers
+          Tome 61, no 5 (2011), p. 2065-2076.
+          <http://aif.cedram.org/item?id=AIF_2011__61_5_2065_0>
+
+
+
+
+                © Association des Annales de l’institut Fourier, 2011, tous droits
+                réservés.
+                L’accès aux articles de la revue « Annales de l’institut Fourier »
+                (http://aif.cedram.org/), implique l’accord avec les conditions
+                générales d’utilisation (http://aif.cedram.org/legal/). Toute re-
+                production en tout ou partie cet article sous quelque forme que ce
+                soit pour tout usage autre que l’utilisation à fin strictement per-
+                sonnelle du copiste est constitutive d’une infraction pénale. Toute
+                copie ou impression de ce fichier doit contenir la présente mention
+                de copyright.
+
+
+
+
+                                            cedram
+                                    Article mis en ligne dans le cadre du
+                       Centre de diffusion des revues académiques de mathématiques
+                                         http://www.cedram.org/
+Ann. Inst. Fourier, Grenoble
+61, 5 (2011) 2065-2076
+
+
+
+
+         ON THE RATIONAL APPROXIMATION
+       TO THE THUE–MORSE–MAHLER NUMBERS
+
+                               by Yann BUGEAUD
+
+
+
+
+     Abstract. — Let (tk )k⩾0 be the Thue–Morse sequence on {0, 1} defined by
+  t0 = 0, t2k = tk and t2k+1 = 1 − tk for k ⩾ 0. Let b ⩾ 2 be an integer.
+                                                                       PWe establish
+  that the irrationality exponent of the Thue–Morse–Mahler number            t b−k is
+                                                                          k⩾0 k
+  equal to 2.
+     Résumé. — Soit (tk )k⩾0 la suite de Thue–Morse définie sur {0, 1} par t0 =
+  0, t2k = tk et t2k+1 = 1 − tk pour k ⩾ 0. Soit b ⩾ 2 un entier rationnel.
+  Nous
+  P démontrons       que l’exposant d’irrationalité du nombre de Thue–Morse–Mahler
+         t  b−k est égal à 2.
+     k⩾0  k
+
+
+
+
+                                1. Introduction
+
+   Let ξ be an irrational, real number. The irrationality exponent µ(ξ) of ξ
+is the supremum of the real numbers µ such that the inequality
+                                         p   1
+                                    ξ−     < µ
+                                         q  q
+has infinitely many solutions in rational numbers p/q. It follows from the
+theory of continued fractions that µ(ξ) is always greater than or equal to
+2, and an easy covering argument shows that µ(ξ) is equal to 2 for almost
+all real numbers ξ (with respect to the Lebesgue measure). Furthermore,
+Roth’s theorem asserts that the irrationality exponent of every algebraic
+irrational number is equal to 2. It is in general a very difficult problem to
+determine the irrationality exponent of a given transcendental real number
+ξ. Apart from some numbers involving the exponential function or the
+Bessel function (see the end of Section 1 of [1]) and apart from more or
+
+Keywords: Irrationality measure, Thue–Morse sequence, Padé approximant.
+Math. classification: 11J04, 11J82.
+2066                             Yann BUGEAUD
+
+
+
+less ad hoc constructions (see below), there do not seem to be examples
+of transcendental numbers ξ whose irrationality exponent is known. When
+they can be applied, the current techniques allow us only to get an upper
+bound for µ(ξ).
+   Clearly, the irrationality exponent of ξ can be read on its continued
+fraction expansion. But when ξ is defined by its expansion in some integer
+base b ⩾ 2, we do not generally get enough information to determine the
+exact value of µ(ξ). A combinatorial, and naïve, method is the following.
+Write
+                                            X ak
+(1.1)                           ξ = bξc +              ,
+                                                  bk
+                                            k⩾1
+
+
+where ak ∈ {0, 1, . . . , b − 1} for k ⩾ 1 and b·c denotes the integer part func-
+tion. Assume that there are positive integers n, r, m such that an+h+ir =
+an+h for h = 1, . . . , r and i = 1, . . . , m. With such a triple (n, r, m) of
+positive integers, we associate the rational number ξn whose b-ary expan-
+sion is defined as follows: Truncate the expansion of ξ after the n-th digit
+an and complete by repeating infinitely many copies of the finite block
+an+1 . . . an+r . Clearly, ξn is a good rational approximation to ξ which sat-
+isfies
+                                              1
+                            |ξ − ξn | <             ,
+                                          bn+(m+1)r
+since ξ and ξn have their first n+(m+1)r digits in common. If we find infin-
+itely many triples (n, r, m) as above for which (m+1)r is ‘large’ compared to
+n, then we get a good lower bound for µ(ξ). If, in addition, these triples con-
+stitute a ‘dense’ sequence, in a suitable sense, then we can often deduce an
+upper bound for µ(ξ). In most cases, in particular when µ(ξ) is small, both
+bounds do not coincide. This is pointed out e.g., in Lemma 4 of [15], where
+                                               k
+it is shown by this method that µ( k⩾1 3−bτ c ) = τ for every real number τ
+                                    P
+                      √                                  k
+at least equal to (3+ 5)/2, and that τ ⩽ µ( k⩾1 3−bτ c ) ⩽ (2τ −1)/(τ −1)
+                                              P
+                 √
+if 2 ⩽ τ < (3 + 5)/2.
+   There are however several examples of real numbers defined by their ex-
+pansion in some integer base and whose continued fraction expansion is
+known, see [4, 17, 13, 7, 11], hence, whose irrationality exponent is deter-
+mined. Among these examples are some automatic numbers [4, 11]. Recall
+that a real number ξ is an automatic number if there exists an integer b ⩾ 2
+such that the b-ary expansion of ξ can be generated by a finite automaton;
+see [6] for precise definitions.
+
+
+ANNALES DE L’INSTITUT FOURIER
+                       ON THE RATIONAL APPROXIMATION                       2067
+
+  Adamczewski and Cassaigne [2] established that the irrationality expo-
+nent of every irrational automatic number is finite. Subsequently, Adam-
+czewski and Rivoal [3] were able to bound from above the irrationality
+exponent of automatic numbers ξ constructed with Thue–Morse, Rudin–
+Shapiro, paperfolding or Baum–Sweet sequences, but their bounds, al-
+though quite small, are presumably not best possible. They gave two meth-
+ods for producing rational approximations to the automatic numbers ξ
+considered in [3]. A first one is based on Padé approximants to the gener-
+ating function of the automatic sequence. A second one is the naïve method
+described above: If some block of digits occurs at least twice near the be-
+ginning of the sequence, then the sequence is “close” to a periodic sequence,
+thus the associated real number is “close” to a rational number.
+  In this note we focus on the most classical family of automatic numbers,
+namely the Thue–Morse–Mahler numbers. Let
+     t = t0 t1 t2 . . . = 0110100110010110100101100110100110010110 . . .
+denote the Thue–Morse word on {0, 1} defined by t0 = 0, t2k = tk and
+t2k+1 = 1 − tk for k ⩾ 0. Alternatively, tk = 0 (resp. 1) if the number of 1’s
+in the binary expansion of k is even (resp. is odd). Note also that, if σ is
+the morphism defined by σ(0) = 01 and σ(1) = 10, then t is precisely the
+fixed point of σ starting with 0.
+   Let b ⩾ 2 be an integer. In a fundamental paper, Mahler [16] established
+that the Thue–Morse–Mahler number
+                      X tk       1   1      1    1     1
+               ξt,b =         = + 2 + 4 + 7 + 8 + ...
+                          bk     b b       b     b    b
+                         k⩾0
+
+is transcendental (see Dekking [14] for an alternative proof, reproduced in
+Section 13.4 of [6]). Adamczewski and Rivoal [3] showed that the irrational-
+ity exponent of ξt,b is at most 4, improving the upper bound of 5 obtained
+in [2]. At the end of [3], they conjectured that the irrationality exponent
+of ξt,b is at most 3. Let us add some comments: since t begins with 01101,
+it also begins with σ n (011)σ n (01), for n ⩾ 1. Consequently, ξt,b is close to
+the rational ρn whose b-ary expansion is purely periodic of period σ n (011),
+in the sense that ξt,b and ρn have their first 5 · 2n digits in common. This
+is exactly the method followed in [2] to get that µ(ξt,b ) ⩽ 5. Note that this
+approach actually yields the better bound µ(ξt,b ) ⩽ 4, since the integers
+pn and qn defined in Section 6 of [2] have a large common divisor. Using
+another combinatorial property of t, we can construct a second sequence
+of good rational approximations to ξt,b . Indeed, since t begins with 011,
+it also begins with σ n (0)σ n (1)σ n (1), for n ⩾ 1. Consequently, ξt,b is close
+
+
+TOME 61 (2011), FASCICULE 5
+2068                            Yann BUGEAUD
+
+
+
+to the rational πn whose b-ary expansion is ultimately periodic of period
+σ n (1) and preperiod σ n (0). In doing this, we find the rational approxima-
+tions denoted by pn /qn in Section 4.2.1 of [3] and obtained by means of
+suitable Padé approximants. As noted in [3], this method gives the bound
+µ(ξt,b ) ⩽ 4. However, if we consider the union of the two sequences (ρn )n⩾1
+and (πn )n⩾1 , a careful computation based on triangle inequalities implies
+the improved upper bound µ(ξt,b ) ⩽ 3.
+   The purpose of the present note is to establish a stronger result, namely
+that this exponent is equal to 2. Like in many papers on irrationality mea-
+sures of classical numbers, our proof makes use of Padé approximants.
+Apparently, the Thue–Morse–Mahler numbers are the first examples of ir-
+rational numbers ξ defined by their expansion in an integer base and for
+which a method based on Padé approximants yields the exact value of µ(ξ).
+
+
+                                2. Result
+
+  We establish the following theorem.
+  Theorem. — For any integer b ⩾ 2, the irrationality exponent of the
+Thue–Morse–Mahler number ξt,b is equal to 2.
+   The strategy to prove the Theorem seems to be new. We make use of
+a result of Allouche, Peyrière, Wen, and Wen [5] on the non-vanishing of
+Hankel determinants of the Thue–Morse sequence to get many Padé ap-
+proximants to the generating function of the Thue–Morse sequence. By
+means of these rational fractions we construct infinitely many good ratio-
+nal approximations to the Thue–Morse–Mahler number ξt,b , which form a
+sufficiently dense sequence to conclude that the irrationality exponent of
+ξt,b cannot exceed 2. We believe that this general method will have further
+applications in Diophantine approximation.
+   The first 20000 partial quotients of the so-called Thue–Morse constant
+ξt,2 /2 have been computed by Harry J. Smith, see [18]. Open Problem 9 on
+page 403 of [6] asks whether the Thue–Morse constant has bounded partial
+quotients. We have no idea how to solve this challenging question. Numeri-
+cal experimentation performed by Maurice Mignotte tends to suggest that
+the answer should be negative and that the continued fraction expansion
+of ξt,2 /2 shares most statistics with the continued fraction expansion of
+almost every real number (in the sense of the Lebesgue measure). Let us
+just mention that 1014303 of the first 2447729 partial quotients of ξt,2 /2
+are equal to 1, and that 45 exceed 100000.
+
+
+ANNALES DE L’INSTITUT FOURIER
+                       ON THE RATIONAL APPROXIMATION                       2069
+
+  Remark 2.1. — The Theorem can be made effective. This means that,
+for any b ⩾ 2 and any positive ε, we can compute explicitly a positive
+number q0 (ε, b) such that
+                 |ξt,b − p/q| > q −2−ε ,     for every q ⩾ q0 (ε, b).
+This is justified at the end of the proof.
+  Remark 2.2. — For an integer b ⩾ 2 and an irrational real number ξ
+whose b-ary expansion is given by (1.1), let
+                  p(n, ξ, b) = Card{ak ak+1 . . . ak+n−1 : k ⩾ 1}
+denote the number of distinct blocks of n letters occurring in the infinite
+word a1 a2 a3 . . . It has been proved independently by several authors that
+3(n − 1) ⩽ p(n, ξt,b , b) ⩽ 4n for n ⩾ 1, see Exercise 10 on page 335 and
+Note 10.3 on page 341 of [6]. Our Theorem allows us to get some (very
+modest) information on the expansion of ξt,b in other bases, namely that,
+for any integer b0 ⩾ 2, we have
+                              lim p(n, ξt,b , b0 ) − n = +∞.
+                          n→+∞
+
+This follows from the fact that if a real number ξ is such that the sequence
+(p(n, ξ, b0 ) − n)n⩾1 is bounded, then its irrationality exponent must exceed
+2; see [1] for details (the key ingredient is a deep result of Berthé, Holton,
+and Zamboni [9] on the combinatorial structure of Sturmian sequences).
+Thus, the Thue–Morse–Mahler numbers are among the very few explicit
+examples of real numbers for which one can say something non trivial
+regarding their expansions in different integer bases.
+  Remark 2.3. — It was shown in [11] that every rational number greater
+than or equal to 2 is the irrationality exponent of some automatic number.
+This result motivates the study of the following question [3, 12]:
+  Is the irrationality exponent of an automatic number always rational?
+  Results from [12] and the Theorem speak in favour of a positive answer,
+but this question seems to be very difficult. It is likely that the proof of the
+Theorem can be adapted to determine the irrationality exponent of some
+other automatic numbers.
+
+
+
+                               3. Auxiliary results
+
+  We begin this section by recalling several basic facts on Padé approx-
+imants. We refer the reader to [10, 8] for the proofs and for additional
+
+
+TOME 61 (2011), FASCICULE 5
+2070                              Yann BUGEAUD
+
+
+
+results. Let f (z) be a power series in one variable with rational coefficients,
+                                  X
+                          f (z) =     ck z k , ck ∈ Q.
+                                  k⩾0
+
+Let p, q be non-negative integers. The Padé approximant [p/q]f (z) is any
+rational fraction A(z)/B(z) in Q[[z]] such that
+ deg(A) ⩽ p,     deg(B) ⩽ q,      and ordz=0 (B(z)f (z) − A(z)) ⩾ p + q + 1.
+The pair (A, B) has no reason to be unique, but the fraction A(z)/B(z) is
+unique.
+  For k ⩾ 1, let
+                                     c0    c1    ...    ck−1
+                                     c1    c2    ...       ck
+                     Hk (f ) :=    ..       ..   ..     ..
+                                    .        .      .    .
+                                   ck−1    ck    ...    c2k−2
+be the Hankel determinant of order k associated to f (z). If Hk (f ) is non-
+zero, then the Padé approximant [k − 1/k]f (z) exists and we have
+                                          Hk+1 (f ) 2k
+(3.1)        f (z) − [k − 1/k]f (z) =              z + O(z 2k+1 ).
+                                           Hk (f )
+  Our first auxiliary result states that the Hankel determinants of the
+Thue–Morse sequence do not vanish. It was proved by Allouche, Peyrière,
+Wen, and Wen [5].
+
+   Theorem APWW. — Let Ξ(z) be the generating function of the Thue–
+Morse sequence on {−1, 1} starting with 1. Then, for every positive integer
+k, the Hankel determinant Hk (Ξ) is non-zero and the Padé approximant
+[k − 1/k]Ξ (z) exists.
+
+  Proof. — This is Corollary 4.1 and Theorem 4.3 from [5].                    
+   As mentioned in the Introduction, a usual way to prove that a given
+number ξ is irrational is to construct an infinite sequence of good rational
+approximations to ξ. If this sequence appears to be sufficiently ‘dense’, we
+even get a bound for its irrationality exponent by an elementary use of
+triangle inequalities; see e.g., Lemma 4.1 from [3] for a precise result.
+
+  Lemma 3.1. — Let ξ be a real number. Assume that there exist a real
+number θ > 1, positive real numbers c1 , c2 and a sequence (pn /qn )n⩾1 of
+rational numbers such that
+(3.2)                    qn < qn+1 ⩽ qnθ ,       (n ⩾ 1),
+
+
+ANNALES DE L’INSTITUT FOURIER
+                       ON THE RATIONAL APPROXIMATION                       2071
+
+and
+                                pn      c2
+                        c1 qn2 ⩽ ξ − ⩽ 2 , (n ⩾ 1).
+                                qn      qn
+Then the irrationality exponent of ξ is at most equal to 2θ.
+
+ We stress that the rational numbers occurring in the statement of Lem-
+ma 3.1 are not assumed to be written in their lowest form.
+  Proof. — Let p/q be a reduced rational number whose denominator is
+sufficiently large. Let n ⩾ 2 be the integer determined by the inequalities
+(3.3)                            qn−1 < 2c2 q ⩽ qn .
+We deduce from (3.2) and (3.3) that
+(3.4)                              qn ⩽ (2c2 q)θ .
+If p/q 6= pn /qn , then the triangle inequality and (3.3) give
+                  p    p pn          pn
+             ξ−     ⩾    −     − ξ−
+                  q    q   qn        qn
+                       1    c2    1           1
+(3.5)               ⩾     − 2 ⩾       ⩾                ,
+                      qqn   qn   2qqn   2(2c2 )θ q 1+θ
+by (3.4). If p/q = pn /qn , then we have
+                              p      pn   c1     c1
+(3.6)                  ξ−       = ξ−    ⩾ 2 ⩾           ,
+                              q      qn  qn   (2c2 q)2θ
+again by (3.4). The combination of (3.5) and (3.6) yields that the irra-
+tionality exponent of ξ is at most equal to 2θ.                       
+  Our last auxiliary result is an elementary lemma.
+
+  Lemma 3.2. — Let k and n0 be positive integers. Let (aj )j⩾1 be the
+increasing sequence composed of all the numbers of the form h2n , where
+n ⩾ n0 and h ranges over the odd integers in [1, 2k − 1]. Then, there exists
+an integer j0 such that
+                        aj+1 ⩽ (1 + 2−k+1 )aj ,      (j ⩾ j0 ).
+
+  Proof. — Observe that every integer of the form m2n with n ⩾ n0 +
+k and m ∈ {2k−1 , 2k−1 + 1, 2k−1 + 2, . . . , 2k − 1, 2k } belongs to (aj )j⩾1 .
+Consequently, for j large enough, we have
+                      aj+1             h+1   2k−1 + 1
+                           ⩽ max           =          .
+                       aj   2k−1 ⩽h⩽2k  h      2k−1
+This proves the lemma.                                                        
+
+
+TOME 61 (2011), FASCICULE 5
+2072                               Yann BUGEAUD
+
+
+
+                        4. Proof of the Theorem
+
+                                 Preliminaries
+
+  In the proof of the Theorem, it is much more convenient to work with
+the Thue–Morse sequence on {−1, 1} which begins with 1, that is, with the
+sequence
+         t0 = t00 t01 t02 . . . = 1 − 1 − 1 1 − 1 1 1 − 1 − 1 1 1 − 1 . . .
+Note that t0k = 1 − 2tk , for k ⩾ 0. Since, for b ⩾ 2, we have
+                                X t0         b
+                                     k
+                      ξt0 ,b :=        =         − 2ξt,b ,
+                                    bk    b−1
+                                 k⩾0
+
+the numbers ξt,b and ξt0 ,b have the same irrationality exponent. Let
+                                      X
+                              Ξ(z) =     t0k z k
+                                             k⩾0
+
+denote the generating function of t . Since t00 = 1, t02k = t0k and t02k+1 = −t0k
+                                         0
+
+for k ⩾ 0, we check easily that
+(4.1)                         Ξ(z) = (1 − z)Ξ(z 2 ).
+The fact that Ξ(z) satisfies a functional equation plays a crucial role in
+Mahler’s method [16] and in the proof of the Theorem.
+
+
+ First step: Construction of infinite sequences of good rational
+                     approximations to ξt0 ,b
+
+  Let k be an odd positive integer and m be a positive integer. It fol-
+lows from Theorem APWW and (3.1) that there exist integer polynomials
+Pk,0 (z), Qk,0 (z) of degree at most k − 1 and k, respectively, and a non-zero
+rational number hk such that
+                Ξ(z) − Pk,0 (z)/Qk,0 (z) = hk z 2k + O(z 2k+1 ).
+Then, there exists a positive constant C(k), depending only on k, such that
+(4.2)
+                     m
+       m    Pk,0 (z 2 )          m+1
+                                     k           m+1
+                                                     k+2m
+  Ξ(z 2 ) −         2 m − hk z 2       ⩽ C(k)z 2          , for 0 < z ⩽ 1/2.
+            Qk,0 (z )
+An induction based on (4.1) gives that
+                                   m−1
+                                   Y               j   m
+                          Ξ(z) =         (1 − z 2 )Ξ(z 2 ),
+                                   j=0
+
+
+
+ANNALES DE L’INSTITUT FOURIER
+                        ON THE RATIONAL APPROXIMATION                                                         2073
+
+hence, by (4.2), we obtain
+            m−1                                                     m−1
+                        2j           2m               2m                                  j     m+1
+            Y                                                       Y
+                                                                                                          k
+   Ξ(z) −         (1 − z ) Pk,0 (z        )/Qk,0 (z        ) − hk            (1 − z 2 ) z 2
+            j=0                                                     j=0
+
+(4.3)
+                                                                                         m+1
+                                                                                               k+2m
+                                                                    ⩽ C(k)z 2                         ,
+for 0 < z ⩽ 1/2.
+  For simplicity, set
+                                       m−1
+                                       Y               j                 m
+                        Pk,m (z) =           (1 − z 2 ) Pk,0 (z 2 )
+                                       j=0
+
+and
+                                                            m
+                                  Qk,m (z) = Qk,0 (z 2 ).
+Note that Pk,m (z)/Qk,m (z) is the Padé approximant [2m k − 1/2m k]Ξ (z) of
+Ξ(z).
+  Let m0 (k) be a positive integer such that
+                             hk Ξ(1/2)
+                              m
+(4.4)               C(k)2−2 ⩽          , for m ⩾ m0 (k).
+                                 2
+Assume that m is at least equal to m0 (k). Since
+                              m−1                      m−1
+                              Y                   j    Y                     j
+                   Ξ(1/2) ⩽         (1 − 2−2 ) ⩽              (1 − z 2 ) ⩽ 1
+                              j=0                      j=0
+
+holds for 0 < z ⩽ 1/2, it follows from (4.3) and (4.4) that we have
+                               Qm−1         j     m+1
+                                                      k
+       hk Ξ(1/2) 2m+1 k     hk j=0 (1 − z 2 ) z 2                Pk,m (z)
+(4.5)            z      ⩽                               ⩽ Ξ(z) −
+           2                           2                         Qk,m (z)
+and
+                                                             2j          m+1
+                                           Qm−1                                  k
+                 Pk,m (z)   3hk               j=0 (1 − z          ) z2                   3hk 2m+1 k
+(4.6)     Ξ(z) −          ⩽                                                          ⩽      z       ,
+                 Qk,m (z)                              2                                  2
+for 0 < z ⩽ 1/2.
+  Let b ⩾ 2 be an integer. Taking z = 1/b in (4.5) and (4.6) and recalling
+that Ξ(1/b) = ξt0 ,b , we obtain the inequalities
+             hk Ξ(1/2) −2m+1 k            Pk,m (1/b)   3hk −2m+1 k
+(4.7)                 b        ⩽ ξt0 ,b −            ⩽    b        .
+                 2                        Qk,m (1/b)    2
+Define the integers
+                                              m
+                                  pk,m = b2 k Pk,m (1/b)
+
+
+TOME 61 (2011), FASCICULE 5
+2074                            Yann BUGEAUD
+
+
+
+and
+                                      m
+                            qk,m = b2 k Qk,m (1/b).
+Note that the polynomial Qk,0 (z) (and, hence, the polynomial Qk,m (z))
+does not vanish at z = 0. This observation and (4.7) show that there exist
+positive real numbers c1 (k), . . . , c6 (k), depending only on k, such that
+                                m                       m
+(4.8)                  c1 (k)b2 k ⩽ qk,m ⩽ c2 (k)b2 k ,
+
+                       c3 (k)             pk,m   c4 (k)
+(4.9)                     m+1 k ⩽ ξt ,b −      ⩽ 2m+1 k ,
+                                    0
+                      b 2                 qk,m  b
+and, combining (4.8) and (4.9),
+                       c5 (k)            pk,m  c6 (k)
+(4.10)                   2    ⩽ ξt0 ,b −      ⩽ 2 .
+                       qk,m              qk,m   qk,m
+   Consequently, for every odd positive integer k, we have constructed an
+infinite sequence of rational numbers (pk,m /qk,m )m⩾m0 (k) that are close to
+ξt0 ,b .
+
+
+
+Second step: Upper bound for the irrationality exponent of ξt0 ,b
+
+   Let K ⩾ 2 be an integer. Let (VK,n )n⩾1 be the sequence of positive
+integers composed of all the integers qk,m with k odd, 1 ⩽ k ⩽ 2K − 1,
+m ⩾ m0 (k), ranged by increasing order. It follows from Lemma 3.2 and
+(4.8) that there exists an integer n0 (K) such that
+                                          −K+2
+                                1+2
+(4.11)         VK,n < VK,n+1 ⩽ VK,n              ,   for n ⩾ n0 (K).
+Furthermore, by (4.10), there are positive integers UK,n and positive con-
+stants C1 (K), C2 (K), depending only on K, such that
+               C1 (K)            UK,n   C2 (K)
+(4.12)            2   ⩽ ξt0 ,b −      ⩽    2   ,            for n ⩾ n0 (K).
+                VK,n             VK,n    VK,n
+We then deduce from (4.11), (4.12) and Lemma 3.1 that the irrationality
+exponent of ξt0 ,b is at most equal to 2 + 2−K+3 . Since K is arbitrary and
+ξt0 ,b is irrational, this exponent must be equal to 2. Recalling that ξt,b and
+ξt0 ,b have the same irrationality exponent, this concludes the proof of the
+Theorem.
+   This proof can be made effective, since, as shown in [10, 8], the coefficients
+of the polynomials Pk,0 (z), Qk,0 (z) and the rational numbers hk can be
+expressed as determinants of matrices whose entries are elements of the
+sequence t0 .
+
+
+ANNALES DE L’INSTITUT FOURIER
+                       ON THE RATIONAL APPROXIMATION                             2075
+
+  Acknowledgements. The author thanks Maurice Mignotte for stimulat-
+ing discussion and very helpful numerical experimentation, and the referee
+for several suggestions regarding the presentation.
+
+
+                                BIBLIOGRAPHY
+
+ [1] B. Adamczewski, “On the expansion of some exponential periods in an integer
+     base”, Math. Ann. 346 (2010), no. 1, p. 107-116.
+
+ [2] B. Adamczewski & J. Cassaigne, “Diophantine properties of real numbers gener-
+     ated by finite automata”, Compos. Math. 142 (2006), no. 6, p. 1351-1372.
+
+ [3] B. Adamczewski & T. Rivoal, “Irrationality measures for some automatic real
+     numbers”, Math. Proc. Cambridge Philos. Soc. 147 (2009), no. 3, p. 659-678.
+
+ [4] W. W. Adams & J. L. Davison, “A remarkable class of continued fractions”, Proc.
+     Amer. Math. Soc. 65 (1977), no. 2, p. 194-198.
+
+ [5] J.-P. Allouche, J. Peyrière, Z.-X. Wen & Z.-Y. Wen, “Hankel determinants of
+     the Thue-Morse sequence”, Ann. Inst. Fourier (Grenoble) 48 (1998), no. 1, p. 1-27.
+
+ [6] J.-P. Allouche & J. O. Shallit, Automatic Sequences: Theory, Applications,
+     Generalizations, Cambridge University Press, 2003.
+
+ [7] M. Amou, “Approximation to certain transcendental decimal fractions by algebraic
+     numbers”, J. Number Theory 37 (1991), no. 2, p. 231-241.
+
+ [8] G. A. Baker, Jr. & P. Graves-Morris, Padé approximants, second ed., Ency-
+     clopedia of Mathematics and its Applications, vol. 59, Cambridge University Press,
+     Cambridge, 1996, xiv+746 pages.
+
+ [9] V. Berthé, C. Holton & L. Q. Zamboni, “Initial powers of Sturmian sequences”,
+     Acta Arith. 122 (2006), no. 4, p. 315-347.
+
+[10] C. Brezinski, Padé-type approximation and general orthogonal polynomials, Inter-
+     national Series of Numerical Mathematics, vol. 50, Birkhäuser Verlag, Basel, 1980,
+     250 pages.
+
+[11] Y. Bugeaud, “Diophantine approximation and Cantor sets”, Math. Ann. 341
+     (2008), no. 3, p. 677-684.
+
+[12] Y. Bugeaud, D. Krieger & J. Shallit, “Morphic and Automatic Words: Maximal
+     Blocks and Diophantine Approximation”, Preprint.
+
+[13] P. Bundschuh, “Über eine Klasse reeller transzendenter Zahlen mit explizit angeb-
+     barer g-adischer und Kettenbruch-Entwicklung”, J. Reine Angew. Math. 318
+     (1980), p. 110-119.
+
+[14] M. Dekking, “Transcendance du nombre de Thue-Morse”, C. R. Acad. Sci. Paris
+     Sér. A-B 285 (1977), no. 4, p. A157-A160.
+
+[15] J. Levesley, C. Salp & S. L. Velani, “On a problem of K. Mahler: Diophantine
+     approximation and Cantor sets”, Math. Ann. 338 (2007), no. 1, p. 97-118.
+
+
+
+TOME 61 (2011), FASCICULE 5
+2076                              Yann BUGEAUD
+
+
+
+[16] K. Mahler, “Arithmetische Eigenschaften der Lösungen einer Klasse von Funk-
+     tionalgleichungen”, Math. Ann. 101 (1929), no. 1, p. 342-366.
+
+[17] J. Shallit, “Simple continued fractions for some irrational numbers”, J. Number
+     Theory 11 (1979), no. 2, p. 209-217.
+
+[18] N. J. A. Sloane, “The on-line encyclopedia of integer sequences”, Notices Amer.
+     Math. Soc. 50 (2003), no. 8, p. 912-915.
+
+                                 Manuscrit reçu le 28 avril 2010,
+                                 accepté le 31 août 2010.
+
+                                 Yann BUGEAUD
+                                 Université de Strasbourg
+                                 Département de Mathématiques
+                                 7, rue René Descartes
+                                 67084 STRASBOURG (France)
+                                 bugeaud@math.unistra.fr
+
+
+
+
+ANNALES DE L’INSTITUT FOURIER
+

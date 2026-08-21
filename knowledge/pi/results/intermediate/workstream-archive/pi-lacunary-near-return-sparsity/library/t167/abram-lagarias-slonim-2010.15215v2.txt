@@ -1,0 +1,2215 @@
+                                           DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS
+
+                                                                 WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+
+                                                  A BSTRACT. This paper studies subsets of one-sided shift spaces on a finite alphabet. Such subsets arise in
+                                                  symbolic dynamics, in fractal constructions, and in number theory. We study a family of decimation operations,
+arXiv:2010.15215v2 [math.DS] 14 Dec 2020
+
+
+
+
+                                                  which extract subsequences of symbol sequences in infinite arithmetic progressions, and show they are closed
+                                                  under composition. We also study a family of n-ary interleaving operations, one for each n ≥ 1. Given subsets
+                                                  X0 , X1 , ..., Xn−1 of the shift space, the n-ary interleaving operator produces a set whose elements combine
+                                                  individual elements xi , one from each Xi , by interleaving their symbol sequences cyclically in arithmetic
+                                                  progressions (mod n). We determine algebraic relations between decimation and interleaving operators and
+                                                  the shift operator. We study set-theoretic n-fold closure operations X 7→ X [n] , which interleave decimations of
+                                                  X of modulus level n. A set is n-factorizable if X = X [n] . The n-fold interleaving operators are closed under
+                                                  composition and are idempotent. To each X we assign the set N (X) of all values n ≥ 1 for which X = X [n] .
+                                                  We characterize the possible sets N (X) as nonempty sets of positive integers that form a distributive lattice
+                                                  under the divisibility partial order and are downward closed under divisibility. We show that all sets of this type
+                                                  occur. We introduce a class of weakly shift-stable sets and show that this class is closed under all decimation,
+                                                  interleaving, and shift operations. We study two notions of entropy for subsets of the full one-sided shift and
+                                                  show that they coincide for weakly shift-stable X, but can be different in general. We give a formula for entropy
+                                                  of interleavings of weakly shift-stable sets in terms of individual entropies.
+
+
+
+
+                                                                                                    C ONTENTS
+                                            1. Introduction                                                                                                              2
+                                            1.1. Summary                                                                                                                 3
+                                            1.2. Background                                                                                                              4
+                                            1.3. Related work                                                                                                            5
+                                            2. Results                                                                                                                   5
+                                            2.1. Decimation operations                                                                                                   6
+                                            2.2. Interleaving operations                                                                                                 6
+                                            2.3. Interleaving closure operations                                                                                         7
+                                            2.4. Structure of interleaving factorizations                                                                                9
+                                            2.5. Shift-stability and weak shift-stability                                                                               10
+                                            2.6. Entropy of interleavings                                                                                               10
+                                            2.7. Composition of interleavings and operad structure                                                                      11
+                                            2.8. Contents of paper                                                                                                      12
+                                            3. Decimations of arbitrary subsets of AN                                                                                   12
+                                            3.1. Compositions of decimations                                                                                            12
+                                            3.2. Decimations and the shift                                                                                              13
+                                            4. Interleaving for arbitrary subsets of AN                                                                                 13
+                                            4.1. Interleaving and decimation                                                                                            13
+                                            4.2. n-fold interleaving closure operations                                                                                 14
+                                            4.3. Shuffle identities for interleaving operators                                                                          15
+                                            4.4. Composition identities for interleaving closure operations                                                             16
+                                            Date: November 9, 2020.
+                                            2020 Mathematics Subject Classification. Primary 37B10; Secondary 11B25, 18M65, 37B40.
+                                            Key words and phrases. symbolic dynamics, entropy, infinite words, nonsymmetric operad.
+                                            The research of the second author was supported by NSF grant DMS-1701229, and a 2018 Simons Fellowship in Mathematics .
+                                                                                                          1
+2                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+    4.5. Interleaving commutes with set intersection                                                            18
+    4.6. Shift action on interleavings                                                                          19
+    4.7. Topological closure                                                                                    20
+    5. Interleaving factorizations and divisibility                                                             21
+    5.1. Divisibility for interleaving factorizations                                                           21
+    5.2. Structure of interleaving factorizations                                                               22
+    5.3. Divisibility for self-interleaving factorizations                                                      22
+    6. Infinitely factorizable closed subsets of AN                                                             24
+    6.1. Characterization of infinitely factorizable closed sets                                                24
+    6.2. Consequences of infinite factorizability                                                               25
+    7. Iterated interleaving factorizations of general closed subsets of AN                                     26
+    7.1. Iterated interleaving factorization trees                                                              26
+    7.2. Arbitrary depth factorizations                                                                         27
+    8. Shift-stable and weakly shift-stable sets                                                                29
+    8.1. Shift-stable sets                                                                                      29
+    8.2. Closed shift-stable sets                                                                               30
+    8.3. Weakly shift-stable sets                                                                               32
+    9. Entropy of interleavings for general sets                                                                33
+    9.1. Topological entropy and prefix topological entropy                                                     33
+    9.2. Entropy and the shift operator                                                                         34
+    9.3. Entropy and decimations                                                                                34
+    9.4. Prefix entropy upper bound for interleaving                                                            35
+    9.5. Stable prefix entropy and interleaving entropy equality                                                36
+    10. Concluding remarks                                                                                      37
+    10.1. General interleaving operations                                                                       37
+    10.2. Iterated interleaving closure operations                                                              38
+    10.3. Characterizing closed weakly shift-stable sets                                                        38
+    Appendix A. Interleaving operad                                                                             38
+    References                                                                                                  40
+
+
+
+
+                                              1. I NTRODUCTION
+   Let A be a finite alphabet of symbols, and suppose |A| ≥ 2. A basic object in one-sided symbolic
+dynamics is the full one-sided shift space AN , which is the space of all one-sided infinite strings of symbols
+drawn from A. Here N = Q   {0, 1, 2, . . .} denotes the natural numbers, and N+ = N r {0} denotes the positive
+                     N
+integers. We view A = j∈N A as a compact topological space carrying the product topology, with each
+copy of A carrying the discrete topology; we call this topology of AN the symbol topology. The dynamics
+in one-sided symbolic dynamics is the action of the (one-sided) shift operator S : AN → AN on individual
+symbol sequences x = a0 a1 a2 a3 · · · by
+                                            S(x) := a1 a2 a3 a4 · · · .                                      (1.1)
+In contrast, two-sided symbolic dynamics (treated in Lind and Marcus [33]) uses the two-sided shift operator
+S : AZ → AZ with S((ai )i∈Z ) = (bi )i∈Z with bi = ai+1 . It focuses on sets X ⊆ AZ that are invariant
+under the (two-sided) shift operator: SX = X. Such sets arise as discretizations of continuous dynamical
+systems such as geodesic flow, and led to the original formulation of symbolic dynamics by Morse and
+Hedlund [39]. In one-sided symbolic dynamics on subsets of AN the spaces X can encode initial conditions.
+Initial conditions can break shift-invariance, so it is natural to consider spaces that are stable under the shift:
+SX ⊆ X.
+                   DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                       3
+
+   This paper studies the action of decimation and interleaving operations acting on sets X in the framework
+of symbolic dynamics and coding theory. Decimation operations are important in digital signal processing
+and coding theory, and interleaving operations form a kind of inverse operation to them, see (1.4).
+    (1) At the level of individual symbol sequences, the jth decimation operation at level n, for i ≥ 0 and
+        n ≥ 1, denoted ψi,n : AN → AN , for an individual symbol sequence x = a0 a1 a2 a3 · · · is
+                                      ψi,n (x) := ai ai+n ai+2n ai+3n · · · .                             (1.2)
+        This operator extracts symbol subsequences having indices in an arithmetic progression given by
+        i (mod n), starting at initial index j.
+    (2) The n-fold interleaving operation ⊛n : AN × AN × · · · × AN → AN is an n-ary operation whose
+        action on n individual symbol sequences xi = ai,0 ai,1 ai,2 · · · for 0 ≤ i ≤ n − 1 is defined by
+                                                      n−1
+               (x0 , x1 , · · · , xn−1 ) 7→ y := (⊛n )i=0 xi = x0 ⊛x1 ⊛ · · · ⊛xn−1 = b0 b1 b2 · · ·      (1.3)
+        in which the output sequence y := b0 b1 b2 . . . interleaves the symbols in arithmetic progressions of
+        symbol indices (mod n), so that
+                                 bi+jn = ai,j    for j ≥ 0, 0 ≤ i ≤ n − 1.
+         That is, the output y has in its symbol positions i (mod n) the symbols of xi given in order.
+Decimation and interleaving operations defined pointwise extend by set union to define set-valued operators
+acting on arbitrary subsets X of AN (resp. of (AN )n ). For examples, see Sections 2.1 and 2.2.
+   All individual symbol sequences x are constructible as n-fold interleavings of suitable decimations:
+                                             n−1
+                                    x = (⊛n )i=0 ψi,n (x)     for    x ∈ AN ,                             (1.4)
+see Section 4.1.
+1.1. Summary. This paper treats two topics.
+1.1.1. The first topic studies algebraic properties of the algebraic structure of decimation and interleaving
+operators under composition. The set of all decimation operations is closed under composition, and the
+decimation and shift actions are compatible in a sense we describe in Section 3. Decimation operators are
+closed under composition.
+                                                                                             n−1
+   We define the n-fold interleaving closure X [n] of a set X in Section 2 as X [n] = (⊛n )i=0   ψi,n (X), an
+operation that combines both decimations and interleavings. We show the operation sending X to X [n] is a
+set-valued closure operation in the Moore sense, in particular X ⊆ X [n] . A main result is that interleaving
+closure operators under composition satisfy
+                                    (X [m] )[n] = (X [n] )[m] = X [lcm(m,n)] ,                            (1.5)
+where lcm(m, n) denotes the least common multiple of m and n. Thus these operators are closed under
+composition, commute under composition, and are idempotent.
+   We show X is closed under n-fold interleaving closure, meaning X = X [n] , if and only if X factorizes
+              n−1
+as X = (⊛n )j=0    Xj under the n-fold interleaving operation for some Xj . We study the allowable sets M
+of integers n ≥ 1 for which there exists some set X that has X = X [n] if and only if n ∈ M . That is,
+letting N (X) = {n : X = X [n] }, we classify the sets M ⊂ N+ such that M = N (X) for some X ⊂ AN .
+We show that if finite, the set N (X) consists of the set of all divisors of an integer n0 , and all such n0 may
+occur. A new phenomenon is the existence of infinitely factorizable X, which necessarily have X = X [n]
+for all n in an infinite distributive sublattice of N+ under the divisibility partial order, downward closed
+under divisibility. We show all such infinite sublattices may occur for non-closed X, but if X is closed, we
+show the only allowed infinite sublattice is N+ .
+   There is an additional algebraic structure consisting of the collection of all operations obtained from
+combining interleaving operations of different arities under composition. These form a nonsymmetric
+operad in the category of sets, and we term it the interleaving nonsymmetric operad. We give a series of
+4                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+universal shuffle identities under composition satisfied by this operad. We discuss the operad formalism in
+Section 2.7 and in Appendix A.
+1.1.2. The second topic studies symbolic dynamics aspects of decimation and interleaving operations. The
+shift operation acts compatibly with decimations and with n-fold interleaving, and we give commutation
+identities describing its action. The class of shift-invariant sets (those with SX = X) and the class of shift-
+stable sets (those with SX ⊆ X) are not preserved under interleaving. We introduce an enlarged class of
+sets better adapted to these operations.
+   A set X ⊆ AN is said to be weakly shift-stable if there are integers k > j ≥ 0 such that S k X ⊆ S j X.
+The set X need not be a closed set in the symbol topology. We show the class of all weakly shift-stable
+sets, denoted W(A), is closed under the shift and under all decimation and interleaving operations, as is the
+subclass W(A) of all closed sets in W(A).
+   The complexity of a set X can be measured using various notions of the entropy of X, which provide
+invariants that distinguish dynamical systems. The paper [2] studied two concepts of of entropy for X, the
+topological entropy Htop (X) and path topological entropy Hp (X), which we term here prefix topological
+entropy. For general X one has Hp (X) ≤ Htop (X), and strict inequality may occur. We obtain an inequality
+                                                                               n−1
+relating the prefix topological entropy of an n-fold interleaving X = (⊛n )i=0     Xi to that of its factors Xi :
+                                                         n−1
+                                                      1X
+                                           Hp (X) ≤      Hp (Xi ),                                          (1.6)
+                                                      n
+                                                         i=0
+and strict inequality may occur. A main result is that the class of weakly shift-stable sets W(A) has good
+properties for both entropies; the two entropies are equal and equality holds in the interleaving inequality
+(1.6) . In consequence, for weakly shift-stable sets we obtain a formula for topological entropy under
+interleaving:
+                                                      n−1
+                                                    1X
+                                       Htop (X) =          Htop (Xi ).
+                                                    n
+                                                         i=0
+
+1.1.3. Most results in this paper apply to general sets X, but for symbolic dynamics applications we are
+most interested in closed sets X in the product topology on AN . These satisfy:
+    (1) If X is a closed set, then all decimations ψj,n (X) are closed sets for j ≥ 0 and n ≥ 1.
+                                                                                           n−1
+    (2) If X0 , X1 , · · · , Xn−1 are closed sets, then their n-fold interleaving X = (⊛n )i=0 Xi is a closed set.
+                                                                                                     n−1
+    (3) Conversely, if X is a closed set and has an n-fold interleaving factorization X = (⊛n )i=0       Xi , then
+         each Xi is a closed set.
+The decimation, interleaving, and shift operators all commute with topological closure operation X 7→ X.
+In consequence all n-fold interleaving closure operations commute with topological closure.
+   Detailed statements of results are made in Section 2. The main results concerning properties of n-fold
+interleaving closure operations of a set X are Theorems 2.10, 2.12 and 2.13. The main results concerning
+weakly shift-stable sets X are Theorems 2.15 and 2.20.
+1.2. Background. This study was motivated by work on path sets initiated in [2]. Path sets are a class of
+closed sets in AN that form a generalization of shifts of finite type and of sofic shifts in symbolic dynamics,
+and which also include sets not invariant under the shift operator. Path sets are described by finite automata,
+and have an automata-theoretic characterization as the closed sets in AN that are the set of all infinite paths
+in some deterministic Büchi automaton. This class includes interesting sets arising in fractal constructions
+and in study of radix expansions in number theory (see [3], [4]) arising from a number theory problem of
+Erdős ([31]) The paper [2] considered decimation operations on path sets and showed that decimations of
+path sets are also path sets. The p-adic integers with the p-adic topology form a shift space with p-symbols,
+and interleaving operations on path sets arose in this context in [1].
+   The authors recently studied the action of interleaving operations on path sets, in [5]. Interleaving op-
+erations already lead to the breaking of shift-invariance even if all sets Xi used in the interleaving are
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         5
+
+shift-invariant. The paper [5] shows that the class C(A) of all path sets on a finite alphabet A is closed under
+all interleaving operators.
+   This paper obtains results valid for general sets X ⊆ AN , which provide perspective on results on path
+sets proved in [5]. The concept of weakly shift-stable closed sets W(A) supplies a good generalization
+of the class C(A) of path sets to more general closed sets. The paper [5] shows that all path sets are
+weakly shift-invariant, which implies they are weakly shift-stable. In consequence, the entropy equalities of
+the present paper under weak shift-stability apply to interleaving of path sets. The present paper includes
+examples showing that various finiteness results given in [5] for path sets are not valid for general closed
+sets X ⊆ AN , see Remark 7.3.
+
+1.3. Related work. Decimation operations play an important role in sampling and interpolation operations
+in digital signal processing (“downsampling”), and in multi-scale analysis and wavelets (e.g., [16], [29]).
+Interleaving constructions have been used in coding theory as a method for improving the burst error cor-
+rection capability of a code (cf. [48, Section 7.5]). They are also considered in formal language theory; see
+Krieger et al. ([30]). The analogue of n-fold interleaving for finite codes is referred to by coding theorists
+as block interleaving of depth n. Decimation and interleaving operators together have been considered both
+in cryptography and cryptanalysis, cf. Rueppel [45] and Cardell et al [10]. Since methods of encoding and
+decoding can be viewed as dynamical processes, it is of interest to view these operations in a dynamical
+context.
+
+1.3.1. There has been prior work on interleaving operations in the automata theory literature, typically for
+finite
+   ` words. In 1974 Eilenberg [19, Chap. II.3, page 20] introduced a notion of internal shuffle product
+A B of two recognizable sets (= regular language) which corresponds to 2-fold interleaving. A more
+general notion is alphabetic shuffle. The shuffle product has been characterized in the context of finite
+automata by Duchamp et al [18, Sect. 4]. In this paper we are considering such operations on infinite
+words, which differ in nature from the finite word case. For infinite words viewed in an automata-theoretic
+context, see Perrin and Pin [40]. We are not aware of prior work studying the algebraic operator structure of
+interleaving operations.
+
+1.3.2. Regarding dynamics, one-sided shift-stable sets have their dynamics partially classified by C ⋆ -
+algebra invariants. The work of Cuntz and Krieger [15] and Cuntz [14] was seminal in attaching such
+invariants to topological Markov chains (= two-sided shifts of finite type). Carlsen ([11], [12]) attached C ∗ -
+algebras to one-sided subshifts and studied their properties. Shift-stable sets X are studied in the context
+of partial isometry actions and C ⋆ algebras attached to them by Dokuchaev and Exel [17]. See Exel [22]
+for related background. One may ask whether there are generalizations of these constructions to weakly
+shift-stable sets introduced in this paper.
+
+1.3.3. In the ongoing development of operad theory and n-categories, interleaving operations have recently
+played a role at a categorical level, see Leinster [32] and Cottrell [13]. General references for operads are
+Markl, Shnider and Stasheff [35], and more recently Loday and Vallette [34] and Bremner and Dotsenko [9]
+for algebraic operads.
+   Acknowledgments. We thank the reviewers for helpful comments and references. We thank I. Kriz for
+a discussion on operads. Some work of W. Abram and D. Slonim was facilitated by the Hillsdale College
+LAUREATES program, done by D. Slonim under the supervision of W. Abram. Work of J. Lagarias.was
+partially supported by NSF grants DMS-1401224 and DMS-1701229, and by a Simons Fellowship in Math-
+ematics in 2019.
+
+                                                 2. R ESULTS
+  We give formal definitions with examples, and then state results.
+6                             WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+2.1. Decimation operations.
+Definition 2.1. (Decimation operations) Let A be a finite alphabet of symbols.
+    (1) For individual sequences x ∈ AN the i-th decimation operation at level n, denoted ψi,n : AN → AN ,
+        for i ≥ 0 is defined for x = a0 a1 a2 a3 · · · by
+                                            ψi,n (x) := ai ai+n ai+2n ai+3n · · · .
+          This operator extracts symbol subsequences having indices in an arithmetic progression given by i
+          (mod n), which starts at initial index i. The principal n-decimations are those with 0 ≤ i ≤ n − 1.
+      (2) For sets X ⊆ AN the i-th decimation at level n, denoted ψi,n (X), is the set union
+                                             ψi,n (X) := {ψi,n (x) : x ∈ X} .                                             (2.1)
+Example 2.2. For the alphabet A = {0, 1, 2, 3} consider the sets1
+                   X = {x1 = (01)∞ , x2 = (10)∞ }, and Y = {y1 = (323)∞ , y2 = (332)∞ },
+containing two periodic infinite words of period 2 and two periodic infinite words of period 3, respectively.
+  The principal 2-decimations of the elements of X are
+            ψ0,2 ((01)∞ ) = 0∞ , ψ1,2 ((01)∞ ) = 1∞ ,          and    ψ0,2 ((10)∞ ) = 1∞ , ψ1,2 ((10)∞ ) = 0∞ .
+Thus ψ0,2 (X) := {0∞ , 1∞ } and ψ1,2 (X) = {1∞ , 0∞ } = ψ0,2 (X).
+  The principal 2-decimations of the elements of Y are
+ψ0,2 ((323)∞ ) = (332)∞ , ψ1,2 ((323)∞ ) = (233)∞ , and ψ0,2 ((332)∞ ) = (323)∞ , ψ1,2 ((332)∞ ) = (332)∞ .
+We obtain ψ0,2 (Y ) := {(332)∞ , (323)∞ } = Y and ψ1,2 (Y ) = {(233)∞ , (332)∞ } =
+                                                                                 6 Y.
+     In Section 3 we show:
+      (1) The set of all decimation operations are closed under composition. For X ⊆ AN ,
+                                             ψj,m ◦ ψi,n (X) = ψi+jn,mn (X).
+          This identity on subscripts matches an action of the (ax + b)-group on Z.
+      (2) The shift action is compatible with the decimation action: For X ⊆ AN ,
+                                                  ψi,n (SX) = ψi+1,n (X).
+           and
+                                                  Sψi,n (X) = ψi,n (S n X).
+2.2. Interleaving operations. Interleaving operations comprise an infinite collection of n-ary operations
+(n ≥ 1), defined for arbitrary subsets X of the shift space AN .
+Definition 2.3. (Interleaving operations) Let A be a finite alphabet of symbols.
+    (1) For individual sequences xi = ai,0 ai,1 ai,2 · · · ∈ AN , (0 ≤ i ≤ n − 1) the n-fold interleaving
+                                                                             n−1
+        operation ⊛n : AN × AN × · · · × AN → AN , denoted either (⊛n )i=0       xi or x0 ⊛x1 ⊛ · · · ⊛xn−1 ,
+        combines these sequences by
+    (x0 , x1 , · · · , xn−1 ) 7→ x0 ⊛x1 · · · ⊛xn = y := (a0,0 a1,0 · · · an−1,0 ) ◦ (a0,1 a1,1 · · · an−1,1 ) ◦ (a0,2 · · · .
+           where ◦ denotes concatenation of sequences. That is, y = b0 b1 b2 · · · with
+                                    bi+kn = ai,j     for     0 ≤ i ≤ n − 1, and j ≥ 0,
+          so that the symbols of y in symbol positions i (mod n) are the symbols of xi , (0 ≤ i ≤ n − 1).
+                                                                                      n−1
+      (2) For sets Xj ⊆ AN , (0 ≤ j ≤ n − 1), their n-fold interleaving, denoted (⊛n )i=0  Xi or
+          X0 ⊛n X1 ⊛n X2 ⊛n · · · ⊛n Xn−1 , is defined by the set union:
+                           n−1
+                      (⊛n )i=0 Xi = {x0 ⊛x1 ⊛ · · · ⊛xn−1 : xj ∈ Xj for all 0 ≤ j ≤ n − 1}.
+     1Here x = (01)∞ = 010101...
+            1
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                        7
+
+                    n−1
+   A set X = (⊛n )i=0   Xi is said to have an n-fold interleaving factorization. The sets Xi are called n-fold
+interleaving factors of X, or just interleaving factors. One can express n-fold interleavings in terms of
+                                           n−1
+principal decimations of level n as: (⊛n )i=0  Xi = {x ∈ AN : ψj,n (x) ∈ Xj for all 0 ≤ j ≤ n − 1}., see
+Proposition 4.1.
+Example 2.4. Continuing Example 2.2, the 2-fold interleaving of X with itself is
+                           X⊛X = {x1 ⊛x1 , x1 ⊛x2 , x2 ⊛x1 , x2 ⊛x2 }
+                               = {(0011)∞ , (0110)∞ , (1001)∞ , (1100)∞ }.
+It contains four periodic words of period 4.
+    The 2-fold interleaving of Y with itself is
+                      Y ⊛Y     = {y1 ⊛y1 , y1 ⊛y2 , y2 ⊛y1 , y2 ⊛by2 }
+                               = {(332233)∞ , (332332)∞ , (333223)∞ , (333322)∞ }.
+It contains four periodic words of period 6. The 2-fold interleavings of X and Y are
+     X⊛Y       := {x1 ⊛y1 , x1 ⊛y2 , x2 ⊛y1 , x2 ⊛y2 }
+               = {(031203130213)∞ , (031302130312)∞ , (130213031203)∞ , (130312031302)∞ .}
+
+     Y ⊛X := {y1 ⊛x1 , y1 ⊛x2 , y2 ⊛x1 , y2 ⊛x2 }
+           = {(302130312031)∞ , (303120313021)∞ , (312031302130)∞ , (313021303120)∞ .},
+Each of them contains four periodic words of period 12. We have X⊛Y 6= Y ⊛X.
+   A basic relation between interleaving and decimation is an identity, valid at the pointwise level, stating
+that ordered n-fold decimations post composed with n-fold interleaving give the identity map:
+                                         n−1
+                                    (⊛n )i=0 ψi,n (x) = x for      x ∈ AN .                               (2.2)
+For this reason we call the decimations ψi,n for 0 ≤ i ≤ n − 1, the principal decimations. The remaining
+decimations i ≥ n may be obtained by applying the one-sided shift operator to these decimation sets; see
+Proposition 3.2.
+2.3. Interleaving closure operations. The interleaving operations together with principal decimations de-
+fine a family of set-theoretic closure operations on general subsets X ⊆ AN . These operators are a main
+focus of this paper.
+Definition 2.5. The n-fold interleaving closure operation X 7→ X [n] is defined for each X ⊆ AN by
+                                                        n−1
+                                          X [n] := (⊛n )i=0 ψi,n (X).                                     (2.3)
+Example 2.6. For X = {(10)∞ , (01)∞ }, the 2-fold interleaving closure X [2] := ψ0,2 (X)⊛ψ1,2 (X) is
+                                       X [2] = {0∞ , (01)∞ , (10)∞ , 1∞ }.
+We have X ( X [2] .
+Example 2.7. (Interleaving and n-fold interleaving closure) Let A = {0, 1} and let X0 ⊂ AN be the one-
+sided Fibonacci shift consisting of all words that do not contain the pattern 11 in two consecutive digits. Let
+X1 = AN be the full shift. Then:
+(1) X0 ⊛X1 ⊂ AN consists of all words that do not contain a 1 in digits i and i + 2 for any i even. That is,
+    there can be no 1’s in consecutive even digits, but there are no other restrictions on the word. Here X0
+    and X1 are each invariant under the shift operator, i.e., S(Xi ) = Xi , but X0 ⊛X1 is not shift-invariant.
+                                                                        n−1
+(2) Interleaving any number of copies of X1 gives X1 . That is, (⊛n )j=0    X1 = X1 for n ≥ 1.
+                                                                             [n]
+(3) The n-fold interleaving closure of X0 is X1 for all n ≥ 2, that is, X0 = X1 = AN . This holds because
+    ψj,n (X0 ) = X1 for all j ≥ 0 when n ≥ 2.
+8                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+                 [n]
+(4) Likewise, X1 = X1 for n ≥ 1. So X 1 has n-fold interleavings for all n ≥ 1.
+
+   In Section 4.1 we show the existence of an n-fold interleaving factorization of a set X corresponds to its
+invariance under n-fold interleaving closure, and that its interleaving factors are its principal decimations.
+
+Theorem 2.8. (Decimations and interleaving factorizations)
+   (1) A subset X of AN has an n-fold interleaving factorization X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 if and only if
+X = X [n] .
+   (2) If X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 has an n-fold interleaving factorization, then its ordered set of n-fold
+interleaving factors is unique, given by its principal decimations
+
+                                     Xi = ψi,n (X)          for   0 ≤ i ≤ n − 1.
+
+   Regarding (2), there typically are many sets Y such that ψi,n (Y ) = ψi,n (X) for 0 ≤ i ≤ n − 1, and we
+show X contains every such set Y in Theorem 4.2.
+   In Section 4.2 we justify the name n-fold interleaving closure by showing that X 7→ X [n] is a set-theoretic
+closure operation, as formalized in Grätzer [26, Chap. I, Sect. 3.12, Defn.26], and that X [n] is characterized
+as the maximal set Z having the property that ψi,n (Z) = ψi,n (X) for 0 ≤ i ≤ n − 1.
+   In Section 4.3 we establish universal algebraic identities relating certain compositions of n-fold interleav-
+ings for different n.
+
+Proposition 2.9. (Interleaving shuffle identities) For each m, n ≥ 2 and arbitrary sets {Xi : 0 ≤ i ≤
+mn − 1} contained in the one-sided shift AN , one has the identity of sets
+                                                        
+                                  n−1
+                             (⊛n )i=0   (⊛m )m−1                    mn−1
+                                              j=0 Xi+jn = (⊛mn )k=0 Xk .                         (2.4)
+
+   These identities are termed shuffle identities because the n-fold interleaving operation acts like a shuffling
+of n decks of cards together, taking the top cards in a particular order from each of the n decks, where the
+cards correspond to positions of symbols in the expansion.
+   In Section 4.4 we establish a main result determining the action of composition of interleaving closure
+operators. The shuffle identities play a crucial role in proving this result.
+
+Theorem 2.10. (Composition of interleaving closures) For all m, n ≥ 1, and all X ⊆ AN ,
+
+                                     (X [m] )[n] = (X [n] )[m] = X [lcm(m,n)] ,                            (2.5)
+
+where lcm(m, n) denotes the least common multiple of m and n.
+
+    In Section 4.5 we show interleaving commutes with intersection:
+                               m−1
+                               \                                        m−1
+                                                                        \
+                                           n−1                n−1
+                                     ((⊛n )i=0 Xjn+i ) = (⊛n )i=0 (            Xjn+i ).
+                               j=0                                       j=0
+
+In Section 4.6 we determine the action of the shift operator on n-fold interleavings and interleaving closures.
+In particular we show that
+                                               SX [n] = (SX)[n] .
+   In Section 4.7 we show that the topological closure operation commutes with both decimations and inter-
+leaving operations. In particular it commutes under composition with n-fold interleaving closure:
+                                                      [n]
+                                                  X         = X [n] .
+
+Thus if X is a closed then its n-fold interleaving closure X [n] is closed.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         9
+
+2.4. Structure of interleaving factorizations. We study the possible structure of the set of all interleaving
+factorizations of a fixed set X ⊆ AN .
+Definition 2.11. Let X in AN be a fixed set, with A a finite alphabet.
+  (1) The interleaving closure set N (X) ⊆ N+ of X is the set of integers
+                                 N (X) := {n : n ≥ 1 and         X = X [n] }.
+    (2) The interleaving factor set F(X) consists of all n-ary interleaving factors, Xi,n , for all n ∈ N (X),
+i.e.
+                               F(X) = {ψi,n (X) : n ∈ N (X), 0 ≤ i ≤ n − 1}
+    (3) The (full) decimation set D(X) consists of all decimations of X.
+                                    D(X) = {ψi,n (X) : i ≥ 0, n ≥ 1}.
+The principal decimation set Dprin (X) consists of all principal decimations
+                             Dprin (X) := {ψi,n (X) : n ≥ 1, 0 ≤ i ≤ n − 1}.
+   The interleaving factor set is a subset of the set of all principal decimations: F(X) ⊆ Dprin (X) We
+always have X ∈ F(X) and 1 ∈ N (X).
+   An important feature of factorizations is that some X are infinitely factorizable in the sense that they
+have n-fold interleaving factorizations for infinitely many n, i.e. N (X) is infinite. The full one-sided shift
+X = AN on the alphabet A is an example; it has m-fold factorizations for all m ≥ 1, and N (AN ) = N+ ,
+while its interleaving factor set F(AN ) = {AN } contains one element. We term all the remaining ones
+finitely factorizable. There exist closed sets X having infinite N (X) and having an infinite interleaving
+factor set F(X), see example 6.5.
+Theorem 2.12. (Structure of interleaving closure sets) Let N (X) = {n ≥ 1 : X = X [n] }. Then N (X) is
+nonempty and has the following properties.
+   (1) If n ∈ N (X) and d divides n, then d ∈ N (X).
+   (2) If m, n ∈ N (X) then their least common multiple lcm(m, n) ∈ N (X).
+   Conversely, if a subset N ⊂ N+ is nonempty and has properties (1) and (2), then there exists X ⊆ AN
+with N = N (X).
+   This result is proved separately in the direct and converse directions as Theorem 5.1 and Theorem 5.3,
+respectively. A nonempty structure N having properties (1), (2) is abstractly characterized as any nonempty
+subset of N+ that is a sublattice under the divisibility partial order, which is also downward closed under
+divisibility, see 5.1 (3). The notion of lattice here is that of G. Birkhoff, see Grätzer [26].
+   In Section 5.3 we also treat self-interleaving factorizations, which are interleaving factorizations in which
+all factors are identical. For a general set X we define the self-interleaving closure set
+                                                       n−1
+                        Nself (X) := {n ∈ N : X = (⊛n )i=0 Y for some Y ⊆ AN }
+as the set of n such that X has an n-fold self-interleaving factorization. Self-interleavings naturally occur
+in circumstances given in We show that the structure of Nself (X) has exactly the same collection allowed
+structure as N (X) in Theorem 2.12; however for individual X the set of values Nself (X) can be strictly
+smaller than N (X).
+   In Section 6 we study infinitely factorizable sets X in the special case that X is a closed set.
+Theorem 2.13. (Classification of infinitely factorizable closed X) For a closed set X ⊆ AN , where A is a
+finite alphabet, the following properties are equivalent.
+      (i) X is infinitely factorizable; i.e., N (X) is an infinite set.
+                                                                              = N+ .
+     (ii) X has an n-fold interleaving factorization for all n ≥ 1, ie. N (X) Q
+    (iii) For each k ≥ 0 there are nonempty subsets Ak ⊆ A such that X = ∞      k=0 Ak is a countable product
+          of finite sets with the product topology.
+10                       WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+   In view of Theorem 2.12, the assumption that X is closed is necessary for these three equivalences to hold.
+The important consequence for closed sets X is that if they are infinitely factorizable then N (X) = N+ .
+   In Section 7 we study an iterated interleaving factorization process for a closed set X. If X is infinitely
+factorizable, we “freeze” it. If it is finitely factorizable, we decompose it to its maximal factorization, and
+then repeat the process on each of these factors. We show by example that this factorization process can go
+to infinite depth.
+2.5. Shift-stability and weak shift-stability. We consider several classes of sets X having different trans-
+formation properties under the shift action.
+Definition 2.14. (Shift-invariance, shift-stability, weak shift-stability)
+  (1) A set X ⊆ AN is shift-invariant if SX = X.
+  (2) A set X is shift-stable if SX ⊆ X.
+  (3) A set X is weakly shift-invariant if there are integers k > j ≥ 0 such that S k X = S j X.
+  (4) A set X is weakly shift-stable if there are integers k > j ≥ 0 such that S k X ⊆ S j X.
+   These definitions do not require the set X to be closed in the symbol topology.
+   In Section 8 we show consequences of these properties. We show that for shift-invariant sets, all interleav-
+ing factorizations are self-interleaving factorizations; that is, if X is shift-invariant, then N (X) = Nself (X).
+We show that closed shift-stable sets have a forbidden blocks characterization paralleling the two-sided shift
+case. Example 8.5 constructs a closed set X having an infinite, strictly descending chain of sets under the
+shift operation.
+   An important property introduced here is weak shift-stability. The usefulness of this property is that the
+class W(A) of all weakly shift-stable sets on a finite alphabet A is closed under all decimation, interleaving
+and shift operations. This is not the case for properties (1)-(3) above.
+Theorem 2.15. Let A be finite alphabet and let X ⊆ AN be a general set.
+  (1) If X is weakly shift-stable, then all decimations ψj,n (X) for j ≥ 0, n ≥ 1 are weakly shift-stable.
+                                                                                                  n−1
+  (2) If X0 , X1 , · · · , Xn−1 are weakly shift-stable, then their n-fold interleaving Y := (⊛n )i=0 Xi is also
+weakly shift-stable.
+  (3) If X is weakly shift-stable, then its n-fold interleaving closure X [n] is weakly shift-stable for each
+n ≥ 1.
+  A parallel result holds for the class W(A) of all closed weakly shift-stable sets on the finite alphabet A.
+This latter class of sets includes the path sets studied in [2], as shown in [5].
+2.6. Entropy of interleavings. In Section 9 we study two notions of entropy for general sets X.
+Definition 2.16. (Topological entropy) The topological entropy Htop (X) is given by
+                                                         1
+                                   Htop (X) := lim sup log Nk (X)
+                                                 k→∞ k
+where Nk (X) counts the number of distinct blocks of length k to be found across all words x ∈ X.
+   The topological entropy is defined here as a limsup, however the limit always exists, as a consequence of
+a submultiplicativity property of block counting functions Nk1 +k2 (X) ≤ Nk−1 (X)Nk2 (X) of Nk (X), see
+[6, Property 8]. Here log denotes the natural logarithm; in information theory log2 is used instead.
+Definition 2.17. (Prefix entropy and stable prefix entropy)
+  (1) The prefix entropy (or path topological entropy of Hp (X) of a general set X , is defined by
+                                                         1
+                                     Hp (X) := lim sup log NkI (X),                                         (2.6)
+                                                  k→∞ k
+
+where NkI (X) counts the number of distinct prefix blocks. b0 b1 · · · bk−1 of length k found across all words
+x ∈ X.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         11
+
+   (2) The limit in (2.6) does not always exist, and we say that X has stable prefix entropy if the limit does
+exist:
+                                                         1
+                                        Hp (X) := lim log NkI (X),                                        (2.7)
+                                                   k→∞ k
+
+   The prefix entropy was introduced in [2] under the name path topological entropy for a class of sets
+called path sets. In that paper symbol sequences were labels attached to paths of edges in a directed labeled
+graph. Prefix blocks were termed there initial blocks (for path sets) i because they represented the initial
+steps along a path in a directed labeled graph defining the path set. Since NkI (X) ≤ Nk (X) we always have
+Hp (X) ≤ Htop (X), and strict inequality may hold.
+   In Section 9.2 we show the shift operator preserves both entropies. Decimation operations need not
+preserve entropy and Section 9.3 gives inequalities such entropies must satisfy. In Section 9.4 we establish
+an inequality for prefix entropy of interleavings of general sets,
+Theorem 2.18. (Prefix entropy bound under interleaving) Let X0 , X1 , · · · , Xn−1 be arbitrary subsets of
+AN . The prefix entropy of the set X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 is bounded above by the arithmetic mean of
+the prefix entropies of X0 , . . . , Xn−1 . That is:
+                                                                n−1
+                                                               1X
+                                   Hp (X0 ⊛ · · · ⊛Xn−1 ) ≤       Hp (Xi ).                                (2.8)
+                                                               n
+                                                                i=0
+
+   Example 9.6 shows that strict inequality in (2.8) may occur.
+   In Section 9.5 we show that the assumption of stable prefix entropy for each of the sets X0 , X1 , ..., Xn−1
+implies equality in this formula. and that the n-fold interleaving X = X0 ⊛ · · · ⊛Xn−1 itself has stable
+prefix entropy.
+Theorem 2.19. (Stable prefix entropy interleaving formula) If each of the sets X0 , X1 , ..., Xn−1 has stable
+prefix entropy, then the n-fold interleaving X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 also has stable prefix entropy. In
+addition
+                                                     n−1
+                                                   1X
+                                          Hp (X) =       Hp (Xi ).                                      (2.9)
+                                                   n
+                                                         i=0
+
+  In contrast to this result for interleaving, decimations of a set X having stable prefix entropy need not
+have stable prefix entropy, see Remark 9.7.
+  We also deduce in Section 9.5 that all weakly shift-stable sets X have good entropy properties.
+Theorem 2.20. (Weak shift-stability implies stable prefix entropy) If X is weakly shift-stable, then X has
+stable prefix entropy. and in addition Hp (X) = Htop (X). Consequently n-fold interleaving of weakly-shift
+stable sets Xi has
+                                                      n−1
+                                                   1X
+                                        Htop (X) =        Htop (Xi ).                                (2.10)
+                                                   n
+                                                         i=0
+
+  Finally we observe that since all decimations of weakly shift-stable sets are weakly shift-stable, they will
+have stable prefix entropy.
+2.7. Composition of interleavings and operad structure. In Section 7 we consider factorizations of a set
+X under iterated composition. We give examples of sets X having iterated factorizations going to infinite
+depth. This behavior differs from interleaving restricted to the class of all path sets on the finite alphabet A,
+as we show in [5] that the iterated factorization of any path set terminates at some finite depth.
+   Abstractly, the family of operations obtained under iterated composition from interleaving operations
+of all arities determines a non-symmetric operad (also called a non-Σ operad) in the sense of May [38],
+see also Markl et al. [35, Part I, Sect. 1.3] and Markl [36, Sect. 1]. Non-symmetric operads arise in
+many combinatorial constructions, see work of Giraudo [24], [25]. Iterated interleaving operations satisfy
+nontrivial universal identities under composition, examples being the shuffle identities given in Theorem 2.9.
+12                       WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+These identities show that certain nested compositions of interleaving operations give equivalent operations.
+However most nestings of compositions yield distinct operations. In particular, interleaving operations do
+not satisfy the associative law when acting on collections of subsets X of AN . For instance, each of the
+3-ary operations X0 ⊛X1 ⊛X2 and X0 ⊛(X1 ⊛X2 ) and (X0 ⊛X1 )⊛X2 are distinct.
+   Operads in general are characterized as (universal) algebraic objects satisfying a given set of universal
+identities. We shall consider the interleaving non-symmetric operad to be the non-symmetric operad whose
+universal identities are all the identities satisfied on the collection of all sets X ⊆ AN with alphabet size
+|A| = 2. These universal identities include the shuffle identities in Theorem 2.9. This set of identities may
+be a generating set for all universal identities for this operad; we leave it as an open question to determine a
+generating set.
+   In Appendix A we provide details checking the operad structure associated to interleaving.
+
+2.8. Contents of paper. The contents of the remainder of the paper are as follows:
+   Section 3 relates decimation operations and shows these operations are closed under composition and
+under the shift operator.
+   Section 4 studies interleaving operations and the interleaving closure operation X → X [n] for general
+sets X ⊆ AN , proving Theorem 2.8 and the shuffle identities.
+   Section 5 establishes divisibility properties of n-fold factorizations of a closed set X.
+   Section 6 classifies infinitely factorizable closed sets X. These sets have more restricted factorizations
+than for non-closed sets.
+   Section 7 studies iterated interleaving factorizations of closed sets X. It shows by example that such
+iterated factorizations can continue to infinite depth.
+   Section 8 studies shift-stability and weak shift-stability of sets X ⊆ AN . It gives a forbidden-blocks
+characterization of shift-stable closed sets. It shows that the class of weakly shift-stable sets is closed under
+all decimation and interleaving operations.
+   Section 9 defines and discusses topological entropy and prefix (topological) entropy, proving Theorems
+2.18, through 2.20.
+   Section 10 discusses further directions for research.
+   Appendix A studies an operad structure generated by interleaving operations.
+
+
+                            3. D ECIMATIONS OF ARBITRARY SUBSETS OF AN
+   This section studies decimations and interleaving for subsets X ⊆ AN . All results in this section apply
+to arbitrary subsets X of AN .
+
+3.1. Compositions of decimations. The set of all decimation operators is closed under composition of op-
+erators. This composition
+                   action is a representation of the discrete ax+b semigroup given by the nonnegative
+integer matrices a0 1b with a ≥ 1 and b ≥ 0.
+
+Proposition 3.1. (Composition of decimations) Let X ⊆ AN be an arbitrary set. For all j, k ≥ 0 and
+m, n ≥ 1 we have
+                        ψj,m ◦ ψk,n (X) := ψj,m (ψk,n (X)) = ψjn+k,mn (X)                     (3.1)
+Proof. The result is verified separately for each element x = x0 x1 x2 · · · ∈ X We set y := ψk,n (x) =
+xk xk+n xk+2n xk+3n · · · where y = y0 y1 y2 · · · has yj = xk+jn . Now
+                          ψj,m ◦ ψk,n (x) = ψj,m(y) = yj yj+myj+2m yj+3m · · ·
+                                          = xk+jnxk+jn+mn xk+jn+2mn . . . ,
+                                          = ψjn+k,mn(x),
+as asserted.                                                                                                  
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         13
+
+3.2. Decimations and the shift. The decimation operations also transform nicely under the one-sided shift
+S(a0 a1 a2 ...) = a1 a2 a3 · · · .
+Proposition 3.2. (Shift of decimations) Let X ⊆ AN be an arbitrary set.
+  (1) For all j ≥ 0 and m ≥ 1 the one-sided shift S acts as
+                                          ψj,m (SX) = ψj+1,m (X).                                          (3.2)
+  (2) In addition
+                                S(ψj,m (X)) = ψj+m,m (X) = ψj,m (S m X).                                   (3.3)
+Proof. For a single element x ∈ X, (3.2) is equivalent to the assertion
+  ψj,m (Sx) = ψj,m(S(x0 x1 x2 · · · )) = ψj,m(x1 x2 x3 · · · ) = xj+1 xm+(j+1) x2m+(j+1) · · · = ψj+1,m (x).
+In this case (3.3) for x ∈ X is equivalent to   S(xj xm+j x2m+j · · · ) = xm+j x2m+j x3m+j · · · .
+   (2) For x ∈ X we have
+           Sψj,m (x) = S(xj xj+m xj+2m · · · ) = xj+m xj+2m · · · = ψj+m,m (x) = ψj,m (S m x),
+where the last equality used (1) iterated m times.                                                           
+
+                           4. I NTERLEAVING FOR ARBITRARY SUBSETS OF AN
+4.1. Interleaving and decimation. Interleaving operations can be characterized in terms of the principal
+decimations of their output. The criterion (2) below could be used as an alternate definition of n-fold
+interleaving of sets.
+Proposition 4.1. (Decimation characterization of interleavings)
+                                                                      n−1
+   (1) Every x ∈ AN has an n-fold interleaving factorization x = (⊛n )i=0 xi for all n ≥ 1. This factoriza-
+tion is unique, with xi = ψi,n (x) (0 ≤ i ≤ n − 1), so that
+                                                                        n−1
+                        x = ψ0,n (x)⊛ψ1,n (x)⊛ · · · ⊛ψn−1,n (x) = (⊛n )i=0 ψi,n (x).                      (4.1)
+                                                                  n−1
+  (2) If X ⊆ AN has an n-fold interleaving factorization X = (⊛n )i=0 Xi , then
+                         X = {x ∈ AN : ψi,n (x) ∈ Xi        for all   0 ≤ i ≤ n − 1}.                      (4.2)
+This factorization is unique with Xi = ψi,n (X) (0 ≤ i ≤ n − 1), so that
+                                                                       n−1
+                       X = ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X) = (⊛n )i=0 ψi,n (X).                       (4.3)
+Proof. The identity (4.1) is immediate from the definition of interleaving product, checking it symbol by
+                                                                                    n−1
+symbol. This n-fold interleaving factorization of x is unique because if x = (⊛n )i=0   xi , then the (i + kn)th
+symbol of x is by definition the kth symbol of xi , so that each symbol of xi is determined by a symbol of x.
+  (2) Let X = X0 ⊛X⊛ · · · ⊛Xn−1 . By definition
+                    X = {x ∈ AN : z = (⊛n )i=0
+                                           n−1
+                                               xi : xi ∈ Xi , for all 0 ≤ i ≤ n − 1}
+                      = {x ∈ AN : ψi,n (x) = xi , with xi ∈ Xi , for all 0 ≤ i ≤ n − 1}
+                      = {x ∈ AN : ψi,n (x) ∈ Xi for all 0 ≤ i ≤ n − 1},
+which is (4.2); we used (1) to deduce the second equality.
+   To show (4.3), it suffices to show ψi,n (X) = Xi . We have ψi,n (X) ⊆ Xi by (4.2). To show the map
+                                                                                          n−1
+is onto, for any xi we can pick arbitrary xj ∈ Xj for j 6= i and then (1) gives x := (⊛n )j=0 xj ∈ Z has
+ψi,n (x) = xi , as required.                                                                          
+
+  We deduce Theorem 2.8 from the proposition.
+14                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+Proof of Theorem 2.8. We are to show X has an interleaving factorization if and only if X = X [n] .
+   (1) Suppose X = X [n] . By definition X [n] = ψ0,n (X)⊛ · · · ⊛ψn−1,n (X) has an interleaving factor-
+ization, so X does too. Conversely if X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 is an interleaving factorization then by
+Proposition 4.1 (2) Xi = ψi,n (X) whence X [n] = X0 ⊛X1 ⊛ · · · ⊛Xn−1 = X.
+   (2) This is Proposition 4.1 (2).                                                                   
+4.2. n-fold interleaving closure operations. We show that the family of closure operations X → X [n] on
+sets X ⊆ AN commutes with topological closure, and the equality X = X [n] corresponds to X having an
+n-fold interleaving factorization.
+   The following result shows this operation is a closure operation in the set-theoretic sense.
+Theorem 4.2. (n-fold interleaving closure) The n-fold interleaving closure operation X [n] of sets X ⊆ AN
+has the following properties:
+    (1) (Projection property) The n-fold interleaving closure X [n] is characterized by the property that it is
+        the maximal set Z such that its principal decimations at level n satisfy
+                                  ψi,n (Z) = ψi,n (X)     for     0 ≤ i ≤ n − 1.                              (4.4)
+     (2) (Extension property) Any set X ⊆ AN satisfies
+                                                    X ⊆ X [n] .                                               (4.5)
+     (3) (Idempotent property) The operation X 7→ X [n] is idempotent; i.e., (X [n] )[n] = X [n] for all X.
+     (4) (Isotone property) If X ⊆ Y then X [n] ⊆ Y [n] .
+Remark 4.3. (Set theory closure property) Properties (2) , (3), and (4) comprise the axioms of a Moore
+closure property (See Schechter [46, Sec. 4.1-4.12]). These axioms are known to be equivalent to the
+property of being closed under arbitrary intersections. The n-fold interleaving closure operation does not
+satisfy all of Kuratowski’s axioms defining the closed sets of a topology; it does not satisfy the set union
+property (X ∪ Y )[n] = X [n] ∪ Y [n] . It does satisfy the inclusion
+                                                                   [n]
+                                           X [n] ∪ Y [n] ⊆ X ∪ Y        .                               (4.6)
+As an example showing the inclusion can be strict, take X = X [2] = {0∞ }, Y = Y [2] = {1∞ }. Then
+                     [2]
+X [2] ∪Y [2] ( X ∪Y       = {0∞ , 1∞ , (01)∞ , (10)∞ }. Relations between the interleaving closure operations
+and topological closure in AN are given in Section 4.7.
+Proof. (1) If a collection of sets each have property (4.4) then so does their union, and X has property (4.4),
+so there exists a maximal set Z with property (4.4). By definition
+                                X [n] := ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X)
+Then by Proposition 4.1(2),
+                         X [n] = {z ∈ AN : ψi,n (z) ∈ ψi,n (X) for all 0 ≤ i ≤ n − 1}                         (4.7)
+The statement ψi,n (Z) = ψi,n (X) means that ψi,n (z)inψi,n (X) for all z ∈ Z. From (4.7), one sees that
+Z = X [n] is precisely the maximal set such that (4.4) holds for all 0 ≤ i ≤ n − 1.
+  (2) It follows from (1). Alterntively, by Proposition 4.1(1) given x ∈ X we have
+             x = ψ0,n (x)⊛ψ1,n (x)⊛ · · · ⊛ψn−1,n (x) ∈ ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X),
+which certifies x ∈ X [n] , proving (4.5).
+   (3) Idempotence follows from (1) and (2): By (1) X [n] is the maximal set having ψi,n (X [n] ) ⊆ ψi,n (X)
+holds for 0 ≤ i ≤ n − 1. Now by (2) (X [n] )[n] contains X [n] . But ψi,n ((X [n] )[n] ) ⊆ ψi,n ((X [n] ) ⊆ ψi,n (X)
+for 0 ≤ i ≤ n − 1, so it is also maximal, so (X [n] )[n] = X [n] .
+   (4) Suppose that X ⊆ Y . Using the projection property (2) for X and Y separately shows
+ψj,n (Y [n] ∪X [n] ) = ψi,n (Y [n] )∪ψi,n (X [n] ) = ψjin (X)∪ψi,n (Y ) = ψi,n (Y ) = ψi,n (Y [n] ) 0 ≤ i ≤ n−1.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                        15
+
+The projection property now gives Y [n] ∪ X [n] ⊆ Y [n] , whence X [n] ⊆ Y [n] .                             
+
+  We now prove for general sets X ⊆ AN the characterization of interleaving factorizations given in
+Theorem 2.8.
+
+Proof of Theorem 2.8. (1) Suppose X = X [n] . Then by definition X = X [n] = ψ0,n (X)⊛ · · · ⊛ψn−1,n (X)
+is an interleaving factorization. Conversely if X = X0 ⊛X1 ⊛ · · · ⊛Xn−1 is an interleaving factorization
+then by Proposition 4.1 (2) Xi = ψi,n (X) = Xi whence X [n] = X0 ⊛X1 ⊛ · · · ⊛Xn−1 = X. This proves
+both (1) and the uniqueness of factorization (2).                                                       
+
+4.3. Shuffle identities for interleaving operators. The family of interleaving operations satisfy universal
+algebraic identities under particular compositions of operations, acting on general subsets of AN . We now
+prove Proposition 2.9, which asserts
+                                                        
+                                    n−1
+                              (⊛n )i=0   (⊛m )m−1
+                                              j=0 X                  mn−1
+                                                    i+jn = (⊛mn )k=0 Xk .                             (4.8)
+
+  One reads the interleaving of interleavings on the left side of (4.8) as
+                       (X0 ⊛Xn ⊛ · · · ⊛X(m−1)n )⊛(X1 ⊛Xn+1 ⊛ · · · ⊛X(m−1)n+1 )⊛ · · ·
+                                         · · · ⊛(Xn−1 ⊛X2n−1 ⊛ · · · ⊛Xmn−1 ),
+with parentheses indicating composition of m-fold interleavings given as input to an n-fold interleaving.
+The right side of (4.8) is an mn-fold interleaving,
+            X0 ⊛X1 ⊛X2 ⊛ · · · ⊛Xn−1 ⊛Xn ⊛Xn+1 ⊛ · · · ⊛ · · · ⊛X(m−1)n+n−2 ⊛X(m−1)n+n−1 ,                 (4.9)
+with factors taken in linear order.
+
+Proof of Proposition 2.9 . Using Proposition 4.1(2) we obtain
+                           
+     n−1
+(⊛n )i=0   (⊛m )m−1
+                j=0  X i+jn   = {x ∈ AN : ψi,n (x) ∈ (⊛m )m−1
+                                                           j=0 Xi+jn for all 0 ≤ i ≤ n − 1}
+
+                               = {x ∈ AN : ψj,m (ψi,n (x)) ∈ Xi+jn for all 0 ≤ j ≤ n − 1, 0 ≤ i ≤ n − 1}
+                               = {x ∈ AN : ψi+jn,mn (x) ∈ Xi+jn for all 0 ≤ j ≤ n − 1, 0 ≤ i ≤ n − 1}
+                                       mn−1
+                               = (⊛mn )k=0  Xk .
+The interleaving definition gives the second and fourth equality and Proposition 3.1 the third equality.     
+
+  Shuffle identities are useful in studying self-interleavings of sets X.
+
+Definition 4.4. Give X ⊆ AN let X (⊛n) denote the n-fold self-interleaving defined by
+                                    n−1
+                     X (⊛n) := (⊛n )i=0 X = X⊛X⊛ · · · ⊛X          (n factors in product).
+   The special case of self-interleaving under composition satisfies identities similar to that of exponentia-
+tion, a consequence of the shuffle identities.
+Proposition 4.5. (Composition of self-interleavings) For any natural numbers m, n ≥ 1, and any subset X
+of AN , the following set-theoretic identity holds for n-fold, m-fold and mn-fold self-interleaving.
+
+                                  (X (⊛n) )(⊛m) = (X (⊛m) )(⊛n) = X (⊛mn) .                            (4.10)
+
+Proof. In Theorem 2.9 choose all Xk = X for 0 ≤ k ≤ mn − 1 and obtain (X (⊛m) )(⊛n) = X (⊛mn) . Then
+interchange m and n.                                                                              
+16                          WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+4.4. Composition identities for interleaving closure operations. We prove Theorem 2.10 determining
+the composition of self-interleaving closure operations: (X [m] )[n] = (X [n] )[m] = X [lcm(m,n)] .
+   We first establish a preliminary result giving formulas and inclusions for compositions of interleaving
+closure operations.
+Proposition 4.6. (Composition formulas) (1) For all m, n ≥ 1, and all X ⊆ AN ,
+                                         (X [m] )[n] = (⊛n )i=0
+                                                            n−1
+                                                                ψi,n (X [m] ).                         (4.11)
+     (2) For all m, n ≥ 1, and all X ⊆ AN ,
+                                                       n−1
+                                         X [mn] = (⊛n )i=0 (ψi,n (X)[m] ).                             (4.12)
+     (3) For all m, n ≥ 1
+                                                  X [m] ⊆ X [mn] .                                     (4.13)
+     (4) If gcd(m, n) = 1 then
+                                         (X [m] )[n] = (X [n] )[m] = X [mn]
+Proof. (1) This assertion is the definition of the n-fold interleaving closure of X [m] .
+  (2) We set Xk := ψk,mn (X) for 0 ≤ k ≤ mn − 1 in the shuffle identity (2.4), obtaining
+                                                 n−1
+                                                                              
+                                 X [mn] = (⊛n )i=0    (⊛m )m−1
+                                                            j=0 ψi+jn,mn (X)
+
+The right side of this equation contains terms Zi := (⊛m )m−1
+                                                          j=0 ψjn+i,mn (X), and we must show Zi =
+        [m]
+ψi,n (X) . We have
+                                                                                     
+         ψi,n (X)[m] :=     ψ0,m ◦ ψi,n (X) ⊛ ψ1,m ◦ ψi,n (X) ⊛ · · · ⊛ ψm−1,m ◦ ψi,n (X)
+                        =      ψi,mn (X) ⊛ ψi+n,mn (X) ⊛ · · · ⊛ ψi+(m−1)n,mn (X) = Zi .
+as required.
+   (3) We have X [m] ⊆ (X [m] )[n] by the extension property of n-fold interleaving. We claim that
+                                                (X [m] )[n] ⊆ X [mn] .                                 (4.14)
+To prove the claim, comparing the now proved (4.11) and (4.12), it suffices to show
+                                 ψi,n (X [m] ) ⊆ ψi,n (X)[m]   for 0 ≤ i ≤ n − 1.                      (4.15)
+For fixed i, the right side of this inclusion is an m-fold interleaving
+                                                                                      
+             ψi,n (X)[m] = ψ0,m ◦ ψi,n (X) ⊛ ψ1,m ◦ ψi,n (X) ⊛ · · · ⊛ ψm−1,m ◦ ψi,n (X)
+The composition rule for decimations (Proposition 3.1) shows that
+                      ψi,n (X)[m] = ψi,mn (X)⊛ψi+n,mn (X)⊛ · · · ⊛ψi+(m−1)n,mn (X).                    (4.16)
+  To evaluate the left side of the inclusion (4.15), suppose x = ψi,n (z) ∈ ψi,n (X [m] ) with z ∈ X [m] . Now
+by Proposition 4.1 (1), x has an m-fold interleaving factorization
+                                   x = (⊛m )m−1
+                                            j=0 wj = w0 ⊛w1 ⊛ · · · ⊛wm−1 ,
+where
+                                 wj = ψj,m (x) = ψj,m (ψi,n (z)) = ψi+jn,mn (z).
+Therefore
+       x = ψi,n (z) = (⊛m )m−1
+                           j=0 ψi+jn,mn (z) = ψi,mn (z)⊛ψi+n,mn (z)⊛ · · · ⊛ψi+(m−1)n,mn (z).          (4.17)
+     We are to show x ∈ ψi,n (X)[m] . It suffices to show
+                              ψi+jn,mn (z) ∈ ψi+jn,mn (X)        for     0 ≤ j ≤ m − 1,                (4.18)
+since (4.17) then asserts x ∈ (⊛m )m−1
+                                   j=0 ψi+jn,mn (X) whence (4.16) shows x ∈ ψi,n (X)
+                                                                                    [m] .
+                  DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                      17
+
+  To show (4.18), any z ∈ X [m] has, for 0 ≤ k ≤ m − 1,
+                                       ψk,m (z) ∈ ψk,m (X [m] ) = ψk,m (X),
+where the equality of sets holds by definition of m-fold interleaving. Thus there exists some z̃k ∈ X with
+ψk,m (z) = ψk,m (z̃k ). Now for 0 ≤ i ≤ n − 1, 0 ≤ j ≤ m − 1, there exist unique (k, ℓ) satisfying
+                                                i + jn = k + ℓm,                                        (4.19)
+with 0 ≤ k ≤ m − 1, 0 ≤ ℓ ≤ n − 1. Here k = k(i, j) is determined by k ≡ i + jn (mod m). We have
+                             ψi+jn,mn (z) = ψk+ℓm,mn (z) = ψℓ,n (ψk,m (z))
+                                          = ψℓ,n (ψk,m (z̃k )) = ψk+ℓm,mn (z̃k )
+                                          = ψi+jn,mn (z̃k ) ∈ ψi+jn,mn (X),
+showing (4.18).
+   (4) It suffices to show (X [m] )[n] = X [mn] if gcd(m, n) = 1; interchanging m and n then gives the other
+case. The proof of (3) showed that (X [m] )[n] ⊆ X [mn] holds (with no gcd restriction), so it suffices to show
+the reverse inclusion X [mn] ⊆ (X [m] )[n] . By the already proved (4.11) and (4.12) this assertion is
+                   X [mn] = (⊛n )i=0
+                                 n−1
+                                     (ψi,n (X)[m] ) ⊆ (⊛n )i=0
+                                                           n−1
+                                                               (ψi,n (X [m] )) = (X [m] )[n] .          (4.20)
+It therefore suffices to prove the individual set equalities
+                               ψi,n (X [m] ) = ψi,n (X)[m]     for 0 ≤ i ≤ n − 1.                       (4.21)
+hold when gcd(m, n) = 1.
+  Now suppose we are given an arbitrary x ∈ ψi,n (X)[m] . We wish to show x ∈ ψi,n (X [m] ). To begin, x
+has an m-fold interleaving factorization
+                                            x = (⊛m )m−1
+                                                     j=0 ψj,m (xj ),
+in which each xj = ψi,n (zj ) ∈ ψi,n (X) with zj ∈ X. Thus we have
+                                  ψj,m (xj ) = ψj,m (ψi,n (zj )) = ψi+jn,mn (zj ).                      (4.22)
+As in (3) there are (k, ℓ) with
+                              ψi+jn,mn (zj ) = ψk+ℓm,mn (zj ) = ψℓ,n (ψk,m (zj )).
+   Here, for fixed i, the value k = k(i, j) is given by k ≡ i+ jn ( mod m). The values k(i, j) are all distinct
+as j ranges from 0 to m − 1 with i fixed, because gcd(m, n) = 1. It follows that the inverse map j = j(i, k)
+is well defined. By definition of m-fold interleaving closure, there will exist a value z ∈ X [m] having
+                                  ψk,m (z) = ψk,m(zj ) for       0 ≤ k ≤ m − 1,                         (4.23)
+with zj ∈ X and j = j(i, k) runs over all 0 ≤ j ≤ m − 1 as k varies.
+  We claim that ψi,n (z) = x. We have
+                        ψi,n (z) = (⊛m )m−1
+                                        j=0 ψi+jn,mn (z)                      by (4.17)
+                                   =    (⊛m )m−1
+                                             j=0 ψk(i,j)+ℓ(i,j)m,mn (z)      by (4.19)
+                                   =    (⊛m )m−1
+                                             j=0 ψℓ(i,j),n (ψk(i,j),m (z))
+                                   = (⊛m )m−1
+                                          j=0 ψℓ(i,j),n (ψk(i,j),m (zj )),      by (4.23)
+where the last line used the defining property of z ∈ X [m] . Now we simplify
+                 ψi,n (z) = (⊛m )m−1
+                                 j=0 ψk(i,j)+ℓ(i,j)m,mn (zj ))
+                           = (⊛m )m−1                       m−1
+                                  j=0 ψi+jn,mn (zj ) = (⊛m )j=0 ψj,m (xj )                by (4.22)
+                           = x,
+so x ∈ ψi,n (X [m] ).                                                                                        
+18                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+     We now prove the Theorem 2.10 formulas for composition of interleaving closures. .
+Proof of Theorem 2.10. It suffices to prove (X [m] )[n] = X [lcm(m,n)] , because its right side is symmetric in
+m and n; we may then exchange m and n to establish (X [n] )[m] = X [lcm(m,n)] . We have already proven
+(X [m] )[n] = X [mn] for the case gcd(m, n) = 1 in Proposition 4.6.
+   For general n, m we let d = gcd(m, n), the greatest common divisor. One can always find e, f with
+                                                                                       Q e(p,d)
+d = ef such that e|m and f |n and gcd( m               n
+                                                   e , f ) = 1. To see this, let d =      pp        denote the prime
+                                              Q             e(p,d)
+                                                                           Q              e(p,d)
+factorization of d; then the choice e = pe(p,d) ||m p              and f = pe(p,d)+1 |m p        will work. Note that
+if p e(p,d)+1 |m, then necessarily p e(p,d) ||n, so that f |n. By construction, e|m, ef = d, and gcd( m      n
+                                                                                                         e , f ) = 1.
+   We then have
+                     X [lcm(m,n)] = X [mn/ef ] = (X [m/e] )[n/f ] ⊆ (X [m/e] )[n] ⊆ (X [m] )[n] .
+Reading from left to right the second equality comes from Proposition 4.6 (4), the first inclusion follows
+from Proposition 4.6(3), and the final inclusion follows from the isotone property (4) in Theorem 4.2.
+   It remains to show that
+                                            (X [m] )[n] ⊆ X [lcm(m,n)] .
+Now let d = gcd(m, n), so that ℓ = lcm(m, n) = mn             d . By Proposition 4.6(1) we have (X
+                                                                                                       [m] )[n] =
+      n−1
+(⊛n )i=0  ψi,n (X [m] ) (without any gcd restriction).
+   Now consider x = x0 ⊛x1 ⊛ · · · ⊛xn−1 ∈ (X [m] )[n] , and write x = b0 b1 b2 · · · . Here for 0 ≤ i ≤ n − 1,
+                                     xi := ψi,n (x) = bi bi+n bi+2n bi+3n · · · .
+     We are to show that x ∈ X [lcm(m,n)] . To begin, we have
+                               xi = ψi,n (zi,0 ⊛zi,1 ⊛ · · · ⊛zi,m−1 ) ∈ ψi,n (X [m] ).
+where each zi,j ∈ ψj,m (X) for 0 ≤ j ≤ m − 1, so that
+                                       zi,j = ψj,m (wi,j ) with     wi,j ∈ X.
+   Because gcd(m, n) = d, the application of ψi,n (·) to zi = (⊛m )m−1 j=0 zi,j ∈ X
+                                                                                    [m] only hits those words
+                                    m
+zi,j having subscripts j falling in d different residue classes (mod m), and it visits each such class exactly
+d times, as j varies over 0 ≤ j ≤ m − 1. These m         d classes (mod m) comprise distinct residue classes
+(mod m d ),  again because gcd(m,   n) =  d.  These classes are exactly i + jn (mod m                  m
+                                                                                      d ) for 0 ≤ j ≤ d − 1.
+We can therefore rewrite xi = yi,0 ⊛yi,1 ⊛ · · · ⊛yi, md −1 with yi,j = bi+jn bi+jn+mn/d bi+jn+2mn/d · · · for
+0≤j≤ m                                      mn
+            d − 1. We have lcm(m, n) = d different elements yi,j ∈ ψk, d (X). The key point is that for
+                                                                              m
+
+k = i + jn we have
+                                                                                                m
+         yi,j = ψi+jn ( mod m/d),m/d (wi+jn ) ∈ ψk, md (X) for 0 ≤ i ≤ n − 1, 0 ≤ j ≤             − 1.
+                                                                                                d
+Here k = i + jn varies over the interval 0 ≤ k ≤ mn   d − 1. Consequently,
+                                                                                              
+                        n−1            n−1            m/d−1                 mn/d−1
+               x = (⊛n )i=0  xi = (⊛n )i=0     (⊛m/d )j=0 yi,j = (⊛ mn   d
+                                                                           )k=0    ψ k, mn (w ) .
+                                                                                         d
+                                                                                              k
+
+where the last equality uses the shuffle identity (2.4). We also find that k = i + jn runs through the residue
+classes (mod mn/d) in the correct order. We conclude that x ∈ X [mn/d] = X [lcm(m,n)] , establishing the
+desired inclusion.                                                                                          
+4.5. Interleaving commutes with set intersection. Interleaving also behaves well with respect to intersec-
+tion.
+Proposition 4.7. (Interleaving commutes with intersection) For m, n ≥ 2 and subsets X0 , X1 , · · · , Xmn−1
+of AN , the following set-theoretic identity holds:
+                                 m−1
+                                 \                                 m−1
+                                                                    \
+                                           n−1                n−1
+                                     ((⊛n )i=0 Xjn+i ) = (⊛n )i=0 (     Xjn+i ).                              (4.24)
+                                 j=0                                j=0
+                    DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                      19
+
+                                                      n−1
+Proof. By Proposition 4.1 (2), we have x ∈ Zj := (⊛n )i=0 Xjn+i if and only if ψi (x) ∈ Xjn+i for
+0 ≤ i ≤ n − 1. Consequently:
+               m−1
+               \
+                           n−1
+          x∈         ((⊛n )i=0 Xjn+i ) ⇔ ψi (x) ∈ Xjn+i             for    0 ≤ i ≤ n − 1, 0 ≤ j ≤ m − 1
+               j=0
+                                                         m−1
+                                                         \
+                                        ⇔ ψi (x) ∈             Xjn+i       for   0≤i≤n−1
+                                                         j=0
+                                                               m−1
+                                                               \
+                                                   n−1
+                                        ⇔ x ∈ (⊛n )i=0 (              Xjn+i ),
+                                                                j=0
+
+verifying (4.24).                                                                                             
+Corollary 4.8. Let X, Y ⊆ AN . Then their n-fold interleaving closures satisfy
+                                          X [n] ∩ Y [n] = Z [n]                                           (4.25)
+                n−1
+                                        
+where Z := (⊛n )i=0 ψi,n (X) ∩ ψi,n (Y ) = Z [n] .
+Proof. In Proposition 4.7 take m = 2 and n ≥ 2 and choose Xi = ψi,n (X) and Xn+i = ψi,n (Y ) for
+0 ≤ i ≤ n − 1. The left side of (4.24) is X [n] ∩ Y [n] and the right side is Z. Here Z = Z [n] holds
+because Z is defined as an n-fold interleaving of ψi,n (Z) := ψi,n (X) ∩ ψi,n (Y ) by construction. (In
+general ψi,n (X ∩ Y ) ⊆ ψi,n (X) ∩ ψi,n (Y ), so that (X ∩ Y )[n] ⊆ Z [n], and strict inequality can hold.) 
+Remark 4.9. (Intersection of general interleaving closures) For intersection of two interleaving closures of
+different arities of a single set X we have, for all m, n ≥ 1,
+                                          X [gcd(m,n)] ⊆ X [m] ∩ X [n] .                                  (4.26)
+Equality always holds trivially when m = n, but need not hold when m 6= n. As an example, for
+m = 2, n = 3 take X = {x1 , x2 , x3 } = {(010100)∞ , (111111)∞ , (110111)∞ }. Then (01)∞ is con-
+tained in both X [2] via the 2-fold interleaving ψ0,2 (x1 )⊛ψ1,2 (x2 ), and X [3] via the 3-fold interleaving
+ψ0,3 (x1 )⊛ψ1,3 (x1 )⊛ψ2,3 (x3 ). We conclude X ( X [2] ∩ X [3] . Note this example is closed and weakly
+shift-stable, having S 6 X = X.
+4.6. Shift action on interleavings. The one-sided shift map acts as
+                                      S(a0 a1 a2 a3 · · · ) = a1 a2 a3 a4 · · · .
+We show the one-sided shift S action preserves the property of having an n-fold interleaving factorization.
+Proposition 4.10. (Interleaving and the shift map) Suppose that X has an n-fold interleaving factorization
+X = X0 ⊛X1 ⊛ · · · ⊛Xn−2 ⊛Xn−1 .
+  (1) The one-sided shift map S acts by
+                                   S(X) = X1 ⊛X2 ⊛ · · · ⊛Xn−1 ⊛S(X0 ).                                   (4.27)
+Consequently
+                           S n (X) = S(X0 )⊛S(X1 )⊛ · · · ⊛S(Xn−2 )⊛S(Xn−1 ).                             (4.28)
+  (2) All iterates S k (X) possess n-fold interleaving factorizations
+                             S k (X) = ψk,n (X)⊛ψk+1,n (X)⊛ · · · ⊛ψk+n−1,n (X).
+Proof. (1), (2). It suffices to prove (4.27). The other assertions in (1) and assertion (2) then follow easily by
+induction on k ≥ 1.
+   To begin, for all infinite words x ∈ AN we have
+                                   ψj,n (Sx) = ψj+1,n (x)        for all     j ≥ 0.                       (4.29)
+20                       WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+By Theorem 2.8 we have Xi = ψi,n (X) for 0 ≤ i ≤ n − 1. We set Xn = ψn,n (X). By Proposition 3.1 (2),
+                              ψn,n (X) = ψ0,n (SX) = S n ψ0,n (X) = S(X0 ).
+We assert S(X) = X1 ⊛X2 ⊛ · · · ⊛Xn−1 ⊛S(X0 ). We have the inclusion
+                                 n−1                    n−1
+                     S(X) ⊆ (⊛n )i=0 ψi,n (S(X)) = (⊛n )i=0 ψi+1,n (X) = (⊛n )ni=1 Xi .
+     To show the opposite inclusion
+                                      X1 ⊛X2 ⊛ · · · ⊛Xn−1 ⊛S(X0 ) ⊆ SX,
+let y = y1 ⊛y2 ⊛ · · · ⊛yn ∈ X1 ⊛X2 ⊛ · · · ⊛Xn ; then yi ∈ Xi for 1 ≤ i ≤ n. For yn ∈ Xn by definition
+there exists x ∈ X such that ψ0,n (x) = x0 ◦ yn ∈ X0 , for some x0 , where x0 ◦ yn denotes the concatenation
+of the letter x0 and the infinite word yn . By the n-fold factorization hypothesis on X one may choose this
+x so that also ψi,n (x) = yi holds for 1 ≤ i ≤ n − 1. Now one checks using (4.29) that
+                                 ψi,n (S(x)) = yi+1     for   0 ≤ i ≤ n − 1.
+                                                                                                           
+Proposition 4.11. (Shift map and n-fold interleaving closure) The shift map commutes with n-fold inter-
+leaving closure. For each n ≥ 1, and a general set X ⊆ AN , there holds
+                                             S(X [n] ) = (SX)[n] .                                    (4.30)
+
+Proof. By definition the n-fold interleaving closure X [n] has an n-fold interleaving factorization. Applying
+parts (1) and (2) of Proposition 4.10 we have
+              S(X [n] ) = S (ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−2,n (X)⊛ψn−1,n (X))
+                        = ψ1,n (X)⊛ψ2,n (X)⊛ · · · ⊛ · · · ⊛ψn−1,n (X)⊛Sψ0,n (X)
+                        = ψ1,n (X)⊛ψ2,n (X)⊛ · · · ⊛ · · · ⊛ψn−1,n (X)⊛ψn,n (X) = (SX)[n] .
+                                                                                                           
+
+4.7. Topological closure. Decimation and interleaving operations and the shift operation all commute with
+topological closure in AN .
+Theorem 4.12. (n-fold interleaving closure) Given a subset X of AN , let X denote its topological closure
+in the shift topology (product topology) in AN .
+   (1) For each n ≥ 1 and j ≥ 1,
+                                             ψj,n (X) = ψj,n (X).
+In particular if X is a closed set in AN then each decimation Xj,n = ψj,n (X) is a closed set.
+   (2) For X0 , X1 , . . . , Xn−1 ⊆ AN , there holds
+                                               n−1            n−1
+                                          (⊛n )j=0 X j = (⊛n )j=0 Xj .
+In particular the n-fold interleaving of closed sets is a closed set.
+   (3) The n-fold interleaving closure operation commutes with the closure operation on the product topol-
+ogy on AN ,
+                                                (X)[n] = X [n] .
+(4) The shift operator commutes with topological closure,
+                                                  SX = SX.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                          21
+
+Proof. (1) Given a sequence {ψj,n (xk ) : k ≥ 1} in ψj,n (X), with each xk = x0,k x1,k x2,k · · · ∈ X,
+because closed sets X are compact in AN , there exists a convergent subsequence of the xk ∈ X, having
+limit x = x0 x1 x2 · · · ∈ X, say. (Convergence is defined by eventual stability of each symbol xℓ,k as
+k → ∞, having xℓ,k = xℓ for all sufficiently large k.) It is easy to see that if xk → x in X then necessarily
+ψj,n (xk ) → ψj,n (x) is a convergent subsequence in ψj,n (X), establishing that ψj,n (X) is closed.
+   (2) For interleavings of closed sets the convergence of symbols in a given position ℓ = nℓ′ + j ′ in
+X0 ⊛X1 ⊛ · · · ⊛Xn−1 depends only on Xj ′ , hence the closure property of X is inherited from that of the
+individual factors Xj ′ .
+   (3) The closure equality follows from (1), since X [n] = ψ0,n (X)⊛ψ1,n ⊛ · · · ⊛ψn−1,n and both sides of
+the equality add in all sequence limits taken in each symbol position separately.
+   (4) We have x ∈ X if there is a sequence {xk : k ≥ 1} in X converging to x. Then the sequence
+yk := Sxk ∈ SX converges to Sx in SX so SX ⊆ SX. Take now yk ∈ SX converging to x. By
+definition of X there exists xk ∈ S with Sxk = yk . Since the alphabel A is finite, infinitely many of the xk
+have a fixed letter a0 as initial symbol. These define a subsequence xki that converges in X to a limit word
+x and necessarily Sx = y. Thus SX ⊆ SX.                                                                    
+
+                          5. I NTERLEAVING FACTORIZATIONS AND DIVISIBILITY
+  We classify the possible values of n in n-fold interleaving factorizations for different n of arbitrary subsets
+X ⊆ AN .
+5.1. Divisibility for interleaving factorizations.
+Theorem 5.1. (Divisibility structure for interleaving factorizations) Let N (X) = {n : X = X [n] }.
+   (1) If n ∈ N (X) and d divides n, then d ∈ N (X).
+   (2) If m, n ∈ N (X) then their least common multiple lcm(m, n) ∈ N (X).
+   (3) The interleaving closure set N (X) of X has the structure of a distributive lattice with respect to
+the divisibility partial order, being closed under the join operation (least common multiple lcm), and the
+meet operation (greatest common divisor (gcd)). It is downward closed under divisibility, and contains the
+minimal element 1.
+Proof of Theorem 5.1. (1) If n ∈ N (X) then X = X [n] . Suppose d divides n, so n = de. Now X ⊆ X [d]
+by the extension property of Theorem 4.2. However X [d] ⊆ X [de] = X [n] by Proposition 4.6 (2). Since
+X [n] = X we conclude X [d] = X, so d ∈ N (X).
+   (2) Suppose m, n ∈ N (X) so that X = X [m] and X = X [n] . Then
+                                    X = X [n] = (X [m] )[n] = X [lcm(m,n)]
+where, reading from the left, the second equality substituted X [m] for X and the last equality is Theorem
+2.10. Thus lcm(m, n) ∈ N (X).
+   (3) The set N (X) is downward closed under divisibility by (1). If m, n ∈ N (X) then gcd(m, n) ∈
+N (X) siince it divides m. It is closed under the join operation lcm by (2). Thus N (X) is a sublattice of the
+distributive lattice of integers N+ under divisibility. It always has minimal element 1.                    
+   A corollary of part (2) says that interleaving factors of infinitely factorizable sets are infinitely factoriz-
+able.
+Corollary 5.2. Let X be infinitely factorizable. Then every interleaving factor of X is also infinitely factor-
+izable.
+                                                            n−1
+Proof. Suppose X is infinitely factorizable, and X = (⊛n )i=1   Xi . We show that Xi is infinitely factorizable
+for each 0 ≤ i ≤ n − 1. Since X has an m-fold interleaving factorization for infinitely many m. Theorem
+2.12 implies that X has an lcm(m, n)-fold interleaving factorization for infinitely many m. Thus, X has
+an ne-fold interleaving factorization for infinitely many e. Moreover, for each such e, if X = (⊛ne )ne−1 k=0 ,
+22                         WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+then the shuffle identities of Theorem 2.9, combined with uniqueness of ne-fold interleaving factorizations,
+                                                                       e−1
+imply that each Xi has the e-fold interleaving factorization Xi = (⊛e )j=0 Xi+jn .                        
+
+5.2. Structure of interleaving factorizations.
+Theorem 5.3. (Converse divisibility structure for interleaving factorizations)
+  Let N ⊆ N+ be a nonempty set with the following properties:
+      (1) If n ∈ N and d divides n, then d ∈ N .
+      (2) If m, n ∈ N , then lcm(m, n) ∈ N .
+     If the alphabet A has at least two letters, then N = N (X) for some X ⊆ AN .
+
+Proof. Given a set N satisfying (1), (2) we construct a set X    e on A = {0, 1} with N (X)     e = N . Enumerate
+the elements of N as n1 , n2 , . . . ,. Let ℓ1 = n1 , and for i > 1, let ℓi = lcm(n1 , . . . , ni ). Notice for i ≤ j,
+                                                                               [ℓj ]
+that ℓj = lcm(ℓi , ℓj ), hence for any set X ⊆ AN we have X [ℓi ] ⊆ X [ℓi ]           = X [lcm(ℓi ,ℓj )] = X [ℓj ] , using
+                              
+Theorem 2.10. Thus, X [ℓj ] j is an increasing sequence of sets.
+   Choose X = {0∞ , 1∞ }. Notice that for any n ∈ N, X [n] is precisely the set of all sequences in A that
+are periodic with period dividing n. Now set X           e := limj→∞ X [ℓj ] = S∞ X [ℓj ] , so that X      e is the set of
+                                                                                     j=1
+sequences in A that are periodic and have a period p ∈ N (since N is precisely the set {n : n|ℓj for some j ≥
+1}).
+   Claim. N = N (X).      e
+   (1) We show that if n ∈ N , then X           e [n] = X.e We already know X      e ⊆ X   e [n] . Let x ∈ X  e [n] . Then
+              n−1                           e Since there are finitely many of these xi , there is an ℓj large enough
+x = (⊛n )i=0       xi for x1 , . . . , xn ∈ X.
+that x1 , . . . , xn ∈ X j . Choose ℓj with j large enough that n|ℓj . Then lcm(n, ℓj ) = ℓj , so X [ℓj ] is closed
+                          [ℓ ]
+
+under n-fold interleaving, and thus x ∈ X [ℓj ] ⊆ X.      e Hence X  e [n] = X,e and so n ∈ N (X).  e
+   (2) We show that if n ∈         / N , then Xe [n] 6= X.
+                                                        e Since X ⊆ X,    e we have X [n] ⊆ X      e [n] by the extension
+property in Theorem 4.2. Let x be any sequence in A that is periodic with period n. Then x ∈ X [n] , and
+so x ∈ X    e n . However, for any ℓj we have ℓj ∈ N by the structure of N , and since M is closed under
+divisibility, n ∈  / N implies n does not divide ℓj ; hence x ∈    / X [ℓj ] . Since this is the case for all ℓj , x ∈  e
+                                                                                                                      / X,
+and so n ∈  / N (X).e                                                                                                   
+
+Remark 5.4. The sets X  e constructed in the proof of Theorem 5.3 are all shift-invariant: S X
+                                                                                             e = X. e To
+                                                               e
+show this, we note that a word x on alphabet A = {0, 1} is in X if and only if it is fully periodic with a
+minimal period p belonging to N ⊆ N+ , since N is downward closed under divisibility. The word Sx is
+also periodic with the same period, so Sx ∈ X,e hence S X
+                                                        e ⊆ X.
+                                                             e Since S p x = x, we have y = S p−1 x is
+                                       e and Sy = S x = x ∈ S X.
+periodic with the same period , so y ∈ X,             p          e It follows that S X e = X.
+                                                                                            e
+
+5.3. Divisibility for self-interleaving factorizations.
+                                                                  n−1
+Definition 5.5. An n-fold interleaving factorization X = (⊛n )i=0     Xi,n is self-interleaving (or n-fold self-
+interleaving), if all factors are identical, i.e. Xi,n = X0,n holds for 1 ≤ i ≤ n − 1. We sometimes write
+Zn := X0,n for the unique factor in this case.
+   There exist many sets X for which every interleaving factorization is a self-interleaving. We will show
+later, in Proposition 8.2, that if X is shift-invariant, then X = X [n] implies that X0,n = Xi.n holds for all
+n ≥ 1. In addition there the exist examples with X having an n-fold self-interleaving, so that X0,n = Xin
+for 0 ≤ i ≤ n − 1, but with X0,n 6= Xi,n for all i ≥ n, see Example 5.7. The latter sets X can have a
+mixture of self-interleaving factorizations and non-self interleaving factorizations.
+   We show set of values of n for which a given X has an n-self-interleaving has divisibility properties
+parallel to those described in Theorem 2.12.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         23
+
+Theorem 5.6. (Structure of self-interleaving closure sets)
+                                        n−1
+Let Nself (X) = {n ≥ 1 : X = (⊛n )i=0       Zn for some Zn ⊆ AN }. Then Nself (X) is nonempty and has the
+following properties.
+   (1) If n ∈ Nself (X) and d divides n, then d ∈ Nself (X).
+   (2) If m, n ∈ Nself (X) then their least common multiple lcm(m, n) ∈ Nself (X).
+   Conversely, if a subset N ⊆ N+ is nonempty and has properties (1) and (2), then there exists X ⊆ A|nn
+with N = N (X).
+                                                                  de−1
+Proof. (1) If d divides n we have n = de and now X = (⊛n )k=0          Zn and Zn = ψk,de (X) for 0 ≤ k ≤
+de − 1. By the shuffle product identities in Theorem 2.9,
+                                                                                  
+                        X = (⊛d )d−1
+                                  i=0 ((⊛   )e−1
+                                           e j=0 (Xjd+i )) = (⊛  )d−1
+                                                                d i=0   (⊛   e−1
+                                                                           e j=0 n .
+                                                                            )    Z
+
+We deduce X = (⊛d )d−1                              e−1
+                         i=0 Zd where Zd = (⊛e )j=0 Zn , so X has a d-fold self-interleaving.
+    (2) Suppose that X has both an n-fold and an m-fold self-interleaving factorization. We wish to show
+it has an lcm(m, n)-fold self-interleaving factorization. Let d = gcd(m, n), and recall that there exist e, f
+with e|m, f |n having d = ef and gcd( m         n
+                                            e , f ) = 1 (shown in the proof of Theorem 2.10). By (1) the set
+is of self-interleaving factorizations is downward closed under divisibility, so that it has an m   e -fold self-
+interleaving factorization and an nf -fold self-interleaving factorization, and now lcm( m ,
+                                                                                         e f
+                                                                                             n
+                                                                                               ) = mn      mn
+                                                                                                    ef = d =
+lcm(m, n). We have therefore reduced proving (2) to proving it in the special case where gcd(m, n) = 1,
+with lcm(m, n) = mn.
+    In this case we are given that X has an m-fold and an n-fold self-interleaving factorization. We now have
+gcd(m, n) = 1 so by Theorem 2.12 we have an mn-fold interleaving factorization X = (⊛mn )mn−1      k=0 Xk,mn .
+We wish to show it is self-interleaving, i.e. that
+                             Xk1 ,mn = Xk2 ,mn      for    0 ≤ k1 < k2 ≤ mn − 1.                           (5.1)
+We assert that for each 0 ≤ i ≤ n − 1,
+                          Xj1 +im,mn = Xj2 +im,mn         for   0 ≤ j1 < j2 ≤ m − 1.                       (5.2)
+To see this, note that by the shuffle identities in Theorem 2.9,
+                                                                             
+                            (⊛mn )mn−1
+                                   k=0   X k,mn   = (⊛  )m−1
+                                                       m j=0  (⊛   n−1
+                                                                 n i=0 j+im,mn .
+                                                                  )    X
+Since m-fold factorizations are unique, the right-hand side is a self-interleaving factorization, so for all
+                              n−1                      n−1
+0 ≤ j1 < j2 ≤ m − 1, (⊛n )i=0     Xj1 +im,mn = (⊛n )i=0     Xj2 +im,mn . This implies, again by uniqueness, that
+Xj1 +im,mn = Xj2 +im,mn for all 0 ≤ i ≤ n − 1.
+   Similarly, using the shuffle identity with the n-fold interleaving on the outside and the m-fold interleaving
+on the inside, we obtain for 0 ≤ i1 < i2 ≤ n − 1 that for each 0 ≤ j ≤ m − 1,
+                           Xi1 +jn,mn = Xi2 +jn,mn        for   0 ≤ i1 < i2 ≤ n − 1.                       (5.3)
+   Now we assert that when gcd(m, n) = 1 that (5.2) and (5.3) imply (5.1). Now (5.2) implies the equalities
+for all members in consecutive values of k in groups of length m, Bi = {k = j + in : 0 ≤ j ≤ m − 1}
+(for fixed i) but with no connection between between blocks for different i. Now (5.3) implies the same for
+blocks of consecutive values of k in groups of length n, Cj = {k = i + jn : 0 ≤ i ≤ n − 1} (for fixed j).
+Now the condition gcd(m, n) = 1 implies that for each 0 ≤ i ≤ m − 2 some group Cj includes members
+of both Bi and Bi+1 , because the broken connection between blocks Bi is between k ≡ m − 1(mod m)
+and k ≡ 0(mod m), and all multiples jn 6≡ 0(mod m) for 1 ≤ j ≤ m − 1. Hence we get enough pairwise
+equalities to force (5.1) to hold. (This argument for equality of different Xk,mn stops at position mn, where
+the groups Bi and Cj both line up to create a barrier going to higher k.) This proves property (2) when
+gcd(m, n) = 1.
+   For the converse, it remains to show that if a subset N ⊆ N+ is nonempty and has properties (1) and (2),
+then there exists X ⊆ AN with N = Nself (X). For this, we use the fact that the sequences X      e constructed
+24                       WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+
+in Theorem 5.3. that achieve N = N (X)    e are shift-invariant, see Remark 5.4. Now Proposition 8.2 (which
+will be proved in Section 8) asserts that any shift- invariant X has the property that all of its interleaving
+                                                                   e = Nself (X).
+factorizations will be self-interleaving factorizations. Thus, N (X)           e We have already shown in
+the proof of Theorem 5.3 that N (X)  e = N.                                                                  
+Example 5.7. For a general set X the set of n giving self-interleaving factorization can be a strict subset
+of all interleaving factorizations of X. For the binary alphabet A = {0, 1}, take X = {00{0, 1}N }, i.e. all
+infinite words beginning with 00.
+   We first show X has a n-fold interleaving factorization for all n ≥ 1, so N (X) = N+ . For n = 1
+and n = 2 the factorization is self-interleaving with X0,2 = X1,2 = {0{0, 1}N }. (Note that for j ≥ 2
+one has Xj,2 = {0, 1}N .) In contrast we show Nself (X) = {1, 2} is finite. For n ≥ 3 its interleaving
+factorization has X0,n = X1,n = {0{0, 1}N }, while Xj,n = {0, 1}N is the full shift, for all j ≥ 2, so it is
+not self-interleaving.
+
+                         6. I NFINITELY FACTORIZABLE CLOSED SUBSETS OF AN
+Definition 6.1. A subset X ⊆ AN is infinitely factorizable (under interleaving) if it has an n-fold interleav-
+ing factorization
+                           X = X [n] = ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X)
+for infinitely many n ≥ 1.
+6.1. Characterization of infinitely factorizable closed sets. We now characterize infinitely factorizable
+closed sets X by the properties given in Theorem 2.13. Property (iii) shows there are uncountably many
+different infinitely factorizable closed sets when the alphabet size |A| ≥ 2.
+Proof of Theorem 2.13. We prove (iii) ⇒ (ii) ⇒ (i) ⇒ (iii).
+   (iii) ⇒ (ii). Suppose property (iii) holds. Write an element of X as x = x0 x1 x2 · · · . Property (iii) says
+that the allowable symbols in location xk of x may be chosen arbitrarily while holding all other xj , j 6= k
+fixed. In consequence all elements of Xk = ψk,n (X) may be chosen arbitrarily from Ak while holding all
+the other Xj = ψj,n (X) constant. This may be done for each value of k, which implies property (ii) holds.
+   (iii) ⇒ (ii). Suppose property (iii) holds, and let n ≥ 1. Then, using Proposition 4.1(2), we have,
+                    X = {x ∈ AN : xk ∈ Ak for all k ≥ 0}
+                         = {x ∈ AN : xj+kn ∈ Aj+kn for all k ≥ 0, 0 ≤ j ≤ n − 1}
+                                               ∞
+                                               Y
+                                 N
+                         = {x ∈ A : ψj,n (x) ∈   Aj+kn for all 0 ≤ j ≤ n − 1}
+                                                       k=0
+                                        ∞
+                                        Y
+                                n−1
+                         = (⊛n )j=0          Aj+kn ,
+                                       k=0
+which is an n-fold interleaving factorization.
+   (ii) ⇒ (i). Immediate.
+   (i) ⇒ (iii). We prove the contrapositive. Suppose Property (iii) does not hold for X, we are to show
+property (i) does not hold. Let Ak denote the letters that occur in the kth position of some word in X; it is
+a finite nonempty subset of the (finite) alphabet A. For each k ≥ 0 all letter patterns AkQ × Ak+1 · · · × Ak+ℓ
+may occur for each ℓ ≥ 1, then by the assumption A is closed, we would have X = ∞            k=0 Ak which has
+Property (iii), contradicting our assumption. Therefore there must exist some finite k, ℓ ≥ 1 and a finite set
+of consecutive Ak , Ak+1 , Ak+2 , ...Ak+ℓ such that there is a block ak ak+1 · · · ak+ℓ with each ak+i ∈ Ak+i
+for 0 ≤ i ≤ ℓ that does not occur in any element of X. We call this situation a (k, ℓ)-missing-configuration.
+   To show Property (i) does not hold for this X we argue by contradiction. If Property (i) held for X, then
+there would exist some n ≥ k + ℓ + 1 such that it had an n-fold interleaving factorization
+                                X = ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X).
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                       25
+
+Each word x ∈ X has symbol xk+i in position k + i lying as the first symbol in a word in the n-decimation
+set ψk+i,n (X). We can find an infinite word, call it w(k + i) ∈ X such that in position j := k + i it has
+the symbol in position k + i being ai ∈ Ak+i , for 0 ≤ i ≤ ℓ (by definition of Ak+i ). For all remaining
+positions, 0 ≤ j ≤ n − 1, with j 6∈ {k, k + 1, · · · , k + ℓ} we pick a word w(j) ∈ X arbitrarily.
+                                        n−1
+   Now the symbol sequence w := ⊛j=0         ψj,n (w(j)) ∈ ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X) contains the
+forbidden block ak ak+1 · · · ak+ℓ in positions k through k+ℓ, showing that w 6∈ X, the desired contradiction.
+                                                                                                            
+Remark 6.2. An important finiteness feature of the proof of Theorem 2.13 is that it shows that that existence
+of a (k, ℓ)-missing-configuration certifies that X has no n-fold interleaving factorization with n ≥ k + ℓ + 1
+when X is closed.
+  The following example shows the hypothesis of X being closed set is necessary in the statement of
+Theorem 2.13.
+Example 6.3. (Non-closed infinitely factorizable sets) Let X be the countable subset of AN consisting of
+all infinite sequences having a finite number of 1’s. Then X is infinitely factorizable, and all decimations
+ψj,n (X) = X are copies of itself. It is not a closed set; its closure in AN is the full one-sided shift. It
+satisfies properties (i) and (ii) of Theorem 2.13 but fails to satisfy property (iii). (The set X can be viewed
+as the set of teminating binary expansions of all nonnegative dyadic rationals 2km .)
+   The construction of Theorem 5.3 produces infinitely factorizable X having N (X) ( N+ . Such sets
+satisfy property (i), and do not satisfy properties (ii), (iii) of Theorem 2.13.
+6.2. Consequences of infinite factorizability.
+Corollary 6.4. Let X be an infinitely factorizable closed subset of AN . Then its factor set F(X) consists
+of all decimations ψj,n (X) for n ≥ 1 and 0 ≤ j ≤ n − 1. Each decimated set ψj,n (X) is also infinitely
+factorizable.
+Proof. By property (ii) of Theorem 2.13 X is factorizable for each n ≥ 1, and its n-fold factors are ψj,n (X)
+for 0 ≤ j ≤ n − 1. Now the property (iii) is preserved under decimations of all orders, hence all ψj,n (X)
+must be infinitely factorizable.                                                                            
+Example 6.5. (Infinitely factorizable closed subsets X of AN having all decimations ψj,n (X) distinct) For
+A = {0, 1} define Ak ⊂ A for 0 ≤ k < ∞ as follows. Let Ak = {0} for all indices k ∈ A with
+                                                √        1
+                         A := {k ≥ 0 : 0 ≤ {k 2} < } where {x} = x − ⌊x⌋.
+                                                         2
+                                                     √
+(No special properties other than irrationality of 2 are used). This set of indices is aperiodic (and has
+natural density 21 , using Weyl’s equidistribution theorem.) Set Ak = {0, 1} for all other integers k 6∈ A,
+which is alsoQan aperiodic set (of natural density 21 ).
+   Set X = ∞    k=0 Ak . By Theorem 2.13 property (iii) it is a closed set and is infinitely factorizable, i.e.
+N (X) = N+ . Each decimation ψj,n (X) is also an infinite product space of the same kind whose set of
+indices k that have reduced alphabet {0} is exactly
+                                                          n          √ o 1
+                               A(j, n) := {k ≥ 0 : 0 ≤ (nk + j) 2 < }.
+                                                                            2
+Each ψj,n (X) is closed and infinitely factorizable. Consider now two distinct decimations ψj,n (X) and
+ψℓ,m (X), where we may suppose 1 ≤ n ≤ m and 0 ≤ j, ℓ < ∞, with j 6= ℓ if n = m. To show distinctness
+we must show A(j,√ n) 6= A(ℓ, m). We use the well known fact that for√ each n ≥ 1 the sequence of fractional
+parts xk = k(n 2) (k ≥ 1) is dense modulo 1. (In fact, since n 2 is irrational, Weyl’s theorem implies
+that the sequence xk is uniformly distributed modulo   √ 1.) The argument has two cases.
+                                                                                  √
+   Case 1. n = m. We write xk := {(kn √          + j) 2}, and √   yk := {(kn + ℓ) 2}, where j 6= ℓ. Now
+xk = {ak + θ} for all k, where θ = {(ℓ − j) 2}. Because 2 is irrational, θ ∈ (0, 1); hence there must
+26                       WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+be an open interval (a, b) ⊂ [0, 12 ) such that (a + θ, b + θ) ⊂ ( 21 , 1]. Since xk takes values dense in (0, 1),
+we will have infinitely many k with xk ∈ (a, b), and thus with yk ∈ (a + θ, b + θ). Therefore, there are
+infinitely many k with xk ∈ [0, 12 ) and yk ∈ ( 12 , 1]. For these k, Akn+j = {0}, while Akn+ℓ = {0, 1}, so all
+sequences in ψj,n (X) must have kth symbol 0, while ψn,ℓ (X) has sequences with kth symbol taking both
+values 0 or 1 (i.e., k ∈ A(j, n) but k 6∈ A(ℓ, n) for√ these k). Thus ψj,n (X) 6=√ψℓ,n (X).
+   Case 2. n < m. We write xk := {(nk         √+ j) 2} and yk := {(mk + ℓ) 2}. A calculation shows 1that
+                                          jm
+yk = { m n x k + θ}, where  θ =   {(ℓ   −  n ) 2}. Again, θ ∈ (0, 1). There is an open interval (c, d) ⊂ ( 2 , 1]
+                                      1                       n
+such that (c − θ, d − θ) ⊂ (0, 2 ). Letting (a, b) = m          (c − θ, d − θ), we see that if xk ∈ (a, b), then
+yk ∈ (c, d). Again, by positive density of xk , this happens infinitely often, and so there are infinitely many
+k with xk ∈ [0, 12 ) and yk ∈ ( 12 , 1]. We conclude as in Case 1 that ψj,n (X) 6= ψℓ,m (X).
+   We conclude that the interleaving factor set F(X) consists of all principal decimations, and they are all
+distinct. Therefore F(X) is infinite.
+Example 6.6. (A closed X with an infinite factor set F(X) ) The set X constructed in Example 6.5 has
+infinitely many distinct decimations so its decimation set D(X) and its principal decimation set Dprin (X)
+are infinite. In addition all principal decimations are interleaving factors, so that its factor set F(X) is also
+infinite.
+Corollary 6.7. The set Y(A) of all infinitely factorizable closed subsets X ⊆ AN is closed under n-fold
+interleaving operations of all n ≥ 1. That is, if X0 , X1 , · · · , Xn−1 ∈ Y(A), then
+                                     n−1
+                                (⊛n )i=0 Xi = X0 ⊛X1 ⊛ · · · ⊛Xn−1 ∈ Y(A).
+Proof. The corollary follows using the characterization of membership in Y(A) by property (iii) of Theorem
+2.13. Property (iii) is inherited under n-fold interleaving of sets Xi that have it.                     
+
+         7. I TERATED INTERLEAVING FACTORIZATIONS OF GENERAL CLOSED SUBSETS OF AN
+   We consider iterated interleaving factorizations for general sets X ⊆ AN . If a set X factors as X =
+X0 ⊛ · · · ⊛Xn−1 , it is possible that one or more of the factors Xj can itself be factored. However, unlike
+with factorizations of positive integers, for example, the further factors that appear at lower levels may not be
+interleaving factors of the original set X. We therefore name them iterated interleaving factors. We define
+an iterated interleaving factorization as follows: The iterated interleaving factorization of depth 0 of a set
+X is the equation X = X (or the right hand side of such an equation). An iterated interleaving factorization
+of depth 1 is a single n-fold factorization X = (Y0 ⊛Y1 ⊛ · · · ⊛Yn−1 ) (with parentheses). The Yi are iterated
+interleaving factors of depth 1. An iterated interleaving factorization of depth k is obtained recursively
+from an iterated interleaving factorization of depth k − 1, with one or more finitely factorizable sets Y on
+the right hand side of depth k being replaced by interleaving factorizations Y = (Y0 ⊛Y1 ⊛ · · · ⊛Yn−1 ) (with
+parentheses), for n ≥ 2 (allowing different n for different Y ). The new added internal factors on the right
+are assigned depth k + 1; they are inside a nested set of k + 1 parentheses.
+
+7.1. Iterated interleaving factorization trees. An iterated interleaving factorization can be visually repre-
+sented by a rooted tree, as pictured in Figure 7.1. It has root node X, leaf nodes corresponding to the factors
+in the iterated interleaving factorization and internal nodes corresponding to intermediate factors.
+   In our definition of iterated interleaving factorizations, each step is a finite factorization. If an iterated
+interleaving factor Y at level k has n-fold interleaving factorizations for multiple values of n, it is natural
+to choose the n-fold factorization with the largest n because this factorization refines all the other possible
+factorizations of Y , by the divisibility properties of N (X) from Theorem 2.12.
+   How should one treat infinitely factorizable factors? We will adopt the convention in this factoriza-
+tion process that we “freeze" any infinitely factorizable factors encountered, and do not further factorize
+them. We do this for two reasons. First, for infinitely factorizable Y , no natural choice of n exists for a
+n-factorization at the next level. Secondly, all interleaving factors of infinitely factorizable sets are also
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         27
+
+                                                          X
+
+
+
+
+                      X0,4                  X1,4                X2,4                   X3,4
+
+                                     Y0,2          Y1,2
+
+                              Z0,3 Z1,3 Z2,3
+
+     FIGURE 7.1. Iterated interleaving tree for X = (X0,4 ⊛((Z0,3 ⊛Z1,3 ⊛Z2,3 )⊛Y1,2 )⊛X2,4 ⊛X3,4 ), an
+                   iterated interleaving factorization of depth 3.
+
+
+infinitely factorizable by Corollary 5.2, so the factorization process would necessarily proceed forever if we
+did not freeze any infinitely factorizable factors.
+   This raises the question: If one factorizes only finitely factorizable sets, will the iterated interleaving
+factorization process always terminate at a finite depth? We show below that the answer is: there are closed
+X where the iteration process can go on forever.
+7.2. Arbitrary depth factorizations. We show, by construction, that there exist closed sets X having iter-
+ated interleaving factorizations of all depths k ≥ 1, with all factors at all depths being finitely factorizable.
+(Thus so the “freezing" property is never needed).
+Theorem 7.1. (Infinite depth interleaving factorizations) There exist uncountably many closed sets ZI ⊆ AN
+with A = {0, 1}, indexed by I ∈ AN , that possess iterated interleaving factorizations of every depth k ≥ 1.
+They each have a unique iterated interleaving factorization of depth k, for all k ≥ 1. Each ZI has an
+interleaving factor set F(ZI ) containing at most three elements. There exist such I for which the principal
+decimation set Dprin (ZI ) is infinite.
+Proof. Let X0 and X1 be two distinct closed sets in AN having trivial interleaving set N (X0 ) = N (X1 ) =
+{1}. For definiteness consider X0 = XF the Fibonacci shift , consisting of all words which do not have
+two consecutive 1’s, and X2 = XAF the anti-Fibonacci shift, which consists of all one-sided infinite words
+which do not contain two consecutive 0’s. Example 2.7 showed XF has no n-fold interleaving factorizations
+for n ≥ 2, and the proof applies to XAF . Given an index set I = i0 i1 i2 · · · ∈ AN , we define a set
+                             ZI = {z ∈ AN : ψ2r −1,2r+1 (z) ∈ Xir      for   r ≥ 0}.                        (7.1)
+Let z = z0 z1 z2 · · · . The decimations determine the values of zi for subscripts in arithmetic progressions.
+We represent an arithmetic progression as AP(a; d) = {n ≥ 0 : n ≡ a (mod d)}. Then the values zi for
+i ∈ AP(2r − 1; 2r+1 ) are restricted by ψ2r −1,2r+1 (z) ∈ Xir . We first show that ZI is well-defined.
+   Claim 1. The set of arithmetic progressions AP(2r − 1; 2r+1 ) for r ≥ 0 form a partition of N.
+    We show by induction on r ≥ 0 that Nm := ⊔m                 r
+                                                       r=0 AP(2 − 1; 2
+                                                                      r+1 ) = N r AP(2r+1 − 1; 2r+1 ), a
+
+disjoint union. The base case r = 0 asserts AP [0; 2) = N r AP (1; 2). The induction step uses AP (2m+1 −
+1, ; 2m+1 ) = AP (2m+1 − 1, 2m+2 ) ⊔ AP(2m+2 − 1; 2m+2 ). Finally, the set Nm contains the interval
+[0, 2m − 2], so the infinite set union covers N, proving claim 1.
+  Claim 2. If I 6= J then ZI 6= ZJ .
+   If I 6= J then some ir 6= jr . Then ψ2r −1,2r+1 (ZI ) = Xir and ψ2r −1,2r+1 (ZJ ) = Xjr which are distinct
+since X1 6= X2 . thus ZI 6= ZJ , proving claim 2.
+  Claim 3. Each ZI is a closed set in AN .
+28                         WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+   It suffices to show each convergent subsequence of elements of ZI has a limit in ZI . Convergence is AN
+is pointwise on each index separately. Suppose xk → y in AN (k ∈ N) as k → ∞ with each xk ∈ ZI . We
+then have ψ2r −1,2r+1 (xk ) → ψ2r −1,2r+1 (y) in AN . For each r ≥ 0 we have ψ2r −1,2r+1 (xk ) ∈ Xir , hence
+ψ2r −1,2r+1 (xk ) → ψ2r −1,2r+1 (y) ∈ Xir , since Xir is a closed set. The property ψ2r −1,2r+1 (y) ∈ Xir for
+all r ≥ 0 certifies that y ∈ ZI , proving claim 3.
+     Claim 4. Each ZI has a 2-fold interleaving factorization
+                                                  ZI = Xi0 ⊛ZSI ,
+where SI = i1 i2 i3 · · · denotes the one-sided shift of I ∈ AN .
+     Using Proposition 3.1 we find
+                                   ψ2r −1,2r+1 (z) = ψ0,2 ◦ ψ1,2 ◦ · · · ◦ ψ1,2 (z),
+                                                            |      {z         }
+                                                                       r times
+
+and one proves it by induction on r ≥ 0. Letting w = ψ1,2 (z), we have for r ≥ 1
+                         ψ2r −1,2r+1 (z) = ψ0,2 ◦ ψ1,2 ◦ · · · ◦ ψ1,2 (w) = ψ2r−1 −1,2r (w).               (7.2)
+                                                  |       {z        }
+                                                         r − 1 times
+
+By definition
+                             ZSI = {w ∈ AN : ψ2r −1,2r+1 (w) ∈ Xir+1 for r ≥ 0}.
+Now we have, using (7.2),
+         ZI     = {z ∈ AN ; ψ0,2 (z) ∈ Xi0 and w = ψ1,2 (z) has ψ2r −1,2r+1 (w) ∈ Xir+1 for r ≥ 1}
+                = {z ∈ AN : ψ0,2 (z) ∈ Xi0 and ψ1,2 (z) ∈ ZSI } = Xi0 ⊛ZSI ,
+proving Claim 4.
+   At this point we obtain an iterated interleaving factorization for ZI to arbitrary depth k ≥ 1, by iterating
+the factorization given in Claim 4. This can be done since one factor is again of the form ZI (with a different
+I). Given I, using the notation Z0 := ZI and Zk := ZS k I we have the depth k factorization
+                                                                               
+                           Zk = Xi0 ⊛ Xi1 ⊛ · · · Xik−2 ⊛ Xik−1 ⊛Zk · · · .
+Figure 7.2 shows a tree corresponding to such an iterated factorization after the fourth level of factoring.
+
+                                                   Z0
+
+                                            Xi0            Z1
+
+                                                   Xi1            Z2
+
+                                                            Xi2        Z3
+
+                                                                   Xi3      Z4
+
+              FIGURE 7.2. Iterated interleaving tree for Z0 = (Xi,0 ⊛(Xi1 ⊛(Xi2 ⊛(Xi3 ⊛Z4 )))).
+
+
+   The remaining part of the proof will show this factorization tree is unique at every level k. Finally a
+suitable choice of I will lead to ZI having infinitely many different principal decimations.
+     Claim 5. The interleaving closure set N (ZI ) = {1, 2} with associated factor set F(ZI ) = {ZI , Xi0 , ZSI }.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                         29
+
+   It suffices to show that ZI has no n-fold interleavings with n ≥ 3, in view of Claim 4. We argue by
+contradiction. Given an n-fold interleaving for n ≥ 3, by Theorem 2.12(2), it would also have an lcm(2, n)-
+fold interleaving, and we set 2m := lcm(2, n) with m ≥ 2. A shuffle identity from Proposition 2.9 gives
+                                                                                      
+                  ZI = (⊛2m )2m−1
+                              j=0  X i,2m =   (⊛   )m−1
+                                                 m i=0  X 2i,2m  ⊛  (⊛   )m−1
+                                                                       m i=0   X 2i+1,2m .
+
+
+Since 2-fold interleaving factorizations are unique, and ZI = Xi0 ⊛ZSI , we must have
+                                           Xi0 = (⊛m )m−1
+                                                      i=0 X2i,2m .
+
+This contradicts the fact that X0 and X1 have no nontrivial interleaving factorizations, proving claim 5.
+   Claim 6. For k ≥ 1, each ZI has a unique iterated interleaving factorization of depth k, whose iterated
+interleaving factors are XIr for 0 ≤ r ≤ k − 1 and ZS k (I).
+   This claim follows by induction on k ≥ 1, the base case being the factorization in Claim 4. For the
+induction step from k to k + 1, all but one of the leaves of the tree (iterated interleaving factors) are of form
+Xi , which have no non-trivial interleaving factors, and the remaining factor ZJ , with J = S k I, which has
+only a 2-fold interleaving factorization ZS k I = Xik ⊛ZS k+1 (I) . By updating the list of iterated interleaving
+factors we complete the induction step. This proves claim 6.
+  Claim 7. If I is strongly aperiodic, meaning that all its shifts S k I for k ≥ 0 are distinct, then all the
+decimations of ZI of form ψ2r −1,2r+1 (ZI ) for r ≥ 0 are distinct. In particular, the principal decimation set
+Dprin (ZI ) of ZI is an infinite set.
+   We have ψ2r −1,2r+1 (ZI ) = ZS r I . By Claim 2 distinct S I give distinct ZS r I . The strongly aperiodic
+assumption then makes all ψ2r −1,2r+1 (ZI ) distinct. They are principal decimations, so Dprin (ZI ) is infinite.
+This proves Claim 7.                                                                                           
+Example 7.2. (A closed set with an infinite principal decimation set but a finite factor set) Theorem 7.1
+exhibited ZI that have infinitely many distinct principal decimations; Dprin (ZI ) ⊆ D(ZI ). However Claim
+5 showed the factor set F(ZI ) is always finite.
+Remark 7.3. The sets ZI in Example 7.2 exhibit the failure of two finiteness properties possessed by all
+path sets studied in [5]. First, interleaving factorizations of path sets P always halt at finite depth (under
+the freezing convention), while ZI never does. Second, path sets P always have finitely many different
+decimations, i.e. D(P) is finite, while this example does not. Example 6.6 gave another example having
+infinitely many different decimations.
+
+                           8. S HIFT- STABLE AND WEAKLY SHIFT- STABLE SETS
+   Classical symbolic dynamics is concerned with properties of sets X ⊆ AN invariant under the shift
+operator. The class of such sets is not preserved under decimation or interleaving operations. We study two
+weaker notions of sets X compatible with the shift operation—shift-stable sets and weakly shift-stable sets—
+with better properties. Shift-stable sets naturally arise in one-sided dynamics that encode initial conditions,
+and we show they are closed under all decimations, but not closed under interleaving operations. The wider
+class of weakly shift-stable sets is closed under all decimation and interleaving operations.
+
+8.1. Shift-stable sets. Recall from Definition 2.14 that a general set X ⊆ AN is shift-stable if SX ⊆ X,
+and it is shift-invariant if SX = X. These definitions allows non-closed sets. Shift-stability is a strictly
+weaker condition than shift-invariance; see Example 8.5 below.
+   Shift-stable and shift-invariant sets satisfy the following closure properties under decimation and inter-
+leaving closure operations:
+30                         WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+Theorem 8.1. Let A be finite alphabet and let X ⊆ AN be a general set (not necessarily closed).
+   (1) If X is shift-stable (resp. shift-invariant), then all decimations ψj,n (X) for j ≥ 0, n ≥ 1 are shift
+stable (resp. shift-invariant).
+   (2) If X is shift-stable (resp. shift-invariant) then all n-fold interleaving closures X [n] with n ≥ 1 are
+shift-stable (resp. shift-invariant).
+Proof. (1) Shift-stability of X implies S m X ⊆ S m−1 X whence S m X ⊆ X for all m ≥ 0. Now Proposition
+3.2 gives
+                                     Sψj,n (X) = ψj,n (S n X) ⊆ ψj,n (X).
+If X is shift invariant, then S m X = X for all m ≥ 0 and equality holds.
+   (2) If X is shift stable, then we have, by Proposition 4.10, Proposition 3.2, and (1):
+                                                                                 
+                          SX [n] = S ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X)
+                                   = ψ1,n (X)⊛ψ2,n (X)⊛ · · · ⊛ψn,n (X)
+                                   = ψ0,n (SX)⊛ψ1,n (SX)⊛ · · · ⊛ψn−1,n (SX)
+                                    ⊆ ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X) = X [n] .
+If X is shift invariant, then all steps hold with equality, as required.                                     
+     The shift-invariant property restricts the form of interleaving factorizations.
+Proposition 8.2. (Shift invariance implies self-interleaving) If a general set X ⊆ AN is shift-invariant,
+then all of its interleaving factorizations will be self-interleaving factorizations.
+Proof. We have for each n ≥ 1, that for j ≥ 0
+                                       ψj+1,n (X) = ψj,n (SX) = ψj,n (X)
+with the leftmost equality generally true by Proposition 3.1 (2) and the second equality from shift invariance.
+We now have
+                                      ψj,n (X) = ψ0,n (X) for j ≥ 0.
+                                                    n−1
+But by Theorem 2.8 any n-fold interleaving X = (⊛n )i=0 Xi,n has Xi,n = ψi,n (X), hence it is a self-
+interleaving with Zn = ψ0,n (X).                                                                   
+8.2. Closed shift-stable sets. An important feature of closed shift-stable sets is that they are characterized
+by forbidden blocks, paralleling the definition of two-sided shift spaces in [33, Sec. 1.2]. Let A∗ denote
+the set of all finite words in the alphabet A, including the empty word. A block in an infinite word x =
+a0 a1 a2 · · · is a finite sequence of consecutive symbols ak ak+1 · · · ak+ℓ .
+Proposition 8.3. (Forbidden block characterization of shift-stability) The following statements about a set
+X ⊆ AN are equivalent.
+  (1) X is closed and shift-stable, i.e. X is closed and SX ⊆ X.
+  (2) X is the set of all infinite words avoiding a (finite or infinite) set B ⊥ ⊆ A∗ of forbidden blocks.
+Remark 8.4. An analogous result holds in two-sided symbolic dynamics for subsets of AZ , ([33, Theorem
+6.1.21]), where shift-stability is replaced by shift invariance, proved with a similar argument. The difference
+between shift-stablity and shift-invariance is discussed in Example 8.7.
+Proof. (2) ⇒ (1). The set X is closed, since any limit word in the sequence topology will not contain any
+forbidden block. Now SX is a closed set of infinite words, which do not contain any of the forbidden blocks.
+It follows that SX ⊆ X.
+    (1) ⇒ (2). The hypothesis SX ⊆ X implies S k X ⊆ S k−1 X ⊆ X for all k ≥ 1 by induction on k. We let
+B (X) ⊆ A∗ denote all the finite words that do not appear anywhere in any word in X. Let Y denote the set
+  ⊥
+
+of all infinite words that avoid any block in B ⊥ (X). By definition X ⊆ Y . To complete the proof we show
+the reverse inclusion Y ⊆ X. Let y = b0 b1 b2 · · · ∈ Y . By hypothesis the initial word b0 b1 · · · bk ∈ Y does
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                            31
+
+not contain any element of B ⊥ (X) , so it must occur as a block inside some word x = a0 a1 a2 · · · ∈ X, for
+if it did not this would contradict maximality of B ⊥ (X). Say it is positions aj aj+1 · · · aj+k = b0 b1 · · · bk .
+Now yk := S j x = .b0 b1 · · · bk ak+1 · · · ∈ S k X ⊆ X. We now have a sequence {yk : k ≥ 0} with yk ∈ X
+that converges in the sequence topology to y ∈ Y . Since X is closed, we deduce y ∈ X as required.               
+  We give examples of allowed behavior and of non-behavior of closed shift-stable sets.
+Example 8.5. There exists a shift-stable closed set X which yields an infinite strictly descending chain of
+inclusions under application of the shift; i.e.:
+                                       X % SX % S 2 X % S 3 X % · · · .
+To construct X, define for each k ≥ 4 the set Xk := (0k 1)k {000, 111}N . That is, Xk has a fixed finite prefix
+(0k 1)k of length k(k + 1) followed by a full 2-block shift
+                                               Y = {000, 111}N .
+Note that S 3 Y = Y . We now set
+                                                    ∞
+                                                    [     ∞
+                                                          [           
+                                             X :=               S n Xk .
+                                                    k=4   n=0
+The set X is shift-stable, since
+                                                 ∞
+                                                 [        ∞
+                                                          [         
+                                         SX =                 S n Xk ⊆ X.
+                                                 k=4    n=1
+Every element of X is an (eroded) finite prefix followed by a member of Y , SY , or S 2 Y . The set X is
+closed because the only limit point obtainable in AN from repeated shifts of blocks in the finite prefixes
+alone is the vector 0∞ , which already belongs to Y .
+   To show all inclusions are strict, we note for 0 ≤ j ≤ 3 the set S j X contains the word 04−j 1(04 1)3 (000)∞ ,
+which is not contained in any S m X for m ≥ j + 1. For j ≥ 4 each set S j X contains the word
+1(0j 1)j−1 (000)∞ , which is not contained in any S m X for m ≥ j + 1.
+Example 8.6. (Shift-stability is not always preserved under interleavings) The one-sided Fibonacci shift
+XF having 11 as a forbidden block and the one-sided anti-Fibonacci shift XAF having 00 as a forbidden
+block are both closed, shift-invariant sets. We show their 2-fold interleaving Y = XAF ⊛XF is not shift-
+stable. Indeed XAF allows the initial block 0110, and XF allows the initial block 010, whence XAF ⊛XF
+allows the initial block 0011100, so SY contains the initial block 011100. If SY ⊆ Y , then there is a
+y = y1 ⊛y2 ∈ Y with initial block 011100. But this means y2 ∈ XF has initial block 110, which is a
+forbidden block of the Fibonacci shift, a contradiction showing that SY 6⊆ Y . (We do have S 2 Y = Y .)
+Example 8.7. (One-sided shifts) The notion of one-sided shift X defined by Lind and Marcus [33, Sect.
+12.8] consists of those sets X ⊆ AN that are the restriction to positions k ≥ 0 of all sequences in a two-
+sided shift X± described by forbidden blocks. One-sided shifts X are necessarily closed and shift-invariant:
+SX = X, so they form a strict subclass of closed shift-stable X.
+   The difference between one-sided shifts and closed shift-stable sets is visible at the level of minimal
+forbidden blocks, which are forbidden blocks that do not contain any other forbidden block as a strict sub-
+block. For a one-sided shift-stable set X we let Bmin ⊥ (X) denote its minimal forbidden block set. For a
+                             ⊥
+two-sided shift X± we let Bmin,±   (X± ) denote its minimal forbidden block set . Now consider the closed
+set Y = {001 , 01 , 1 } which has SY = {01∞ , 1∞ } ⊂ X, so is shift-stable but not shift-invariant.
+               ∞     ∞   ∞
+
+Here S 2 Y = {1∞ } is shift-invariant. It is easy to check that Bmin
+                                                                 ⊥ (Y ) = {1001, 101, 000}. The two-sided
+
+shift Y determined by this set of forbidden blocks is Y = {1Z } ∈ AZ , because any bi-infinite word
+       ±                                                     ±
+
+that contains a 0 must also contain one of the patterns 101, 1001, 000 and so is excluded. However Y±
+                                    ⊥
+has minimal forbidden block set Bmin,±     (Y± ) = {0} viewed as a two-sided shift. The one-sided shift Ỹ
+determined from Y± , using the Lind and Marcus prescription has Ỹ = S 2 Y = {1∞ }. The shift-stable sets
+32                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+Y and SY cannot be obtained by the Lind and Marcus prescription’ their minimal forbidden block sets are
+not minimal forbidden block sets of any two-sided shift.
+8.3. Weakly shift-stable sets. The notion of weak shift-stability provides a large class of sets X ⊆ AN
+which respect the shift operator and are closed under all decimation and interleaving operators. This class
+of sets includes all path sets studied in [2], see [5].
+Definition 8.8. A general set X ⊆ AN is weakly shift-stable if there are ℓ > k ≥ 0 such that S ℓ X ⊆ S k X.
+We call p = ℓ − k an eventual period for this shift semi-stable set.
+     The notion of eventual period of X reflects the inclusion
+                                S ℓ+j X = S (k+j)+p X ⊆ S k+j X      for all    j ≥ 0.
+  Theorem 2.15 shows that the class W(A) of all weakly shift-stable sets is closed under all decimation
+and interleaving operations:
+Proof of Theorem 2.15. (1) Weak shift-stability S ℓ X ⊆ S k X gives S ℓ+j X ⊆ S k+j X for all j ≥ 0. Setting
+p = ℓ − k, we deduce for m ≥ k that
+                                     S m+jp (X) ⊆ S m X     whenever     j ≥ 1.                            (8.1)
+By Proposition 3.2 we have, for j ≥ 0, n ≥ 1,
+                S ℓp ψj,n (X) = ψj+ℓpn,n(X) = ψj,n (S ℓpn X) ⊆ ψj,n (S kpn X) = S kp ψj,n (X),
+the inclusion holding because S ℓpn (X) ⊆ S kpn (X) by (8.1), since the difference of iterations is a multiple
+of p and kpn ≥ k.
+   (2) Let Xj be weakly shift-stable with parameters (ℓj , kj ), for 0 ≤ j ≤ n − 1, and pj = ℓj − kj . We
+                      n−1
+assert that Y = (⊛n )i=0  Xi is weakly shift-stable with an eventual period p = p0 p1 · · · pj . Indeed, setting
+k = maxj (kj ) and ℓ = k + 1, we have, using Proposition 4.10:
+                      S ℓpn Y    = S ℓpn (X0 ⊛X1 ⊛ · · · ⊛Xn−1 )
+                                 = (S ℓp X0 )⊛(S ℓp X1 )⊛ · · · ⊛(S ℓp Xn−1 )
+                                 ⊆ (S kp X0 )⊛(S kp X1 )⊛ · · · ⊛(S kp Xn−1 ) = S kpn X [n] .
+
+
+The third line above used the inclusions S ℓp Xi ⊆ S kp Xi for 0 ≤ i ≤ n − 1, which follow from (8.1), since
+k ≥ ki , and pi divides p.
+  (3) We have by Proposition 4.10 and Proposition 3.2:
+                                                                                
+                      S ℓn X [n] = S ℓn ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X)
+                                   = S ℓ ψ0,n (X)⊛S ℓ ψ1,n (X)⊛ · · · ⊛S ℓ ψn−1,n (X)
+                                   = ψ0,n (S ℓn X)⊛ψ1,n (S ℓn X)⊛ · · · ⊛ψn−1,n (S ℓn X)
+Now, applying the hypothesis S ℓ X ⊆ S k X:
+                       S ℓn X [n] = ψ0,n (S ℓn X)⊛ψ1,n (S ℓn X)⊛ · · · ⊛ψn−1,n (S ℓn X)
+                                   ⊆ ψ0,n (S kn X)⊛ψ1,n (S kn X)⊛ · · · ⊛ψn−1,n (S kn X)
+                                   = S kn (ψ0,n (X)⊛ψ1,n (X)⊛ · · · ⊛ψn−1,n (X))
+                                   = S kn X [n] .
+Thus X [n] is weakly shift-stable.                                                                            
+Remark 8.9. Path sets, studied in [2], are closed subsets of AN describable as infinite paths in graphs of finite
+automata. Such sets are not always shift-stable. In [5] it is shown they are always weakly shift-invariant, so
+they are weakly shift-stable.
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                      33
+
+                          9. E NTROPY OF INTERLEAVINGS FOR GENERAL SETS
+   We study studies two notions of entropy for general sets X ⊆ AN , topological entropy H(X) and prefix
+entropy Hp (X), defined for all sets X, and we also study a notion of stable prefix topological entropy which
+only certain sets X possess.
+9.1. Topological entropy and prefix topological entropy. We recall two notions of topological entropy
+for general sets X ⊆ AN , following the paper [2], given in Definition 2.16 and Definition 2.17(1).
+   (1) The topological entropy of X is
+                                                          1
+                                   Htop (X) := lim sup log Nk (X),
+                                                   k→∞    k
+where Nk (X) counts the number of distinct blocks of length k to be found across all words x ∈ X. It is
+defined as a limsup, but the limit always exists.
+   (2) The prefix entropy (or path topological entropy) of X is
+                                                          1
+                                      Hp (X) := lim sup log NkI (X)
+                                                   k→∞ k
+
+where NkI (X) counts the number of distinct prefix blocks b0 b1 · · · bk−1 of length k found across all words
+x ∈ X.
+   As remarked in Section 2.6 for Htop (X) the lim sup is always a limit. However the limsup is needed in
+the definition of prefix entropy, as shown by the next example.
+                                                                         Q
+Example 9.1. (The limit of k1 log NkI (X) may not exist) Take X0 = ∞        j=0 Aj where Aj = {0} for 0 ≤
+j ≤ 3 and, for m ≥ 1,
+     (i) Aj = {0} for 22m ≤ j ≤ 22m+1 − 1
+    (ii) Aj = {0, 1} for 22m+1 ≤ j ≤ 22m+2 − 1.
+Then X0 is a closed subset of AN having values k1 log NkI (X0 ) that oscillate between 13 log 2 and 32 log 2
+infinitely often as k → ∞, with minima at k = 22m+1 and maxima at k = 22m+2 . Here the lim sup gives
+Hp (X) = 23 log 2. On the other hand, property (ii) implies Nk (X0 ) = 2k so Htop (X0 ) = log 2.
+  Example 9.1 shows, first, that Hp (X) cannot in general be defined as a limit, and second, that Hp (X)
+and Htop (X) need not be equal.
+Proposition 9.2. For general sets X ⊆ AN , the following hold.
+  (1) Let X denote the closure of X in the natural topology on AN . One has Htop (X) = Htop (X) and
+Hp (X) = Hp (X).
+  (2) One has
+                                    Hp (X) ≤ Htop (X) ≤ log |A|,
+Proof. (1) The definitions of Htop (X) and Hp (X) depend only on finite symbol sequences (resp. finite
+intial symbol sequences) that occur in X. However all infinite words in X r X have all finite symbol
+sequences (resp. finite initial symbol sequences) occurring for some word in X.
+   (2) The bounds follow from NkI (X) ≤ Nk (X) ≤ |A|k .                                             
+Example 9.3. (Strict inequality Hp (X) < Htop (X) may occur for general X) Let A = {0, 1}, and let the
+closed set X consist of all words which, for m ≥ 1,
+     (i) have symbol 0 in each position 2m ≤ k ≤ 2m+1 − m,
+    (ii) allow arbitrary symbols {0, 1} in positions 2m+1 − (m − 1) ≤ k ≤ 2m+1 − 1.
+Then Nk = 2k for all k ≥ 1, because (ii) gives arbitrarily long blocks of the full shift, whence Htop (X) =
+log 2.
+   On the other hand, for a given symbol position k there are at most (log2 k)2 symbol positions of type (ii),
+                                2
+so we obtain NkI (X) ≤ 2(log2 k) . It follows that Hp (X) = 0.
+34                        WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+9.2. Entropy and the shift operator. The shift operator preserves both entropies Htop (X) and Hp (X)
+separately.
+Proposition 9.4. For general sets X ⊆ AN on a finite alphabet A the following hold.
+  (1) The shift operator S preserves topological entropy:
+                                             Htop (SX) = Htop (X).
+.
+     (2) The shift operator S preserves prefix entropy:
+                                              Hp (SX) = Hp (X).
+Proof. (1) We have, for a finite alphabet,
+                                                             1
+                                     Nk (X) ≥ Nk (SX) ≥         Nk+1 (X),
+                                                            |A|
+since there are at most |A| choices for a letter that is dropped. Using a limsup definition for Htop (X)
+(although the limit always exists) we have
+                                       1                         1
+                Htop (SX) = lim sup log Nk (SX) ≤ lim sup log Nk (X) = Htop (X).
+                                k→∞ k                     k→∞ k
+On the other hand,
+                                                  1
+                          Htop (SX) = lim sup       log Nk (SX)
+                                            k→∞ k
+                                                                            
+                                                    1                1
+                                        ≥ lim sup     log Nk+1 (X) − log |A|
+                                            k→∞     k                k
+                                                    1
+                                        = lim sup       log Nk+1 (X) = Htop (X).
+                                            k→∞ k + 1
+     (2) For a finite alphabet A we have
+                                     I                        1 I
+                                    Nk+1 (X) ≥ NkI (SX) ≥       N (X).                                  (9.1)
+                                                             |A| k+1
+The result Hp (SX) = Hp (X) is proved similarly to (1).                                                    
+
+9.3. Entropy and decimations. Entropies may change under decimation, subject to the following inequal-
+ities.
+Proposition 9.5. For general sets X ⊆ AN on a finite alphabet A the following hold. Then for all n ≥ 1
+and all i ≥ 0,
+                           0 ≤ Htop (ψi,n (X)) ≤ min(nHtop (X), log |A|).
+and
+                                  0 ≤ Hp (ψi,n (X)) ≤ min(nHp (X), log |A|).
+All equalities can be attained.
+Proof. The lower bounds are trivial, and the upper bounds log |A| are trivial. For the upper bounds, the
+symbols any block of size k of ψi,n (X) are contained ( in successive positions with index i ( mod n)) inside
+a block of length nk of X with the first symbol aligned, hence Nk (ψi,n (X)) ≤ Nnk (X). We have
+                                      1
+           Htop (ψi,n (X)) = lim sup    log Nk (ψi,n (X))
+                                 k→∞ k
+                                                                        
+                                      1                         1
+                             ≤ lim sup log Nnk (X) ≤ n lim sup log Nk (X) = nHtop (X).
+                                 k→∞ k                      k→∞ k
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                          35
+
+For the corresponding prefix entropy upper bound we use the bound NkI (ψi,n (X)) ≤ |A|i Nnk
+                                                                                          I (X), obtained
+
+by containment of a prefix of length k in ψi,n (X) inside a prefix of X of length nk + i.
+                                                                          n−1
+  To show the bounds are attained, take the interleaved set X = (⊛n )i=0      Xi where X0 = AN and each
+         ∞                                                            1
+Xi = {0 } for 1 ≤ i ≤ n − 1. We have Htop (X) = Hp (X) = n log |A| (by counting blocks). For the
+upper bound we have Htop (ψ0,n (X)) = Hp (ψ0,n (X) = log |A|. For the lower bound Htop (ψ1,n (X)) =
+Hp (ψ1,n (X)) = 0.                                                                                     
+9.4. Prefix entropy upper bound for interleaving. We prove a general upper bound for the prefix entropy
+of an n-fold interleaving in terms of the prefix entropies of its factors, which is Theorem 2.18.
+Proof of Theorem 2.18. By definition
+                                                                                
+                                                      1     I
+                      Hp (X0 ⊛ · · · ⊛Xn−1 ) = lim sup log Nk (X0 ⊛ · · · ⊛Xn−1 ) ,                         (9.2)
+                                                 k→∞ k
+
+where NkI (X) is the number of distinct initial blocks of length k occurring in the symbol sequences of X.
+Now we partition into subsequences {nk + j : k ≥ 0} for 0 ≤ j ≤ n − 1 to obtain:
+                                                                                               
+                                                          1           I
+            Hp (X0 ⊛ · · · ⊛Xn−1 ) = max lim sup               log Nnk+j     (X0 ⊛ · · · ⊛Xn−1 ) .
+                                      0≤j≤n−1 k→∞ nk + j
+
+Call the terms on the right side
+                                                                                     
+                                                1            I
+                        Hp,j (X) := lim sup         log Nnk+j    (X0 ⊛ · · · ⊛Xn−1 )
+                                      k→∞ nk + j
+for 0 ≤ j ≤ n − 1. The number of distinct initial (nk + j)-blocks in X0 ⊛ · · · ⊛Xn−1 is simply the product
+of the number of distinct initial (k + 1)-blocks in each of X0 , X1 , . . . , Xj−1 and of the the distinct initial
+k-blocks in Xj , Xj+1 , · · · Xn−1 . Thus we obtain, for a fixed j, 0 ≤ j ≤ n − 1,
+                                                                                   
+                                              1              I
+                  Hp,j (X) = lim sup               log Nnk+j (X0 ⊛ · · · ⊛Xn−1 )
+                                     k→∞ nk + j
+                                                        j−1
+                                                          Y                 n−1
+                                                                            Y           
+                                              1                  I                I
+                               = lim sup           log         Nk+1 (Xi ) ·     Nk (Xi )
+                                     k→∞ nk + j           i=0               i=j
+                                                                                             
+                                                      j−1
+                                                      X                      n−1
+                                                                              X
+                                              1                 I
+                               = lim sup                  log Nk+1   (Xi ) +     log NkI (Xi )
+                                     k→∞   nk +  j
+                                                         i=1                i=j
+
+   By (9.1), which applies to general sets X ⊆ AN , each log Nk+1
+                                                                I (X ) differs from log N I (X ) by no more
+                                                                       i                    k   i
+than log |A|. Since the entire sum is divided by nk + j, this difference does not affect the limsup, so:
+                                                   n−1                            n−1
+                                            1 X                 1        1X
+              Hp,j (X) = lim sup                 log NkI (Xi ) = lim sup    log NkI (Xi )
+                                k→∞       nk + j                n k→∞ k
+                                                   i=0                            i=0
+                                   n−1
+                                   X                               n−1
+                                                                   X
+                               1           1                   1
+                          ≤                   log NkI (Xi ) =
+                                         lim sup                      Hp (Xi ).
+                               n           k                  n
+                                i=0 k→∞                           i=0
+                                               Pn−1
+Thus, all the Hp,j (X) are bounded above by n1 i=0     Hp (Xi ). It follows that Hp = max0≤j≤n−1 Hp,j (X)
+obeys the same bound.                                                                                   
+Example 9.6. (X may have full topological entropy and zero prefix entropy) We start with the closed set X0
+with alphabet A = {0, 1} defined in Example 9.1. Let a second closed set X1 consist of all words that allow
+{0} in index positions
+                Q      where X0 allows {0, 1}, and allow {0, 1} in all index positions where X0 allows only
+{0}; i.e., X1 = ∞        ′        ′
+                   j=0 j where Aj = {0, 1} for 0 ≤ j ≤ 3 and, for m ≥ 1,
+                       A
+    (i) A′j = {0, 1} for 22m ≤ j ≤ 22m+1 − 1
+36                      WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+     (ii) A′j = {0} for 22m+1 ≤ j ≤ 22m+2 − 1.
+Then Bk (X1 ) = {0, 1}k for all k ≥ 1, since (ii) has arbitrarily long blocks of the full shift, whence
+Htop (X) = log 2. We have Hp (X0 ) = Hp (X1 ) = 23 log 2, by the same calculation as in Example 9.1. We
+assert that the interleaved set X := X0 ⊛X1 has
+                                     1        1                     2
+                           Hp (X) = log 2 < Hp (X0 ) + Hp (X1 ) = log 2.
+                                     2        2                        3
+To compute Hp (X), note that in each pair of consecutive symbol positions (2j, 2j + 1) the words in X have
+one symbol frozen to be 0 and the other symbol free to be chosen in {0, 1}, where the frozen symbol is the
+symbol in position 2j for 22m ≤ j < 22m+1 and is the symbol in position 2j + 1 for 22m+1 ≤ j < 22m+2 .
+Thus 2k/2−1 ≤ NkI (X) ≤ 2k/2+1 for all k ≥ 0, whence Hp (X) = limk→∞ k1 log NkI (X) = 12 log 2.
+9.5. Stable prefix entropy and interleaving entropy equality. We study the concept of stable prefix en-
+tropy and show its consequences for the behavior of entropy under interleaving. Recall from Definition 2.17
+(2) that a set X ⊆ AN has stable prefix entropy, if the prefix entropy can defined as a limit. That is, the
+following limit exists:
+                                                           1
+                                         Hp (X) := lim log NkI (X).
+                                                     k→∞ k
+   Recall that Theorem 2.19 asserts that stable prefix entropy is preserved under interleaving, and that stable
+prefix entropy of all the interleaving factors implies equality in the prefix entropy formula of Theorem 2.18.
+                                          n−1                                   Pn−1
+Proof of Theorem 2.19. Let X = (⊛n )i=0       Xi . The inequality Hp (X) ≤ n1 i=0      Hp (Xi ) in Theorem 2.18
+arose in interchanging a finite sum with a lim sup. Using the stable prefix hypothesis for each Xi , we obtain
+a matching lower bound.
+   By definition Hp (X) := lim supk→∞ k1 log NkI (X). Let Hp (X) := lim inf k→∞ k1 Nk (X). It suffices to
+                                                                   ′
+
+                          P  n−1
+show that Hp (X) ≥ n1 i=0
+              ′                                               ′
+                                 Hp (Xi ) to conclude that Hp (X) = Hp (X) has a limit which is the desired
+         P  n−1
+value n1 i=0    Hp (Xi ).
+   Partitioning into subsequences {nk + j : k ≥ 0} for 0 ≤ j ≤ n − 1 as in the proof of Theorem 2.18, we
+get:
+                                                                                       
+                     ′                               1            I
+                  Hp (X) = min            lim inf         log Nnk+j (X0 ⊛ · · · ⊛Xn−1 )       .
+                              0≤j≤n−1      k→∞ nk + j
+                              ′
+Call the right side values Hp,j (X). We have
+                                                        n−1
+                                                                             !
+                          ′             1               X     1
+                        Hp,j (X) ≥        lim inf               log NkI (Xi ) .
+                                        n k→∞                 k
+                                                        i=0
+                                            n−1
+                                            X
+                                        1                   1
+                                   ≥              lim inf     log NkI (Xi )
+                                        n          k→∞      k
+                                            i=0
+                                            n−1
+                                            X                                     n−1
+                                        1             1                 1X
+                                   =              lim   log NkI (Xi ) =    Hp (Xi ),
+                                        n         k→∞ k                 n
+                                            i=0                                   i=0
+                                                                                        Pn−1
+where stable prefix entropy was used in the last line. We conclude Hp (X) ≥ n1
+                                                                              ′
+                                                                                         i=0 Hp (Xi ).      
+Example 9.7. (Stable prefix entropy is not always preserved under decimation) The set X = X0 ⊛X1 of
+Example 9.6 has stable prefix entropy, but X0 = ψ0,2 (X) does not, as shown in Example 9.1. The set
+X1 = ψ1,2 (X) does not have stable prefix entropy by a similar analysis.
+   Recall that Theorem 2.20 asserts weak shift-stability implies both stable prefix entropy and equality of
+the two notions of entropy, Hp (X) and Htop (X).
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                      37
+
+Proof of Theorem 2.20. For any set X we have Nm   I (X) ≤ N (X). By hypothesis, S ℓ X ⊆ S k X for some
+                                                              m
+ℓ ≥ k ≥ 0. Since X ⊆ Y implies S(X) ⊆ S(Y ), an easy induction argument shows that S ℓ+j X ⊆ S k+j X
+holds for all j ≥ 0. Since any block of length m in X, starting in any position n, is an initial block of
+                                                           ′
+S n (X), we may conclude that it is an initial block of S ℓ (X), for some ℓ′ ≤ ℓ. Consequently all such
+blocks are counted among the initial blocks of X, SX, · · · S ℓ−1 (X) of length m. To each such block one
+can associate an initial block of length m + ℓ of X which contains the given block in positions ℓ′ through
+ℓ′ + m − 1. Any initial block of length m + ℓ can be counted this way at most ℓ + 1 times, one for each
+prefix ℓ′ ≤ ℓ, so we obtain the upper bound
+                                                          I
+                                         Nm (X) ≤ (ℓ + 1)Nm+ℓ (X).
+We then obtain the bounds
+                                 I
+                                Nm (X) ≤ Nm (X) ≤ (ℓ + 1)|A|ℓ Nm
+                                                               I
+                                                                 (X),
+       I
+since Nm+ℓ (X) ≤ |A|ℓ Nm
+                       I (X). It follows that
+
+                                   I                         I
+                              log Nm (X) ≤ log Nm (X) ≤ log Nm (X) + C,
+for an absolute constant C. Thus
+                                         1        I
+                                                                    
+                                   lim       log Nm (X) − log Nm (X) = 0.
+                                m→∞ m
+                           1
+Since the limit limm→∞ m     log Nm (X) exists for topological entropy, it must also exist for prefix entropy,
+showing stability. Moreover, since the limits are the same, Hp (X) = Htop (X). Finally, since weak shift-
+stability is preserved under n-fold interleaving, the entropy equation (2.10) for topological entropy follows
+from Theorem 2.19.                                                                                          
+
+                                         10. C ONCLUDING REMARKS
+10.1. General interleaving operations. Iterated interleaving factorizations are a special case of factoriza-
+tions of closed sets X ⊆ AN into a product of closed sets obtained by projections onto subsets of indices
+Ij ⊆ N, where the index sets {Ij : 0 ≤ j ≤ n − 1} form a partition of N. Iterated interleaving factorizations
+project onto a partition of N in which each Ij is a complete arithmetic progression in N.
+   Exact covering systems are partitions of N into a finite set of disjoint complete arithmetic progressions
+(of various moduli). They have been extensively studied, see [21], [42] and [43] for surveys. There are
+interesting necessary and sufficient conditions for a finite set of complete arithmetic progressions to be an
+exact cover of N, starting with Fraenkel [23], see also Beebee [7] and Porubský and Schónheim [44]. The
+exact covers determined by iterated interleaving are the set of natural exact covering systems introduced
+by Porubský [41], who credits the construction to an unpublished paper of Znam. It is known that not all
+exact covers can be obtained by iterated interleaving constructions. An example due to Znam (cf. Guy [28,
+Problem F14]) is :
+    {0 (mod 6); 1 (mod 10); 2 (mod 15); 3, 4, 5, 7 − 10, 13 − 16, 19, 20, 22, 23, 25 − 29 (mod 30)}.
+This set of arithmetic progressions has gcd(6, 10, 15) = 1, while any iterated interleaving factorization with
+an initial n-fold interleaving necessarily has all arithmetic progressions in any refinement having periods
+divisible by n. The natural exact covering systems play a special role in the reversion (inversion under
+composition) of the Möbius function power series, see Goulden et al [27].
+   One can introduce more general interleaving operations, which might include arbitrary exact covering
+systems. For a set X ⊆ AN , one can ask which decimations ψj,n (X) have the property that X can be
+written as a topological product ψj,n (X) × Y , where Y is the projection of X onto the set I of all indices
+having i 6= j (mod n)? Call such a decimation ψj,n (X) with this property a generalized factor of X. Can
+one characterize the possible sets of all generalized factors of X, as X varies?
+38                         WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+10.2. Iterated interleaving closure operations. One may ask for a given set X, what are the set of all
+interleaving closures of it: {X [n] : n ≥ 1}. We can define a filtered limit as n → ∞ as follows. Letting pk
+denote the kth prime in increasing order, we can define
+                                           X [∞] :=               lim            X [nk ] ,
+                                                        nk =(p1 p2 ···pk )k →∞
+
+where the limit exists since X [nk ] ⊆ X [nk+1 ] by Proposition 4.6(3), and for each n one has n divides nk for
+all sufficiently large k. The set X [∞] will be infinitely factorizable. What can one say about the possible
+forms of X [∞] ?
+10.3. Characterizing closed weakly shift-stable sets. Is there a characterization of closed weakly shift-
+stable sets X ⊆ AN having a parallel with the characterization by forbidden blocks of closed shift-stable
+sets given in Proposition 8.3?
+
+                                      A PPENDIX A. I NTERLEAVING OPERAD
+   Operads were systematically developed by Boardman and Vogt [8] and May [37] and as a vehicle to study
+iterated loop spaces in stable homotopy theory. More recently, operads have been used by researchers in
+homological algebra, category theory, algebraic geometry, and mathematical physics; see [47] for a brief
+introduction. Interleaving operations determine a certain kind of operad, giving an application of the operad
+concept to symbolic dynamics. In this Appendix we only define operads over the category of sets, although
+they can be defined over any symmetric monoidal category.
+   Non-symmetric operads (as in [34], [25]) are a weak version of operads which do not require equivariance
+under actions of symmetric groups on factors. They provide a convenient framework to keep track of
+properties of an infinite family of n-ary operations under iterated composition.
+Definition A.1. A non-symmetric operad (or plain operad) O consists of a set O(n) for each natural number
+n satisfying the following conditions:
+(a) (composition) for all positive integers n, k1 , . . . , kn , there is a composition function
+                            ◦ : O(n) × O(k1 ) × · · · × O(kn ) → O(k1 + · · · + kn ),
+    written as (f, f1 , . . . , fn ) 7→ f ◦ (f1 , . . . , fn ) for elements f ∈ O(n) and fi ∈ O(ki );
+(b) (identity) there is an element 1 ∈ O(1), called the identity, such that
+                                                f ◦ (1, . . . , 1) = f = 1 ◦ f
+    for all f ;
+(c) (associativity) there holds
+                     f ◦ (f1 ◦(f1,1 , . . . , f1,k1 ), fn ◦ (fn,1 , . . . , fn,kn )) =
+                                = (f ◦ (f1 , . . . , fn )) ◦ (f1,1 , . . . , f1,k1 , . . . , fn,1 , . . . , fn,kn )
+     for all f ∈ O(n), fi ∈ O(ki ) and fi,j .
+   For a non-symmetric operad O, we think of the elements of O(n) as n-ary operations. An operad is a
+non-symmetric operad that also possesses a right-action of the symmetric group Σn on the set of operations
+of arity n for each n, satisfying an equivariance condition, as described in the definition below.
+   Following [35], we use an underline to denote non-symmetric operads O and remove the underline for
+(symmetric) operads O.
+Definition A.2. An operad (or symmetric operad) O is a non-symmetric operad together with a right action
+of the symmetric group Σn on each O(n) satisfying the following equivariance conditions for each σ ∈ Σn ,
+τi ∈ Σki , f ∈ O(n), and fi ∈ O(ki ) for 1 ≤ i ≤ n:
+(A) (f · σ) ◦ (f1 , . . . , fn ) = (f ◦ (f1 , . . . , fn )) · σ;
+(B) f ◦ (f1 · τ1 , . . . , fn · τn ) = (f ◦ (f1 , . . . , fn ) · (τ1 , . . . , τn ).
+                 DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                            39
+
+Here the action of σ on the right-half of (A) is defined as the action of the permutation σ  e ∈ σk1 +···+kn that
+permutes consecutive blocks of length k1 , . . . , kn , respectively, according to the permutation σ.
+   We let S(A) denote any class of subsets of AN that is closed under all decimation and interleaving
+operations, combining n sets in S(A) in any order in any n-fold interleaving. Examples of such classes
+include the collection W(A) of all weakly shift-stable sets (Theorem 2.15), the sub-collection W(A) of
+all closed weakly shift-stable sets (since the property of being closed is preserved under all decimation and
+interleaving operations), and the class C(A) of path sets studied in [2], which is shown to satisfy weak
+shift-stability in [5].
+   We first construct a non-symmetric operad I such that each element of I(n) is an n-ary operation acting
+on S(A) × S(A) × · · · × S(A) (n times). Although the non-symmetric operad I will be built up from
+the n-fold interleaving operations, the resulting set I(n) of operations at level n will contain many more
+operations. For notational convenience, let ⊛n denote the n-fold interleaving operation on S(A). We let
+I(1) = {⊛1 }, where of course ⊛1 = idS(A) is the trivial “1-fold interleaving”. Also let I(2) = {⊛2 }.
+However, it will not be sufficient for I(3) to be a singleton set. Rather,
+                                 I(3) = {⊛3 , ⊛2 ◦ (⊛1 , ⊛2 ), ⊛2 ◦ (⊛2 , ⊛1 )},
+where, for instance,
+                                [⊛2 ◦ (⊛1 , ⊛2 )](X1 , X2 , X3 ) = X1 ⊛(X2 ⊛X3 )
+for general sets X1 , X2 , X3 ∈ S(A). I(n) for n > 3 is defined analogously, so as to satisfy the composition
+condition of Definition A.1. It is easy to see that ⊛1 serves as an identity for I with respect to the various
+compositions, as in (b). Since the compositions of I are genuine function composition, associativity in I
+follows from the associativity of function composition. Therefore, I is a non-symmetric operad. We call I
+the interleaving non-symmetric operad, and refer to operations from I as compound interleaving operations.
+   The non-symmetric operad I can be upgraded to a symmetric operad by adding a right action of the
+symmetric group permuting the interleaving factors. This requires adding additional n-ary operations for
+each n. In particular, for σ ∈ Σn and an operation f ∈ I(n), we need to admit the operation f · σ where
+(f · σ)(X1 , . . . , Xn ) = f (Xσ(1) , . . . , Xσ(n) ). Note that, like the interleaving operations themselves, this
+is also a function S(A) × · · · × S(A) → S(A), given by a (possibly compound) interleaving of some
+permutation of the input sets. Denote by I(n) the set of n-ary operations expanded to include the operations
+f · σ defined above, which permute the inputs prior to any (compound) interleaving. Note that we can think
+of an element f ∈ I(n) as corresponding to f · ǫ ∈ I(n), where ǫ ∈ Σn is the identity element. We can
+then extend the compositions for the I(k) to
+                            ◦ : I(n) × I(k1 ) × · · · × I(kn ) → I(k1 + · · · + kn ),
+by genuine function composition. Then it is natural to define a right action of Σn on I(n) by (f · σ) · τ =
+f · (στ ) for f · σ ∈ I(n) and τ ∈ Σn . Note that the equivariance conditions (A) and (B) of Definition A.2
+apply generally to an action permuting the inputs of genuine functions with respect to genuine composition.
+Thus, since the n-ary operations in I(n) are genuine functions on sets and the compositions are function
+composition, these conditions hold. We call the resulting (symmetric) operad the interleaving symmetric
+operad and denote it by I.
+Proposition A.3. Let I be the interleaving symmetric operad acting on a collection of sets S(A) closed
+under all decimation and interleaving operations. Then for any f ∈ I(n) and any sets X0 , . . . , Xn−1 ∈
+S(A), we have also f (X0 , . . . , Xn−1 ) ∈ S(A).
+Proof. Every f ∈ I(n) is just a composition of interleavings of various n-arities, where possibly the input
+sets have their order permuted. Since S(A) is closed under the interleaving operations, it follows that it is
+closed under all composition operations from I.                                                            
+   Generally, we recall below the notion of an algebra over an operad. We will see that the descriptions
+given above for the nonsymmetric operad I and the (symmetric) operad I were really given in terms of
+40                            WILLIAM C. ABRAM, JEFFREY C. LAGARIAS, AND DANIEL J. SLONIM
+
+certain algebras over those operads. This approach has helped to keep the exposition concretely rooted in
+the examples of interest, but differs from the more typical, categorical exposition.
+   The following definition matches [35, Definition 1.20], restricted to operadsSin the category of sets. For a
+set X, let EndX (n) denote the set of all functions X n → X, and let EndX = ∞     n=1 EndX (n). Then EndX
+has the structure of an operad, and is called the Endomorphism Operad (of sets), see [35, Definition 1.7].
+Definition A.4. Let O be an operad in the category of sets, and let X be a set. An O-algebra structure
+on X is a morphism of operads αX : O → EndX , that is, a family of Σn -equivariant morphisms αX (n) :
+O(n) → EndX (n), n ≥ 1, compatible with the identity, composition, and equivariance structures of O and
+EndX .
+   If we omit the equivariance structure from the above definition, then we get the notion of an algebra over
+a nonsymmetric operad.
+Example A.5. (Algebras over interleaving nonsymmetric operad I)
+    The sets W(A) of all weakly shift-stable sets on the fiinite alphabet A, W(A) of all closed weakly shift-
+stable sets on A, and C(A) of path sets on A are all algebras over the interleaving nonsymmetric operad I.
+If the set S(A) is any of these sets, and for any n ∈ N, the maps αS(A) of Definition A.4 are built up from
+                                                                  n−1
+                     αS(A) (n)(⊛n )[(X0 , . . . , Xn−1 )] := (⊛n )j=0 Xj = X0 ⊛X1 ⊛ · · · ⊛Xn−1
+by function composition, where (X0 , . . . , Xn−1 ) ∈ S(A)n .
+
+                                                          R EFERENCES
+[1] W.C. Abram, A. Bolshakov, J.C. Lagarias, Intersection of multiplicative translates of 3-adic Cantor sets II: Two infinite families,
+    Exp. Math. 26 (2017) 468–489.
+[2] W.C. Abram, J.C. Lagarias, Path sets in one-sided symbolic dynamics, Adv. Appl. Math. 56 (2014) 109–134.
+[3] W.C. Abram, J.C. Lagarias, p-Adic path set fractals and arithmetic, J. Fractal Geom. 1 (2014) 45–81.
+[4] W.C.Abram, J.C. Lagarias, Intersections of multiplicative translates of 3-adic Cantor sets, J. Fractal Geom. 1 (2014) 349–390.
+[5] W.C. Abram, J.C. Lagarias, D.J. Slonim, Interleaving of path sets, paper in preparation.
+[6] R. Adler, A.G. Konheim, M.H. McAndrew, Topological entropy, Trans. Amer. Math. Soc. 114 (1965) 309–319.
+[7] J.Beebee, Bernoulli numbers and exact covering systems, Amer. Math. Monthly 99 (1992) 946–948.
+[8] J.M. Boardman, R.M. Vogt, Homotopy invariant algebraic structures on topological spaces, Lecture Notes in Math. 347,
+    Springer, Berlin, 1973.
+[9] M.R. Bremner, V. Dotsenko, Algebraic Operads: An Algorithmic Companion, CRC Press, Boca Raton, FL, 2014.
+[10] S.D. Cardell, A. Fuster-Sabatier, A.H. Ranea, Linearity in decimation-based generators: An improved cryptanalysis of the
+    shrinking generator, Open Math. 16 (2018), 646–655.
+[11] T.M. Carlsen, Cuntz-Pimsner C ∗ -algebras associated with subshifts, Internat. J. Math. 9 (2008) 47–70.
+[12] T.M. Carlsen, An introduction to the C ∗ -algebra of a one-sided shift space, Operator algebras and dynamics, 63–88, Springer
+    Proc. Math. Stat. 58, Springer, Heidelberg 2013.
+[13] T. Cottrell, A study of Penon weak n-categories, Part 1. Monad interleaving, Cah. Topol. Géom Différ. Catég. 59 (2018)
+    197–259.
+[14] J. Cuntz, A class of C ∗ - algebras and topological Markov chains II. Reducible chains and the Ext-function for C ∗ -algebras,
+    Invent. Math. 63 (1981) 25–40.
+[15] J. Cuntz, W. Krieger, A class of C ∗ - algebras and topological Markov chains, Invent. Math. 56 (1980) 251–268.
+[16] I. Daubechies, Ten Lectures on Wavelets, CBMS-NSF Regional Conf. Ser. in Appl. Math. 61, SIAM, Philadelphia, PA, 1992.
+[17] M. Dokuchaev, R. Exel, Partial actions and subshifts, J. Funct. Anal. 272 (2017) 5038–5106.
+[18] G. Duchamp, M. Flouret, É. Laugerotte, J.G. Luque, Direct and dual laws for automata with multiplicities, Theoret. Comput.
+    Sci. 267 (2001), 105–120.
+[19] S. Eilenberg, Automata, languages and machines, Volume A, Pure and Applied Mathematics, Vl. 59A, Academic Press, New
+    York, 1974.
+[20] P. Erdős, Some unconventional problems in number theory, Math. Mag. 52 (1979), 67–70.
+[21] P. Erdős, R.L. Graham, Old and new problems and results in combinatorial number theory, Monographic No. 28 de
+    L’Enseignements Mathématique Univ. Genéve, 1980.
+[22] R. Exel, Partial dynamical systems, Fell bundles and applications, Math. Surveys Monogr. vol. 224, Amer. Math. Soc. Provi-
+    dence, RI, 2017.
+[23] A. Fraenkel, A characterization of exactly covering congruences, Discrete Math. 4 (1973) 359–366.
+                    DECIMATION AND INTERLEAVING OPERATIONS IN ONE-SIDED SYMBOLIC DYNAMICS                                       41
+
+[24] S. Giraudo, Operads in algebraic combinatorics, Habilitation 2017, Univsité Paris-Est Marne-la-Vallée , 388 pages. eprint:
+    arXiv:1712.03782.
+[25] S. Giraudo, Nonsymmetric operads in combinatorics, Springer, Cham, 2018.
+[26] G. Grätzer, Lattice theory: Foundation, Birkhäuser, Berlin, 2011.
+[27] I.P. Goulden, A. Granville, L.B. Richmond, J. Shallit, Natural exact covering systems and the reversion of the Möbius series,
+    Ramanujan J. 50 (2019) 211–235.
+[28] R.K. Guy, Unsolved Problems in Number Theory: Third Edition, Springer-Verlag, New York, 2004.
+[29] Zhiqing Hui, J. Baccou, J. Liandrat, On the coupling of decimation operator with subdivision schemes for multi-scale analysis,
+    Mathematical methods for curves and surfaces, 162–185, Lecture Notes in Computer Science 10521, Springer, Cham 2017.
+[30] D. Krieger, A. Miller, N. Rampersad, B. Ravikumar, J.O. Shallit, Decimations of languages and state complexity, Theoret.
+    Comput. Sci. 410 (2009) 2401–2409.
+[31] J.C. Lagarias, Ternary expansions of powers of 2. J. London Math. Soc. 79 (2009) 562–588.
+[32] T. Leinster, Higher operads, higher categories, London Math. Soc. Lecture Note Series, 298. Cambridge University Press,
+    Cambridge, 2004.
+[33] D. Lind, B. Marcus, An Introduction to Symbolic Dynamics and Coding, Cambridge University Press, New York, 1995.
+    (Reprinted 1999 with corrections.)
+[34] Jean-Louis Loday, Bruno Vallette, Algebraic operads, Grundlehren der mathematischen Wissenschaften, Vol. 346, Springer-
+    Verlag, New York 2012.
+[35] M. Markl, S. Shnider, J. Stasheff, Operads in algebra, topology and physics. Math. Surveys Monogr. 96. American Mathe-
+    matical Society, Providence, R,I 2002.
+[36] M. Markl, Operads and PROPS, pp. 87–140 in: Handbook of algebra, Vol. 5, Elsevier/North Holland, Amsterdam, 2008.
+[37] J.P. May, The Geometry of Iterated Loop Spaces. Springer Lecture Notes in Mathematics, Vol. 271, Springer, 1972.
+[38] J.P. May, Operads, algebras and modules, in Operads: Proceedings of Renaissance Conferences (Hartford, CT/Luminy, 1995),
+    15–31, Contemp. Math., 202, Amer. Math. Soc., Providence, RI, 1997.
+[39] M. Morse, G. A.Hedlund, Symbolic dynamics Amer. J. Math. 60 (1938) 815–866.
+[40] D. Perrin, J-E. Pin, Infinite Words: Automata, Semigroups, Logic and Games, Elesevier, Dordrecht, 2004.
+[41] S. Porubský, Natural exactly covering systems of congruences, Czechoslovak Math. J. 24 (1974) 598–606.
+[42] S. Porubský, Results and problem on covering systems of residue classes, Mitteilungen Math. Sem. Giessen 150 (1981) 1–85.
+[43] S. Porubský, J. Schönheim, Covering systems of Paul Erdős. Past, present and future, pp. 581–627 in: Paul Erdős and his
+    mathematics I. (Budapest, 1999), J. Bolyai Math. Soc., Budapest 2002.
+[44] S. Porubský, J. Schönheim, Old and new necessary and sufficient conditions on (ai , mi ) in order that n ≡ ai (mod mi ) be a
+    covering system, Math. Slovaca 53 (2003) 341–349.
+[45] R.A. Rueppel, Analysis and Design of Stream Ciphers, Springer-Verlag, Berlin, 1986.
+[46] E. Schechter, Handbook of Analysis and Its Foundations, Academic Press, New York, 1996. (Elsevier, Dordrecht, 1997.)
+[47] J. Stasheff, What is an operad?, Notices Amer. Math. Soc. 51 (2004) 630–631.
+[48] S.A. Vanstone, P. van Oorschot, An Introduction to Error Correcting Codes with Applications, Kluwer Academic Publishers,
+    Boston, 1989.
+
+   A LLEN BAILEY & A SSOCIATES , AUSTIN , TX 78731
+   Email address: abramwc@gmail.com
+
+   D EPARTMENT OF M ATHEMATICS , U NIVERSITY OF M ICHIGAN , A NN A RBOR , MI 48109-1043,USA
+   Email address: lagarias@umich.edu
+
+   D EPARTMENT OF M ATHEMATICS , P URDUE U NIVERSITY, W EST L AFAYETTE , IN 47906
+   Email address: dslonim@purdue.edu
+

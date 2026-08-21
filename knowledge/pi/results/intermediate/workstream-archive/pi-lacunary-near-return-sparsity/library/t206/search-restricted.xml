@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/MXC106xTHNXjMR6NZKkHDLyw9dA</id>
+  <title>arXiv Query: search_query=all:"irrationality exponent" AND all:"low complexity expansion"&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-08-19T09:34:11Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22irrationality+exponent%22+AND+all:%22low+complexity+expansion%22&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2510.17177v3</id>
+    <title>On the irrationality exponent of real numbers with low complexity expansion</title>
+    <updated>2026-03-20T13:18:13Z</updated>
+    <link href="https://arxiv.org/abs/2510.17177v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.17177v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $ξ$ be a real number and $b \ge 2$ an integer. We study the relationship between the irrationality exponent of $ξ$ and the subword complexity $p(n, \mathbf{x})$ of the $b$-ary expansion $\mathbf{x}$ of $ξ$, where $p(n, \mathbf{x})$ counts the number of distinct blocks of length $n$ in $\mathbf{x}$, for $n \ge 1$. If the irrationality exponent of $ξ$ is equal to $2$, which is the case for almost all real numbers $ξ$, we show that the limit superior of the sequence $(p(n, \mathbf{x}) / n)_{n \ge 1}$ is at least equal to 4/3. The proof is based on a careful study of the evolution of the Rauzy graphs of infinite words of low complexity.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-20T05:44:40Z</published>
+    <arxiv:comment>23 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yann Bugeaud</name>
+    </author>
+    <author>
+      <name>Hajime Kaneko</name>
+    </author>
+    <author>
+      <name>Dong Han Kim</name>
+    </author>
+  </entry>
+</feed>

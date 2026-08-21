@@ -1,0 +1,426 @@
+                                           Fractional parts of powers of negative rationals
+                                                                   Qing Lu∗              Weizhe Zheng†
+arXiv:2603.16794v3 [math.NT] 17 Jun 2026
+
+
+
+
+                                                                                 Abstract
+                                                      We prove that for any real number ξ ̸= 0 and any coprime integers
+                                                   p > q ≥ 1 such that ξ is irrational or q > 1, the image in R/Z of the
+                                                   sequence (ξ(−p/q)n )n≥0 is not contained in any interval of length less
+                                                   than (1 + q/p − q 2 /p2 )/p.
+
+
+                                           1       Introduction
+                                           Distribution modulo one of geometric progressions has been studied exten-
+                                           sively. One intriguing open question considered by Mahler [M] is the follow-
+                                           ing: Does there exist a real number ξ > 0 such that {ξ(3/2)n } < 1/2 for all
+                                           n ≥ 0? Here {x} := x − ⌊x⌋ denotes the fractional part of a real number x.
+                                           Flatto, Lagarias, and Pollington [FLP, Theorem 1.4] proved that for any real
+                                           number ξ > 0 and coprime integers p > q > 1, we have
+
+                                                              lim sup{ξ(p/q)n } − lim inf {ξ(p/q)n } ≥ 1/p.
+                                                                                    n→∞
+                                                                n→∞
+
+                                           Dubickas ([D1, Theorem 1], [D2, Theorem 2]) proved a more general result
+                                           which implies that for all real numbers ξ ̸= 0 and η and for any rational
+                                           number α = p/q with integers p > q ≥ 1 satisfying ξ ∈
+                                                                                               / Q or α ∈
+                                                                                                        / Z, we have
+
+                                           (1.1)              lim sup{ξαn + η} − lim inf {ξαn + η} ≥ 1/p.
+                                                                n→∞                  n→∞
+
+
+                                           In fact, Dubickas’ proof of (1.1) also holds for α = −p/q. In this paper, we
+                                           improve the bound (1.1) in the case where α is a negative rational number.
+                                               ∗
+                                                School of Mathematical Sciences, Beijing Normal University, Beijing 100875, China;
+                                           email: qlu@bnu.edu.cn.
+                                              †
+                                                Morningside Center of Mathematics, Academy of Mathematics and Systems Science,
+                                           Chinese Academy of Sciences, Beijing 100190, China; University of the Chinese Academy
+                                           of Sciences, Beijing 100049, China; email: wzheng@math.ac.cn.
+
+
+                                                                                     1
+Theorem 1.1. Let ξ ̸= 0 and η be real numbers and let p > q ≥ 1 be integers.
+Assume that ξ ∈
+              / Q or p/q ∈
+                         / Z. Then
+
+(1.2)   lim sup{ξ(−p/q)n + η} − lim inf {ξ(−p/q)n + η} ≥ (1 + r − r2 )/p,
+         n→∞                         n→∞
+
+
+where r = q/p.
+
+    While Dubickas proved various bounds for the limit values of ({ξ(−p/q)n })n≥0
+[D3, Theorems 2, 4] and (∥ξ(−p/q)n ∥)n≥0 [D2, Theorem 3] (where ∥x∥ =
+min({x}, 1 − {x}) denotes the distance to the nearest integer), no bound of
+the form (1.2) better than 1/p was known to the best of our knowledge. In
+the case (p, q) = (3, 2) which is the negative analogue of Mahler’s question,
+our bound is (1 + 2/3 − 4/9)/3 = 11/27.
+    For a sequence S = (sn )n≥0 we let Sn (x) = ∞                 i
+                                                      P
+                                                        i=0 sn+i x denote the
+(shifted) generating series. We deduce Theorem 1.1 from the following opti-
+mal bound.
+
+Theorem 1.2. For any real number 0 < r < 1 and any bounded sequence
+S = (sn )n≥0 of integers that is not ultimately periodic, we have
+
+(1.3)            lim sup Sn (−r) − lim inf Sn (−r) ≥ 1 + r − r2 .
+                                     n→∞
+                  n→∞
+
+Moreover, there exists a bounded sequence S of integers that is not ultimately
+periodic such that equality holds in (1.3) for all 0 < r < 1.
+
+    Our proofs use techniques developed by Dubickas in [D1] and [D2]. One
+key fact that allows one to deduce Theorem 1.1 from (1.3) is that the se-
+quence (p⌊ξ(−p/q)n +η⌋+q⌊ξ(−p/q)n+1 +η⌋)n≥0 of integers is not ultimately
+periodic. This was observed in various settings by Dubickas and Novikas
+([DN, Lemma 2], [D1, Theorem 3], [D2, Lemma 1], [D3, Lemma 9]). The
+inequality (1.3) is deduced from the Morse–Hedlund theorem on subword
+complexity. One difference with Dubickas’ proof of (1.1) is that we exploit
+the alternating sign in Sn (−r), which leads to the optimal bound in Theorem
+1.2.
+    It follows immediately from Theorem 1.1 that the image in R/Z of the
+sequence (ξ(−p/q)n )n≥0 is not contained in any interval of length less than
+(1+r−r2 )/p. In subsequent work [LZ], we will examine the question whether
+the image can lie in an interval of length equal to (1+r −r2 )/p. In particular,
+we will show that the bound in Theorem 1.1 is the best possible in the case
+q = 1. The analogous question for powers of positive rational numbers was
+studied by several authors ([FLP], [B1], [BD], [D4], [D5]).
+
+
+                                        2
+Acknowledgments
+This work was partially supported by National Natural Science Foundation
+of China (grant numbers 12125107, 12271037, 12288201), Chinese Academy
+of Sciences Project for Young Scientists in Basic Research (grant number
+YSBR-033).
+
+
+2       Proof of Theorem 1.2
+Our proof of (1.3) uses the following consequence of the Morse–Hedlund
+theorem on subword complexity [MH1, Theorem 7.3].
+
+Lemma 2.1. Let W be an infinite word over a finite alphabet and let n ≥ 0.
+Then there exist a word U of length n and letters s ̸= t such that sU and tU
+are subwords of W .
+
+Proof. This is a special case of [D2, Lemma 2] or [B2, Corollary A.4]. We
+include a proof for the sake of completeness. Let pW (n) denote the number
+of subwords of W of length n. By the Morse–Hedlund theorem, pW (n + 1) >
+pW (n). The assertion then follows from the pigeonhole principle.
+     We use Sturmian words in the proof of the last assertion of Theorem 1.2.
+Recall that an infinite word s0 s1 . . . over the alphabet {0, 1} or a sequence
+(s0 , s1 , . . . ) with values in {0, 1} is Sturmian if and only if there exists an
+irrational θ ∈ (0, 1) and a ρ ∈ R such that
+
+(2.1)                   sn = ⌊(n + 1)θ + ρ⌋ − ⌊nθ + ρ⌋
+
+for all n ≥ 0 or
+
+(2.2)                   sn = ⌈(n + 1)θ + ρ⌉ − ⌈nθ + ρ⌉
+
+for all n ≥ 0.
+
+Lemma 2.2. Let S = s0 s1 . . . be a Sturmian word over the alphabet {0, 1}.
+Then S is not ultimately periodic. Moreover, for all m, n ≥ 0, the word
+(sm − sn )(sm+1 − sn+1 ) . . . has no subword of the form 10l 1 or (−1)0l (−1)
+for l ≥ 0. Furthermore, if σn = n−1
+                                    P
+                                      i=0 si denotes the partial sum, then, for
+all m, n, k ≥ 0, we have (σm+k − σm ) − (σn+k − σn ) ∈ {−1, 0, 1}.
+
+    Here, for a letter a, al denotes the word a . . . a of length l.
+
+
+
+
+                                         3
+Proof. The first assertion is standard and the second and third assertions are
+equivalent forms of the fact that Sturmian words are balanced (see [MH2] or
+[L, Theorem 2.1.13]). We include a proof for the sake of completeness. The
+first assertion follows from the identity
+                           Pn−1
+                            i=0 si               ⌊nθ + ρ⌋ − ⌊ρ⌋
+                     lim             = n→∞
+                                        lim                     =θ
+                    n→∞      n                         n
+and the observation that the limit is rational if (sn )n≥0 is ultimately periodic.
+The second and third assertions follow from the observation that, in the case
+(2.1), we have
+                                     k−1
+                                     X
+  (σm+k − σm ) − (σn+k − σn ) =            (sm+i − sn+i )
+                                     i=0
+         = (⌊(m + k)θ + ρ⌋ − ⌊mθ + ρ⌋) − (⌊(n + k)θ + ρ⌋ − ⌊nθ + ρ⌋)
+        = −({(m + k)θ + ρ} − {mθ + ρ}) + ({(n + k)θ + ρ} − {nθ + ρ})
+                                               ∈ (−2, 2) ∩ Z = {−1, 0, 1}
+and the same holds in the case (2.2) after replacing ⌊·⌋ by ⌈·⌉ and {·} by
+−{−(·)}.
+   Let S = (sn )n≥0 be a sequence of integers. For n, k ≥ 0, we have
+                                                     k−1
+                         Sn (x) − xk Sn+k (x) =            sn+i xi .
+                                                     X
+
+                                                     i=0
+
+Thus, for n, m, k ≥ 0, we have
+                                                                   k−1
+          (Sn (x) − Sm (x)) − xk (Sn+k (x) − Sm+k (x)) =                 (sn+i − sm+i )xi .
+                                                                   X
+(2.3)
+                                                                   i=0
+
+We will call this formula (2.3) applied to the finite subsequences (sn , . . . , sn+k−1 )
+and (sm , . . . , sm+k−1 ).
+    We now state and prove an analogue of Theorem 1.2 for Sn (r). Although
+not logically required, we hope that it makes the proof of Theorem 1.2 easier
+to understand.
+Proposition 2.3. For any real number 0 < r < 1 and any bounded sequence
+S = (sn )n≥0 of integers that is not ultimately periodic, we have
+(2.4)                   lim sup Sn (r) − lim inf Sn (r) ≥ 1.
+                                           n→∞
+                           n→∞
+
+Moreover, there exists a bounded sequence S of integers that is not ultimately
+periodic such that equality holds in (1.3) for all 0 < r < 1.
+
+                                             4
+   The inequality (2.4) is a special case of [D2, Lemma 3].
+Proof. We include a proof of (2.4) for the sake of completeness. Assume
+that the set of limit values of (Sn (r))n≥0 is contained in an interval (A, B) of
+length < 1. Then, up to shifting (and truncating) S, we may assume that
+Sn (r) ∈ (A, B) for all n ≥ 0. Let µ = maxn≥0 sn and ν = minn≥0 sn . Since S
+is not ultimately periodic, we have µ > ν. By (2.3),
+
+                         2 > (1 + r)(B − A) > µ − ν.
+
+Thus µ − ν = 1 and consequently sn ∈ {ν, µ} for all n ≥ 0. We regard S as
+a word s0 s1 . . . over the alphabet {ν, µ}. Let n ≥ 0. By Lemma 2.1, there
+exists a word U = u1 . . . un of length n such that µU and νU are subwords
+of S. By (2.3) applied to these subwords,
+
+                       (1 + rn+1 )(B − A) > µ − ν = 1.
+
+Since n ≥ 0 is arbitrary, we get B − A ≥ 1. Contradiction. This finishes the
+proof of (2.4).
+   Now let S be a Sturmian sequence with values in {0, 1}. Then for all
+m, n ≥ 0,
+                                       ∞
+                                             (sm+i − sn+i )ri ≤ 1.
+                                       X
+                   Sm (r) − Sn (r) =
+                                       i=0
+
+Here in the inequality we used the fact that the sequence (sm+i − sn+i )i≥0
+takes values in {−1, 0, 1} and alternates in sign if all zeroes are removed
+(Lemma 2.2).
+Proof of Theorem 1.2. Assume that the set of limit values of (Sn (−r))n≥0 is
+contained in an interval (A, B) of length < 1 + r − r2 . Then, up to shifting
+(and truncating) S, we may assume that Sn (−r) ∈ (A, B) for all n ≥ 0.
+    Let µ = maxn≥0 sn and ν = minn≥0 sn . Since S is not ultimately periodic,
+we have µ > ν. Moreover, there exists a finite subsequence (µ, µ′ ) of S with
+µ′ < µ. Similarly, there exists a finite subsequence (ν, ν ′ ) of S with ν ′ > ν.
+If µ − ν ≥ 2, then, by (2.3) applied to the finite subsequences (µ, µ′ ) and
+(ν, ν ′ ),
+
+  2 − (1 − r)(1 − r3 ) = (1 + r2 )(1 + r − r2 )
+                       > (µ − ν) − r(µ′ − ν ′ ) ≥ (µ − ν) − r(µ − ν − 2) ≥ 2,
+
+which is a contradiction. Thus µ − ν = 1. Up to replacing sn by sn − ν, we
+may assume that sn ∈ {0, 1} for all n ≥ 0. For notational convenience, we
+
+
+                                         5
+now regard S as a word s0 s1 . . . over the alphabet {0, 1}. By the above 01
+and 10 are subwords of S.
+   Note that S has a subword of the form 10a, where a ∈ {0, 1}. If 010 is a
+subword of S, then, by (2.3) applied to these subwords, we have
+   1 + r − r2 (1 − r)(1 − r2 ) = (1 + r3 )(1 + r − r2 ) > 1 + r + ar2 ≥ 1 + r,
+which is a contradiction. Thus 010 is not a subword of S. Similarly, 101 is
+not a subword of S.
+   Next note that 0111 and 1000 are not both subwords of S. Indeed, oth-
+erwise, by (2.3) applied to these subwords, we would have
+1 + r − r2 + r3 − r3 (1 − r)(1 − r2 ) = (1 + r4 )(1 + r − r2 ) > 1 + r − r2 + r3 .
+Up to replacing sn by 1 − sn for all n ≥ 0, we may assume that 0111 is not
+a subword of S. Then all blocks of zeroes in S are separated by 11. Thus
+S = 1y 0z0 110z1 110z2 . . . , where y ≥ 0, z0 ≥ 1, and zn ≥ 2 for all n ≥ 1.
+   Assume that zn is odd for some n ≥ 1. Then, by (2.3) applied to the
+subwords 10zn 1 and 0110zn −1 of S, we have
+1+r−r2 +rzn +1 −rzn +1 (1−r)(1−r2 ) = (1+rzn +2 )(1+r−r2 ) > 1+r−r2 +rzn +1 .
+Contradiction.
+   Thus zn is even for all n ≥ 1. Assume that zm −zn > 2 for some m, n ≥ 1.
+Then 10zn +3 and 0110zn 1 are both subwords of S. Thus, by (2.3) applied to
+these subwords, we have
+1+r−r2 +rzn +3 −rzn +3 (1−r)(1−r2 ) = (1+rzn +4 )(1+r−r2 ) > 1+r−r2 +rzn +3 .
+Contradiction.
+    Thus there exists an even integer k ≥ 2 such that zn ∈ {k, k + 2} for all
+n ≥ 1. Since S is not ultimately periodic, neither is the word Z = z1 z2 . . . .
+Let n ≥ 0 be an integer. By Lemma 2.1 applied to Z, there exists a word U =
+u1 . . . un of length n over {k, k + 2} such that (k + 2)U and kU are subwords
+of Z. Then 10k+2 110u1 . . . 110un and 0110k 110u1 . . . 110un are subwords of S.
+Thus, by (2.3) applied to these subwords, we have
+                        (1 + rm )(B − A) > 1 + r − r2 ,
+where m = k + 3 + ni=1 (ui + 2) > 4n. Since n ≥ 0 is arbitrary, we get
+                      P
+
+B − A ≥ 1 + r − r2 . Contradiction. This finishes the proof of (1.3).
+   Let k ≥ 2 be an even integer and let W = w0 w1 . . . be a Sturmian word
+over the alphabet {0, 1}. Let zn = k + 2wn for n ≥ 0. Consider the word
+S = 0z0 110z1 11 . . . . We will show that
+(2.5)                   Sj (−r) − Sl (−r) ≤ 1 + r − r2
+
+                                        6
+for all j, l ≥ 0.
+    For n ≥ 0, let σn = −1 + n−1
+                               i=0 (zi + 2) = −1 + (k + 2)n + 2τn , where
+                             P
+      Pn−1
+τn = i=0 wi . Then sj = 1 if and only if sj = σn or sj = σn − 1 for some
+n ≥ 1. For n ≥ 1, we have
+                               ∞
+                                      rσi −σn −1 (1 − r)
+                               X
+            Sσn (−r) = 1 −
+                              i=n+1
+(2.6)                           ∞
+                                                                      r(1 − r)    1
+                                      r2(i−n)−1 (1 − r) > 1 −
+                               X
+                        >1−                                                    =     ,
+                              i=n+1                                    1 − r2    1+r
+                                          ∞
+                                                rσi −σn (1 − r) > 0.
+                                          X
+                          Sσn −1 (−r) =
+                                          i=n
+
+Here in (2.6) we used the estimate σi − σn ≥ (k + 2)(i − n) > 2(i − n) for
+i ≥ n+1. We have Sσn −1 (−r) = 1−rSσn (−r) < Sσn (−r) by (2.6). Moreover,
+for σn−1 < j < σn , Sj (−r) = (−r)σn −j−1 Sσn −1 (−r). Thus
+
+           max        Sj (−r) = Sσn (−r),            min        Sj (−r) = Sσn −2 (−r).
+         σn−1 <j≤σn                             σn−1 <j≤σn
+
+
+Therefore, in order to show (2.5), we may assume that j = σm and l = σn − 2
+for some m, n ≥ 1. In this case,
+                                                    ∞
+ Sσm (−r) − Sσn −2 (−r) = 1 + r − r2 −                    (rσm+i −σm −1 − rσn+i −σn +1 )(1 − r)
+                                                    X
+
+                                                    i=1
+                                           2
+                             ≤1+r−r .
+
+Here in the last inequality we used the inequality
+
+        (σn+i − σn ) − (σm+i − σm ) = 2(τn+i − τn ) − 2(τm+i − τm ) ≥ −2,
+
+which follows from Lemma 2.2.
+
+
+3       Proof of Theorem 1.1
+For n ≥ 0, let
+
+                                xn = ⌊ξ(−p/q)n + η⌋,
+(3.1)                            sn = −pxn − qxn+1 .
+
+    We deduce Theorem 1.1 from (1.3) using the following lemma.
+
+Lemma 3.1. The sequence (sn )n≥0 is not ultimately periodic.
+
+                                                7
+Proof. For n ≥ 0, let
+
+  tn = ps2n − qs2n+1 = −p2 x2n + q 2 x2n+2
+                             = −p2 ⌊ξ(p2 /q 2 )n + η⌋ + q 2 ⌊ξ(p2 /q 2 )n+1 + η⌋.
+
+By [D2, Lemma 1] applied to α = p2 /q 2 , (tn )n≥0 is not ultimately periodic.
+Assume that there exist N ≥ 0 and l ≥ 1 such that sn+l = sn for all n ≥ N .
+Then tn+l = tn for all n ≥ N/2. Contradiction.
+Proof of Theorem 1.1. For n ≥ 0, let
+
+                               yn = {ξ(−p/q)n + η} − η.
+
+Since xn + yn = ξ(−p/q)n , we have
+
+(3.2)                              sn = pyn + qyn+1 .
+
+By (3.1) and (3.2), (sn )n≥0 is a bounded sequence of integers. Thus, by
+Lemma 3.1 and Theorem 1.2, (1.3) holds. Since
+                      ∞                    ∞
+                            sn+i (−r)i =         p(yn+i + ryn+i+1 )(−r)i = pyn ,
+                      X                    X
+          Sn (−r) =
+                      i=0                  i=0
+
+(1.3) is equivalent to
+
+                      lim sup yn − lim inf yn ≥ (1 + r − r2 )/p
+                       n→∞            n→∞
+
+
+and hence to (1.2).
+
+
+References
+ [B1] Y. Bugeaud, Linear mod one transformations and the distribution of fractional
+      parts {ξ(p/q)n }, Acta Arith. 114 (2004), no. 4, 301–311, DOI 10.4064/aa114-4-1.
+      MR2101819 ↑2
+ [B2]          , Distribution modulo one and Diophantine approximation, Cambridge
+        Tracts in Mathematics, vol. 193, Cambridge University Press, Cambridge, 2012.
+        MR2953186 ↑3
+ [BD] Y. Bugeaud and A. Dubickas, Fractional parts of powers and Sturmian words, C. R.
+      Math. Acad. Sci. Paris 341 (2005), no. 2, 69–74, DOI 10.1016/j.crma.2005.06.007
+      (English, with English and French summaries). MR2153958 ↑2
+ [D1] A. Dubickas, Arithmetical properties of powers of algebraic numbers, Bull. London
+      Math. Soc. 38 (2006), no. 1, 70–80, DOI 10.1112/S0024609305017728. MR2201605
+      ↑1, 2
+
+                                                 8
+ [D2]           , On the distance from a rational power to the nearest integer, J. Number
+        Theory 117 (2006), no. 1, 222–239, DOI 10.1016/j.jnt.2005.07.004. MR2204744
+        ↑1, 2, 3, 5, 8
+ [D3]          , On a sequence related to that of Thue-Morse and its applications, Dis-
+        crete Math. 307 (2007), no. 9-10, 1082–1093, DOI 10.1016/j.disc.2006.08.001.
+        MR2292537 ↑2
+ [D4]          , Powers of a rational number modulo 1 cannot lie in a small interval, Acta
+        Arith. 137 (2009), no. 3, 233–239, DOI 10.4064/aa137-3-4. MR2496462 ↑2
+ [D5]          , Fractional parts of powers of large rational numbers, Discrete Math. 342
+        (2019), no. 7, 1949–1955, DOI 10.1016/j.disc.2019.03.018. MR3937755 ↑2
+ [DN] A. Dubickas and A. Novikas, Integer parts of powers of rational numbers, Math.
+      Z. 251 (2005), no. 3, 635–648, DOI 10.1007/s00209-005-0827-4. MR2190349 ↑2
+[FLP] L. Flatto, J. C. Lagarias, and A. D. Pollington, On the range of fractional parts
+      {ξ(p/q)n }, Acta Arith. 70 (1995), no. 2, 125–147, DOI 10.4064/aa-70-2-125-147.
+      MR1322557 ↑1, 2
+   [L] M. Lothaire, Algebraic combinatorics on words, Encyclopedia of Mathematics and
+       its Applications, vol. 90, Cambridge University Press, Cambridge, 2002. A collec-
+       tive work by Jean Berstel, Dominique Perrin, Patrice Séébold, Julien Cassaigne,
+       Aldo De Luca, Steffano Varricchio, Alain Lascoux, Bernard Leclerc, Jean-Yves Thi-
+       bon, Véronique Bruyère, Christiane Frougny, Filippo Mignosi, Antonio Restivo,
+       Christophe Reutenauer, Dominique Foata, Guo-Niu Han, Jacques Désarménien,
+       Volker Diekert, Tero Harju, Juhani Karhumäki and Wojciech Plandowski; With a
+       preface by Berstel and Perrin. MR1905123 ↑4
+ [LZ] Q. Lu and W. Zheng, Alternating geometric progressions modulo one and Sturmian
+      words. arXiv:2603.22045. ↑2
+  [M] K. Mahler, An unsolved problem on the powers of 3/2, J. Austral. Math. Soc. 8
+      (1968), 313–321. MR0227109 ↑1
+[MH1] M. Morse and G. A. Hedlund, Symbolic Dynamics, Amer. J. Math. 60 (1938),
+      no. 4, 815–866, DOI 10.2307/2371264. MR1507944 ↑3
+[MH2]          , Symbolic dynamics II. Sturmian trajectories, Amer. J. Math. 62 (1940),
+        1–42, DOI 10.2307/2371431. MR0000745 ↑4
+
+
+
+
+                                            9
+

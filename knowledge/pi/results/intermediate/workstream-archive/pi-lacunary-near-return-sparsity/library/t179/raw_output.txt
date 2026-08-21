@@ -1,0 +1,7 @@
+T179 replay: PASS
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+primary_sources=6/8 retained_candidates=3/3 domains=3
+exclusion_ledger=T89-T178 rows=90 active_reserved=T178 refreshed=T166,T173,T174,T177
+bounded_word_cases=1095 exact_identity_and_additive_checks=passed
+separators=constant,periodic,repeated-de-Bruijn,T147-shared-prefix,T169-range
+verdict=close successors=0 fixed_pi_A1_C1_C2_claims=none

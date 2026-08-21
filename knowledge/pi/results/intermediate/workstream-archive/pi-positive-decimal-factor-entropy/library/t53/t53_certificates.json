@@ -1,0 +1,6369 @@
+{
+  "canonical_statement_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "claim_label": "experiment",
+  "completed_T52_witness_checks": [
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            2
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "f01e70c9b7b912bd845123741467a8e46c83fd436d98f2be98de235e97082ce1",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 2,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "bc9fef8811ddf728286d73d997047414ccefabe85cbdb5f88c116e57ab871078",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 0,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "0"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "5a2519c4b04fd16c53c2dbbbab48d6e7745a673158c2c3d9e25e864cdc2a9440",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "316e94c1fc9d6d4316be2e0b1a14150efc65cbff47d291d784fdca6a50bb07e9",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 2,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "d88879114a2ea1c91b9123c5f0501a0e9df1ef115447dfc208b0f9582e8e5f7f",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 1,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "1"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "11034ce387e76de0baa87134611a3744e824834a4d31741bab8ba077a622094c",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "ab6ef89a7e6eeca26bdc9909a4e2b315d6d27cc1a1ad0b5d331273ef35102650",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "41cece9f346d16761afa3bbed3ef8cd4be970083f76716c5fbc63f655da1dc06",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 2,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "2"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "0e3faa87474e1a5ea4df44cea9520e147c99496c781f0bbfd1e04eeac4dfdd87",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "683bffedb11b8e6f1b129c852ab453de997a9d05d2f1cbd3d407cafa202cb4f1",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "aa161b256756872678367a5eb67c1a2c40bcd3d121a9a0696e09aeb716d3a379",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 3,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "3"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "f01e70c9b7b912bd845123741467a8e46c83fd436d98f2be98de235e97082ce1",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "3dea1351b92fe35d76877b7bfcf402369c240c054432d854b8be602d997049ab",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "8b5e05a0b91a48cb0dd8d70a4824f57a78b139f71ca771059ba6cf5a172b85e1",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 4,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "4"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "3b6ad31f0338cabe5f0dc288fdbfe43b93695adac6b49486fb385cb5ab24acc2",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "1c20b4a1bfa2fc6b65fa82853ca0dd6f838d2b7d5d439d3cfb4db0bfc4daef62",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "072820cb9c1ad41cdda65f06f967406f29b7ce015ed7af42d7b520b4b950356b",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 5,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "5"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "70d49d63e26a0720a5b605c7b552a454457a6c056eeb19a0ed07c4956de04120",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "569818ccba899dedd7c705c2c00d1718b56669d0e55f0fff9b6ff1f69072d875",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "040157086bc5aa04d0dbff7d242ed4c843df0efedbdedf4be7e6ac2c988ba2df",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 6,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "6"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 17,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 17,
+          "allowed_sha256": "3195a41d601ef042be5f082a45c1577fec118c6c8947cf73bb5003b0b947070a",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "1c351ba7fc2f50426a765cfe774069cce24395e4dcea5df90497988df9b5e85c",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "7a1a1421c77f9c663b5b2a128006bf005e98d3ff67179c58e83249a9a05aa041",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 7,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "7"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 17,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 17,
+          "allowed_sha256": "bd4bf4f175e7d9f9381ba39bec487342e37989ae483bede2edd8bc8233abdff6",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "18fc56eb2eb01ffe128e561e38fa4282420ce9965cdc2dc303ad4904ba736c49",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "76dbb2c112fc4a1e8ec2adff974f2ef6e0a66c926de8683572c6ff857a07135e",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 8,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "8"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            1
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:loop",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:2:loop",
+          "variable": 1
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "28a201f307c7419fb623e803371328b089fc91ec4e8271e78aa55b975dd50ed4",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 9,
+          "dst": 1,
+          "final_retained_digit": 0,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "629ba6012f3258447144338ae4057aa26a5dc206178bf37b70aab31d6ffd8b33",
+          "src": 1
+        },
+        {
+          "base_edge_id": 10,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "61b30e3ca6e0246865982e58bbe700c71d9b49488ece5ca98db2e520b44b5132",
+          "src": 1
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 0,
+      "instance_order": 9,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 3,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 1,
+      "variables_base_state_ids": [
+        1
+      ],
+      "word": "9"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": [],
+        "10": [],
+        "15": [],
+        "17": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            2,
+            3,
+            4
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:forward",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:1:backward",
+          "variable": 15
+        },
+        {
+          "after": [
+            12
+          ],
+          "before_count": 16,
+          "constraint": "edge:2:forward",
+          "variable": 15
+        },
+        {
+          "after": [
+            4
+          ],
+          "before_count": 3,
+          "constraint": "edge:3:forward",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:backward",
+          "variable": 17
+        },
+        {
+          "after": [
+            4,
+            5
+          ],
+          "before_count": 9,
+          "constraint": "edge:4:forward",
+          "variable": 17
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:4:backward",
+          "variable": 10
+        },
+        {
+          "after": [
+            2
+          ],
+          "before_count": 17,
+          "constraint": "edge:5:forward",
+          "variable": 10
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:1:forward",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:1:backward",
+          "variable": 15
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:3:backward",
+          "variable": 17
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:4:backward",
+          "variable": 10
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "f01e70c9b7b912bd845123741467a8e46c83fd436d98f2be98de235e97082ce1",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 146,
+          "dst": 15,
+          "final_retained_digit": 1,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 1
+        },
+        {
+          "base_edge_id": 258,
+          "dst": 1,
+          "final_retained_digit": 7,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "dc89f50db3c883192cc8b394a5d2e93acac15b6609079cdec909d2efc9f6f472",
+          "src": 15
+        },
+        {
+          "base_edge_id": 147,
+          "dst": 17,
+          "final_retained_digit": 2,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "bc9fef8811ddf728286d73d997047414ccefabe85cbdb5f88c116e57ab871078",
+          "src": 1
+        },
+        {
+          "base_edge_id": 271,
+          "dst": 10,
+          "final_retained_digit": 2,
+          "id": 4,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "bc9fef8811ddf728286d73d997047414ccefabe85cbdb5f88c116e57ab871078",
+          "src": 17
+        },
+        {
+          "base_edge_id": 205,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 5,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              2
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 10
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1,
+        10,
+        15,
+        17
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 1,
+      "instance_order": 10,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 13,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 2,
+      "variables_base_state_ids": [
+        1,
+        10,
+        15,
+        17
+      ],
+      "word": "0"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "2": [
+          4
+        ],
+        "21": [
+          2,
+          3,
+          4
+        ],
+        "23": [],
+        "31": [],
+        "35": [
+          6,
+          7,
+          23
+        ]
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            29
+          ],
+          "before_count": 36,
+          "constraint": "edge:0:initial",
+          "variable": 2
+        },
+        {
+          "after": [
+            2,
+            3,
+            4
+          ],
+          "before_count": 18,
+          "constraint": "edge:1:forward",
+          "variable": 2
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            23,
+            33
+          ],
+          "before_count": 36,
+          "constraint": "edge:1:backward",
+          "variable": 21
+        },
+        {
+          "after": [
+            2,
+            3,
+            4
+          ],
+          "before_count": 18,
+          "constraint": "edge:2:forward",
+          "variable": 21
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            23,
+            33
+          ],
+          "before_count": 36,
+          "constraint": "edge:2:backward",
+          "variable": 35
+        },
+        {
+          "after": [
+            6,
+            7,
+            23
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:forward",
+          "variable": 35
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            17,
+            21,
+            31
+          ],
+          "before_count": 36,
+          "constraint": "edge:3:backward",
+          "variable": 31
+        },
+        {
+          "after": [
+            1
+          ],
+          "before_count": 18,
+          "constraint": "edge:4:forward",
+          "variable": 31
+        },
+        {
+          "after": [
+            4
+          ],
+          "before_count": 3,
+          "constraint": "edge:5:forward",
+          "variable": 2
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "before_count": 36,
+          "constraint": "edge:5:backward",
+          "variable": 23
+        },
+        {
+          "after": [],
+          "before_count": 9,
+          "constraint": "edge:6:forward",
+          "variable": 23
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:6:backward",
+          "variable": 31
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 18,
+          "allowed_sha256": "bc725a5c59c6f325d8503ba4c59d113c227d5cd224c7278a9c5c2e1cf0c1507e",
+          "base_edge_id": 1,
+          "dst": 2,
+          "final_retained_digit": 0,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 180,
+          "dst": 21,
+          "final_retained_digit": 1,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "a1b3e651d6a8eec2aacaece4380e9c1618115d83afa04b306ef4993b4205c7df",
+          "src": 2
+        },
+        {
+          "base_edge_id": 364,
+          "dst": 35,
+          "final_retained_digit": 1,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "a1b3e651d6a8eec2aacaece4380e9c1618115d83afa04b306ef4993b4205c7df",
+          "src": 21
+        },
+        {
+          "base_edge_id": 502,
+          "dst": 31,
+          "final_retained_digit": 3,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              2
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "b91b0756580a1b15a98d71a656a4f0c06ea9f9eca4a80192048059593bb57a56",
+          "src": 35
+        },
+        {
+          "base_edge_id": 451,
+          "dst": 2,
+          "final_retained_digit": 0,
+          "id": 4,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              3
+            ],
+            [
+              "second_closed_walk",
+              2
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "be8c7543e1266b592eec198f0cf299d7b7abbdd777c75961c616ff2b2b3d4a66",
+          "src": 31
+        },
+        {
+          "base_edge_id": 181,
+          "dst": 23,
+          "final_retained_digit": 2,
+          "id": 5,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 35,
+          "pairs_sha256": "b87198aa2810662218071c852a3893b75beeb6e5b510af371aa8168be63fa8cc",
+          "src": 2
+        },
+        {
+          "base_edge_id": 390,
+          "dst": 31,
+          "final_retained_digit": 5,
+          "id": 6,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "38f315f99633bdd0187952a6a908faa46cfec0f7692f694b98be84346beb2fb5",
+          "src": 23
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        23,
+        31
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ]
+      ],
+      "from_depth": 1,
+      "instance_order": 11,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 12,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 2,
+      "variables_base_state_ids": [
+        2,
+        21,
+        23,
+        31,
+        35
+      ],
+      "word": "00"
+    },
+    {
+      "arc_consistency_final_domains": {
+        "14": [
+          0,
+          1
+        ],
+        "3": [
+          10
+        ],
+        "43": [
+          0,
+          19
+        ]
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            23,
+            33
+          ],
+          "before_count": 36,
+          "constraint": "edge:0:initial",
+          "variable": 3
+        },
+        {
+          "after": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            23
+          ],
+          "before_count": 18,
+          "constraint": "source_product_cyclicity",
+          "variable": 3
+        },
+        {
+          "after": [
+            10
+          ],
+          "before_count": 10,
+          "constraint": "edge:1:forward",
+          "variable": 3
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "before_count": 36,
+          "constraint": "edge:1:backward",
+          "variable": 14
+        },
+        {
+          "after": [
+            0,
+            1,
+            2
+          ],
+          "before_count": 5,
+          "constraint": "edge:2:forward",
+          "variable": 14
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            29
+          ],
+          "before_count": 36,
+          "constraint": "edge:2:backward",
+          "variable": 43
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:loop",
+          "variable": 43
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 3,
+          "constraint": "edge:2:forward",
+          "variable": 14
+        }
+      ],
+      "assignment_hidden_kmp_carry": {
+        "14": [
+          0,
+          -1
+        ],
+        "3": [
+          0,
+          9
+        ],
+        "43": [
+          0,
+          -1
+        ]
+      },
+      "constraints": [
+        {
+          "allowed_count": 18,
+          "allowed_sha256": "614dfddca473278981350e6dbfe2df334f86d4cd8d7ce418a781316a8a91d002",
+          "base_edge_id": 2,
+          "dst": 3,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_exit_source_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 204,
+          "dst": 14,
+          "final_retained_digit": 6,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "exit_edge",
+              0
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "bf38b2f41bf5f849de4e37cbbabc393de451ed15981fbf2c4c3ada724708b0e8",
+          "src": 3
+        },
+        {
+          "base_edge_id": 304,
+          "dst": 43,
+          "final_retained_digit": 0,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              0
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "bde9da07f4fee96cc03d3448286b8d5f6b1764e4951bcf332b308cea81c831ae",
+          "src": 14
+        },
+        {
+          "base_edge_id": 583,
+          "dst": 43,
+          "final_retained_digit": 0,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_continuation_cycle",
+              0
+            ]
+          ],
+          "pair_count": 34,
+          "pairs_sha256": "bde9da07f4fee96cc03d3448286b8d5f6b1764e4951bcf332b308cea81c831ae",
+          "src": 43
+        }
+      ],
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ]
+      ],
+      "from_depth": 1,
+      "infinite_tower_claimed": false,
+      "instance_order": 12,
+      "lifted_paths": {
+        "exit_edge": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                0,
+                6,
+                5
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 204,
+            "src": {
+              "carry": [
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "start_to_exit_source_path": [
+          {
+            "dst": {
+              "carry": [
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "carry": [
+                0,
+                2
+              ],
+              "digits": [
+                0,
+                1,
+                5
+              ],
+              "kind": "initial"
+            },
+            "projects_to_base_edge_id": 2,
+            "src": {
+              "kind": "synthetic_root"
+            }
+          }
+        ],
+        "target_continuation_cycle": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 583,
+            "src": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            }
+          }
+        ],
+        "target_to_cycle_path": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 304,
+            "src": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "lifted_source_closed_walk": [
+        {
+          "dst": {
+            "carry": [
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              1
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              5,
+              0
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 203,
+          "src": {
+            "carry": [
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              12,
+              13
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              9,
+              6,
+              9
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 288,
+          "src": {
+            "carry": [
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              1
+            ]
+          },
+          "label": {
+            "digits": [
+              8,
+              8,
+              0
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 494,
+          "src": {
+            "carry": [
+              12,
+              13
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              1,
+              5
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 431,
+          "src": {
+            "carry": [
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "next_depth_graph_classified": false,
+      "result": "lift",
+      "search_statistics": {
+        "failed_nodes": 0,
+        "propagation_steps": 9,
+        "search_nodes": 1
+      },
+      "source_cyclicity_product": {
+        "allowed_source_fibers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          23
+        ],
+        "allowed_source_fibers_sha256": "4146bc1555d35d16990d8a1ebd960b77dad07ef812e4891c7da404ac89d79559",
+        "base_scc_size": 39,
+        "product_edge_count": 12691,
+        "product_vertex_count": 1404,
+        "transition_attempts": 133560
+      },
+      "source_witness_classification": "nonterminal_delay_corridor",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 2,
+      "variables_base_state_ids": [
+        3,
+        14,
+        43
+      ],
+      "word": "01"
+    },
+    {
+      "arc_consistency_final_domains": {
+        "14": [
+          0,
+          1
+        ],
+        "3": [
+          10
+        ],
+        "43": [
+          0,
+          19
+        ]
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            23,
+            33
+          ],
+          "before_count": 54,
+          "constraint": "edge:0:initial",
+          "variable": 3
+        },
+        {
+          "after": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            16,
+            23,
+            33
+          ],
+          "before_count": 18,
+          "constraint": "source_product_cyclicity",
+          "variable": 3
+        },
+        {
+          "after": [
+            10
+          ],
+          "before_count": 14,
+          "constraint": "edge:1:forward",
+          "variable": 3
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "before_count": 54,
+          "constraint": "edge:1:backward",
+          "variable": 14
+        },
+        {
+          "after": [
+            0,
+            1,
+            2
+          ],
+          "before_count": 5,
+          "constraint": "edge:2:forward",
+          "variable": 14
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            29
+          ],
+          "before_count": 54,
+          "constraint": "edge:2:backward",
+          "variable": 43
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:loop",
+          "variable": 43
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 3,
+          "constraint": "edge:2:forward",
+          "variable": 14
+        }
+      ],
+      "assignment_hidden_kmp_carry": {
+        "14": [
+          0,
+          -1
+        ],
+        "3": [
+          0,
+          9
+        ],
+        "43": [
+          0,
+          -1
+        ]
+      },
+      "constraints": [
+        {
+          "allowed_count": 18,
+          "allowed_sha256": "614dfddca473278981350e6dbfe2df334f86d4cd8d7ce418a781316a8a91d002",
+          "base_edge_id": 2,
+          "dst": 3,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_exit_source_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 206,
+          "dst": 14,
+          "final_retained_digit": 6,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "exit_edge",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "955eb1eecc8eeea9527fa7ae8462c6d03108b8b6ced4292bd1e8f602d53bfb33",
+          "src": 3
+        },
+        {
+          "base_edge_id": 324,
+          "dst": 43,
+          "final_retained_digit": 0,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 14
+        },
+        {
+          "base_edge_id": 609,
+          "dst": 43,
+          "final_retained_digit": 0,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_continuation_cycle",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 43
+        }
+      ],
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ]
+      ],
+      "from_depth": 1,
+      "infinite_tower_claimed": false,
+      "instance_order": 13,
+      "lifted_paths": {
+        "exit_edge": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                0,
+                6,
+                5
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 206,
+            "src": {
+              "carry": [
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "start_to_exit_source_path": [
+          {
+            "dst": {
+              "carry": [
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "carry": [
+                0,
+                2
+              ],
+              "digits": [
+                0,
+                1,
+                5
+              ],
+              "kind": "initial"
+            },
+            "projects_to_base_edge_id": 2,
+            "src": {
+              "kind": "synthetic_root"
+            }
+          }
+        ],
+        "target_continuation_cycle": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 609,
+            "src": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            }
+          }
+        ],
+        "target_to_cycle_path": [
+          {
+            "dst": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 324,
+            "src": {
+              "carry": [
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "lifted_source_closed_walk": [
+        {
+          "dst": {
+            "carry": [
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              1
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              5,
+              0
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 205,
+          "src": {
+            "carry": [
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              12,
+              13
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              9,
+              6,
+              9
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 308,
+          "src": {
+            "carry": [
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              1
+            ]
+          },
+          "label": {
+            "digits": [
+              8,
+              8,
+              0
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 516,
+          "src": {
+            "carry": [
+              12,
+              13
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              1,
+              5
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 453,
+          "src": {
+            "carry": [
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "next_depth_graph_classified": false,
+      "result": "lift",
+      "search_statistics": {
+        "failed_nodes": 0,
+        "propagation_steps": 9,
+        "search_nodes": 1
+      },
+      "source_cyclicity_product": {
+        "allowed_source_fibers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13,
+          14,
+          16,
+          23,
+          33,
+          42
+        ],
+        "allowed_source_fibers_sha256": "62b11b725180775d5cd65f995f553af40e4f329ed0de7437520ca2040863e683",
+        "base_scc_size": 60,
+        "product_edge_count": 30643,
+        "product_vertex_count": 3240,
+        "transition_attempts": 316980
+      },
+      "source_witness_classification": "nonterminal_delay_corridor",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 2,
+      "variables_base_state_ids": [
+        3,
+        14,
+        43
+      ],
+      "word": "010"
+    },
+    {
+      "alternative_next_depth_witnesses_excluded": false,
+      "arc_consistency_final_domains": {
+        "1": [],
+        "157": [],
+        "174": [],
+        "260": [],
+        "29": [],
+        "292": [],
+        "307": [],
+        "311": []
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:0:initial",
+          "variable": 1
+        },
+        {
+          "after": [
+            2,
+            3,
+            4
+          ],
+          "before_count": 16,
+          "constraint": "edge:1:forward",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:1:backward",
+          "variable": 29
+        },
+        {
+          "after": [
+            8,
+            9,
+            10
+          ],
+          "before_count": 16,
+          "constraint": "edge:2:forward",
+          "variable": 29
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:2:backward",
+          "variable": 307
+        },
+        {
+          "after": [
+            7,
+            8
+          ],
+          "before_count": 16,
+          "constraint": "edge:3:forward",
+          "variable": 307
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:backward",
+          "variable": 157
+        },
+        {
+          "after": [
+            2
+          ],
+          "before_count": 16,
+          "constraint": "edge:4:forward",
+          "variable": 157
+        },
+        {
+          "after": [
+            4
+          ],
+          "before_count": 3,
+          "constraint": "edge:5:forward",
+          "variable": 1
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "before_count": 18,
+          "constraint": "edge:5:backward",
+          "variable": 311
+        },
+        {
+          "after": [
+            2,
+            3,
+            4
+          ],
+          "before_count": 9,
+          "constraint": "edge:6:forward",
+          "variable": 311
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:6:backward",
+          "variable": 292
+        },
+        {
+          "after": [
+            8,
+            9,
+            10
+          ],
+          "before_count": 16,
+          "constraint": "edge:7:forward",
+          "variable": 292
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:7:backward",
+          "variable": 260
+        },
+        {
+          "after": [
+            8,
+            9,
+            10
+          ],
+          "before_count": 16,
+          "constraint": "edge:8:forward",
+          "variable": 260
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "before_count": 18,
+          "constraint": "edge:8:backward",
+          "variable": 174
+        },
+        {
+          "after": [
+            12
+          ],
+          "before_count": 16,
+          "constraint": "edge:9:forward",
+          "variable": 174
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:1:forward",
+          "variable": 1
+        },
+        {
+          "after": [],
+          "before_count": 3,
+          "constraint": "edge:1:backward",
+          "variable": 29
+        },
+        {
+          "after": [],
+          "before_count": 2,
+          "constraint": "edge:2:backward",
+          "variable": 307
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:3:backward",
+          "variable": 157
+        },
+        {
+          "after": [],
+          "before_count": 3,
+          "constraint": "edge:5:backward",
+          "variable": 311
+        },
+        {
+          "after": [],
+          "before_count": 3,
+          "constraint": "edge:6:backward",
+          "variable": 292
+        },
+        {
+          "after": [],
+          "before_count": 3,
+          "constraint": "edge:7:backward",
+          "variable": 260
+        },
+        {
+          "after": [],
+          "before_count": 1,
+          "constraint": "edge:8:backward",
+          "variable": 174
+        }
+      ],
+      "constraints": [
+        {
+          "allowed_count": 16,
+          "allowed_sha256": "f01e70c9b7b912bd845123741467a8e46c83fd436d98f2be98de235e97082ce1",
+          "base_edge_id": 0,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_branch_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 2369,
+          "dst": 29,
+          "final_retained_digit": 1,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 1
+        },
+        {
+          "base_edge_id": 2583,
+          "dst": 307,
+          "final_retained_digit": 5,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "0795c0de21b6d7aa00f228100bcb6749004c4d4ebeaeea7c956a4f4ad03e604e",
+          "src": 29
+        },
+        {
+          "base_edge_id": 4559,
+          "dst": 157,
+          "final_retained_digit": 4,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              2
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "d43c1c828ced4c4e746916841a3c0613401096891278fdf318923fd7ae5c360d",
+          "src": 307
+        },
+        {
+          "base_edge_id": 3307,
+          "dst": 1,
+          "final_retained_digit": 1,
+          "id": 4,
+          "kind": "next",
+          "occurrences": [
+            [
+              "first_closed_walk",
+              3
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 157
+        },
+        {
+          "base_edge_id": 2370,
+          "dst": 311,
+          "final_retained_digit": 2,
+          "id": 5,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              0
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "bc9fef8811ddf728286d73d997047414ccefabe85cbdb5f88c116e57ab871078",
+          "src": 1
+        },
+        {
+          "base_edge_id": 4603,
+          "dst": 292,
+          "final_retained_digit": 1,
+          "id": 6,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              1
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "8f72d4e0c437619b41f372206501f0b70424be7bab9602bae47dfc04836a8e36",
+          "src": 311
+        },
+        {
+          "base_edge_id": 4426,
+          "dst": 260,
+          "final_retained_digit": 5,
+          "id": 7,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              2
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "0795c0de21b6d7aa00f228100bcb6749004c4d4ebeaeea7c956a4f4ad03e604e",
+          "src": 292
+        },
+        {
+          "base_edge_id": 4161,
+          "dst": 174,
+          "final_retained_digit": 5,
+          "id": 8,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              3
+            ]
+          ],
+          "pair_count": 16,
+          "pairs_sha256": "0795c0de21b6d7aa00f228100bcb6749004c4d4ebeaeea7c956a4f4ad03e604e",
+          "src": 260
+        },
+        {
+          "base_edge_id": 3416,
+          "dst": 1,
+          "final_retained_digit": 7,
+          "id": 9,
+          "kind": "next",
+          "occurrences": [
+            [
+              "second_closed_walk",
+              4
+            ]
+          ],
+          "pair_count": 17,
+          "pairs_sha256": "dc89f50db3c883192cc8b394a5d2e93acac15b6609079cdec909d2efc9f6f472",
+          "src": 174
+        }
+      ],
+      "death_scope": "this selected finite witness diagram only",
+      "empty_base_state_ids": [
+        1,
+        29,
+        157,
+        174,
+        260,
+        292,
+        307,
+        311
+      ],
+      "exhaustive_reason": "sound arc-consistency reached an empty finite fiber domain",
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "from_depth": 2,
+      "instance_order": 14,
+      "result": "death",
+      "search_statistics": {
+        "failed_nodes": 1,
+        "propagation_steps": 25,
+        "search_nodes": 0
+      },
+      "source_witness_classification": "branching_cyclic_scc",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 3,
+      "variables_base_state_ids": [
+        1,
+        29,
+        157,
+        174,
+        260,
+        292,
+        307,
+        311
+      ],
+      "word": "0"
+    },
+    {
+      "arc_consistency_final_domains": {
+        "26": [
+          0,
+          1
+        ],
+        "292": [
+          0,
+          19
+        ],
+        "5": [
+          10
+        ],
+        "614": [
+          0,
+          19
+        ],
+        "752": [
+          0,
+          19
+        ],
+        "889": [
+          0,
+          19
+        ]
+      },
+      "arc_consistency_trace": [
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            23,
+            33
+          ],
+          "before_count": 54,
+          "constraint": "edge:0:initial",
+          "variable": 5
+        },
+        {
+          "after": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            13,
+            14,
+            16,
+            23,
+            33
+          ],
+          "before_count": 18,
+          "constraint": "source_product_cyclicity",
+          "variable": 5
+        },
+        {
+          "after": [
+            10
+          ],
+          "before_count": 14,
+          "constraint": "edge:1:forward",
+          "variable": 5
+        },
+        {
+          "after": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "before_count": 54,
+          "constraint": "edge:1:backward",
+          "variable": 26
+        },
+        {
+          "after": [
+            0,
+            1,
+            2
+          ],
+          "before_count": 5,
+          "constraint": "edge:2:forward",
+          "variable": 26
+        },
+        {
+          "after": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            29
+          ],
+          "before_count": 54,
+          "constraint": "edge:2:backward",
+          "variable": 292
+        },
+        {
+          "after": [
+            0,
+            2,
+            19
+          ],
+          "before_count": 18,
+          "constraint": "edge:3:forward",
+          "variable": 292
+        },
+        {
+          "after": [
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            29,
+            38
+          ],
+          "before_count": 54,
+          "constraint": "edge:3:backward",
+          "variable": 614
+        },
+        {
+          "after": [
+            0,
+            19,
+            38
+          ],
+          "before_count": 18,
+          "constraint": "edge:4:forward",
+          "variable": 614
+        },
+        {
+          "after": [
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            38
+          ],
+          "before_count": 54,
+          "constraint": "edge:4:backward",
+          "variable": 752
+        },
+        {
+          "after": [
+            0,
+            19,
+            38
+          ],
+          "before_count": 17,
+          "constraint": "edge:5:forward",
+          "variable": 752
+        },
+        {
+          "after": [
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            38
+          ],
+          "before_count": 54,
+          "constraint": "edge:5:backward",
+          "variable": 889
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 17,
+          "constraint": "edge:6:loop",
+          "variable": 889
+        },
+        {
+          "after": [
+            0,
+            1
+          ],
+          "before_count": 3,
+          "constraint": "edge:2:forward",
+          "variable": 26
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 3,
+          "constraint": "edge:3:forward",
+          "variable": 292
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 3,
+          "constraint": "edge:4:forward",
+          "variable": 614
+        },
+        {
+          "after": [
+            0,
+            19
+          ],
+          "before_count": 3,
+          "constraint": "edge:5:forward",
+          "variable": 752
+        }
+      ],
+      "assignment_hidden_kmp_carry": {
+        "26": [
+          0,
+          -1
+        ],
+        "292": [
+          0,
+          -1
+        ],
+        "5": [
+          0,
+          9
+        ],
+        "614": [
+          0,
+          -1
+        ],
+        "752": [
+          0,
+          -1
+        ],
+        "889": [
+          0,
+          -1
+        ]
+      },
+      "constraints": [
+        {
+          "allowed_count": 18,
+          "allowed_sha256": "614dfddca473278981350e6dbfe2df334f86d4cd8d7ce418a781316a8a91d002",
+          "base_edge_id": 4,
+          "dst": 5,
+          "final_retained_digit": 1,
+          "id": 0,
+          "kind": "initial",
+          "occurrences": [
+            [
+              "start_to_exit_source_path",
+              0
+            ]
+          ],
+          "src": 0
+        },
+        {
+          "base_edge_id": 3286,
+          "dst": 26,
+          "final_retained_digit": 6,
+          "id": 1,
+          "kind": "next",
+          "occurrences": [
+            [
+              "exit_edge",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "955eb1eecc8eeea9527fa7ae8462c6d03108b8b6ced4292bd1e8f602d53bfb33",
+          "src": 5
+        },
+        {
+          "base_edge_id": 3516,
+          "dst": 292,
+          "final_retained_digit": 0,
+          "id": 2,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 26
+        },
+        {
+          "base_edge_id": 6259,
+          "dst": 614,
+          "final_retained_digit": 0,
+          "id": 3,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              1
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 292
+        },
+        {
+          "base_edge_id": 9336,
+          "dst": 752,
+          "final_retained_digit": 0,
+          "id": 4,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              2
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 614
+        },
+        {
+          "base_edge_id": 10831,
+          "dst": 889,
+          "final_retained_digit": 0,
+          "id": 5,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_to_cycle_path",
+              3
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 752
+        },
+        {
+          "base_edge_id": 12134,
+          "dst": 889,
+          "final_retained_digit": 0,
+          "id": 6,
+          "kind": "next",
+          "occurrences": [
+            [
+              "target_continuation_cycle",
+              0
+            ]
+          ],
+          "pair_count": 52,
+          "pairs_sha256": "f4dfb835bca47ca20e0fa700084ea43d55cc608dcdc9fc04056b4b96be200092",
+          "src": 889
+        }
+      ],
+      "fiber_order": "lexicographic (hidden_kmp, hidden_carry), carry -1 through 16",
+      "fiber_values": [
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          16
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ]
+      ],
+      "from_depth": 2,
+      "infinite_tower_claimed": false,
+      "instance_order": 15,
+      "lifted_paths": {
+        "exit_edge": [
+          {
+            "dst": {
+              "carry": [
+                0,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                0,
+                0,
+                6,
+                5
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 3286,
+            "src": {
+              "carry": [
+                0,
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                1,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "start_to_exit_source_path": [
+          {
+            "dst": {
+              "carry": [
+                0,
+                1,
+                9
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                1,
+                0,
+                0
+              ]
+            },
+            "label": {
+              "carry": [
+                0,
+                0,
+                2
+              ],
+              "digits": [
+                0,
+                0,
+                1,
+                5
+              ],
+              "kind": "initial"
+            },
+            "projects_to_base_edge_id": 4,
+            "src": {
+              "kind": "synthetic_root"
+            }
+          }
+        ],
+        "target_continuation_cycle": [
+          {
+            "dst": {
+              "carry": [
+                15,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                9,
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 12134,
+            "src": {
+              "carry": [
+                15,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            }
+          }
+        ],
+        "target_to_cycle_path": [
+          {
+            "dst": {
+              "carry": [
+                9,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                0,
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 3516,
+            "src": {
+              "carry": [
+                0,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                1,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "dst": {
+              "carry": [
+                3,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                6,
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 6259,
+            "src": {
+              "carry": [
+                9,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                1,
+                0,
+                1,
+                0
+              ]
+            }
+          },
+          {
+            "dst": {
+              "carry": [
+                7,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                2,
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 9336,
+            "src": {
+              "carry": [
+                3,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            }
+          },
+          {
+            "dst": {
+              "carry": [
+                15,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            },
+            "label": {
+              "digits": [
+                4,
+                9,
+                0,
+                9
+              ],
+              "kind": "next"
+            },
+            "projects_to_base_edge_id": 10831,
+            "src": {
+              "carry": [
+                7,
+                16,
+                -1
+              ],
+              "kind": "raw",
+              "kmp": [
+                0,
+                0,
+                1,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      "lifted_source_closed_walk": [
+        {
+          "dst": {
+            "carry": [
+              0,
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 3285,
+          "src": {
+            "carry": [
+              0,
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              1,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              9,
+              12,
+              6
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              9,
+              6,
+              2
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 3480,
+          "src": {
+            "carry": [
+              0,
+              15,
+              10
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              1,
+              12,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              6,
+              7,
+              4,
+              6
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 6389,
+          "src": {
+            "carry": [
+              9,
+              12,
+              6
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              1,
+              9,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              1,
+              7,
+              1,
+              5
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 8683,
+          "src": {
+            "carry": [
+              1,
+              12,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              0,
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              1,
+              6,
+              6,
+              8
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 8549,
+          "src": {
+            "carry": [
+              1,
+              9,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "dst": {
+            "carry": [
+              0,
+              1,
+              9
+            ],
+            "kind": "raw",
+            "kmp": [
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          "label": {
+            "digits": [
+              0,
+              0,
+              1,
+              5
+            ],
+            "kind": "next"
+          },
+          "projects_to_base_edge_id": 8321,
+          "src": {
+            "carry": [
+              0,
+              0,
+              2
+            ],
+            "kind": "raw",
+            "kmp": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "next_depth_graph_classified": false,
+      "result": "lift",
+      "search_statistics": {
+        "failed_nodes": 0,
+        "propagation_steps": 21,
+        "search_nodes": 1
+      },
+      "source_cyclicity_product": {
+        "allowed_source_fibers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13,
+          14,
+          16,
+          23,
+          33,
+          42
+        ],
+        "allowed_source_fibers_sha256": "62b11b725180775d5cd65f995f553af40e4f329ed0de7437520ca2040863e683",
+        "base_scc_size": 1131,
+        "product_edge_count": 582258,
+        "product_vertex_count": 61074,
+        "transition_attempts": 6023160
+      },
+      "source_witness_classification": "nonterminal_delay_corridor",
+      "strict_lift_meaning": "one global hidden state per state in the stored T52 paths; all stored joins and closed walks preserved; corridor source cyclicity is an independent high closed walk based at the assigned exit source",
+      "to_depth": 3,
+      "variables_base_state_ids": [
+        5,
+        26,
+        292,
+        614,
+        752,
+        889
+      ],
+      "word": "010"
+    }
+  ],
+  "dependency_hashes": {
+    "T44EndpointSafeInvariantCore.lean": "0157022e5125d130a8e12d1e40e97ee9e3df10fb3aa179c8a1cacbdaace59083",
+    "T46T46LiveSCC.lean": "9e35511d20b9997e7fd98eaf54bfb3eb3b2e53f42b720d962b671b128bf61ec8",
+    "T48EndpointCarryKMP.lean": "cbe1652c833fb21ae2618aedbc3040a2f29a7db5b310a9f3873536c888c4b211",
+    "pi-positive-decimal-factor-entropy.txt": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+    "t52_experiment.py": "5b5d790f623b2e51fa9b6babf48c483bc4e633afafdf1047aaa84e468054e0a0",
+    "t52_results.json": "b7b3757c0450c31eb41c29545cfaee47477348342b9435d493821c74ec8411f1"
+  },
+  "endpoint_checks": {
+    "backward_absorption_counterexamples": [
+      [
+        7,
+        5,
+        9,
+        -1
+      ],
+      [
+        8,
+        4,
+        0,
+        16
+      ]
+    ],
+    "current_minus_one_solutions": [
+      [
+        -1,
+        0,
+        9,
+        -1
+      ]
+    ],
+    "current_sixteen_solutions": [
+      [
+        16,
+        9,
+        0,
+        16
+      ]
+    ],
+    "valid_digit_carry_quadruples": 180
+  },
+  "explicit_projection_counterexamples": {
+    "branch_first_edges_collapse": {
+      "first_columns": [
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          3,
+          3,
+          2
+        ]
+      ],
+      "from_depth": 2,
+      "projected_column": [
+        3,
+        3
+      ],
+      "source": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "word": "0"
+    },
+    "corridor_exit_collapses_to_loop": {
+      "exit_column": [
+        0,
+        0,
+        6
+      ],
+      "from_depth": 2,
+      "projected_exit_column": [
+        0,
+        0
+      ],
+      "projected_exit_is_self_loop": true,
+      "source": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "source_scc_cyclic": true,
+      "source_scc_id": 1,
+      "source_state_id": 5,
+      "target": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "target_live": true,
+      "target_scc_id": 2,
+      "target_state_id": 26,
+      "word": "010"
+    },
+    "distinct_high_sccs_merge_under_projection": {
+      "common_projected_raw_state": [
+        [
+          0
+        ],
+        []
+      ],
+      "from_depth": 1,
+      "high_scc_ids": [
+        7,
+        1
+      ],
+      "state_ids": [
+        43,
+        21
+      ],
+      "word": "01"
+    },
+    "liveness_and_cyclicity_do_not_reflect_to_every_fiber": {
+      "from_depth": 1,
+      "projected_depth_zero_raw_state_id": 1,
+      "projected_depth_zero_raw_state_is_cyclic": true,
+      "projected_depth_zero_raw_state_is_live": true,
+      "reachable_dead_endpoint_state_ids": [
+        7,
+        4
+      ],
+      "word": "0"
+    },
+    "low_path_without_any_prescribed_fiber_lift": {
+      "from_depth": 0,
+      "retained_digits": [
+        1,
+        3,
+        1,
+        3
+      ],
+      "successive_fiber_counts": [
+        16,
+        13,
+        2,
+        0
+      ],
+      "successive_fibers": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            16
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            16
+          ]
+        ],
+        [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            16
+          ]
+        ],
+        []
+      ],
+      "word": "0"
+    },
+    "reachability_does_not_reflect_to_every_fiber": {
+      "from_depth": 1,
+      "reachable_projected_depth_zero_raw_state": [
+        [
+          0
+        ],
+        []
+      ],
+      "unreachable_high_raw_state": [
+        [
+          0,
+          1
+        ],
+        [
+          -1
+        ]
+      ],
+      "word": "00"
+    }
+  },
+  "format_version": 1,
+  "item": "T53",
+  "scope": {
+    "death": "no lift of the selected finite diagram, not absence of every next-depth obstruction",
+    "lift": "one finite next-depth diagram, not a complete next-depth graph verdict",
+    "nonclaims": [
+      "universal extinction",
+      "C6",
+      "C1",
+      "decimal disjunctivity"
+    ],
+    "tower": "no finite lift is reported as an infinite compatible tower"
+  },
+  "summary": {
+    "completed_witnesses_checked": 16,
+    "death_instance_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      14
+    ],
+    "lift_instance_orders": [
+      12,
+      13,
+      15
+    ],
+    "strict_one_step_deaths": 13,
+    "strict_one_step_lifts": 3
+  },
+  "truncation": "drop final KMP, carry, digit, and initial-carry coordinates; preserve synthetic root"
+}

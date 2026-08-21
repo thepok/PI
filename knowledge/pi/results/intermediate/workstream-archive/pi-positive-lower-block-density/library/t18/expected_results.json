@@ -1,0 +1,14 @@
+{
+  "all_checks_pass": true,
+  "format_version": 1,
+  "generated_file_sha256": {
+    "automaton_certificates.json": "6cbfe7df22a6b9b594a1e479b0adeefe5dc8133325a7d3eff36efa167a612a1d",
+    "block_entropies.csv": "60f33a72550d44e572e429f5ea8f876553ecd1a9aa28662716d955577a6ab8c6",
+    "certificate_checks.json": "cf0a9d2cc9a67febd48f719c978e014f422ee4d964eb4bf48f6bf50b9e1eb73d",
+    "digit_hashes.json": "4b8f060c070f0f4b2b1c4c8f3bcbe0ac78860b9ee3e8b22ecb5a1163ec98ff59",
+    "forbidden_calibration.csv": "7320a242494e5bd8b1171a9fdeb8316a554b4233b82dce7492789e717f6bc05a",
+    "ranges.json": "eeb841a3b20a990197e756bd0a02b51d3a7dc79c975595f06bd0925fd8b963fe",
+    "word_counts.csv": "1c2d441bb469e43be956b9e5179a61a2e3c6838fc6bf1d1a4bfca7f67d8c7a99"
+  },
+  "pi_digit_sha256": "665f10ecc2c415d58347374c8ca3b6d71c4e8021bad53df9ef5ae7c1d6c598ab"
+}

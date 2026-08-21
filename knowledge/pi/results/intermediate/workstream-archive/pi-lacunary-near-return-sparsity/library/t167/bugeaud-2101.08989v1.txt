@@ -1,0 +1,374 @@
+                                              FRACTIONAL PARTS OF POWERS OF REAL ALGEBRAIC
+                                                                NUMBERS
+
+
+                                                                                YANN BUGEAUD
+arXiv:2101.08989v1 [math.NT] 22 Jan 2021
+
+
+
+
+                                                   Abstract. Let α be a real number greater than 1. We establish an effective
+                                                   lower bound for the distance between an integral power of α and its nearest
+                                                   integer.
+
+
+
+
+                                                                              1. introduction
+                                             For a real number x, let
+                                                                        ||x|| = min{|x − m| : m ∈ Z}
+                                           denote its distance to the nearest integer. Not much is known on the distribution of
+                                           the sequence (kαn k)n≥1 for a given real number α greater than 1. For example, we
+                                           do not know whether the sequence (k(3/2)n k)n≥1 is dense in [0, 1/2], nor whether
+                                           ken k tends to 0 as n tends to infinity. In 1957 Mahler [13] applied Ridout’s p-adic
+                                           extension of Roth’s theorem to prove the following result.
+                                           Theorem 1.1. Let r/s be a rational number greater than 1 and which is not an
+                                           integer. Let ε be a positive real number. Then, there exists an integer n0 such that
+                                                                                k(r/s)n k > s−εn ,
+                                           for every integer n exceeding n0 .
+                                              In a breakthrough paper, Corvaja and Zannier [10] applied ingeniously the p-
+                                           adic Schmidt Subspace Theorem to extend Theorem 1.1 to real algebraic numbers.
+                                           Recall that a Pisot number is a real algebraic integer greater than 1 with the
+                                           property that all of its Galois conjugates (except itself) lie in the open unit disc.
+                                           Theorem 1.2. Let α be a real algebraic number greater than 1 and ε a positive
+                                           real number. If there are no positive integers h such that the real number αh is a
+                                           Pisot number, then there exists an integer n0 such that
+                                                                                 kαn k > α−εn ,
+                                           for every integer n exceeding n0 .
+                                              Let α > 1 be a real algebraic number and h a positive integer such that αh is
+                                           a Pisot number of degree d. Then there exists a positive real number η such that
+                                           the modulus of any Galois conjugate (except itself) of αh is no greater than α−η .
+                                           Let n be a positive integer. Since the trace of αhn is a rational integer, we get
+                                           kαhn k ≤ dα−ηn . This shows that the restriction in Theorem 1.2 is necessary.
+
+                                              2010 Mathematics Subject Classification. Primary 11J68; Secondary 11J86, 11R06.
+                                              Key words and phrases. Approximation to algebraic numbers, Linear forms in logarithms,
+                                           Pisot number.
+                                                                                        1
+2                                    YANN BUGEAUD
+
+
+   Theorems 1.1 and 1.2 are ineffective in the sense that their proof does not yield
+an explicit value for the integer n0 . To get an effective improvement on the trivial
+estimate k(r/s)n k ≥ s−n , Baker and Coates [1] (see also [7] and [8, Section 6.2])
+used the theory of linear forms in p-adic logarithms, for a prime number p dividing s.
+Theorem 1.3. Let r/s be a rational number greater than 1 and which is not an
+integer. Then, there exist an effectively computable positive real number τ and an
+effectively computable integer n0 such that
+                                  k(r/s)n k > s−(1−τ )n ,
+for every integer n exceeding n0 .
+   The purpose of this note is to extend Theorem 1.3 to real algebraic numbers
+exceeding 1. At first, we have to see which estimate follows from a Liouville-type
+inequality, which boild down to say that any nonzero rational integer has absolute
+value at least 1. To simplify the discussion, take α a real algebraic integer greater
+than 1 and of degree d ≥ 2 such that each of its Galois conjugates α2 , . . . , αd has
+absolute value at most equal to α. For a positive integer n, let An be the integer
+such that
+                                   kαn k = |αn − An |.
+Observe that every Galois conjugate of αn −An has modulus less than 3αn . Noticing
+that the absolute value of the norm of the nonzero algebraic integer αn − An is at
+least equal to 1, we deduce that
+                               kαn k ≥ 3−(d−1) α−n(d−1) .                             (1.1)
+This is much weaker than what follows from Theorem 1.2, but this is effective. For
+an arbitrary real algebraic number greater than 1, a similar argument gives the
+following statement. In the sequel, an empty product is understood to be equal
+to 1.
+Lemma 1.4. Let α be a real algebraic number greater than 1 and of degree d ≥ 1.
+Let ad denote the leading coefficient of its minimal defining polynomial over Z and
+α1 , . . . , αd its Galois conjugates, ordered in such a way that |α1 | ≤ . . . ≤ |αd |. Let
+j be such that α = αj . Set
+                                                  Y |αi |
+                                C(α) = ad αd−1              .
+                                                  i>j
+                                                        α
+
+If α is not an integer root of an integer, then we have
+                         kαn k ≥ 3−(d−1) C(α)−n ,       for n ≥ 1.                    (1.2)
+Otherwise, (1.2) holds only for the positive integers n such that αn is not an integer.
+   We will see how the theory of linear forms in logarithms allows us to slightly
+improve (1.2), unless there exists a positive integer h such that αh is an integer or
+a quadratic Pisot unit. In the latter case, αh is a root of an integer polynomial of
+the shape√X 2 − aX + b, with a ≥ 1, b ∈ {−1, 1}, and (a, b) ∈  / {(1, 1), (2, 1)}, thus
+α = (a + a2 − 4b)/2 and kαhn k = α−hn . Except in these cases, we establish the
+following effective strengthening of Lemma 1.4.
+          FRACTIONAL PARTS OF POWERS OF REAL ALGEBRAIC NUMBERS                       3
+
+
+Theorem 1.5. Let α be a real algebraic number greater than 1. Let C(α) be as
+in the statement of Proposition 1.4. Let h be the smallest positive integer such
+that αh is an integer or a quadratic Pisot unit and put Nα = {hn : n ∈ Z≥1 }.
+If no such integer exists, then put Nα = Z≥1 . There exist a positive, effectively
+computable real number τ = τ (α) and an effectively computable integer n0 = n0 (α),
+both depending only on α, such that
+
+                     kαn k ≥ C(α)−(1−τ )n ,   for n > n0 in Nα .
+
+   Theorem 1.5 should be compared with the effective improvement of Liouville’s
+upper bound for the irrationality exponent of an irrational, algebraic real number.
+Recall that the irrationality exponent µ(ξ) of an irrational real number ξ is given
+by
+                                              − log kqξk
+                           µ(ξ) = 1 + lim sup            .
+                                       q→+∞      log q
+Its effective irrationality exponent µeff (ξ) is the infimum of the real numbers µ for
+which there exists an effectively computable positive integer q0 such that the upper
+bound 1 + (− log kqξk)/(log q) ≤ µ holds for q ≥ q0 . Let α be an algebraic real
+number of degree d ≥ 2. Roth’s theorem asserts that µ(α) = 2, while Liouville’s
+theorem says that µeff (α) ≤ d. By means of the theory of linear forms in loga-
+rithms, Feldman [12] proved the existence of an effectively computable positive real
+number τ 0 = τ 0 (α), depending on α, such that µeff (α) ≤ (1 − τ 0 )d.
+   Here, the situation is similar. For a real number ξ not an integer, nor a root of
+an integer, define
+                                                − log kξ n k
+                               ν(ξ) = lim sup
+                                       n→+∞          n
+and let νeff (ξ) denote the infimum of the real numbers ν for which there exists an
+effectively computable integer n0 such that (− log kξ n k)/n ≤ ν for n ≥ n0 .
+   Let α > 1 be an algebraic real number. Theorem 1.2 asserts that ν(α) = 0, unless
+α is an integer root of a Pisot number. Lemma 1.4 says that νeff (α) ≤ log C(α),
+while Theorem 1.5 slightly improves the latter inequality. Furthermore, the positive
+real number τ (α) occurring in Theorem 1.5 is very small and of comparable size as
+the real number τ 0 (α), when α is an algebraic integer (otherwise, it also depends
+on the prime factors of the leading coefficient of the minimal defining polynomial
+of α over Z).
+   Among the many open questions on the function ν, let us mention that we do
+not know whether ν(e) is finite or not (see [8, Problem 13.20] and [9] for further
+results and questions). Mahler and Szekeres [14] established that, with respect to
+the Lebesgue measure, almost all real numbers ξ satisfy ν(ξ) = 0. Furthermore,
+the set of real numbers ξ such that ν(ξ) is infinite has Hausdorff dmension zero [9,
+Theorem 3].
+   Sometimes, the hypergeometric method    √ yields better improvements of (1.2).
+This is the case for the algebraic numbers 2 and 3/2, see Beuker’s seminal papers
+[4, 5] and the subsequent works [2, 15] where it is shown that
+                              √
+                        νeff ( 2) ≤ 0.595, νeff (3/2) < 0.5443,
+
+respectively.
+4                                      YANN BUGEAUD
+
+
+                                         2. Proofs
+Proof of Lemma 1.4. We keep the notation of the lemma and follow the proof of
+[14, Assertion (a)] with a slight improvement.
+   Let n be a positive integer. Observe that the polynomial
+                            fn (X) = and (X − α1n ) · · · (X − αdn )
+has integer coefficients and denote by An the integer such that
+                                     kαn k = |αn − An |.
+If αn is not an integer, then f (An ) is a nonzero integer and we get
+                                        |f (An )| ≥ 1,                          (2.1)
+thus,                                           Y
+                         |αn − An | ≥ a−n
+                                       d                  |αin − An |−1 .
+                                             1≤i≤d,i6=j
+For i = 1, . . . , d, note that
+                    |αin − An | ≤ |αi |n + αn + 1 ≤ 3(max{|αi |, α})n .
+Consequently, we obtain the lower bound
+                                                             Y αn
+                         kαn k ≥ 3−(d−1) a−n
+                                          d α
+                                              −(d−1)n
+                                                                        ,
+                                                             i>j
+                                                                 |αi |n
+
+as claimed. This inequality reduces to (1.1) if ad = 1 and j = d.                  
+    The proof of Theorem 1.5 makes use of the following result of Boyd [6].
+Lemma 2.1. Let f (X) be an irreducible polynomial of degree d with integer coeffi-
+cients. Let m denote the number of roots of f (X) of maximal modulus. Assume that
+one of these roots is real and positive. Then m divides d and there is an irreducible
+polynomial g(X) with integer coefficients such that f (X) = g(X m ).
+Proof of Theorem 1.5. We proceed in a similar way as when dealing with Thue
+equations. In view of Theorem 1.3 we assume that α is irrational. Let K denote
+the number field Q(α). Let h denote the absolute Weil height. For convenience,
+we define the function h∗ (·) = max{h(·), 1}. The constants c1 , c2 , . . . below are
+positive, effectively computable, and depend only on α.
+   Let ad denote the leading coefficient of the minimal defining polynomial of α
+over Z and S the set of places of K composed of all the infinite places and all the
+places corresponding to a prime ideal dividing ad . Let NS denote the S-norm. We
+direct the reader to [11, Chapter 1] for definitions and basic results. Let us only
+mention that if the absolute value of the norm of a nonzero element β in K is
+written as |NormK/Q (β)| = aS b, where every prime divisor of aS divides ad and no
+prime divisor of b divides ad , then NS (β) = b. In particular, if ad = 1, then NS is
+the absolute value of the norm NormK/Q .
+   Let n be a positive integer and An denote the integer such that
+                                     kαn k = |αn − An |.
+Put δn = αn − An . We will obtain a lower bound of the form κn with κ > 1 for the
+S-norm of the nonzero S-integer δn . By replacing in the proof of Lemma 1.4 the
+right hand side of (2.1) by κn , we obtain the expected improvement.
+            FRACTIONAL PARTS OF POWERS OF REAL ALGEBRAIC NUMBERS                   5
+
+
+   Let η1 , . . . , ηs be a fundamental system of S-units in K. By [11, Proposition
+4.3.12], there exist integers b1 , . . . , bs such that
+                                              log NS (δn )
+                       h δn η1−b1 · · · ηs−bs ≤             + c1 .             (2.2)
+                                                    d
+Since
+             h(δn ) ≤ nh(α) + log An + log 2 ≤ nh(α) + n log α + 2 log 2,
+it follows from [11, Proposition 4.3.9 (iii)] and (2.2) that
+                     B := max{|b1 |, . . . , |bs |} ≤ c2 h∗ (δn ) ≤ c3 n.
+Set γn = δn η1−b1 · · · ηr−br .
+   Assume first that there exists a Galois conjugate β of α such that |β| > α and
+consider the quantity
+                                         β n − An
+                                   Λn =           .
+                                             βn
+Observe that
+                                0 < |Λn − 1| ≤ 2−c4 n .
+Let σ denote the embedding sending α to β and observe that
+                          Λn = σ(γn )β −n σ(η1 )b1 · · · σ(ηr )br .
+We apply the theory of linear forms in logarithms: it follows from [8, Theorem 2.1]
+that                                                B+n
+                     log |Λn − 1| ≥ −c5 h∗ (γn ) log ∗          ,
+                                                      h (γn )
+giving                                         n 
+                           n ≤ c6 h∗ (γn ) log ∗         .
+                                                h (γn )
+We derive that
+                       n ≤ c7 h∗ (γn ) ≤ c8 log NS (δn ) + c9 ,
+thus
+                            NS (δn ) ≥ 2c10 n ,    for n ≥ c11 .
+This improves the trivial lower bound NS (δn ) ≥ 1 used in the proof of Lemma 1.4.
+   Secondly, we assume that the modulus of every Galois conjugate of α is less than
+or equal to α. By Lemma 2.1, there exist a divisor m of d and an irreducible integer
+polynomial g(X) of degree d/m such that f (X) has exactly m roots of modulus α
+and the minimal defining polynomial f (X) over Z satisfies f (X) = g(X m ).
+   Assume that d/m ≥ 2. If f (X) has a root β of modulus at least equal to 1 and
+different from α, then An − αn cannot be equal to β n , thus the quantity
+                                             An − β n
+                                     Λ0n =                                     (2.3)
+                                               αn
+satisfies
+                             0 < |Λ0n − 1| ≤ 2−c12 n .                       (2.4)
+                           0
+We get a lower bound for |Λn − 1| by proceeding exactly as above, and it takes the
+same shape as our lower bound for |Λn − 1|. We then deduce the lower bound
+                           |NS (δn )| ≥ 2c13 n ,    for n ≥ c14 .
+   Now, we assume that all the roots of f (X), except α, lie in the open unit disc.
+6                                   YANN BUGEAUD
+
+
+   If α has two real Galois conjugates in the open unit disc, then one of them,
+denoted by β, is such that the quantity Λ0n defined as in (2.3) is not equal to 1 and
+(2.4) holds. We argue as above to get a similar lower bound for NS (δn ).
+   If d/m ≥ 3 and αm has a complex nonreal Galois conjugate β m in the open
+unit disc, then β j is complex nonreal for every positive integer j and we proceed as
+above, since the quantity Λ0n defined as in (2.3) is not equal to 1.
+   Consequently, we can assume that d/m = 2 and g(X) is the minimal defining
+polynomial over Z of the quadratic number αm .
+   If n is not a multiple of m, then there exists a Galois conjugate β of α such that
+β n is complex nonreal, thus the quantity Λ0n defined above is not equal to 1, and
+we can proceed exactly as above to get a similar lower bound for NS (δn ).
+   Assume now that n is a multiple of m. Write g(X) = a2 X 2 − uX − v. Denote by
+σ(α) the Galois conjugate of α. If α is not an algebraic integer, then there exists
+a prime number p such that vp (α) < 0. Since vp (α) ≤ −1/2, it follows from [8,
+Theorem B.11] that the p-adic valuation of αn + σ(α)n satisfies
+                                                                 n
+                      vp αn + σ(α)n ≤ nvp (α) + c15 log n ≤ − ,
+                                     
+                                                                  3
+for n ≥ c16 . In particular, for n greater than c16 , the algebraic number αn + σ(αn )
+cannot be a rational integer. Then, the quantity Λ0n defined above is not equal to
+1, and we can proceed exactly as above to get a similar lower bound for NS (δn ).
+   If α is an algebraic integer, then a2 = 1 and αn + σ(αn ) is equal to the nearest
+integer An to αn . Thus, we have
+                                                   |v|n/m
+                              kαn k = |σ(αn )| =          ,
+                                                     αn
+while Lemma 1.4 asserts that
+                                   kαn k ≥ 3−1 α−n .
+Consequently, we obtain the desired improvement on (1.2) if |v| ≥ 2. As already
+noticed, (1.2) is essentially best possible if |v| = 1.
+   It only remains for us to consider the case d = m. Then, there exist coprime
+nonzero integers u, v with u > v > 0 such that the minimal defining polynomial of
+α over Z is vX d − u. If v = 1, then α is the d-th root of the integer u. If d = 2,
+then
+                          √
+                         k uum k ≥ u−(1−c17 )m , for m ≥ 1,
+by [3, Theorem 1.2] (see also [8, Theorem 6.3]). If d ≥ 3 and j = 1, . . . , d − 1, then
+it follows from an effective improvement of Liouville’s bound d for the irrationality
+exponent of uj/d (see [8, Section 6.3]) that
+                      kuj/d um k ≥ u−(1−c18 )(d−1)m , for m ≥ 1.
+                                 √
+In both cases, noticing that C( d u) = u(d−1)/d , we get
+             √              √
+           k( d u)n k ≥ C( d u)−(1−c19 )n , for n ≥ 1 not a multiple of d,
+as expected. Now, assume that v ≥ 2. We argue in a similar way as in the proof of
+Theorem 1.3. Let p be a prime divisor of v. Write
+                                     r n
+                             δn          u
+                                  = d        − An
+                            v n/d        v
+           FRACTIONAL PARTS OF POWERS OF REAL ALGEBRAIC NUMBERS                           7
+
+
+and note that the p-adic valuation of
+                              Ωn = v n/d An = (u1/d )n − δn
+satisfies vp (Ωn ) ≥ c20 n. Let L denote the number field generated by u1/d and v 1/d .
+Let S be the set of places of L composed of all the infinite places and all the places
+corresponding to a prime ideal dividing v. Let η1 , . . . , ηs be a fundamental system
+of units in L. By [11, Proposition 4.3.12], there exist integers b1 , . . . , br such that
+                                                 log NS (δn )
+                          h δn η1−b1 · · · ηr−br ≤             + c21 .                 (2.5)
+                                                       d
+Since h(δn ) ≤ c22 n, it follows from [11, Proposition 4.3.9 (iii)] and (2.5) that
+                     B := max{|b1 |, . . . , |br |} ≤ c23 h∗ (δn ) ≤ c24 n.
+Set γn = δn η1−b1 · · · ηr−br and note that
+                              Ωn = (u1/d )n − γn η1b1 · · · ηrbr .
+It follows from the theory of linear forms in p-adic logarithms, more precisely, from
+[8, Theorem 2.11], that
+                                                    B+n
+                         vp (Ωn ) ≤ c25 h∗ (γn ) log ∗       .
+                                                     h (γn )
+This gives                                                n          
+                              n ≤ c26 h∗ (γn ) log                        ,
+                                                         h∗ (γ   n)
+and we derive that
+                         n ≤ c27 h∗ (γn ) ≤ c28 log NS (δn ) + c29 ,
+thus
+                           NS (δn ) ≥ 2c30 n , for n ≥ c31 .
+This improves the trivial lower bound NS (δn ) ≥ 1 used in the proof of Lemma 1.4.
+This concludes the proof of the theorem.                                        
+
+                                       References
+   [1] A. Baker and J. Coates, Fractional parts of powers of rationals, Math. Proc.
+       Cambridge Philos. Soc. 77 (1975), 269–279.
+   [2] M. Bauer and M. Bennett, Application of the hypergeometric method to the
+       generalized Ramanujan-Nagell equation, Ramanujan J. 6 (2002), 209–270.
+   [3] M. A. Bennett and Y. Bugeaud, Effective results for restricted rational ap-
+       proximation to quadratic irrationals, Acta Arith. 155 (2012), 259–269.
+   [4] F. Beukers, On the generalized Ramanujan-Nagell equation I, Acta Arith.
+       38 (1980/81), 389–410.
+   [5] F. Beukers, Fractional parts of powers of rationals, Math. Proc. Cambridge
+       Philos. Soc. 90 (1981), 13–20.
+   [6] D. Boyd, Irreducible polynomials with many roots of maximal modulus, Acta
+       Arith. 68 (1994), 85–88.
+   [7] Y. Bugeaud, Linear forms in two m-adic logarithms and applications to
+       Diophantine problems, Compositio Math. 132 (2002), 137–158.
+   [8] Y. Bugeaud, Linear forms in logarithms and applications, IRMA Lectures in
+       Mathematics and Theoretical Physics 28, European Mathematical Society,
+       Zürich, 2018.
+8                                   YANN BUGEAUD
+
+
+     [9] Y. Bugeaud and A. Dubickas, On a problem of Mahler and Szekeres on
+         approximation by roots of integers, Michigan Math. J. 56 (2008), 703–715.
+    [10] P. Corvaja and U. Zannier, On the rational approximations to the powers
+         of an algebraic number: solution of two problems of Mahler and Mendès
+         France, Acta Math. 193 (2004), 175–191.
+    [11] J.-H. Evertse and K. Györy, Unit equations in Diophantine number theory.
+         Cambridge Stud. Adv. Math. 146, Cambridge Univ. Press, 2015.
+    [12] N. I. Feldman, Improved estimate for a linear form of the logarithms of alge-
+         braic numbers, Mat. Sb. 77 (1968), 256–270 (in Russian); English translation
+         in Math. USSR. Sb. 6 (1968) 393–406.
+    [13] K. Mahler, On the fractional parts of the powers of a rational number, II,
+         Mathematika 4 (1957), 122–124.
+    [14] K. Mahler and G. Szekeres, On the approximation of real numbers by roots
+         of integers, Acta Arith. 12 (1967), 315–320.
+    [15] W. Zudilin, A new lower bound for k(3/2)k k, J. Théor. Nombres Bordeaux
+         19 (2007); 311–323.
+   Université de Strasbourg, Mathématiques, 7, rue René Descartes, 67084 Strasbourg
+(France)
+   Email address: bugeaud@math.unistra.fr
+

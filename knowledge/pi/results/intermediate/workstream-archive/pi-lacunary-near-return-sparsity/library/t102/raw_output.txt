@@ -1,0 +1,11 @@
+T102 replay passed
+canonical hash: verified
+primary PDF hashes: 2 verified; source text derivative: verified
+order lifting: exact checks across maximal, defective, and high-valuation profiles
+coset multiplicities: pre-stable and stable regimes checked exactly
+completed and partial prefix formulas: direct rational checks passed
+tail and endpoint bounds: exact finite checks passed
+no-wrap: direct lambda<=3 rational checks passed
+defective cases: (3,4), (3,8), and (3,10) checked
+rational-period kill count: exact checks passed
+universal status: proof sketch in REPORT.md; finite replay is experiment only

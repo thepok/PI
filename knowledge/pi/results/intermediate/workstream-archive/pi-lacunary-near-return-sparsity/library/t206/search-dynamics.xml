@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/N0avU78IOlSKhgahcnr5lSwWKh0</id>
+  <title>arXiv Query: search_query=all:"Poissonian correlations" AND all:"badly approximable"&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-08-19T09:34:11Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22Poissonian+correlations%22+AND+all:%22badly+approximable%22&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.06974v2</id>
+    <title>Poissonian correlations of $αn^d$ mod $1$</title>
+    <updated>2026-05-13T18:26:58Z</updated>
+    <link href="https://arxiv.org/abs/2605.06974v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.06974v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $x(n):=αn^d \mod 1$ for integer $d &gt;1$ and non-zero real $α$. We show that $\{x(n)\}_{n&gt;0}$ has Poissonian $\ell$-point correlations for almost all choices of $α$ when $d$ is large (depending on $\ell$). This falls in line with the expected behavior from the Berry--Tabor conjecture. Further, in the spirit of a conjecture of Rudnick--Sarnak, we show Poissonian $\ell$-point correlations for a set of badly approximable $α$ of full Hausdorff dimension by a Fourier analytic transference principle.
+  The proof makes use of an application of the determinant method to count points on a diagonal hypersurface of degree $d$ in such a way as to capture the contribution of points belonging to lower dimensional varieties. As $d$ grows, these `special solutions' dominate the count and non-special solutions become increasingly rare. This stratified counting statement allows us to control the number of points on average very effectively.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-07T21:45:10Z</published>
+    <arxiv:comment>14 Pages, revisions made comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Chris Lutsko</name>
+    </author>
+    <author>
+      <name>Nick Rome</name>
+    </author>
+    <author>
+      <name>Niclas Technau</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.01736v2</id>
+    <title>The bad and rough rotation is Poissonian</title>
+    <updated>2026-08-14T14:54:32Z</updated>
+    <link href="https://arxiv.org/abs/2506.01736v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.01736v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Motivated by the Berry-Tabor Conjecture and the seminal work of Rudnick-Sarnak, the fine-scale properties of sequences $(a_nα)_{n \in \mathbb{N}} \mod 1$ with $(a_n)_{n \in \mathbb{N}} \subseteq \mathbb{N} $ and $α$ irrational have been extensively studied in the last decades. In this article, we prove that for $(a_n)_{n \in \mathbb{N}}$ arising from the set of rough numbers with explicit roughness parameters and any badly approximable $α$, $(a_nα)_{n \in \mathbb{N}} \mod 1$ has Poissonian correlations of all orders, and consequently, Poissonian gaps. This is the first known explicit sequence $(a_nα)_{n \in \mathbb{N}} \mod 1$ with these properties. Further, we show that this result is false for Lebesgue almost every $α$, thereby disproving a conjecture of Larcher and Stockinger [Math. Proc. Camb. Phil. Soc. 2020]. The method of proof makes use of an equidistribution result mod $d$ in diophantine Bohr sets which might be of independent interest.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-02T14:46:01Z</published>
+    <arxiv:comment>35 pages; added some references and an appendix concerning numerical experiments</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Manuel Hauke</name>
+    </author>
+  </entry>
+</feed>

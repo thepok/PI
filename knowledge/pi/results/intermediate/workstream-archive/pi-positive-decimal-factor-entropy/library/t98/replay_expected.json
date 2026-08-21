@@ -1,0 +1,295 @@
+{
+  "canonical_statement_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "definitions": {
+    "H_n": "10^n/2, natural-number division",
+    "L_n": "10^(n//2), natural-number division",
+    "block": "b_j is the fixed-length base-10 code of stream[j:j+n]",
+    "complete_C7_band": "all integer h with |h| < H_n, weight 1-|h|/H_n; not evaluated by this block-count replay",
+    "stream": "123456789101112... from concatenation of consecutive positive integers",
+    "strict_cutoff": "circular integer block distance < 1"
+  },
+  "replay": "T98 base-10 Champernowne literal block-collision analogue",
+  "rows": [
+    {
+      "H_n": 50,
+      "L_n": 10,
+      "all_starts_cross_a_concatenation_boundary": false,
+      "boundary_crossing_starts": 9,
+      "distinct_n_blocks": 10,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 2,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 10,
+        "ordered_count": 10,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 500,
+      "L_n": 10,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 10,
+      "distinct_n_blocks": 10,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 3,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 10,
+        "ordered_count": 10,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 5000,
+      "L_n": 100,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 100,
+      "distinct_n_blocks": 100,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 4,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 100,
+        "ordered_count": 100,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 50000,
+      "L_n": 100,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 100,
+      "distinct_n_blocks": 100,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 5,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 100,
+        "ordered_count": 100,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 500000,
+      "L_n": 1000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 1000,
+      "distinct_n_blocks": 1000,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 6,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 1000,
+        "ordered_count": 1000,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 5000000,
+      "L_n": 1000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 1000,
+      "distinct_n_blocks": 1000,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 7,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 1000,
+        "ordered_count": 1000,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 50000000,
+      "L_n": 10000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 10000,
+      "distinct_n_blocks": 9996,
+      "first_nonzero_lag_witnesses": [
+        [
+          3111,
+          1
+        ],
+        [
+          3113,
+          1
+        ],
+        [
+          7222,
+          1
+        ],
+        [
+          7224,
+          1
+        ]
+      ],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 2,
+      "n": 8,
+      "nonzero_positive_lags": 4,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 10000,
+        "ordered_count": 10008,
+        "positive_lag_total": 4
+      }
+    },
+    {
+      "H_n": 500000000,
+      "L_n": 10000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 10000,
+      "distinct_n_blocks": 10000,
+      "first_nonzero_lag_witnesses": [],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 1,
+      "n": 9,
+      "nonzero_positive_lags": 0,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 10000,
+        "ordered_count": 10000,
+        "positive_lag_total": 0
+      }
+    },
+    {
+      "H_n": 5000000000,
+      "L_n": 100000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 100000,
+      "distinct_n_blocks": 99992,
+      "first_nonzero_lag_witnesses": [
+        [
+          41111,
+          2
+        ],
+        [
+          41113,
+          2
+        ],
+        [
+          91074,
+          1
+        ],
+        [
+          92222,
+          2
+        ],
+        [
+          96171,
+          1
+        ]
+      ],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 2,
+      "n": 10,
+      "nonzero_positive_lags": 5,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 100000,
+        "ordered_count": 100016,
+        "positive_lag_total": 8
+      }
+    },
+    {
+      "H_n": 50000000000,
+      "L_n": 100000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 100000,
+      "distinct_n_blocks": 99997,
+      "first_nonzero_lag_witnesses": [
+        [
+          41111,
+          1
+        ],
+        [
+          41113,
+          1
+        ],
+        [
+          92222,
+          1
+        ]
+      ],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 2,
+      "n": 11,
+      "nonzero_positive_lags": 3,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 100000,
+        "ordered_count": 100006,
+        "positive_lag_total": 3
+      }
+    },
+    {
+      "H_n": 500000000000,
+      "L_n": 1000000,
+      "all_starts_cross_a_concatenation_boundary": true,
+      "boundary_crossing_starts": 1000000,
+      "distinct_n_blocks": 999994,
+      "first_nonzero_lag_witnesses": [
+        [
+          511111,
+          3
+        ],
+        [
+          511113,
+          3
+        ]
+      ],
+      "lag_range": "1 <= r < L_n",
+      "max_block_multiplicity": 2,
+      "n": 12,
+      "nonzero_positive_lags": 2,
+      "ordered_pair_convention": "diagonal plus both orientations",
+      "start_range": "0 <= j < L_n-r",
+      "strict_cutoff": "min(|b_i-b_j|,10^n-|b_i-b_j|)<1",
+      "triangular_identity": {
+        "diagonal": 1000000,
+        "ordered_count": 1000012,
+        "positive_lag_total": 6
+      }
+    }
+  ],
+  "scope": "finite deterministic digit-block counts only; not a result about pi, C7, C2, or C1"
+}

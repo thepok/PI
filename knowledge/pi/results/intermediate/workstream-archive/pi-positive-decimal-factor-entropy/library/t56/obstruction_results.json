@@ -1,0 +1,586 @@
+{
+  "all_checks_passed": true,
+  "canonical_statement_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "claim_scope": "Abstract finite incidence families only; no member is asserted to arise from pi. They show that the retained sector budgets do not logically imply a uniform linear total bound.",
+  "constant_witnesses": [
+    {
+      "constant_times_L": 10,
+      "proposed_constant": 1,
+      "strict_failure": true,
+      "total_incidence_count": 26,
+      "witness_L": 10,
+      "witness_n": 2
+    },
+    {
+      "constant_times_L": 20,
+      "proposed_constant": 2,
+      "strict_failure": true,
+      "total_incidence_count": 38,
+      "witness_L": 10,
+      "witness_n": 3
+    },
+    {
+      "constant_times_L": 300,
+      "proposed_constant": 3,
+      "strict_failure": true,
+      "total_incidence_count": 676,
+      "witness_L": 100,
+      "witness_n": 4
+    },
+    {
+      "constant_times_L": 400,
+      "proposed_constant": 4,
+      "strict_failure": true,
+      "total_incidence_count": 860,
+      "witness_L": 100,
+      "witness_n": 5
+    },
+    {
+      "constant_times_L": 5000,
+      "proposed_constant": 5,
+      "strict_failure": true,
+      "total_incidence_count": 10940,
+      "witness_L": 1000,
+      "witness_n": 6
+    },
+    {
+      "constant_times_L": 6000,
+      "proposed_constant": 6,
+      "strict_failure": true,
+      "total_incidence_count": 12916,
+      "witness_L": 1000,
+      "witness_n": 7
+    },
+    {
+      "constant_times_L": 70000,
+      "proposed_constant": 7,
+      "strict_failure": true,
+      "total_incidence_count": 149888,
+      "witness_L": 10000,
+      "witness_n": 8
+    },
+    {
+      "constant_times_L": 80000,
+      "proposed_constant": 8,
+      "strict_failure": true,
+      "total_incidence_count": 169856,
+      "witness_L": 10000,
+      "witness_n": 9
+    },
+    {
+      "constant_times_L": 900000,
+      "proposed_constant": 9,
+      "strict_failure": true,
+      "total_incidence_count": 1899820,
+      "witness_L": 100000,
+      "witness_n": 10
+    },
+    {
+      "constant_times_L": 1000000,
+      "proposed_constant": 10,
+      "strict_failure": true,
+      "total_incidence_count": 2099780,
+      "witness_L": 100000,
+      "witness_n": 11
+    }
+  ],
+  "construction": {
+    "diagonal": "L",
+    "excluded_sector": 0,
+    "long_residual_sector": 0,
+    "ordered_short_count": "2*(n-1)*(L-n)",
+    "orientations": 2,
+    "short_lags": "1 <= r < n",
+    "starts": "0 <= j < L-n at every short lag",
+    "total_count": "L+2*(n-1)*(L-n)"
+  },
+  "label": "experiment",
+  "lean_exact_ratio_instances_L_eq_2n": [
+    {
+      "L": 4,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 4,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 2,
+      "ordered_short_incidence_count": 4,
+      "retained_short_budget_2Ln": 16,
+      "short_lag_count": 1,
+      "short_lag_range": [
+        1,
+        1
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        1
+      ],
+      "starts_per_short_lag": 2,
+      "total_at_least_nL": true,
+      "total_incidence_count": 8
+    },
+    {
+      "L": 6,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 6,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 3,
+      "ordered_short_incidence_count": 12,
+      "retained_short_budget_2Ln": 36,
+      "short_lag_count": 2,
+      "short_lag_range": [
+        1,
+        2
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        2
+      ],
+      "starts_per_short_lag": 3,
+      "total_at_least_nL": true,
+      "total_incidence_count": 18
+    },
+    {
+      "L": 8,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 8,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 4,
+      "ordered_short_incidence_count": 24,
+      "retained_short_budget_2Ln": 64,
+      "short_lag_count": 3,
+      "short_lag_range": [
+        1,
+        3
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        3
+      ],
+      "starts_per_short_lag": 4,
+      "total_at_least_nL": true,
+      "total_incidence_count": 32
+    },
+    {
+      "L": 10,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 10,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 5,
+      "ordered_short_incidence_count": 40,
+      "retained_short_budget_2Ln": 100,
+      "short_lag_count": 4,
+      "short_lag_range": [
+        1,
+        4
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        4
+      ],
+      "starts_per_short_lag": 5,
+      "total_at_least_nL": true,
+      "total_incidence_count": 50
+    },
+    {
+      "L": 12,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 12,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 6,
+      "ordered_short_incidence_count": 60,
+      "retained_short_budget_2Ln": 144,
+      "short_lag_count": 5,
+      "short_lag_range": [
+        1,
+        5
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        5
+      ],
+      "starts_per_short_lag": 6,
+      "total_at_least_nL": true,
+      "total_incidence_count": 72
+    },
+    {
+      "L": 14,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 14,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 7,
+      "ordered_short_incidence_count": 84,
+      "retained_short_budget_2Ln": 196,
+      "short_lag_count": 6,
+      "short_lag_range": [
+        1,
+        6
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        6
+      ],
+      "starts_per_short_lag": 7,
+      "total_at_least_nL": true,
+      "total_incidence_count": 98
+    },
+    {
+      "L": 16,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 16,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 8,
+      "ordered_short_incidence_count": 112,
+      "retained_short_budget_2Ln": 256,
+      "short_lag_count": 7,
+      "short_lag_range": [
+        1,
+        7
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        7
+      ],
+      "starts_per_short_lag": 8,
+      "total_at_least_nL": true,
+      "total_incidence_count": 128
+    },
+    {
+      "L": 18,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 18,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 9,
+      "ordered_short_incidence_count": 144,
+      "retained_short_budget_2Ln": 324,
+      "short_lag_count": 8,
+      "short_lag_range": [
+        1,
+        8
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        8
+      ],
+      "starts_per_short_lag": 9,
+      "total_at_least_nL": true,
+      "total_incidence_count": 162
+    },
+    {
+      "L": 20,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 20,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 10,
+      "ordered_short_incidence_count": 180,
+      "retained_short_budget_2Ln": 400,
+      "short_lag_count": 9,
+      "short_lag_range": [
+        1,
+        9
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        9
+      ],
+      "starts_per_short_lag": 10,
+      "total_at_least_nL": true,
+      "total_incidence_count": 200
+    },
+    {
+      "L": 22,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 22,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 11,
+      "ordered_short_incidence_count": 220,
+      "retained_short_budget_2Ln": 484,
+      "short_lag_count": 10,
+      "short_lag_range": [
+        1,
+        10
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        10
+      ],
+      "starts_per_short_lag": 11,
+      "total_at_least_nL": true,
+      "total_incidence_count": 242
+    },
+    {
+      "L": 24,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 24,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 12,
+      "ordered_short_incidence_count": 264,
+      "retained_short_budget_2Ln": 576,
+      "short_lag_count": 11,
+      "short_lag_range": [
+        1,
+        11
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        11
+      ],
+      "starts_per_short_lag": 12,
+      "total_at_least_nL": true,
+      "total_incidence_count": 288
+    }
+  ],
+  "target_scale_instances": [
+    {
+      "L": 10,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 10,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 2,
+      "ordered_short_incidence_count": 16,
+      "retained_short_budget_2Ln": 40,
+      "short_lag_count": 1,
+      "short_lag_range": [
+        1,
+        1
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        7
+      ],
+      "starts_per_short_lag": 8,
+      "total_at_least_nL": true,
+      "total_incidence_count": 26
+    },
+    {
+      "L": 10,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 10,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 3,
+      "ordered_short_incidence_count": 28,
+      "retained_short_budget_2Ln": 60,
+      "short_lag_count": 2,
+      "short_lag_range": [
+        1,
+        2
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        6
+      ],
+      "starts_per_short_lag": 7,
+      "total_at_least_nL": true,
+      "total_incidence_count": 38
+    },
+    {
+      "L": 100,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 100,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 4,
+      "ordered_short_incidence_count": 576,
+      "retained_short_budget_2Ln": 800,
+      "short_lag_count": 3,
+      "short_lag_range": [
+        1,
+        3
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        95
+      ],
+      "starts_per_short_lag": 96,
+      "total_at_least_nL": true,
+      "total_incidence_count": 676
+    },
+    {
+      "L": 100,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 100,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 5,
+      "ordered_short_incidence_count": 760,
+      "retained_short_budget_2Ln": 1000,
+      "short_lag_count": 4,
+      "short_lag_range": [
+        1,
+        4
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        94
+      ],
+      "starts_per_short_lag": 95,
+      "total_at_least_nL": true,
+      "total_incidence_count": 860
+    },
+    {
+      "L": 1000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 1000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 6,
+      "ordered_short_incidence_count": 9940,
+      "retained_short_budget_2Ln": 12000,
+      "short_lag_count": 5,
+      "short_lag_range": [
+        1,
+        5
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        993
+      ],
+      "starts_per_short_lag": 994,
+      "total_at_least_nL": true,
+      "total_incidence_count": 10940
+    },
+    {
+      "L": 1000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 1000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 7,
+      "ordered_short_incidence_count": 11916,
+      "retained_short_budget_2Ln": 14000,
+      "short_lag_count": 6,
+      "short_lag_range": [
+        1,
+        6
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        992
+      ],
+      "starts_per_short_lag": 993,
+      "total_at_least_nL": true,
+      "total_incidence_count": 12916
+    },
+    {
+      "L": 10000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 10000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 8,
+      "ordered_short_incidence_count": 139888,
+      "retained_short_budget_2Ln": 160000,
+      "short_lag_count": 7,
+      "short_lag_range": [
+        1,
+        7
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        9991
+      ],
+      "starts_per_short_lag": 9992,
+      "total_at_least_nL": true,
+      "total_incidence_count": 149888
+    },
+    {
+      "L": 10000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 10000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 9,
+      "ordered_short_incidence_count": 159856,
+      "retained_short_budget_2Ln": 180000,
+      "short_lag_count": 8,
+      "short_lag_range": [
+        1,
+        8
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        9990
+      ],
+      "starts_per_short_lag": 9991,
+      "total_at_least_nL": true,
+      "total_incidence_count": 169856
+    },
+    {
+      "L": 100000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 100000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 10,
+      "ordered_short_incidence_count": 1799820,
+      "retained_short_budget_2Ln": 2000000,
+      "short_lag_count": 9,
+      "short_lag_range": [
+        1,
+        9
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        99989
+      ],
+      "starts_per_short_lag": 99990,
+      "total_at_least_nL": true,
+      "total_incidence_count": 1899820
+    },
+    {
+      "L": 100000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 100000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 11,
+      "ordered_short_incidence_count": 1999780,
+      "retained_short_budget_2Ln": 2200000,
+      "short_lag_count": 10,
+      "short_lag_range": [
+        1,
+        10
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        99988
+      ],
+      "starts_per_short_lag": 99989,
+      "total_at_least_nL": true,
+      "total_incidence_count": 2099780
+    },
+    {
+      "L": 1000000,
+      "all_triangular_endpoints_valid": true,
+      "diagonal_count": 1000000,
+      "excluded_incidence_count": 0,
+      "long_residual_incidence_count": 0,
+      "n": 12,
+      "ordered_short_incidence_count": 21999736,
+      "retained_short_budget_2Ln": 24000000,
+      "short_lag_count": 11,
+      "short_lag_range": [
+        1,
+        11
+      ],
+      "starts_at_each_short_lag": [
+        0,
+        999987
+      ],
+      "starts_per_short_lag": 999988,
+      "total_at_least_nL": true,
+      "total_incidence_count": 22999736
+    }
+  ]
+}

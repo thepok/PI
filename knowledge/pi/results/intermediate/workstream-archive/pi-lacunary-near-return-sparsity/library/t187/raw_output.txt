@@ -1,0 +1,10 @@
+T187 deterministic replay: PASS
+canonical statement and sole primary source pins: PASS
+source theorem tuples: 1 (cap 6)
+finite words checked: 127200
+all-zero/one-flip measurability witnesses checked: 780
+ordered diagonal-inclusive reconstruction: PASS
+fractional allocation identity: PASS
+fractional surrogate dropped-coordinate invariance: FALSIFIED
+required prior comparisons: 27
+scoped related-model verdicts: 1

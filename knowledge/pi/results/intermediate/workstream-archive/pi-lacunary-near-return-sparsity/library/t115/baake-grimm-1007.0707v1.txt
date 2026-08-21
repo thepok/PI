@@ -1,0 +1,515 @@
+                                                DIFFRACTION OF LIMIT PERIODIC POINT SETS
+
+                                                                 MICHAEL BAAKE AND UWE GRIMM
+
+
+                                                Abstract. Limit periodic point sets are aperiodic structures with pure
+                                                point diffraction supported on a countably, but not finitely generated Fourier
+arXiv:1007.0707v1 [math-ph] 5 Jul 2010
+
+
+
+
+                                                module that is based on a lattice and certain integer multiples of it. Exam-
+                                                ples are cut and project sets with p-adic internal spaces. We illustrate this
+                                                by explicit results for the diffraction measures of two examples with 2-adic
+                                                internal spaces. The first and well-known example is the period doubling
+                                                sequence in one dimension, which is based on the period doubling substitu-
+                                                tion rule. The second example is a weighted planar point set that is derived
+                                                from the classic chair tiling in the plane. It can be described as a fixed point
+                                                of a block substitution rule.
+
+
+
+
+                                                                            1. Introduction
+                                            The diffraction measure is a characteristic property of a translation bounded
+                                         measure ω on Euclidean space (or on any locally compact Abelian group) and
+                                         has important applications in crystallography because it describes the outcome
+                                         of kinematic diffraction (from X-rays or neutron scattering, say). It is the
+                                         Fourier transform γ  b of the autocorrelation measure γ of ω. Following the dis-
+                                         covery of quasicrystals (which are generally non-periodic but nevertheless show
+                                         pure point or Bragg diffraction), measures with pure point diffraction have been
+                                         investigated thoroughly. In parallel, there has also been progress in understand-
+                                         ing singular continuous and absolutely continuous diffraction; see [3, 4] and ref-
+                                         erences therein. Let us mention in passing that making a connection with the
+                                         spectra of Schrödinger operators is tempting, but has so far eluded all attempts
+                                         to substantiate it.
+                                            In this article, within the realm of pure point diffractive systems, we consider
+                                         two examples of limit periodic structures, the period doubling sequence in one
+                                         dimension (Section 3) and point sets related to the chair tiling in two dimensions
+                                         (Section 4). The corresponding point sets arise from fixed points of (block)
+                                         substitution rules, but also have a description as cut and project sets with 2-adic
+                                         internal spaces. We begin with a concise survey of the relevant quantities, where
+                                         we restrict ourselves to measures that are supported on integer lattices. Then,
+                                         the two main examples are presented in an informal way, though all results
+                                         are rigorous (with the underlying mathematical framework being available via
+                                         [11, 7, 6]). A more detailed exposition will appear in [5].
+
+                                                 2. Autocorrelation and diffraction of Dirac combs
+                                                                                     P
+                                           Consider the (weighted) Dirac comb ω =      x∈Zd w(x)δx , with δx the nor-
+                                         malised point (or Dirac) measure at x ∈ Zd and (in general, complex) weights
+2                       MICHAEL BAAKE AND UWE GRIMM
+
+
+w(x). The natural autocorrelation (if it exists) of ω is defined as the Eberlein
+convolution
+                                              ωN ∗ ωfN 
+(1)                 γ = ω⊛ω   e := lim                    ,
+                                   N →∞ vol [−N, N ]d
+
+which we view as a measure on Rd . Here, ωN = ω|[−N,N ]d denotes the restriction
+of ω to the closed cube [−N, N ]d , and µe is the ‘flipped over’ measure, defined
+by µe(g) = µ(e g ) with g a continuous test function of compact support and
+ge(x) = g(−x), the bar denoting complex conjugation. In all cases considered
+below, the limit in (1) exists. Due to supp(ω) ⊂ Zd , the autocorrelation is then
+of the form
+                                      X
+(2)                              γ =      η(z) δz
+                                       z∈Zd
+with the autocorrelation coefficients
+                                1             X
+(3)          η(z) = lim                                  w(x) w(x − z).
+                     N →∞ (2N + 1)d
+                                        x∈Zd ∩[−N,N ]d
+
+The existence of the limit in (1) is equivalent to the existence of the autocorre-
+lation coefficients η(z) for all z ∈ Zd .
+   By construction, γ is a positive definite measure, and its Fourier transform γb
+thus exists. The latter is a positive, translation bounded measure on Rd (by the
+Bochner-Schwartz theorem), which is known as the diffraction measure of ω. It
+corresponds to the (kinematic) diffraction from the measure ω; compare [8] for
+background and [11, 6] for this approach to diffraction theory. The diffraction
+measure possesses the unique decomposition
+                                                   
+(4)                          γ= b
+                             b     γ pp + γb sc + γ b ac
+into its pure point, singular continuous and absolutely continuous parts, the
+latter splitting relative to Lebesgue measure, the natural reference measure for
+volume in Euclidean space. Lattice periodic measures in Rd give rise to pure
+point diffraction, as do regular model sets with Euclidean internal space Rm ,
+where the diffraction measure is supported on a Z-module of finite rank m + d;
+see [6] and references therein for more. The examples discussed below are also
+based on model sets, but with 2-adic internal spaces; they are limit periodic,
+and thus exhibit pure point diffraction where the corresponding Fourier module
+is countably, but not finitely generated. For both examples, the explicit form
+of the diffraction can be obtained either from the cut and project description
+[6] or from the inflation structure [10]; in this note, we use the latter approach.
+
+                     3. The period doubling sequence
+    The period doubling sequence is defined by the primitive substitution rule
+                                        a 7→ ab
+(5)                               ̺:
+                                        b 7→ aa
+on the two-letter alphabet {a, b}. It is related to the classic Thue-Morse system
+(as a factor under a 2 : 1 mapping; compare [3] and references therein) and
+                  DIFFRACTION OF LIMIT PERIODIC POINT SETS                        3
+
+
+defines a strictly ergodic dynamical system via the orbit closure of a suitable
+bi-infinite sequence. The latter can be obtained from a fixed point of ̺2 via the
+iteration
+                        ̺2              ̺2
+(6)                a|a −−→ abaa|abaa −−→ . . . −→ w = ̺2 (w),
+with convergence in the (obvious) product topology. Here, | marks the origin
+of a two-sided sequence w = . . . w−2 w−1 |w0 w1 . . ., and we start with the legal
+seed a|a. The half-infinite word v = w0 w1 . . . is the (unique) one-sided fixed
+point of ̺.
+   To the sequence w, we associate two point sets Λℓ ⊂ Z with ℓ ∈ {a, b} via
+                             Λℓ = {n ∈ Z | wn = ℓ},
+      ˙ b = Z, where ∪˙ denotes the disjoint union of sets. The geometric fixed
+so Λa ∪Λ
+point equation for ̺2 now implies the equations
+(7a)          Λa = 4Λa ∪˙ (4Λa + 2) ∪˙ (4Λa + 3) ∪˙ 4Λb ∪˙ (4Λb + 2),
+(7b)          Λb = (4Λa + 1) ∪˙ (4Λb + 1) ∪˙ (4Λb + 3),
+which can be decoupled and solved by iteration, yielding
+                 [˙                              [˙                        
+(8) Λa = {−1} ∪˙       2·4i Z + (4i − 1) , Λb =          4i Z + (2·4i−1 − 1) ,
+                      i≥0                               i≥1
+
+where the singleton set {−1} has to be added to the fixed point (to either Λa
+or Λb ), as it is only a limit point under 2-adic completion
+                                                     P       [7].
+   We attach a Dirac comb to Λℓ by ωℓ := δΛℓ = n∈Λℓ δn for ℓ ∈ {a, b}. A
+general weighted Dirac comb with weights α (for letter a) and β (for letter b)
+can then be expressed as ω = αωa + βωb . Its autocorrelation measure exists
+and has the form of Eq. (2) (with d = 1) with autocorrelation coefficients η(z)
+according to (3), where the weight w(x) ∈ {α, β} is chosen according to the
+letter at position x ∈ Z.
+   For simplicity, we work with the one-sided fixed point v (which has the same
+autocorrelation). We first consider weights α = 1 and β = −1, and denote the
+autocorrelation coefficients for this balanced case by η± (z). The correspond-
+ing sequence {vi }i∈N0 of weights vi ∈ {±1} satisfies the recursions v2n = 1
+and v2n+1 = −vn for n ≥ 0. This implies a recursion for the autocorrelation
+coefficients,
+                            1                                    1
+(9)             η± (2m) = 1 + η± (m) and η± (2m + 1) = − ,
+                            2                                     3
+for all m ≥ 0. In particular, η± (0) = 1, and we also have η± (−m) = η± (m).
+When m = 2r (2s + 1) with r, s ≥ 0, the recursion leads to
+                                               1
+                              η± (m) = 1 −          ,
+                                           3 · 2r−2
+which is independent of s. Going back to general weights α and β amounts to
+                                     1
+                        sequence 2 (α + β)1 + (α − β)w , or alternatively
+considering the bi-infinite
+1
+2 (α + β)1 + (α − β)v for its one-sided counterpart, which results in
+                                                               
+(10)          η = 41 (α − β)2 η± + 12
+                                   1
+                                       3(α + β)2 + 2(α2 − β 2 ) 1.
+4                       MICHAEL BAAKE AND UWE GRIMM
+
+
+
+
+       0                                                                  1
+        Figure 1. Sketch of the diffraction amplitudes |A(k)| from
+        Eq. (12) for the period doubling chain, with k ∈ [0, 1]. The
+        diffraction pattern repeats Z-periodically along the real line [2].
+
+
+Taking the Fourier transform, the diffraction measure is obtained as
+                            X                     2
+(11)                   b =
+                       γ          αA(k) + βB(k) δk ,
+                              k∈L⊛
+            S                m
+where L⊛ = s≥1 Z/2s = 2r | (r = 0, m ∈ Z) or (r ≥ 1, m odd)                   is the
+Fourier module of the period doubling sequence. The amplitudes read
+                            2
+(12)          A(k) =             e2πik   and    B(k) = δr,0 − A(k),
+                       3 · (−2)r
+where we implicitly refer to the parametrisation of L⊛ .
+   To derive these formulas, one observes that a finite union in Eq. (8) would still
+be a periodic set, whose diffraction can be calculated by direct Fourier transform
+(which is then a periodic point measure) followed by taking the absolute square
+of the amplitudes (note that the Wiener diagram is still commutative in this
+case). This results in a sequence of pure point measures that converge not
+only in the vague topology, but also in the stronger norm topology towards the
+diffraction measure in (11), with the amplitudes as in (12); see [6] for details.
+Since pure point measures are closed in the norm topology, this also gives the
+constructive proof that L⊛ is indeed the Fourier module.
+   As mentioned above, the same result can also be derived via the description
+of the periodic doubling sequence as a model set with 2-adic internal space; see
+[7, 6] for a proof. A sketch of the diffraction pattern is shown in Figure 1.
+   The presence of the powers of 2−s in the Fourier module shows the limit
+periodic structure; since s can be arbitrarily large, the Fourier module cannot
+be finitely generated. Nevertheless, the diffraction measure is pure point, with
+                  DIFFRACTION OF LIMIT PERIODIC POINT SETS                          5
+
+
+amplitudes that reflect the inflation symmetry with integer multiplier 2, as
+visible in Figure 1.
+
+
+
+                4. Block substitution for the chair tiling
+  Let us move on to our planar example. Consider the block substitution rule
+
+(13)       0 7→ 1 0
+                0 3         1 7→ 10 21      2 7→ 12 23       3 7→ 30 23
+
+on the alphabet {0, 1, 2, 3}. Iterating the rule, starting from a legal seed,
+
+                                            3 2 1 2 1 2 1 0
+                                            0 3 2 3 0 1 0 3
+                        3 2 1 0             1 0 3 2 1 0 3 2
+          3 0           0 3 0 3             0 3 0 3 0 3 0 3
+(14)             7−→                7−→                           7−→ · · ·
+          2 1           1 2 1 2             1 2 1 2 1 2 1 2
+                        2 3 0 1             0 1 2 3 0 1 2 3
+                                            1 2 3 2 1 0 1 2
+                                            2 3 0 3 0 3 0 1
+
+produces a sequence of growing square-shaped blocks (with lines denoting the
+coordinate axes, so the origin is located in the centre of the blocks), where
+each block reappears in the centre of the next. This sequence thus converges
+in the product topology, where the limit is a fixed point of the block substitu-
+tion rule that covers the entire square lattice. This fixed point has a D4 colour
+symmetry: An anti-clockwise rotation through π/2 corresponds to the cyclic
+permutation (0123), while a reflection in the central horizontal gives the per-
+mutation (01)(23). The pattern is thus invariant under any D4 transformation
+followed by an appropriate permutation.
+   If we choose a representation with four different unit squares and take the
+lower left corners as their reference points, the fixed point defined by (14) results
+in a partition Z2 = Λ0 ∪Λ ˙ 1 ∪Λ   ˙ 3 of Z2 into four point sets of equal density
+                               ˙ 2 ∪Λ
+1
+4 . As a result of (13), they satisfy the fixed point equations
+
+(15a)        Λ0 = 2Λ0 ∪˙ (2Λ0 + u + v) ∪˙ 2Λ1 ∪˙ 2Λ3 ,
+(15b)        Λ1 = (2Λ0 + v) ∪˙ (2Λ1 + u) ∪˙ (2Λ1 + v) ∪˙ (2Λ2 + v),
+(15c)        Λ2 = (2Λ1 + u + v) ∪˙ 2Λ2 ∪˙ (2Λ2 + u + v) ∪˙ (2Λ3 + u + v),
+(15d)        Λ3 = (2Λ0 + u) ∪˙ (2Λ2 + u) ∪˙ (2Λ3 + u) ∪˙ (2Λ3 + v),
+
+with u = (1,0)T and v = (0, 1)T . Denoting the even and odd sublattices of
+Z2 as Γ+ = (x1 , x2 )T ∈ Z2 x1 + x2 ≡ 0 mod 2 and Γ− = u + Γ+ , we have
+Z2 = Γ+ ∪Γ
+         ˙ − , as well as Λ0 ∪Λ
+                             ˙ 2 = Γ+ and Λ1 ∪Λ
+                                              ˙ 3 = Γ− . This leads to the
+decoupled equations
+                                                                          
+(16) Λ0 = 2Γ− ∪˙ 2Λ0 + {0, u + v}         and   Λ1 = 2Γ+ + v ∪˙ 2Λ1 + {u, v} ,
+6                                MICHAEL BAAKE AND UWE GRIMM
+
+
+together with Λ2 = Γ+ \ Λ0 and Λ3 = Γ− \ Λ1 . An explicit solution is (with
+Sx := {sx | s ∈ S} for sets S ⊂ Z and Sr := {0, 1, . . . , 2r − 1} for r ≥ 0)
+                                       [
+                                       ˙                                
+(17a)              Λ0 = N0 (u + v) ∪˙         2r+1 Γ− + Sr (u + v) ,
+                                         r≥0
+                                       [
+                                       ˙                                
+(17b)          Λ1 + v = N0 (u − v) ∪˙         2r+1 Γ− + Sr (u − v) ,
+                                         r≥0
+                                       [
+                                       ˙                                
+(17c)     Λ2 + u + v = −N0 (u + v) ∪˙         2r+1 Γ− − Sr (u + v) ,
+                                         r≥0
+                                       [
+                                       ˙                                
+(17d)          Λ3 + u = −N0 (u − v) ∪˙        2r+1 Γ− − Sr (u − v) ,
+                                                      r≥0
+
+where we used Γ+ + u = Γ+ + v = Γ− = Γ− + u + v. Each of the infinite
+unions on the right-hand side defines a point set of density 14 . The sets of
+points (of density 0) along the diagonals have to be added for our fixed point
+(14), because they are not contained in any of the lattice translates (but are
+covered by the 2-adic completion of the infinite unions, similar to the situation
+                                                                       ˙ 2 = Γ+
+of the period doubling sequence). The solutions obey the relations Λ0 ∪Λ
+        ˙
+and Λ1 ∪Λ3 = Γ− .
+   Now, we are going to calculate the diffraction measure of the Dirac comb
+                                               3
+                                               X
+(18)                                      ω=         αi δΛi
+                                               i=0
+
+with the four point sets Λi from Eq. (17), and arbitrary complex numbers αi .
+  Define Qr (x) := 2r+1 Γ− + Sr x for r ∈ N0 and x ∈ Z2 . Using Γ+∗ = 21 Γ+
+(where the superscript ∗ denotes the dual lattice), we calculate
+                 r−1
+                2X                                         r+1
+                                                 
+                                                  b 1 − e−2 πikx −2r+2 πiku \
+    δ\
+     Qr (x) =
+                       −2πimkx
+                       e            δ2r+1 (Γ+ +u) =              e         δ2r+1 Γ+
+                                                     1 − e−2πikx
+                m=0
+                           r+1           r+2
+                1 − e−2 πikx e−2 πiku
+(19)       =                          δΓ+ /2r+2 ,
+                  1 − e−2πikx  22r+3
+where we again write density factors as functions of k. The first fraction eval-
+uates as 2r whenever kx ∈ Z (by an application of the l’Hospital rule). The
+resulting Fourier module is
+(20)
+         [ Γ+            [ n1                                              o
+                     2 ˙ ˙
+   L⊛ =          = Z   ∪           (m, n) | m, n ∈ Z with gcd(m,  n, 2) = 1  ,
+             2s             s≥1 2s
+         s≥2
+
+which is the coarsest group that contains all positions where the Fourier trans-
+form in (19) has a point measure.
+   The diffraction measure of our weighted Dirac comb ω is of the form
+                                            3
+                                          X X                 2
+(21)                              γc
+                                   ω =               αi Ai (k) δk ,
+                                         k∈L⊛ i=0
+
+where Ai (k) is the amplitude that belongs to Λi . Its derivation is analogous
+to the method explained above for the period doubling sequence (via periodic
+                  DIFFRACTION OF LIMIT PERIODIC POINT SETS                       7
+
+
+approximants that converge in the norm topology). This method also provides
+a proof for the correctness of (20).
+   The amplitudes themselves can be calculated in the same way as for the
+period doubling sequence above. For any k ∈ L⊛ , there is a minimal s ≥ 0 such
+that k ∈ Γ+ /2s+2 , and then k ∈ Γ+ /2r+2 for all r ≥ s. The amplitudes result
+from summing the corresponding contributions from Eq. (19), with x = u + v
+for i = 0, x = u − v for i = 1, x = −u − v for i = 2 and x = −u + v for
+i = 3. In addition, the results have to be multiplied by an overall phase factor
+that reflects the translation vectors on the left-hand sides of the four relations
+in Eq. (17). We omit the detailed (and somewhat lengthy) calculations and
+simply state the result.
+   To this end, the integer and half-integer points of L⊛ are better treated
+separately. Whenever k ∈ Z2 ,
+                                                          1
+(22)                  A0 (k) = A1 (k) = A2 (k) = A3 (k) = .
+                                                          4
+If k ∈ 12 Γ+ \ Z2 , one has k = 21 (m, n) with m and n odd, so that kx ∈ Z for all
+x ∈ Γ+ . This gives
+                                   1                          1
+(23)           A0 (k) = A2 (k) =       and A1 (k) = A3 (k) = − ,
+                                   4                          4
+while k = 21 (m, n) with m + n odd results in
+                1                 1              (−1)n                  (−1)m
+(24)   A0 (k) = , A2 (k) = − , A1 (k) =                   and A3 (k) =         .
+                8                 8                 8                     8
+In particular, A0 (k) + A2 (k) = 0, and also A1 (k) + A3 (k) = 0, as m + n is odd.
+   The remaining elements of L⊛ are of the form k = (m, n)/2s with s ≥ 2 and
+m, n ∈ Z subject to the condition gcd(m, n, 2) = 1. The amplitudes A0 (k) and
+A2 (k) depend on m + n. They satisfy A2 (k) = −A0 (k) and
+                  
+                  
+                   0,                        if 2s | (m + n),
+                  
+                  
+                   2 1 − (−1)      (m+n)/2
+(25) A0 (k) = − 4s                  m+n     , if m + n even with 2s ∤ (m + n),
+                  
+                  1          1 − ε s
+                  
+                           1
+                   s             ,           if m + n odd,
+                    4 1 − εm+n
+                             s
+where εs = exp(−2πi/2s ) is a root of unity. Similarly, one obtains the relation
+A3 (k) = −A1 (k) together with
+                   
+                   
+                    0,                       if 2s | (m − n),
+                   
+                   
+                    2 1 − (−1)     (m−n)/2
+(26) A1 (k) = ε−n    − s            m−n     , if m − n even with 2s ∤ (m − n),
+                s
+                       4     1 − ε s
+                   
+                   1       1
+                   
+                    s            ,           if m − n odd.
+                     4 1 − εm−n
+                             s
+In particular, α0 = α1 = α2 = α3 = 1 leads to γc
+                                               ω = δZ2 , as required. Moreover,
+setting α0 = α2 = 1 and α1 = α3 = 0 gives the diffraction γc       c     1
+                                                              ω = δΓ+ = 2 δΓ+ /2 ,
+while the alternative choice α0 = α2 = 0 together with α1 = α3 = 1 yields
+                                                                        m
+(using the parametrisation of k as above) γc    c     −2πiku δc = (−1) δ
+                                           ω = δΓ− = e         Γ+     2    Γ+ /2 .
+8                       MICHAEL BAAKE AND UWE GRIMM
+
+
+
+
+        Figure 2. Illustration of the diffraction measure for the Dirac
+        comb (21) with weights αj = ij , where j ∈ {0, 1, 2, 3}. A peak at
+        k ∈ [−1, 1]2 is represented by a black disc, centred at k, with an
+        area proportional to the peak intensity. The complete pattern
+        is 12 Γ+ -periodic.
+
+
+   An interesting case results from the balanced choice αj = ij , which produces
+extinctions for all k ∈ 12 Γ+ . The corresponding diffraction measure is illustrated
+in Figure 2. It is D4 -symmetric, which is not the case in general.
+   For a generic choice of the weights, our Dirac comb (18) is mutually locally
+derivable (MLD) with the chair tiling. As it is based on four subsets of Z2 , the
+                                       2
+diffraction measure γc ω is always Z -periodic [2]. This is the generic maximal
+translation symmetry. However, since Λ0 ∪Λ      ˙ 2 = Γ+ , the diffraction of any
+weighted Dirac comb with only these two components is periodic under the
+dual lattice Γ+∗ = 12 Γ+ . Likewise, the corresponding statement holds for the
+diffraction of weighted Dirac combs with components Λ1 and Λ3 . This is also
+the translation symmetry in Figure 2, which is a consequence of the particular
+choice of the weights here.
+   Any choice of the weights refers to a discrete structure that can be viewed as
+a decoration of the chair tiling, and is thus locally derivable from it. Conversely,
+a typical decoration of the chair tiling will be locally derivable from our coloured
+                    DIFFRACTION OF LIMIT PERIODIC POINT SETS                                9
+
+
+point set, but need not be realisable as a simple decoration of the square-shaped
+building blocks. In this sense, our above results constitute only a first step of
+the complete diffraction analysis of the chair tiling.
+
+                             5. Summary and Outlook
+    Limit periodic structures form an interesting class of pure point diffractive
+systems. Explicit results for the diffraction can be obtained, at least for ex-
+amples such as those discussed in this paper; related examples can be found in
+[1, 13].
+    Limit periodic tilings also arise in the context of Wang tiles. Raphael Robin-
+son’s tilings consisting of six square-shaped prototiles [14], up to rotations and
+reflections, is one example. In this case, the limit periodic structure is apparent
+from a hierarchical pattern of interlocking squares of larger and larger sizes.
+Recently, a similar tiling with a single hexagonal prototile, up to rotations and
+reflections, was discovered [15, 16], with a hierarchical pattern of interlocking
+triangles. It is related to the half-hex inflation that was studied in detail in [9],
+where also its limit-periodic structure was derived, and to Penrose’s (1 + ε + ε2 )
+tiling [12].
+    The new example is particularly intriguing because the hexagon is the first
+example of a single aperiodic tile (provided you count the tile and its mirror
+image as a single tile), in the sense that there exist local rules that allow the
+existence of tilings covering the entire plane, but no such tiling can have any
+non-trivial period. The local rules involve not just neighbours, but also the
+next corona, and thus cannot be encapsulated in the shape of a tile whose
+interior is connected; see [15] for details. It would be interesting to study
+the diffraction properties of these tilings, which will reflect the limit periodic
+structure apparent in the patterns of squares and triangles.
+
+                                 Acknowledgements
+  This work was supported by the German Research Council (DFG), within
+the CRC 701, and by a Leverhulme Trust Visiting Professorship Grant (MB).
+
+                                      References
+ [1] J.-P. Allouche and M. Mendez-France, Automata and automatic sequences, in: Beyond
+     Quasicrystals, F. Axel and D. Gratias, eds., Springer, Berlin, 1995, pp. 293–367.
+ [2] M. Baake, Diffraction of weighted lattice subsets, Can. Math. Bulletin 45 (2002) pp. 483–
+     498.
+ [3] M. Baake and U. Grimm, The singular continuous diffraction measure of the Thue-Morse
+     chain, J. Phys. A: Math. Theor. 41 (2008) 422001.
+ [4] M. Baake and U. Grimm, Kinematic diffraction is insufficient to distinguish order from
+     disorder, Phys. Rev. B 79 (2009) 020203(R) and 80 (2009) 029903(E).
+ [5] M. Baake and U. Grimm, The Theory of Aperidoic Order – A Mathematical Invitation,
+     in preparation (to appear with Cambridge University Press).
+ [6] M. Baake and R.V. Moody, Weighted Dirac combs with pure point diffraction, J. reine
+     angew. Math. (Crelle) 573 (2004) pp. 61–94.
+10                          MICHAEL BAAKE AND UWE GRIMM
+
+
+ [7] M. Baake, R.V. Moody and M. Schlottmann, Limit-(quasi)periodic point sets as qua-
+     sicrystals with p-adic internal spaces, J. Phys. A: Math. Gen. 31 (1998) pp. 5755–5765.
+ [8] J.M. Cowley, Diffraction Physics, 3rd edition, North-Holland, Amsterdam, 1995.
+ [9] D. Frettlöh, Nichtperiodische Pflasterungen mit ganzzahligem Inflationsfaktor, PhD the-
+     sis, Univ. Dortmund, 2002; available via
+     http://www.math.uni-bielefeld.de/baake/frettloe/research.html.
+[10] F. Gähler and R. Klitzing, The diffraction pattern of self-similar tilings, in: The Math-
+     ematics of Long-Range Aperiodic Order, R.V. Moody, ed., NATO ASI C 489, Kluwer,
+     Dordrecht, 1997, pp. 141–174.
+[11] A. Hof, On diffraction by aperiodic structures, Commun. Math. Phys. 169 (1995) pp. 25–
+     43.
+[12] R. Penrose, Remarks on tiling: Details of a (1 + ε + ε2 )-aperiodic set, in: The Mathematics
+     of Long-Range Aperiodic Order, R.V. Moody, ed., NATO ASI C 489, Kluwer, Dordrecht,
+     1997, pp. 467–497.
+[13] M. Queffelec, Spectral study of automatic and substitutive sequences, in: Beyond Qua-
+     sicrystals, F. Axel and D. Gratias, eds., Springer, Berlin, and Les Edition de Physique,
+     Les Ulis, 1995, pp. 369–414.
+[14] R.M. Robinson, Undecidability and nonperiodicity for tilings of the plane, Invent. Math.
+     12 (1971) pp. 177–209.
+[15] J.E.S. Socolar and J.M. Taylor, An aperiodic hexagonal tile, preprint arXiv:1003.4279
+     (2010).
+[16] J.M. Taylor, Aperiodicity of a functional monotile, Preprint Bielefeld CRC 701: 0-015
+     (2010), available via http://www.math.uni-bielefeld.de/sfb701.
+
+  Fakultät für Mathematik, Universität Bielefeld, Postfach 100131, 33501 Biele-
+feld, Germany (MB)
+
+  Department of Mathematics and Statistics, The Open University, Walton Hall,
+Milton Keynes MK7 6AA, UK (UG)
+
+  School of Mathematics and Physics, University of Tasmania, Private Bag 37,
+Hobart, Tasmania 7001, Australia (MB and UG)
+

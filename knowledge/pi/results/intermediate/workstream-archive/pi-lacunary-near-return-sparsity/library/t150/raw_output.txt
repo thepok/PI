@@ -1,0 +1,13 @@
+T150 REPLAY: PASS
+primary_sources=6 cap=8
+domains=4 minimum=3
+theorem_candidates=3 cap=3
+candidate_results=P:inapplicable,H:inapplicable,C:survives-related-model
+oscillation_max=3/8 bound=4
+shared_prefix_test_R=36
+debruijn_order2_energy=100
+compatibility_ratios_C1=2.146e-06,6.786e-10,2.146e-13,1.482e-16
+scoped_verdict=develop
+successor_count=1
+fixed_pi_claim=none A1_claim=none C1_claim=none C2_claim=none
+labels=literature-checked,proof sketch,experiment,related-model,conjecture

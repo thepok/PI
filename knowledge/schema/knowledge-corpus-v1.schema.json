@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://allmath.local/schemas/knowledge-corpus-v1.schema.json",
+  "title": "AllMath provenance-pinned knowledge corpus",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "corpusId",
+    "rootId",
+    "title",
+    "canonicalSource",
+    "records",
+    "edges"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "allmath-knowledge-corpus/v1"},
+    "corpusId": {"$ref": "#/$defs/id"},
+    "rootId": {"$ref": "#/$defs/id"},
+    "title": {"type": "string", "minLength": 1},
+    "pathsRelativeTo": {"type": "string", "minLength": 1},
+    "canonicalSource": {"$ref": "#/$defs/pin"},
+    "externalNodeIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/id"}
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/record"}
+    },
+    "edges": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/edge"}
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,191}$"
+    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "kind", "role"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "kind": {
+          "enum": [
+            "computation",
+            "certificate",
+            "dataset",
+            "lean-source",
+            "literature",
+            "note",
+            "primary-source",
+            "source-snapshot",
+            "test"
+          ]
+        },
+        "role": {"type": "string", "minLength": 1},
+        "metadata": {"type": "object"}
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "title", "sources"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "kind": {
+          "enum": [
+            "problem-variant",
+            "claim",
+            "strategy",
+            "task",
+            "decision",
+            "result",
+            "review",
+            "tooling",
+            "mechanism",
+            "obstruction"
+          ]
+        },
+        "title": {"type": "string", "minLength": 1},
+        "statement": {"type": "string"},
+        "summary": {"type": "string"},
+        "claimLevel": {
+          "enum": [
+            "experiment",
+            "conjecture",
+            "proof sketch",
+            "machine-checked",
+            "literature-checked",
+            "candidate resolution",
+            "verified resolution",
+            null
+          ]
+        },
+        "mechanismFingerprint": {"type": "string", "minLength": 1},
+        "failureKind": {
+          "enum": [
+            "refutation",
+            "certificate_failure",
+            "scale_mismatch",
+            "applicability_failure",
+            "duplicate",
+            "pipeline",
+            "environmental"
+          ]
+        },
+        "lifecycle": {
+          "enum": ["active", "weakened", "superseded", "retracted"]
+        },
+        "scope": {"type": "object"},
+        "exactFailure": {"type": "string", "minLength": 1},
+        "doesNotBlock": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "reopenCondition": {"type": "string", "minLength": 1},
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/source"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "obstruction"}}},
+          "then": {
+            "required": ["mechanismFingerprint", "failureKind", "lifecycle"]
+          }
+        }
+      ]
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "relation"],
+      "properties": {
+        "from": {"$ref": "#/$defs/id"},
+        "to": {"$ref": "#/$defs/id"},
+        "relation": {
+          "enum": [
+            "requires",
+            "decomposes",
+            "alternative",
+            "supports",
+            "refutes",
+            "formalizes",
+            "variant-of",
+            "related",
+            "tests",
+            "produces",
+            "blocks",
+            "requires-missing",
+            "specializes",
+            "supersedes",
+            "reopens",
+            "weakens",
+            "strengthens",
+            "derived-from",
+            "documents",
+            "conflicts"
+          ]
+        }
+      }
+    }
+  }
+}

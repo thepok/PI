@@ -1,0 +1,39 @@
+{
+  "canonical_statement": {
+    "sha256": "cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8",
+    "source_path": "knowledge/pi/statements/pi-lacunary-near-return-sparsity.txt"
+  },
+  "t9": {
+    "definitions": [
+      "QuantitativelySplitParent",
+      "QuantitativeSplittingLevel",
+      "HasDominantSuccessor",
+      "piDominantSuccessorEnergy"
+    ],
+    "artifact_enclosed": false,
+    "role": "accepted semantic dependency only; T20 claims no Lean theorem",
+    "sha256": "1ee132366d7bd7f3685e37dd4258f2d28c3c386badce71fb6f3bbd845156e354",
+    "source_identifier": "library/t9/SuccessorSplitting.lean",
+    "theorems_checked_finitely": [
+      "piCylinderCollisionEnergy_succ_refinement",
+      "not_splittingLevel_dominant_energy_concentration"
+    ]
+  },
+  "t14": {
+    "affine_condition": "d*m-B <= piSplittingLevelCount m N mu eta",
+    "artifact_enclosed": false,
+    "parameter_domain": "0<mu<1 and 0<eta<=1/10",
+    "role": "accepted semantic dependency only; T20 claims no Lean theorem",
+    "sha256": "bbc5c0323aaa0213e1d86dd4ec711e5f1a9d5421c7d946c88c56ee0f017bf833",
+    "source_identifier": "library/t14/CoherentSuccessorSplitting.lean"
+  },
+  "t17": {
+    "certificate_path": "T17_certificate.json",
+    "certificate_sha256": "31ec9ee878f4adfef864bd86d5eaa9fc147cbdd2a151f7c0851d330e1f260cd3",
+    "pi_digits_sha256": "77eeccb0067283e14c460b33dc230de54ef15c2e825fc2a35c984fb6984bf684",
+    "report_path": "T17_REPORT.md",
+    "report_sha256": "f566dd992fa7897797a83022741eec709978bb278c4f247d698d73348999719e",
+    "source_pins_path": "SOURCE_PINS.md",
+    "source_pins_sha256": "6b7cc5571cd4de3e8e5924124aa59954594a8156accc45b9c54246d4953c2e49"
+  }
+}

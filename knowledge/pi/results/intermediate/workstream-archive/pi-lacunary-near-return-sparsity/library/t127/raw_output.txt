@@ -1,0 +1,15 @@
+Command: python3 verify_t127.py
+
+HASH_OK canonical_statement.txt cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+HASH_OK PRIOR_EVIDENCE.tar e3be23a53844ddb1a678e2f25fd2e2ae9cdc7ccbbfd9e99b3612a9c9d8ceedb8
+HASH_OK SOURCES.tar 1ed1b3510612c0310cb5df5f1f59893f600c5bb8ee3c25916d83c8d80f74bf7a
+SOURCE_ARCHIVE_OK primary_sources=11 members=22
+CAPS_OK sources=11/12 candidates=3/4 domains=3
+MATRIX_OK T89-T126 rows=38 special_states_and_corrections=ok
+PRESELECTION_OK J-A J-B J-D frozen without source names
+PRIOR_ARCHIVE_OK members=162
+C_SQ_TEST energy_interval=[10000,1000000] no_upper_bound
+C_RECIP_TEST ratio_equations_force_p=3 reciprocal_triple_undefined
+C_LIFT_TEST boundary_budget=25 fourier_budget=10000000 source_has_no_rate
+SCOPE_OK verdict=close survivors=0 successors=0 canonical_claims=0
+VERIFY_T127_OK

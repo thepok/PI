@@ -1,0 +1,7 @@
+T50_FIBONACCI_TWO_BLOCK_SEMICIRCLE.md: OK
+t50_checker.py: OK
+certificates.json: OK
+pi-positive-decimal-factor-entropy.txt: OK
+verify.sh: OK
+certificate replay: PASS
+{"boundary_equal_half":60,"by_relative_order":{"A<B<C":{"boundary_equal_half":20,"contained":90,"not_contained":30,"total":120},"A<C<B":{"boundary_equal_half":0,"contained":80,"not_contained":40,"total":120},"B<A<C":{"boundary_equal_half":10,"contained":90,"not_contained":30,"total":120},"B<C<A":{"boundary_equal_half":0,"contained":80,"not_contained":40,"total":120},"C<A<B":{"boundary_equal_half":10,"contained":90,"not_contained":30,"total":120},"C<B<A":{"boundary_equal_half":20,"contained":90,"not_contained":30,"total":120}},"contained":520,"not_contained":200,"total":720}

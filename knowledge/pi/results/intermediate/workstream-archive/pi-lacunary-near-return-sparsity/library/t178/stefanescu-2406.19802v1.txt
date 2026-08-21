@@ -1,0 +1,1021 @@
+                                              THE DISPERSION OF DILATED LACUNARY SEQUENCES, WITH
+                                           APPLICATIONS IN MULTIPLICATIVE DIOPHANTINE APPROXIMATION
+arXiv:2406.19802v1 [math.NT] 28 Jun 2024
+
+
+
+
+                                                                                    EDUARD STEFANESCU
+
+
+                                                    Abstract. Let (an )n∈N be a Hadamard lacunary sequence. We give upper bounds for the
+                                                    maximal gap of the set of dilates {an α}n≤N modulo 1, in terms of N . For any lacunary
+                                                    sequence (an )n∈N we prove the existence of a dilation factor α such that the maximal gap
+                                                    is of order at most (log N )/N , and we prove that for Lebesgue almost all α the maximal
+                                                    gap is of order at most (log N )2+ε /N . The metric result is generalized to other measures
+                                                    satisfying a certain Fourier decay assumption. Both upper bounds are optimal up to a factor
+                                                    of logarithmic order, and the latter result improves a recent result of Chow and Technau.
+                                                    Finally, we show that our result implies an improved upper bound in the inhomogeneous
+                                                    version of Littlewood’s problem in multiplicative Diophantine approximation.
+
+
+
+
+                                                                                      1. Introduction
+                                              In this paper we investigate the dispersion, that is the largest gap, in sets which arise as
+                                           dilates of a lacunary sequence modulo one. Throughout this paper, (an )n∈N denotes an increasing
+                                           sequence of integers satisfying the Hadamard gap condition with some growth parameter r > 1,
+                                           that is, an ≥ ran−1 for n ≥ 2, and {an }n≤N denotes a finite initial segment of such a sequence.
+                                           For α ∈ [0, 1] we write G({αan }n≤N ) for the maximal gap between neighbouring fractional parts
+                                           of dilates {αan }n≤N on the unit torus. More precisely, let {αân }n≤N be the order statistics of
+                                           {αan }n≤N , understood to be taken modulo one so that all numbers are elements of the unit
+                                           torus. Then
+                                                                         0 ≤ {αâ1 } ≤ {αâ2 } ≤ ... ≤ {αâN } < 1,
+                                           and the largest gap is defined as
+                                                                      G({αan }n≤N ) :=       max ({αân } − {αân−1 )},
+                                                                                           2≤k≤N +1
+
+                                           where αâN +1 := 1 + αâ1 . For a given lacunary sequence (an )n∈N , we will show that we can
+                                           always find an α such that
+                                                                                                 log(N )
+                                                                                G({αan }n≤N ) ≪r                                    (1.1)
+                                                                                                   N
+                                           as N → ∞. We also study the metric problem and show that for every ε > 0, for Lebesgue
+                                           almost all dilation factors α ∈ [0, 1],
+                                                                                             log(N )2+ε
+                                                                                G({αan }n≤N ) ≪                                     (1.2)
+                                                                                                  N
+                                           as N → ∞. A similar result with exponent 3 instead of 2 for the logarithmic term has
+                                           been obtained recently by Chow and Technau [9]. We obtain an analogous result for more
+                                           general measures, which allows for an application in the context of Littlewood’s conjecture in
+
+                                           2020 Mathematics Subject Classification. 11J83; 11J70; 42A16; 28A78.
+                                           Key words and phrases. Number Theory, Dispersion, Littlewood Conjecture.
+                                                                                                1
+2                                         E. STEFANESCU
+
+
+multiplicative Diophantine approximation, where we can show that for ε > 0 and η, ζ ∈ R we
+have
+                                                       log(log(n))2+ε
+                            n||αn − η|| · ||βn − ζ|| ≤
+                                                           log(n)
+for “generic” α and β, thereby again quantitatively improving a result of Chow and Technau.
+Here and throughout the paper, ∥ · ∥ denotes the distance to the nearest integer. More details on
+this application in Diophantine approximation (in particular the meaning of the word “generic”
+in the previous sentence) will be described in Section 7 at the end of this paper.
+
+   Dilates of lacunary sequences and lacunary function series have a long and rich history in
+analysis and number theory. It is a classical observation that lacunary trigonometric series (or,
+more generally, lacunary series of dilates of periodic functions) mimic the typical behavior of
+sequences of independent random variables; this is the core message of classical papers such as
+those by Salem and Zygmund [33, 34], Kac [20] and Gapoškin [16], and is described in detail in
+the survey paper [1]. This analogy between lacunary systems and independent random variables
+also underpins the contents of the present paper, even if it is not explicitly emphasized. Another
+source for this paper is the study of gap properties of dilates of (not necessarily lacunary) integer
+sequences modulo one. This topic is discussed in its own right, for example, by Konyagin, Ruzsa
+and Schlag [23] and Rudnick [31], and can be traced back to work of Kronecker, Sierpiński,
+Weyl, and many others. One particularly interesting connection is with the study of correlation
+functions and neighbor spacings in the context of the famous Berry–Tabor conjecture from
+quantum chaology (see [26] for some background); in that setup, dilates of lacunary sequences
+have been proven to follow the random (“Poissonian) model for almost all dilation parameters,
+see for example Rudnick and Zaharescu [32], Chaubey and Yesha [7] and Aistleitner, Baker,
+Technau and Yesha [2]. However, it should be noted that in the Berry–Tabor conjecture one is
+interested in the overall distributional structure of the system of gaps, while in this paper we are
+only interested in bounding the extremal (maximal) gaps.
+
+    Trivially, for every sequence (an )n∈N and for every α one has G({αan }n≤N ) ≥ 1/N . Thus the
+upper bound from (1.1) is optimal up to a logarithmic factor. The metric result in equation (1.2)
+should of course be compared with the corresponding result for the random case, where Devroye
+[12] proved that for a sequence (Xn )n∈N of i.i.d. random variables having uniform distribution
+on [0, 1], G({Xn }n≤N ) is of typical order roughly (log N )/N (the result obtained by Devroye is
+much more precise, see [12] for details). In accordance with these results for the random case, it
+is tempting to conjecture that for a lacunary sequence (an )n∈N one always has
+                                                      log(N )1−ε
+                                   G({αan }n≤N ) ≫               ,
+                                                          N
+as well as
+                                                       log(N )1+ε
+                                   G({αan }n≤N ) ≪
+                                                           N
+for every ε > 0 and almost all α. If this conjecture is indeed correct, then our upper bound (1.2)
+is one logarithmic factor away from optimality. The problem of the exact asymptotic order of
+the maximal gap of dilated lacunary sequences mod 1 remains open, in both setups that we
+study in this paper. We consider this to be a very interesting problem, since it pertains to the
+question how robust the analogy between i.i.d. random systems and dilated lacunary systems is
+in the specific context of very rare events (see in this context also [3]). We recall in passing that
+                         DISPERSION OF DILATED LACUNARY SEQUENCES                                3
+
+
+a paper of Peres and Schlag [28] also contains a (still unsolved) problem on gaps of dilates of
+lacunary sequences mod 1; their problem, however, is of a rather different nature than ours.
+
+                                       2. Main Results
+  In this section we give the precise statement of all main results of this paper. The notation is
+explained later at the end of this section.
+
+
+Definition 1 (Lacunary sequence). A sequence (an )n∈N ⊂ R is called a lacunary sequence, if for
+a fixed growth factor r > 1:
+                                          an+1 ≥ ran
+for every n ∈ N. Let N ⊆ N be finite. We say {an }n∈N := {an ∈ (an )n∈N |n ∈ N} is a set of
+lacunary type with growth factor r > 1 if (an )n∈N is a lacunary sequence with the same growth
+factor.
+   The first main result gives an upper bound to the maximal gap of dilated sets of lacunary
+type, where the dilation parameter can depend on the cardinality of the set.
+Theorem 2.1. Let {an }n≤N be a set of lacunary type with growth factor r > 1. Then for all
+N ∈ N with N ≥ N0 (r), there exists an α ∈ R, such that the maximal gap of the set {αan }n∈N
+is at most log(N )/N up to constants, i.e.
+                                                       log(N )
+                                   G({αan }n≤N ) ≪r            .
+                                                         N
+   As the proof of Theorem 2.1 will show, the value of α is not unique, and every sufficiently
+large interval I contains a value of α for which the conclusion of the theorem holds.
+
+  The next main result improves the first one by allowing the same dilation parameter for all N .
+
+
+Theorem 2.2. Let (an )n∈N be a lacunary sequence with growth factor r > 1. Then there exists
+an α ∈ R such that the maximal gap of the first N elements of (αan )n∈N is at most log(N )/N
+for all sufficiently large N , i.e.
+                                                     log(N )
+                                    G({αan }n≤N ) ≪r         .
+                                                       N
+   In the third main result we study the metric case, that is, we give an upper bound for the
+maximal gap which holds for almost all dilation parameters α in the sense of Lebesgue measure.
+Theorem 2.3. Let ε > 0 and (an )n∈N be a lacunary sequence with growth factor r > 1. Then
+for almost all α the maximal gap of the set {αan }n≤N is at most log(N )2+ε /N for all sufficiently
+large N , i.e. for Lebesgue-almost all α ∈ [0, 1] there exists an N0 (α), such that
+                                                    log(N )2+ε
+                                  G({αan }n≤N ) ≤              ,                              (2.1)
+                                                        N
+for all N ∈ N, with N ≥ N0 (α).
+   This theorem can be extended to more general measures, subject to a condition on the decay
+rate of the Fourier transform of the measure. This result will be relevant for our application in
+the context of multiplicative Diophantine approximation, where α will have to be chosen from a
+Lebesgue null set.
+4                                                E. STEFANESCU
+
+
+Theorem 2.4. Let ε > 0, and let (an )n∈N be a lacunary sequence with growth factor r > 1. Let
+a measure µ ∈ M[0, 1] be given and assume that its Fourier Transform decays as |(Fµ)(x)| ≪
+(1 + |x|)−Υ for some Υ > 0. Then the maximal gap of the set {αan }n≤N is at most log(N )2+ε /N
+for all sufficiently large N , i.e. for µ-almost all α ∈ [0, 1], there exists an N0 (α), such that
+                                                                   log(N )2+ε
+                                        G({αan }n≤N ) ≤                       ,                          (2.2)
+                                                                       N
+for all N ∈ N, with N ≥ N0 (α).
+   As a consequence of Theorem 2.4, we obtain a quantitative improvement in an inhomogeneous
+version of the Littlewood conjecture in multiplicative Diophantine approximation. This is
+inspired by the recent work of Chow and Technau [9]. For the statement of the theorem, we
+define L := {x ∈ R : Λ(β) < ∞}, where Λ(β) = sup {log(pk (β))/k : k ≥ 1}, with pk being the
+continuants of β and Bad := {α ∈ R : inf{n||nα|| > 0}. We will provide more context for this
+result in Section 7.
+Theorem 2.5. Let ε > 0, β ∈ L and ζ ∈ R. Then there exists a set E ⊆ Bad with Hausdorff-
+dimension dimH (E) = 1, such that for α ∈ E and η ∈ R there are infinitely many solutions n
+to
+                                                    log(log(n))2+ε
+                         n||αn − η|| · ||βn − ζ|| ≤                .
+                                                        log(n)
+    Notation: Throughout this paper, we write Z for the set of integers, N := Z>0 for the set of
+positive integers, R for the real numbers and R+ the positive real numbers. We denote the zero-
+vector as 0. The Vinogradov symbol ”≪” means ’less than or equal to,’ up to constants, ≃ means
+equal up to constants. The distance to the nearest integer is denoted by ||.|| := minn∈Z |. − n|.
+For a, b ∈ R, ⌊a⌋ and ⌈b⌉ are the next smallest and the next largest integer of a and b respectively,
+i.e. ⌊a⌋ := maxn∈N (n : n ≤ a), ⌈b⌉ = minn∈N (n : n ≥ b) respectively. We write {a} for the
+fractional part of a, i.e. if a > 0 : {a} = a − ⌊a⌋; if a < 0 : {a} = a − ⌈a⌉. When I is an interval,
+we denote its length by |I|.
+
+    3. Small dispersion for a suitable dilation parameter. Proof of Theorem 2.1.
+   We use Turán’s localized and quantitative version of Kronecker’s Theorem, see Chapter 4 in
+[17]:
+Theorem 3.1. [Turán’s localized and quantitative Kronecker Theorem]
+For K > 0, let x1 , x2 , ..., xK and a1 , a2 , ..., aK be given real numbers, let ε1 , ε2 , ..., εK be positive
+real numbers with 0 < εn < 1/2 for all n. Let
+                                                                          K
+                                         1           K                        X
+                            Mn :=          log                 ,   δ := min         mj aj ,
+                                        εn           εn                       j=1
+
+where the minimum is taken over all lattice points m := (m1 , m2 , ..., mK ) ∈ ZK \ {0}, with
+|mj | ≤ Mn . If δ > 0, then in any interval I of length at least 4/δ, there is a real number α such
+that
+                                         ||αan − xn || ≤ εn .                                  (3.1)
+    Now we explain how Theorem 2.1 follows from Turán’s Theorem 3.1.
+                            DISPERSION OF DILATED LACUNARY SEQUENCES                                     5
+
+
+Proof of Theorem 2.1. We first define a subset of our given set of lacunary type, which satisfies
+the assumptions of Turán’s Theorem 3.1, which then yields a distance between equidistant points
+on the torus and the points of the dilated subset of at most log(N )/N up to constants, which
+concludes the proof.
+                              1
+Step 1: Let l := max{1, ⌈ log(r) ⌉ + 1/2}, so that rl > e. We define a subset {ãn }n≤K such that
+ãn = aln⌊log(N )⌋ , and K = ⌊N/(l log(N ))⌋, so that
+                                       ãn+1 ≥ rl⌊log(N )⌋ ãn ≥ N ξ a˜n ,                            (3.2)
+for ξ := l log(r) > 1, and accordingly for m ≤ n
+                                             ãm ≤ N −ξ(n−m) ãn .                                    (3.3)
+Claim: The set {ãn }n≤K satisfies
+                                                                          K
+                                                                          X
+                        δM :=                     min                 |         mj ãj | > 0          (3.4)
+                                  (m1 ,...,mK )∈(ZK \{0}∩[−M,M ]K )
+                                                                          j=1
+
+for N sufficiently large, where M := 1ε log K       and ε := l log(N  )
+                                                
+                                               ε                   2N . Observe that for every
+M < M̃ we have δM ≥ δM̃ . This justifies estimating M by something larger:
+                                                    j           k
+                                                       N
+                        1      K          2N           l log(N )
+                 M=       log      ≤            log  l log(N )  + 1 ≤ 4l−1 N            (3.5)
+                        ε      ε      l log(N )
+                                                                      2N
+
+for N sufficiently large. Next, for given (m1 , ..., mK ) ∈ (Z \ {0} ∩ [−4N l−1 , 4N l−1 ]K ) we define
+                                                                      K
+
+K0 as the largest index such that mj ̸= 0, i.e. mK0 ̸= 0, mK0 +1 , ..., mK = 0. This K0 exists
+since m ̸= 0 by assumption. The idea is to take the last nonzero summand ãK0 , multiply it by
+the smallest possible mK0 , i.e. mK0 = 1, and multiply all the other summands by the largest
+possible mj , i.e. mj = 4l−1 N . If the K0 -th summand still dominates all the others, then the
+complete sum cannot be zero. By equation (3.2), (3.3) and the geometric series we have
+                     K
+                     X 0 −1                     K
+                                                X0 −1     (3.3)           K
+                                                                          X 0 −1
+
+                              mj ãj ≤ 4l−1 N           ãj ≤ 4l−1 N               N −ξ(K0 −j) ãK0
+                      j=1                        j=1                       j=1                        (3.6)
+                                           ξ(K0 −1)
+                                       N      −1 ξ
+                  ≤ 4l−1 N −ξK0 +1               N ãK0 ≤ 8l−1 N 1−ξ ãK0 ≤ ãK0 ,
+                                      Nξ − 1
+for all |mj | ≤ 4l−1 N and N sufficiently large. This implies δ4l−1 N > 0, hence δM > 0.
+Step 2: Let x1 , ..., xK be equidistant points on the torus, ε1 = ... = εK = ε and hence
+M1 = ... = MK = M . By the first step we can apply Turán’s Theorem 3.1 to {ãn }n≤K and get
+existence of an α ∈ R in every interval of length larger than 4/δM , such that
+                                                ||αãn − xn || ≪ ε,
+for all n = 1, ..., K. Hence the maximal gap of the set {αãn }n≤K is at most log(N )/N up to
+constants. Since adding more points can only decrease the maximal gap-size, the same is true
+for every superset of {αãn }n≤K , and so the maximal gap of {αa}n≤N is also at most log(N )/N
+up to constants.
+Furthermore, by equation (3.6) we have
+                                                         
+                                                    −1 N
+                                    δ > ãK0 1 − 8l          .                            (3.7)
+                                                       Nξ
+6                                                  E. STEFANESCU
+
+
+Taking the smallest possible K0 , i.e. K0 = 1, implies that there exists an α in every interval I of
+length
+                                                 4     4
+                                          |I| >     = ξ                                        (3.8)
+                                                ã1   N
+for N sufficiently large.                                                                         □
+
+Corollary 3.2. Let (an )n∈N be a lacunary sequence with growth factor r > 1. Then for all
+N ∈ N sufficiently large, there exists an α ∈ R in every interval I with
+                                                                 4
+                                                        |I| ≥      ,                             (3.9)
+                                                                aN
+such that the maximal gap of the set {αan }N ≤n≤2N is at most log(N )/N up to constants, i.e.
+                                                                       log(N )
+                                         G({an }N <n≤2N ) ≪r                   .                (3.10)
+                                                                         N
+Proof. First consider a subset {ãn }K<n<2K with ãn = anl log(2N ) , K = N/l log(N ) and l as
+before. We only need to adapt equation (3.6) to the new indices:
+                    K
+                    X 0 −1             (3.3)            K
+                                                        X0 −1
+
+                                 mj ãj ≤ 4l−1 N                N −ξ(K0 −j) ãK0
+                   j=K+1                                j=K+1                                   (3.11)
+                                             ξ(K0 −1)
+                        −1       −ξK0 +1 N         − NK ξ
+                 ≤ 4l        N                         N ãK0 ≤ 8l−1 N 1−ξ ãK0 ≤ ãK0 ,
+                                               Nξ − 1
+where K < K0 ≤ 2K is defined as before. The smallest possible K0 is K + 1, which yields
+the new lower bound (3.9) for the length of the interval in which a suitable dilation variable α
+exists.                                                                                        □
+
+Corollary 3.3. Let ϑ > 1 and {an }n≤N be a set such that:
+
+                                                   an ≥ N ϑ an−1 ,
+for 2 ≤ n ≤ N . Then there exists an α ∈ R such that:
+                                                                       1
+                                               G({αan }n≤N ) ≪           .
+                                                                       N
+Proof. We repeat the same procedure as before. In particular we adapt equations (3.5) and (3.6)
+(where we set l = 1). For ε = 1/N it follows that
+                                           √      
+                                              2N
+                             M = 4N log              ≤ 4N log(N ),
+                                           log(N )
+for N sufficiently large. Similar to equation (3.6) we have
+                 K
+                 X0 −1                             K
+                                                   X0 −1
+
+                         mj aj ≤ 4N log(N )                aj ≤ 8l−1 N 1−ξ log(N )aK0 ≤ aK0 ,
+                 j=1                                j=1
+
+for N sufficiently large, where the constant K0 is defined as before. We use Turán’s localized
+and quantitative Kronecker Theorem 3.1 to get the result.                                    □
+                           DISPERSION OF DILATED LACUNARY SEQUENCES                                        7
+
+
+4. Small dispersion for a suitable fixed dilation parameter. Proof of Theorem
+                                        2.2.
+   In the previous section we showed that for a set of lacunary type {an }n≤N with fixed cardinality
+we can always find a number α ∈ R such that the dilated set {αan }n≤N has a maximal gap of
+size at most log(N )/N , up to constants. Note that in this statement, α = α(N ) is allowed to
+depend on the cardinality N of the set. In this section we show that for an infinite lacunary
+sequence (an )n∈N we can find a number α ∈ R such that the first N elements of the dilated set
+{αan }n≤N have a maximal gap of size at most log(N )/N , up to constants, for all sufficiently
+large N ; here α is not allowed to depend on the cardinality of the set anymore. We will use
+Theorem 2.1 together with a nested interval argument to prove this.
+Proof of Theorem 2.2. We first briefly explain the idea of the proof. We consider a lacunary
+sequence and look at the first Nk := 4k elements, where we find an α1 such that the desired
+upper bound holds, provided that k is large enough. Then we find a full interval I˜1 around α1 ,
+such that every real number in I˜1 satisfies the desired result. Next, we consider the elements
+between Nk+1 and 2Nk+1 of the lacunary sequence, where we have that the dilation variable α2 ,
+that satisfy the result, can be chosen from an interval I1 ⊆ I˜1 . This means α2 satisfies the result
+for the first Nk and Nk+1 elements of the lacunary sequence. By repeating this we find infinitely
+many numbers in N such that the same α satisfies the condition. An interpolation argument
+yields the result for all N ∈ N, (up to finitely many).
+We fix an k sufficiently large such that there exists an α1 with
+                                                               log(Nk )
+                                      G({α1 an }n≤Nk ) ≪                ,                              (4.1)
+                                                                 Nk
+by the first main Theorem 2.1. This means that for every ai ∈ {an }n≤Nk there exists a xj in
+a set of ⌊Nk / log(Nk )⌋ equidistant points on the unit torus, such that the distance is less than
+                                                                                    log(Nk )
+log(Nk )/Nk up to constants. In particular for a1 := α1 − τ1 , a2 := α1 + τ1 , τ1 = N k ·aN
+                                                                                             ,
+                                                                                                  k
+
+                               ||am ai − xj || = ||(α1 ± τ1 )an − xn ||
+                                                          2.1 log(Nk )
+                            ≤ ||α1 an − xn || + ||τ1 an || ≪                + τ1 aNk
+                                                        Nk                                             (4.2)
+                              log(Nk ) log(Nk )       log(Nk )
+                            =         +         aNk ≪
+                                Nk      Nk aNk          Nk
+yields, that the above equation (4.1) holds for all numbers in I˜1 := [a1 , a2 ], where |I˜1 | = 2Nlog(N k)
+                                                                                                    k ·aNk
+                                                                                                            .
+Let us now consider the the set {an }Nk+1 <n≤2Nk+1 . By Corollary 3.2,
+                                                                  log(Nk+1 )
+                               G({α2 an }Nk+1 ≤n≤2Nk+1 ) ≪                   ,                         (4.3)
+                                                                    Nk+1
+holds for an α2 in every interval I1 of length |I1 | = 4/aNk+1 . Then, we can choose I1 to be inside
+of I˜1 , since
+                                       4         4        log(4k )   |I˜1 |
+                             |I1 | =       ≤ 3·4k       ≤ k        =        ,                  (4.4)
+                                     aNk+1   r    aNk      4 aN        2
+for k sufficiently large. In particular α2 ∈ I1 ⊆ I˜1 such that
+                                                               log(Nk )
+                                      G({α2 an }n≤Nk ) ≪
+                                                                 Nk
+8                                          E. STEFANESCU
+
+
+as well as
+                                                           log(Nk+1 )
+                             G({α2 an }Nk+1 <n≤2Nk+1 ) ≪                 .                       (4.5)
+                                                              Nk+1
+By the same argument as before, see equation (4.2), there exists an interval I2 such that (4.5)
+holds for every number in I˜2 = (α2 − τ2 , α2 + τ2 ), τ2 = Nlog(N  k+1 )
+                                                             k+1 ·aNk+1
+                                                                         . By α2 ∈ I1 at least half of
+             ˜
+the interval I2 is either inside of I1 or covers it. Next consider the set {an }Nk+2 <n≤2Nk+2 for
+which we get a solution α3 in every interval I2 of length |I2 | = 4/aNk+2 . By a simple induction
+argument, equation (4.4) implies |I2 | ≤ |I˜2 |/2. Thus we find an α3 such that
+                                                              log(Nk̃ )
+                                 G({α3 an }Nk̃ <n≤2Nk̃ ) ≪              ,                       (4.6)
+                                                                Nk̃
+with k̃ = k, k + 1, k + 2. This procedure can be repeated infinitely many times. Hence we get a
+sequence of intervals of exponentially decreasing length, that are nested inside each other. Thus
+we find a real number α∞ , which is defined by
+                                           ∞
+                                           \
+                                                In = {α∞ },
+                                          n=1
+
+such that for all positive integers Nj , j ∈ N up to finitely many, we have
+                                                     log(Nj )
+                                G {α∞ an }Nj <n≤2Nj ≪          .                                (4.7)
+                                                        Nj
+Furthermore, since adding points can only decrease the gap, we have:
+                                                          log(Nj )   log(2Nj )
+            G {α∞ an }n≤2Nj ≤ G {α∞ an }Nj <n≤2Nj ≪                  ≃           .              (4.8)
+                                                              Nj         2Nj
+Substituting 2Nj by Mj allows to consider a set of lacunary type starting at index 1.
+For all the other positive integers, we get the result immediately from the following interpolation
+argument: For every N ≥ Mk , there exists an m ∈ N such that Mm ≤ N ≤ Mm+1 , which yields
+                           {αan }n≤Mm ⊆ {αan }n≤N ⊆ {αan }n≤Mm+1 .
+Again, since adding more points can only decrease the maximal gap-size, we have
+                                   log(Mm )   log(4m+1 )   log(Mk+1 )   log(N )
+               G({αan }n≤N ) ≪              ≃            =            ≤         .               (4.9)
+                                     Mm         4m+1         Mk+1         N
+                                                                                                   □
+
+5. The metric problem in the case of the Lebesgue measure. Proof of Theorem
+                                       2.3.
+   In this section we investigate the maximal gap for almost all α ∈ [0, 1], see Theorem 2.3. The
+upper bound we obtain is worse than the bound in the existence result in Theorem 2.2, but we
+have a stronger result with regard to α. Theorem 2.3 is an improvement of the existing results
+in [9]. To prove the theorem, we will use compactly supported C ∞ -functions that are non-zero
+only in an open interval of length log(N )2+ε /N centered around N/ log(N )2+ε the equidistant
+points. This means these functions locate points of the given set {αan }n≤N in a neighbourhood
+of the just mentioned size. Some Fourier analysis, together with an application of Markov’s
+inequality and the first Borel-Cantelli Lemma, yields that these functions iare positive for almost
+                         DISPERSION OF DILATED LACUNARY SEQUENCES                                  9
+
+
+all α ∈ [0, 1] and N sufficiently large, which in particular means that the inequality (2.1) is true
+for almost all α ∈ [0, 1].
+
+5.1. Some prerequisites. For clarity of exposition, we start by first only considering the
+Lebesgue measure, which we denote as λ. Hence when writing down an integral, for the moment
+it is always understood to be taken with respect to the Lebesgue measure. We write S(R) for the
+Schwartz-space and CI∞ for the space of arbitrarily often continuously differentiable functions
+with support on an interval I. We define the Fourier     Transform F : S(R) → S(R), that is in
+particular an automorphism, as follows: Ff (x) := R f (ξ)e−2πixξ dξ, see [36] for details and basic
+                                                   R
+
+properties. We remark CI∞ ⊂ S and that every f ∈ S is bounded. For f ∈ S we recall a version
+of the Poisson summation formula:
+                                                          
+                           X                   1X          k
+                               f ((ν + n)T ) =       Ff       e−2πikν ,                       (5.1)
+                                               T          T
+                           n∈Z                        k∈Z
+
+                                                                                R          p1
+                                                                                   1
+see e.g. [18]. Next we define the Lp ([0, 1])−norm for 1 ≤ p < ∞ as: ||f ||Lp := 0 |f |p dλ . The
+           √               √
+functions 2 cos(2πkx), 2 sin(2πkx) k ∈ Z are orthonormal in L2 ([0, 1]) := {f measurable :
+||f ||L2 < ∞}. We further recall a version of Markov’s inequality: Let f be measurable, then
+                                                                      p
+                                                               ||f ||p
+                             λ({α ∈ [0, 1] : |f (α)| ≥ t}) ≤                                    (5.2)
+                                                                  t
+Finally, we need a consequence of the first Borel Cantelli Lemma: Let fn measurable, (Xn )n∈N ⊂
+R+ an increasing sequence and assume that
+                         ∞
+                         X
+                               λ({α ∈ [0, 1] : |fn (α) − Xn | > Xn /2}) < ∞.                   (5.3)
+                         n=1
+
+Then fn (α) > 0 for almost all α ∈ [0, 1] and all n ∈ N sufficiently large. These are all standard
+results, that can be found in e.g. [13].
+
+Remark. Markov’s inequality and the first Borel Cantelli Lemma are still true for any other
+Borel-measure.
+
+  Proof of Theorem 2.3:
+
+Proof. Step 1: Some Fourier Analysis: Let ε > 0 and {an }n≤N be a set of lacunary
+type with subset {ãn }n≤K , where K = N/l log(N )1+2ε , l = max{1, ⌈1/ log(r)⌉ + 1/2} and
+ãn = anl log(N )1+2ε . We remark that the set {ãn }n≤K is linearly independent in [−K, K] ∩ Z for
+N sufficiently large. This follows from
+                                        K
+                                        X0 −1
+
+                                                4l−1 K a˜j < ãK0 ,                            (5.4)
+                                         j=1
+
+for every K0 ∈ [2, K] ∩ Z, by the same calculation as in equations (3.6). Without loss of
+                                                                                            ∞
+generality let l = 1, since everything can be directly adapted to the case l ̸= 1. Let f ∈ C[−1,1]
+                            R
+real and even, such that R f (x)dx = 1. This in particular means, that F f is real and even,
+Ff (0) = 1, and |Ff | ≤ 1. We set Q := log(N )1+2ε , M := log(N )2+4ε = Q2 , P := log(N )2+3ε ,
+10                                                E. STEFANESCU
+
+
+R := log(N )ε = M/P and define the following function, which counts points in intervals of
+length M/N :
+
+                                                  X N/Q
+                                                                                   !
+                                                    X               αãn − t − u
+                                  ωN,t (α) :=               f              M
+                                                                                       .
+                                                  u∈Z n=1                  N
+
+
+The sum over u allows us to consider the rational part; the denominator dilates the function to
+count only points within an interval of length N/M , and t translates the interval. Using Poisson
+summation formula (5.1) we get:
+
+                                                   N/Q                 
+                                           M XX                      M
+                          ωN,t (α) =              (Ff )                k e2πik(αãn −t) .
+                                           N  n=1
+                                                                     N
+                                             k∈Z
+
+
+
+We now define:
+
+                                                  N/Q                 
+                                        M XX                        M
+                        ω̃N,t (α) :=           (Ff )                  k e2πik(αãn −t) − Q
+                                        N  n=1
+                                                                    N
+                                            k∈Z
+                                                    N/Q                                             (5.5)
+                                       M     X       X                   M
+                                   =                      (Ff )            k e2πik(αãn −t)
+                                       N                                 N
+                                           k∈Z\{0} n=1
+
+
+
+
+Here we used that (Ff )(0) = 0 and M/Q = Q. We truncate the first sum and work instead with
+
+                                                    N/Q                   
+                     ∗            M        X        X                   M
+                    ωN,t (α) :=                          (Ff )            k e2πik(αãn −t) ,
+                                  N                                     N
+                                       0<|k|≤N/P n=1
+                                                                                                      (5.6)
+                                                   N/Q                    
+                               M           X        X                   M
+                             =                           (Ff )            k cos(2πk(αãn − t))
+                               N                                        N
+                                       0<|k|≤N/P n=1
+
+
+
+where by the rapid decay of Ff (this follows by F being an automorphism and the definition of
+Schwartz-functions), we have
+
+                                               ∗
+                                  ω̃N,t (α) = ωN,t (α) + O(log(N )−100 ).
+
+                                                    ∗                                                 ∗
+Define pk := (Ff ) M
+                        
+                     N k , p̃k := pk cos(2πkt) and pk := pk sin(2πkt). In particular |pk |, |p̃k |, |pk | ≤
+1. The next step is to estimate the following integral, which will be useful later, when using the
+first Borel-Cantelli-Lemma.
+                                 DISPERSION OF DILATED LACUNARY SEQUENCES                                        11
+
+                             Z 1                              
+             1    ∗                                 1 ∗
+       ||e 10R ωN,t ||L1 =               exp           ωN,t (α) dλ(α)
+                                 0                 10R
+             N                                                                                            
+       Z 1Y  Q
+                  1 M                      X                                                            
+   =       exp                                      pk cos(2πkãn α) cos(2πkt) + sin(2πkãn α) sin(2πkt) 
+     0 n=1       10R N
+                                         0<|k|≤ N
+                                                P
+             N
+       Z 1Y  Q
+                            1 M            X                                              
+   ≤                  1+                              p̃k cos(2πkãn α) + p∗k sin(2πkãn α)
+        0 n=1              10R N
+                                         0<|k|≤ N
+                                                P
+                                                                                      2 !                    (5.7)
+            1 M         X
+                                 p̃k cos(2πkãn α) + p∗k sin(2πkãn α)
+                                                                                   
+   +                                                                                       dλ(α)
+           10R N
+                      0<|k|≤ N
+                             P
+       N                                                                       !
+       Q
+       Y                                2
+                      1              M              X
+   ≤             1+                                         max{p̃k , p∗k }2
+       n=1
+                    100R2            N
+                                               0<|k|≤ N
+                                                      P
+          N                                                          
+           Q                         2
+                                                                                            
+           X           1 M                 X                                            Q
+   ≤ exp                 2 N2
+                                                     max{p̃k , p∗k }2  ≤ exp                    .
+                 n=1
+                     100R                                                              50R
+                                         0<|k|≤ N
+                                                P
+
+
+
+
+                                                                   ∗                       1   ∗
+                                                                                                   
+Here we could remove the absolute values in the first line, since ωN,c is real, hence exp 10R ωN,t
+is positive. The estimate from the second to the third line is an application of the Taylor-series
+of exponential functions; in detail |x| ≤ 1 implies ex ≤ 1 + x + x2 , and
+
+
+
+
+                         1 M              X                                             1 M N  1
+                                                    pk cos(2πk(αãn − t)) ≤                 2 = < 1.
+                        10R N                                                          10R N P 5
+                                     0<|k|≤ N
+                                            P
+
+
+
+
+By the linear independence of {ãn }n≤K in [−K, K] = [−N/M, N/M ], the L2 [0, 1]-orthonormality
+property and basic trigonometric identities, the integrals over products of cosines and sines
+with other cosines and sines with much larger frequencies vanish, which yields the penultimate
+line. The last line follows from the Bernoulli-inequality and trivial estimates. We note that
+Chow and Technau [9] worked with Lp moments for large p = p(N ), following the work of
+Rudnick and Zaharescu [32]. The use of exponential integrals in our argument (essentially a
+moment-generating function in the language of probability theory), together with the application
+of Taylor’s formula, effectively reduces the whole calculation to an L2 argument, which avoids
+the very delicate combinatorial problems which arise in [9, 32].
+12                                                 E. STEFANESCU
+
+
+   Step 2: Some Measure Theory: The calculation above has been carried out in order to
+allow an application of Markov’s inequality and utilize the first Borel-Cantelli-Lemma. We have
+                                                                      Q
+                               λ({α ∈ [0, 1] : ωN,t (α) − Q ≥           })
+                                                                      2
+                                              ∗                Q
+                           ≤ λ({α ∈ [0, 1] : ωN,t (α) ≥          })
+                                                               4
+                                                          1 ∗              Q                           (5.8)
+                           = λ({α ∈ [0, 1] : exp(           ω (α)) ≥ exp(     )})
+                                                         10R N,t          40R
+                                   1     ∗
+                               ||e 10R ωN,t ||L1          Q         1        1+ε
+                           ≤             Q         ≤ e− 200R = e− 200 log(N )
+                                    e   40R
+
+
+Following this, we consider N/ log(N )2+4ε different translation variables tj such that the center
+           ∗
+of supp(wN,t  j
+                ) is j log(N )2+4ε /N , for j = 1, . . . , N/ log(N )2+4ε , which are the centers of open
+intervals of length N/ log(N )2+4ε . Note, that these intervals are disjoint. Since
+                 N
+                 )2+4ε                                                             1      1+ε
+         X log(N
+               X                                                 Q       X N e− 200 log(N )
+                         λ({α ∈ [0, 1] : ωN,tj (α) − Q ≥            }) ≤                        < ∞,
+                                                                 40          log(N )2+4ε
+         N ∈N   j=1                                                      N ∈N
+
+the first Borel Cantelli Lemma yields that for all sufficiently large N and for all
+j = 1, ..., N/ log(N )2+4ε
+                                         ωN,tj (α) > 0,
+for almost all α ∈ [0, 1]. In other words, for sufficiently large N every interval of length
+log(N )2+4ε /N centered at of the points tj , j = 1, ..., N/ log(N )2+4ε , contains at least one point
+of {ãn }n≤N . Hence
+                                                      log(N )2+4ε
+                                   G({αãn }n≤K ) ≤               ,                               (5.9)
+                                                           N
+for N sufficiently large and for almost all α ∈ [0, 1]. As before, adding points can only decrease
+the maximal gap, which implies:
+                                                     log(N )2+4ε
+                                         G({αan }n≤N ) ≤         ,                          (5.10)
+                                                         N
+for N sufficiently large and for almost all α ∈ [0, 1]. Since ε > 0 was arbitrary, this proves the
+theorem.                                                                                        □
+
+6. The metric problem in the case of general measures. Proof of Theorem 2.4.
+   Again we write λ for the Lebesgue measure. For a Borel-set B ⊆ R we define M(B) as the set
+of Borel measures supported on a compact subset of B. In the following, when writing a measure
+µ, it will always be in M([0, 1]). We define the Fourier Transform of a measure as
+                                              Z 1
+                                   (Fµ)(x) :=     e−2πiξx dµ(ξ).
+                                                         0
+
+The Lp ([0, 1], µ)-norm is denoted as ||.||Lp (µ) and defined as before, we just exchange the Lebesgue
+measure λ with a general measure µ.
+
+     Proof of Theorem 2.4
+                                  DISPERSION OF DILATED LACUNARY SEQUENCES                                              13
+
+
+Proof. The idea is very similar to the proof of Theorem 2.3. Let ε > 0 and {an }N <n≤2N be
+a set of lacunary type with subset {ãn }K<n≤2K , ãn = anl log(N ) , where K = N/l log(N )1+2ε
+with r > 1 and l = max{1, ⌈1/ log(r)⌉+1/2} Again without loss of generality let l = 1. Let
+M, Q, P, R, p, p̃, p∗ be the same as before. We define ωN,t , ω̃N,t and ωN,t
+                                                                           ∗
+                                                                             identically, except for
+the sequence inside, which now must be {ãn }K<n≤2K . First recall the Fourier-series expansion of
+                        1   ∗          q0   X                 X
+                     e 10R ωN,t (α) :=    +   qm cos(2πmα) +       q̃m sin(2πmα),
+                                       2
+                                                     m∈N                            m∈N
+
+where
+                  Z 1                                                         Z 1
+                            1     ∗                                                   1   ∗
+         qm =           e 10R ωN,t (x) cos(2πmx)dλ(x),                q̃m =         e 10R ωN,t (x) sin(2πmx)dλ(x).
+                    0                                                          0
+
+With this in hand we get:
+                                               Z 1
+                        1   ∗                          1   ∗
+                  ||e 10R ωN,t ||L1 (µ) =            e 10R ωN,t (α) dµ(α)
+                                                0
+                              Z 1                                 Z 1
+              q0   X                                   X
+           ≪µ    +     |qm |      cos(2πmα)dµ(α) +         |q̃m |     sin(2πmα)dµ(α)                                  (6.1)
+              2                0                                   0
+                   m∈N                                m∈N
+              q0   X                   −Υ
+                                            X                   −Υ
+            ≤    +     |qm | (1 + |m|)    +   |q̃m | (1 + |m|)
+              2
+                            m∈N                                m∈N
+
+Here we used the assumption on the Fourier decay of µ, which was part of the statement of
+Theorem 2.4. The first term can be estimated by the literally same procedure as in equation
+(5.7). OurPconclusion stems from the same reasoning for both sums, hence it is sufficient to only
+consider m∈N qm . We split it into two parts, according to weather |m| ≤ aN or |m| > aN . In
+the first partial sum we estimate in a very similar way as before.
+            X Z 1 1 ∗                                        −Υ
+                     e 10R ωN,t (α) cos(2πmα)dλ(x) (1 + |m|)
+          |m|≤aN        0
+
+                 2N "
+                  Q
+           X Z 1 Y       1 M                               X                                                  
+     ≪µ              1+                                               p̃k cos(2πkãn α) + p∗k sin(2πkãn α)
+              0         10R N
+          |m|≤aN            n=K+1                       0<|k|≤ N
+                                                               P
+                                                                                          2
+                                                                                                 #                    (6.2)
+                   1 M            X 
+          +                                p̃k cos(2πkãn α) + p∗k sin(2πkãn α)                     cos(2πmα)dλ(α)
+                  10R N
+                                0<|k|≤ N
+                                       P
+               N                                     
+                Q
+                    1 M2
+                                                                         
+                X                          X                           1
+        ≤ exp                                      p2k  ≤ exp          Q ,
+               n=1
+                   100 N 2                                            50
+                                      0<|k|≤ N
+                                             P
+
+
+Since the smallest value ãn can attain is ãK+1 = aN +log(N ) > aN , and is thus larger than
+the largest value m can attain, and since we have linear independence by the same argument
+as in equation (5.4), the functions cos(2πmα), with m ≤ aN have a too small frequency for
+orthogonality in L2 ([0, 1]) to fail. This means we can proceed as before, see equation (5.7), to
+get a similar estimate.
+14                                              E. STEFANESCU
+
+
+In the second partial sum we will make use of the rapid decay of (Fµ)(−m):
+         X Z 1 1 ∗                                       −Υ
+                 e 10R ωN,t (α) cos(2πmα)dλ(x) (1 + |m|)
+       |m|>aN    0
+
+             2N "
+              Q
+       X Z 1 Y       1 M                        X                                           
+     ≪           1+                                     p̃k cos(2πkãn α) + p∗k sin(2πkãn α)           (6.3)
+          0         10R N
+       |m|>aN        n=K+1                   0<|k|≤ N
+                                                    P
+                                                                           2 #
+                1 M      X
+                                   p̃k cos(2πkãn α) + p∗k sin(2πkãn α)            cos(2πmα)dλ(α)a−Υ
+                                                                        
+       +                                                                                           N
+               10R N
+                       0<|k|≤ N
+                              P
+
+
+Multiplying out the above product we get at least 7N/Q terms, all of which have factors either 1,
+              1 M X                                 1 M X
+                            p̃k cos(2πkãn α) or                   p∗k sin(2πkãn α),
+             10R N        N
+                                                   10R N         N
+                        0<|k|≤ P                                       0<|k|≤ P
+
+for n ∈ {K + 1, ..., 2N/Q}. Upon multiplying out also the sums in k, we obtain at most
+7N/Q (2N/P )2N/Q terms. Consequently, there are at most that many terms which are not
+orthogonal to some m > aN . Since M/(N R) < 1 and p̃k , p∗k ≤ 1, we can estimate the above by
+                        7N/Q (2N/P )2N/Q a−Υ N
+                                                                                 
+                                   3N
+                       ≤ exp               (log(N ) + log(2) − log(P )) − log(r)N
+                               log(N )1+2ε                                                              (6.4)
+                                                                      
+                                  3N           4N                     Q
+                       ≤ exp             −              < 1 ≤ exp           ,
+                               log(N )2ε    log(N )2ε               50R
+for N large enough. Combining the above yields
+                                                                           
+                                         ∗                             Q
+                                      ||ωN,t (α)||L1 (µ) ≪µ exp                 ,
+                                                                      50R
+which is the same bound as before (up to constants). The rest of the proof is identical to the
+proof of Theorem 2.3.                                                                       □
+
+     7. Application to Littlewood’s Conjecture in multiplicative Diophantine
+                                   approximation
+  In this section we assume some familiarity with the notions and basic results of Diophantine
+approximation theory. For readers not familiar with the subject, we refer to the monographs of
+Bugeaud [6], Niven [27] or Schmidt [35].
+
+   Littlewood’s conjecture is one of the central open problems in Diophantine approximation; it
+asserts that for all α, β ∈ R,
+                                    lim inf n∥nα∥ · ∥nβ∥ = 0.
+                                           n→∞
+There has been some progress towards this conjecture, in particular by the work of Einsiedler,
+Katok and Lindenstrauss [14]. However, as a whole, the conjecture is still widely open. It should
+be noted that the problem is not only of central importance in Diophantine approximation, but
+also for other mathematical areas, in particular in the context of measure rigidity in the theory
+of homogeneous dynamics (see for example [25]). Note that Littlewood’s conjecture is a problem
+                        DISPERSION OF DILATED LACUNARY SEQUENCES                              15
+
+
+about fixed pairs (α, β) of reals. Gallagher studied the problem from a metric perspective, and
+obtained a convergence/divergence criterion for whether there exist finitely/infinitely many n
+such that
+                                        ∥αn∥ · ∥βn∥ < ψ(n)
+for almost all (α, β) ∈ [0, 1]2 , for a given approximation function ψ. Much work has been
+devoted to replace the metric setting of Gallagher’s theorem (the underlying measure is the
+two-dimensional Lebesgue measure) by “finer” fractal measures. This is particularly relevant,
+since in all potential counterexamples to Littlewood’s conjecture both α and β would have to be
+badly approximable numbers, and the set of badly approximable numbers is a Lebesgue null set.
+Our theorem addresses the inhomogeneous case, where the “homogeneous” distances ∥αn∥ and
+∥βn∥ are replaced by the inhomogeneous distances ||αn − η|| and ||βn − ζ|| with some fixed shift
+variables η and ζ. The study of such inhomogeneous problems in Diophantine approximation
+has been very popular recently; we refer to [5, 11, 8, 10, 19, 29, 30].
+
+   We define the set of non-Liouville numbers L := {x ∈ R : Λ(α) < ∞}, where Λ(α) =
+sup {log(ρk (α))/k : k ≥ 1}, with ρk (α) being the continuants of α; for details on definitions
+see e.g. [37]. We remark that L includes almost all real numbers, because Λ(α) equals the
+Lévi-constant π 2 /12 log(2) for almost all α ∈ R, see Khintchine [22] and Lévi [24]. Finally we
+define the set Bad := {α ∈ R : inf{n||nα|| > 0}, which is called the set of badly approximable
+numbers.
+Theorem 7.1. Let ε > 0, µ ∈ M([0, 1]), η ∈ R, let (an )n∈N be a lacunary sequence of positive
+integers, and assume that its Fourier Transform decays as |(Fµ)(x)| ≪ (1 + |x|)−Υ for some
+Υ > 0. Then
+                                                  log(n)2+ε
+                                    ||αan − η|| ≤                                       (7.1)
+                                                      n
+has infinitely many solutions n ∈ N for µ-almost all α ∈ [0, 1].
+Proof. Theorem 2.4 implies that for every η ∈ R there exists a number n ∈ N with N < n ≤ 2N
+such that
+                                           log(N )2+ε   log(n)2+ε
+                             ||αan − η|| ≤            ≤           ,
+                                               N             n
+for every N ∈ N (except for finitely many N , which do not matter) and almost all α ∈ [0, 1]. □
+Theorem 7.2 (Chow-Zafeiropoulos [11], 2021). Let β ∈ L and ζ ∈ R. Then there exists a
+lacunary sequence (an )n∈N of positive integers such that
+                                      8n < an ≤ 46Λ(β)n                                    (7.2)
+and
+                                       an ||βan − ζ|| ≤ 8                                  (7.3)
+for all n ∈ N.
+Theorem 7.3. Let ε > 0, β ∈ L and ζ ∈ R. Define A as the set of α ∈ [0, 1] for which there
+exists η ∈ R, such that
+                                                      log(log(n))2+ε
+                           n||αn − η|| · ||βn − ζ|| ≤
+                                                          log(n)
+has only finitely many solutions n ∈ N. Let µ ∈ M([0, 1]) with (Fµ)(x) ≪ (1 + |x|)−Υ , with
+Υ > 0. Then
+                                            µ(A) = 0.
+16                                         E. STEFANESCU
+
+
+   This is a special case of a more general Theorem of Chow and Technau [9]. For the convenience
+of the reader we include a proof.
+Proof. Since Theorem 7.1 holds for every lacunary sequence, we choose the one we get from
+the conclusion of Theorem 7.2, and combine the statements (7.1) and (7.3): For µ−almost all
+α ∈ [0, 1], there exists infinitely many n such that
+                                                         log(n)2+ε
+                            an ||βan − ζ|| · ||αan − η|| ≪         ,
+                                                             n
+for all η ∈ R. By the second inequality of (7.2) we have log(an ) ≪β n, which implies that
+                                    log(n)2+ε    log(log(an ))2+ε
+                                              ≪β                  .
+                                        n            log(an )
+Hence for µ-almost all α ∈ [0, 1]
+                                                           log(log(an ))2+ε
+                         an ||αan − η|| · ||βan − ζ|| ≪β                    ,
+                                                               log(an )
+for all η ∈ R and for infinitely many n.                                                       □
+Proof of Theorem 2.5. Again, we follow an argument of Chow and Technau [9]. We use a measure
+µ Kaufman constructed in [21], that satisfies the following properties:
+        • µ ∈ M([0, 1] ∩ Bad),
+        • For every interval I ⊆ [0, 1], we have µ(I) ≪ϱ λ(I)ϱ ,
+                                                 −5
+        • For x ∈ R: |(Fµ)(x)| ≪ (1 + |x|)−(10 ) .
+Let A be as before. Then Theorem 7.3 yields µ(A) = 0. Let G := Bad ∩ ([0, 1]\A), then
+µ(G) = 1. Finally we use the mass distribution theorem, see e.g. [4] or [15], which yields in our
+case dimH (G) ≥ ϱ. The constant ϱ can be chosen arbitrarily close to 1, hence dimH (G) = 1. □
+   Acknowledgments The author was supported by the Austrian Science Fund (FWF), project
+P-35322. The author expresses gratitude to Christoph Aistleitner, Athanasios Sourmelidis, and
+Bence Borda for their valuable discussions. Additionally, the author appreciates the insightful
+exchanges with Niclas Technau and Sam Chow.
+
+                                            References
+ [1] C. Aistleitner, I. Berkes, and R. Tichy. Lacunary sequences in analysis, probability and
+     number theory. Preprint, arXiv:2301.05561, 2023.
+ [2] C. Aistleitner et al. “Gap statistics and higher correlations for geometric progressions
+     modulo one”. In: Math. Ann. 385.1-2 (2023), pp. 845–861.
+ [3] C. Aistleitner et al. “Large deviation principles for lacunary sums”. In: Trans. Amer. Math.
+     Soc. 376.1 (2023), pp. 507–553.
+ [4] I. Assani. Ergodic Theory and Dynamical Systems: Proceedings of the Ergodic Theory Work-
+     shops at University of North Carolina at Chapel Hill, 2011-2012. De Gruyter Proceedings
+     in Mathematics. De Gruyter, 2013.
+ [5] V. Beresnevich and S. Velani. “An inhomogeneous transference principle and Diophantine
+     approximation”. In: Proc. Lond. Math. Soc. (3) 101.3 (2010), pp. 821–851.
+ [6] Y. Bugeaud. Distribution modulo one and Diophantine approximation. Vol. 193. Cambridge
+     Tracts in Mathematics. Cambridge University Press, Cambridge, 2012, pp. xvi+300.
+                                         REFERENCES                                           17
+
+
+ [7] S. Chaubey and N. Yesha. “The distribution of spacings of real-valued lacunary sequences
+     modulo one”. In: Mathematika 68.2 (2022), pp. 416–428.
+ [8] S. Chow. “Bohr sets and multiplicative Diophantine approximation”. In: Duke Math. J.
+     167.9 (2018), pp. 1623–1642.
+ [9] S. Chow and N. Technau. “Dispersion and Littlewood’s conjecture”. In: Advances in
+     Mathematics 447 (2024), p. 109697.
+[10] S. Chow and N. Technau. “Higher-rank Bohr sets and multiplicative diophantine approxi-
+     mation”. In: Compos. Math. 155.11 (2019), pp. 2214–2233.
+[11] S. Chow and A. Zafeiropoulos. “Fully inhomogeneous multiplicative diophantine approxi-
+     mation of badly approximable numbers”. In: Mathematika 67.3 (2021), pp. 639–646.
+[12] L. Devroye. “Laws of the iterated logarithm for order statistics of uniform spacings”. In:
+     Ann. Probab. 9.5 (1981), pp. 860–867.
+[13] R. Durrett and R. Durrett. Probability: Theory and Examples. Cambridge Series in Statis-
+     tical and Probabilistic Mathematics. Cambridge University Press, 2019.
+[14] M. Einsiedler, A. Katok, and E. Lindenstrauss. “Invariant measures and the set of exceptions
+     to Littlewood’s conjecture”. In: Ann. of Math. (2) 164.2 (2006), pp. 513–560.
+[15] K. Falconer. Fractal Geometry: Mathematical Foundations and Applications. Wiley, 2004.
+[16] V. F. Gapoškin. “Lacunary series and independent functions”. In: Uspehi Mat. Nauk
+     21.6(132) (1966), pp. 3–82.
+[17] S.M. Gonek and H.L. Montgomery. “Kronecker’s approximation theorem”. In: Indagationes
+     Mathematicae 27.2 (2016), pp. 506–523.
+[18] K. Gröchenig. Foundations of Time-Frequency Analysis. Applied and Numerical Harmonic
+     Analysis. Birkhäuser Boston, 2001.
+[19] M. Hussain and D. Simmons. “The Hausdorff measure version of Gallagher’s theorem—
+     closing the gap and beyond”. In: J. Number Theory 186 (2018),P pp.     211–225.
+[20] M. Kac. “On the distribution of values of sums of the type      f (2k t)”. In: Ann. of Math.
+     (2) 47 (1946), pp. 33–49.
+[21] R. Kaufman. “Continued fractions and Fourier transforms”. In: Mathematika 27.2 (1980),
+     pp. 262–267.
+[22] A. Khintchine. “Zur metrischen Theorie der diophantischen Approximationen”. In: Mathe-
+     matische Zeitschrift 24.1 (1926), pp. 706–714.
+[23] S. V. Konyagin, I. Z. Ruzsa, and W. Schlag. “On uniformly distributed dilates of finite
+     integer sequences”. In: J. Number Theory 82.2 (2000), pp. 165–187.
+[24] P. Lévy. “Sur le développement en fraction continue d’un nombre choisi au hasard”. In:
+     Compositio Mathematica 3 (1936), pp. 286–303.
+[25] G. Margulis. “Problems and conjectures in rigidity theory”. In: Mathematics: frontiers and
+     perspectives. Amer. Math. Soc., Providence, RI, 2000, pp. 161–174.
+[26] J. Marklof. “The Berry-Tabor conjecture”. In: European Congress of Mathematics, Vol. II
+     (Barcelona, 2000). Vol. 202. Progr. Math. Birkhäuser, Basel, 2001, pp. 421–427.
+[27] I. Niven. Diophantine approximations. Reprint of the 1963 original. Dover Publications,
+     Inc., Mineola, NY, 2008, pp. ix+68.
+[28] Y. Peres and W. Schlag. “Two Erdős problems on lacunary sequences: chromatic number
+     and Diophantine approximation”. In: Bull. Lond. Math. Soc. 42.2 (2010), pp. 295–300.
+[29] A. D. Pollington et al. “Inhomogeneous Diophantine approximation on M0 -sets with
+     restricted denominators”. In: Int. Math. Res. Not. IMRN 11 (2022), pp. 8571–8643.
+[30] F. A. Ramírez. “Counterexamples, covering systems, and zero-one laws for inhomogeneous
+     approximation”. In: Int. J. Number Theory 13.3 (2017), pp. 633–654.
+18                                          REFERENCES
+
+
+[31] Z. Rudnick. “A metric theory of minimal gaps”. In: Mathematika 64.3 (2018), pp. 628–636.
+[32] Z. Rudnick and A. Zaharescu. “The distribution of spacings between fractional parts of
+     lacunary sequences”. In: Forum Math. 14.5 (2002), pp. 691–712.
+[33] R. Salem and A. Zygmund. “On lacunary trigonometric series”. In: Proc. Nat. Acad. Sci.
+     U.S.A. 33 (1947), pp. 333–338.
+[34] R. Salem and A. Zygmund. “On lacunary trigonometric series. II”. In: Proc. Nat. Acad.
+     Sci. U.S.A. 34 (1948), pp. 54–62.
+[35] W. M. Schmidt. Diophantine approximation. Vol. 785. Lecture Notes in Mathematics.
+     Springer, Berlin, 1980, pp. x+299.
+[36] E.M. Stein and R. Shakarchi. Fourier Analysis: An Introduction. Princeton University
+     Press, 2003.
+[37] W. Zudilin. Analytic Methods in Number Theory. World Scientific, 2023.
+     Institut für Analysis und Zahlentheorie, TU Graz, Steyrergasse 30, 8010 Graz, Austria
+     Email address: eduard.stefanescu@tugraz.at
+

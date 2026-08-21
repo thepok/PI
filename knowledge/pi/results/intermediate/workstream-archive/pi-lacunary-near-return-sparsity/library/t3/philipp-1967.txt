@@ -1,0 +1,992 @@
+Pacific Journal of
+Mathematics
+
+
+     SOME METRICAL THEOREMS IN NUMBER THEORY
+
+                   WALTER P HILIPP
+
+
+
+
+Vol. 20, No. 1                       September 1967
+                                                        PACIFIC JOURNAL OF MATHEMATICS
+                                                                  Vol. 20, No. 1, 1967
+
+
+                 SOME METRICAL THEOREMS
+                    IN NUMBER THEORY
+                                  WALTER PHILIPP
+
+           In this paper some metrical theorems on Diophantine
+      approximation, continued fractions and #-adic expansions are
+      proved.
+           In the first part some of the common properties of the
+      following transformations from the unit interval onto itself
+      are investigated. Denote by {a} the fractional part of x9
+           A.   T: a -»{aa}        a > 1 integer
+      which describes the expansion of a in the scale a
+
+
+
+       which describes the continued fractions
+           C. T: a -> {θa} θ > 1 noninteger
+       which describes the expansion of a as a #-adic fraction.
+           The main theorem of the first part (Theorem 2) gives an
+       estimate of the number of solutions of the system of inequalities
+                   Tkael k
+       where n is an integer, T is any of these three transforma-
+       tions and (Ik) is an arbitrary sequence of intervals contained
+       in the unit interval.
+
+     It generalises and refines well known theorems on the distribution
+                                k
+function of the sequence (T a).       Theorem 2 follows from a very-
+general theorem—a quantitative Borel-Cantelli Lemma.
+     It is also shown that T is strongly mixing (Theorem 1). The
+second part of the paper deals with the metric theory of continued
+fractions. Theorems of LeVeque and Bernstein are refined.
+
+     !• Frequently a real number a is represented in one of the
+following ways:
+     A. in the scale α, where a > 1 is an integer,
+     B. as a continued fraction,
+     C. as a #-adic fraction, where θ > 1 is a noninteger.
+     Let us recall some of the properties of these representations:
+     A. If a > 1 denotes an integer then every a e [0,1) can be written
+as
+                              y     Cjc   __ \p    Ok   }   Vn+i
+                                    ak      k=i ak           an
+
+
+                                             109
+ 110                                WALTER PHILIPP
+
+ where the digits ck are nonnegative integers less than a and 0   ^yn<l.
+ The representation can be made unique.
+     Define on [0, 1) the transformation T
+                                      T:a~> {aa}
+ Clearly for n ^ 0 we have
+                   V«+i = Vn+i(oί) = Tna = {ana} .
+
+As is well known T preserves the Lebesgue-measure and T is ergodic.
+(For definitions and theorems in ergodic theory see Halmos [5] pp.
+5-37).
+    B. Every a e (0, 1] can be expressed as a simple continued fraction
+
+(1)                                 α = K α 2 , •••]
+where the partial quotients c^ = di(cc) are positive integers. Again,
+the representation can be made unique. If a is given by (1) then
+the finite continued fraction
+
+                              [αx, α2,         , αΛ] = -££-
+                                                       Qn
+
+
+is called the n-th convergent. It is in its lowest terms.
+     Define on (0, 1] the transformation T
+
+
+
+
+or else
+                 T(\a^{a), a2(a),        •]) = [α2(#)> ^(a).
+
+       Then clearly for n ^ 0 we have
+                                an+1(a) = a^T^a)
+and
+                                n
+                  zn+ι(a)   = T a = [an+1(a),          an+2(a),
+
+       Define on (0, 1] a measure μ by setting
+
+                            μ(E) =        1      f    dx
+                                        log:
+for every Lebesgue-measurable set E. Knopp [13] proved that T is
+ergodic with respect to the Lebesgue-measure. Ryll-Nardzewski [21]
+showed that T preserves μ and that μ is equivalent to the Lebesgue-
+             SOME METRICAL THEOREMS IN NUMBER THEORY                         111
+
+measure (i.e. both are absolutely continuous to each other).
+     C. For a fixed noninteger Θ > 1 define the transformation T on
+[0,1)
+                                T: a — {θa} .
+Put
+
+                 λx = [θa], •• ,λ Λ = [0α?nl, ••
+                                               '•
+For ra ^ 0 we have α Λ + 1 = xn+1(a) = Tna.   Clearly 0 ^ λ/c < 0, 0 ^ αΛ < 1
+and
+
+
+
+
+    Renyi [19] proved that there exists a unique measure μ invariant
+under T and equivalent to the Lebesgue measure and furthermore
+that T is ergodic with respect to μ.
+    Write λ A (l) = Xk and xk(l) — tk. Denote by φy(t) the characteristic
+function of [0, 7). Put (Gel'fond [4])
+
+
+
+
+Cigler [3] showed that this unique measure μ is defined by setting
+
+                             μ(E) = [ σ(a)da
+
+for every measurable set Ed [0, 1).
+     The explicit formula for the invariant measure has been also
+found, independently by Parry [17] who additionally remarked that T
+is even weakly mixing.
+     Now it is necessary to say a few words about the notation. In
+the remainder of the § 1 and in § 4 T always means any one of the
+three transformations and μ always stands for the invariant measure
+associated with T as described in Sections 1 ABC. For example
+Theorem 2 ABC in fact consists of three theorems and should be in-
+terpreted to mean that Theorem 2 holds for each of the three trans-
+formations and further that in Theorem 2A μ(I) — where I — (a, b)
+is an interval—stands for b — α, that in Theorem 2B μ(I) means
+
+                                                b) - log(l + α))
+           log 2 U 1 + x      log 2
+                                                           σ(t)dt.   Throughout
+                                                       a
+112                          WALTER PHILIPP
+
+the paper "almost all" always means all except a set of Lebesgue-
+measure 0.
+    In the first part of this paper some of the common properties of
+these transformations are investigated. I shall prove:
+
+      THEOREM 1 A, B, C.    T is strongly mixing.
+
+     Theorem 1A is well known. It holds even for a compact con-
+nected abelian group (Hartman, Ryll-Nardzewski [9], p. 169).
+     This paper was already typed when Professor Krickeberg in a
+letter kindly called my attention to a paper of Rohlin [20], Rohlin
+showed that a wide class of transformations are—what he calls—exact
+endomorphisms and consequently that they are mixing of every degree
+which implies strongly mixing. Since the proof I give is different
+from Rohlin's proof and since Theorem 1 is a straightforward applica-
+tion of some lemmas used to prove Theorem 2, I did not withdraw
+Theorem 1. Furthermore its proof can be easily extended to show
+the mixing property of every degree.
+     In analogy to some results on Diophantine approximation we get:
+
+     THEOREM 2A, B, C. Let T be any of the three transformation
+associated ivith its invariant measure μ as described in A, B, C. Let
+(In) be an arbitrary sequence of intervals contained in the unit
+interval. For any positive integer N and x e [0, 1] denote by A(N, x)
+the number of positive integers n g N such that Tnx e In. Put
+
+                            Φ(N) = Σ
+                                   n£JSί
+
+Then
+
+           A(N, x) = φ(N) + O(Ψ1!%N) logzl2+εΦ(N))    e> 0
+
+for almost all x e [0,1).
+
+     LeVeque [15] has proved theorems of the same type as Theorem
+2A for arbitrary sequences (an) of integers instead of (an) under
+certain assumptions on the intervals In. Recently, his results have
+been extended by Walker [26]. The novelty in Theorem 2A is the
+arbitrariness of the intervals In in particular that we can dispense
+the assumption that the sequence (μ(In)) is decreasing. This is not a
+contradiction to a theorem of Cassels ([1], p. 215) since with Cassels'
+notation every subsequence of (an) is again a J?-sequence and so the
+method of proof of Cassels' theorem does not apply to our case.
+     Theorem 2 is a generalization and refinement of some well known
+results on distribution functions of certain sequences. μ(x) is called
+             SOME METRICAL THEOREMS IN NUMBER THEORY                   113
+
+the distribution function or distribution measure of the sequence
+(α»)(0 ^ xn S 1) if for all 0 ^ x S 1
+
+                            lim            μ{x)   .
+
+Here A(n, aj) denotes the number of positive integers k ^ n such that
+xk < x (see Cigler und Helmberg [4], § 7). In each of the cases ABC
+                                                                      n
+the individual ergodic theorem implies at once that the sequence (T a)
+has the distribution function μ(x) for almost all a — μ(x) is the measure
+of the interval (0, x) — μ invariant under T. These results are well
+known (Hβ Weyl [27], Ryll-Nardzewski [21], Gel'fond [7]). The case
+A follows also from the fact that (ana) is uniformly distributed for
+almost all a. Putting in Theorem 2 In = I = (0, x) for n = 1, 2,
+we get at once
+
+      COROLLARY   ABC. For O g a g l denote by A(n, a, x) the number
+of positive integers k 5Ξ n such that Tka < xΛ Then for almost all a
+
+             A(n, a, x) = nμ(x) + O(n112               ε>0
+where μ(x) denotes the μ-measure of the interval (0, x) — μ invariant
+under T.
+
+     2. A quantitative Borel-Cantelli Lemma, Throughout the
+rest of the paper | E | denotes the measure of E in the underlying
+measure-space.
+
+      THEOREM 3. Let (En, n ^ 1) be a sequence of measurable sets in
+an arbitrary probability space. Denote by A(N, x) the number of
+integers n <^ N such that xe En. Put
+                            Φ(N) = Σ I
+
+Suppose that there exists a convergent series         Ck with Ck ^ 0 such
+that for all integers n > m we have
+(2)                 \Enf]Em\£\En\\Em\      + \En
+Then
+          A(N, x) = φ(N) + O(Φ112(N) hg"
+/or almost all x.
+
+   Theorems of this kind have been proved by LeVeque [15] and
+W.M. Schmidt [22] for particular sequences of sets on the real line.
+114                          WALTER PHILIPP
+
+In an earlier draft I obtained the error term O(Φ2I*(N) \og112+εΦ(N))
+using a well known device of H. Weyl [27]. However, it was pointed
+out to me that W.M, Schmidt's [22] modification of Rademacher's
+method for orthogonal sums gives a better estimate. In the following
+proof I shall use Schmidt's method.
+
+     Proof. In case that ^(oo) < oo the theorem follows from the
+convergence part of the Borel-Cantelli lemma even without assuming
+(2). So we may assume that φ(N)—+ co. Denote by ψn(x) the char-
+acteristic function of En. For m < n put
+                                         n
+
+                         A{m, n, x) ~ X ψi(x)
+and
+                                 r
+                      Φ(m, n) — \ A(m, n, x)dμ(x) .
+Then clearly 0(0, N) - Φ(N) and A(0, N, x) - A(N, x). Using (2) we
+obtain
+
+       \(A(m, n, x) — φ(m, n)fdμ(x)
+
+           = 2   X ^ I Έi Π Ed I + φ(m, n) - Φ2(m, n)
+
+           g Φ{m, n) - Φ\m, n) + 2      X_ | ^ | | ^ | + 2 X^ | E5 \ C^
+
+                   0 + 2 X^ I ^ i I     Σ . Ci-ί
+
+
+     For integer M ^ O we define Nu to be the largest integer N such
+that Φ(N) < u. Denote by Lr the set of intervals (u, v] with u =
+ί 2s, t; = (^ + 1)2S g 2 r where s ^ 0, ί ^ 0 and r ^ 1 are integer.
+Now
+
+
+where the summation is extended over all (u, v] e Lr corresponding to
+                                           r
+a fixed s since these intervals cover (0, 2 ] exactly once and thus the
+corresponding intervals (Nu, Nv] cover (0, iV2r] exactly once. Clearly
+s ^ r and so
+
+( 4)                     Σ   ί*(-^«, Nv) < (r + l)2 r .
+
+Put
+            Zr = Z(r, ») = ( Σ    (^L(-W« JV« *) - Φ(K,
+
+Then (3) and (4) imply
+                 SOME METRICAL THEOREMS IN NUMBER THEORY                               115
+
+
+                                   ί Zrdμ(x) = 0{r2r)
+
+or
+                                                       B
+                            \      2+£   dμ(x) — O(r^~ ) .
+
+
+Therefore
+                                                  +ε
+( 5)                                Zr = O(2V )
+                                                           r       1        r
+for almost all x. If w is an integer and 2 ~ < w ^ 2 then (0, w]
+can be represented as the union of at most r intervals of Lr and thus
+so can (0, Nw], Hence
+               A(NW1   x) - φ(Nw) = Σ A(NU, NVJ x) - φ(N%y Nv))
+
+where the sum is over at most r + 1 intervals (u, v] e Lr.                      This equa-
+tion together with (5) and Cauchy's inequality yields
+                         (A(NW, x) - φ{Nw)f       - O(2V+ε)
+
+almost everywhere. Hence the theorem is true for all N — Nw. If
+N is arbitrary find w such that Nw ^ N < Nw+1. We obviously have
+                        A(NW,   x) £ A(N, x) S A(NW+U                  x)
+
+and
+
+                           Φ(NW) <Z φ(N) £ φ(Nw+1)             .
+
+Since
+                         φ(Nu+1)    g Φ(NW) + 0(1)
+
+the result follows.
+       3^    The overlap estimates •
+
+       3A.    This section deals with the situation as described in Section 1A.
+
+      LEMMA 1. Let P > 1 be an integer and let E = (xu x2) be an
+interval and F be a measurable set both contained in [0,1], Then
+                                                               1
+                       {EΠS-'FI     = \E\\F\ + 2P- \F\V
+
+where \ η \ g 1 and S denotes the transformation a —> {Pa}.
+
+     Proof. If p(t) denotes the characteristic function of F with
+period 1 we have
+116                               WALTER PHILIPP
+
+                  [ E n S~'F\ = [**p(Pt)dt = P-A**2p{t)dt
+
+
+
+     3B. We use now the notation introduced in Section IB. We
+begin with a lemma which is essentially due to Khintchine [10, 11]
+(see also [12] p. 89).
+
+       LEMMA 2.    Let E = {a \ ax{a) — rly           , ak(a) = rk}      and   let F be a
+                          1
+measurable set.      Then
+
+             \Ef] T-«~kF\ = | S | [ F | ( 1 + O( ? ^))             q<l.
+
+    Proof. For 0 < x 5^ 1 denote by <^>%(x) the (μ-)measure of the
+set—Khintchine used the Lebesgue-measure—
+
+( 6)              {a I cφO - n , . . , ak(a) - r t , Tn+ka < x} .
+
+Then φn(x) satisfies the functional equation
+
+( 7)               ΨM = Σ             (ψnJ-
+                              0=i V     V g
+
+In fact, T w+& α: < α; is equivalent with
+                                  1
+                       o<                -Γ_JL_1< g
+or else with
+
+
+                               g +x                      g
+for g = 1, 2,  . But this implies (7).
+    Now we are going to compute φQ(x) and its derivatives                         φQ(x) is
+the measure of the set
+
+               M = {a\ a,(a) = r l f          , α, (α) - rfc, Γ*α < x} .
+
+ Consequently M is just the interval with the endpoints pk/Qk,
+ (Pk + Pk-iX)/(Qk + Qk-ιX) where pk/qk = [n, , n ] . This follows from
+ the fact that a e M is equivalent with
+
+                     α = [r» r2- -,rk+           Tka ], T 7 c α < a; .
+
+ Hence, by computation
+       1
+       Throughout the rest of the paper q, p and the constant implied by 0 are
+ absolute constants unless otherwise stated.
+              SOME METRICAL THEOREMS IN NUMBER THEORY                 117
+
+
+log 2.φo(x) =                                  log(l
+
+
+
+
+and
+
+          log:        =(-l)*log(l
+
+Write
+
+
+Then ψn(x) also satisfies (7) and by the last set of formulas we obtain
+          0 < I ψ'0(x) I ^ 4 and I ψ'Q'(x) \ < 32      x e (0, 1] .
+Hence a theorem of Kuzmin yields (see [10] or [12] p. 78)
+
+                                1      1
+                              log 2   1+x
+where cx and q < 1 are absolute positive constants. Integrating from
+a to b we obtain
+
+
+This proves the lemma for the case that F = (a, b) is an interval.
+Now ψn(x) defines a normed measure ψn on [0, 1) in the usual way.
+We rewrite the last inequality as
+                         Cfnμ{I) ^ ψn(I) -^ Cnfi(I)
+where C'n, Cn are constants. It follows that this inequality holds for
+arbitrary measurable sets Fa[0, 1).
+
+    Note. If φn{x) is defined to be the Lebesgue-measure of the set
+(6) a theorem of Sziisz [24] gives a sharper estimate. Strangely
+enough the hypotheses of Sziisz' theorem are not satisfied in our case.
+
+      LEMMA  3. Let F be a measurable set and let E = (pk/qkf pk/qk)
+where pk/qk9 pkjqk are kth convergents. Then
+              \EΓ\ T-{n+k)F\ = \E\\F\(1   + 0{q^))     q< 1.
+118                                  WALTER PHILIPP
+
+    Proof. This is an immediate consequence of Lemma 2 since E
+is the union of at most countably many disjoint intervals for which
+the partial quotients aό{ά), j ^ k are constant.
+
+      LEMMA      4. Let E be an interval               and F be a measurable                  set.
+Then
+
+                 \EΓ\ T~nF\ = \E\\F\ + \F\0(q^)                         q<l.
+
+    Proof. Put k ~ [n/2] and let E — (x, y). Then there exist con-
+vergents pk/qk, PUQI such that x and y are contained in intervals with
+endpoints
+
+
+                         k>'   Qk + Qk-iJ     '          W * ' q'k
+
+respectively. Call the intersection of E with these two intervals Ex
+and E2. Then E = EO\J E1\J E2 where Eo is of type described in
+Lemma 3. Hence by Lemma 3 and using the T preserves μ
+
+       I J E Ί Ί T~nF\ - \ E \ \ F \ \ ^ C \ E Q \ \ F \ q ^   + \ F\(\ E t \ + \ E 2 \ ) .
+
+But for i = 1, 2
+
+                                        ==
+                                             "θΓ = "2" ^"3
+Observing that g < 1 implies g2~1/2 < 1 we get the result.
+    Later we need
+
+     LEMMA 5. Let E = {a \ a±(a) ^ M} and F = {a | αx(α:) ^ N} for
+positive integers M, N. Then
+
+                                      E\
+
+      Proof.     This follows at once from Lemma 2 since for example
+
+                                E = 0 {^ I cφO = i}
+    3C. In this section we use the notation introduced in section 1C.
+In the next lines X(E) stands for the Lebesgue-measure of E.
+
+      LEMMA6. (GeΓfond [7]) For t ^ 1 let E — [0, t) be an interval
+and let F be a measurable set. Then
+                         n                                     n
+             X(E n T- F) = χ(E) \F\ + \F\O{p~ )                       1< p <θ .
+      Proof.     Apart from the factor | F \ before the 0 symbol this is
+                  SOME METRICAL THEOREMS IN NUMBER THEORY                                   119
+
+just formula (12) in GePfond's paper. But inspection of its proof
+shows that we may pull out the factor | F | of the 0-symbol and this
+symbol still has the required properties.
+
+      LEMMA 7. Let E be an interval                      and let F be a measurable set.
+Then
+                  \Ef] T-nF\ = \E\\F\ + \F\O(p~*)                      ρ > l .
+      Proof. It is enough to show the lemma in case that E = [0, t).
+Let   f be the characteristic function of F. Using Lemma 6 we obtain
+
+                 \EΓ\ T-»F\ =         [φt(a)f(xn+1(a))σ(a)da
+                                 Jo
+                            = —Σ- ^                  [φt(oήf(Xn+ί(a))φtk(a)da
+                                                                        L
+                                  Z   k=i θ    Jo
+                                                min(t,tk)
+
+
+
+
+                                               m m
+                                                     (          \F\O(p~ )
+                                                                             n
+
+
+
+
+                                                    F\0(p-).
+
+      4* Proof of Theorem 1 a n d 2*
+
+    4.1 Proof of Theorem 1. We have to show that for every pair
+of measurable sets Au A2 c [0, 1]
+
+                         l i m I A , n T~nA2     \ = \A1\\A2\      .
+                         n—>co
+
+
+We approximate A { (ί = 1, 2) in measure by a finite union Ei (ί = 1, 2)
+of disjoint intervals arbitrarily closely: Given ε > 0 we can find Ei
+such that
+                                 \AtJEtl <ε                                       (ΐ = l , 2 ) .
+
+By Lemmas 1, 4, 7 we easily get for all sufficiently large n
+                                       n                 Γ
+                         \\Ei Π T~ E2\ — I JS 1                   e .
+
+Using that T preserves μ we have
+
+      II A , n            A1 11 A2 || ^ ii Λ n                          !n
+                  E± n Γ — Λ i —        7A n   T-*E2
+                  E1Π T-"E21 -                                              A,I        5ε
+for all sufficiently large w.
+    Rohlin's theorem that T is mixing of every degree follows in the
+same way from:
+ 120                           WALTER PHILIPP
+
+       LEMMA 8ABC.  Let nu   ,nr be positive integers and letI0,Il9   ,Ir
+be intervals all contained in the unit interval. Then
+
+                     10 n                           ^jr
+                               iλ n       n     +
+
+
+
+
+where the constant implied by 0 only depends on r.
+
+       For a proof we only have to apply Lemmas 1, 4, 7 several times.
+
+                                                              n
+   4.2. In order to prove Theorem 2 we put En — T~ In. Using
+Lemmas 1, 4, 7 and the fact that T preserves μ we obtain for n > m
+
+
+
+                         - IE m I I E n
+Observing that all the measures involved are equivalent to the
+Lebesgue-measure we get Theorem 2 as an application of Theorem 3.
+
+     5* Some metrical theorems on continued fractions* In this
+section some metrical theorems on continued fractions are proved. I use
+the same notation as in sections IB and 3B. The main result (Theorem
+4) is a refinement of a theorem of Khintchine [11]. LeVeque [14] has
+outlined a proof of a weaker form of Theorem 4. Several applications
+of Theorem 4 are given. Finally a well known theorem (e.g. see [12],
+p. 67) of Bernstein is sharpened.
+     Again it will be illustrated that it is more natural to use the
+measure μ invariant under T rather than the Lebesgue-measure. In
+the theorems though ''almost all" always means "all except a set of
+Lebesgue-measure 0." But μ and the Lebesgue-measure have the
+same null-sets and hence-considered from this point of view it makes
+no difference which of them we use.
+
+       5.1. The general theorem.
+
+       THEOREM 4.  Let f(ul9     , uk) be a nonnegative function defined
+for all k-tuples (uu     , uk) with positive entries and satisfying
+
+(8)                 [(fi^ix), --.,ak(x)γdx<
+                    Jo
+
+Then for integers n ^ 1 and fixed k Ξ> 1
+                SOME METRICAL THEOREMS IN NUMBER THEORY                    121
+
+
+
+          n ί
+(9)
+                log 2 Jo                          1+x
+
+almost everywhere.
+
+       If k is not fixed but if instead n and k are linked by
+                                      k            k+1
+(10)                                 2 ^n     < 2
+
+then (9) holds with n~m log 2+ % instead of n~~112 logz'2+εn in the       error
+term.
+
+       Proof.    Since T preserves μ we have for integer i Ξ> 0
+
+(11)                (/(^(Γ^),       , a^T'x^dμix) = a, = a < ^
+                    Jo
+
+by (8).    Further for integers 0 ^ i < j and m ^ 0
+
+
+
+
+                ah{T»-χ))dμ{x)      = Σ/Cn,          , n ) /(rί, ••-,<)
+
+
+
+where the summation is extended over all the r's and
+
+                         £• = {a: a,(a) = r i ,      , %(α) = r*}
+
+and
+
+                         F = {a: (φc) = r[, -•-, ak{a) = r^} .
+
+       By Lemma 2 we obtain for j > i + k
+
+      W, 3) - Σ / K           , n) I ^ | X/(r!,
+                                          1
+                                                         , r'k)
+                1
+
+
+
+
+       By (8) we clearly have for j sS i
+
+
+
+Hence we obtain by (11)
+122                                         WALTER PHILIPP
+
+                          <+                   i+
+        YΣ/(αi(T ~a0>                     , ak(T *x)) -       an)dμ(x)
+        θ\i=O                                                  /
+
+
+(12)      = Z (
+               i,3=0 JO
+
+               ak(Tj+mx)dμ(x) - a*n* S a* θ( Σ                     g^" 3 ^
+
+if & is fixed. If % and k are linked by (10) then we get in (12) only
+the estimate O(n log n). In both cases Theorem 6 (p. 649) of Gal and
+Koksma [6] gives the result.
+     De Vroedt [25] has obtained earlier a result of this type also for
+a narrow class of functions only. His theorem and mine have a non-
+empty overlap: To see this put in Theorem 4 k = 1 and f(uλ) =
+f(μ) — log u. We get
+
+       COROLLARY               1 (de Vroedt).       Almost everywhere
+                                                     1
+      (at(x)        an(x)Yln = Πi            +           2n
+This is a refinement of a well known theorem of Khintchine [10].
+Applying Theorem 1 for the characteristic function of the set {x: at(x) —p}
+we get a refinement of a theorem of Levy [19] on the frequency of
+the digit p.
+
+     COROLLARY 2 (de Vroedt).    Denote by h(n, p, x) the number of
+positive integers k ^ n such that ak(x) ~ p. Then for almost all x
+
+           h(n, p, x) -   log(l +
+                       -λ-log(l
+                             V    log 2
+                    log 2    V    p(p + 2)
+    Doeblin [5] using quite different methods sketched a proof of the
+law of the iterated logarithm in both cases. Recently, Stackelberg
+[23] has announced a proof different from that of Doeblin.
+    As another application of Theorem 4 I shall prove:
+       THEOREM 5.           Denote by qn(x) the denominator of the nth con-
+vergent to x.             Then
+                     V qn(x) = exp (ττ2/12 log 2) + O(n~112 log2+εn)
+
+almost         everywhere.
+
+     This improves slightly LeVeque's [14] refinement of a well known
+theorem of Khintchine [11] and Levy [17]. Furthermore the proof
+will not depend on Levy's result. For this reason we need some
+lemmas.
+                 SOME METRICAL THEOREMS IN NUMBER THEORY                                          123
+
+    5.2. Some lemmas. The first one can be proved by induction or
+by taking the transposed matrices.
+
+       LEMMA 9.           //.
+                          ak         1\     lax      l\/0
+                       α oj"                          U
+
+                          αx         1\     /α,     l\/0      1\
+                          1          0/ "   VI      0/Vl       0 / U - i
+    If we consider <xx,    , ak as partial quotients of a continued frac-
+tion then pk/qk is just the kth convergent. So t h e lemma describes
+the relation between t h e two fractions [au •• , α A ] and [ak, •• , α 1 ] .
+This is used in
+
+       L E M M A 10.           Let
+
+                              E = {a\ a^a) = ru ••-, ak{a) = rk}
+
+and
+
+                              F = {a I α^α) = n ,                  , αΛ(α) = rx}
+
+
+
+                                                 \E\ = \F\ .
+
+       Proo/.    Put [r1? . ., rk] = pk/qk and [rk,                         , r j = p'Ja', then
+
+
+
+
+and similarly for | F | with primes. But Lemma 9 yields qk = qk,
+p'k = qk_u and qk^ — pk. Hence the result.
+
+       LEMMA 11.          Define for         k ^ 1
+
+                  fk(x)        = αfc(α;) + [α^^a;),            , a^x)]      if
+                          x = [a^x),              , aA(ic),         ]-irrational
+                               —0                                   i / tτ is    rational
+
+then
+
+
+                               *->« Jo                              12 log 2
+124                                                        WALTER PHILIPP
+
+        Proof.               Using Lemma 10 we obtain
+
+      λ* =               log     fk(x)dμ(x)
+                 Jo
+
+             =           Σ ^ log (rk + [rk_u                      , rj)//{α | αx(α) = rl9        , α*(α) = rk}
+                         Σ
+                         V      lno / T l + [r2j . . . ^ rλ])/^{α: I α^α) = r 2 ,              , ak(a) = rk)
+
+                 S   I
+
+                     o
+                         log {ax{x)      + [α 2 (a;), . - - , α f c ι
+
+But log (at(x) + [a2(x), - , αfc(ίc)]) g log (α^ίc) + 1) which is integrable.
+Hence
+
+       lim       I log fk(x)dμ(x)                 = I lim log (a^x) + [α2(ίc), •••, ak
+      k->oo Jo                                        Jo fc->c»
+
+
+
+                                                       log 2 Jo             x    1+x        12 log 2
+
+     5.3. Now we can finish the proof of Theorem 5. Essentially,
+we use the argument of Khintchine [11]. Let k ^ 1 be an integer.
+Define for n ^ k
+                             fik)(x)     = an(x) + [a^ix),                      , an_k+1(x)] if
+                                       x = [a^x),    , an(x),                   •] irrational
+                                         = 0                                       if x is rational.
+Then fik](Tx)                  = fi\\(x).          Hence for n ^ k
+
+
+in the notation of Lemma 11%
+    We observe
+
+(13)
+
+For    n^ k
+                                                     fc)
+(14)                     I logΛ(α) - log/i (α;) | ^ |/Λ(α;) - /
+by Lemma 4, p. 7 in CassePs book [2]. Using again this lemma and
+the first part of the proof of Lemma 11 we get
+
+                                        ^ [ I log (a^x) + [a2(x),                    , ak(x)] - log (a^
+                         12 log 2            Jo
+
+
+
+                                       ^ 1 I [α2(«),              , %(^)J       - M s ) , •]
+                                         Jo
+                                       ^ 2-(*-4) ^
+              SOME METRICAL THEOREMS IN NUMBER THEORY                                                125
+
+From now on n and k are linked by (10). Since
+                                fc-l \ 2
+
+                       K   n
+                            m
+                                Σ log/iO^)) ^ — 0{n log %)
+                                1= 1                   /
+                                                                  2
+
+
+
+
+we obtain by the mentioned theorem of Gal and Koksma
+
+(16)                   — Σ l o £ Λ(x) = O(n~ι log6'8*')
+
+almost everywhere.n+k—lHence by Theorem 4, (10), (14), (15), (16)
+                                                      12 log 2
+               k-1                              1 fc-1                1     n+k-1
+
+                       12 log 2                                                 Σ
+                                       1   w + fc—1
+            -log/.'"(a) I +
+                                    - Σ                                                   12 log 2
+                 112   2+
+          = O(n~ log %)
+almost everywhere. Since obviously every positive integer N > 2 can
+be written as N — n + k (n,k subject to (10)) (13) yields the result.
+    It might be interesting to remark that Khintchine-Levy's theorem,
+namely that V qn{x) —• exp (τr2/12 log 2) almost everywhere, is another
+interesting application of the individual ergodic theorem. The proof
+is apart from a few simplifications the same as that of Theorem 2.
+
+    COROLLARY.   If pn{x) denotes the numerator                            of the nth conver-
+gent to x then almost everywhere
+                                                  2                       112       2+ε
+             Λ/ pn(x) = V % exp (τr /12 log 2) + O(n~                           log       n)
+
+       This follows from the inequality
+                                                                 2_
+                                                                 n
+for 0 < x S 1.
+
+    5.4. I shall prove now a refinement of a well known theorem of
+Bernstein (e.g. see [12] p. 67). However, Doeblin [5] states with
+some misprints that even the law of the iterated logarithm holds in
+case that φ{n) —• oo.
+
+       THEOREM 6.Let (φ(n)) be any sequence of positive integers and
+denote by A(N, x) the number of positive integers n g N such that
+ajx) ^ φ(n). Put
+ 126                                            WALTER PHILIPP
+
+
+                                                         logfl+
+                                            log 2 ήlir " " V " '       φ(n) •
+
+ Then for almost all x
+                                                           1/2         3/2+ε
+                    A(N, x) = Φ(N) + O(^ (iV) log                               φ(N)) .
+
+       Proof. Put
+                ~F) —       \ΓΫ I Ci ίfϊ\    ^> m(Ύ?λ\     STid   TT    —      ηπ-~(n—1) JP
+
+
+ Then
+
+
+Using Lemma 5 and the fact that T preserves μ we get for n > m
+
+             n Js?m i = i C7W n τ-^un                              ^\um\\un\(i
+
+
+But
+                                             llφln)
+             = iI IUT n i           1       [           dx      1 λίΛ      ,    1_\
+                     n I =                            —     = - — - log( 1 + — — - j .
+                                log 2 Jo              1 + x   log 2     V    φ(n) /
+Since /J is equivalent to the Lebesgue-measure Theorem 6 follows from
+Theorem 3.
+
+
+                                                REFERENCES
+
+ 1. J. W. S. Cassels, Some metrical theorems in Diophantine approximation I, Proc.
+ Camb. Phil. Soc. 4 6 (1950), 209-18.
+2.          , An introduction to Diophantine approximation, Cambridge, 1957.
+3. Johann Cigler, Ziffernverteilung in θ-adischen Brϋchen, Math. Zeitschr. 7 5 (1961),
+8-13.
+4. J. Cigler und G. Helmberg, Neuere Entwicklungen der Theorie der Gleichverteilung,
+Jahresberieht DMV 6 4 (1961), 1-50.
+5. W. Doeblin, Remarques sur la theorie metrique des fractions continues, Compositio
+Math. 7 (1940), 353-371.
+6. I. S. Gal and J. F. Koksma, Sur Γordre de grandeur des functions sommables,
+Proc. Akad. Amsterdam 5 3 (1950), 638-653.
+7. A. O. GeΓfond, On a general property of number systems, Izvest. Akad. Nauk
+23 (1959), 809-814. (Russian)
+8. Paul R. Halmos, Lectures on ergodic theory, Math. Soc. Japan, 1956.
+9. S. Hartman and C. Ryll-Nardzewski, Zur Theorie der lokal-kompakten abelschen
+Gruppen, Colloquium Math. 4 (1957), 157-188.
+10. A. Khintchine, Metrische Kettenbruchprobleme, Compositio Math. 1 (1935), 359-382.
+11.          , Zur metrischen Kettenbruchtheorie, Compositio Math. 3 (1936), 276-285.
+12.          , Kettenbruche, Teubner, Leipzig, 1956 (there is also an English transla-
+tion).
+                SOME METRICAL THEOREMS IN NUMBER THEORY                              127
+
+13. K. Knopp, Mengentheoretische Behandlung einiger Probleme,.., Math. Annalen
+9 5 (1926), 409-426.
+14. W. J. LeVeque, On the frequency of small fractional parts in certain real sequences,
+Transactions AMS 8 7 (1958), 237-260.
+15.           , On the frequency of small fractional parts in certain real sequences III,
+Journal reine angew. Math. 2 0 2 (1959), 215-220.
+16. P. Levy, Sur les lois de probability dont dependent quotient, Bull. Soc. Math.
+France 5 7 (1929), 178-194.
+17.           , Sur le developpement en fraction continue d'un nombre choisi au hasard,
+Compositio Math. 3 (1936), 286-303.
+18. W. Parry, On the ^-expansion of real numbers, Acta Math. Acad. Sci. Hung. 1 1
+(1960), 401-416.
+19. A. Renyi, Representations for real numbers and their ergodic properties, Acta
+Math. Acad. Sci. Hung. 8 (1957), 477-493.
+20. V. A. Rohlin, Exact endomorphisms of a Lebesgue space, Izvest. Akad. Nauk 2 5
+(1961), 499-530, AMS Translations ser 2. 3 9 (1964), 1-36.
+21. C. Ryll-Nardzewski, On the ergodic theorems II, Studia Math. 12 (1951), 74-79.
+22. Wolfgang M. Schmidt, Metrical theorems on fractional parts of sequences, Trans-
+actions AMS 110 (1964), 493-518.
+23. O. P. Stackelberg, On the law of the iterated logarithm for continued fractions,
+Notices AMS 1 1 (1964), p. 772 No. 64T-508.
+24. P. Szϋsz, Uber einen Kusminschen Satz, Acta Math. Acad. Sci. Hung. 12 (1961).
+25. C. de Vroedt, Measure-theoretical investigations concerning continued fractions,
+Proc. Akad. Amsterdam, Ser A. 6 5 (1962), 583-591.
+26. Thomas P. Walker, Two metric theorems on Diophantine approximation (Ph. D.
+thesis, Univ. of Michigan 1963).
+27. H. Weyl, Uber die Gleichverteilung von Zahlen mod Eins, Math. Ann. 7 7 (1916),
+313-352.
+
+Received March 15, 1965.
+
+UNIVERSITY OF ILLINOIS
+URBANA, ILLINOIS
+                       PACIFIC JOURNAL OF MATHEMATICS
+
+                                          EDITORS
+H. SAMELSON                                            J. DUGUNDJI
+Stanford University                                    University of Southern California
+Stanford, California                                   Los Angeles, California 90007
+
+J. P. JANS                                             RICHARD ARENS
+University of Washington                               University of California
+Seattle, Washington 98105                              Los Angeles, California 90024
+
+
+                                 ASSOCIATE EDITORS
+E. F. BECKENBACH         B. H. NEUMANN            F. WOLF                   K. YOSIDA
+
+
+                             SUPPORTING INSTITUTIONS
+UNIVERSITY OF BRITISH COLUMBIA                   STANFORD UNIVERSITY
+CALIFORNIA INSTITUTE OF TECHNOLOGY               UNIVERSITY OF TOKYO
+UNIVERSITY OF CALIFORNIA                         UNIVERSITY OF UTAH
+MONTANA STATE UNIVERSITY                         WASHINGTON STATE UNIVERSITY
+UNIVERSITY OF NEVADA                             UNIVERSITY OF WASHINGTON
+NEW MEXICO STATE UNIVERSITY                          *      *     *
+OREGON STATE UNIVERSITY                          AMERICAN MATHEMATICAL SOCIETY
+UNIVERSITY OF OREGON                             CHEVRON RESEARCH CORPORATION
+OSAKA UNIVERSITY                                 TRW SYSTEMS
+UNIVERSITY OF SOUTHERN CALIFORNIA                NAVAL ORDNANCE TEST STATION
+
+
+
+
+          Printed in Japan by International Academic Printing Co., Ltd., Tokyo Japan
+                                Pacific Journal of Mathematics
+                                 Vol. 20, No. 1                         September, 1967
+
+Leonard Daniel Baumert, Extreme copositive quadratic forms. II . . . . . . . . . .                                                    1
+Edward Lee Bethel, A note on continuous collections of disjoint
+     continua . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      21
+Delmar L. Boyer and Adolf G. Mader, A representation theorem for abelian
+     groups with no elements of infinite p-height . . . . . . . . . . . . . . . . . . . . . . . . .                                 31
+Jean-Claude B. Derderian, Residuated mappings . . . . . . . . . . . . . . . . . . . . . . . . .                                     35
+Burton I. Fein, Representations of direct products of finite groups . . . . . . . . . .                                             45
+John Brady Garnett, A topological characterization of Gleason parts . . . . . . .                                                   59
+Herbert Meyer Kamowitz, On operators whose spectrum lies on a circle or
+     a line . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    65
+Ignacy I. Kotlarski, On characterizing the gamma and the normal
+     distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        69
+Yu-Lee Lee, Topologies with the same class of homeomorphisms . . . . . . . . . .                                                     77
+Moshe Mangad, Asymptotic expansions of Fourier transforms and discrete
+     polyharmonic Green’s functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                            85
+Jürg Thomas Marti, On integro-differential equations in Banach spaces . . . .                                                        99
+Walter Philipp, Some metrical theorems in number theory . . . . . . . . . . . . . . . . .                                           109
+Maxwell Alexander Rosenlicht, Another proof of a theorem on rational
+     cross sections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         129
+Kenneth Allen Ross and Karl Robert Stromberg, Jessen’s theorem on
+     Riemann sums for locally compact groups . . . . . . . . . . . . . . . . . . . . . . . . . .                                    135
+Stephen Simons, A theorem on lattice ordered groups, results of Ptak,
+     Namioka and Banach, and a front-ended proof of Lebesgue’s
+     theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      149
+Morton Lincoln Slater, On the equation ϕ(x) = x x+1 K (ξ ) f [ϕ(ξ )]dξ . . . . .
+                                                                               R
+                                                                                                                                    155
+Arthur William John Stoddart, Existence of optimal controls . . . . . . . . . . . . . .                                             167
+Burnett Roland Toskey, A system of canonical forms for rings on a direct
+     sum of two infinite cyclic groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                        179
+Jerry Eugene Vaughan, A modification of Morita’s characterization of
+     dimension . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        189
+

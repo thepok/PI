@@ -1,0 +1,16 @@
+T152 finite replay (experiment, not proof)
+canonical sha256: cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+cover N=17 k=4 m=2: max_d=2 singleton_mass=3 endpoint=17/19
+cover N=31 k=7 m=6: max_d=6 singleton_mass=6 endpoint=35/36
+cover N=100 k=9 m=9: max_d=9 singleton_mass=8 endpoint=107/107
+constant: energies=[1600, 1600, 1600, 1600, 1600, 1600] bad_depths=6
+periodic p=3: energies=[534, 534, 534, 534, 534, 534] bad_depths=4
+deBruijn order=3: energies=[100000, 10000, 1000] bad_depths=0
+shared-prefix N=100 k=4: a=2 R=71 fixed=74 free=29 selected=[2, 3, 4]
+type identity: total=25 energy=125 ordered=125
+entropy-bound finite sweep m=2..10000: minimum_margin=0.748722186530
+constant N=1e16: k=4 type/saving=7.368300023468e-09 pure_c=1/200
+constant N=1e20: k=5 type/saving=1.029747718264e-11 pure_c=1/200
+constant N=1e40: k=10 type/saving=2.912565360092e-26 pure_c=1/200
+markers and claim firewall: PASS
+all finite replay checks: PASS

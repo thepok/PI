@@ -1,0 +1,8 @@
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+symbol_and_profile_checks=14838
+same_parity_recurrence_checks=1014
+exact_formula_and_drop_checks=64
+successor_identity_and_bound_checks=259
+minimal_scalar_closure_failure=(n=2,M=3,left=3,right=5)
+total_exact_checks=16175
+finite_replay_status=PASS (experiment; universal proof is REPORT.md)

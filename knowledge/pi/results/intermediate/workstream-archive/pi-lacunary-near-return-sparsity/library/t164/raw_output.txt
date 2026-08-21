@@ -1,0 +1,117 @@
+{
+  "aperiodic_examples": {
+    "Fibonacci": {
+      "N": 384,
+      "Q": 3,
+      "S": 2,
+      "S_t": 8,
+      "all_pairs_level_t": 4,
+      "c": "1/383",
+      "finite_validation": {
+        "declared_collision_check": {
+          "certified_energy_bound": 5595136,
+          "certified_integer_gap": 3,
+          "certified_maximum_occupancy_bound": 1366,
+          "distinct_factors": 769,
+          "m": 768,
+          "maximum_occupancy": 8,
+          "ordered_diagonal_inclusive_energy": 24418
+        },
+        "minimum_observed_gap_ratio": "21/53",
+        "minimum_ratio_witness": {
+          "distance": 21,
+          "factor": "01001010010010100101001001010010010100101001001010010",
+          "m": 53,
+          "starts": [
+            34,
+            55
+          ]
+        },
+        "starts_M": 4096,
+        "tested_m_range": [
+          1,
+          64
+        ]
+      },
+      "length_two_language": [
+        "00",
+        "01",
+        "10"
+      ],
+      "named_fixed_point": "sigma^omega(0)",
+      "primitive_exponent_e": 2,
+      "r": 16,
+      "substitution": {
+        "0": "01",
+        "1": "0"
+      }
+    },
+    "Thue-Morse": {
+      "N": 256,
+      "Q": 2,
+      "S": 2,
+      "S_t": 8,
+      "all_pairs_level_t": 3,
+      "c": "1/255",
+      "finite_validation": {
+        "declared_collision_check": {
+          "certified_energy_bound": 5595136,
+          "certified_integer_gap": 3,
+          "certified_maximum_occupancy_bound": 1366,
+          "distinct_factors": 1534,
+          "m": 512,
+          "maximum_occupancy": 6,
+          "ordered_diagonal_inclusive_energy": 11294
+        },
+        "minimum_observed_gap_ratio": "1/1",
+        "minimum_ratio_witness": {
+          "distance": 1,
+          "factor": "1",
+          "m": 1,
+          "starts": [
+            1,
+            2
+          ]
+        },
+        "starts_M": 4096,
+        "tested_m_range": [
+          1,
+          64
+        ]
+      },
+      "length_two_language": [
+        "00",
+        "01",
+        "10",
+        "11"
+      ],
+      "named_fixed_point": "sigma^omega(0)",
+      "primitive_exponent_e": 1,
+      "r": 16,
+      "substitution": {
+        "0": "01",
+        "1": "10"
+      }
+    }
+  },
+  "canonical_sha256": "cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8",
+  "label": "experiment: exact finite validation only",
+  "periodic_control": {
+    "counterexample": {
+      "distance": 2,
+      "exact_inequality": "2 < (1/10)*21 = 21/10",
+      "factor": "010101010101010101010",
+      "m": 21,
+      "starts": [
+        0,
+        2
+      ]
+    },
+    "named_fixed_point": "(01)^omega",
+    "proposed_c": "1/10",
+    "substitution": {
+      "0": "01",
+      "1": "01"
+    }
+  }
+}

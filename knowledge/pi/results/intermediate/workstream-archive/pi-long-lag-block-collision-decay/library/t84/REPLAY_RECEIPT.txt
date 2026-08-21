@@ -1,0 +1,22 @@
+T84 replay receipt
+
+Reference generation command:
+python3 replay.py --generate
+
+Reference generation stdout:
+generation passed in 146.30s
+
+Independent full replay command:
+python3 replay.py --verify
+
+Independent full replay stdout:
+full verification passed in 79.38s
+
+Independent full replay stderr: empty
+Direct shell exit code: 0
+
+Quick hash check command:
+python3 replay.py --quick
+
+Quick hash check stdout:
+quick verification passed in 0.02s

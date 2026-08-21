@@ -1,0 +1,16 @@
+T115 deterministic replay: PASS
+verified fixed hashes: 9
+primary sources: 4 <= 10
+retained candidates: 1 <= 3
+finite decimal-ray recursion checks: PASS
+T67 shell and weight checks: PASS
+screened period-doubling recurrence: PASS
+T107 theta=1/2 thresholds:
+  ell=1: 1.166633381748e-03
+  ell=2: 2.691994631466e-04
+  ell=3: 6.698460704497e-05
+  ell=4: 1.745792751087e-05
+  ell=5: 4.694769350791e-06
+  ell=6: 1.291361910413e-06
+unique terminal verdict and zero successors: PASS
+scope: experiment; no pi, C1, or C2 claim

@@ -1,0 +1,12 @@
+T132 self-contained replay
+hashes: ok (9 pinned inputs)
+caps and scope markers: ok
+S5 author and PDF-page locator: ok
+prior comparator bundle: ok
+half-open endpoint convention: ok
+floor/carry and power-of-ten projection identities: ok
+weighted multiplicity, ordered pairs, diagonal, C<=E_q: ok
+factor-three near-return comparison: ok
+C-MEET strict gain: C=22, G=38, min=44, average=47
+parameter screen: ok (A=2,m=3,N=120,q=40,Delta=300)
+all T132 replay checks passed

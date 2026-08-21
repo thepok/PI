@@ -1,0 +1,949 @@
+                                            Some negative results related to Poissonian pair
+                                                        correlation problems
+arXiv:1803.05236v2 [math.NT] 19 Mar 2018
+
+
+
+
+                                                            Gerhard Larcher ∗ , Wolfgang Stockinger †
+
+
+                                                                                  Abstract
+                                                     We say that a sequence (xn )n∈N in [0, 1) has Poissonian pair correla-
+                                                 tions if
+                                                                 1 n                                   so
+                                                            lim    # 1 ≤ l 6= m ≤ N : kxl − xm k ≤         = 2s
+                                                           N →∞ N                                      N
+                                                 for every s ≥ 0. The aim of this article is twofold. First, we will establish
+                                                 a gap theorem which allows to deduce that a sequence (xn )n∈N of real
+                                                 numbers in [0, 1) having a certain weak gap structure, cannot have Pois-
+                                                 sonian pair correlations. This result covers a broad class of sequences,
+                                                 e.g., Kronecker sequences, the van der Corput sequence and in more gen-
+                                                 eral LS-sequences of points and digital (t, 1)-sequences. Additionally, this
+                                                 theorem enables us to derive negative pair correlation properties for se-
+                                                 quences of the form ({an α})n∈N , where (an )n∈N is a strictly increasing
+                                                 sequence of integers with maximal order of additive energy, a notion that
+                                                 plays an important role in many fields, e.g., additive combinatorics, and is
+                                                 strongly connected to Poissonian pair correlation problems. These state-
+                                                 ments are not only metrical results, but hold for all possible choices of
+                                                 α.
+                                                     Second, in this note we study the pair correlation statistics for se-
+                                                 quences of the form, xn = {bn α}, n = 1, 2, 3, . . ., with an integer b ≥ 2,
+                                                 where we choose α as the Stoneham number and as an infinite de Bruijn
+                                                 word. We will prove that both instances fail to have the Poissonian prop-
+                                                 erty. Throughout this article {·} denotes the fractional part of a real
+                                                 number.
+
+
+                                           1     Introduction and statement of main results
+                                           The concept of Poissonian pair correlations has its origin in quantum mechan-
+                                           ics, where the spacings of energy levels of integrable systems were studied. See
+                                               ∗ The author is supported by the Austrian Science Fund (FWF), Project F5507-N26, which
+
+                                           is a part of the Special Research Program Quasi-Monte Carlo Methods: Theory and Applica-
+                                           tions and Project I1751-N26.
+                                               † The author is supported by the Austrian Science Fund (FWF), Project F5507-N26, which
+
+                                           is a part of the Special Research Program Quasi-Monte Carlo Methods: Theory and Applica-
+                                           tions.
+
+
+                                                                                       1
+for example [1] and the references cited therein for detailed information on that
+topic. Rudnik and Sarnak first studied this concept from a purely mathematical
+point of view and over the years the topic has attracted wide attention, see e.g.,
+[13, 21, 24, 25, 26].
+
+    Let k · k denote the distance to the nearest integer. A sequence (xn )n∈N
+of real numbers in [0, 1) has Poissonian pair correlations if the pair correlation
+statistics
+                          1 n                                   so
+               FN (s) := # 1 ≤ l 6= m ≤ N : kxl − xm k ≤                       (1)
+                         N                                     N
+tends to 2s, for every s ≥ 0, as N → ∞.
+
+    Recently, Aistleitner, Larcher, Lewko and Bourgain (see [2]) could give a
+strong link between the concept of Poissonian pair correlations and the additive
+energy of a finite set of integers, a notion that plays an important role in many
+mathematical fields, e.g., in additive combinatorics. To be precise, for a finite
+set A of reals the additive energy E(A) is defined as
+                                            X
+                                E(A) :=           1,
+                                          a+b=c+d
+
+where the sum is extended over all quadruples (a, b, c, d) ∈ A4 . Roughly speak-
+ing, it was proved in [2] that if the first N elements of an increasing sequence of
+distinct integers (an )n∈N , have an arbitrarily small energy saving, then ({an α})n∈N
+has Poissonian pair correlations for almost all α. In this paper the authors also
+raised the question if ({an α})n∈N , where (an ) is an increasing sequence of dis-
+tinct integers with maximal order of additive energy, can have Poissonian pair
+correlations for almost all α. Jean Bourgain could show that the answer to this
+question is negative, i.e., he proved:
+Theorem A (in [2]) If E(AN ) = Ω(N 3 ), where AN denotes the first N ele-
+ments of (an )n∈N , then there exists a subset of [0, 1] of positive measure such that
+for every α from this set the pair correlations of ({an α})n∈N are not Poissonian.
+Recently, the result of Bourgain has been further extended, see [1, 16, 17, 18].
+The result given in [17] is an easy consequence of our Theorem 1 stated below
+and will be shown in Section 2. Further, see [4, 7] for (negative) results and
+discussions concerning a Khintchine type criterion which fully characterizes the
+metric pair correlation property in terms of the additive energy.
+
+    Due to a result by Grepstad and Larcher [12] (see also [3, 28]), we know that
+a sequence which satisfies that (1) tends to 2s, for every s ≥ 0, as N → ∞, is
+also uniformly distributed in [0, 1), i.e., it satisfies
+                        1
+                    lim   #{1 ≤ n ≤ N : xn ∈ [a, b)} = b − a
+                   N →∞ N
+
+for all 0 ≤ a < b ≤ 1. Note that the other direction is not necessarily correct.
+For instance the Kronecker sequence ({nα})n∈N is uniformly distributed modulo
+
+
+                                          2
+1 for irrational α, but does not have Poissonian pair correlations for any real α;
+a fact that easily follows from continued fractions arguments. In earlier papers
+(see e.g., [2, 26]) this fact was argued to be an immediate consequence of the
+Three Gap Theorem [27]. The Three Gap Theorem, roughly speaking, states
+that the Kronecker sequence always has at most three distinct distances between
+nearest sequence elements. Nonetheless – at least for us – it is not immediately
+clear that we can deduce from this fact that ({nα})n∈N is not Poissonian for any
+α. Therefore, we will prove the following very general result concerning the link
+between Poissonian pair correlations and a certain gap structure of a sequence
+in the unit interval. In the next section, we will present some applications of
+this Theorem 1.
+Theorem 1 Let (xn )n∈N be a sequence in [0, 1) with the following property:
+There is an s ∈ N, positive real numbers K and γ, and infinitely many N such
+that the point set x1 , . . . , xN has a subset with M ≥ γN elements, denoted by
+xj1 , . . . , xjM , which are contained in a set of points with cardinality at most KN
+having at most s different distances between neighbouring sequence elements, so-
+called gaps. Then, (xn )n∈N does not have Poissonian pair correlations.
+Poissonian pair correlation is a typical property of a sequence. Random se-
+quences, i.e., almost all sequences, have the Poissonian pair correlation prop-
+erty. Nevertheless, it seems to be extremely difficult to give explicit
+                                                                √       examples of
+sequences with Poissonian pair correlations. We note that ({ n})n∈N has Pois-
+sonian pair correlations, [19] (see [20] for another explicit construction). Apart
+from that – to our best knowledge – no other explicit examples are known.
+Especially, until now we do not know any single explicit construction of a real
+number α such that the sequence of the form ({an α})n∈N has Poissonian pair
+correlations.
+
+    We recall that the sequence ({bn α})n∈N , for an integer b ≥ 2, has the Poisso-
+nian property for almost all α. Moreover we know that the sequence ({bn α})n∈N
+is uniformly distributed modulo 1 if and only if α is normal in base b, see e.g.,
+[15]. If we want to investigate, whether the distribution of the pair correlations
+for some explicit given sequence is Poissonian, the sequence has to be uniformly
+distributed modulo 1. Therefore, if we study the distribution of the spacings
+between the sequence elements of ({bn α})n∈N , the only reasonable choice for
+α is a b-normal number. In [23], the sequence ({2n α})n∈N was studied for the
+Champernowne constant α and it was shown that it is not Poissonian. In this
+note we will choose two other special instances, which were suggested by Yann
+Bugeaud as potential candidates in personal communication. First, we will
+consider so-called infinite de Bruijn words.
+Definition 1 A (non cyclic) de Bruijn word of order m over an alphabet A is
+a word of length |A|m + m − 1 such that every word of length m occurs in it
+exactly once.
+Definition 2 An infinite de Bruijn word w = a1 a2 . . . in an alphabet of at least
+three symbols is an infinite word such that, for every m, a1 . . . a|A|m +m−1 is a
+
+
+                                          3
+de Bruijn word of order m. In case the alphabet has two symbols, an infinite de
+Bruijn word w = a1 a2 . . . is such that, for every odd m, a1 . . . a|A|m +m−1 is a
+de Bruijn word of order m.
+
+It is known that infinite de Bruijn words are normal, see, e.g., [30]. We will
+prove the following theorem.
+Theorem 2 The sequence ({bn α})n∈N , b ≥ 2, where α = 0.a1 a2 . . . and a1 a2 . . .
+is an infinite de Bruijn word, does not have Poissonian pair correlations.
+
+For further properties of de Bruijn words, we refer the reader to [6, 8].
+
+    As a second instance, we study the Stoneham number
+                                         ∞
+                                         X       1
+                               α2,3 :=                  ,
+                                         m=1
+                                               3m 23m
+
+which is known to be 2-normal, see, e.g., [29]. Again, we obtain a negative
+result.
+Theorem 3 The sequence ({2n α2,3 })n∈N does not have Poissonian pair corre-
+lations.
+
+
+2    Applications of Theorem 1
+Theorem 1 immediately allows us to deduce that Kronecker sequences, due to
+the Three Gap Theorem, the classical van der Corput sequence and in more
+general, sequences which have a not too small intersection with these sequences,
+do not have Poissonian pair correlations. In the following, we give three further
+examples of classes of sequences for which Theorem 1 can be applied.
+
+Example 1: LS-sequences
+
+Our presentation follows the steps of [32] (see also, [14, 31]).
+
+Definition 3 Let ρ denote a non-trivial partition of [0, 1). Then the ρ-refinement
+of a partition π of [0, 1), denoted by ρπ, is defined by subdividing all intervals
+of maximal length positively homothetically to ρ.
+This partitioning procedure results in a sequence of partitions abbreviated by
+(ρn π)n∈N . Now, we are in the position to define so-called LS-sequences of
+partitions and LS-sequences of points, introduced in [10].
+Definition 4 Let L ∈ N, S ∈ N0 , L+S ≥ 2 and β be the solution of Lβ+Sβ 2 =
+1. An LS-sequence of partitions (ρnL,S π)n∈N is the successive ρ-refinement of the
+trivial partition π = {[0, 1)} where ρL,S consists of L + S intervals such that the
+first L intervals have length β and the successive S intervals have length β 2 .
+
+
+                                          4
+Definition 5 Given an LS-sequence of partitions (ρnL,S π)n∈N , the correspond-
+                                   n
+ing LS-sequence of points (ξL,S       )n∈N is defined as follows: let Λ1L,S be the first
+t1 left endpoints of the partition ρL,S π ordered by magnitude. Given ΛnL,S =
+                 tn
+  1
+{ξL,S , . . . , ξL,S } an ordering of Λn+1
+                                       L,S is inductively defined as
+
+                          tn
+  Λn+1     1
+   L,S = {ξL,S , . . . , ξL,S ,
+              n+1 1                 n+1 ln                n+1 1                 n+1 ln
+             ψ1,0 (ξL,S ), . . . , ψ1,0 (ξL,S ), . . . , ψL,0 (ξL,S ), . . . , ψL,0 (ξL,S ),
+              n+1 1                 n+1 ln                n+1     1               n+1     ln
+             ψL,1 (ξL,S ), . . . , ψL,1 (ξL,S ), . . . , ψL,S−1 (ξL,S ), . . . , ψL,S−1 (ξL,S )},
+       n
+where ψi,j = x + iβ n + jβ n+1 ,         x ∈ R.
+
+Due to the definition of a LS-sequence of partitions, we see that there are only
+two distinct gap lengths which are of the form β n and β n+1 , n ∈ N. Therefore,
+due to Theorem 1, we obtain the following corollaries.
+Corollary 1 LS-sequences of points do not have Poissonian pair correlations.
+
+Corollary 2 Let (xn )n∈N be a sequence in [0, 1) with the following property:
+There is a constant κ > 0, a sequence N1 < N2 , . . . , of positive integers and for
+                                 (i)
+each Ni , i ≥ 1, a LS-sequence (yn )n∈N such that
+                                                (i)        (i)
+                       |{x1 , . . . , xNi } ∩ {y1 , . . . , yNi }| ≥ κNi ,
+
+then (xn )n∈N does not have Poissonian pair correlations.
+
+Note that for S = 0 and L = b, we get the classical van der Corput sequence.
+
+Example 2: Quasi-arithmetic sequences of degree 1
+
+As a second application of Theorem 2, we illustrate that we can recover a recent
+result by Larcher [17] which extends Theorem A of Bourgain, mentioned in the
+introduction, for a special class of sequences. First, we need the definition of
+so-called quasi-arithmetic sequences of degree d, see [1, 17].
+Definition 6 Let (an )n∈N be a strictly increasing sequence of positive integers.
+We call this sequence quasi-arithmetic of degree d, where d is a positive integer,
+if there exist constants C, K > 0 and a strictly increasing sequence (Ni )i∈N of
+positive integers such that for all i ≥ 1 there is a subset A(i) ⊂ (an )1≤n≤Ni
+with |A(i) | ≥ CNi such that A(i) is contained in a d-dimensional arithmetic
+progression P (i) of size at most KNi .
+Further, it is known (see [1] for a proof) that a strictly increasing sequence
+(an )n∈N of positive integers is quasi-arithmetic of some degree d if and only
+if E(AN ) = Ω(N 3 ). Therefore, studying the pair correlations of sequences
+with maximal order of additive energy amounts to investigating quasi-arithmetic
+sequences of some degree. Our Theorem 2 allows to recover the following result.
+
+
+                                                5
+Theorem B (Theorem 1 in [17]) If (an )n∈N is quasi-arithmetic of degree
+d = 1, then there is no α such that the pair correlations of ({an α})n∈N are
+Poissonian.
+To argue this, we note that for infinitely many N the set ({an α})n=1,...,N ,
+where (an )n∈N is quasi-arithmetic of degree d = 1, contains a subset of the
+form Sα := ({anj α})j=1,...,L , L ≥ cN , for some constant c > 0, where we have
+Sα ⊆ ({jα})j=1,...,M , M ≤ KN , for some constant K > 0. This means, for
+infinitely many N , there are subsets of ({an α})n=1,...,N which are contained in
+point sets having at most three distinct gaps.
+
+   We mention that due to a result of Lachmann and Technau ([16]), we can
+immediately deduce that for almost all α the pair correlations of ({an α})n∈N
+are not Poissonian, if (an )n∈N is a quasi-arithmetic sequence of degree d ≥ 2.
+
+    Recently, this result was further improved by the authors, who showed that
+there is no α such that the pair correlations of ({an α})n∈N are Poissonian, if
+(an )n∈N is quasi-arithmetic of degree d, for d ≥ 1 ([18]).
+
+Example 3: (t, 1)-sequences
+
+We will illustrate based on our results presented in the previous section that
+digital (t, 1)-sequences, introduced by H. Niederreiter [22], cannot have Poisso-
+nian pair correlations. For the definition and properties of (t, s)-sequences, we
+refer to [11]. We obtain the following corollaries:
+Corollary 3 A digital (t, 1)-sequence has the finite gap property for all N ∈ N.
+Hence, digital (t, 1)-sequences do not have Poissonian pair correlations.
+
+Proof Consider first a digital (0, 1)-sequence (yn )n∈N0 in base b ≥ 2. By defini-
+tion of a (0, 1)-sequence, we have that for any m ∈ N and any k ∈ N0 the point
+set
+                           P := {ykbm , . . . , ykbm +bm −1 }
+forms a (0, m, 1)-net in base b. I.e., we know that each elementary interval of
+length 1/bm contains exactly one point of P. Due to the digital method, i.e.,
+the construction method of digital (t, s)-sequences, the elements of P have the
+form
+                                   yn,1        yn,2         yn,m
+                              yn =        + 2 + ... + m ,
+                                     b           b           b
+where yn,1 , yn,2 . . . , yn,m ∈ {0, 1, . . . , b − 1} and n ∈ {kbm , . . . , kbm + bm − 1}.
+This is the result, when multiplying the generator matrix with a vector contain-
+ing the coefficients of the b-adic digit expansion of the integer n. Therefore, we
+can conclude that the distance between two neighbouring points of P is 1/bm .
+For a quality parameter t ≥ 1, every elementary interval of length 1/bm−t con-
+tains exactly bt point. In this case, due to the linear dependence of t + 1 rows
+of the generator matrix, our point set Pt contains only bm−t distinct points and
+each of those coincides with bt − 1 other points of Pt . Therefore, for quality
+
+
+                                             6
+parameters t ≥ 1, the distance between two neighbouring points of Pt is 1/bm−t .
+For bm−1 < N < bm , we note that there are three distinct gaps between neigh-
+bouring elements of the first N elements of some (t, 1)-sequence. I.e., we have
+the finite gap property for all N ∈ N.                                       
+Corollary 4 Let (xn )n∈N be a sequence in [0, 1) with the following property:
+There is a constant κ > 0, a sequence N1 < N2 , . . . , of positive integers and for
+                                             (i)
+each Ni , i ≥ 1, a digital (t, 1)-sequence (yn )n∈N such that
+                                             (i)        (i)
+                     |{x1 , . . . , xNi } ∩ {y1 , . . . , yNi }| ≥ κNi ,
+then (xn )n∈N does not have Poissonian pair correlations.
+Remark 1 We note that also general (not necessarily digital) (0, 1)-sequences
+in base b do not have Poissonian pair correlations. To see this, we consider
+the sequence of positive integers N1 = bm1 < N2 = bm2 < . . .. We now aim
+at counting the relative number of pairs of points having distance ≤ 1/Ni , for
+i = 1, 2, . . .. As every elementary interval of length 1/bmi = 1/Ni contains
+exactly one point, two non-neighbouring points have a distance > 1/Ni . Hence,
+we have                                                 
+                   1                                   1
+                     # 1 ≤ l 6= k ≤ Ni | kxl − xk k ≤      ≤ 2.
+                  Ni                                  Ni
+If Ni − o(Ni ) neighbouring points have an exact distance of 1/Ni for infinitely
+many i, we attain equality in the previous expression, as i → ∞. In this case
+though, we can use Theorem 1 to conclude that a (0, 1)-sequence is not Poisso-
+nian.
+
+    Another possibility to achieve equality in the pair correlation statistics is that
+Ni − o(Ni ) neighbouring points have a distance ≤ 1/Ni . In this case, we can
+choose s = 1/2 in the definition of the pair correlation function. I.e., in order
+to obtain
+                                                              
+                   1                                        1
+              lim     # 1 ≤ l 6= k ≤ Ni | kxl − xk k ≤            = 1,
+             i→∞ Ni                                        2Ni
+                                                                             1
+Ni − o(Ni ) ordered pairs of points need to have a distance smaller than 2N    i
+                                                                                 .
+                                                              1
+Thus, the length of (about) every second gap has to be ≤ 2Ni . Consequently,
+the lengths of the remaining gaps need to be ≥ 1/Ni . This, however, means
+that about Ni ordered pairs of points have a distance > 1/Ni (if O(Ni ) pairs
+have an exact distance of 1/Ni , we can again apply Theorem 1) and we get a
+contradiction if we choose s = 1 in the pair correlation function.
+We also strongly believe that general (t, 1)-sequences in base b, for a non-zero
+quality parameter t, fail to have Poissonian pair correlations.
+
+
+3     Proof of Theorem 1
+To us, it seems to be helpful to divide the proof of Theorem 1 into two steps.
+In the first step, we prove a weaker result which we formulate as Proposition 1
+
+
+                                             7
+below. In the second step, we prove the Theorem.
+Proposition 1 Let (xn )n∈N be a sequence in [0, 1) with the following prop-
+erty: There is an s ∈ N, a positive real number γ, and infinitely many N such
+that the point set x1 , . . . , xN has a subset with M ≥ γN elements, denoted
+by xj1 , . . . , xjM , which has at most s different distances between neighbouring
+sequence elements. Then, (xn )n∈N does not have Poissonian pair correlations.
+Proof of Proposition 1
+
+Let s be minimal with the property formulated in Proposition 1, then we can
+choose N1 < N2 < . . . such that for all i the set of points x1 , . . . , xNi has a
+subset of points xj (i) , . . . , xj (i) , Mi ≥ γNi , having exactly s gaps. In the se-
+                      1          Mi
+                          (i)
+quel we will write jk := jk , for all k = 1, . . . , Mi . For every i, we denote the
+                            (i)    (i)                (i)
+lengths of these gaps by d1 < d2 < . . . < ds . Let w1 , 0 ≤ w1 < s, be
+maximal such that the following holds: For all  > 0 there are infinitely many i
+            (i)
+such that dw1 ≤ /Mi ≤ /γNi . Then, we can choose the sequence (Ni )i∈N or
+                               (i)              (i)
+(Mi )i∈N such that limi→∞ Ni dw1 = limi→∞ Mi dw1 = 0. Therefore, there exists
+                      (i)
+an L1 > 0 such that dw1 +1 ≥ L1 /Mi ≥ L1 /Ni for all i large enough (w. l. o. g.
+we may choose (Ni ) or (Mi ) such that this holds for all i).
+
+    Now, let w2 , w1 < w2 ≤ s, be minimal with the following property: For all
+                                          (i)
+ > 0 there are infinitely many i with dw2 ≥ /Mi ≥ /Ni and consequently we
+                                                             (i)                (i)
+can choose w. l. o. g. (Ni ) or (Mi ) such that limi→∞ Ni dw2 = limi→∞ Mi dw2 =
+                                               (i)
+∞. Hence, there is an L2 > 0 such that dw2 −1 ≤ L2 /Mi ≤ L2 /γNi for all i
+large enough (w. l. o. g. we may choose (Ni ) or (Mi ) such that this holds for all i).
+
+   To sum up, we can choose (Ni ), (Mi ), w1 , w2 , L1 , L2 such that
+                (i)                                        (i)
+      lim Ni dj = 0 for j = 1, . . . , w1 and lim Ni dj = ∞ for j = w2 , . . . , s
+      i→∞                                      i→∞
+
+and
+                           (i)
+      L1 /Ni ≤ L1 /Mi ≤ dj ≤ L2 /Mi ≤ L2 /γNi , for j = w1 + 1, . . . , w2 − 1.
+
+Above equations also hold if Ni is replaced by Mi .
+          (i)                                        (i)                      (i)
+    Let lj denote the number of gaps of length dj . Clearly, limi→∞ lj /Mi = 0,
+for all j = w2 , . . . , s.
+
+Proof Part 1:
+                                                                              (i)
+   Let now j be such that w1 + 1 ≤ j ≤ w2 − 1. Assume that lj /Mi does
+                                                            (i)
+not tend to zero, i.e., there is a δ > 0 such that lj             > δMi ≥ δγNi for all i,
+            (i)
+i.e., also lj /Ni does not tend to zero.   We will show that in this case (xn )n∈N
+
+
+                                           8
+cannot have Poissonian pair correlations. We partition the interval [L1 , L2 /γ]
+into d2 L2 /γ−L
+            γδ
+               1
+                 e parts of equal length, i.e., the maximal length is at most γδ/2.
+There is one such subinterval [s1 , s2 /γ] with
+                             s1   s1    (i) s2    s2
+                                ≤    ≤ dj ≤    ≤     ,
+                             Ni   Mi        Mi   γNi
+                                                                   (i)
+for infinitely many i. Note that there are at least 2lj                  pairs of elements of
+                                    (i)
+xj1 , . . . , xjMi having distance dj . Hence,
+
+              #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤ s2 /γNi }
+               ≥ #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤ s2 /Mi }
+                                                                                  (i)
+               ≥ #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤ s1 /Mi } + 2lj
+                                                                                  (i)
+               ≥ #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤ s1 /Ni } + 2lj ,
+
+                                                      (i)
+and thus also Ni FNi (s2 /γ) ≥ Ni FNi (s1 ) + 2lj .
+
+       If the pair correlations of (xn )n∈N were Poissonian, then we had
+                                                                            (i)
+          2s2                                                   2lj
+              − 2s1 = lim FNi (s2 /γ) − lim FNi (s1 ) ≥ lim sup     ≥ 2γδ,
+           γ          i→∞              i→∞                i→∞    Ni
+
+which is a contradiction as we have s2 /γ − s1 < γδ.
+
+Proof Part 2:
+                                                             (i)                        (i)
+    We can deduce from Poissonianess that limi→∞ lj /Ni = limi→∞ lj /Mi =
+0, for all j = w1 + 1, . . . , s and therefore
+                                          (i)         (i)
+                                    l1 + . . . + lw1
+                                 lim                 = 1.
+                                i→∞      Mi
+          ˜              (i)              (i)
+We define ˜l := l(i) := lw1 +1 + . . . + ls and choose i large enough, such that
+ (i)    1
+dw1 ≤ 2M  i
+            ; a requirement that will be needed at a later step of the proof. Also
+           ˜
+note that ˜l = o(Mi ).
+                                                (i)
+    In the sequel, we will call distances dj for j = w1 +1, . . . , s ”large gaps” and
+                                                                                  ˜
+the remaining ones ”small gaps”. We will divide the unit interval in ˜l ≤ 2˜l + 1
+subintervals in the following manner: The largest possible union of neighbouring
+large gaps form an open interval and the largest possible union of neighbouring
+small gaps form an closed interval, as illustrated in Figure 1.
+
+
+
+
+                                                9
+Figure 1: The splitting of the unit interval into unions of small gaps and large
+gaps.
+
+                          ˜
+    We denote the l ≤ ˜l+1 closed intervals formed by the small gaps by J1 , . . . , Jl
+and their lengths by J1 , . . . , Jl . We partition each such interval Jj into bJj Mi c
+intervals of length 1/Mi . The intervals obtained by this splitting are denoted
+by K1 , . . . , Kn . The number of points of xj1 , . . . , xjMi , lying in Kj is denoted by
+                                                          (i)  1
+vj . As we have chosen i large enough, such that dw1 ≤ 2M        i
+                                                                   , most intervals Kj
+contain at least two points of xj1 , . . . , xjMi which have a distance ≤ 1/Mi and
+only l = o(Mi ) intervals contain only one point. Hence, for such intervals Kj
+containing at least two point, we get
+
+                                                                         1     vj2
+      #{l 6= m ∈ {j1 , . . . , jMi } : xl , xm ∈ Kj and kxl − xm k ≤        }≥
+                                                                         Mi    2
+and consequently
+                                                                    n
+                                                             1     X   ∗ vj2
+             #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤      }≥           ,
+                                                             Mi    j=1
+                                                                         2
+                         P∗
+where the summation             means that only intervals Kj containing at least two
+                                                                      ˜
+points of xj1 , . . . , xjMi are taken into account. Recall that both ˜l and l are of
+the form o(Mi ); i.e., all of the Mi points, except o(Mi ) many, are contained in
+the intervals Kj ). Therefore we have
+                 n
+                 X ∗
+                       vj ≥ Mi − o(Mi ) ≥ γNi − o(Ni ),
+                 j=1
+
+                 n ≤ Mi (J1 + . . . + Jl ) + l ≤ Ni (J1 + . . . + Jl ) + l,
+
+
+and consequently we obtain employing the Cauchy-Schwarz inequality and the
+                                (i)
+fact that J1 + . . . + Jl ≤ Mi dw1 → 0, as i → ∞,
+     1             1                                            1
+       FNi (1/γ) ≥    #{1 ≤ l 6= m ≤ Ni : kxl − xm k ≤             }
+     γ             Mi                                         γNi
+                   1                                                 1
+                 ≥    #{l 6= m ∈ {j1 , . . . , jMi } : kxl − xm k ≤     }
+                   Mi                                                Mi
+                       n                                 2
+                   1 X∗ vj2
+                                    
+                                 n Mi − o(Mi )
+                 ≥            ≥
+                   Mi j=1 2      Mi             n
+
+
+
+                                            10
+                                 1              (Mi − o(Mi ))2
+                  ≥                                            → ∞,                i → ∞.
+                      Mi (J1 + . . . + Jl ) + l      Mi
+
+This allows us to deduce that (xn )n∈N cannot have Poissonian pair correlations,
+and proves Proposition 1.                                                     
+
+Proof of Theorem 1
+
+The set of points xj1 , . . . , xjM (recall that M ≥ γN ) is contained in the set
+{z1 , . . . , zKN }, where this set of points has exactly s distinct gaps. In the se-
+quel, we put K = 1. The general case is treated quite similarly. We again denote
+the gaps by d1 < . . . < ds . Hence, the gaps between the points xj1 , . . . , xjM
+have the form
+
+            K1 d1 + K2 d2 + . . . + Ks ds , where K1 , K2 , . . . , Ks ∈ N0 .
+
+The number of gaps of the form K1 d1 + K2 d2 + . . . + Ks ds is denoted by
+lK1 ,K2 ,...,Ks . Note that we have
+                               X
+                                    lK1 ,K2 ,...,Ks ≥ γN − 1.           (2)
+                        K1 ,K2 ,...,Ks ≥0
+
+Further, the following equality holds:
+                   X
+                          (K1 + K2 + . . . + Ks )lK1 ,K2 ,...,Ks = N.
+              K1 ,K2 ,...,Ks ≥0
+
+To see this, we note that a gap of the form K1 d1 + K2 d2 + . . . + Ks ds comprises
+K1 + K2 + . . . + Ks points of the original set {z1 , . . . , zN }.
+
+   If all lK1 ,K2 ,...,Ks , with K1 + K2 + . . . + Ks ≤ su, where u = 2/γ, would be
+                                 s+1
+smaller than 0 N , 0 := 2γs+1 ss , we had
+                 X
+  N≥                            (K1 + K2 + . . . + Ks )lK1 ,K2 ,...,Ks
+          K1 ,K2 ,...,Ks ≥0,
+       K1 +K2 +...+Ks ≥su+1
+                          X
+     ≥(su + 1)                           lK1 ,K2 ,...,Ks
+                    K1 ,K2 ,...,Ks ≥0,
+                 K1 +K2 +...+Ks ≥su+1
+
+                                                           2s ss γ s+1
+                                                                           
+                                                                                2s       2s
+     ≥ (γN − 1 − (su)s 0 N ) su =          γN − 1 −                    N          = sN − ,
+                                                            γ s 2s+1 ss         γ        γ
+which is a contradiction. We can conclude:
+
+Result I:
+There exist indices K1 , K2 , . . . , Ks , with K1 + K2 + . . . + Ks ≤ su, such that
+lK1 ,K2 ,...,Ks ≥ 0 N , i.e., we have a gap of the form K1 d1 + K2 d2 + . . . + Ks ds
+amongst the set of points xj1 , . . . , xjM which appears at least 0 N many times.
+
+
+                                              11
+Result II:
+If instead of (2) we had the slightly different condition
+                           X          X
+                                           lK1 ,K2 ,...,Ks ≥ τ N                                (3)
+                       K1 ,K2 ,...,Ks−1 ≥0 Ks ≥1
+
+for some τ > 0, then we can show in complete analogy to Result I, that there
+exist indices K1 , K2 , . . . , Ks−1 ≥ 0 and Ks ≥ 1, with K1 + K2 + . . . + Ks ≤ su,
+such that lK1 ,K2 ,...,Ks ≥ 1 N , where 1 = 1 (τ ) > 0. Of course, the role of Ks
+in the sum (3) could be interchanged with any other Kj , for j = 1, . . . , s − 1.
+                                                 (i)
+    We consider now the sequences (dj )i∈N , for j = 1, . . . , s and distinguish the
+following cases. First, note that there do not exist subsequences (ik )k∈N , such
+          (i )             (i )
+that Nik dj k → 0 or Nik dj k → ∞, as k → ∞, for all j = 1, . . . , s.
+   1. Assume that there exists a subsequence (ik ) (w. l. o. g., we assume in the
+                                         (i)
+      sequel (ik ) = (i)), such that Ni dj is bounded from below and above, for
+                                  (i)
+      j = 1, . . . , w1 , and Ni dj → ∞, as i → ∞, for j = w1 + 1, . . . , s. We know
+                                                                     (i)
+      due to Result I that for each i there exist Kj , j = 1, . . . , s, such that the
+                                  (i) (i)                  (i) (i)
+      gap of length gi = K1 d1 + . . . + Ks ds appears at least 0 Ni times.
+      Consequently gi 0 Ni ≤ 1. Therefore,
+
+                            (i)    (i)                                        1
+                        Kw1 +1 dw1 +1 + . . . + Ks(i) d(i)
+                                                       s ≤ gi ≤                   ,
+                                                                            0 Ni
+      and finally
+
+                      (i)                                   1
+                    Kw1 +1 + . . . + Ks(i) ≤                 (i)
+                                                                       → 0, as i → ∞,
+                                                       0 Ni dw1 +1
+                                         (i)
+      which implies that all Kj                = 0, j = w1 + 1, . . . , s, for i large enough.
+                                                                                      (i) (i)
+      I.e., for a sufficiently large i there exists a gap of the form K1 d1 + . . . +
+         (i) (i)
+      Kw1 dw1 , which appears at least 0 Ni times. Due to this consideration, we
+      can conclude that gi Ni is bounded from above and below and therefore
+      the strategies of Proof Part 1 of Proposition 1 are applicable.
+
+            (i)
+   2. If Ni dj is bounded from above and below for all j = 1, . . . , s, then, due
+      to Result I, we can immediately apply Proof Part 1 of Proposition 1.
+
+
+   3. Assume now
+                                         (i)
+                            lim Ni dj = 0, for j = 1, . . . , w1 and
+                            i→∞
+                                         (i)
+                            lim Ni dj = ∞, for j = w1 + 1, . . . , s.
+                            i→∞
+
+
+                                                   12
+       This implies that for all  > 0 the number of gaps amongst the set of points
+       xj1 , . . . , xjM of length ≥  N1i is, as i → ∞, of order o(Ni ) (otherwise more
+       than Ni points of {z1 , . . . , zNi } have to be removed to obtain Ω(Ni ) many
+       intervals of length ≥  N1i ). Thus, it is admissible to apply Proof Part 2 of
+       Proposition 1.
+                               (i)                                   (i)
+    4. Assume limi→∞ Ni dj = 0, for j = 1, . . . , w1 and Ni dj is bounded from
+       above and below, for j = w1 + 1, . . . , s. If the number of gaps with length
+        (i)
+       dj , for all j = w1 + 1, . . . , s, is of order o(Ni ), then we argue as in Case 3.
+                                                                              (i)
+       Assume, w. l. o. g., that the number of the gaps with length ds is ≥ τ Ni ,
+       for all i, for some τ > 0. Then, condition (3) is satisfied and we can ap-
+       ply Result II in order to finally proceed as in Proof Part 1 of Proposition 1.
+
+
+    5. Finally, we consider the case
+                (i)                                           (i)
+        lim Ni dj = 0, for j = 1, . . . , w1 and lim Ni dj = ∞, for j = w2 , . . . , s,
+       i→∞                                            i→∞
+
+                (i)
+       and Ni dj is bounded from above and below for j = w1 + 1, . . . , w2 − 1.
+       Combining the Cases 1, 3 and 4, allows to deduce the Theorem in this
+       case as well.                                                          
+
+
+4      Proof of Theorem 2
+Proof We investigate the pair correlations of the sequence xn := {3n α}, n =
+1, 2, . . ., where α = 0.a1 a2 . . . and a1 a2 . . . is an infinite de Bruijn word. For
+simplicity, we consider the alphabet A = {0, 1, 2} and set s = 2 and N = 3m
+in (1). If the first m digits of two distinct sequence elements xl , xk match, then
+their distance is less than 2/N . Since the string a1 . . . a3m +m−1 , contains by
+the definition of a de Bruijn word, every word of length m exactly once, this
+case cannot occur. Let us now consider words starting with blocks of the form
+a1 . . . aj 20 . . . 0 and a1 . . . aj 12 . . . 2. The resulting pairs of sequence elements,
+|         {z         }     |         {z         }
+     m digits              m digits
+denoted by xk and xl , have a distance less than 2/N , as
+                                1    2     2            2  2
+                kxk − xl k ≤      + m+1 + m+2 + . . . ≤ m = .
+                               3m  3     3             3   N
+Here, we obtain at most (summing over all possible positions for j)
+                                         m−1
+                                         X
+                                     2         3j = −3 + 3m
+                                         j=1
+
+pairs with distance less than 2/N . To see this, we mention that for a fixed j
+there are 3j possible choices for the word a1 . . . aj . As we are considering or-
+dered pairs the factor 2 in front of the sum is necessary. Another possibility
+
+
+                                                 13
+which yields pairs with a prescribed distance, is to consider words which have
+starting blocks of the form a1 . . . aj 10 . . . 0 and a1 . . . aj 02 . . . 2. Again, also in
+                            |         {z         }     |         {z         }
+                                     m digits                  m digits
+this case, we obtain 3m − 3 ordered pairs with distance less than 2/N . Finally,
+consider words of the form a1 . . . am−1 2 c1 c2 c3 . . . and a1 . . . am−1 0 d1 d2 d3 . . .,
+                                      |   {z    }                |    {z     }
+with d1 d2 d3 . . . > c1 c2 c3 . . .. Here, we get 3m−1 2 possible pairs. All these pairs
+have a distance less than 2/3m , due to the carry caused by the requirement
+d1 d2 d3 . . . > c1 c2 c3 . . ..
+
+Above cases show that there are at most 2(3m + 3m−1 − 3) pairs having a
+distance less than 2/N . We therefore have for the pair correlation statistics
+
+                                 lim FN (2) ≤ 8/3 < 2s.
+                                N →∞
+
+Note that the amount of pairs with distance > 1 − 2/N is negligible; the only
+possible structure for two words achieving this distance is a1 . . . am = 2 . . . 2 and
+ã1 . . . ãm = 0 . . . 0.                                                            
+
+
+5     Proof of Theorem 3
+Proof We define the sequence xn := {2n α2,3 }, n = 0, 1, 2, . . .. We have
+                        ( blog nc     m
+                                                      )           ∞             m
+            n
+                            X 3
+                                  2n−3      mod 3m                X          2n−3
+          {2 α2,3 } =                                     +                       .
+                           m=1
+                                          3m                                  3m
+                                                              m=blog3 nc+1
+
+For the first term of the above expression, it is known that it can be expressed
+by the recursion z0 = 0, and for n ≥ 1, zn = {2zn−1 + rn }, where rn = 1/n if
+n = 3k for some integer k, and zero otherwise. Moreover, it can be proven that
+if n < 3q+1 , for some integer q, then zn is a multiple of 1/3q and appears ex-
+actly three times amongst the elements z0 , . . . , z3q+1 −1 . To be more precise, the
+sequence elements zn (appearing three times) have the form j/3q̃ , where q̃ ≤ q
+and gcd(j, 3) = 1. For details on this description, see, e.g., [5, 9]. We choose
+N = 2w , for some integer w and s = 1 in the definition of the pair correlation
+statistics. Let the integer l be chosen in such a way that 3l < N = 2w < 3l+1 .
+First, we give some additional information on the distribution of the sequence
+zn in the unit interval.
+
+    Assume, we are given an interval [c, d), where c = 0.y1 y2 y3 . . . yw , with
+yi ∈ {0, 1} for i = 1, . . . , w, and d is the next largest binary fraction of length w,
+such that d − c = 2−w . It follows that the sequence elements zn (for n < N ), are
+multiples of 1/3l . Further, note that the interval [c, d) has length 1/2w = 1/N .
+Therefore, it contains at most b3l 2−w c + 1 = 1 integer multiples of 1/3l , i.e.,
+either 3 elements of the sequence zn are contained in the interval [c, d) or no ele-
+ment at all. These considerations suggest that two sequence elements {2n1 α2,3 },
+
+
+                                             14
+{2n2 α2,3 } with zn1 = zn2 have small distance (at least most of them), i.e., dis-
+tance less than 1/N and those with zn1 6= zn2 a distance larger than 1/N . In
+the sequel, if we use the expression ”most of the elements”, we mean all such
+elements except o(N ) many.
+
+   Consider now the difference between two sequence elements {2n1 α2,3 },
+  n2
+{2 α2,3 }, with n1 6= n2 < N . We have
+                                              ∞                     m                 ∞                m
+                                              X            2n1 −3                     X           2n2 −3
+{2n1 α2,3 }−{2n2 α2,3 } = zn1 −zn2 +                              −                                      .
+                                                             3m                                     3m
+                                        m=blog3 n1 c+1                           m=blog3 n2 c+1
+
+First, we demonstrate that indeed most of the sequence elements with a common
+value for zn have a small distance. Since by a basic property of the Eulerian
+totient function, we know that there are indices
+
+                         ni ≤ 3l − 2(3l−1 − 3l−2 ) = 3l − 3l−2 2,
+
+such that zni = zni +3l−1 −3l−2 = zni +2(3l−1 −3l−2 ) (recall that the nominators of
+the elements of the sequence zn are relatively prime to the denominators). The
+difference between the sequence elements xni and xni +3l−1 −3l−2 can therefore
+be expressed by (similar for the other two differences)
+                                ∞                 m
+                                X           2ni −3                l−2
+                                                                             
+                     |                                    1 − 23         2
+                                                                                 |,
+                                              3m
+                         m=blog3 ni c + 1
+                            |     {z    }
+                                   =l
+
+
+which is less than 1/N for most values of ni . Therefore, we roughly estimate
+the number of pairs (xni , xnj ) (for indices ni , nj ≤ 3l ) with distance < 1/N
+from above by 3l−1 6 = 3l 2 < 2w+1 . To see this, we note that we have, for
+indices ni , nj , nk ≤ 3l , at most 3l−1 triples (xni , xnj , xnk ), where each such
+triple yields 6 ordered pairs with distance < 1/N . If the sequence elements xn ,
+3l < n < 2w , have distance > 1/N from each other, we immediately get that the
+pair correlation statistics satisfies FN (1) < 2w+1 /2w = 2 (note that for now we
+have assumed that two distinct sequence elements xn1 and xn2 , with zn1 6= zn2
+and 0 ≤ n1 6= n2 < N , do have a distance > 1/N (at least, in some sense,
+most of them)). Let us now consider the case that we get additional 3l−1 6 pairs
+due to the sequence elements with indices > 3l . This means that 3l 2 < 2w and
+consequently
+                                 3l 2 + 3l−1 6   3l (2 + 2)
+                       FN (1) ≤                =            < 2.
+                                      2w             2w
+    It remains to show that two distinct sequence elements xn1 and xn2 , with
+zn1 6= zn2 and 0 ≤ n1 6= n2 < N , do have a distance > 1/N (at least, in
+some sense, most of them). Succeeding in showing this fact, would allow us to
+conclude that the Stoneham number is not Poissonian. We know that
+                                c1    c2    1
+            |zn1 − zn2 | =          − l2 = l2 (c̃1 − c2 ) ≥ 1/3l > 1/N,
+                                3l1  3     3
+
+                                             15
+where c1 is relatively prime to 3l1 and c2 to 3l2 . In the sequel, we assume
+zn1 > zn2 . If
+                    ∞                    m            ∞                m
+                    X           2n1 −3                X           2n2 −3
+                                             −                             ≥ 0,
+                                  3m                                3m
+               m=blog3 n1 c+1                    m=blog3 n2 c+1
+
+then we are done.
+In case this expression is negative, we use the following argument. The first
+summand of
+                          ∞             m     ∞           m
+                         X        2n2 −3     X      2n2 −3
+                                          =
+                                    3m                3m
+                    m=blog3 n2 c+1                     m=l2 +1
+
+is
+                                                 1
+                                             l +1         .
+                                    3l2 +1 23 2 −n2
+If c̃1 − c2 ≥ 2, 3l2 +1 − n2 ≥ 1, then we have |xn1 − xn2 | > 1/2w . It remains
+to check the case that c̃1 − c2 = 1 and 3l2 +1 − n2 = 1. This might yield pairs
+with distance less than 1/N , but at most 2l = O(ln N ) pairs, i.e., a negligible
+number if we consider the relative amount.                                     
+
+
+References
+ [1] I. Aichinger, C. Aistleitner and G. Larcher, On Quasi-Energy-Spectra, Pair
+     Correlations of Sequences and Additive Combinatorics, Celebration of the
+     80th birthday of Ian Sloan (J. Dick, F. Y. Kuo, H. Woźniakowski, eds.),
+     Springer-Verlag, to appear, 2018.
+ [2] C. Aistleitner, G. Larcher and M. Lewko, Additive energy and the Hausdorff
+     dimension of the exceptional set in metric pair correlation problems. With
+     an appendix by Jean Bourgain, Israel J. Math., 222 (2017) No. 1, 463-485.
+
+ [3] C. Aistleitner, T. Lachmann, and F. Pausinger, Pair correlations and
+     equidistribution, arXiv:1612.05495, 2017. To appear in: Journal of Num-
+     ber Theory.
+ [4] C. Aistleitner, T. Lachmann, and N. Technau, There is no Khintchine
+     threshold for metric pair correlations, arXiv:1802.02659, 2018.
+
+ [5] D. H. Bailey and M. Misiurewicz, A strong hot spot theorem, Proc. Amer.
+     Math. Soc. 134 , 24952501, 2006.
+ [6] V. Becher and P. A. Heiber, On extending de Bruijn sequences, Information
+     Processing Letters 111(18), 930932, 2011.
+
+ [7] T. Bloom, S. Chow, A. Gafni and A. Walker, Additive energy and the metric
+     Poissonian property, arXiv:1709.02634, 2017.
+
+
+
+                                                 16
+ [8] N. G. d. Bruijn, A combinatorial problem, Proc. Konin. Neder. Akad. Wet.
+     49, 758764, 1946.
+ [9] Y. Bugeaud, Distribution modulo 1 and Diophantine approximation, Cam-
+     bridge University Press 2012.
+
+[10] I. Carbone, Discrepancy of LS-sequences of partitions and points, Ann.
+     Mat. Pura Appl. 191, 2012.
+[11] J. Dick and F. Pillichshammer, Digital Nets and Sequences. Discrepancy
+     Theory and Quasi-Monte Carlo Integration, Cambridge University Press,
+     Cambride, 2010.
+
+[12] S. Grepstad and G. Larcher, On Pair Correlation and Discrepancy, Arch.
+     Math. 109, 143-149, 2017.
+[13] D. R. Heath-Brown, Pair correlation for fractional parts of αn2 , Math.
+     Proc. Cambridge Philos. Soc., 148(3):385-407, 2010.
+
+[14] S. Kakutani, A problem on equidistribution on the unit interval [0, 1[, in:
+     Measure Theory (Proc. Conf. Oberwolfach, 1995), Lecture Notes in Math-
+     ematics, 541, Springer, Berlin, 369-375, 1975.
+[15] L. Kuipers and H. Niederreiter, Uniform distribution of sequences, Wiley,
+     New York, 1974.
+
+[16] T. Lachmann and N. Technau, On Exceptional Sets in the Metric Poisso-
+     nian Pair Correlations problem, arXiv:1708.08599, 2017.
+[17] G. Larcher, Remark on a result of Bourgain on Poissonian pair correlation,
+     arXiv:1711.08663, 2017.
+
+[18] G. Larcher and W. Stockinger, Pair correlation of sequences ({an α})n∈N
+     with maximal order of additive energy, arXiv:1802.02901, 2018.
+[19] D. El-Baz, J. Marklof and I. Vinogradov,
+                                    √           The two-point correlation func-
+     tion of the fractional parts of n is Poisson, Proceedings of the American
+     Mathematical Society 143 (7), 2815-2828, 2015.
+
+[20] D. El-Baz, J. Marklof and I. Vinogradov, The distribution of directions in
+     an affine lattice: two-point correlations and mixed moments, International
+     Mathematics Research Notices, vol. 2015., 1371-1400, 2015.
+[21] R. Nair and M. Pollicott, Pair Correlations of sequences in higher dimen-
+     sions, Israel J. Math. 157, 219238, 2007.
+
+[22] H. Niederreiter, Point sets and sequences with small discrepancy, Monatsh.
+     Math., 104:273-337, 1987.
+[23] Í. Pirsic and W. Stockinger, The Champernowne constant is not Poissonian,
+     arXiv:1710.09313, 2017.
+
+
+                                      17
+[24] Z. Rudnick and A. Zaharescu, A metric result on the pair correlation of
+     fractional parts of sequences, Acta Arith., 89(3):283-293, 1999.
+[25] Z. Rudnick, P. Sarnak and A. Zaharescu, The distribution of spacings be-
+     tween the fractional parts of n2 α, Invent. Math., 145(1):37-57, 2001.
+
+[26] Z. Rudnick and P. Sarnak, The pair correlation function of fractional parts
+     of polynomials, Comm. Math. Phys., 194(1):61-70, 1998.
+[27] V. T. Sós, On the distribution mod 1 of the sequence nα, Ann. Univ. Sci.
+     Budap. Rolando Eötvös, Sect. Math., 1:127-134, 1958.
+[28] S. Steinerberger, Localized Quantitative Criteria for Equidistribution, Acta
+     Arith., 180:183–199, 2017.
+[29] R. G. Stoneham, On the uniform -distribution of residues within the peri-
+     ods of rational fractions with applications to normal numbers, Acta Arith.
+     22, 371389, 1973.
+
+[30] E. Ugalde, An alternative construction of normal numbers, J. Théorie Nom-
+     bres Bordeaux 12, 165177, 2000.
+[31] A. Volčič, A generalization of Kakutani’s splitting procedure, Ann. Mat.
+     Pura Appl. (4) 190(1), 45-54, 2011.
+[32] C. Weiß, Interval Exchange Transformations and Low-Discrepancy,
+     arXiv:1711.07178, 2017.
+
+Author’s Addresses:
+Gerhard Larcher and Wolfgang Stockinger, Institut für Finanzmathematik und
+Angewandte Zahlentheorie, Johannes Kepler Universität Linz, Altenbergerstraße
+69, A-4040 Linz, Austria.
+
+Email: gerhard.larcher(at)jku.at, wolfgang.stockinger(at)jku.at
+
+
+
+
+                                       18
+

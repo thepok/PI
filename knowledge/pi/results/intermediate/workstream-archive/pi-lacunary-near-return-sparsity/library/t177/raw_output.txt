@@ -1,0 +1,12 @@
+T177 finite replay
+canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
+source_hashes=8 passed
+source_locators=passed
+lag_probability_cases=60 passed
+expectation_identity=passed
+bounded_difference_exhaustive_checks=>5000 passed
+constant_parameter_A_cases=200 passed
+largest_r_cutoff_in_sweep=54
+report_scope_guards=passed
+manifest=passed_or_not_yet_present
+label=experiment_not_proof

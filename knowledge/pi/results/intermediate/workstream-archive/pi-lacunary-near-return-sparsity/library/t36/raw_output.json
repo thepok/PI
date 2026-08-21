@@ -1,0 +1,194 @@
+{
+  "canonical_statement_sha256": "cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8",
+  "denominator_strata": {
+    "L": 8,
+    "strata": [
+      {
+        "Q": [
+          9
+        ],
+        "count": 1,
+        "ell": 1
+      },
+      {
+        "Q": [
+          99,
+          90
+        ],
+        "count": 2,
+        "ell": 2
+      },
+      {
+        "Q": [
+          999,
+          990,
+          900
+        ],
+        "count": 3,
+        "ell": 3
+      },
+      {
+        "Q": [
+          9999,
+          9990,
+          9900,
+          9000
+        ],
+        "count": 4,
+        "ell": 4
+      },
+      {
+        "Q": [
+          99999,
+          99990,
+          99900,
+          99000,
+          90000
+        ],
+        "count": 5,
+        "ell": 5
+      },
+      {
+        "Q": [
+          999999,
+          999990,
+          999900,
+          999000,
+          990000,
+          900000
+        ],
+        "count": 6,
+        "ell": 6
+      },
+      {
+        "Q": [
+          9999999,
+          9999990,
+          9999900,
+          9999000,
+          9990000,
+          9900000,
+          9000000
+        ],
+        "count": 7,
+        "ell": 7
+      }
+    ],
+    "total_pairs": 28
+  },
+  "frequency_injectivity": {
+    "frequency_count": 63,
+    "sharp_equality_collision": {
+      "H0": 4,
+      "H1": 1,
+      "U": 8,
+      "frequency": 4,
+      "left_pair": [
+        -4,
+        1
+      ],
+      "right_pair": [
+        4,
+        0
+      ]
+    },
+    "verified_case": {
+      "H0": 4,
+      "H1": 3,
+      "U": 9
+    }
+  },
+  "label": "experiment",
+  "mixed_envelope_optimization_samples": [
+    {
+      "closed": 0.015625,
+      "sampled": 0.015625,
+      "x": 0.1,
+      "y": 0.2
+    },
+    {
+      "closed": 0.16,
+      "sampled": 0.16,
+      "x": 0.2,
+      "y": 0.9
+    },
+    {
+      "closed": 0.47265625,
+      "sampled": 0.47265625,
+      "x": 0.55,
+      "y": 0.2
+    },
+    {
+      "closed": 1.0,
+      "sampled": 1.0,
+      "x": 0.7,
+      "y": 0.35
+    },
+    {
+      "closed": 1.0,
+      "sampled": 1.0,
+      "x": 2.0,
+      "y": 3.0
+    }
+  ],
+  "models": [
+    {
+      "Q": 9,
+      "U": 9,
+      "a0": 1,
+      "a1": 9,
+      "actual_boundary_contribution": 0.0,
+      "beta0": "1/9",
+      "beta1": "1",
+      "boundary_class": "good",
+      "candidate_DBL_check": true,
+      "e0": "0",
+      "e1": "0",
+      "fejer_H1_product": 4.0,
+      "j": 0,
+      "mixed_budget": "0",
+      "name": "exact_cycle",
+      "s": 1
+    },
+    {
+      "Q": 90,
+      "U": 99,
+      "a0": 45,
+      "a1": 4455,
+      "actual_boundary_contribution": 0.0,
+      "beta0": "1/2",
+      "beta1": "99/2",
+      "boundary_class": "good",
+      "candidate_DBL_check": true,
+      "e0": "0",
+      "e1": "0",
+      "fejer_H1_product": 4.0,
+      "j": 1,
+      "mixed_budget": "0",
+      "name": "exact_positive_preperiod",
+      "s": 1
+    },
+    {
+      "Q": 999999,
+      "U": 9,
+      "a0": 1,
+      "a1": 10,
+      "actual_boundary_contribution": 3.272542485937,
+      "beta0": "1/909090",
+      "beta1": "1/101010",
+      "boundary_class": "mixed_budget_failure",
+      "candidate_DBL_check": true,
+      "candidate_per_pair_cap": 4.0,
+      "e0": "1/10",
+      "e1": "1/10",
+      "fejer_H1_product": 3.272542485937,
+      "j": 0,
+      "mixed_budget": "999999",
+      "name": "large_denominator_mixed_failure",
+      "s": 6
+    }
+  ],
+  "perturbed_exact_fejer_product": "(15 + 5*sqrt(5))/8",
+  "perturbed_fraction_of_maximum": 0.818135621484,
+  "verdict": "OPEN WITH ONE NAMED ESTIMATE: Fixed-Stratum Fejer Spike (FSFS)"
+}

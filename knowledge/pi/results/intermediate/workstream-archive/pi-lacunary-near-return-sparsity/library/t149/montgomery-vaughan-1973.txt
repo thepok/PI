@@ -1,0 +1,830 @@
+   MATHEMATIKA
+   A JOURNAL             OF            PURE       AND         APPLIED        MATHEMATICS
+
+   VOL. 20.    PART 2.                  DECEMBER, 1973.                               No. 40.
+
+                                      THE LARGE SIEVE
+                 H. L. MONTGOMERY AND R. C. VAUGHAN
+
+   1. Statement of results. Let S(x) be a trigonometric polynomial,
+                                                   M+N
+
+                                         S(x) = 2 ane{nx),                                 (1.1)
+                                                   M+l
+
+where N > 0 and M are integers, the an are arbitrary complex numbers, and
+e(x) — e2nix. In its basic form, the large sieve of Linnik and Renyi is an inequality
+of the form
+                                 R                            M+N
+                               ]T|S(x,)|2< A(N,S)^\af.                                     (1.2)
+                               r=l                            M+l
+
+Here the xr are arbitrary real numbers which are distinct modulo 1, and 8 is a measure
+of their spacing,
+                                          8 = min | | J C , - * J ,                         (1.3)
+
+
+where the minimum is taken over all possible pairs r, s with r ^ s, and ||x|| denotes
+the distance from x to the nearest integer. The factor A(N,S) must depend on both
+N and 8. In fact A(N,8) > N, for if an = 1 for all n and xt = 1, then the sum on
+the left is > JV2, while the sum on the right is equal to N. On the other hand,
+                             1    R                               M+N
+
+
+
+                         0       f=l                              M+l
+
+If it happens that the xr are equally spaced then 8 = R'1,                    so we deduce that
+A(N,8) > (T 1 .
+
+   THEOREM 1.    Let S(x) and 8 be as in (1.1) and (1.3), respectively. Then
+                          R                                   M+N
+
+                         2 \S(x,)\ < (N + S- ) 2 kl2-
+                                           2                  1
+                                                                                           (1.4)
+                         r=l                                   M+l
+
+Moreover, if
+                                        8r = mm\\xr-xs\\                                  (1.5)
+
+
+                                  [MATHEMATIKA 2 0 (1973), 1 1 9 - 1 3 4 ]
+120                    H. L. MONTGOMERY AND R. C. VAUGHAN
+
+for all r, then
+                      R                             M +N
+
+
+
+                                                    M+l
+
+    The inequality (1.4) contains several previous formulations of the large sieve. In
+particular, Gallagher [6], Bombieri and Davenport [2] (see also Ming-Chit [17]) and
+Bombieri [1] showed that nN + d'1,! max (JV,^" 1 ), and N + 28'1, respectively,
+are permissible expressions for A(N,S). Moreover, Bombieri and Davenport [3]
+have given examples in which A(N,S) = N + 8~l — I, so that (1.4) is extremely
+sharp.
+    The weighted sieve (1.6) is fundamentally more delicate than (1.4). The weights
+are particularly useful in arithmetic applications, because the Farey fractions are
+irregularly spaced.
+
+
+   COROLLARY 1. Let JV be a set of Z integers in an interval [M + 1, M + N].
+For each prime p let co(p) denote the number of residue classes modulo p which contain
+no element of Jf. Then
+                                       Z < IT1,                                  (1.7)
+where
+
+                     L = y (N + iqzy1 ti{qf U             "^ ,                   (1 • 8)
+                            £-1                  p\q p - CO{p)
+                            qtiz
+
+andz is an arbitrary positive number.
+
+    This sharpens Corollary 4.3 of Montgomery [19], which was derived in an
+awkward manner. The advantage of Corollary 1 over earlier results is that the error
+term occurs as the term \qz, instead of cz2. This leads to significant improvements
+when the co(p) are small.
+    As an illustration of Corollary 1, we consider the Brun-Titchmarsh upper bound
+for the number of primes in a segment of an arithmetic progression. Let n(x, k, I)
+be the number of primes p ^ x with p = / (modfc). Then Klimov [11] has shown
+that Selberg's method gives
+
+
+                                                                                  a,)
+for k < ^JV. Bombieri and Davenport [2], using the large sieve, obtained a second
+proof of this. Subsequently van Lint and Richert [13] (see also Uchiyama [26]), by
+more precisely estimating the error terms in Selberg's method, were able to replace
+the log log (N/k) in (1.9) by unity. (Selberg [24], [25] had much earlier stated such a
+result, without detailed proof.) Bombieri [1] gave a new proof of this sharper result,
+using a complicated weighted large sieve. In particular he showed that
+
+                          7t(M + JV) - n{M) < 2N/(logN - 3).
+
+Corollary 1 enables us to obtain the following improved estimates which have no
+error terms.
+                                    THE LARGE SIEVE                                121
+
+   THEOREM 2. Let x and y be positive real numbers, and let k and I be relatively prime
+positive integers. Then
+                                                     y
+                    Mx+y,k,l)-n{x,k,l)<            ml g(y/k)                     (1-10)
+
+provided only that y > k. Moreover, there is a constant c such that if y > ck, then
+
+                nix + y, k, I) - n(x, k, 1) <          l\                          (1.11)
+                                             <j)(k)(i + log iylk))
+   As a particular case of the above we note that if M > 0 and N > 1, then
+                           n(M + N) - n(M) < 2N/logN.                            (1.12)
+From this we shall deduce
+
+   COROLLARY 2.     If M > 0 and N > 1 are integers, then
+                             n(M + N) - n{M) < 2TC(JV).                           (1.13)
+   There is a long standing conjecture that
+                                n(M + N) < 7c(M) + n(N)
+for M > 1, JV > 1. However, Hensley and Richards [10] have cast doubt on this
+by showing that it is not consistent with the well known conjecture concerning the
+existence of prime ^-tuples. It may be that (1.12) is essentially best possible.
+    Bombieri and Davenport [2] used the large sieve to show that if a given L-f unction
+L(s,Xi) has a " Siegel zero ", then the numbers
+                                                .n)X(n),                         (1.14)
+
+with x # Xo> a r e n o t usually very large. However, their result does not conflict with
+our expectation that ij/(N,x) is of order (N logg)* on average. We use the sharper
+bound (1.6) to prove the following theorem. As a consequence, we show below that
+if there is a " Siegel zero ", then \I/(N, x) is o((N logq)^) on average.
+
+    THEOREM 3. / / I/J(N,X) is given by (1.14) and W = ^ N * , then for every
+sufficiently large N
+
+                         (log       ) 2 , W(N,x)\2 <N2logN.                       (1.15)
+
+Here Y,x* denotes a sum over all primitive characters x modulo q.
+   The term q = 1 consisting solely of the principal character contributes
+%N2 log N + o(N2) to the left hand side of (1.15). Furthermore, if L(s,Xj) has a
+"Siegel zero", where Xi is a primitive character modulo q, and q1 = N5, then
+IlKW. Vi)l > (1 —S)N.   Hence Xi contributes at least (£ - 2(5) N2 log N. As a
+consequence one would have
+
+                         V       V W(.N,x)\2 < 5N2logN.                           (1.16)
+ 122                     H. L. MONTGOMERY AND R. C. VAUGHAN
+
+It is plausible that this is false if 5 is sufficiently small.
+    We prove Theorem 1 and Corollary 1 in the next section. In §§3-6 we prove
+Theorem 2. The proof is subdivided as follows. We first of all establish (1.11). Then
+we collect some elementary estimates which enable us to demonstrate (1.10) when
+y/k is sufficiently large. Finally we show that (1.10) follows from the sieve of
+Eratosthenes when y/k is small. We derive Corollary 2 in §7, and in §8 we prove
+Theorem 3.
+
+
+    2. Proofs of Theorem 1 and Corollary 1. Theorem 1 follows easily from the
+lemmas below. Of these, Lemma 1 is a standard result (see Hellinger and Toeplitz
+[9], or Hardy, Littlewood, and Polya [8], Theorem 288). Lemma 2 is a recent dis-
+covery; it is Theorem 1 of Montgomery and Vaughan [20].
+
+
+      LEMMA 1.   Suppose that [cm] is an arbitrary R x N matrix and A is such that
+
+                              v "V
+                              A,
+                                  N         R
+
+
+
+                              n~ 1         r=l            r=l
+
+for all sets of complex numbers vr. Then
+                                       N
+
+
+                            2v
+                            r=l
+                                      ^
+                                      n=l
+                                                 rn   n
+
+
+for all sets of complex numbers wn.
+   We note that the above is self-dual, so that in fact the two inequalities are
+equivalent.
+
+
+    LEMMA 2. Suppose that the premises of Theorem 1 hold, and that the numbers ur
+are arbitrary. Then
+                     R   R                                            R
+
+
+                     I
+                    r=ls=
+                         y> urus csc n(xr — xs)
+                                                                  r=l
+                                                                                 (2.1)
+
+and
+                     R   R
+
+                                                                                 (2.2)
+                                                                r=l
+
+
+
+Here csc x = (sinx) %.
+    To prove (1.4) we appeal to Lemma 1 with crn = e((M + ri)xr). It thus suffices
+to show that
+                                                      2               R
+
+                                      »r e(nxr)                                  (2.3)
+
+Similarly, if we take crn = (N + §5 r ~ 1 )"*e((M + n)xr), then (1.6) is a consequence
+                                         THE LARGE SIEVE                          123
+
+of the inequality
+                    M+N
+
+                                                                                (2 4)
+                                                                                  -
+                           r=l
+
+This approach to the large sieve has been discussed recently by Elliott [5], Matthews
+[14], [15], [16], and by Kobayashi [12].
+   To prove (2.3) we square out the left hand side. The diagonal terms contribute
+the amount
+
+
+                                               r-l
+
+The non-diagonal terms may be written
+                           R      R            M +N
+
+
+                                      sVrDs    2-,          e n X
+                                                            ( ( r-Xs)),         (2.5)
+                          r=l s=l
+
+
+and the inner sum is
+
+         li(e((M + i)(x r - x,)) - e((M + N+ $)(xr - xs))) esc n(xr - xs).
+
+We now use (2.1) twice, once with ur = vre((M + %)xr), and once with
+                                 ur = vr
+This gives (2.3). The proof of (2.4) is the same, except that we use (2.2) in place of
+(2.1).
+   To prove Corollary 1 we take our xr to be the numbers a/q, where 1 < a < q,
+(a,q) = 1, and q < z. Ifa'/q' ^ a/q, then
+
+                                 a        a'           1             1
+                                 q        q'     >
+                                                      qq'     >     qz '
+Hence, by (1.6),
+                                          i                          M +N
+
+                                 JZ)~          \S(a/q)\2 t                      (2• 6)
+                                         0=1                        n=M +
+
+
+We use X' to denote a sum in which the variable of summation is restricted to those
+values which are coprime to q. Now let an be 1 or 0 according as n is or is not a
+member of Jf. Then, on the hypothesis of Corollary 1, we have (Montgomery [18])
+
+
+
+                                                              0=1
+
+
+We now combine (2.6) and (2.7), and note that the right hand side of (2.6) is Z.
+This proves (1.7).
+
+
+   3. Proof of (1.11). We require the following lemma.
+124                            H. L. MONTGOMERY AND R. C. VAUGHAN
+
+      LEMMA 3.     Let u and v be any positive real numbers. Then
+
+
+
+                   q                                          q
+                 (9. *) = 1
+
+      Proof. We multiply the sum on the left by
+
+                                                   Mr) 2       k
+                                             r\k
+
+to obtain a sum which clearly includes all the terms in the sum on the right.
+   To prove (1.11) we take
+
+                                          M . pUi]                               p.l,
+and
+                                              [*±jpiL] _ M.                     (3.2)
+
+Let JT be the set of those integers n for which M < n < M + N, kn + I is prime,
+and kn + I > z. Then a>(p) > 1 whenever p ^ z and p X k. Thus by Corollary 1,
+                               n(x + y, k, I) - n(x, k,l) ^ IT1 + n(z)          (3.3)
+where
+                                 L=      J          ( ^ + ^)-1AI(9)2/^(9).       (3-4)
+                                       («, k) = 1
+
+We suppose, as we may, that
+                                                                                (35• )
+Then by Lemma 3,
+                                                                   kN
+                              n(x + » * , ! ) - %{x,k,T) <                      (3 .6)
+                                                               ' <t>(k)J
+where
+
+
+
+
+Ward ([27], (2.2) with M = 1) showed that
+
+                                        = log ^ + y
+
+as D -> oo. On summing by parts we see that
+
+                        j = logz + r + y                ' o g p , r iog2 +
+                                                   - ^ p(p - 1)
+                                                    p
+
+as z -»oo, and so by (3.5),
+
+             J =
+                                             THE LARGE SIEVE                        125
+
+as N -+ oo. Moreover y > 0-577,
+
+                                  V          ,OgPu     > 0-737
+
+
+(see Rosser and Schoenfeld [21]), log 2 < 0-694, and -J log f < 0-203, so that
+
+                                        J > | l o g N +0-417
+
+for N larger than an effectively computable constant. This with (3.6) completes the
+proof of (1.11).
+    Recently A. Selberg (unpublished) succeeded in using elementary techniques to
+obtain a bound like (1.11), but with f replaced by f.
+
+
+   4. Elementary lemmas. The lemmas below contain little that is new. They are,
+however, essential to our proof of (1.10).
+
+
+   LEMMA 4.      For every positive real x,
+
+                1   ,,        ,    , , „ , ,          ""O K*) i x
+               •— = 4 log x + iy + + log 2 + A log 3 — >      <—
+                r                                     ^—i x I t
+                                                                            «!6
+
+
+
+where 9 = 9(x) satisfies \9\ < 1, and {y} = y — [>].
+
+
+   Proof. We have
+                                                                                  (4.1)
+                                        r        £-i   t      £-i       n
+                              rsSx               r|6         n«(x/()
+                           (r, 6) = 1
+
+By the Euler-Maclaurin expansion (see, for instance, Theorem 421 of Hardy and
+Wright [8]),
+
+
+
+
+We take y = (x/t) and insert this in (4.1) to obtain our result.
+
+
+   LEMMA 5.     If z is real and positive, then
+
+        /   v(q)2l<l>(<l) ^ l°gz + 7 + i log 2 + J log 3 — A(z, 6 ) z - 1 •
+
+where
+
+                                         ^                          '             (4.2)
+                                         m\k           t\k
+126                          H. L. MONTGOMERY AND R. C. VAUGHAN
+
+      Proof. We note that
+
+
+                               m|6       q^z
+                                                              - 2^7 2
+                                                                   m\6
+                                                                    \6                  f
+                                                                                       ^f
+                                     («, 6) = m                                     (r,6)=l
+
+Let s(n) denote the largest squarefree divisor of n, s(n) = T\P\nP- Then
+
+
+        2 M>o2/<«r)= 2 / x ( r ) 2 r " 1 jj(2 p "*) = 2 1/r^ 2 1/r-
+      (r, 6) = 1              (r, 6) = 1                                          (r, 6) = 1   (r,6) = l
+
+Thus
+
+
+                             g<z                  m|6
+                                                        ^ 2 I-
+                                                                    (r,6)   = l
+
+
+To estimate the inner sum we appeal to Lemma 4 with x = z/w. This gives the
+required lower bound.
+
+
+      LEMMA 6.      Let A(z, k) be given by (4.2). Then A(z, 6) < 3.
+
+
+   Proof. From (4.2) it is clear that A(z, k) is periodic with period k2 as a function
+of z, A(z,k) = -4([z], A:) + {z} for squarefree A:, and A(—z,k) = — v4(z,A:) when
+k > 1 and z is not an integer. Also, if p Jf I, then
+
+                   A{z, pi) = 4(z, /) + — l — Aizlp, 0 - —L- A(zlp2,1).
+                                        p-\               p-\
+From this last identity we deduce that
+
+
+                                                              su
+                                                  p — \       z
+
+It is easily seen that sup |v4(z, 2)| = 1. Hence sup |,4(z, 6)| < 3. In fact sup A(z, 6) = f,
+                         Z                                2                                    Z
+
+as one will find by direct calculation.
+
+
+      LEMMA 7.      Suppose that z ^ 6. T/ien
+
+                                                                    l-07.                                  (4.3)
+
+
+
+     Proof. We suppose initially that z ^ 100.              By Lemma 6 we have
+A(z,6)z~1 < 0-03. The lemma then follows from Lemma 5 on noting that y > 0-577,
+i log2 > 0-346, £ log3 > 0-183, ^-z~2        < 0-005.
+     To establish the lemma when 6 < z < 100 we make a direct calculation. We
+first note that the right hand side of (4.3) is increasing when Q < z < < 2 + l , Q a n
+                                  THE LARGE SIEVE                              127
+
+integer. Then, on writing
+
+                       B(Q) =
+
+
+we see that it suffices to show that B(Q) > 1-07 when 6 < Q < 100.
+    We give below a table of values of B(Q). We, the authors, have independently
+computed B(Q) for 6 < Q < 100, while Professor Weinberger of the University of
+Michigan has made a corroboratory calculation with the aid of an IBM 3600/67
+computer. The numbers displayed below lie between B(Q) - 10~ 4 and B(Q). We
+note that B(Q) > B(Q — 1) - Q'1; this together with the values given below make
+it clear that B(Q) > 1-07 whenever 6 < Q < 100.
+
+                                B(Q)                  B{Q)
+                         5     0-9582          30     1-2985
+                         6     1-3040          35     1-3365
+                         7     1-3372          40     [-3314
+                         8     1-2194          45    ]1-3485
+                         9     1-1140          50    11-3125
+                        10     1-2687          55     [-2945
+                        12     1-2017          60    ][-2897
+                        14     1-3086          65    1 •2817
+                        16     1-3084          70    1 •3383
+                        18     1-2597          75    1 •3262
+                        20     1-2151          80    1 •3336
+                        22     1-3075          85    1 •3265
+                        24     1-2696          90    ] •3230
+                        26     1-2760          95    1 •3357
+                        28     1-2045         100    ] •2954
+
+
+   LEMMA 8.     Suppose that z ^ 100. Then
+
+                                                           o-36i.
+
+
+   Proof. Let
+
+                                                                             (4.4)
+
+Then, on integrating by parts, we find that
+                                       z
+              1   1    2
+      (i +«2" )" Kq) /<f>(q) = z J (z + uy'
+
+                                                                                 2
+                                           = iD(z) - j^j       + z J D(u)(z + u)-
+                                                                               du
+128                              H. L. MONTGOMERY AND R. C. VAUGHAN
+
+which, by Lemma 7, is
+                                                          z
+
+            > iOogz + 1-07) - - ^ 7 - + z f (logu + l-07)(z + uY2du.
+                               z+6        J
+                                                      6
+Hence, integrating by parts again, and using (4.4) with u = 5, we see that the above
+is
+       V n(q)2 / z              z \        z                     c zz du    du
+    > > "77T"              "       T +        r flog 6 + 1-07)+                .
+       ±-< <l>(q) \z +q         z + 6)     z +6                    J z +u u
+          qi5                                                                      6
+When 1 < q < 5 and z ^ 100,
+
+                         z           z          z  /                             6 -q
+                    z +q          z: + 6       Z+3 I                             z+ 6 '
+so that
+                                   «(<Z)2 / z               Z         9-67
+                                                                \ -
+                                   <t>(q) \ z +q          z + 6  ) - z + 6
+
+We note also that
+      z
+                                                                                   6
+  fJ 24z • u        u
+                             = logz + log (1 +                log 12 > logz +
+                                                                                 z+6
+                                                                                               log 12.
+  6
+
+On combining the above, we obtain
+
+                                                                        15-67 — 6(log6     -        07
+                                                                                                     • )
+                                                                                                    ! •
+
+           ?z J )        1
+                         n         q) > logz + 1-07 - I o g 2 +
+y (1 + <                                                                        z + 6
+                                         > logz -(- 0-36L
+provided thatz ^ 100.
+
+      LEMMA 9.          //JV ^ 15000 andz = (fJV)*,
+
+
+                                                                      )"1    ^    ^    •                   (4-5)
+                                  \q<z                               I
+
+      Proof. We have z 5= 100, so that by Lemma 8
+
+                                                                                                o-i5.
+
+When z is this large, 7r(z) < \z < $N*. Hence the left hand side of (4.5) is less than
+
+                                                                                   3
+                                                                                               ).
+                                                                            3 + 10 logN
+Since logJV > 9-6,
+                                           3          1
+                                      3 + lOlogJV > 41ogJV'
+                                       THE LARGE SIEVE                                  129
+
+so that it suffices to show that
+                                               N                  2
+                             *3 y        2(logJV)2              logJV '
+
+As 41ogN < 3JV it is enough to show that (logiV)2 < JV*. If u > 10, then
+logM < iu. Taking JV = u4 gives (logJV)2 < JV* when JV > 104. This establishes
+the lemma.
+
+   5. Proof of (1.10) when y > 16000k. To establish (1.10) when y/k is large, we
+combine (3.3) and (3.4) with Lemma 3. Thus
+
+                                 k
+n(x + y, k, I) - n(x, k, I) <                                                        • (5.1)
+                                <Kk)
+Also, by (3.1) and (3.2),
+
+                                                                                      (5 2)
+                          N=l            -jr           h" ~ T ~ '                       '
+
+so that N > 15000. We now take z = (fiV)±, whence (5.1) a n d L e m m a 9 give
+
+                     n(x + y,k,l) - n(x,k,l) < 2*fl                         ^ •       (5.3)
+                                                                <l>(k) logiV
+By (5.2) we see that N - 1 < y/k ^ JV + 1. Thus if y/k Ss JV, then
+
+                            JV- 1          JV                   y/k
+                            logJV        logJV ^ log 0>/A:)'
+
+whilst if JV - 1 < y/k < JV, then
+
+                                N-l                      y/k
+                                 logiV
+
+We combine this with (5.3) to complete the proof.
+
+   6. Proof of (1.10) when k < y ^ 20000&. We begin by establishing the following
+form of the sieve of Eratosthenes.
+
+
+   LEMMA 10.     On the hypothesis of Theorem 2,
+
+         n{x + y,k,l) - n(x,k,l)       ^ ~           U      ( l - — ) + 2"« + n(z)
+                                           k       P\p(z, k)\         p }
+
+where P(z,k) is the product of all those prime numbers which neither exceed z nor
+divide k.
+130                      H. L. MONTGOMERY AND R. C. VAUGHAN
+
+      Proof. It is easily seen that
+
+           n(x + y,k, 1) — n(x,k,l)         <           y>
+                                                                 y• r|(»fc + 'j, P(z,t))
+
+
+
+
+                                                r|P(x, k)
+
+where |0| < 1. This gives the lemma.
+   For convenience we write v = y/k,
+                                   E = n(x + y, k, I) - n(x, k, I)
+and
+
+                                            cj>(k) log (y/k)'
+By Lemma 10 we have
+
+                        V     •        /        1 \           ^ . .
+                        -r-       I!   11             I + 2* (z) + 7r ( 2 )
+
+
+                         . _ p$z\
+                              n (l              - )) + ~r • - ( 2 I t ( 2 ) + n(zj)
+                        <p(k)                    p J + kr • yy v                 '
+
+
+                                                  pJ            v
+
+
+                                                          )
+
+
+On taking z = 2,3,5 and 13 respectively we obtain £ < F if at least one of the
+following is true:
+
+
+
+
+                                                                                            (6.2)
+
+
+
+
+                                                                                           (6 4)
+                                                         f ) <L                             -
+We now show that if 1 < v ^ 20,000, then at least one of these does hold. Let
+                                  f{v;a,ft) =
+                                    THE LARGE SIEVE                               131
+
+A simple calculation reveals thatf'(v;i, f) > 0 for all v > 1, so that if 1 < v < 20,
+then
+
+To treat the remaining cases we observe that
+                      f'(p;a,P) = pv-Hwp-1 + 1 - log»).
+ Clearly uvfi'1 + 1 = logy has at most two solutions, the lesser of which is the only
+ local maximum of /.         For f(v; £, 3) this smaller solution lies in [e, 12], for
+f(v;-^j,^-) in [e,4], and for f(v; lHl, 35) in [e, 3]. Thus/has no local maximum
+ in the intervals we shall consider. When 18 < v < 270 we have
+                  f(v;t,3)    < max(/(18;i,3),/(270;i,3)) < 1,
+when 42 ^ v «S 1000
+
+             f(v, A.V") ^ max(/(42; T 2 T ,YX/(1000; T W)) < L
+and when 700 < y < 20,000
+                     5) < max(/(7OO;Tffr,35),/(2O,OOO;T^T,35)) < 1.
+Hence (6.1) holds if 1 < v < 20, (6.2) if 18 < v < 270, (6.3) if 42 «S v ^ 1000,
+and (6.4) if 700 < v < 20000. This establishes the inequality E < F throughout
+the range k < y < 20000*:.
+
+   7. Proof of Corollary 2. Rosser and Schoenfeld [21] have shown that
+
+
+
+
+when N ^ 17. Hence, by (1.12),
+                              TI(M + N)~   n(M) < 2n(N)
+for N ^ 17. It remains only to deal with the range 1 < N < 17. If M = 1, then
+                     n(M + JV) - n(M) = ;r(JV
+and if M > 2, then
+                             n(M + JV) - 7t(M) ^
+since all the primes in the range are odd. We now remark that \{N + 1) < 2n(N)
+for 2 < JV < 17, and we are finished. An alternative treatment of the range
+1 < JV < 17 is contained in the work of Schinzel and Sierpinski [23] and Schinzel
+[22], where it is shown that if 1 < min (M,N) < 146, then
+                              n(M + JV) ^ n{M) + n(N).
+
+   8. Proof of Theorem 3. We assume throughout this section that JV is large.
+Let z = (f JV)* and P = Ylp^xP- We use (2.6) with M = 0, an = A(n) if (n, P) = 1
+and an = 0 if (n, P) > 1. By the prime theorem number, the right hand side of
+132                           H. L. MONTGOMERY AND R. C. VAUGHAN
+
+(2.6) is
+                 V          A(n)2 = N logJV - N + o(N) < N logJV - -JAT
+              (n, P ) = l
+
+
+for large JV. Bombieri and Davenport [2] have shown that if q < z, then
+                                      N        2               q
+
+
+
+                       X              «=1
+
+We now see from (2.6) that
+
+                                                                   <N2\ogN-irN2.   (8.1)
+
+We next group together those characters / which are induced by the same primitive
+character x*. Clearly 2Xx(«) = Efln/*(«)> a n d if Z is to the modulus q and #* is
+to the modulus q*, then q* divides q, say g* r = q. It is well known (see for instance
+Davenport [4, p. 148]) that |x(z)|2 = q* if r is square free and (r,q*) = 1, and
+otherwise \T(J)\2 = 0. Thus the left hand side of (8.1) becomes
+
+
+           2 <Ki*)
+From Lemmas 3 and 8 we see that the sum in parenthesis is
+
+                                       ^ r + 0-361
+
+provided that q* ^ TO"OZ- Since W == yjjQ-iV* < j ^ z we are able to assert that
+
+                                                          < N2 logN -              (8.2)
+
+
+It remains to consider those n with (P, n) > 1. Gallagher [6] has shown that
+                                                         N            2
+
+
+
+                                                   a=l   n=l
+
+
+Thus from (2.6) it follows that
+                                  N
+
+                                                                   2 AW2
+                            (n.
+
+
+                                                             <N\ogN
+                                            THE LARGE SIEVE                                        133
+
+Hence
+                                               N               22
+                                               N
+                                                   A( n)x(n)
+                                Q   I ^—i
+                                       X
+                                              2
+                                            in"F) > 1
+                                                                    <$   N*(logN)2.              (8.3)
+
+
+We use Minkowski's inequality to combine (8.2) and (8.3); we find that
+
+        V ( l o g — \ V*|iA(iV,z)|2 < (NQogN - i)* + O(N* logJV))2.
+        g^w                 x
+
+For large N this upper bound is < N2 logN, as required.
+
+
+                                              References
+ 1. E. Bombieri, "A note on the large sieve ", Acta Arith., 18 (1971), 401-404.
+ 2.           and H. Davenport, " On the large sieve method ", Abh. aus Zahlentheorie und Analysis
+         Zur Erinnerung an Edmund Landau, Deut. Verlag Wiss., Berlin, 1968, 11-22.
+ 3.         • and         , " Some inequalities involving trigonometrical polynomials ", Ann. Scuola
+          Norm. Sup. Pisa, 23 (1969), 223-241.
+ 4. H. Davenport, Multiplicative number theory (Markham, Chicago, 1967).
+ 5. P. D. T. A. Elliott, " Some remarks concerning the large sieve type ", Acta Arith., 18 (1971),
+         405-122.
+ 6. P. X. Gallagher, " The large sieve ", Mathematika, 14 (1967), 14-20.
+ 7. G. H. Hardy, J. E. Littlewood, and G. Polya, Inequalities (University Press, Cambridge, 1934).
+ 8. G. H. Hardy and E. M. Wright, An introduction to the theory of numbers, Fourth edition
+          (Clarendon Press, Oxford, 1964).
+ 9. E. Hellinger and O. Toeplitz, " Grundlagen fur eine Theorie der unendlichen Matrizen ",
+          Math. Ann., 69 (1910), 289-330.
+10. D. Hensley and I. Richards, " On the incompatibility of two conjectures concerning primes ",
+         Proc Symposia Pure Math., 24 (1973), 123-128.
+11. N. I. Klimov, "Almost prime numbers ", Uspehi Mat. Nauk, 16 (3), (99) (1961), 181-188. See
+          Amer. Math. Soc Transl., (92) 46 (1965), 48-56.
+12. I. Kobayashi, " Remarks on the large sieve method ", Proc. Japan-United States Seminar on
+          Number Theory, 1971, 3 pp.
+13. J. H. van Lint and H.-E. Richert, " O n primes in arithmetic progressions", Acta Arith., 11
+           (1965), 209-216.
+14. K. R. Matthews, " On an inequality of Davenport and Halberstam ", / . London Math. Soc,
+          (2) 4 (1972), 638-642.
+15.         , " On a bilinear form associated with the large sieve ", / . London Math. Soc, (2) 5 (1972),
+          567-570.
+16.         , " Hermitian forms and the large and small sieves ", J. Number Theory, 5 (1973), 16-23.
+17. Ming-Chit Liu, " On a result of Davenport and Halberstam ", / . Number Theory, 1 (1969),
+          385-389.
+18. H. L. Montgomery, "A note on the large sieve '', /. London Math. Soc, 43 (1968), 93-98.
+19.          , Topics in multiplicative number theory, Lecture Notes in Mathematics, 227 (Springer-
+          Verlag, 1971).
+20. —         and R. C. Vaughan, " Hilbert's inequality ", /. London Math. Soc (to appear).
+21. J. B. Rosser and L. Schoenfeld, "Approximate formulas for some functions of prime numbers ",
+          Illinois J. Math., 6 (1962), 64-94.
+22. A. Schinzel, " Remarks on the paper ' Sur certaines hypotheses concernant les nombres
+          premiers ' ", Acta Arith., 1 (1961), 1-8.
+23.           and W. Sierpinski, " Sur certaines hypotheses concernant les nombres premiers ", Acta
+          Arith., 4 (1958), 185-208.
+134                                       THE LARGE SIEVE
+
+24. A. Selberg, " On elementary methods in prime number theory and their limitations ", Den
+         ll-te Skand. Mat.-Kongress, Trondhjem, 1949, 13-22.
+25.        , " The general sieve-method and its place in prime number theory ", Proc. Intern. Congr.
+         Math., Cambridge, Mass., 1950, 1, 286-292.
+26. S. Uchiyama, "A note on the sieve method of A. Selberg ", / . Fac. Sci. Hokkaido Univ., (1) 16
+        (1962), 189-192.
+27. D. R. Ward, " Some series involving Euler's function ", /. London Math. Soc, 2 (1927), 210-214.
+
+
+The University of Michigan,                      10H30: NUMBER THEORY; Multiplicative
+Ann Arbor, Michigan, U.S.A.                             theory; Sieves.
+Imperial College,
+London.                                         Received on the Ylth of July, 1973.
+

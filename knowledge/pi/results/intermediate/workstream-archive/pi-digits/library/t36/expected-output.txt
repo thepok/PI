@@ -1,0 +1,15 @@
+canonical_sha256=2bc65e79437f07eac1a31e7815b5ad738b1099884262880d42c6ded2b8f9a825
+identity_checks=PASS levels=(1,1),(1,2),(2,1),(2,2)
+tau_word=2 level=(1,1) states=22 distinct_carries=12 min_carry=-8 max_carry=14
+tau_word=2 level=(1,2) states=91 distinct_carries=28 min_carry=-96 max_carry=12
+tau_word=2 level=(2,1) states=238 distinct_carries=132 min_carry=-8 max_carry=254
+tau_word=2 level=(2,2) states=285 distinct_carries=88 min_carry=-96 max_carry=252
+tau_word=2 level=(3,3) states=3708 distinct_carries=636 min_carry=-992 max_carry=4088
+children parent=(n=1,m=1,A=0,D=0), w=2: (h=0,e=0,carry=0) (h=1,e=0,carry=100) (h=2,e=0,carry=200) (h=2,e=1,carry=-56) (h=3,e=1,carry=44) (h=4,e=1,carry=144) (h=5,e=1,carry=244) (h=7,e=3,carry=-68) (h=8,e=3,carry=32) (h=9,e=3,carry=132) (h=A,e=3,carry=232) (h=A,e=4,carry=-24) (h=B,e=4,carry=76) (h=C,e=4,carry=176) (h=C,e=5,carry=-80) (h=D,e=5,carry=20) (h=E,e=5,carry=120) (h=F,e=5,carry=220) (h=F,e=6,carry=-36)
+top_state n=1 A=15 D=9 carry=6 gcd=2 reduced_carry=3
+top_state n=2 A=255 D=99 carry=156 gcd=4 reduced_carry=39
+top_state n=3 A=4095 D=999 carry=3096 gcd=8 reduced_carry=387
+top_state n=4 A=65535 D=9999 carry=55536 gcd=16 reduced_carry=3471
+top_state n=5 A=1048575 D=99999 carry=948576 gcd=32 reduced_carry=29643
+top_state n=6 A=16777215 D=999999 carry=15777216 gcd=64 reduced_carry=246519
+classification=diagnostic_only; no inference about pi, V1, or V3

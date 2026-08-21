@@ -1,0 +1,7 @@
+T163 finite replay: PASS
+sources=5 cap=10 domains=4 minimum=3 candidates=3 cap=3
+ledger=T89-T161 count=73 comparator_reservations=T160,T162
+C-GCD kappa=1 thresholds first=1/3 gcd=1/2
+C-SHELL geometric-ray critical exponent=0 shell_occupancy<=1
+C-XMATCH iid_decimal_H2=log(10) n=1000000 depths=11,13
+verdict=hold as model successors=0 fixed_pi_claims=0

@@ -1,0 +1,120 @@
+{
+  "analytic_input_proved_in_note_not_recomputed": "1 <= M_H(0) < 3 for H>=2",
+  "argument_status": "proof sketch",
+  "arithmetic": "integers and fractions only",
+  "candidate_inequality": "abs(COV residual) <= 2*sum_k G_k*sqrt(Xi_k*Var_k) + C*L",
+  "canonical_sha256": "a70dd741b27595aeb3dfc902b5e201579fed6bae24e2191f58c5ac64a22939e6",
+  "claim_status": "experiment",
+  "constant_certificates": [
+    {
+      "certified_abs_residual_gt_K_times_L": true,
+      "chosen_scale_n": 16,
+      "comparison_constant_K": 0,
+      "first_block_power_bits": 27,
+      "residual_over_L_lower_exceeds_K": true,
+      "residual_over_L_strict_lower": "10^8/512-48",
+      "same_seed": "alpha=0",
+      "sample_length_decimal_digits": 9
+    },
+    {
+      "certified_abs_residual_gt_K_times_L": true,
+      "chosen_scale_n": 56,
+      "comparison_constant_K": 10,
+      "first_block_power_bits": 94,
+      "residual_over_L_lower_exceeds_K": true,
+      "residual_over_L_strict_lower": "10^28/512-168",
+      "same_seed": "alpha=0",
+      "sample_length_decimal_digits": 29
+    },
+    {
+      "certified_abs_residual_gt_K_times_L": true,
+      "chosen_scale_n": 416,
+      "comparison_constant_K": 100,
+      "first_block_power_bits": 691,
+      "residual_over_L_lower_exceeds_K": true,
+      "residual_over_L_strict_lower": "10^208/512-1248",
+      "same_seed": "alpha=0",
+      "sample_length_decimal_digits": 209
+    },
+    {
+      "certified_abs_residual_gt_K_times_L": true,
+      "chosen_scale_n": 4016,
+      "comparison_constant_K": 1000,
+      "first_block_power_bits": 6671,
+      "residual_over_L_lower_exceeds_K": true,
+      "residual_over_L_strict_lower": "10^2008/512-12048",
+      "same_seed": "alpha=0",
+      "sample_length_decimal_digits": 2009
+    }
+  ],
+  "phase_seed": "alpha=0",
+  "scales": [
+    {
+      "bandwidth": "10^16/2",
+      "centered_aoc_quantity": "0",
+      "certified_integer_comparison_constants_below": 195264,
+      "first_block_power_bits": 27,
+      "first_block_power_over_L_decimal": "0.671088640000",
+      "geometric_mass_strict_lower": "10^16/512",
+      "n": 16,
+      "residual_over_L_strict_lower": "390529/2",
+      "sample_length": "10^8",
+      "selected_k_count_decimal_digits": 8,
+      "selected_k_range": "B/2 <= k < B",
+      "short_rectangle_card": "1499999880",
+      "strict_activity_checked_at_left_endpoint": true,
+      "t61_total_strict_upper": "3*16*10^8"
+    },
+    {
+      "bandwidth": "10^32/2",
+      "centered_aoc_quantity": "0",
+      "certified_integer_comparison_constants_below": 19531249999904,
+      "first_block_power_bits": 54,
+      "first_block_power_over_L_decimal": "0.900719925474",
+      "geometric_mass_strict_lower": "10^32/512",
+      "n": 32,
+      "residual_over_L_strict_lower": "19531249999904/1",
+      "sample_length": "10^16",
+      "selected_k_count_decimal_digits": 16,
+      "selected_k_range": "B/2 <= k < B",
+      "short_rectangle_card": "309999999999999504",
+      "strict_activity_checked_at_left_endpoint": true,
+      "t61_total_strict_upper": "3*32*10^16"
+    },
+    {
+      "bandwidth": "10^64/2",
+      "centered_aoc_quantity": "0",
+      "certified_integer_comparison_constants_below": 195312499999999999999999999808,
+      "first_block_power_bits": 107,
+      "first_block_power_over_L_decimal": "0.811296384146",
+      "geometric_mass_strict_lower": "10^64/512",
+      "n": 64,
+      "residual_over_L_strict_lower": "195312499999999999999999999808/1",
+      "sample_length": "10^32",
+      "selected_k_count_decimal_digits": 32,
+      "selected_k_range": "B/2 <= k < B",
+      "short_rectangle_card": "6299999999999999999999999999997984",
+      "strict_activity_checked_at_left_endpoint": true,
+      "t61_total_strict_upper": "3*64*10^32"
+    },
+    {
+      "bandwidth": "10^128/2",
+      "centered_aoc_quantity": "0",
+      "certified_integer_comparison_constants_below": 19531249999999999999999999999999999999999999999999999999999616,
+      "first_block_power_bits": 213,
+      "first_block_power_over_L_decimal": "0.658201822928",
+      "geometric_mass_strict_lower": "10^128/512",
+      "n": 128,
+      "residual_over_L_strict_lower": "19531249999999999999999999999999999999999999999999999999999616/1",
+      "sample_length": "10^64",
+      "selected_k_count_decimal_digits": 64,
+      "selected_k_range": "B/2 <= k < B",
+      "short_rectangle_card": "1269999999999999999999999999999999999999999999999999999999999991872",
+      "strict_activity_checked_at_left_endpoint": true,
+      "t61_total_strict_upper": "3*128*10^64"
+    }
+  ],
+  "scope": "universal finite restricted-Schur inequality on decimal-orbit phase vectors; not the fixed-pi all-scale claim",
+  "seed_varies_with_scale": false,
+  "verification_scope": "checks canonical hash, scale witnesses, block endpoints, Lambda case breakpoints, short cardinality, and final rational bounds"
+}

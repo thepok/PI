@@ -1,0 +1,1863 @@
+                                                       The Dynamics of Digits: Calculating Pi with Galperin’s Billiards
+
+                                              Xabier M. Aretxabaleta1 , Marina Gonchenko2 , Nathan L. Harshman3, , Steven Glenn Jackson4 ,
+                                                                   Maxim Olshanii5 and Grigory E. Astrakharchik1
+                                                                     1
+                                                                         Departament de Fı́sica, Universitat Politècnica de Catalunya, 08034 Barcelona, Spain;
+                                                                              xabier.mendez@ehu.eus (X.M.A.); grigori.astrakharchik@upc.edu (G.E.A.)
+                                              2
+                                                  Departament de Matemàtiques, Universitat Politècnica de Catalunya, 08028 Barcelona, Spain; mgonchenko@gmail.com
+                                                         3
+                                                             Department of Physics, American University, 4400 Massachusetts Ave. NW, Washington, DC 20016, USA
+arXiv:1712.06698v3 [math.DS] 4 Apr 2020
+
+
+
+
+                                              4
+                                                  Department of Mathematics, University of Massachusetts Boston, Boston, MA 02125, USA; Steven.Jackson@umb.edu
+                                                   5
+                                                       Department of Physics, University of Massachusetts Boston, Boston, MA 02125, USA; Maxim.Olchanyi@umb.edu
+
+
+                                                                                                         April 3rd, 2020
+
+                                                                                                              Abstract
+                                                        In Galperin billiards, two balls colliding with a hard wall form an analog calculator for the digits of the number
+                                                    π. This classical, one-dimensional three-body system (counting the hard wall) calculates the digits of π in a base
+                                                    determined by the ratio of the masses of the two particles. This base can be any integer, but it can also be an
+                                                    irrational number, or even the base can be π itself. This article reviews previous results for Galperin billiards and
+                                                    then pushes these results farther. We provide a complete explicit solution for the balls’ positions and velocities as a
+                                                    function of the collision number and time. We demonstrate that Galperin billiard can be mapped onto a two-particle
+                                                    Calogero-type model. We identify a second dynamical invariant for any mass ratio that provides integrability for
+                                                    the system, and for a sequence of specific mass ratios we identify a third dynamical invariant that establishes
+                                                    superintegrability. Integrability allows us to derive some new exact results for trajectories, and we apply these
+                                                    solutions to analyze the systematic errors that occur in calculating the digits of π with Galperin billiards, including
+                                                    curious cases with irrational number bases.
+
+                                              Keywords: Galperin billiards; calculating pi; three-body problem; solvable model; integrability; superintegrabil-
+                                          ity; irrational bases.
+
+
+                                          1        Introduction
+
+                                          In the history of science, the invention of numbers stands out as an influential discovery essential for the foundation
+                                          and development of mathematics and every quantitative science that followed. In many ancient cultures, the symbols
+                                          for the first digits correspond to a graphical representation of counting. In Babylonian, Roman and Japanese numerals,
+                                          digit “1” contains one counting object, digit “2” two objects, digit “3” three objects, see Figure 1. However, as a
+                                          technology for representing numbers, the unary base clearly has unfavorable scaling properties. A numeral system,
+                                          where the position of a digit defines its value with respect to a base that is larger than one, achieves exponential
+                                          compression at the cost of introducing new symbolic digits. Throughout history different bases have been used,
+                                          including the modern decimal system and the sexagesimal one introduced in Babylon around the second millennium
+                                          BC. Its legacy can still be found in modern units of time, with 60 s in one minute and 60 min in one hour.
+                                              In a numeral system the digits that represent a rational number eventually repeat, but for irrational numbers like π
+                                          the infinite non-repeating sequence of numbers can √ be difficult to calculate precisely. Already in the antiquity there was
+                                          a practical interest in representing numbers
+                                                                                  √     like   2 and π explicitly [1, 2, 3]. In a Babylonian clay tablet from second
+                                          millennium BC, the first four digits of 2 are explicitly given in sexagesimal system as 1, 24, 51, 10. In a decimal system
+                                          the error appears in the eighth digit as can be appreciated by comparing 1 + 24/60 + 51/602 + 10/603 = 1.4142130
+                                          with the proper value 1.4142135 . . . . The first digit of the number π, which naturally appears when calculating the
+                                          ratio between a circumference of a circle and its diameter [4], is calculated in the Old Testament [1 Kings 7:23] as 3.
+                                          While in many practical situations, it is sufficient to use an approximate value, it was of fundamental interest to find
+
+
+                                                                                                                  1
+                                  Figure 1: Numbers represented in the unary base.
+
+
+a method of finding the next digits. Some other ancient estimations come from an Egyptian papyrus which implies
+π = 256/81 = 3.160 . . . and a Babylonian clay tablet leading to the value 25/8 = 3.125 . . . . Archimedes calculated
+the upper bound as 22/7 = 3.1428 . . . .
+    The fascination with the number π makes scientists compete for the largest number of digits calculated. Simon
+Newcomb (1835-1909) is quoted for having said “Ten decimal places [of π] are sufficient to give the circumference
+of the earth to a fraction of an inch, and thirty decimals would give the circumference of the visible universe to a
+quantity imperceptible to the most powerful microscope”[5]. The current world record [6] consists in calculating first
+22,459,157,718,361 (π e trillion) digits. Such a task manifestly goes beyond any practical purpose but can be justified
+by the universal attraction of the number π itself. The distribution of digits is flat in different bases [6] and it was
+tested that the sequence of π digits makes a good random number generator which can be used for practical scientific
+and engineering computations [7]. An alternative popular idea is that, in contrast, special information might be coded
+in the digits of π [8], or even God’s name as in the plot of “Pi” film from 1990. Recently, analogies between anomalies
+in the cosmic microwave background and patterns in the digits of π were pointed out in “Pi in the Sky” article [9],
+which appeared on the 1st of April.
+    While the number π elegantly arises in a large variety of trigonometric relations, integrals, series, products, con-
+tinued fractions, far fewer experimental methods are known of how to obtain its digits by performing measurements
+according to some procedure. A stochastic method, stemming from Comte de Buffon dates back to the eighteenth
+century and consists in dropping N needles of length l on parallel lines separated by length L and experimentally
+determining the number of times Ncross that those needles were crossing the lines. The  √ number π can be then ap-
+proximated by π ≈ 2l · N/(LNcross ) with the error in its estimation proportional to 1/ N . It means that in order to
+get the first D digits right, one has to perform more than 100D trials. This makes it extremely difficult to obtain the
+precise value in a real-world experiment although an equivalent computer experiment can be easily performed with
+modern computational power.
+    A completely new perspective has emerged when G.A. Galperin formulated a deterministic method based on a
+two-ball billiard [10]. The scheme of the method is summarized in Figure 2. Two balls, heavy and light, move along
+a groove which ends with a wall. The heavy ball collides with the stationary light ball and the number of collisions Π
+is counted for a different mass ratio of the heavy to light ball. It was shown by Galperin that the number of collisions
+is intimately related to the number π, providing the first digits of the irrational number. Thus, for equal masses,
+M = m, the number of collisions is Π = 3, which corresponds to the first digit of number π. For masses M = 100m
+the number of collisions is Π = 31, giving the first two digits. The case of M = 10000m results in Π = 314 thus
+providing three digits and so on. To a certain extent, finding digits of number π became conceptually as simple and
+elegant as enumerating the counting objects like Roman or Japanese digits shown in Figure 1.
+    The history of this elegant method begins with the problem posed by Sinai [11] of the ergodic motion of two balls
+within two walls. He showed that the configuration space of the system is limited to a triangle and, thus the problem
+is equivalent to a billiard with the same opening angle. Furthermore, Sinai used “billiard variables” such that the
+absolute√value√ of the rescaled velocity is conserved and the product of the vector of the rescaled velocities with the
+vector ( M , m) is constant. The number of collisions in a “gas of two molecules” was given in the book by Galperin
+and Zemlyakov [12] in 1990, although no relation to the digits of π was given at that moment. Similarly, Tabachnikov
+in his 1995 book [13] argued that the number of collisions is always finite and provided the same expression for it.
+The way to extract digits of π from the billiard was explained in Galperin’s seminars in the 1990s. In 2001 Galperin
+
+
+                                                           2
+                                                            m, v
+                                        M, V
+
+
+
+
+       Figure 2: Schematic picture of a billiard system, consisting of a heavy ball M , light ball m and a wall.
+
+
+published a short article on that procedure in Russian[10] and in 2003 in English [14]. This fascinating problem was
+given as a motivating example in the introduction of another book by Tabachnikov, Ref. [15], illustrating trajectory
+unfolding. Gorelyshev in Ref. [16] applied adiabatic approximation to the two-ball problem and found a conserved
+quantity, namely the action, close to the point of return. Weidman [17] found two invariants of motion, corresponding
+to ball–ball and ball–wall collisions and he noted that the terminal collision distinguishes between even and odd digits.
+Davis in Ref. [18] solved the equations of motion as a system of two linear equations for ball–ball and ball–wall
+collisions, finding the rotation angle from determinantal equation. In addition to the energetic circle [10], defining the
+velocities, he expressed the balls positions as a function of the number of collisions. Related systems studied by similar
+methods include two balls in one dimension with gravity [19], dynamics of polygonal billiards [20] and a ping-pong
+ball between two cannonballs [21].
+    In the present work, we review how Galperin billiards with mass ratio M/m = b2N generate the first N digits of the
+fractional part (i.e., digits beyond the radix point) of number π in base-b numeral system. Because Galperin billiards
+turn the calculation of the digits of an irrational number into a physical process, this motivates deeper inquiry both
+into the dynamics of this few-body system and into the systematic errors inherent in the analog calculation process.
+We consider the cases of integer and non-integer base systems, including a compelling case of representing number π
+in a system base of π.
+   The main new results of the present paper include the following. We provide a complete explicit solution for
+the balls’ positions, velocities and collision moment as a function of the collision number. We find new invariants of
+motion and show that for general values of the parameters the system is integrable and for some special values of
+the parameters it is superintegrable and maximally superintegrable. Finally, we demonstrate that this billiard can be
+mapped onto a two-particle Calogero-type model.
+    The article is organized as follows. In Section 2, we review previous results on Galperin billiards. In particular,
+we explain how billiard coordinates and the unfolding process simplify the analysis of the trajectories in configuration
+space. We also review prior results from Gorelyshev [16] and Weidman [17] that provide the hints of another dynamical
+invariant. In Section 3, this invariant is revealed to be a new integral of motion, a kind of pseudo-angular momentum
+in billiard coordinates. We apply this invariant to generate new analytic results for the equations of motion and
+to make useful approximations when the mass ratio is large. Using this invariant, we also show that the portrait
+of the system is close to a circle in velocity-velocity and velocity-inverse position coordinates and to a hyperbola in
+position-time variables. For certain mass ratios a third integral of motion also exists, making those particular cases
+of Galperin billiards superintegrable. In Section 4 we discuss different physical systems that can realized Galperin
+billiards, including finite-size balls, a four-body realization, and we make the connection to Calogero-type models. In
+Section 5 we introduce the concept of systematic error and analyze the possible differences between digits generated
+by the Galperin billiard method and the usual methods of expressing the number π in an arbitrary base. The following
+Sections 6 and 7 provide examples of how π is calculated in systems with integer and non-integer bases, respectively
+including the intriguing case of expressing π in the base b = π, the generated expression is different from a finite
+number, π = 1 × π 1 , and instead is given by an infinite representation, π = 3 + 1/π 2 + 1/π 3 + · · · . The difference
+between finite and infinite representation is similar to that of 1 = 0.999(9) in the decimal system. Furthermore,
+we note that the finite representation is not unique in the base of the golden number. The conclusion provides a
+few remarks on how this work can be extended, including to quantum systems where intriguing connections between
+
+
+                                                            3
+Galperin billiards and quantum search algorithms have been proposed [22].
+
+
+2     Galperin Billiard Method
+
+In this Section, we summarize known results about the Galperin billiard model and review how it can be used to
+calculate the digits of π. The idealized billiard system consists of two ‘balls’ (really, structureless particles) with
+different masses moving in one dimension and bounded by a hard wall. The initial conditions presuppose that the
+heavier ball is coming in from infinity and the lighter particle is interposed between the heavy ball and the wall. The
+ball–ball collisions are perfectly elastic and so are the ball–wall collisions.
+    Denote the mass and position of the heavier particle by M and X and of the light particle by m and x. (As a
+general rule, we assign capital letters to the variables of the heavy ball and lower-case letters to those of the light ball.)
+We choose the coordinate system such that the wall is at the origin and therefore the positions of the heavy and the
+light balls satisfy X ≤ x ≤ 0 at every moment of time. The heavy ball moves toward the stationary light ball with
+some initial velocity V0 > 0 and the light ball begins at rest at the initial position x0 . The precise values of V0 and x0
+are irrelevant for the total number of collisions, but the position x0 defines the length scale for the system and x0 /V0
+sets the time scale.
+    Somewhat like a force carrier, the light ball shuttles back and forth between the heavy ball and the wall, effectively
+mediating a repulsive interaction that eventually reverses the approach of the heavy ball. Collisions continue until
+either:
+
+    1. The last ball–ball collision results in both balls receding from the wall and the heavier ball moving faster. In
+       this case, there are an odd number of collisions.
+    2. After the last ball–ball collision the heavy ball recedes from the wall with a speed too great for the light ball to
+       catch it again upon one more reflection from the wall. There are an even number of collisions in this case.
+
+Either way, we denote the total number of ball–ball and ball–wall collisions by Π and we seek to calculate this number
+as a function of the mass ratio. We parameterize the mass ratio as
+                                                     M/m = b2N ,                                                          (1)
+with parameter b (integer or not) referred to as the base and non-negative integer N referred to as the mantissa. Using
+this parameterization for the total number of collisions Π(b, N ), the integer N determines the number of obtained
+digits of π calculated in the base b.
+
+
+2.1     Billiard Coordinates and the Number of Collisions
+
+The number of collisions Π can be derived most easily by transforming into billiard coordinates [11, 12]. In billiard
+velocity coordinates the conservation laws implied by the elastic ball–ball and ball–wall collisions take on a simple
+geometric form [10, 14, 17, 18].
+    The conservation of kinetic energy
+                                                1         1        1
+                                           T =    M V 2 + mv 2 = M V02                                                    (2)
+                                                2         2        2
+defines an ellipse in velocity space; see Figure 3. This motivates the change into mass-scaled billiard variables:
+                                                     r
+                                                          M
+                                             Y =               X ≡ cos(β) X
+                                                        M +m
+                                                     r
+                                                          m
+                                             y =               x ≡ sin(β) x.                                              (3)
+                                                        M +m
+
+   Note that unlike Sinai or Galperin, we normalize the billiard coordinates by the square root of the total mass so
+they continue to have units of position. The transformation is described by the angle
+                                                      p
+                                               tan β = m/M = b−N .                                               (4)
+
+
+                                                              4
+   The billiard velocities (or configuration speed in Ref. [12]) are defined as time derivative of the position (3) and
+are also scaled with the masses of the balls
+                                                      dY          dX
+                                         W    =          = cos β      = cos(β) V
+                                                      dt           dt
+                                                      dy         dx
+                                          w   =          = sin β     = sin(β) v.                                     (5)
+                                                      dt         dt
+
+   The energy conservation law (2) expressed in billiard velocities (5) reads as
+
+                                              M +m          M +m 2
+                                        T =        W 2 + w2 =    W0 .                                                (6)
+                                                2              2
+
+   The allowed values of W and w forming a circle in billiard velocity space with radius W0 = cos β V0 ; see Figure 4.
+Note that Equation (6) looks like the kinetic energy of a particle in two dimensions with total mass (M + m). Defining
+the vector of billiard velocities w = (W, w), the conservation of kinetic energy implies that neither ball–ball nor ball–
+wall collisions change the magnitude of |w|. Instead, both types of collisions only change the angle φ between w and
+the horizontal axis, as will be explained in more details below.
+
+
+                                                              v
+                                                          5        3
+
+
+                                                                       1
+                                               7
+
+
+
+
+                                              9                        0
+                                                                                     V
+                                                                       2
+                                                  8
+
+
+                                                      6            4
+
+
+
+
+Figure 3: A characteristic example of the dependence of the vector of velocities v = (V, v) on collision number n. The
+shown data is obtained for b = 3 and N = 1 and is an example where Π = 9 and the last collision is ball–ball. The
+vector of velocities form an ellipse.
+
+    Ball–ball collisions act like reflections on w in billiard velocity space. To show this, first note that in ball–ball
+elastic collisions, momentum conservation
+
+                              p = M V + mv = (M + m) (cos(β) W + sin(β) w) = M V0 ,                                  (7)
+
+combined with energy conservation implies that the relative speed u is also a conserved quantity
+
+                                                               W        w
+                                          u = |V − v| =             −       = V0 .                                   (8)
+                                                              cos β   sin β
+
+   This can be verified by multiplying Equation (7) by V /2 and subtracting Equation (2). In billiard velocity space,
+conserved quantities p and u define an orthogonal coordinate system with unit vectors
+                                                               
+                                                          cos β
+                                                p̂ =
+                                                          sin β
+                                                                 
+                                                          − sin β
+                                                û =                .                                             (9)
+                                                           cos β
+
+
+                                                               5
+                                                               w
+                                                       5                   3
+                                                                                     1
+                                                   7
+                                                                                  = 2 
+
+                                           9                                                 0 W
+
+                                               8                                         2
+                                                           6           4
+
+       Figure 4: Same scenario as Figure 3, but now the vector of rescaled velocities w = (W, w) form a circle.
+
+
+    The coordinate system defined by p̂ and û is rotated by an angle β from the (W, w) coordinates. In a ball–ball
+collision, momentum conservation implies the projection w· p̂ of the billiard velocity on the momentum axis is invariant
+and the projection w · û on the relative velocity axis is reversed in sign. In other words, each ball–ball collision acts
+on w like a reflection across a line making an angle β with the W -axis. This can be represented as a matrix acting in
+billiard velocity space                                                    
+                                                      cos(2β)     sin(2β)
+                                           SBB =                              ,                                       (10)
+                                                      sin(2β) − cos(2β)
+or equivalently each ball–ball collision maps φ to −φ + 2β.
+    Ball–wall collisions are also reflections in billiard velocity space, reversing v (and therefore w) while leaving V and
+W unchanged. Ball–wall collisions are represented as the matrix that preserves the horizontal component of w and
+reflects the vertical                                                   
+                                                                 1 0
+                                                      SBW =                                                             (11)
+                                                                 0 −1
+
+    This corresponds to the transformation φ to −φ. The product SBW SBB of the two reflections is a rotation, and
+so the new velocities after a combined round of ball–ball and ball–wall collisions are represented in billiard velocity
+space by a rotation by the angle 2β [18], as depicted in Figure 4.
+   Using the transformation rules describing ball–ball and ball–wall collisions, it is straightforward to obtain the angle
+φn describing the velocities after n collisions. Typical changes of the vector w are depicted in Figure 4 and can be
+summarized as follows:
+
+   • n = 0: Before any collision has happened, the light particle is at rest, w0 = (W0 , 0), as shown by the horizontal
+     vector with φ0 = 0
+   • n = 1: The first ball–ball collision reflects the vector w0 across the line φ = β, resulting in w1 = SBB w0 with
+     φ1 = 2β
+   • n = 2: The first ball–wall collision reflects the vector w1 vertically, resulting in w2 = SBW w1 with φ2 = −2β
+   • n = 3: The second ball–ball collision reflects the vector w2 across the line φ = β again, resulting in w3 = SBB w2
+     with φ3 = 4β
+   • n = 4: The second ball–wall collision reflects the vector w3 vertically again, resulting in w4 = SBW w3 with
+     φ4 = −4β
+
+   Generalizing, when n is odd, the n-th collision is a ball–ball collision after which φn = (n + 1)β. When n is even,
+the n-th collision is a ball–wall collision after which φn = −nβ.
+
+
+                                                                   6
+    Working backward from the φn , one can integrate the equations of motion to find the times tn of the collisions
+and positions xn and Xn of the balls during the collisions, as for example in [17]. See the Appendix A for more
+details. The last collision defines if the number of collisions is an odd or an even number. Depending on its value,
+the corresponding digit of π is either odd or even. Physically, its parity depends on whether the last collision was a
+ball–wall collision with no more ball–ball impacts or if it was a ball–ball collision. In Ref. [18] it is shown that an even
+number of collisions occurs, Π = 2k, when 2kβ < π < (2k + 1)β. In Figure 5 we display a typical example of heavy
+and light ball trajectories, (tn , Xn ) and (tn , xn ), for b = 2 and different N .
+
+
+                                            M
+
+                                        m
+                       x    |
+                            |
+
+
+
+
+                                                                                         X, N     =   0
+                            d
+
+
+
+
+                                                                                         x,   N   =   0
+                            a n
+
+
+
+
+                                                                                         X, N     =   1
+
+
+
+
+                                                                                         x,   N
+                       X    |
+
+
+
+
+                                                                                                  =   1
+
+
+
+
+                                                                                         X, N     =   2
+                            |
+
+
+
+
+                                                                                         x,   N
+                            c e ,
+
+
+
+
+                                                                                                  =   2
+                            i s t a n
+                            d
+
+
+
+
+                                                        t i m   e ,   t
+Figure 5: Distance of the heavy and light balls from the wall as a function of time for base b = 2 and different values
+of N (in arbitrary units). Solid lines and solid symbols, heavy ball X; dashed lines and open symbols, light ball x.
+
+    During each ball–ball collision, the velocity V of the heavy ball is changed by a negative amount, eventually
+stopping and reversing the heavy ball. After the angle φ has crossed π/2 position, the velocity of the heavy mass
+becomes negative (the ball is moving away from the wall) and its absolute value is increased with each consecutive
+collision. Collisions continue until π + β > φΠ ≥ π and the lighter ball is at rest or moving away from the wall slower
+than the heavy ball. After that, the iterations end; continuing further would result in a decrease of the velocity of the
+heavy mass, which is physically impossible.
+   Therefore the ratio of π divided by the rotation angle β gives the total number of collisions Π
+                                                             
+                                                             π
+                                                    Π = int      ,                                                     (12)
+                                                             β
+
+where int[z] means the integer part of z. The number of collisions (12) can be explicitly evaluated as a function of
+parameters b and N as                                              
+                                                            π
+                                             Π = int                  .                                         (13)
+                                                       arctan(b−N )
+
+   Moreover, for large base b and large mantissa N the argument of the inverse tangent function is small, z = b−N  1,
+and the inverse tangent function can expanded as arctan(z) ≈ z, resulting in Galperin’s elegant expression
+
+                                                 Π(b, N ) ≈ int πbN
+                                                                   
+                                                                                                                  (14)
+
+   This equation provides an expression for the number π in systems with integer and non-integer bases b.
+
+
+
+
+                                                                7
+2.2    Unfolding the Trajectory
+
+The trajectory of the balls in configuration space can be given a simple geometrical interpretation which clarifies how
+the number of collisions is related to the opening angle [14, 15] and reveals another invariant of the motion.
+
+
+
+
+Figure 6: The trajectory in different phase spaces, (a) original coordinates 0 ≤ |x| ≤ |X|, (b) variables of billiard
+in a wedge, 0 ≤ |y| ≤ |Y | tan β, (c) unfolded trajectory. The parameters are b = 2 and N = 1 and correspond to
+time-dependent data shown in Figure 5.
+
+    The original particle coordinates are restricted to the region 0 ≤ |x| ≤ |X|, where boundary x = 0 corresponds to
+the light ball hitting the wall and x = X the ball–ball collision, see Figure 6a. The opening angle for this wedge in
+(x, X) configuration space is 45◦ . When the trajectory meets the line x = 0, corresponding to ball–wall collision, the
+reflection obeys the law of optics: the tangent component of velocity corresponding to V is preserved and the normal
+component v is reversed. However, the reflections from the line x = X do not obey the laws of optics, as the incident
+angle differs from the angle of reflection.
+    This is rectified by transforming to billiard coordinates Y and y. Now the opening angle in is equal to β, see
+Figure 6b and we recover the law of optics for reflections from the line y = Y tan β without disrupting the reflections
+at y = 0. This is because the tangent direction to the line y = Y tan β is the unit vector p̂ and the corresponding
+component of the billiard velocity vector w · p̂ is proportional to the total momentum and is conserved during ball–ball
+collisions. Similarly, the normal direction is aligned with the unit vector û and the sign of the normal component is
+the relative velocity w · û which is reversed during the collisions.
+   In this way the original two-body problem is mapped to a problem of a single ball moving in a wedge with opening
+angle β with specular reflections from the mirrors. When the ricocheting trajectory in the wedge is unfolded, it results
+in a straight line. In Figure 6 we show a typical example. It provides a simple geometrical interpretation for the
+number of collisions as the number of times the opening angle can fit into the maximal angle of 180 degrees or π
+radians.
+
+
+
+                                                           8
+   The figure of the unfolded trajectory looks like a free particle moving in a straight line, and this is supported by the
+form of the kinetic energy Equation (6). This suggests an angular momentum-like quantity L = mass·position×velocity
+should be conserved, at least in magnitude. This indeed is the case, and this invariant L2 = (M + m)2 (Y w − yW )2 is
+the key to the new results presented in Section 3. First, however we present two previous results from Refs. [16, 17]
+that anticipated this invariant and provide physical context.
+
+
+2.3    Adiabatic Approximation and Action Invariants
+
+From the point of view of Hamiltonian systems, the problem of two balls has two degrees of freedom, namely two
+positions X, x while momenta P = M V and p = mv are conjugate variables. When the heavy ball approaches the
+point of return near φ = π/2, it slows down while the light ball wildly oscillates between the heavy ball and the wall.
+The heavier the ball, the smaller its minimal distance from the wall, Xmin , and the larger is the maximal velocity of
+the light ball, vmax .
+    This separates the scales into fast and slow variables so that during a single oscillation of a light ball, the position
+of the heavy ball is only slightly changed. It was argued by Kapitza [23, 24] in his work on driven pendulum (Kapitza
+pendulum) that by averaging over the fast variables it might be possible to simplify the problem and provide a solution
+if the separation of scales is large enough. In our case, the parameter which defines the separation of scales is the mass
+ratio M/m = b2N , so for any base b by increasing N the needed condition M/m  1 is well satisfied. The systems
+with different scales can be studied in the theory of adiabatic invariants [25].
+    It is useful to analyze the (p, x) portrait of the system, corresponding to the fast variables. A typical example is
+shown in Figure 7. After the ball–ball collision, (for example, n = 1), the light ball moves with a constant momentum
+p until it hits the wall. This results in a horizontal line with some momentum p and 0 < x/x0 < X1 /x0 . During the
+ball–wall (n = 2) collision the momentum of the light mass is inverted, resulting in a vertical line x = 0, p → −p. After
+that the light ball travels with constant momentum until it hits the heavy ball (n = 3), corresponding to a horizontal
+line at −p from 0 < x/x0 < X3 /x0 . At the next ball–ball collision, the velocity of the light particle inverts the sign
+but its absolute value is slightly changed due to a small but finite momentum transfer from the heavy ball. During
+a single cycle (or “period”) consisting of four collisions the light ball draws an almost closed rectangle. The larger is
+the mass M of the heavy ball and the smaller is its velocity V , the more similar is the trajectory during a cycle to a
+closed rectangle.
+   The area covered by the light particle during a cycle is called action I, defined as
+                                                   X (p − (−p))   Xp
+                                              I=                =    ,                                                 (15)
+                                                        2π        π
+where p is the momentum of the light particle and X is its maximal distance from the wall (defined by the position of
+the heavy particle) during a single cycle. The action (15) is an adiabatic invariant and is not changed in the vicinity
+of the return point. Indeed, it might be observed in Figure 7 that while action (15) is a good adiabatic invariant close
+to the return point (shown with thick green line), the first few collisions (n = 1; 3; · · · ) are quite off.
+                                                                                                                 p
+    It is shown in Ref. [16] that for times of the order ε2 , action (15) is conserved with accuracy ε, where ε = m/M =
+tan β is treated as a small parameter. In the same limit the Hamiltonian can be written as
+                                                      P2    π2 I 2
+                                                H=       +         .                                                   (16)
+                                                      2M   2mX 2
+
+    It is possible to find two invariants (for BB and BW collisions), which coincide close to the point of return with
+adiabatic invariant (action) given by Equation (15) [17]. It can be straightforwardly verified from (59)–(60) that the
+the following quantities remain constant
+                                                             πI
+                                                 X2k v2k =      = const                                           (17)
+                                                             m
+for a cycle that starts and ends with a ball–wall collision, and
+                                                                    πI
+                                         X2k+1 (V2k+1 − v2k+1 ) =      = const .                                       (18)
+                                                                    m
+during a cycle between ball–ball collisions. Importantly, these invariants are always conserved on the corresponding
+BW and BB cycles and not only close to the point of return.
+
+
+                                                             9
+                              )
+                                  0
+                        p mV
+                                       1 0
+
+
+
+
+                              (
+                              /
+                                            5
+                                                                     n   =   3
+
+
+
+                         n   =    1     '
+                                                                                         n    =       1
+
+
+
+
+                                                           0   . 5                   1
+                                                                                         n    =       0
+
+
+
+
+                         n
+                                            0
+
+                             =    2
+
+
+                                                                     n   =   2   '       x x
+                                                                                          /
+                                                                                                  0
+
+
+
+
+                                        - 5
+
+
+
+
+                                      - 1 0
+
+
+
+
+Figure 7: (x,p) portrait for b = 10 and N = 1; Red symbols, light particle during ball–wall (x = 0) and ball–ball
+(x 6= 0) collisions. Green thick lines, constant action curve defined by Equation (15). Blue thin lines, trajectory. Index
+n = 1, 2, 3, · · · denotes the state after n collisions while primed index n0 correspond to an intermediate state in which
+the velocity of the light ball is not yet reflected. The area covered by the trajectory between two consecutive collision
+of the same type (BB or BW) defines the action (15).
+
+
+    The ball–wall invariant (17) reduces to an elegant expression, X2k v2k = −x0 V0 , and thus I, entering into Equa-
+tions (17) and (18), can be expressed in terms of the initial conditions as
+                                                           |x0 |V0 m
+                                                      I=             ,                                                (19)
+                                                                π
+agreeing with (15) above. Furthermore, from the BW invariant we can get the expression for the closest position Xmin
+of the heavy ball to the wall which is reached at the collision when the heavy ball inverts its velocity and the light ball
+achieves its maximal velocity:                                  r
+                                                     V0           m       x0
+                                           Xmin =         x0 =      x0 = N .                                          (20)
+                                                    vmax          M       b
+For the ratio of the velocities we have used the energy conservation law (2), since vmax is reached when V = 0, and
+v = 0 is reached for V = V0 , c.f Fig. 3.
+    Defining α as the phase angle conjugate to I, the time derivative of the phase is obtained from Hamiltonian (16)
+as √
+   α̇ = √dH/dI. The integration over the time gives the final phase after all collisions have happened as αfinal =
+ 2
+π M / m [16]. During each cycle there are two collisions (BB and BW) and the phase changes     p by 2π, so the total
+number of collisions Π can be infer as αfinal = Ππ, resulting in Π = π/β + O(β) where β ≈ m/M . This formula
+should be compared with Equation (12) and, indeed, correctly relates total number of collisions Π with π. At the
+same time it is not a priori obvious that the adiabatic approximation should be precise far from the return point,
+that is for times t  ε2 , especially at the time of the final collision. The BB and BW invariants (17)–(18) coincide
+with adiabatic invariant (action) given by Equation (15) close to the point of return, and, in particular, this clarifies
+why the adiabatic approximation leads to the correct number of collisions even if the region of applicability of the
+approximation is violated.
+   Finally we note that the time dependence of the phase α(t) is related to the time dependence of the collision
+
+
+                                                               10
+number n(t) according to α(tn ) = πn(tn ). In the continuous limit of many collisions, the phase increases as an inverse
+tangent function, as shown in Equation (36) of Section 3.1 below.
+
+
+
+3    Integrability and Its Consequences
+
+We show now that the Galperin billiard system is Liouville integrable, i.e., it possesses as many exact constants (first
+integrals) of motion in involution as it has degrees of freedom. Since this system has only two degrees of freedom, this
+requires the existence of only one constant of motion in addition to the total energy. Generally, a notion of involution
+between two observables—vanishing of the Poisson bracket between them—requires a Hamiltonian reformulation of
+the laws of dynamics of the system. However, for the two-dimensional systems, the only zero Poisson bracket required
+is the one between the additional conserved quantity and the Hamiltonian; the latter is simply automatic.
+    To identify this additional conserved quantity, let us consider the system in the billiard coordinates
+                                                                                                   p       (3). It is
+represented by a two-dimensional particle with mass M + m moving a wedge of an opening tan β = m/M as shown
+in Figure 6. In between the collisions, the angular momentum, L = (M + m)(Y w − yW ), is conserved. Upon a
+ball–wall or a ball–ball collision, the angular momentum changes sign. However, its square,
+
+                                   L2 = (M + m)2 (Y w − yW )2 = mM (Xv − xV )2                                       (21)
+
+remains invariant throughout the evolution.
+    This can be checked by explicit calculations using the results of Appendix A. At the instances of a ball–wall
+collision, where x = 0, the invariant (21) is proportional to the square of the invariant (17) identified by Weidman [17]:
+                                                                             M 2
+                                          L2        = mM (X2k v2k )2 = π 2     I .                                   (22)
+                                               2k                            m
+
+   Likewise, on a ball–ball collision, the angular momentum square assumes a value proportional to the corresponding
+invariant (18):
+                                                                         2      M
+                                  L2       = mM (X2k+1 (v2k+1 − V2k+1 )) = π 2 I 2 ,                                 (23)
+                                      2k+1                                      m
+with the same coefficient of proportionality. Evaluating this constant on the initial conditions, the invariant takes the
+value
+                                                    L2 = mM x20 V02 .                                                (24)
+
+  To express the Hamiltonian in terms of this invariant, we start from the unfolded billiard coordinates. The
+Hamiltonian has the form of a free particle in two dimensions with mass M + m (c.f. 6)
+                                                         1
+                                                               P 2 + Py2 .
+                                                                        
+                                               H=                                                                    (25)
+                                                      2(M + m) Y
+
+where the momenta conjugate to the unfolded billiard coordinates (Y, y) are PY = (M + m)W and Py = (M + m)w.
+Changing to polar coordinates
+                                           p
+                                    r =      Y 2 + y2
+                                                                  Y W + yw
+                                  Pr = (M + m)ṙ = (M + m)
+                                                                       r
+                                   φ = arctan(y/Y )
+                                                                    Y w − yW
+                                   L = (M + m)rφ̇ = (M + m)                                              (26)
+                                                                         r
+the Hamiltonian take the form
+                                                                        L2
+                                                                          
+                                                     1               2
+                                               H=                   Pr + 2 .                                         (27)
+                                                  2(M + m)              r
+In this form, the Hamiltonian (27) looks like a two-body Calogero-Sutherland model as will be explained in more
+details in Section 4.4.
+
+
+
+                                                              11
+3.1    Exact Solution
+
+In the Appendix A, the sequence of positions and times of collisions was found by step-wise integration of the kinemat-
+ics. However, the integrability of the Galperin model and the geometry of the unfolded trajectory allows for explicit
+solution where the velocities and positions can be explicitly expressed as a function of the collision number.
+
+                                                          1|
+                                                        k-
+                                                 |y 2
+                                                         r2
+
+
+
+
+                                                                |Y 2
+
+
+
+
+                                                                                                                                 | y1 |=r1 sinβ
+                                 r2 k =                                                                  =0
+                                                              k-
+                                                                1
+
+
+
+
+                                                                    k-
+                                      |Y2                                                                2
+                                            k |, y                                                |, y                    x 0|
+
+
+
+
+                                                                      1|
+                                                  2 k =0
+                                                                                           =|
+                                                                                             Y   2                   r 1=|
+                                                                                      r   2
+                                                                                                             |Y1 |=r1 cosβ
+
+
+
+Figure 8: Unfolded trajectory depicting relations among trajectory and billiard coordinates. The brown line is the
+trajectory specified by the initial conditions with L2 = mM x20 V02 and speed W0 = V0 cos β. For this mass ratio
+M/m = 7.5, there are eight collisions, depicted as four disks for points with analysis and four circles for other
+points. Odd-numbered ball–ball collisions occur where the trajectory intersects red lines and even-numbered ball–wall
+collisions occur at blue lines. The angle for the n-th collision point is nβ and the distance to the origin is rn . The
+projection of the ball–ball collisions onto the blue ball–wall lines are depicted by dashed lines.
+
+   As shown in Figure 8, the trajectory in unfolded coordinates is a horizontal line that traverses at constant speed
+W0 = V0 cos β. The n-th collision occurs at the intersection of the trajectory and a line making an angle nβ, where
+odd n are ball–ball collisions and even n are ball–wall. These intersections occur at a distance rn from the origin of
+the unfolded coordinates, with the first ball–ball collision occurring at r1 = |x0 |. Using the law of sines, the general
+formula for the ‘collision radius’ rn is
+                                                                sin β
+                                                   rn = |x0 |         .                                              (28)
+                                                              sin(nβ)
+
+   For ball–ball collisions n = 2k + 1 with k = 0, 1, 2, . . ., we project the collision with radius r2k+1 and angle (2k + 1)β
+onto the previous ball–wall axis at 2kβ and use (3) to find
+                                                                                    sin β
+                             x2k+1 = X2k+1 = −r2k+1 = x0                                      , k = 0, 1, 2, . . . .                              (29)
+                                                                              sin ((2k + 1)β)
+
+   For ball–wall collisions n = 2k with k = 1, 2, . . ., the little ball is at the wall
+                                                                x2k = 0, k = 1, 2, . . . ,                                                        (30)
+and the large ball is at
+                                                                r2k         tan β
+                                          X2k = −                    = x0          , k = 1, 2, . . . .                                            (31)
+                                                               cos β      sin(2kβ)
+
+   Following similar geometrical logic, the time interval tn from the first collision to the n-th collision can be found
+by considering the length of trajectory dn between those collisions
+                                                                             sin(nβ − β)
+                                                                dn = |x0 |                                                                        (32)
+                                                                               sin(nβ)
+and then dividing by the trajectory velocity in billiard coordinates W0 to find
+                                               |x0 | sin(nβ − β)
+                                      tn =                       = t0 (1 − cot(nβ) tan β) ,                                                       (33)
+                                                V0 sin(nβ) cos β
+where t0 = |x0 |/V0 is the characteristic time of the system. From this the time interval τn between the (n − 1)-th
+collision and the n-th collision is calculated to be
+                                                                               sin β tan β
+                                             τn = tn − tn−1 = t0                           sin(nβ).                                               (34)
+                                                                              sin(nβ − β)
+
+                                                                             12
+   In the continuous limit of many collisions, bN  1, the following simple expression for the inverse of time τn
+between consecutive collisions,
+                                      t0
+                                         ≈ b2N sin2 (n/bN ) ≈ b2N cos2 (n0 /bN )                                    (35)
+                                      τn
+
+where n0 = n − Π/2. In the same limit, we find the following approximate relations between time and collision number
+                                  tn0       1                  1
+                                      ≈ 1 − N cot(n/bN ) ≈ 1 + N tan(n0 /bN ).                                      (36)
+                                   t0      b                  b
+
+   The total time interval from first collision to final collision is
+                                                                             
+                                                                         π
+                            tΠ = t0 (1 − cot(Πβ) tan β) = t0 1 − cot int   β tan β .                                (37)
+                                                                         β
+
+   This curious expression for tΠ is bounded by below by 2t0 = 2|x0 |/V0 , i.e., the time that the large ball would have
+taken to transit from x0 to the wall and back to x0 if the small ball had not been there at all. This lower bound is
+saturated in the limit from above when β = π/q and q is an integer; the limit taken from below diverges to tΠ → ∞.
+This divergence occurs in the last time step τΠ , as one sees from the expression for tΠ−1 which is bounded from above
+by 2t0 = 2|x0 |/V0 . Further note that when β = π/q and q is an integer, the velocity of the large ball is exactly
+reversed. Both of these effects for π/q provide a clue that the system is superintegrable for certain mass ratios, as we
+show below.
+   For completeness, we note that the velocities immediately after each collision can be found from the results of
+Section 2 and are tidily expressed as
+                                                                     
+                                                     n+1          n+1
+                                        φn = (−1)        2β int         ,                                     (38)
+                                                                   2
+                                       φ2k = −2kβ, k = 0, 1, . . . ,                                          (39)
+                                              Vn     = V0 cos φn ,                                                  (40)
+                                              vn     = V0 cot β sin φn .                                            (41)
+
+
+3.2    Position as a Function of Time: Hyperbolic Shape
+
+Here we will demonstrate that a hyperbolic curve describes the positions of the light ball at BB collisions and of the
+heavy ball both at BB and BW collisions.
+    In the description of a billiard in a wedge, the trajectory is bounded to the phase space 0 ≤ |y| ≤ |Y | tan β, as
+shown in Figure 6. The collisions happen when either y = 0, i.e., when the light particle hits the wall (BW collision)
+or when y = Y tan β and the light particle hits the heavy one (BB collision). The unfolded trajectory is formed
+by reflecting the wedge, so that its angle β is preserved. The collisions in the unfolded trajectory occur when the
+straight line intersects one of the mirrors, corresponding to an angle nβ with n being the number of the collision. For
+any intersection its distance from the origin is the same in unfolded
+                                                                 p       picture and that of the billiard in a wedge. In
+particular, for a ball–ball collision, this distance is equal to Y 2 (t) + y 2 (t). Instead, in the moment of a ball–wall
+collision, the light ball has coordinate y(t) = 0 and this distance is equal to the position of the heavy ball Y (t). In
+the unfolded coordinates depicted in Figure 6), the minimal possible distance Ymin of the heavy ball from the wall is
+located on the vertical line directly above the origin and corresponds to the point of return in the limit M  m. The
+projection to the horizontal axis is given by W t0 , where t0 is the time counted from the point of return and W is the
+constant velocity, equal to the initial velocity of the heavy ball W = Wmax . Catheti Ymin , Wmax t0 and hypotenuse
+Y (t) forming a right-angled triangle are related as Y 2 (t) = Ymin
+                                                                 2
+                                                                     + (Wmax t0 )2 . The same expression written in terms
+                                0
+of the original coordinate X(t ) and velocity V leads to the hyperbolic relation
+                                                     2                        2
+                                            X(t0 )                    t0
+                                                             
+                                                          −                         =1,                             (42)
+                                            Xmin                  Xmin /Vmax
+
+exactly satisfied for any ball–wall collision. Here Xmin is given by Equation (20).
+
+
+                                                                     13
+   Instead, for a ball–ball collision both coordinates of the heavy and light particles are equal, X = x, and lie on a
+hyperbola of a slightly smaller semi-axis
+                                                     2
+                                                                              2
+                                           X(t0 )                    t0
+                                                             
+                                    q                 −                          =1,                                  (43)
+                                          M                      Xmin /Vmax
+                                         M +m Xmin
+
+
+
+   In the limit of large mass, Equations (42) and (43) coincide.
+
+
+
+
+Figure 9: Distance of the heavy ball close to the return point, for b = 2 and N = 3. Circles, heavy ball X; dashed
+line, limit of an infinitely massive ball, Equation (44); solid line, hyperbola defined by Equation (43).
+
+    We compare predictions of Equation (43) with the exact results in Figure 9. The minimal possible distance Xmin is
+actually reached only if there is a crossing of the unfolded trajectory at the vertical line above the origin (see Figure 6),
+otherwise the actual minimal distance is larger. In the limit of an infinitely heavy ball (N → ∞ and M → ∞), the
+trajectory again becomes non-analytic with a kink in the point where the heavy ball hits the wall,
+
+                                                    X(t0 ) = Vmax |t0 |                                                 (44)
+
+shown in Figure 9 with two straight lines.
+
+
+3.3    Circle in (V, 1/X) Variables
+
+Within the adiabatic approximation, introduced in Section 2.3, from the Hamiltonian (16) it can be seen that the
+(P, 1/X) portrait has a semicircular shape with the coefficient of proportionality linear in the action I [16]. In
+Section 2.3 it was verified that some of the predictions of the adiabatic theory actually remain exact even far from
+the point of return, effectively expanding the limits of its applicability. In particular, the action I is conserved for any
+ball–wall collision throughout the whole process, and its value can be expressed in terms of the initial position of the
+light ball x0 and the initial velocity of the heavy ball V0 according to Equation (19). This suggests that the portraits
+in (P , 1/X) and (V , 1/X) coordinates are close to ellipses.
+
+
+                                                              14
+   A straightforward way to see it is to use the Hamiltonian (16) obtained within the adiabatic approximation,
+
+                                              MV 2    π2 I 2    M V02
+                                                   +        2
+                                                              =                                                        (45)
+                                               2     2mX         2
+where we extended its validity to any BW collision, in particular to collisions happening far from the point of return,
+X → ∞. Equation (45) can be recast in the form of an ellipse for (V, 1/X) coordinates as
+                                                           2
+                                              1  x0 2    V
+                                                        +      =1.                                                     (46)
+                                             b2N X         V0
+
+    Figure 10 shows an example of the trajectory in (V, 1/X) coordinates. The first collision happens at V /V0 = 1
+and x0 /X = 1 corresponding to the initial velocity and the initial (large) distance from the wall. As the collisions go
+on, the heavy ball comes closer to the wall until it inverts its velocity at the point V = 0, which corresponds to the
+point of return. At this moment the heavy ball is located at the closest distance to the wall. It might be appreciated
+that Equation (20) describing this distance is quite precise from the practical point of view. The case illustrated in
+Figure 10 corresponds to the binary base, b = 2, and for mantissa length N = 1; 2; 3; 4 the heavy ball is expected to
+come closer to the wall by a factor of 2; 4; 8; 16 compared to the initial position of the light ball. Once the point of
+return is passed, the heavy ball has a negative velocity which increases in absolute value up to V /V0 ≈ −1, while the
+ball moves far away from the ball x0 /X → 0.
+    Overall, the shapes obtained are quite similar to ellipses predicted by Equation (46). The “discretization” becomes
+smaller as N is increased. The pairs with same velocity V but different values of X correspond to light ball–wall
+collisions (velocity of the heavy ball is not changed) and ball–ball collisions, shown in Figure 10 with closed and open
+symbols. The points which correspond to the ball–wall collisions lie exactly on the top of the ellipse due to presence
+of ball–wall invariant (17). Instead, for ball–ball collisions there is some shift, with a different sign for the heavy ball
+moving towards the wall or away from it. This effect originates from an additional contribution containing the velocity
+of the heavy ball in the ball–ball invariant (18). At the point of return this correction vanishes and the adiabatic
+theory becomes fully applicable.
+
+
+3.4    Superintegrability and Maximal Superintegrability
+
+When a system with d degrees of freedom has more than d constants of the motion, it is called superintegrable. The
+maximum allowed number of functionally-independent conserved quantities is 2d − 1, one less than the dimension of
+the phase space. Such a system is called maximally superintegrable. For certain mass ratios, the Galperin model has a
+third functionally-independent integral of motion. Since the Galperin model has two degrees of freedom, d + 1 = 2d − 1
+and it is therefore superintegrable and also maximally superintegrable.
+   For a system with bounded orbits, the superintegrability manifests itself as a reduction of the dimensionality of
+the phase space available from a given initial condition. Maximal superintegrability results in closed one-dimensional
+orbits. For unbounded orbits like the Galperin model, the manifestation of the maximal superintegrability is more
+subtle, but still—as shown below—tangible.
+   For certain mass ratios
+                                                    m
+                                                        = tan2 (π/q)                                             (47)
+                                                    M
+the wedge in the billiard coordinates (y, Y ) depicted in Figure 6b acquires an opening of β = π/q with q ≥ 3 being
+an integer. For these rational angles, a third functionally-independent constant of the motion appears. In this case,
+sequences of reflections about the cavity walls form a finite group with order 2q known as the reflection group I2 (q)
+or the dihedral group Dq . The generators for the group are the reflections in billiard velocity space SBB and SBW
+defined in Section 2.1 supplemented with the group-defining relation (SBW SBB )q = 1.
+   As it has been shown in Ref. [26], this discrete reflection group symmetry implies that a new constant of motion
+can be constructed: it is represented by the first nontrivial invariant (or Chevalley) polynomial of the group [27, 28],
+evaluated on the momentum vector. The constant of motion J produced by this construction in our case is as follows:
+                         1                             1
+               J=          q
+                             ((W + iw)q + (W − iw)q ) = ((V + i tan(π/q)v)q + (V − i tan(π/q)v)q ) .                   (48)
+                     2 cos β                           2
+
+
+                                                            15
+                                           1 6
+
+
+
+
+                                           1 4
+                                                                  N   =   4
+
+
+
+
+                                           1 2
+
+
+
+
+                             x X   /
+                                       0
+                                           1 0
+
+
+                                                                  N   =   3
+
+                                             8
+
+
+
+
+                                                                  N
+                                             6
+
+
+                                                                   =      2
+
+
+
+
+                                                                  N
+                                             4
+
+
+
+
+                                                                  N
+                                                                      =   1
+                                             2
+
+                                                                   =      0
+
+
+
+                                             0
+
+
+
+
+                                                               VV
+                                                 - 1                  0                          1
+
+
+
+                                                                      /
+                                                                              0
+
+
+
+
+Figure 10: (V, 1/X) portrait for b = 2 and N = 0, 1, 2, 3, 4 (from bottom to top). Solid symbols, ball–wall collision;
+open symbols, ball–ball collision. Solid lines, ellipse (46). Dashed horizontal lines, inverse of the minimal distance (20).
+
+
+   Some notable examples include
+                                    m
+             q=3                      =3                                                             J = V 3 − 9V v 2
+                                    M
+                                    m
+             q=4                      =1                                            J = V 4 − 6V 2 v 2 + v 4
+                                    M
+                                m      √                                      √                    √
+             q=5                  =5−2 5                    J = V 5 − 10(5 − 2 5)V 3 v 2 + 25(9 − 4 5)V v 4
+                                M
+                                    m   1                                                             5         1
+             q=6                      =                                           J = V 6 − 5V 4 v 2 + V 2 v 4 − v 6 .
+                                   M    3                                                             3         27
+
+    Observe that in these examples and in general, even (odd) q, produces a constant of motion J, which is an even
+(odd) function with respect to the V → −V, v → −v inversion. This difference between the even and odd cases, will
+lead to a difference between the maximal superintegrability manifestations between these two cases.
+   To discuss the consequences of the maximal superintegrability, we must enlarge the set of the initial conditions
+considered, allowing for a nonzero initial velocity of the light particle. Only then does the functional-independence of
+the new third invariant become manifest. Generally, the allowed sets of incident (in) velocities, i.e., the states where
+no collisions occurred in the past, would require positive initial velocities ordered according to
+                                                       Vin > vin > 0 .                                                   (49)
+
+   Likewise, an outgoing state (out), i.e., a state that does not lead to any collisions in the future, is characterized by
+negative final velocities ordered according to
+                                                     Vout < vout < 0 .                                                 (50)
+
+
+                                                             16
+    It can be shown that the conservation of energy and the observable J,
+
+                                                          Tout   = Tin
+                                                          Jout   = Jin
+
+both being a function of the velocities only, restricts the set of the allowed outgoing velocity pairs produced by the
+given incident pair, to one value only (This can be shown, in particular, by observing that (a) the outgoing pair
+(Wout , wout ) is an image of the incident pair, (Wout , wout ), upon application of one of the elements of the group, and
+that (b) the condition (50) defines a particular chamber of this group. However, by construction, there is only one
+point of an orbit of a group per chamber). Notice that in this case, the outgoing velocities do not depend on the order
+of collisions: depending on the initial coordinates X0 < x0 < 0, the first collision in the chain can be represented by
+either a ball–wall or a ball–ball collision. This independence can be regarded as a classical (as opposed to quantum)
+manifestation of the so-called Yang-Baxter property [29, 30] for the three-body system where the wall is considered a
+third, infinitely massive body.
+    In contrast to the superintegrable mass ratios, a generic mass ratio produces two different outcomes, depending on
+the order of collisions. Notice that two qualitatively different trajectories may even originate from two infinitely close
+initial conditions; see Figure 11. In the maximally superintegrable case of integer q, these two trajectories collapse to
+a single one-dimensional line. This phenomenon can be regarded as an unbounded orbit analogue of the closing the
+orbits in the bounded case.
+   The actual sets of the outgoing velocities are very different in the even and in the odd cases. In the even superin-
+tegrable case, the initial velocities are simply inverted:
+
+                                                                  Vout = −Vin
+                                             q = even →                       .                                      (51)
+                                                                  vout = −vin
+
+   Indeed, since the energy and, in this case, the observable J are even functions of the velocities, the above connection
+protects the conservation laws. The odd case is much more involved. One can show that
+
+                                            Vout = − cos(π/q)Vin − tan(π/q) sin(π/q)vin
+                             q = odd →                                                  .                            (52)
+                                            vout = − cos(π/q)(Vin − vin )
+
+   Remark that the case vin = Vin , where vout vanishes, may be regarded as a generalization of a notion of a Galilean
+Cannon [31]: a system of balls that arrives at the wall with the same speed and transfers all the energy to the far-most
+one in the end.
+
+
+4     Physical Realizations
+
+4.1    Finite-Size Balls
+
+The pair (X, x) of positions generates a configuration point, and the set of all configuration points form the configu-
+ration space[12]. For point-size balls, it is bounded by the position of the wall, |X| > 0 and |x| > 0, and the condition
+of the impenetrability of the balls, preserving their order, 0 < |x| < |X|. More realistically, the real balls must have
+some finite size which we denote as R and r for the radii of the heavy and light balls, respectively. Still, we argue that
+if all collisions are elastic, the problem can be effectively reduced to the previous one of point-size balls. One might
+note that finite-size impenetrable balls have a smaller configuration space, schematically shown in Figure 12, which
+contains an excluded volume [32]. The configuration space of finite-size balls is |x| > r and |X| > |x| + r + R. In other
+words, mapping which removes the excluded volume,
+
+                                                   x0       =    x−r                                                 (53)
+                                                      0
+                                                  X         =    X − R − r,                                          (54)
+
+reduces the problem of finite-size hard spheres to the problem of point-like objects, via a simple scaling which does
+not affect the balls’ velocities.
+    As sphere is a three-dimensional object, sometimes finite width one-dimensional balls are referred to as hard rods.
+
+
+                                                                 17
+                       -x
+
+
+
+
+                                                     -X
+
+
+
+
+                       -x
+
+
+
+
+                                                     -X
+
+
+
+Figure 11: Each horizontal pair of figures depicts two trajectories (in green) that start at the same point in configuration
+space but have slightly different velocities in configuration space (left) and unfolded billiard coordinates (right). For
+the solid green lines, the initial velocities determine that the first collision is a ball–ball collision (red line), and for the
+dashed lines the first collision is ball–wall (blue line). The top row depicts a generic mass ratio β = π/7.6. From the
+configuration space trajectory in the top left, we see that for the generic case, slightly different initial conditions can
+lead to very different final velocities and a different number of collisions. The figure at the top right explains this by
+showing that the two nearby trajectories induce inequivalent unfoldings; the solid red and blue lines are the unfolded
+collision lines for the trajectory with ball–ball as first collision and the dashed red and blue lines for the trajectory
+with ball–wall as first collision. In this figure, the slightly different initial velocities lead to unfolded trajectories that
+diverge slowly and linearly in time, but the inequivalent unfoldings make their projections back to configuration space
+coordinates very different. In contrast, for the superintegrable case β = π/8 depicted in the bottom row, the solid and
+dashed unfoldings align at π. The unfolded trajectories with only slightly different slopes therefore give only slightly
+different projections at the end. Note that the reversal of initial velocities (51) is evident in the lower left figure.
+
+
+4.2    Billiard
+
+The restricted domain of the available phase space (half of a quadrant) together with the specular reflection laws
+makes the system consisting of two identical balls and a wall mappable to a problem of a billiard with opening
+angle of 45◦ . In a billiard, the balls move in straight lines and collide with the boundaries (mirrors), where the
+incident and reflected angles are equal [33]. It might be shown [14, 15] that billiard variables (3) change the opening
+angle to β and have a special property which is that the reflections result in a straight trajectory. This unfolding
+creates a straight-line trajectory which intersects a certain number of lines, each of them rotated by the angle β. Each
+intersection corresponds to a single collision and the total number of intersections defines the total number of collisions
+Π. Altogether, this picture provides an intuitive visualization of the relation between π, corresponding to the angle of
+180◦ , and the number of collisions.
+
+
+
+
+                                                               18
+Figure 12: Configuration space for (a) two point balls (b) balls of size r and R. Mapping (54) translates configuration
+space (b) into (a).
+
+
+4.3    Four-Ball Chain
+
+Another physical system which conceptually is related to the present system consisting of two balls and a wall, is a
+problem of four balls on a line. The action of the wall consists in reflecting the mass m ball with the same absolute
+value of the velocity, v → −v. The same effect can be achieved by replacing the rigid wall by another ball of mass m,
+moving with velocity −v. During an elastic collision, both balls will exchange their velocities. In order to make the
+system completely symmetric, one also has to add an additional heavy ball, resulting in M − m − m − M chain. The
+distance between 1–2 and 3–4 balls must be the same, while 2–3 distance can be arbitrary chosen. Finally, the initial
+velocities should be chosen such v2 = v3 and v1 − v2 = v3 − v4 .
+
+
+4.4    Calogero-Sutherland Particles
+
+The form of the Hamiltonian (27) looks like a free particle in two dimensions, but note that (27) also has an interpre-
+tation as a one-dimensional particle with mass M + m bouncing off a (centrifugal) barrier at r = 0. Further, this can
+be mapped onto a two-particle Calogero-type model [34, 35] where Pr is the relative momentum and r is the relative
+distance. This suggests an interpretation, at least metaphorically, of the small particle as the ”force carrier” mediating
+an inverse-square interaction between the heavy ball and the wall.
+    Similar to the superintegrable (equal-mass) classical Calogero model, in which the net result of N particle scattering
+is that the asymptotic outgoing particle momenta are just a permutation of the incoming momenta without any
+time delay [36], there is also no time delay from Galperin billiards in the superintegrable cases when β = π/q and
+q ∈ 3, 4, 5, . . .. This can be seen from Equation (37) and the fact that for β = π/q then Πβ = π and the total time is
+2|x0 |/V0 . Including more general initial velocities V0 and v0 as in Section 3.4, the net effect of the Π collisions is that
+the two initial velocities are exactly reversed.
+
+
+
+5     Systematic Error
+
+Any real experimental procedure should contain an error analysis. For example, the stochastic method of Buffon
+provides not only an approximate value of π, but also the statistical error associated with it.√ After N trials of
+dropping the needle, π is estimated as an average value while the statistical error is εstat = σ/ N − 1, where σ is
+the variance. Although in each experiment the realizations are different, the statistical error can be estimated and its
+value can be controllably reduced by increasing the number of trials.
+
+
+                                                             19
+    In the present study we do not report results of a real experiment, in which the number of collisions will be limited
+by friction, non-perfect elasticity of collisions, etc. Nevertheless, the relation (14) between the number of collisions
+and the Galperin billiard relies on the Taylor expansion of inverse tangent function in Equation (13) and on taking
+its integer part, and these might induce a certain error to the final result. Accuracy of the approximations used is
+reported in Figure 13 as a function of the base b and mantissa N . For completeness, here we consider N not limited
+to integer values but as a continuous variable N ≥ 0 and the base b > 1. The analyzed data gives error ε limited to
+two values ε = 1 (light color) and ε = 0 (black). It becomes evident that for large N the approximate formula always
+works correctly, while for small N there appears a complicated structure as a function of b. For large system base (for
+example, decimal b = 10 and hexadecimal b = 16 cases) Formula (14) works correctly for any length of mantissa apart
+from N = 0 case, which in any case should be treated separately due to degeneracy as will be discussed in Section 6.2.
+
+
+
+
+Figure 13: Difference between the exact number of collisions (13) and the approximation (14), which relates it to the
+digits of pi, as a function of base b and mantissa N . Two possible values are denoted with the dark (0) and light (1)
+colors.
+
+    The error ε is a complicated non-analytic function of N and b, as can be perceived from Figure 13. It turns out that
+for some integer bases expressions (13) and (14) lead to different results. Namely, the error is ε = 1 for integer bases
+b = 6; 7; 14 and N = 1. It means that for the mentioned combinations, Galperin billiard method does not provide the
+digits of π exactly, as there is an error of ε = 1 in the last digit. The cardinality of irrational numbers is greater than
+that of the integer numbers. For irrational numbers it is possible to find examples where the error is different from
+zero for different values of N and the same value of the base b. Namely, ε = 1 for b = 3.7823797 and N = 1, 2, 3, 4
+and 6. In general, it is clear that the closer is the base to b = 1 the worse is the description, and for a larger number
+of values of N Galperin billiard gives digits different from π.
+    We propose to treat a possible difference between (13) and (14) as a systematic error, so that the final result of
+each “measurement” is ε/bN with ε ≤ 1. That is, the approximation of π in a base b can be expressed from the number
+of collisions Π(b, N ) as
+                                                           Π(b, N )   ε
+                                                     πb =     N
+                                                                    ± N .                                            (55)
+                                                             b       b
+Such a classification is closer to a spirit of a real measurement, where different effects might contribute to the error.
+Another advantage of the proposed idea of introducing the concept of the systematic error, is that it solves the problem
+of the number of digits which are predicted correctly using Galperin billiard. It was noted by Galperin in Ref. [14]
+(see also Ref. [15]) that if there is a string of nines, that might lead to a situation when more than one digit is
+different. In a similar sense, the numbers 0.999 and 1.000 differ by all four digits. If instead, one allows an error of
+0.001, both numbers become compatible. Indeed, from a practical point of view (suppose we calculate perimeter of a
+circle knowing its radius), the use of the incorrect value would lead to a relative error of 0.001 and not to completely
+incorrect result as all the original digits are different.
+   In the next sections we consider the cases of integer and non-integer bases.
+
+
+
+                                                            20
+6     Integer Bases
+
+Equation (13) has a profound mathematical meaning, as the number of collisions Π(b, N ) provides the first N digits
+of the fractional part (i.e., digits beyond the radix point) of the number π in base b. It might be immediately realized
+that as the number of collisions is obviously an integer number, its integer base representation can be chosen to be
+finite.
+    In Sections 6 and 7 we use number of collisions Π(b, N ), as given by Equation (13), to approximate the digits of π
+for different integer bases b, then (Π/bN )b yields the base-b representation of π with N digit beyond the radix point.
+
+
+6.1    Representing a Number in Integer Bases
+
+Let b > 1 be an integer number. Any positive number x has the integer expansion in base b, i.e., can be represented
+in powers of b as
+                                                                           n
+                                                                           X
+                                  x = (an an−1 . . . a0 .a−1 a−2 . . .)b =   a i bi ,                          (56)
+                                                                             i=−∞
+
+where n = int[logb x] and ai = {0, 1, . . . , b − 1} are the digits in the corresponding numeral system and we use form xb
+to denote the representation of number x in base b. For bases with b > 10, the symbols A, B, . . . are commonly used
+to denote 10, 11, . . .. In order to obtain the digits ai , one can use the following iterative process: ai = int[ri /bi ], i ≤ n
+with rn = x and rj−1 = rj − aj · bj , j ≤ n − 1. Multiplying the base-b representation (56) by bi shifts the radix point
+by i digits. Thus, approximation (14) gives the integer part and first N digits of the fractional part of π in base b.
+   The most frequently used integer systems are decimal (b = 10) and binary b = 2 systems. Occasionally, also
+ternary b = 3, octal (b = 8), hexadecimal (b = 16) and others systems are used. Importantly, for integer bases, finite
+representations are unique, while infinite representations might be not unique. For example, the finite number 110 in
+the decimal base can be written as 1.000(0)10 = 0.999(9)10 .
+
+
+6.2    Degenerate Case of Equal Masses and Submultiple Angles
+
+Before considering in detail the representation in bases b = 10; 2; 3 reported in Tables 1–3, we note that N = 0 case is
+universal as the mass ratio M/m = bN = 1 does not depend on the base b. In other words, the digit in front of the
+radix point always correspond to the same number. The Equation (13) formally gives 4 collisions, which is different
+from the physically correct number of 3 collisions. The reason for such a difference comes from a degeneracy between
+the third and fourth collision. While for N > 0, the direction of the light ball is always inverted in the last two
+collisions (φ → −φ), for N = 0 the light ball completely stops exactly at the third collision. In physical sense there is
+no difference between v3 = −0 and v4 = +0 velocities.
+   Thus, Equations (13) and (14) are applicable only for N ≥ 1 while N = 0 is a special case and it should be treated
+separately.
+    The analogous result takes place in the case of the angle φ being submultiple of π, i.e., when the ratio π/φ is an
+integer number. The number of collisions is not given correctly by (13) as the last collision is degenerate as well.
+
+
+6.3    Decimal Base
+
+For the most natural case of the decimal base system, b = 10, the number of collisions Π(10, N ) is given in Table 1.
+It is easy to follow, how Galperin billiard generates digit of π. For N = 0, Equation (13) results in the first digit of
+π approximated by 4, while due to degeneracy discussed in Section 6.2, physically there are 3 collisions. For N = 1,
+there are 31 collisions, resulting in expression with 1 digit after the radix point, 3.1. From N = 2, the number of
+collisions in 314 giving the number π with 2 digits after the radix point. One can see that the billiard method correctly
+approximates the number π as 3 plus N more digits in the decimal base.
+    Conceptually, one might ask if there is a difference between the number of collisions Equation (13) which depend
+on arctan(b−N ) rather than b−N , as in Equation (14). It turns out that the base b = 10 is large enough (see Figure 13)
+so that there is no any difference in the integer part of the expansion.
+
+
+                                                               21
+Table 1: Number of collisions Π(10, N ) given by Equation (13) for the decimal base, b = 10. The first column reports
+the value of mantissa N . The second column is the resulting number of collisions in the decimal base. The third
+column is the number π with N digits in the fractional part in the decimal representation. The fourth column gives
+the systematic error according to Equation (55). The case where approximation (14) fails as compared to (13) is
+highlighted by red. The blue digit is incorrectly predicted by the Galperin billiard.
+
+                             N      Π(10, N )10   (Π(10, N )/10N )10      (1/10N )10
+                              0     4             4                       1
+                              1     31            3.1                     0.1
+                              2     314           3.14                    0.01
+                              3     3141          3.141                   0.001
+                              4     31415         3.1415                  0.0001
+                              5     314159        3.14159                 0.00001
+                              6     3141592       3.141592                0.000001
+                              7     31415926      3.1415926               0.0000001
+                              8     314159265     3.14159265              0.00000001
+                              9     3141592653    3.141592653             0.000000001
+                              10    31415926535   3.1415926535            0.0000000001
+
+Table 2: Number of collisions Π given by Equation (13) for the binary base, b = 2. The first column reports the value
+of mantissa N . The second column is the resulting number of collisions in the decimal base. The third column is
+the number of collisions written in the binary representation. The fourth column is the binary representation of the
+number π with N digits in the fractional part. The fifth column gives the systematic error according to Equation (55).
+The case where approximation (14) fails as compared to (13) is highlighted by red. The blue digits are not correctly
+predicted by the Galperin billiard.
+
+                        N    Π(2, N )10    Π(2, N )2        (Π(2, N )/2N )2    (1/2N )2
+                        0    4             100              100                1
+                        1    6             110               11.0              0.1
+                        2    12            1100              11.00             0.01
+                        3    25            11001             11.001            0.001
+                        4    50            110010            11.0010           0.0001
+                        5    100           1100100           11.00100          0.00001
+                        6    201           11001001          11.001001         0.000001
+                        7    402           110010010         11.0010010        0.0000001
+                        8    804           1100100100        11.00100100       0.00000001
+                        9    1608          11001001000       11.001001000      0.000000001
+                        10   3216          110010010000      11.0010010000     0.0000000001
+
+
+6.4    Binary and Ternary Bases
+
+Other important examples of number systems include the binary (b = 2) and ternary (b = 3) base systems. The binary
+system lies in the core of modern computers which operate with bits 0, 1. Interestingly, base-3 computer named Setun
+was built 1958 under leadership of mathematician Sergei Sobolev and operated with trits, 0, 1, 2.
+    Table 2 reports the number of collisions Π(2, N ) obtained for b = 2 base. By expressing the number of collisions
+in binary base using zeros and ones, one obtains the representation of the number π in binary base. In the ternary
+base, the number of collisions are written using the three allowed digits, 0, 1, 2, see Table 3.
+
+
+6.5    Best Bases for a Possible Experiment
+
+As concerning the effects of the friction and other sources of energy dissipation, it is easier to perform experiments
+for small base b. While for N = 0 (the mass ratio is M/m = 1 independently of b) there are 3 collisions which can
+be easily observed with identical balls, for larger N the number of collisions grows exponentially fast. The decimal
+
+
+                                                          22
+Table 3: Number of collisions Π given by Equation (13) for the ternary base, b = 3. The first column reports the
+value of mantissa N . The second column is the resulting number of collisions in the decimal base. The third column is
+the number of collisions written in the binary representation. The fourth column is the ternary representation of the
+number π with N digits in the fractional part. The fifth column gives the systematic error according to Equation (55).
+The case where approximation (14) fails as compared to (13) is highlighted by red. The blue digits are incorrectly
+predicted by the Galperin billiard.
+
+                         N    Π(3, N )10     Π(3, N )3        (Π(3, N )/3N )3      (1/3N )3
+                         0    4              11               11                   1
+                         1    9              100              10.0                 0.1
+                         2    28             1001             10.01                0.01
+                         3    84             10010            10.010               0.001
+                         4    254            100102           10.0102              0.0001
+                         5    763            1001021          10.01021             0.00001
+                         6    2290           10010211         10.010211            0.000001
+                         7    6870           100102110        10.0102110           0.0000001
+                         8    20611          1001021101       10.01021101          0.00000001
+                         9    61835          10010211012      10.010211012         0.000000001
+                         10   185507         100102110122     10.0102110122        0.0000000001
+
+
+system has a rather “large” base b = 10 which already for N = 1 results in 31 collisions and N = 2 even in 314
+collisions. It might be notoriously hard to create a clean system in which such a large number of collisions can be
+reliably measured.
+   For the binary base b = 2 and N = 1 the number of collisions to be observed is much smaller, 3; 6; 12; 25; . . ., see
+Table 2, making such system more suitable for an experimental observation.
+
+
+
+7     Non-Integer Bases
+
+As anticipated above, the Galperin billiard method should provide digits of π in an arbitrary base b, even for a
+non-integer one. In this Section we consider a number of examples.
+
+
+7.1    Representing a Number in a Non-Integer Base
+
+For a non-integer base b > 1, any positive number x can be written in the base-b representation similarly to Equa-
+tion (56) where digits ai can take only non-negative integer values smaller than non-integer base, ai < dbe (dxe stands
+for the least integer which is greater than or equal to x).
+    Unlike the integer bases, for a non-integer base b, even finite fractions might have different b representations. For
+example, in the golden mean ϕ ≈ 1.61803 base, due to the quadratic equality ϕ2 = ϕ + 1, one has 100ϕ = 11ϕ .
+With Equation (56) we can find at least one representation for x. Moreover, the number of collisions Π(b, N ) which
+is obviously an integer number and always written with a finite representation in any integer base system, in a non-
+integer base b it is a common situation that an integer number needs an infinite representation which corresponds
+to the number. An example of a rational base is displayed in Table 4 for b = 3/2. Thus, 3/2 representation is
+π3/2 = (3/2)2 + (3/2)−1 + (3/2)−4 + (3/2)−9 . . .. Note a peculiarity of this base is that b is so small that the expansion
+arctan(b−N ) ≈ b−N used to derive Equation (14) is not precise enough. As a result, the number of collisions Π(b, 1) in
+the Galperin billiard, given by Equation (13), for several values of N (highlighted by red in Table 4) does not coincide
+with expression (14) which is used to transcribe N digits of π in the base b. The resulting possible difference in the
+last digits (highlighted by blue) can be interpreted as the systematic error ε = 1 in the spirit of Section 5.
+
+
+
+
+                                                            23
+Table 4: Number of collisions Π(3/2, N ) given by (13) and approximation of π for b = 3/2. The first column is N .
+The second column is Π(3/2, N ) in the decimal base. The third column is the integer part of the number of collisions
+Π(3/2, N ) written in the base 3/2. The fourth column is the number π with N digits in the fractional part in the base
+3/2. The fifth column gives the systematic error according to Equation (55). The cases where approximation (14) fails
+as compared to (13) are highlighted by red. The blue bold digits are predicted incorrectly by the Galperin billiard.
+
+                N     Π(3/2, N )10      Π(3/2, N )3/2      (Π(3/2, N )/(3/2)N )3/2         (1/(3/2)N )3/2
+                0     4                 1000.              1000.                           1
+                1     5                 1010.               101.0                          0.1
+                2     7                 10010.              100.10                         0.01
+                3     10                100100.             100.100                        0.001
+                4     16                1001001.            100.1001                       0.0001
+                5     23                10010000.           100.10000                      0.00001
+                6     35                100100010.          100.100010                     0.000001
+                7     53                1001000100.         100.1000100                    0.0000001
+                8     80                10010010000.        100.10010000                   0.00000001
+                9     120               100100100000.       100.100100000                  0.000000001
+                10    181               1001001000001.      100.1001000001                 0.0000000001
+
+
+7.2    Number Systems with Irrational Bases
+
+Some√ notable examples of non-integer bases include the fundamental cases of the bases with the quadratic number
+b = 3 = 1.732 · · · , the golden mean b = ϕ = 1.618 · · · , the natural logarithm b = e = 2.718 · · · and a curious situation
+when the number π is used itself as a base, b = π.
+                                    √
+    Table 5 contains the results of 3 representations of pi number. Note that this includes a superintegrable value
+                                                                                                             2N
+of the ratio of masses,
+                     √ see Section 3.4. Namely, for N = 1, the angle β = π/6 in (13) and M/m = b = 3. In this
+case, the values Π( 3, 1), given by (13) and (14), differ by 1, since in (13) under the integer part there is an exact
+integer number and, therefore, an approximation of the arctan function will inevitably give an error. As for N = 5,
+the difference between the values obtained by (13) and (14) is also 1 due to the same nature of systematic errors as
+for N = 1 and N = 4 of b = 3/2 in Table 4.
+    In Table 6 we give two different representations for πϕ , since its integer part 100ϕ = 11ϕ . The fourth and fifth
+columns in Table report the ϕ-representation with the integer part 100ϕ and 11ϕ , respectively. The allowed digits
+for both representations are 0 and 1. Table 7 reports the resulting number of collisions Π(e, N ) in base e with the
+allowed digits 0, 1 and 2. We get the representation π = (10.1010020200 . . .)e = e + e−1 + e−3 + 2e−6 + 2e−8 + . . ..
+One can see the influence of the error of the computation by the Galpelin billiard which in the case of base b = e is
+1/eN = 0.00 . . . 01e . Due to this error, the last digit may be incorrectly predicted by the method. Especially, when
+the last digit is the maximum allowed (2 for b = e, see the cases N = 4 and N = 9 in Table 7), then the two last digits
+may be incorrect.
+   In Table 8 we show approximations of π in the base b = π The allowed digits in this base are 0, 1, 2 and 3. The
+Galperin billiard does not provide an integer-number representation for the number π even in this case, as instead of
+the “natural” possibility π = 10π one obtains an infinitely long representation
+
+                      π = (3.0110211100 . . .)π = 3 + π −2 + π −3 + 2π −5 + π −6 + π −7 + π −8 + . . . .
+
+   This non-unique representation is similar to the infinite representation 0.999(9) . . . of 1 in the decimal system. We
+note the difference between the values obtained by (13) and (14) is also 1 for N = 1 due to a systematic error.
+   The accuracy of the approximation to π obtained by Galperin’s billiard can be estimated by Equation (55) which
+we treat as systematic error of the method. It can be noted that the wrong digits might appear due to failure of
+approximation (14) as compared to (13) which is highlighted by red in Tables 1–8, either by differences coming due
+representation of an integer number (i.e., the number of collisions) in a non-integer base (see Tables 4,5,7).
+
+
+
+
+                                                             24
+                                  √                                                                     √
+Table 5: Number of collisions Π(√ 3, N ) given by (13) and (14) and approximation of π for b = 3. The first column
+is N . The second column is√Π( 3, N ) calculated by (13) in the decimal √    base. The third column is the integer part of
+the number of collisions Π( 3, N ) given by√(13) and written in the base 3. The fourth column    √       is the number π with
+N digits in the fractional part in the base 3 calculated by (14) . The fifth column    √   is Π(   3, N ) given by (14) in the
+decimal base.
+          √    The  sixth column  is  the integer part of the number  of collisions Π(   3, N ) given  by  (14) and written in
+the
+√    base   3. The seventh  column   is the number  π  calculated by (14) with   N  digits in the fractional   part in the base
+   3. The eighth column gives the systematic error according to Eq. (55). The cases where approximation (14) fails as
+compared to (13) are highlighted by red. The blue color stands for the digits which are incorrectly predicted by the
+Galperin billiard.
+        N
+
+              Π10
+
+
+
+
+                           Π√ 3
+
+
+
+
+                                                 
+
+
+
+                                                          Π( 3, N )10
+
+
+
+
+                                                                              Π( 3, N )√3
+
+
+
+
+                                                                                                 √
+
+
+
+
+                                                                                                                          
+                                            √ N
+
+
+
+
+                                                                                                 (Π( 3,N )
+
+
+
+
+                                                                                                                     √ N
+                                                            √
+
+
+
+
+                                                                                √
+                                             Π
+
+
+
+
+                                                                                                                      1
+                                             3
+
+
+
+
+                                                                                                                      3
+                                                                                                   √ N
+                                                                                                     3
+                                                 
+
+
+
+
+                                                                                                                          
+                                             √
+
+
+
+
+                                                                                                                      √
+                                            3
+
+
+
+
+                                                                                                                     3
+                                                                                                           
+                                                                                                             √
+                                                                                                               3
+         0    4     101.               101.               3             100.                100.                   1
+         1    6     1000.              100.0              5             110.                11.0                   0.1
+         2    9     10000.             100.00             9             10000.              100.00                 0.01
+         3    16    100000.            100.000            16            100000.             100.000                0.001
+         4    28    1000001.           100.0001           28            1000001.            100.0001               0.0001
+         5    49    10000010.          100.00010          48            10000001.           100.00001              0.00001
+         6    84    100000100.         100.000100         84            100000100.          100.000100             0.000001
+         7    146   1000001000.        100.0001000        146           1000001000.         100.0001000            0.0000001
+         8    254   10000010010.       100.00010010       254           10000010010.        100.00010010           0.00000001
+         9    440   100000100100.      100.000100100      440           100000100100.       100.000100100          0.000000001
+         10   763   1000001001010.     100.0001001010     763           1000001001010.      100.0001001010         0.0000000001
+
+Table 6: Number of collisions Π(ϕ, N ) given by (13) for b = ϕ. The first column is N . The second column is Π(ϕ, N )
+in the decimal base. The third column is the integer part of Π(ϕ, N ) written in the base π. The fourth column is the
+number π with N digits in the fractional part (Type I) in the base π. The fifth column is the number π with N digits
+in the fractional part (Type II) in the base π. The sixth column gives the systematic error according to Equation (55).
+The case where approximation (14) fails as compared to (13) is highlighted by red. The blue bold digit is predicted
+incorrectly by the Galperin billiard.
+
+        N     Π(ϕ, N )10     Π(ϕ, N )ϕ            (Π(ϕ, N )/ϕN )ϕ (I)             (Π(ϕ, N )/ϕN )ϕ (II)             (1/ϕN )ϕ
+        0     4              101.                 101.                            101.                             1
+        1     5              1000.                100.0                           11.0                             0.1
+        2     8              10001.               100.01                          11.01                            0.01
+        3     13             100010.              100.010                         11.010                           0.001
+        4     21             1000100.             100.0100                        11.0100                          0.0001
+        5     34             10001000.            100.01001                       11.01001                         0.00001
+        6     56             100010010.           100.010010                      11.010010                        0.000001
+        7     91             1000100101.          100.0100101                     11.0100101                       0.0000001
+        8     147            10001001010.         100.01001010                    11.01001010                      0.00000001
+        9     238            100010010100.        100.010010101                   11.010010101                     0.000000001
+        10    386            1000100101010.       100.0100101010                  11.0100101010                    0.0000000001
+
+
+
+
+                                                                  25
+Table 7: Number of collisions Π(e, N ) given by (13) and approximation of π for b = e. The first column is N . The
+second column is Π(e, N ) in the decimal base. The third column is the integer part of the number of collisions Π(e, N )
+written in the base e. The fourth column is the number π with N digits in the fractional part in the base e. The fifth
+column gives the systematic error according to Equation (55). The case where approximation (14) fails as compared
+to (13) is highlighted by red. The blue bold digits are incorrectly predicted by the Galperin billiard due to a systematic
+error.
+
+                         N    Π(e, N )10     Π(e, N )e            (Π(e, N )/eN )e   (1/eN )e
+                         0    4              11.                  11.               1
+                         1    8              100.                 10.0              0.1
+                         2    23             1010.                10.10             0.01
+                         3    63             10101.               10.101            0.001
+                         4    171            101002.              10.1002           0.0001
+                         5    466            1010100.             10.10100          0.00001
+                         6    1267           10101001.            10.101001         0.000001
+                         7    3445           101010020.           10.1010020        0.0000001
+                         8    9364           1010100201.          10.10100201       0.00000001
+                         9    25456          10101002012.         10.101002012      0.000000001
+                         10   69198          101010020200.        10.1010020200     0.0000000001
+
+Table 8: Number of collisions Π(π, N ) given by (13) for b = π. The first column is N . The second column is the
+number of collisions in the decimal base. The third column is the integer part of the number of collisions Π(π, N )
+written in the base π. The fourth column is the number π with N digits in the fractional part in the base π. The
+fifth column gives the systematic error according to Equation (55). The case N = 1 is emphasized since there is
+the difference 1 between Π(π, 1) by (13) and the approximation (14). The cases where approximation (14) fails as
+compared to (13) are highlighted by red. The blue bold digits are not correctly predicted by the Galperin billiard.
+
+                         N     Π(π, N )10     Π(π, N )π        (Π(π, N )/π N )π     (1/π N )π
+                         0     4              10.              10.                  1
+                         1     10             100.             10.0                 0.1
+                         2     31             301.             3.01                 0.01
+                         3     97             3010.            3.010                0.001
+                         4     306            30110.           3.0110               0.0001
+                         5     961            301102.          3.01102              0.00001
+                         6     3020           3011021.         3.011021             0.000001
+                         7     9488           30110210.        3.0110210            0.000001
+                         8     29809          301102110.       3.01102110           0.0000001
+                         9     93648          3011021110.      3.011021110          0.00000001
+                         10    294204         30110211100.     3.0110211100         0.000000001
+
+
+8    Conclusions
+
+To summarize, we have studied how the digits of the number π are generated in a simple classical three-body system
+consisting of one heavy ball, one light ball and a wall (Galperin’s billiard method). We obtain for the first time, to our
+best knowledge, the complete explicit solution for the balls’ positions and velocities as a function of the collision number
+and time. This is achieved by moving to billiard coordinates and unfolding the trajectory. In this representation,
+collisions are reflections and the motion looks almost like a free particle moving in two dimensions if the singular
+impulse at reflections is ignored. The square of the angular momentum about the three-body coincidence of the two
+balls with the wall is an invariant integral of motion. This quantity explains why the invariant first identified the
+adiabatic approximation works not only close to the return point but also for any ball–wall collision, even far from
+the wall.
+   This free-particle form of the Hamiltonian (27) which looks like the Calogero model also explains many of the
+“round” properties of Galperin billiards, such as the portraits of the system in (P, 1/X) and (V, 1/X) coordinates
+
+
+
+                                                             26
+have a shape close to a circular one. Another circle appears in (V, v) coordinates and corresponds to the energy
+conservation law. Instead a hyperbolic shape appears in the (X, t) plane. A third invariant is also revealed for certain
+mass ratios that makes the system superintegrable and removes the dependence of the number of collisions on the
+initial conditions for generalized scenarios.
+    A recent article establishing an isomorphism between the dynamics in Galperin billiards and Grover’s algorithm
+for quantum database searches [22] inspires consideration of the quantum version. Curiously, since the Galperin model
+effectively becomes a classical simulator for a quantum algorithm, its quantum realization would lead to a second
+quantization of the Grover process, where the coefficients of Grover’s wavefunction will be promoted to quantum
+observables. Note that unlike in the standard second quantization of field theory, components of the first-quantized
+wave function of the space Grover’s machine lives in become Hermitian operators, ball velocities in our case. On the
+negative side, while the map presented in [22] is indeed a one-to-one correspondence between the two protocols, as far
+as the degrees of freedom are concerned, the only isomorphism it establishes is a map between Galperin’s velocity
+space and a two-dimensional Hilbert space Grover’s algorithm constrains the database to: the actual Hilbert space the
+database lives in can be arbitrary large. Nonetheless, potential advantages of a second quantization on this reduced
+Hilbert space are worth exploring.
+    Another motivation for considering the quantum version of this system is the daunting experimental challenge
+of realizing Galperin billiards with macroscopic objects. Quantum realizations of effectively one-dimensional mixed-
+mass systems like Galperin billiards can be experimentally realized with ultracold atoms in few-body systems [37] or
+as bi-solitons in ultracold atomic gases, via a scheme described in [31]. There, a bi-soliton of a desired mass ratio
+is created using a coupling constant quench [38]; one of the two solitons is subsequently transferred to a different
+internal atomic state that leads to a repulsion between the solitons. The wall is generated using a light sheet. High
+degree of macroscopic quantum coherence will be guaranteed [39] by the higher conservation laws operating in the
+one-dimensional bosonic systems. Bi-solitons have been recently created experimentally [40, 41].
+   The integrals of motion, including the third superintegral, should carry over without modification into quantum
+observables. In fact, mixed-mass superintegrability with hard-core interactions has been previously identified for
+quantum billiards in free space [26] and harmonic traps [42].
+    Examples of integer bases b, including decimal, binary and ternary, are considered. We argue that smaller bases
+(for example, b = 2; 3) are the easiest to be realized in an experiment and show how the Galperin billiard can be
+generalized to finite-size balls (hard rods). We show that the dependence of a possible error in the last digit as a
+function of b and N has a complicated form, with the error disappearing in the limit of bN → ∞. We propose to
+treat the possible error in the last digit as a systematic error. In particular this resolves the problem of the correct
+number of obtained digits. Finally, we consider non-integer bases, including expressing π in the base π or the base of
+the golden ratio ϕ. These reveal the curious limitations of numeral representations of irrational numbers in irrational
+bases, and make Galperin’s π-calculating machine all the more remarkable.
+
+
+
+Acknowledgment
+
+The research leading to these results received funding from the MICINN (Spain) Grant No. FIS2017-84114-C2-
+1-P. M.G. has been partially supported by Juan de la Cierva-Formación FJCI-2014-21229 and Juan de la Cierva-
+Incorporación IJCI-2016-29071 fellowships, the Spanish grants MICIIN/FEDER MTM2015-65715-P, MTM2016-80117-
+P (MINECO/FEDER, UE), PGC2018-098676-B-I00 (AEI/FEDER/UE) and the Catalan grant 2017SGR1374. M.O.
+acknowledges financial support from the National Science Foundation grants PHY-1607221 and PHY-1912542 and the
+US-Israel Binational Science Foundation grant 2015616.
+
+
+A      Solving the Equations of Motion
+In Section 2.1, it was shown that the total number of collisions can be explicitly obtained from the conservation laws
+resulting in Equation (14), and it does not depend on the exact initial position of the lighter ball x0 or the initial
+velocity of the incident ball V0 . Here we outline how the trajectory of the balls can be obtained.
+   First, one has to integrate the equations of motion, as for example in [17]. Let Xn and xn be the coordinates
+and velocities of the heavy and light balls at the time tn of the n-th collision, respectively. As the velocities change
+
+
+                                                          27
+only at contact, the balls move with constant velocities Vn and vn between the n-th and (n + 1)-th collisions. The
+velocities change according to the rules (the energy and momentum conservation laws) provided in Section 2.1. All
+odd collisions, n = 2k + 1, correspond to balls hitting each other, while even collisions, n = 2k, to the light ball hitting
+the wall. Then the time between the consecutive collisions is
+                                                               x2k − X2k
+                                                           τ2k =
+                                                               V2k − v2k
+                                                                 x2k−1                                                 (57)
+                                                       τ2k−1 = −       ,
+                                                                 v2k−1
+
+where τ2k = t2k+1 − t2k is the time interval passed between ball–ball 2k and the subsequent ball–wall 2k + 1 collision,
+and τ2k−1 = t2k − t2k−1 is the time interval between ball–wall 2k − 1 and ball–ball 2k collisions. The time moment of
+the n-th collision can be calculated as the sum of the preceding time intervals as
+                                                                    n−1
+                                                                    X
+                                                             tn =         τl .                                         (58)
+                                                                    l=1
+
+
+   The solution to the equations of motion can be expressed as the following iterative formulas for a ball–ball collision
+(n = 2k + 1, k = 0, 1, . . . )
+
+                                                                            V2k
+                                            X2k+1 = X2k + (X2k − x2k )
+                                                                         v2k − V2k
+                                                                           v2k
+                                             x2k+1 = x2k + (X2k − x2k )
+                                                                        v2k − V2k
+                                                                                                                       (59)
+                                                     M −m           2m
+                                             V2k+1 =        V2k +           v2k
+                                                     m+M          m+M
+                                                       2M         m−M
+                                             v2k+1 =        V2k +           v2k ,
+                                                     m+M          m+M
+and for a ball–wall collision (n = 2k, k = 1, 2, . . . )
+
+                                                                         V2k−1
+                                                  X2k = X2k−1 −                x2k−1
+                                                                         v2k−1
+                                                   x2k = 0                                                             (60)
+                                                   V2k = V2k−1
+                                                   v2k = −v2k−1 .
+
+   The iterative process stops when one of the following equivalent conditions holds: (i) Xn > 0; (ii) Vn is not
+monotone and starts decreasing after the point of return; (iii) after a ball–ball collision vn < 0, which physically means
+that the light ball goes to −∞.
+
+
+
+References
+  [1] Arndt, J.; Haenel, C. π (Pi) Unleashed; Springer: Berlin, Germany, 2001.
+  [2] Guillera Goyanes, J. History of the formulas and algorithms for π. Gac. R. Soc. Mat. Esp. 2007, 10, 159–178.
+  [3] Berggren, L.; Borwein, J.; Borwain, P. Pi: A Source Book; Springer: New York, NY, USA, 2004.
+
+  [4] Beckmann, P. A History of π (pi); Golem Press: USA, 1971.
+  [5] Newcomb, S. Elements of Geometry; Henry Holt and Company: 1881.
+  [6] Trueb, P. Digit statistics of the first π e trillion decimal digits of π. arXiv 2016, arXiv:1612.00489.
+  [7] Tu, S.-J.; Fischbach, E. A study on the randomness of the digits of π. Int. J. Mod. Phys. C 2005, 16, 281–294.
+
+
+
+                                                                    28
+ [8] Shumikhin, S., Shumikhina, A. Pi number: history 4000 years long; Eksmo Publishing: Moscow, Russia, 2011.
+     (In Russian)
+ [9] Frolop, A.; Scotty, D. Pi in the sky. arXiv 2016, arXiv:1603.09703.
+[10] Galperin, G.A. Dynamical billiard system for the number π [in Russian], Mathematical Education 2001, 3, 137.
+
+[11] Sinai, Y. Introduction to Ergodic Theory; Princeton University Press: Princeton, NJ, USA, 1978.
+[12] Galperin, G.; Zemlyakov, A. Mathematical Billiards; Nauka: Moscow, Russia, 1990.
+[13] Tabachnikov, S. Billiards; Société Mathématique de France:Marseille, France, 1995.
+[14] Galperin, G. Playing pool with π: The number π from a billiard point of view. Regul. Chaotic Dyn. 2003, 8, 375.
+
+[15] Tabachnikov, S. Geometry and Billiards; American Mathematical Society: Providence, RI, USA, 2005.
+[16] Gorelyshev, I.V. On the full number of collisions in certain one-dimensional billiard problems. Regul. Chaotic
+     Dyn. 2006, 11, 61.
+[17] Weidman, P.D. On the digits of π. Math. Intell. 2013, 35, 43–50.
+
+[18] Davis, A.M.J. Digits of pi. Math. Intell. 2015, 37, 1–3.
+[19] Whelan, N.D., Goodings, D.A., Cannizzo, J.K. Two balls in one dimension with gravity. Phys. Rev. A 1990,
+     42, 742.
+[20] Gutkin, E. Billiards in polygons: Survey of recent results. J. Stat. Phys. 1996, 83, 7–26.
+
+[21] Redner, S. A billiard-theoretic approach to elementary one-dimensional elastic collisions. Am. J. Phys. 2004,
+     72, 1492–1498.
+[22] Brown, A.R. Playing Pool with |ψi: from Bouncing Billiards to Quantum Search. arXiv 2019, arXiv:1912.02207.
+[23] Kapitza, P.L. Pendulum with a vibrating suspension. Usp. Fiz. Nauk 1951, 44, 7–15.
+
+[24] Kapitza, P.L. Dynamic stability of a pendulum when its point of suspension vibrates. Soviet Phys. JETP 1951,
+     21, 588–592.
+[25] Arnold, V.I.; Kozlov, V.V.; Neishtadt, A.I. Mathematical Aspects of Classical and Celestial Mechanics; Springer:
+     Berlin, Germany, 2007.
+
+[26] Olshanii, M.; Jackson, S.G. An exactly solvable quantum four-body problem associated with the symmetries of
+     an octacube. New J. Phys. 2015, 17, 105005.
+[27] Chevalley, C. Invariants of finite groups generated by reflections. Amer. J. Math. 1995, 77, 778.
+[28] Mehta, M.L. Basic sets of invariant polynomials for finite reflection groups. Comm. in Algebra 1988, 16, 1083.
+
+[29] Gaudin, M.; Caux, J.-S. (Translator). The Bethe Wavefunction; Cambridge University Press: Cambridge, UK,
+     2014.
+[30] Sutherland, B. Beautiful Models: 70 Years of Exactly Solved Quantum Many-Body Problems; World Scientific:
+     Singapore, 2004.
+
+[31] Olshanii, M.; Scoquart, T.; Yampolsky, D.; Dunjko, V.; Jackson, S.G. Creating entanglement using integrals of
+     motion. Phys. Rev. A 2018, 97, 013630.
+[32] Girardeau, M. Relationship between systems of impenetrable bosons and fermions in one dimension. J. Math.
+     Phys. 1960, 1, 516.
+[33] Kozlov, V.V.; Treshchev, D.V. Billiards: A Genetic Introduction to the Dynamics of Systems with Impacts.;
+     Translations of Mathematical Monographs, American Mathematical Society: Providence, RI, USA, 1991.
+[34] Calogero, F. Solution of a three-body problem in one dimension. J. Math. Phys. 1969, 10, 2191–2196.
+
+
+                                                         29
+[35] Calogero, F. Solution of the one-dimensional n-body problems with quadratic and/or inversely quadratic pair
+     potentials. J. Math. Phys. 1971, 12, 419.
+[36] Polychronakos, A.P. Non-relativistic bosonization and fractional statistics. Nuc. Phys. B 1989, 324, 597–622.
+[37] Sowiński, T.; Garcı́a-March, M.A. One-dimensional mixtures of several ultracold atoms: a review. Rep. Prog.
+     Phys. 2019, 82, 104401.
+
+[38] Satsuma, J.; Yajima, N. Initial value problems of one-dimensional self-modulation of nonlinear waves in dispersive
+     media. Prog. Theo. Phys. Supp. 1974, 55, 284–306.
+[39] Yurovsky, V.A.; Malomed, B.A.; Hulet, R.G.; Olshanii, M. Dissociation of one-dimensional matter-wave
+     breathers due to quantum many-body effects. Phys. Rev. Lett. 2017, 119, 220401.
+
+[40] Haller, E.; Gustavsson, M.; Mark, M.J.; Danzl, J.G.; Hart, R.; Pupillo, G.; Nägerl, H.-C. Realization of an
+     excited, strongly correlated quantum gas phase. Science 2009, 325, 1224–1227.
+[41] Hulet, R.G. Private communication.
+[42] Harshman, N.L.; Olshanii, M.; Dehkharghani, A.S.; Volosniev, A.G.; Jackson, S.G.; Zinner, N.T. Integrable fam-
+     ilies of hard-core particles with unequal masses in a one-dimensional harmonic trap. Phys. Rev. X 2017, 7,
+     041001.
+
+
+
+
+                                                         30
+

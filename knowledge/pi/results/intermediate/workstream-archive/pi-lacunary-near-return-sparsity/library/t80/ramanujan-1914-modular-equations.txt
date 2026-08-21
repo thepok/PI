@@ -1,0 +1,1686 @@
+              Modular equations and approximations to π
+
+               Quarterly Journal of Mathematics, XLV, 1914, 350 – 372
+
+
+1. If we suppose that
+                        √               √                √               1       √
+              (1 + e−π n )(1 + e−3π n )(1 + e−5π n ) · · · = 2 4 e−π n/24 Gn              (1)
+
+and
+                        √               √                √               1       √
+              (1 − e−π n )(1 − e−3π n )(1 − e−5π n ) · · · = 2 4 e−π n/24 gn ,            (2)
+
+then Gn and gn can always be expressed as roots of algebraical equations when n is any
+rational number. For we know that
+                                                             1       1       1
+                      (1 + q)(1 + q 3 )(1 + q 5 ) . . . = 2 6 q 24 (kk′ )− 12             (3)
+
+and
+                                                             1       1   1   1
+                      (1 − q)(1 − q 3 )(1 − q 5 ) · · · = 2 6 q 24 k− 12 k′ 6 .           (4)
+
+Now the relation between the moduli k and l, which makes
+                                                  K′  L′
+                                              n      = ,
+                                                  K   L
+where n = r/s, r and s being positive integers, is expressed by the modular equation of the
+rsth degree. If we suppose that k = l′ , k′ = l, so that K = L′ , K ′ = L, then
+                                                   ′
+                                                                 √
+                                      q = e−πL /L = e−π n ,
+
+and the corresponding value of k may be found by the solution of an algebraical equation.
+From (1), (2), (3) and (4) it may easily be deduced that
+                                                   1
+                                        g4n = 2 4 gn Gn ,                                 (5)
+
+
+                                 Gn = G1/n , 1/gn = g4/n ,                                (6)
+
+
+                                                                 1
+                                   (gn Gn )8 (G8n − gn8 ) =        .                      (7)
+                                                                 4
+I shall consider only integral values of n. It follows from (7) that we need consider only one
+of Gn or gn for any given value of n; and from (5) that we may suppose n not divisible by
+4. It is most convenient to consider gn when n is even, and Gn when n is odd.
+Modular equations and approximations to π                                                                 27
+
+
+2. Suppose then that n is odd. The values of Gn and g2n are got from the same modular
+equation. For example, let us take the modular equation of the 5th degree, viz.
+                          u 3  v 3                 
+                                             2 2     1
+                               +       =2 u v − 2 2 ,                                               (8)
+                           v       u               u v
+where
+                                  1       1
+                              2 4 q 24 u = (1 + q)(1 + q 3 )(1 + q 5 ) · · ·
+and
+                              1       5
+                         2 4 q 24 v = (1 + q 5 )(1 + q 15 )(1 + q 25 ) · · ·
+By changing q to −q the above equation may also be written as
+                         v 3  u 3                 
+                                            2 2     1
+                              −       =2 u v + 2 2 ,                                                (9)
+                          u      v                u v
+where
+                                  1       1
+                              2 4 q 24 u = (1 − q)(1 − q 3 )(1 − q 5 ) · · ·
+and
+                              1       5
+                         2 4 q 24 v = (1 − q 5 )(1 − q 15 )(1 − q 25 ) · · ·
+                  √
+If we put q = e−π/ 5 in (8), so that u = G 1 and v = G5 , and hence u = v, we see that
+                                                        5
+
+                                                    4
+                                                   v − v −4 = 1.
+Hence
+                                     √                              √ !1
+                               4  1+ 5                           1+ 5 4
+                              v =      , G5 =                            .
+                                    2                              2
+                                      q
+                                          2
+                           −π
+Similarly, by putting q = e               5   , so that u = g 2 and v = g10 , and hence u = 1/v, we see
+                                                             5
+that
+                                                   v 6 − v −6 = 4.
+Hence
+                                        √           s    √
+                               2   1 +    5           1+ 5
+                             v =            , g10 =         .
+                                      2                 2
+Similarly it can be shewn that
+                                       √ ! 13
+                                  1+ 3                  √     √ 1
+                        G9 =         √         , g18 = ( 2 + 3) 3 ,
+                                       2
+                                         √ ! u √
+                                 v                  v          !
+                                 u
+                                 u 5 + 17           u   17 − 3
+                       G17 =     t                + t            ,
+                                         8                8
+                                         √ ! u √
+                                 v                  v          !
+                                 u
+                                 u 7 + 17           u   17 − 1
+                        g34 =    t                + t            ,
+                                         8                8
+28                                                                                      Paper 6
+
+
+     and so on.
+
+     3. In order to obtain approximations for π we take logarithms of (1) and (2). Thus
+                                                       1
+                                                              
+                                        π = √24n log(2 4 Gn ) 
+                                                       1            ,                       (10)
+                                        π = √24n log(2 4 gn ) 
+                                                            √
+     approximately, the error being nearly √24n e−π n in both cases. These equations may also
+     be written as
+                                   √            1           √           1
+                               eπ n/24 = 2 4 Gn , eπ n/24 = 2 4 gn                          (11)
+
+     In those cases in which G12     12
+                              n and gn are simple quadratic surds we may use the forms
+                                                        1                   1
+                                   (G12   −12 12  12   −12 12
+                                     n + Gn ) , (gn + gn ) ,
+
+     instead of Gn and gn , for we have
+                                                1 1 π √n 3 − 1 π √n
+                                       gn12 =     e2    − e 2       ,
+                                                8        2
+     approximately, and so
+                                                 1 1 √     13 1 √
+                                   gn12 + gn−12 = e 2 π n + e− 2 π n ,
+                                                 8          2
+     approximately, so that
+                                         2
+                                    π = √ log{8(gn12 + gn−12 )},                            (12)
+                                          n
+                                   √
+     the error being about 104
+                           √ e−π n , which is of the same order as the error in the formulæ (10).
+                             n
+     The formula (12) often leads to simpler results. Thus the second of formulæ (10) gives
+                                                    √           1
+                                             eπ 18/24 = 2 4 g18
+
+     or                                        √       √     √
+                                            1
+                                          e 4 π 18 = 10 2 + 8 3.
+     But if we use the formula (12), or
+                                         √              1               1
+                                       eπ n/24 = 2 4 (gn12 + gn−12 ) 12 ,
+
+     we get a simpler form, viz.                     √      √
+                                                  1
+                                                e 8 π 18 = 2 7.
+
+     4. The values of g2n and Gn are obtained from the same equation. The approximation by
+     means of g2n is preferable to that by Gn for the following reasons.
+Modular equations and approximations to π                                                              29
+
+                                                                                      √
+(a) It is more accurate. Thus the error when√we use G65 contains a factor e−π 65 , whereas
+that when we use g130 contains a factor e−π 130 .
+(b) For many values of n, g2n is simpler in form than Gn ; thus
+
+                                                      √ !)
+                                   v(
+                                            √
+                                   u
+                                   u              3 + 13
+                            g130 = t   (2 + 5)                ,
+                                                     2
+
+while
+                                               v v
+                         √ !             √            √ ! u     √ !
+                  (                       !) 1 u           v        
+                                             4 u u
+                                                   u
+                      1+ 5         3 + 13      u t 9 + 65  u 1 + 65 
+          G65 =                                t          +t          .
+                        2             2              8         8   
+
+(c) For many values of n, g2n involves quadratic surds only, even when Gn is a root of
+an equation of higher order. Thus G23 , G29 , G31 are roots of cubic equations, G47 , G79 are
+those of quintic equations, and G71 is that of a septic equation, while g46 , g58 , g62 , g94 , g142
+and g158 are all expressible by quadratic surds.
+
+5. Since Gn and gn can be expressed as roots of algebraical equations with rational coeffi-
+cients, the same is true of G24    24
+                             n or gn . So let us suppose that
+
+                                        1 = agn−24 − bgn−48 + · · · ,
+
+or
+                                         gn24 = a − bgn−24 + · · · .
+But we know that
+                                  √                      √                  √
+                             64e−π n gn24 = 1 − 24e−π n + 276e−2π n − · · · ,
+                                                    √                       √
+                                        64gn24 = eπ n − 24 + 276e−π n − · · · ,
+                                                    √                       √
+                      64a − 64bgn−24 + · · · = eπ n − 24 + 276e−π n − · · · ,
+                                    √                √                      √
+                  64a − 4096be−π n + · · · = eπ n − 24 + 276e−π n − · · · ,
+
+that is
+                         √                                              √
+                       eπ n = (64a + 24) − (4096b + 276)e−π n + · · ·                          (13)
+
+Similarly, if
+                                        1 = aG−24
+                                              n   − bG−48
+                                                      n   + ···,
+then
+                         √                                              √
+                       eπ n = (64a − 24) − (4096b + 276)e−π n + · · ·                          (14)
+30                                                                                                   Paper 6
+
+                                                    √
+     From (13) and (14) we can find whether eπ n is very nearly an integer for given values of
+     n, and ascertain also the number of 9’s or 0’s in the decimal part. But if Gn and gn be
+     simple quadratic surds we may work independently as follows. We have, for example,
+                                              q       √
+                                        g22 = (1 + 2).
+
+     Hence
+                                                √                       √
+                                24
+                             64g22 = eπ 22 − 24 + 276e−π 22 − · · · ,
+                                                                        √
+                               −24
+                            64g22  =                      4096e−π 22 + · · · ,
+
+     so that
+              24
+                             √                      √                       √                 √
+          64(g22    −24
+                 + g22  ) = eπ 22 − 24 + 4372e−π 22 + · · · = 64{(1 +           2)12 + (1 −       2)12 }.
+
+     Hence                                  √
+                                        eπ 22 = 2508951.9982 . . . .
+     Again
+                                                          √       1
+                                             G37 = (6 +       37) 4 ,
+
+                                                √                       √
+                             64G24
+                                37 = e
+                                      π 37
+                                           + 24 + 276e−π 37 + · · · ,
+                                                                        √
+                            64G−24
+                               37  =                      4096e−π 37 − · · · ,
+
+     so that
+                              √                      √                      √ 6        √
+         64(G24    −24
+             37 + G37 ) = e
+                           π 37
+                                + 24 + 4372e−π 37 − · · · = 64{(6 +          37) + (6 − 37)6 }.
+
+     Hence                              √
+                                    eπ 37 = 199148647.999978 . . . .
+     Similarly, from
+                                                       √ !
+                                                  v
+                                                  u
+                                                  u 5 + 29
+                                            g58 = t        ,
+                                                       2
+
+     we obtain
+
+                                                             5 + √29 12                      √
+                                                                    !                                !12 
+                        √                       √                                       5−         29     
+         24
+     64(g58    −24
+            + g58  ) = eπ 58 − 24 + 4372e−π 58 + · · · = 64              +                                      .
+                                                                2                            2             
+
+     Hence                          √
+                                  eπ 58 = 24591257751.99999982 . . . .
+Modular equations and approximations to π                                                 31
+
+
+6. I have calculated the values of Gn and gn for a large number of values of n. Many of
+these results are equivalent to results given by Weber; for example,
+                                   √                   √
+                      4       3 + 13               1+ 5
+                    G13 =              ,     G25 =        ,
+                                  2                  2
+                      6
+                                   √        √                 √
+                    g30   = (2 + 5)(3 + 10), G437 = 6 + 37,
+                                1
+                                    q       √                √
+                              7 4 + (4 + 7)             5 + 29
+                                                   2
+                    G49 =                      , g58 =          ,
+                                      2                     2
+                                    √        √
+                      2       (3 + 5)(1 + 2)
+                    g70 =                        ,
+                                       2
+                                       √ ! u            √ !
+                              v                 v
+                              u
+                              u 9 + 73          u 1 + 73
+                    G73 = t                   +t              ,
+                                      8                8
+
+                                  √ !               √         !1
+                                                               4
+                               1+ 5           9+         85
+                   G85 =                                           ,
+                                 2                 2
+
+                                  √ ! u    √ !
+                           v          v
+                           u
+                           u 13 + 97  u 5 + 97
+                   G97   = t         +t        ,
+                                 8         8
+
+                    2
+                                 √            √
+                   g190 = (2 +       5)(3 +       10),
+                             1     √    √   √ √     √       √
+                  G2385 =      (3 + 11)( 5 + 7)( 7 + 11)(3 + 5),
+                             8
+and so on. I have also many results not given by Weber. I give a complete table of new
+                                    − 14                   − 14
+                                         p                       p
+results. In Weber’s notation, Gn = 2 f { (−n)} and gn = 2 f1 { (−n)}.
+
+                                         TABLE I
+
+
+
+               1   1
+                     q    √     q     √
+      g62   +     = { (1 + 2) + (9 + 5 2)},
+              g62  2
+                      √ !     √ !) u       √ ! u      √ !
+              v(                     v           v        
+              u
+              u    1+ 5    3 + 13      t 1 + 65 + t 9 + 65
+                                       u          u
+     G265   = t                                              ,
+                     2        2            8          8   
+
+                                            √ ! u √
+                                     v          v       !
+              q√    √    √     √ 1
+                                       u
+       2
+                                      u 7 + 33  u 33 − 1 
+      g66   =  ( 2 + 3)(7 2 + 3 11) 6 t         +t          ,
+                                           8       8     
+32                                                                                   Paper 6
+
+
+                                             √ ! 16 u      √ ! u    √ !
+                                                    v          v       
+                   √   √ 1                5 + 23      t 6+3 3 +t 2+3 3
+                                                      u         u
+        G269   = (3 3 + 23) 4                                             ,
+                                             4           4        4    
+
+                                               √ ! u     √ !
+                                        v          v        
+                  1 √   √         √ 1
+                                          u
+                                         u 6 + 11  u 2 + 11
+        G277   = { ( 7 + 11)(8 + 3 7)} 4 t         +t          ,
+                  2                           4         4   
+
+                     √       1
+                   (2 3 + 2) 3 + 1
+        G381   =     √       1     ,
+                   (2 3 − 2) 3 − 1
+                                          √ ! u √
+                                    v        v      !
+                      √ √     √ 1
+                                     u
+                                    u 3+ 6   u   6−1 
+        g90    = {(2 + 5)( 5 + 6)} 6 t       +t         ,
+                                        4         4  
+
+                  1    1
+                         q    √    q       √
+        g94 +        = { (7 + 2) + (7 + 5 2)},
+                 g94   2
+                  1    1 √          √
+                             q
+        g98    +     = { 2 + (14 + 4 14)},
+                 g98   2
+                                                 √ ! u       √ !
+                                       v            v           
+                 q√      √   √   √ 1 u 23 + 3 57
+                                         u
+                                                     u 15 + 3 57 
+        2
+       g114    =   ( 2 + 3)(3 2 + 19) 6 t           +t             ,
+                                              8           8     
+
+                            √        !1
+                   1   3+       13    4
+                                            √   √ 1 1 q           √
+       G117 =                             (2 3 + 13) 6 {3 4 + (4 + 3)},
+                   2        2
+                                1 (         1             1 )                   
+                    1        11 6           1   3           1   3
+      G121     +        =               3+ √      + 3− √
+                                                                                      
+                                                                                      
+                                                                                      
+                   G121       2            3 3            3 3                           ,
+       1            1
+                               √    1    √      √       1     √      √       1        
+               =       [(11 − 3 11) 3 {(3 11 + 3 3 − 4) 3 + (3 11 − 3 3 − 4) 3 } − 2] 
+                    √
+                                                                                      
+      G121         3 2
+
+
+
+               u √
+               v
+                      √ !
+                                     v
+                                            √ ! u √
+                                                v      ! 2
+                           √   √
+                                       u
+               u   3+ 7            1
+                                      u 3+ 2   u   2−1 
+     g126    = t          ( 6 + 7) 6 t         +t           ,
+                    2                     4         4  
+
+               u √     √ !                           √ ! u     √ !
+               v                             v          v        
+                              √      √
+                                               u
+               u 3 3 + 23                 1
+                                              u 5+2 6   u 1+2 6
+      2
+     g138    = t           (78 2 + 23 23) 6 × t         +t          ,
+                     2                            4         4    
+
+                                         √ ! 61 u        √ ! u        √ !
+                                                v             v          
+               √   √ 1                7 + 47      t 18 + 9 3 + t 14 + 9 3
+                                                  u            u
+     G2141 = (4 3 + 47) 4               √                                   ,
+                                          2            4            4    
+Modular equations and approximations to π                                      33
+
+
+                  √      √ ) u       √           √
+            v(                v          ! v        !
+            u                               u
+            u (2 + 5)(5 + 29) u 17 + 145   u 9 + 145 
+ G2145    = t                   t          +t           ,
+                     2              8           8    
+                      "            (s           )#
+  1               1
+               − 12       1   1       7         1
+          = 2               +√           − (28) 6    ,
+ G147                     2    3      4
+            v
+                   √ ! u √
+                        v        !2
+            uu 5 + 17  u  17 − 3 
+ G153     =   t        +t
+                  8        8     
+
+                                                                   1
+                                                  √ ! u        √ ! 3
+                                        v             v
+                                        uu 37 + 9 17  u 33 + 9 17 
+                                       × t            +t              ,
+                                               4            4     
+
+                                      √       √ !)
+            v(
+                √   √
+            u
+   2
+            u                             7 + 11
+  g154    = t (2 2 + 7)
+                                            2
+
+                                                  √ ! u       √ !
+                                        v             v          
+                                        uu 13 + 2 22  u 9 + 2 22 
+                                       × t            +t            ,
+                                               4            4    
+
+                1    1
+                       q    √    q        √
+  g158 +            = { (9 + 2) + (17 + 13 2)},
+               g158  2
+
+                          1 (          1           1 )2            
+                  1       13 6          1    3      1    3               
+  G169     +          =           1+ √         + 1− √
+                                                                         
+                                                                         
+                G169       4
+                                                                         
+                                      3 3          3 3
+                                                                         
+                                                                         
+                                                                         
+                                       √ ! 31
+                                                                        
+                                                                         
+                1 √
+                                                                         
+    1                            13 − 3 13
+                                                                         
+                                                                         
+           =        ( 13 − 2) +                                            ,
+   G169         3                    2                                   
+                                                                         
+                                                                         
+                                            √ !1                 √ !1
+                                                                      
+                                                                         
+                               √      11 − 13 3      √     11 − 13 3  
+                                                                         
+                                                                         
+                            ×   3 3−              − 3 3+                 
+                                                                         
+                                          2                    2      
+
+
+                                           √ ! u     √ !
+                                       v       v        
+                        √    √   √ 1 u 9 + 33
+                                         u
+                q                               u 1 + 33 
+   g198 =           (1 + 2)(4 2 + 33) 6 t      +t          ,
+                                          8         8   
+
+                       √ !          √    √ ! 14 u     √ ! u √
+                                                v           v       !
+                    1+ 5           3 5 + 41       t 7 + 41 + t
+                                                  u          u 41 − 1 
+   G205 =                                                               ,
+                      2                2              8        8     
+34                                                                      Paper 6
+
+
+                                       √ !1
+                 √   √ 1         59 + 7 71 6
+     G2213   = (5 3 + 71) 4
+                                     4
+
+                                               √ ! u        √ !
+                                    v             v            
+                                    uu 21 + 12 3  u 19 + 12 3 
+                                   × t            +t              ,
+                                           2            2      
+
+                      √ ! u       √ !
+               v         v           
+               u
+                u 9+4 7   u 11 + 4 7 
+     G2217   =  t        +t
+                   2           2     
+
+                                             √ ! u       √ !
+                                   v            v           
+                                   uu 12 + 5 7  u 16 + 5 7 
+                                  × t           +t             ,
+                                          4           4     
+
+                       √ !
+                    1+ 5       √ 1 q       √         1
+     G225 =                (2 + 3) 3 { (4 + 15) + 15 4 },
+                      4
+
+                      √ ! u     √ !
+               v         v         
+               u
+                u 1+2 2   u 5+2 2 
+     g238    =  t        +t
+                   4         4     
+
+                                            √ ! u     √ !
+                                    v          v         
+                                    uu 1+3 2   u 5+3 2 
+                                   × t         +t           ,
+                                         4         4     
+
+                                   √                √              √
+               v(                      !) v            ! v             !
+                     √
+               u                            u              u
+               u                7 + 53    
+                                            t 89 + 5 265 + t 81 + 5 265
+                                            u              u             
+     G2265   = t (2 + 5)                                                   ,
+                                   2              8              8      
+
+                      √               √ ) u(     √               √ ) 2
+               v
+                u(
+                                            v                         
+                u 17 + 17 + 17 14 (5 + 17)  u 1 + 17 + 17 14 (5 + 17)
+     G289    = t                          +t                          ,
+                           16                          16
+
+                (               √       √ !) 41
+                       √      23 43 + 57 7
+     G2301 =     (8 + 3 7)
+                                    2
+
+                                              √ ! u        √ !
+                                     v            v           
+                                     u
+                                      u 46 + 7 43  u 42 + 7 43 
+                                    × t           +t             ,
+                                           4            4     
+Modular equations and approximations to π                                              35
+
+
+                   √ !q                 √ ! u       √ !
+                               v            v          
+                            √
+                                 u
+                1+ 5            u 7 + 2 10  u 3 + 2 10
+    g310 =              (1 + 2) t           +t            ,
+                  2                   4           4    
+
+
+
+                            √        !1                                      
+                                      4
+                       3+       13
+                                                                             
+                                                                             
+           G325 =                        t, where
+                                                                             
+                                                                             
+                                                                             
+                            2                                                
+                                                                             
+                                                                             
+                                       √ !2           √ !2
+                                                                             
+                                    1 − 13         1 + 13                ,
+                     t3 + t2                  +t           +1          
+                                       2              2
+                                                                       
+                                                                       
+                                                                       
+                                       √ n3        √     √       o 
+                                                                       
+                                     = 5 t − t2 1+2 13 + t 1−2 13 − 1 
+                                                                       
+                                                                       
+
+
+
+                     1     √ 1 √          √    1
+                                                  q      √    q      √
+           G333 =      (6 + 37) 4 (7 3 + 2 37) 6 { (7 + 2 3) + (3 + 2 3)},
+                     2
+
+                                5
+                                                                       
+                G363 = 2 12 t, where                                   
+                                                                       
+                                                                       
+                                              √               √
+                                                      q                
+                                                                       
+                          2t3 − t2 {(4 +         33) + (11 + 2 33)}      ,
+                                                                       
+                                                  q      √             
+                                                                       
+                                          − t{1 + (11 + 2 33)} − 1 = 0 
+                                                                       
+
+
+
+            √      √ !
+                                      √     q       √  q         √        √ 1
+               3+ 7        √   1
+                                  2 +   7 +   (7 + 4 7)     (3 +   7) + (6 7) 4 
+ G2441   =             (2 + 3) 3                             q      √        √ 1 ,
+                 2                           2
+                                                               (3 + 7) − (6 7) 4
+                                                        
+
+                                     v
+                           √                    √ ! u           √ !
+                                 !1 u                    v             
+           q       √   21 + 445    4 u
+                                     u     13 + 89       u  5 + 89
+ G445    =   (2 + 5)                 t                +t                 ,
+                           2                  8                8      
+
+                            √ !   √    √ !)
+           v(
+                 √                            √     √ 1
+           u
+           u             1+ 5    3 3 + 31
+ G2465   = t (2 + 3)                        (5 5 + 2 31) 6
+                           2         2
+
+                              √ ! u       √ !
+                       v            v          
+                       uu 2 + 31    u 6 + 31 
+                      × t          +t
+                             4           4     
+
+                                 √ ! u        √ !
+                       v             v           
+                       uu 11 + 2 31  u 13 + 2 31 
+                      × t            +t             ,
+                              2            2     
+36                                                                  Paper 6
+
+
+                            √ !
+                      v(                  )
+                   √ u               √
+                      u
+                         1+ 5
+     G2505   = (2 + 5)t         (10 + 101)
+                           2
+
+                          5√5 + √101           √
+                                     ! v
+                                        u          !
+                                        u 105 + 505 
+                       ×               +t             ,
+                               4              8    
+
+                    √ !                       √ ! u     √ !
+               v                       v         v         
+                          √       √ 1 u 9 + 3 6
+               u                        u
+               u 5 + 29                           u 5+3 6 
+     g522    = t        (5 29 + 11 6) 6 t        +t           ,
+                    2                      4         4     
+
+                          √ ! u          √ !
+               v              v             
+               uu 96 + 11 79  u 100 + 11 79 
+     G2553   =   t            +t
+                       4             4      
+
+                                    √ ! u          √ !
+                        v               v             
+                        uu 141 + 16 79  u 143 + 16 79 
+                       × t              +t               ,
+                                2              2      
+
+                                           √ !    √        √ !)
+                            v(
+                √    √ 1u         √
+                            u
+                                        3+ 5          3+    7
+     g630    = ( 14 + 15) 6 t (1 + 2)
+                                          2            2
+
+                            √     √        u √      √
+                        v               ! v             !
+                        uu   15 + 7 + 2   u   15 + 7 − 2 
+                       × t                +t
+                                 4                4      
+
+                            √      √         u √      √
+                        v                 ! v               !
+                        uu   15 +   7 + 4   u   15 +  7 − 4  
+                       × t                  +t                  ,
+                                 8                  8        
+
+                    √ !                                √ !)
+                                     v(
+                             √             √
+                                     u
+                 3+ 5              1u             9+     85
+     G2765 =            (16 + 255) 6 t (4 + 15)
+                   2                                   2
+
+                               √ ! u       √ !
+                        v          v          
+                        uu 6 + 51  u 10 + 51 
+                       × t         +t
+                              4          4    
+
+                                  √ ! u        √ !
+                        v             v           
+                        uu 18 + 3 51  u 22 + 3 51 
+                       × t            +t             ,
+                               4            4     
+Modular equations and approximations to π                            37
+
+
+                                 √        √ !)
+           v(
+                 √      √                         √       √
+           u
+           u                         3+    7                   1
+ G2777   = t (2 + 3)(6 + 37)                  (246 7 + 107 37) 6
+                                      2
+
+                            √ ! u       √ !
+                    v          v           
+                    uu 6+3 7   u 10 + 3 7 
+                   × t         +t
+                         4           4     
+
+                              √ ! u       √ !
+                    v            v           
+                    uu 15 + 6 7  u 17 + 6 7 
+                   × t           +t             ,
+                           2           2     
+
+                √ !
+                                1 q   √  32
+             1+ 5       √ 1 7 + (4 + 7) 
+                                4
+G1225 =             (6 + 35) 4
+               2                    2   
+
+                     v
+                      u 43 + 15√7 + (8 + 3√7) (10√7) 
+                      u                      q       
+                     u
+                   × t
+                                       8             
+
+                    v
+                    u 35 + 15√7 + (8 + 3√7) (10√7) 
+                    u                       q       
+                    u
+                   +t                                 ,
+                                                      
+                                     8             
+
+                                          √
+           v(                                       !)
+                 √         √
+           u
+           u                      11 +        123
+G21353   = t (3 + 11)(5 + 3 3)
+                                          2
+
+                                 √    !1
+                                       6
+                       6817 + 321 451
+                   ×
+                              4
+
+                              √ ! u        √ !
+                    v             v           
+                    uu 17 + 3 33  u 25 + 3 33 
+                   × t            +t
+                           8            8     
+
+                                √ ! u          √ !
+                    v               v             
+                    uu 561 + 99 33  u 569 + 99 33 
+                   × t              +t               ,
+                            8              8      
+
+                                      √ !)            √     √
+                  v(                                            !1
+               √ u      √
+                  u
+                                 7+     47          73 5 + 9 329 4
+G21645   = (2 + 5)t (3 + 7)
+                                      2                  2
+38                                                                             Paper 6
+
+
+                                     √               √
+                          v              ! v            !
+                          uu 119 + 7 329
+                                            u
+                                            u 127 + 7 329 
+                         × t               +t
+                                  8               8      
+
+                                      √                √
+                          v               ! v             !
+                          uu 743 + 41 329
+                                             u
+                                             u 751 + 41 329 
+                         × t                +t                .
+                                   8                8      
+
+
+
+     7. Hence we deduce the following approximate formulæ
+
+                                         TABLE II
+
+
+                1
+                   √      √       √               √     1
+                                                          √         √    √
+             e 8 π 18 = 2 7, eπ 22/12 = 2 + 2, e 4 π 30 = 20 3 + 16 6,
+                1
+                   √            √         1
+                                            √                      √
+             e 4 π 34 = 12(4 + 17), e 2 π 46 = 144(147 + 104 2)
+                                         √              √
+                1
+                   √
+                  π 42
+                                √       π 58/12      5 + 29
+             e  4      = 84 + 32 6, e             = √        ,
+                                                        2
+                1
+                   √       √         √       1
+                                                 √        √          √
+             e 4 π 70 = 60 35 + 96 14, e 4 π 78 = 300 3 + 208 6,
+                              q       √
+              √          1 + (3 + 2 5)         1
+                                                   √         √        √
+           eπ 55/24 =           √          , e 4 π 102 = 800 3 + 196 51,
+                                  2
+              1
+                  √                  √           √            √     √      √
+            e 4 π 130 = 12(323 + 40 65), eπ 190/12 = (2 2 + 10)(3 + 10),
+                                   (       √         √ )
+                           12        (2 + 5)(3 + 13)
+                     π = √     log           √              ,
+                           130                   2
+
+                                                    √ ! u             √ !
+                                   v                     v              
+                                     u
+                           24       u    10 + 11 2       u     10 + 7 2
+                     π = √     log t                    +t                 ,
+                           142                4                    4    
+
+                         12         √   √       √
+                 π =    √     log{(2 2 + 10)(3 + 10)},
+                          190
+                         12       1     √     √         √     q        √
+                 π =    √     log[ (3 + 5)(2 + 2){(5 + 2 10) + (61 + 20 10)}],
+                          310     4
+                                         √ !3
+                                  
+                          4          5 +   29   √       √
+                 π =    √     log      √     (5 29 + 11 6)
+                          522            2
+Modular equations and approximations to π                                                                         39
+
+
+                                                                   √ ! 6
+                                                                       
+                                                         √ ! u
+                                                 v          v
+                                                 uu 9+3 6   u 5+3 6  
+                                                × t         +t           .
+                                                      4         4    
+
+
+The last five formulæ are correct to 15, 16, 18, 22 and 31 places of decimals respectively.
+
+8. Thus we have seen how to approximate to π by means of logarithms of surds. I shall
+now shew how to obtain approximations in terms of surds only. If
+
+                                                    K′  L′
+                                                n      = ,
+                                                    K   L
+we have
+                                             ndk      dl
+                                                 2
+                                                   = ′2 2 .
+                                            kk K
+                                              ′2    ll L
+But, by means of the modular equation connecting k and l, we can express dk/dl as an al-
+gebraic function of k, a function moreover in which all coefficients which occur are algebraic
+numbers. Again,
+                                         ′                ′
+                                q = e−πK /K , q n = e−πL /L ,
+
+                      1                                                         1 s
+                  q 12 (1 − q 2 )(1 − q 4 )(1 − q 6 ) · · ·
+                                                                                         
+                                                                         kk′    6       K
+                  1                                              =                          .              (15)
+                q 12 n (1 − q 2n )(1 − q 4n )(1 − q 6n ) · · ·           ll′            L
+
+Differentiating this equation logarithmically, and using the formula
+
+                                             dq     π2q
+                                                =           ,
+                                             dk   2kk′2 K 2
+we see that
+               2n
+                          2q 4n
+                                                   2
+                                                            2q 4
+                                                                   
+                 q                                   q
+     n 1 − 24          +         + ···   − 1 − 24        +       + ···
+               1 − q 2n 1 − q 4n                   1 − q2 1 − q4
+                                                                                                KL
+                                                                                           =       A(k),   (16)
+                                                                                                π2
+where A(k) denotes an algebraic function of the special class described above. I shall use
+the letter A generally to denote a function of this type.
+Now, if we put k = l′ and k′ = l in (16), we have
+                                                     
+                             1            2
+             n 1 − 24 2π√n          +    √       + ···
+                         e      − 1 e4π n − 1
+                                                              2
+                                   1            2                  K
+                − 1 − 24 2π/√n           + 4π/√n        + ···   =       A(k).         (17)
+                              e      −1 e          −1              π
+40                                                                                                                     Paper 6
+
+
+     The algebraic function A(k) of course assumes a purely numerical form when we substitute
+     the value of k deduced from the modular equation. But by substituting k = l′ and k′ = l
+     in (15) we have
+                                     1           √                   √                     √                    √
+                                   n 4 e−π n/12 (1 − e−2π n )(1 − e−4π n )(1 − e−6π n ) · · ·
+                                                 √                  √                      √                    √
+                              = e−π/(12 n) (1 − e−2π/ n )(1 − e−4π/ n )(1 − e−6π/ n ) · · ·
+
+     Differentiating the above equation logarithmically we have
+                                                            
+                                     1            2
+                      n 1 − 24 2π√n         +    √      + ···
+                                 e      − 1 e4π n − 1
+                                                                       √
+                                           1            2                 6 n
+                          + 1 − 24 2π/√n         + 4π/√n       + ···    =     .                                           (18)
+                                      e      −1 e         −1               π
+
+     Now, adding (17) and (18), we have
+                                                        2
+                      3             1        2            K
+               1 − √ − 24 2π n     √    + 4π n
+                                            √     + ··· =     A(k).                                                       (19)
+                    π n         e     −1 e     −1         π
+     But it is known that
+                                                                                                    2
+                                          3q 3   5q 5
+                                                                                         
+                                    q                                                          2K
+                     1 − 24            +       +      + ···                            =                 (1 − 2k2 ),
+                                  1 + q 1 + q3 1 + q5                                           π
+     so that
+                                                                                                2
+                                             1                  3                              K
+                       1 − 24            √             +       √         + ···         =                A(k).             (20)
+                                    eπ n + 1               e3π n + 1                           π
+
+     Hence, dividing (19) by (20), we have
+                                                                       
+                               3             1          2
+                         1 − π√  n
+                                   − 24      √
+                                          e2π n −1
+                                                   +    √
+                                                     e4π n −1
+                                                              +   · · ·
+                                                                        = R,                                            (21)
+                             1 − 24 eπ√1n +1 + e3π√3n +1 + · · ·
+
+     where R can always be expressed in radicals if n is any rational number. Hence we have
+                                                 3
+                                                   √ , π=                                                                 (22)
+                                            (1 − R) n
+                                        √    √
+     nearly, the error being about 8πe−π n (π n − 3).
+
+     9. We may get a still closer approximation from the following results. It is known that
+                                                 r=∞                              4
+                                                            r 3 q 2r
+                                                                         
+                                                 X                           2K
+                                  1 + 240                            =                 (1 − k2 k′2 ),
+                                                           1 − q 2r           π
+                                                     r=1
+Modular equations and approximations to π                                                                       41
+
+
+and also that
+                              r=∞                           6
+                                  r 5 q 2r
+                                                   
+                              X                        2K                       1
+                     1 − 504               =                     (1 − 2K 2 )(1 + k2 k′2 ).
+                             r=1
+                                 1 − q 2r               π                       2
+Hence, from (19), we see that
+                  r=∞                       r=∞
+  (                               )(                        )
+          3       X         r               X         r3
+   1 − √ − 24              √        1 + 240           √
+        π n            e2πr n − 1                e2πr n − 1
+                   r=1                       r=1
+                                                             r=∞
+                                                     (                                           )
+                                                   ′
+                                                              X                          r5
+                                               = R 1 − 504                               √           ,   (23)
+                                                                                r=1
+                                                                                    e2πr n − 1
+
+where R′ can always be expressed in radicals for any rational value of n. Hence
+                                               3
+                                          π=       √ ,                                       (24)
+                                          (1 − R′ ) n
+                                        √              √
+nearly, the error being about 24π(10π n − 31)e−2π n
+It will be seen that the error in (24) is much less than that in (22), if n is at all large.
+
+10. In order to find R and R′ the series in (16) must be calculated in finite terms. I shall
+give the final results for a few values of n.
+
+                                               Table III
+                                               ′                        ′
+                                q = e−πK /K , q n = e−πL /L ,
+                                   ∞
+                                                !             ∞
+                                                                         !
+                                   X    q 2mn                 X   q 2m
+                  f (q) = n 1 − 24                − 1 − 24                 ,
+                                    1
+                                      1 − q 2mn               1
+                                                                1 − q 2m
+
+                4KL ′
+   f (2) =          (k + l),
+                 π2
+                4KL
+   f (3) =          (1 + kl + k′ l′ ),
+                 π2
+                4KL √ ′ √ 2
+   f (4) =          ( k + l) ,
+                 π2
+                                     s                
+                4KL            ′ ′      1 + kl + k′ l′
+   f (5) =          (3 + kl + k l )                      ,
+                 π2                          2
+
+                12KL
+   f (7) =           (1 + kl + k′ l′ ),
+                  π2
+                8KL               ′ ′
+                                          p        p             p
+  f (11) =          {2(1 + kl + k  l  ) +   (kl) +   (k ′ l′ ) −   (kk′ ll′ )},
+                 π2
+42                                                                                                Paper 6
+
+
+                   4KL             1            1
+       f (15) =       2
+                        [{1 + (kl) 4 + (k′ l′ ) 4 }4 − {1 + kl + k′ l′ }],
+                    π
+                   4KL √
+       f (17) =          {44(1 + k2 l2 + k′2 l′2 ) + 168(kl + k′ l′ − kk′ ll′ )
+                    π2
+                                                                    1                2
+                                − 102(1 − kl − k′ l′ )(4kk′ ll′ ) 3 − 192(4kk′ ll′ ) 3 },
+                   24KL                        p         p           p
+       f (19) =        2
+                          {(1 + kl + k′ l′ ) + (kl) + (k′ l′ ) − (kk′ ll′ )},
+                     π
+                   4KL                                        1     p      p                          1
+       f (23) =       2
+                         [11(1 + kl + k′ l′ ) − 16(4kk′ ll′ ) 6 {1 + (kl) + (k′ l′ )} − 20(4kk′ ll′ ) 3 ],
+                    π
+                   12KL                           p            p       p
+       f (31) =        2
+                          [3(1 + kl + k′ l′ ) + 4{ (kl) + (k′ l′ ) + (kk′ ll′ )}
+                     π
+                                               1             1           1
+                                  − 4(kk′ ll′ ) 4 {1 + (kl) 4 + (k′ l′ ) 4 }],
+                   4KL p          p             p
+       f (35) =       2
+                        [2{ (kl) + (k′ l′ ) − (kk′ ll′ )}
+                    π
+                                              1
+                               + (4kk′ ll′ )− 6 {1 − (kl) − (k′ l′ )}3 ].
+                                                    p      p
+
+     Thus the sum of the series (19) can be found in finite terms, when n = 2, 3, 4, 5, . . . ,
+     from the equations in Table III. We can use the same table to find the sum of (19) when
+     n = 9, 25, 49, . . . ; but then we have also to use the equation
+                                                                            
+                              3               1          2         3
+                                 = 1 − 24 2π       + 4π       + 6π    + ··· ,
+                              π            e −1 e −1 e −1
+                                             √
+     which is got by putting k = k′ = 1/ 2 and n = 1 in (18).
+     Similarly we can find the sum of (19) when n = 21, 33, 57, 93, . . . , by combining the values
+     of f (3) and f (7), f (3) and f (11), and so on, obtained from Table III.
+
+     11. The errors in (22) and (24) being about
+                                 √    √               √           √
+                            8πe−π n (π n − 3), 24π(10π n − 31)e−2π n ,
+
+     we cannot expect a high degree of approximation for small values of n. Thus, if we put
+     n = 7, 9, 16, and 25 in (24), we get
+                                           19 √
+                                                7 = 3.14180 . . . ,
+                                           16
+                                            √ !
+                                     7        3
+                                        1+        = 3.14162 . . . ,
+                                     3      5
+                                               
+                                   99     7
+                                            √     = 3.14159274 . . . ,
+                                   80 7 − 3 2
+Modular equations and approximations to π                                                     43
+
+                                        √ !
+                        63       17 + 15 5
+                                       √    = 3.14159265380 . . . ,
+                        25       7 + 15 5
+
+
+while
+
+                                      π = 3.14159265358 . . . .
+
+
+But if we put n = 25 in (22), we get only
+
+                                            r
+                                      9         9
+                                        +         = 3.14164 . . . .
+                                      5         5
+
+
+
+
+12. Another curious approximation to π is
+
+                                             41
+                                     192
+                             
+                                  2
+                                 9 +               = 3.14159265262 . . . .
+                                     22
+
+
+This value was obtained empirically, and it has no connection with the preceding theory.
+The actual value of π, which I have used for purposes of calculation, is
+
+                                           
+                       355          .0003
+                                 1−                = 3.1415926535897943 . . . ,
+                       113           3533
+
+
+which is greater than π by about 10−15 . This is obtained by simply taking the reciprocal
+of 1 − (113π/355).
+In this connection it may be interesting to note the following simple geometrical construc-
+tions for π. The first merely gives the ordinary value 355/113. The second gives the value
+               1
+(92 + 192 /22) 4 mentioned above.
+(1) Let AB (Fig.1) be a diameter of a circle whose centre is O. Bisect AO at M and trisect
+OB at T . Draw T P perpendicular to AB and meeting the circumference at P . Draw a
+chord BQ equal to P T and join AQ. Draw OS and T R parallel to BQ and meeting AQ
+at S and R respectively. Draw a chord AD equal to AS and a tangent AC = RS. Join
+BC, BD, and CD; cut off BE = BM, and draw EX, parallel to CD, meeting BC at X.
+44                                                                                     Paper 6
+
+
+
+                                                                       P
+                                                                           Q
+                                                               R
+
+                                             S
+
+
+
+                        A               M           O              T           B
+
+
+                                    X
+                        C
+                                            E
+                                    D
+
+                                                 Fig. 1.
+     Then the square on BX is very nearly equal to the area of the circle, the error being less
+     than a tenth of an inch when the diameter is 40 miles long.
+     (2) Let AB (Fig.2) be a diameter of a circle whose centre is O. Bisect the arc ACB at C
+     and trisect AO at T . Join BC and cut off from it CM and M N equal to AT . Join AM
+     and AN and cut off from the latter AP equal to AM . Through P draw P Q parallel to M N
+     and meeting AM at Q. Join OQ and through T draw T R, parallel to OQ and meeting AQ
+     at R. Draw AS perpendicular to AO and equal to AR, and join OS.
+                                                     C
+                                                     Q     M
+                                                               N
+                                        R                  P
+
+                                A                                      B
+                                        T            O
+
+                                S
+
+
+
+                                                 Fig. 2.
+     Then the mean proportional between OS and OB will be very nearly equal to a sixth of
+     the circumference, the error being less than a twelfth of an inch when the diameter is 8000
+     miles long.
+Modular equations and approximations to π                                                              45
+
+
+13. I shall conclude this paper√by giving a few series for 1/π.
+It is known that, when k ≤ 1/ 2,
+
+                   2K 2
+                               3
+                                                1·3 3
+                                                 
+                                1
+                         =1+       (2kk′ )2 +         (2kk′ )4 + · · ·                          (25)
+                    π           2               2·4
+Hence we have
+                1
+              q 3 (1 − q 2 )4 (1 − q 4 )4 (1 − q 6 )4 · · ·
+                               2 (         3                       3                 )
+                         1 ′ 3                1                   1 · 3
+                    =       kk         1+            (2kk′ )2 +            (2kk′ )4 + · · · .   (26)
+                         4                    2                   2·4
+
+Differentiating both sides in (26) logarithmically with respect to k, we can easily shew that
+                     2
+                                 2q 4      3q 6
+                                                      
+                        q
+             1 − 24          +         +        + ···
+                     1 − q2 1 − q4 1 − q6
+                              (        3                      3                 )
+                                       1                   1 · 3
+                 = (1 − 2k2 ) 1 + 4         (2kk′ )2 + 7            (2kk′ )4 + · · · .   (27)
+                                       2                   2·4
+                                                     √
+But it follows from (19) that, when q = e−π n , n being a rational number, the left-hand
+side of (27) can be expressed in the form
+
+                                          2K 2 B
+                                            
+                                      A        + ,
+                                           π     π
+
+where A and B are algebraic numbers expressible by surds. Combining (25) and (27) in
+such a way as to eliminate the term (2K/π)2 , we are left with a series for 1/π. Thus, for
+example,
+
+                    7 1 3 13 1 · 3 3 19 1 · 3 · 5 3
+                                                    
+          4
+             =1+            + 2          + 3                + ···,
+          π         4 2       4    2·4      4    2·4·6
+                                                                            √          1
+                                                                    (q = e−π 3 , 2kk′ = ),      (28)
+                                                                                       2
+
+                           3
+                                89 1 · 3 3 131 1 · 3 · 5 3
+                                                     
+           16     47       1
+              =5+              + 2         + 3             + ···,
+           π      64       2    64   2·4    64   2·4·6
+                                                                            √          1
+                                                                    (q = e−π 7 , 2kk′ = ),      (29)
+                                                                                       8
+
+                             √                           √         !8
+                 √         47 5 + 29 1 3
+                                     
+          32                                                 5−1
+             = (5 5 − 1) +
+          π                   64     2                        2
+46                                                                                                  Paper 6
+
+                                                        √                           √ !16
+                                                      89 5 + 59 1 · 3 3
+                                                                    
+                                                                                 5−1
+                                                    +                                      + ···,
+                                                         642     2·4              2
+                                                        "
+                                                                   √
+                                                                                    √       !#
+                                                                                1     5 − 1
+                                                            q = e−π 15 , 2kk′ =                ;       (30)
+                                                                                8      2
+           √         √          √
+     here 5 5 − 1, 47 5 + 29, 89 5 + 59, . . . are in arithmetical progression.
+
+     14. The ordinary modular equations express the relations which hold between k and l
+     when nK ′ /K = L′ /L, or q n = Q, where
+                                                        ′              ′
+                                          q = e−πK /K , Q = e−πL /L ,
+                                      2
+                                                1·3 2 4
+                                                   
+                                      1    2
+                               K =1+      k +         k + ···.
+                                      2         2·4
+     There are corresponding theories in which q is replaced by one or other of the functions
+                                  ′
+                                      √                        ′
+                                                                   √                      ′
+                       q1 = e−πK1 2/K1 , q2 = e−2πK2 /(K2 3) , q3 = e−2πK3 /K3 ,
+
+     where
+                              1 · 3 2 1 · 3 · 5 · 7 4 1 · 3 · 5 · 7 · 9 · 11 6
+                 K1 = 1 +          k +             k +                      k + ···,
+                               42       42 · 82           42 · 82 · 122
+                              1·2 2 1·2·4·5 4 1·2·4·5·7·8 6
+                 K2 = 1 +         k +         k +              k + ···
+                               32     32 · 62     32 · 62 · 92
+                              1 · 5 2 1 · 5 · 7 · 11 4 1 · 5 · 7 · 11 · 13 · 17 6
+                 K3 = 1 +          k +              k +                        k + ···.
+                               62       62 · 122           62 · 122 · 182
+     From these theories we can deduce further series for 1/π, such as
+                                                                                 2
+                    27          112             2            1·31·42·5          2
+                       = 2 + 17                         + 32                             + ···,        (31)
+                    4π          233            27            2·43·63·6         27
+
+                    √
+                                                                    4 2
+                                                                    
+                  15 3          112    4         1·31·42·5
+                       = 4 + 37             + 70                         + ···,                        (32)
+                   2π           2 3 3 125        2 · 4 3 · 6 3 · 6 125
+
+                  √
+                                                                   4 2
+                                                                   
+                 5 5         115    4         1 · 3 1 · 7 5 · 11
+                  √ = 1 + 12             + 23                           + ···,                         (33)
+                2π 3         2 6 6 125        2 · 4 6 · 12 6 · 12 125
+
+                 √
+                              115 4 3        1 · 3 1 · 7 5 · 11 4 6
+                                                               
+               85 85
+                  √ = 8 + 141          + 274                        + ···,                             (34)
+               18π 3          2 6 6 85       2 · 4 6 · 12 6 · 12 85
+Modular equations and approximations to π                                                              47
+
+
+                       4  3 23 1 1 · 3 43 1 · 3 1 · 3 · 5 · 7
+                         = − 3        + 5                     − ···,                           (35)
+                       π  2 2 2 42     2 2 · 4 42 · 82
+
+                  4  3    31 1 1 · 3    59 1 · 3 1 · 3 · 5 · 7
+                  √ = −      3 2 42
+                                     + 2 5                     − ···,                          (36)
+                 π 3 4  3 · 4         3  · 4 2 · 4 42 · 82
+
+
+                     4   23 283 1 1 · 3 543 1 · 3 1 · 3 · 5 · 7
+                       =   −           + 5                      − ···,                         (37)
+                     π   18 183 2 42    18 2 · 4 42 · 82
+
+                 4   41   685 1 1 · 3   1329 1 · 3 1 · 3 · 5 · 7
+                 √ =    −     3    2
+                                      + 2                        − ···,                        (38)
+                π 5  72 5 · 72 2 4     5 · 725 2 · 4 42 · 82
+
+
+                 4   1123 22583 1 1 · 3 44043 1 · 3 1 · 3 · 5 · 7
+                   =      −            +                          − ···,                       (39)
+                 π    882   8823 2 42    8825 2 · 4 42 · 82
+
+                       √
+                      2 3     9 1 1 · 3 17 1 · 3 1 · 3 · 5 · 7
+                          =1+          + 2                     + ···,                          (40)
+                       π      9 2 42    9 2 · 4 42 · 82
+
+                      1  1 11 1 1 · 3 21 1 · 3 1 · 3 · 5 · 7
+                      √ = + 3        + 5                     + ···,                            (41)
+                    2π 2 9 9 2 42     9 2 · 4 42 · 82
+
+
+                     1   3  43 1 1 · 3  83 1 · 3 1 · 3 · 5 · 7
+                     √ =   + 3      2
+                                       + 5                     + ···,                          (42)
+                   3π 3  49 49 2 4      49 2 · 4 42 · 82
+
+
+                   2   19 299 1 1 · 3 579 1 · 3 1 · 3 · 5 · 7
+                   √ =   +           + 5                      + ···,                           (43)
+                  π 11 99 993 2 42    99 2 · 4 42 · 82
+
+
+                 1   1103 27493 1 1 · 3 53883 1 · 3 1 · 3 · 5 · 7
+                 √ =      +            +                          + ···.                       (44)
+               2π 2   992   996 2 42     9910 2 · 4 42 · 82
+
+In all these series the first factors in each term form an arithmetical progression; e.g. 2,
+17, 32, 47, . . . , in (31), and 4, 37, 70, 103, . . . , in (32). The first two series belong to the
+theory of q2 , the next two to that of q3 , as the rest to that of q1 .
+The last series (44) is extremely rapidly convergent. Thus, taking only the first term, we
+see that
+                                      1103
+                                            = .11253953678 . . . ,
+                                       992
+                                        1
+                                        √ = .11253953951 . . . .
+                                     2π 2
+48                                                                                                       Paper 6
+
+
+     15. In concluding this paper I have to remark that the series
+                                                   q2    2q 4   3q 6
+                                                                          
+                                    1 − 24             +      +       + ··· ,
+                                                 1 − q2 1 − q4 1 − q6
+
+     which has been discussed in §§ 8-13, is very closely connected with the perimeter of an
+     ellipse whose eccentricity is k. For, if a and b be the semi-major and the semi-minor axes,
+     it is known that
+                                               12 · 3 4   12 · 32 · 5 6
+                                                                         
+                                      1 2
+                      p = 2πa 1 − 2 k − 2 2 k − 2 4 2 k − · · · ,                           (45)
+                                     2        2 ·4       2 ·4 ·6
+
+     where p is the perimeter and k the eccentricity. It can easily be seen from (45) that
+                                                         
+                                           ′2         dK
+                                   p = 4ak     K +k         .                                                 (46)
+                                                       dk
+
+     But, taking the equation
+                                1                                                1
+                              q 12 (1 − q 2 )(1 − q 4 )(1 − q 6 ) · · · = (2kk′ ) 6
+                                                                                      p
+                                                                                          (K/π),
+
+     and differentiating both sides logarithmically with respect to k, and combining the result
+     with (46) in such a way as to eliminate dK/dk, we can shew that
+                                                      2
+                                                                  2q 4
+                                                                            
+                    4a    2       ′2    1 2              q
+               p=        K (1 + k ) + ( π) 1 − 24             +         + ···     .        (47)
+                   3K                   2              1 − q2 1 − q4
+
+     But we have shewn
+                   √      already that the right-hand side of(47) can be expressed in terms of
+     K if q = e−π n , where n is any rational number. It can also √be shewn that                    √     K can be
+     expressed in terms of Γ-functions if q be of the forms e         −πn    ,e −πn     2  and e−πn   3 , where n is
+     rational. Thus, for example, we have
+
+                    k = sin π4 ,       q = e−π ,
+                                                                                              
+                                                                                              
+                                                                                              
+                                          q  1                                             
+                                                      Γ( 4 )   Γ( 4 )
+                                                                   3
+                                                                                              
+                                                                                              
+                                              π
+                                     p=a                     +           ,
+                                                                                              
+                                                                                              
+                                              2       Γ( 4 )
+                                                         3
+                                                               Γ( 4 )
+                                                                   5                          
+                                                                                              
+                                               √
+                                                                                              
+                                                                                              
+                              π                   2
+                                            −π
+                                                                                              
+                    k = tan 8 ,        q=e          ,
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                            
+                                                                                              
+                                                      Γ( 8 )
+                                                         1
+                                                               Γ( 8 )
+                                                                   5
+                                          q                                                  
+                                              π
+                                                                                              
+                                     p=a      4       Γ( 8 )
+                                                         5   + Γ( 8 )
+                                                                   9     ,                    
+                                                                                              
+                                                                                              
+                             π
+                                               √                                                               (48)
+                    k = sin 12   ,     q = e−π 3 ,                                            
+                                                                                              
+                                          r                                             
+                                                                                              
+                                                                       (   )       Γ( 65 )
+                                                                   Γ 1                       
+                                               π                1
+                                     p=a                   1 +               +   2          ,
+                                                                         3
+                                                                                              
+                                              √                √                              
+                                                                 3 Γ( 6 )5
+                                                                                   Γ( 3 )
+                                                                                      1
+                                                                                              
+                                                 3                                            
+                                                                                              
+                                                                                              
+                    b        2  π           −2π
+                                                                                              
+                    a =  tan    8  ,   q = e                                                  
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                            
+                                                                                              
+                                                                ( 1
+                                                                    )      ( 3
+                                                                               )
+                                                 q 
+                                                               Γ          Γ
+                                                                                              
+                                                       π     1
+                                     p = (a + b)                      +            ,
+                                                                  4          4
+                                                                                              
+                                                                                              
+                                                       2     2 Γ( )
+                                                                  3
+                                                                           ( 5
+                                                                               )
+                                                                                              
+                                                                  4
+                                                                          Γ  4
+Modular equations and approximations to π                                      49
+
+
+and so on.
+
+16. The following approximations for p were obtained empirically:
+                                         p
+                      p = π[3(a + b) −       {(a + 3b)(3a + b)} + ǫ],   (49)
+
+where ǫ is about ak 12 /1048576;
+                       (                                          )
+                                             3(a − b)2
+                p=π     (a + b) +             p                 +ǫ ,    (50)
+                                  10(a + b) + (a2 + 14ab + b2 )
+
+where ǫ is about 3ak 20 /68719476736.
+

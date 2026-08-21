@@ -1,0 +1,931 @@
+                                                  INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED
+                                                              LACUNARY SEQUENCES
+
+                                                                                       NADAV YESHA
+arXiv:2208.04702v1 [math.NT] 9 Aug 2022
+
+
+
+
+                                                  Abstract. We study intermediate-scale statistics for the fractional parts of the sequence
+                                                  (αan )∞n=1 , where (an )n=1 is a positive, real-valued lacunary sequence, and α ∈ R. In par-
+                                                                          ∞
+
+                                                  ticular, we consider the
+                                                                          number of elements SN (L, α) in a random interval of length L/N ,
+                                                  where L = O N 1−ǫ , and show that its variance (the number variance) is asymptotic
+                                                  to L with high probability w.r.t. α, which is in agreement with the statistics of uniform
+                                                  i.i.d. random points in the unit interval. In addition, we show that the same asymptotics
+                                                  holds almost surely in α ∈ R when L = O N 1/2−ǫ . For slowly growing L, we further
+                                                  prove a central limit theorem for SN (L, α) which holds for almost all α ∈ R.
+
+
+
+
+                                                                                     1. Introduction
+                                            A real-valued sequence (xn )∞n=1 is said to be uniformly distributed (or equidistributed)
+                                          modulo one, if for every interval I ⊆ [0, 1), we have
+                                                                              1
+                                                                        lim       # {1 ≤ n ≤ N : {xn } ∈ I} = |I| ,
+                                                                      N →∞ N
+
+                                          where {x} denotes the fractional part of x, and |I| denotes the length of the interval I.
+                                          There are many examples of sequences which satisfy this property, e.g., the Kronecker
+                                          sequence xn = αn where α is irrational, and more generally (as was shown by Weyl in his
+                                          pioneering 1916 paper [12]) the sequence xn = αd nd + · · · + α1 n + α0 (αi ∈ R), where at
+                                          least one of the coefficients α1 , . . . , αd is irrational. In the metric sense, more can be said:
+                                          Weyl proved [12] that for any sequence (an )∞       n=1 of distinct integers, the sequence xn = αan
+                                          is uniformly distributed modulo one for (Lebesgue) almost all α ∈ R. This is also true
+                                          for real-valued sequences whose elements are sufficiently separated from each other (see,
+                                          e.g., [5, Chapter 1, Corollary 4.1]): if (an )∞     n=1 is a real-valued sequence, and there exists
+                                          a positive constant δ > 0 such that |an − am | ≥ δ for each n 6= m, then the sequence
+                                          xn = αan is uniformly distributed modulo one for almost all α ∈ R. This condition clearly
+                                          holds for real-valued, positive, lacunary sequences, i.e., sequences such that a1 > 0, and
+                                          there exists a constant C > 1 such that for all n ≥ 1 we have
+                                                                                        an+1 ≥ Can .
+
+                                             Date: August 10, 2022.
+                                             We thank Jens Marklof and Zeév Rudnick for stimulating discussions and for their comments. This
+                                          research was supported by the ISRAEL SCIENCE FOUNDATION (Grant No. 1881/20).
+                                                                                               1
+        INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                      2
+
+   While the classical theory deals with the distribution of sequences modulo one at “large”
+scales, there has been a growing interest in recent years in the fluctuations of sequences at
+smaller scales. For many sequences, it is conjectured (backed up by numerical evidence)
+that the small-scale statistics (at the scale 1/N – the mean gap of the first N elements of the
+sequence modulo one) are in agreement with the statistics of uniform i.i.d. random points
+in the unit interval (Poissonian statistics), thus demonstrating pseudo-random behaviour
+for such sequences. A popular small-scale statistic is the (normalized) gap distribution of
+the re-ordered first N elements of the sequence modulo one, which for many sequences is
+expected to converge to the exponential distribution (“Poissonian gap statistics”) – the
+almost sure limiting distribution of the gaps in the random model. Lacunary sequences are
+among the rare examples where such behaviour has been rigorously proved to hold (in the
+metric sense): Rudnick and Zaharescu proved [10] Poissonian gap statistics for almost all
+α ∈ R for the sequence xn = αan where (an )∞      n=1 is an integer-valued lacunary sequence;
+this was recently extended to real-valued lacunary sequences by Chaubey and the author
+[2].
+   Statistics in the “mesoscopic” regime, i.e., at the scale L/N , where L = L (N ) → ∞ and
+L = o (N ) as N → ∞, provide further information which may capture some interesting
+features of sequences. An example of such a statistic is the number variance (the variance
+of the number of elements in random intervals, see the definition below in our setting),
+famously studied for the zeros of the Riemann zeta function, for which at small scales the
+number variance is consistent with that of the eigenvalues of random matrices drawn from
+the Gaussian unitary ensemble (GUE), whereas “saturation” occurs at larger scales (see
+[1]). In the context of sequences modulo one, only a few results have been established
+so far in the mesoscopic regime, mainly concerning the leading order asymptotics of the
+long-range correlations of the sequence xn = αn2 (see [11, 6, 4]); nevertheless, important
+intermediate-scale statistics such as the number variance have largely remained unexplored.
+The goal of this paper is to study such statistics for real-valued lacunary sequences.
+   Let (an )∞
+            n=1 be a positive, real-valued lacunary sequence; we are interested in the dis-
+tribution of the number of elements modulo one of the sequence (xn )∞                   ∞
+                                                                            n=1 = (αan )n=1 in
+intervals of length L/N around points x ∈ [0, 1), which we denote by
+                                                     N X
+                                                     X                    
+                                                         αaj − x + n
+                  SN (L, α) = SN (L, α) (x) :=         χ             ,
+                                               j=1 n∈Z
+                                                            L/N
+
+where χ = χ[−1/2,1/2] is the characteristic function of the interval [−1/2, 1/2].
+  The first statistic that we will study is the number variance
+                                          Z 1
+                          Σ2N (L, α) :=         (SN (L, α) (x) − L)2 dx,
+                                           0
+
+i.e., the variance of SN (L, α), where we randomize w.r.t. the centre of the interval x. We
+would like to show that for generic values of α ∈ R, we have
+
+(1.1)                              Σ2N (L, α) = L + o (L) ,
+        INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                    3
+
+which is in agreement with the random model. In our first main result we show that (1.1)
+holds with high probability
+                           in (essentially) the full mesoscopic regime (namely, all the way
+up to L = O N 1−ǫ where ǫ is arbitrarily small).
+Theorem 1.1. Let ǫ > 0, and let I be a bounded interval. Assume that L = L (N ) =
+O N 1−ǫ as N → ∞. Then (1.1) holds with high probability w.r.t. α: for any δ > 0, we
+have                n                            o              
+               meas α ∈ I : Σ2N (L, α) − L > δL = Oδ,ǫ,I N −ǫ/2
+as N → ∞.
+   It is desirable to extend this
+                               to an almost sure statement, which we are able to establish
+in a narrower regime L = O N 1/2−ǫ (along with a technical condition on the oscillations
+of L, which clearly holds for natural choices of L, e.g., when L = N s with s ≤ 1/2 − ǫ).
+                                                                      
+Theorem 1.2. Let ǫ > 0, and assume that L = L (N ) = O N 1/2−ǫ and that L (N + 1) −
+                 
+L (N ) = o N −1/2 as N → ∞. Then for almost all α ∈ R, we have
+
+                                   Σ2N (L, α) = L + o (L)
+as N → ∞.
+  For slowly growing L (and under an even milder condition on its oscillations), we will be
+able to establish a central limit theorem for SN (L, α). This would hold for example when
+L = (log N )t with t > 0.
+Theorem 1.3. Let L = L (N ) → ∞ as N → ∞ such that for all η > 0 we have L =
+O (N η ), and assume that there exists ǫ > 0 such that L (N + 1) − L (N ) = O (N −ǫ ). Then
+for almost all α ∈ R, for any α < β, we have
+                                                                         Z β
+                               SN (L, α) (x) − L                     1             t2
+         meas x ∈ [0, 1) : α ≤        √          ≤β              −→ √            e− 2 dt
+                                       L                              2π    α
+as N → ∞.
+   We would like to stress the difference between (1.1) and some weaker notions of long-
+range Poissonian correlations, as studied, e.g., in [11, 6, 4]. Note that the number variance
+Σ2N (L, α) can be expressed in terms of the pair correlation function. Indeed, a direct
+calculation shows (see, e.g., [7]) that
+(1.2)                      Σ2N (L, α) = L − L2 + LRN
+                                                   2
+                                                     (L, α, ∆)
+where
+                                            N X                       
+                       2               1 X            αai − αaj + n
+(1.3)                 RN (L, α, ∆) =                ∆
+                                       N i6=j=1 n∈Z       L/N
+
+is the (scaled) pair correlation function of (αan )∞
+                                                   n=1 with respect to the test function
+                                   ∆ = max {1 − |x| , 0} .
+          INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                        4
+
+Hence, (1.1) is equivalent to
+                                           2
+(1.4)                                     RN (L, α, ∆) = L + o (1) .
+   We thus see that (1.4), and therefore (1.1), is a significantly stronger statement then
+long-range Poissonian pair correlation in the sense of RN   2 (L, α, ∆) = L + o (L), where the
+
+error term is insufficient for determining the asymptotics of the number variance. Similarly,
+for k ≥ 2, consider the k-level correlation function
+(1.5)
+                        XN            X                                                    
+   k              1                             αaj1 − αajk + n1       αajk−1 − αajk + nk−1
+ RN  (L, α, ∆) =                            ∆                    ,...,                        ;
+                  N j ,...,j =1 n ,...,n ∈Z           L/N                      L/N
+                         1    k     1      k−1
+                         distinct
+Proposition 4.1, which is the main ingredient in the proof of Theorem 1.3, is notably
+stronger                                                                   k (L, α, ∆) =
+        than
+               long-range Poissonian higher correlations in the sense of RN
+Lk + o Lk , which would be insufficient for concluding Theorem 1.3. We also remark that
+while the condition L (N ) → ∞ in Theorem 1.3 is essential, Theorems 1.1 and 1.2 also
+hold for fixed L, thus extending the results of [8].
+
+                                        2. The number variance
+   By the Poisson summation formula, we have the following identity for the pair correlation
+function (1.3)
+                             2                  L
+(2.1)                      RN  (L, α, ∆) = L −     + TN (L, α) ,
+                                                N
+where
+                                      N               
+                                L X        X
+                                                b   nL
+                   TN (L, α) = 2                ∆        e (nα (ai − aj ))
+                                N i6=j=1 06=n∈Z     N
+with
+                                             sin2 (πx)
+                                                 b (x) =
+                                                 ∆
+                                               π 2 x2
+(we have used the standard notation e (z) = e 2πiz ).
+   We fix use a smooth, compactly supported, non-negative weight function ρ ∈ Cc∞ (R) , ρ ≥
+0, and denote the weighted L2 −norm of Tn (L, α) by
+                   Z                                                                 
+                                                       L2 X b n 1 L b n 2 L
+        VN (L) =       |TN (L, α)|2 ρ (α) dα =                     ∆   ∆    w (n1 , n2 , N )
+                                                       N 4 06=n ∈Z   N   N
+                                                               1
+                                                           06=n2 ∈Z
+where                                       X
+                   w (n1 , n2 , N ) =                  ρb (n1 (ax1 − ay1 ) − n2 (ax2 − ay2 )) ;
+                                        1≤x1 6=y1 ≤N
+                                        1≤x2 6=y2 ≤N
+the goal of the rest of this section is to give an upper bound for VN (L).
+  We first observe the following identity which will be useful for estimating sums involving
+b
+∆.
+             INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                                   5
+
+Lemma 2.1. Let 1 ≤ L < N . We have
+                                                        X                  
+                                                               b       nL           N
+                                                               ∆                =     .
+                                                        n∈Z
+                                                                       N            L
+                                                
+                                            N
+Proof. Let ∆N/L (x) = ∆                     Lx   . By the Poisson summation formula we have
+
+                 X                
+                      b       nL            N X\             N X            N       N
+                      ∆                =          ∆N/L (n) =      ∆    (n) = ∆ (0) = .
+               n∈Z
+                              N             L n∈Z            L n∈Z N/L      L       L
+
+                                                                                                                                
+                                                                                                               
+   In the next lemma, we will see that up to an error term of order O N −1 , the ranges
+of the summations defining VN (L) can be significantly restricted.
+
+Lemma 2.2. Let 1 ≤ L < N and let ǫ > 0. We have
+                                            X                                                   
+                                  L2                  b       n1 L b n2 L
+               VN (L) =                               ∆            ∆      w̃ (n1 , n2 , N ) + O N −1
+                                  N4                           N      N
+                                       06=|n1 |≤N 4
+                                       06=|n2 |≤N 4
+
+where
+                                                      X
+        w̃ (n1 , n2 , N ) =                                                     ρb (n1 (ax1 − ay1 ) − n2 (ax2 − ay2 )) .
+                                             1≤x1 6=y1 ≤N
+                                             1≤x2 6=y2 ≤N
+                                        max{x1 ,x2 ,y1 ,y2 }>N 1/4
+                                  |n1 (ax1 −ay1 )−n2 (ax2 −ay2 )|≤N ǫ
+Proof. We have
+                                                                   X
+ w (n1 , n2 , N ) − w̃ (n1 , n2 , N ) ≪                                              |ρb (n1 (ax1 − ay1 ) − n2 (ax2 − ay2 ))|
+                                                            x1 6=y1 ≥1
+                                                            x2 6=y2 ≥1
+                                                      max{x1 ,x2 ,y1 ,y2 }≤N 1/4
+                                       X
+             +                                                 |ρb (n1 (ax1 − ay1 ) − n2 (ax2 − ay2 ))| ≪ N,
+                            1≤x1 6=y1 ≤N
+                            1≤x2 6=y2 ≤N
+                 |n1 (ax1 −ay1 )−n2 (ax2 −ay2 )|>N ǫ
+
+where we bounded the first summation using the bound ρb ≪ 1 and the second summation
+using ρb (x) ≪ x−k for all k > 0. Thus,
+                                                                                                                     
+                                                                                                                 2
+L2 X b n 1 L b n 2 L                                              L2  X b nL    1
+ 4
+          ∆   ∆      (w (n 1 , n 2 , N ) − w̃ (n 1 , n 2 , N )) ≪   3
+                                                                          ∆     =
+N 06=n ∈Z   N   N                                                 N   n∈Z
+                                                                            N     N
+         1
+   06=n2 ∈Z
+            INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                      6
+
+where in the last equality we used Lemma 2.1. Finally, by bounding w̃ trivially and applying
+the bound ∆b (x) ≪ x−2 , we have
+                X                                                        X                
+ L2                            b       n1 L b n2 L                         2     b   mL X b nL
+                               ∆            ∆        w̃ (n1 , n2 , N ) ≪ L       ∆         ∆
+ N4         06=n1 ∈Z
+                                        N      N                               4
+                                                                                     N n∈Z     N
+                                                                                       m>N
+            06=n2 ∈Z
+        max{|n1 |,|n2 |}>N 4
+                                           X                  
+                                                  b       mL           N3 X          1
+                               = NL               ∆                ≪          m−2 ≪
+                                                          N            L            LN
+                                          m>N 4                             4
+                                                                            m>N
+which concludes the proof.                                                                                        
+  We will now analyze when the summation defining w̃ does not vanish.
+Proposition 2.3. Fix n1 such that 0 < |n1 | ≤ N 4 , and x1 , y1 such that 1 ≤ y1 < x1 ≤ N ,
+x1 > N 1/4 . Then there exist at most O (N ǫ log N ) values of n2 , x2 , y2 such that 0 < |n2 | ≤
+N 4 , x2 ≤ x1 , 1 ≤ y2 < x2 ≤ N , and
+(2.2)                                   |n1 (ax1 − ay1 ) − n2 (ax2 − ay2 )| ≤ N ǫ .
+Proof. We follow the ideas of [9, 8]. We have
+                                                                                                   
+                                                                              ax1 −1              1
+                 |n1 | (ax1 − ay1 ) ≥ ax1 − ax1 −1 = ax1 1 −                               ≥ 1−           ax1 ;
+                                                                               ax1                C
+on the other hand,
+                                                                             ax2        N4
+                          |n2 | (ax2 − ay2 ) ≤ N 4 ax2 = N 4 ax1                 ≤ ax1 x1 −x2 .
+                                                                             ax1      C
+Substituting in (2.2), we obtain
+
+                                     1       N4
+                                         − x1 −x2 ≤ N ǫ a−1
+                                              1−          x1 .
+                                     C     C
+                                                    1/4
+Since x1 > N 1/4 , we have ax1 ≥ a1 C x1 −1 > a1 C N −1 , and hence
+                                 1     N4              −(N 1/4 −1)
+                                   − x1 −x2 ≤ N ǫ a−1
+                                       1−          1 C             ,
+                                C    C
+and therefore for sufficiently large N we have
+                                                                   N4
+                                   C x1 −x2 ≤                                          ≪ N4
+                                                                    −(N 1/4 −1)
+                                                  1 − C1 − N ǫ a−1
+                                                                1 C
+so that x1 − x2 ≪ log N . Thus, there are at most O (log N ) possible values for x2 , and
+                                                          1/4
+moreover we conclude that x2 ≫ N 1/4 , and hence ax2 ≫ C N .
+   We now fix x2 . Since
+                                       ax1 − ay1      Nǫ           Nǫ        Nǫ
+                       n2 − n1                   ≤           ≤          ≪        ,
+                                       ax2 − ay2   ax2 − ay2    1 − 1 ax2   CN
+                                                                               1/4
+                                                                                  C
+         INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                                     7
+
+we see that for sufficiently large N , the integer n2 is uniquely determined by the values
+of x1 , x2 , y1 , y2 , n1 . It is therefore sufficient to bound the number of possible values of y2 .
+There are O (log N ) values of y2 such that x2 − y2 ≤ 5 logC N . We will therefore count the
+number of possible values of y2 such that x2 − y2 > 5 logC N . For such y2 we have
+                                                  ay       ax2     ax
+                                       ay2 = ax2 2 ≤ x2−y        < 52
+                                                  ax2    C     2   N
+and therefore
+                                                                                       
+                                                                       ay          Nǫ
+          n1 (ax1 − ay1 ) = n2 (ax2 − ay2 ) + O (N ǫ ) = n2 ax2 1 − 2 + O            1/4
+                                                                       ax2        CN
+                                                           
+                           = n2 ax2 1 + O N −5                     .
+Hence, given (y2 , n2 ) and (y2′ , n′2 ) such that x2 − y2 > 5 logC N and x2 − y2′ > 5 logC N , we
+have                                                              
+                         n2 ax2 1 + O N −5 = n′2 ax2 1 + O N −5
+and since |n2 | ≤ N 4 we conclude that
+                                                                          
+                                               n′2 = n2 + O N −1
+so in fact n′2 = n2 . We therefore see that the value of n2 is identical for each y2 such that
+x2 − y2 > 5 logC N . But, for such y2 , (2.2) gives
+                                                                                                         
+                             n1 (ax1 − ay1 ) N ǫ          n1 (ax1 − ay1 ) N ǫ
+               ay2 ∈ ax2 −                  −     , ax2 −                +
+                                    n2         n2               n2         n2
+                                               ǫ
+so that ay2 lies in an interval of length O (N ), and since
+                                                                  
+                                              an                   1
+                     an+1 − an = an+1 1 −            ≥ an+1 1 −        ≫1
+                                             an+1                  C
+there could be at most O (N ǫ ) values of y2 in this interval.                                                                
+   As an immediate corollary of Lemma 2.2 and Proposition 2.3, we obtain an upper bound
+for VN (L).
+Corollary 2.4. Let 1 ≤ L < N and let ǫ > 0. We have
+                                                                          
+(2.3)                                        VN (L) = O LN −1+ǫ .
+Proof. We use the bound ρb ≪ 1 and Lemma 2.2 to conclude that
+                           X                                             X                                  
+                L2                   b       n1 L                                               b       n2 L
+    VN (L) ≪                         ∆                                                          ∆                  + N −1 .
+                N4                            N                                                          N
+                      06=|n1 |≤N 4                                   06=|n2 |≤N 4
+                     1≤x1 6=y1 ≤N                                   1≤x2 6=y2 ≤N
+                                                               max{x1 ,x2 ,y1 ,y2 }>N 1/4
+                                                        |n1 (ax1 −ay1 )−n2 (ax2 −ay2 )|≤N ǫ/2
+By symmetry we can assume that y1 < x1 , x2 ≤ x1 and y2 < x2 , so
+                                                                  that by the bound
+b                                                       ǫ/2
+∆ ≪ 1 and by Proposition 2.3, the inner summation is O N log N . Hence, Lemma 2.1
+gives the required bound (2.3).                                                    
+          INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                      8
+
+                                   3. Proofs of Theorems 1.1 and 1.2
+  We are now ready to prove Theorem 1.1.
+
+Proof of Theorem 1.1 . By (1.2) and (2.1) we have
+                              Σ2N (L, α) − L              L
+                                             = TN (L, α) − .
+                                    L                     N
+Hence, for sufficiently large N we have
+                 n                                o                                        
+                                                                                 L
+          meas       α ∈ I : Σ2N (L, α) − L   > δL = meas α ∈ I : TN (L, α) −       >δ
+                                                                                 N
+                                                   ≤ meas {α ∈ I : |TN (L, α)| > δ/2} .
+Fix a smooth, compactly supported, weight function ρ ∈ Cc∞ (R) such that 1I (x) ≤ ρ (x).
+By Chebyshev’s inequality we conclude that for sufficiently large N we have
+                      n                               o      R
+                                                      4 |TN (L, α)|2 dα     4VN (L)
+(3.1)       meas       α ∈ I : Σ2N (L, α) − L   > δL ≤ I          2
+                                                                         ≤
+                                                                δ             δ2
+                                                               −1+ǫ/2    −ǫ/2
+                                                     ≪δ,ǫ,I LN        ≪N
+where we used (2.3) with ǫ/2.                                                                   
+
+   We will now turn to prove Theorem 1.2, that is, we will show that (1.1) (or equivalently
+(1.4)) holds for almost all α ∈ R. It sufficient to prove this for α ∈ I where I is a bounded
+interval. We first show that almost sure convergence of the pair correlation holds along a
+subsequence.
+Lemma
+        3.1.
+              Let I be a bounded interval, and let ǫ > 0. Assume that L = L (N ) =
+O N  1/2−ǫ   as N → ∞. Let Nm = m2 , and denote Lm = L (Nm ). Then for almost all
+α ∈ I, we have
+                                        2
+(3.2)                                  RN m
+                                            (Lm , α, ∆) = Lm + o (1)
+as m → ∞.
+Proof. Applying (2.3) as in (3.1), for every δ > 0 and N sufficiently large we have
+                 n                                    o
+                         2
+           meas α ∈ I : RN (L, α, ∆) − L > δ ≤ meas {α ∈ I : |TN (L, α)| > δ/2}
+                                                          ≪δ,ǫ,I LN −1+ǫ/2 ≪ N −1/2−ǫ/2 .
+so that
+                               n                                     o
+                                        2
+(3.3)                     meas α ∈ I : RN m
+                                            (Lm , α, ∆) − Lm > δ ≪δ,ǫ,I m−1−ǫ ;
+
+the asymptotics (3.2) thus holds for almost all α ∈ I by the Borel-Cantelli lemma.              
+
+  We now have all that is needed to prove Theorem 1.2.
+          INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                    9
+
+Proof of Theorem 1.2. It is sufficient to show that
+                                       2
+(3.4)                                 RN (L, α, ∆) = L + o (1)
+
+as N → ∞ for almost all α ∈ I. Let Nm = m  2 . For any N there exists m such that
+                                         
+Nm−1 ≤ N < Nm . Moreover, NNm = 1 + O m−1 , and by the assumption
+                                                                        
+                                 L (N + 1) − L (N ) = o N −1/2
+
+we have
+                                                            
+                                        N − Nm
+                        L (N ) = Lm + o   √                      = Lm + o (1) ;
+                                           N
+thus, there exists a constant C > 0 such that for any δ > 0, for sufficiently large N we have
+                                                            
+              2             Nm 2                 Nm
+             RN (L, α, ∆) ≤   RN m            L·    , α, ∆
+                                 N               N
+                                                                                     
+                          ≤ 1 + Cm−1 RN
+                                      2
+                                        m
+                                          (Lm + δ) · 1 + Cm−1 , α, ∆ ;
+                                                             
+by applying Lemma 3.1 with (L + δ) · 1 + CN −1/2 instead of L, as m → ∞ we have
+                                                                                 
+            2
+           RN m
+                (Lm + δ) · 1 + Cm−1 , α, ∆ = (Lm + δ) · 1 + Cm−1 + o (1)
+                                                          = Lm + δ + o (1)
+
+         ∈ Iδ , where
+for all α             Iδ is a full measure set in I (note that Lm = o (m) by the assumption
+L=O N      1/2−ǫ   ). Hence, for sufficiently large N we have
+                                        
+           2
+(3.5)     RN (L, α, ∆) ≤ 1 + Cm−1 (Lm + δ + o (1)) = Lm + δ + o (1) = L + δ + o (1)
+
+for all α ∈ Iδ . Symmetrically,
+                                      2
+(3.6)                                RN (L, α, ∆) ≥ L − δ − o (1)
+
+for α in a full measure set in I (depending on δ); since δ > 0 can be taken arbitrarily small
+along a countable sequence of values, and a countable intersection of full measure sets is
+still of full measure, the bounds (3.5) and (3.6) imply (3.4) for almost all α ∈ I.        
+
+Remark. The faster L grows, the sparser the subsequence Nm one has to take in order to
+apply the Borel-Cantelli lemma in the proof of Lemma 3.1. On the other hand, since we
+require the condition Lm = o (m) , the subsequence Nm cannot be too sparse. For example,
+                                              1
+if L = N s , and Nm = ⌊mt ⌋, one needs t > 1−s  for (3.3) to hold, but also t < 1s , so that
+s < 1/2. This explains why the above argument only works for L growing slower than
+N 1/2 .
+         INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                              10
+
+               4. Higher order correlations – proof of Theorem 1.3
+   Taking expectations w.r.t x, for all k ≥ 2, we have
+(4.1)
+  h                 i            N
+                                 X                X            Z 1Y
+                                                                  k                          
+                k                                         αaji − x + ni
+E (SN (L, α))           =                               χ                                         dx
+                          j ,...,j =1 n ,...,n ∈Z 0 i=1
+                                                              L/N
+                             1        k       1        k
+                                 N
+                                 X                 X               Z k−1
+                                                                     Y                                     
+                                                                                   αaji − x + ni   αajk − x
+                        =                                                  χ                     χ                dx
+                            j1 ,...,jk =1 n1 ,...,nk−1 ∈Z R i=1
+                                                                                       L/N          L/N
+                                   N                                                                                   
+                            L X                 X       αaj1 − αajk + n1       αajk−1 − αajk + nk−1
+                        =                             ∆                  ,...,                      ,
+                            N j ,...,j =1 n ,...,n ∈Z         L/N                      L/N
+                                  1       k        1       k−1
+
+where
+                                          Z k−1
+                                            Y
+        ∆ (t1 , . . . , tk−1 ) =                    χ (ti − x) χ (x) dx
+                                          R i=1
+
+                                  = max {1 − max{0, t1 , . . . , tk−1 } + min {0, t1 , . . . , tk−1 }, 0} ;
+we have (see [3, Lemma 13])
+                                          Z
+(4.2)                                               ∆ (t1 , . . . , tk−1 ) dt1 . . . dtk−1 = 1.
+                                           Rk−1
+                                               
+                                    k
+  For 0 ≤ j ≤ k, denote by              the Stirling number of the second kind, i.e., the number
+                                    j
+of ways to partition a set of k elements into j non-empty subsets. We partition the sum
+over j1 , . . . , jk on the right-hand side of (4.1) into sums with j distinct indices. The term
+corresponding to j = 1 is clearly equal to L. Recalling the definition (1.5) of the j-level
+                             j
+correlation functions RN       (L, α, ∆), we then have
+                                  h                            i               k  
+                                                                               X
+                                                           k                      k       j
+                                 E (SN (L, α))                     =L+L                  RN (L, α, ∆) .
+                                                                                     j
+                                                                               j=2
+
+In view of Lemma A.1, Theorem 1.3 will be a direct consequence of the following proposi-
+tion.
+Proposition 4.1. Let L = L (N ) such that for all η > 0 we have L = O (N η ), and assume
+that there exists ǫ > 0 such that L (N + 1) − L (N ) = O (N −ǫ ). Then for almost all α ∈ R,
+we have
+                                                   j                                         
+(4.3)                                             RN (L, α, ∆) = Lj−1 + O L−s
+for all j ≥ 2 and all s > 0.
+   We apply the following strategy for proving Proposition 4.1. We first prove an analogous
+result with a smooth test function along a subsequence. We then unsmooth along the
+subsequence, and finally deduce the result along the full sequence. We would like to use
+         INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                          11
+
+the results of [2], and for that it would be more convenient to work with a “transformed”
+correlation function: for a smooth, compactly supported function ψ : Rk−1 → R and for
+k ≥ 2 we denote the smoothed k-level correlation function
+                         XN            X                                                                          
+  k                1                           αaj1 − αajk + n1       αajk−1 − αajk + nk−1
+ RN (L, α, ψ) =                              ψ                  ,...,
+                   N j ,...,j =1 n ,...,n ∈Z         L/N                      L/N
+                          1       k      1       k−1
+                          distinct
+and the transformed smoothed k-level correlation function
+                     XN            X
+  k            1                                                                                 
+R̃N (α, ψ) =                             ψ N (αaj1 − αaj2 + n1 ) , . . . , N αajk−1 − αajk + nk−1 .
+               N j ,...,j =1 n ,...,n ∈Z
+                  1       k        1     k−1
+                   distinct
+
+Then, for sufficiently large N (recall that L = o (N )) we have
+                                                                                     
+                                              k               k
+(4.4)                                        RN (L, α, ψ) = R̃N α, ψ̃L
+where                                                                                                         
+                                         t1 + · · · + tk−1 t2 + · · · + tk−1       tk−1
+            ψ̃L (t1 , . . . , tk−1 ) = ψ                  ,                  ,...,      .
+                                                 L                 L                L
+For the transformed correlation function we have the following L2 −norm estimate: let I
+be a bounded interval, and let
+                                                   Z                                        2
+                          V         k
+                                  R̃N (ψ)        =              k
+                                                              R̃N (α, ψ) − Ck (N ) ψb (0)           dα,
+                                                         I
+where                                                                                  
+                                                                   1                 k−1
+                                       Ck (N ) = 1 −                       ··· 1 −       .
+                                                                   N                  N
+Lemma 4.2. Let k ≥ 2. For each η > 0 there exists r = r (η) such that
+                                                                                       
+(4.5)                                       k
+                                        V R̃N (ψ) = O kψk2r,1 N −1+η
+                  P
+where kψkr,1 =            k∂ α ψk1 .
+                 |α|≤r
+
+Proof. For a smooth, compactly supported, non-negative weight function ρ ∈ Cc∞ (R) , ρ ≥
+0, denote                       Z
+                                                                                           2
+                      k
+                  V R̃N (ψ) , ρ =                              k
+                                                             R̃N (α, ψ) − Ck (N ) ψb (0)           ρ (α) dα.
+                                                     R
+Then Proposition 7 in [2] implies that for each η > 0 there exists r = r (η) such that
+                                                                                       
+(4.6)                                      k
+                                       V R̃N (ψ) , ρ = O kψk2r,1 N −1+η ;
+
+while the constant kψk2r,1 is not explicitly stated there, it follows from the proof, which we
+now sketch (for the full details we refer the reader to [2]): for x = (x1 , . . . , xk ) , denote
+                                                                                              
+                                   ∆(an ) (x) = ax1 − ax2 , . . . , axk−1 − axk ;
+         INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                                      12
+
+by the Poisson summation formula, we have
+                                                X                                     X                                 
+                                      1                               n
+    k
+  R̃N (α, ψ) = Ck (N ) ψb (0) +                             ψb                                           e αn · ∆(an ) (x) ,
+                                      Nk                              N
+                                            06=n∈Zk−1                             x=(x1 ,...,xk )
+                                                                              1≤x1 ,...,xk ≤N distinct
+
+and hence
+                                  X                                    ∗                                 
+                        1                               n                m X
+      k
+  V R̃N (ψ) , ρ =                              ψb               ψb            ρb n · ∆(an ) (x) − m · ∆(an ) (y) .
+                       N 2k                             N                N
+                              06=n,m∈Zk−1
+
+                                               ∗
+                                               P
+where the range of the summation           is over x = (x1 , . . . , xk ) where 1 ≤ x1 , . . . , xk ≤ N
+are distinct, and y = (y1 , . . . , yk ) where 1 ≤ y1 , . . . , yk ≤ N are distinct. Fix ǫ > 0;
+by splitting the summation over n, m into different ranges and using the bounds ρb ≪ 1,
+ ψb ≤ kψk1 ≤ kψkr,1 and ψb ≪ kψkr,1 kxk−r      ∞ (for arbitrarily large r), we obtain
+
+                                     1                   X                      n   −r        ∗
+                                                                                            m −r X
+          k
+      V R̃N (ψ) , ρ ≪ kψk2r,1                                                                      1
+                                        N 2k                                       N   ∞    N ∞
+                                               knk∞ ,kmk∞ >N 1+ǫ
+                                                    X                                     ∗
+                                                                                       −r X
+                              1                                                    n
+                         +                                                                    1
+                             N 2k                                                  N   ∞
+                                    knk∞   >N 1+ǫ ,0<kmk        ∞    ≤N 1+ǫ
+
+                              1               X                      ∗
+                                                                     X                                             
+                         +                                                 ρb n · ∆(an ) (x) − m · ∆(an ) (y)          .
+                             N 2k
+                                    0<knk∞ ,kmk∞ ≤N 1+ǫ
+
+The contribution of the first two terms is negligible by a trivial estimate, and so is the contri-
+bution of the third term restricted to the range n · ∆(an ) (x) − m · ∆(an ) (y) > N ǫ (choos-
+ing r sufficiently large depending on ǫ). The rest of the contribution from the     third term 
+is then bounded by [2, Proposition 2] which states that there are at most O N 2k−1+4kǫ
+values of n, m, x, y in the above ranges such that n · ∆(an ) (x) − m · ∆(an ) (y) ≤ N ǫ , which
+gives (4.6).
+Finally, if we choose ρ such that ρ ≥ 1I , then
+                                                                                    
+                                         k           k
+                                     V R̃N (ψ) ≤ V R̃N (ψ) , ρ ,
+
+and (4.5) follows.                                                                                                             
+                                                                                                                       ǫ
+   Fix η > 0, and let r = r(η) > 1 be as in Lemma 4.2; let 0 < ǫ < 1, δ = N − 8r , and
+assume that ψ ∈ Cc∞ Rk−1 is a smooth approximation to ∆, such that k∆ − ψk∞ ≪ δ
+and such that kψkr,1 ≪ δ−r . By (4.2), if L grows slower than any power of N , then
+                                                                                                            
+              ψc̃L (0) = Lk−1 ψb (0) = Lk−1 + O δLk−1 = Lk−1 + O N − 8r +η .
+                                                                                                           ǫ
+            INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                                    13
+
+Moreover, we have
+                                     2                                                         ǫ
+                              ψ̃L          ≪ L2(k−1) kψk2r,1 ≪ L2(k−1) δ−2r ≪ N 4 +η .
+                                     r,1
+
+  We deduce almost sure convergence along a subsequence.
+Lemma 4.3. Let L = L (N ) be such that for all η > 0 we have L = O (N η ) and let k ≥ 2.
+Let 0 < ǫ < 1, Nm = ⌊m1+ǫ ⌋, and denote Lm = L (Nm ). Then for almost all α ∈ I, we
+have
+                                            k                  k−1                     
+(4.7)                                      RN m
+                                                (Lm , α, ∆) = Lm   + O L−s
+                                                                        m
+
+for all s > 0, as m → ∞,
+Proof. It is sufficient to show that for any fixed s > 0, (4.7) holds for almost all α ∈ I. By
+identity (4.4), Lemma 4.2, and the upper bound on L, for each η > 0 there exists r = r (η)
+such that
+           Z                                                      2                                                  
+                Lsm RN
+                     k
+                       m
+                         (Lm , α, ψ) − Ck (Nm ) ψ̃d
+                                                  Lm (0)                      dα = L2s    k
+                                                                                    m V R̃Nm ψ̃Lm
+            I
+                                                                                                                  
+                               2                             −1+ 4ǫ +3η                                    ǫ
+             =O        ψ̃Lm          L2s −1+η
+                                      m Nm             = O Nm                 = O m(1+ǫ)(−1+ 4 +3η) .
+                               r,1
+
+Hence, by the Borel-Cantelli lemma, for η sufficiently small we have
+                                                                                  
+                                                                        d
+                           Lsm RN
+                                k
+                                  m
+                                    (Lm , α, ψ) − Ck (Nm ) ψ̃Lm (0) = o (1)
+
+for almost all α ∈ I, and in particular
+                                                                                                                 
+                  k                                     d
+(4.8)            RN m
+                      (Lm , α, ψ) = Ck (Nm ) ψ̃Lm (0) + O L−d
+                                                           m
+                                                                 k−1
+                                                              = Lm   + O L−s
+                                                                          m ,
+
+where we used again the upper bound on L.
+  Let ψ = ψ± be approximations to ∆ satisfying the above assumptions such that ψ− ≤
+∆ ≤ ψ+ ; a simple way to construct such approximations is to convolve the functions
+        ∆±
+         δ (t1 , . . . , tk−1 ) := max {1 ± δ − max{0, t1 , . . . , tk−1 } + min {0, t1 , . . . , tk−1 }, 0}
+                                                                                          
+with ϕδ/10 (t), where ϕε (t) = ε−(k−1) ϕ (t/ε), and ϕ ∈ Cc∞ Rk−1 is the standard mollifier.
+We then have
+                                                                                                     
+                        k
+                       RN m
+                            Lm , α, ψ − ≤ RN
+                                           k
+                                             m
+                                                              k
+                                               (Lm , α, ∆) ≤ RN m
+                                                                  Lm , α, ψ + ;
+
+substituting the asymptotics (4.8), we conclude that (4.7) holds for almost all α ∈ I.                                          
+  We are now ready to prove Proposition 4.1.
+Proof of Proposition 4.1. The argument is similar to that of the proof of Theorem 1.2. Let
+k ≥ 2; it is enough to show that for almost all α ∈ I, we have
+                                             k                                     
+                                            RN (L, α, ∆) = Lk−1 + O L−s
+          INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                                  14
+
+for all s > 0. Let Nm = ⌊m1+ǫ/2 ⌋, so that for any N there exists m such that Nm−1 ≤
+N < Nm . Moreover, NNm = 1 + O m−1 , and by the assumption
+                                                                                     
+                                     L (N + 1) − L (N ) = O N −ǫ
+we have                                                    
+                                     N − Nm                         
+                                                                −ǫ/2
+                       L = Lm + O               = L m +  O    N m      ;
+                                       Nǫ
+hence, there exists a constant C > 0 such that for sufficiently large N we have
+                                                          
+      k                  Nm k       Nm
+     RN (L, α, ∆) ≤        RN m L ·    , α, ∆
+                         N          N
+                                                                                                            
+                                     −1        k                 −ǫ/2                          − 1
+                       ≤ 1 + Cm               RN m
+                                                          Lm + CNm               ·       1 + CNm 1+ǫ/2       , α, ∆ ;
+                                                                                                          1
+                                                                                                                   
+                                                                                                         − 1+ǫ/2
+by the upper bound on L and Lemma 4.3 with L + CN −ǫ/2 · 1 + CN                                                        instead
+of L, for almost all α ∈ I we have
+                                                                             1             
+                         k                 −ǫ/2                             −
+                        RN m
+                                    Lm + CNm    · 1 + CNm 1+ǫ/2 , α, ∆
+                               k−1            − 1
+                                                                k−1
+                                                                                                                  
+                         −ǫ/2
+          =       Lm + CNm            ·    1 + CNm 1+ǫ/2                   + O L−s   k−1    −s
+                                                                                m = Lm + O Lm
+
+for all s > 0. Thus, for sufficiently large N we have (using again the upper bound on L),
+for almost all α ∈ I we have
+                                                                                                                     
+       k
+(4.9) RN (L, α, ∆) ≤ 1 + Cm−1                   k−1
+                                               Lm   + O L−s
+                                                         m
+                                                                              k−1
+                                                                           = Lm   +O L−s
+                                                                                      m =L
+                                                                                           k−1
+                                                                                               +O L−s
+for all s > 0. Similarly, for almost all α ∈ I we have
+                                     k                                               
+(4.10)                              RN (L, α, ∆) ≥ Lk−1 − O L−s
+for all s > 0; the bounds (4.9) and (4.10) give (4.3).                                                                      
+
+         Appendix A. Normal approximation to the Poisson distribution
+  We require a normal approximation to a random variable whose moments are close to
+the Poisson moments. Denote
+                                                                k  
+                                                                X  k
+                                          µPk oisson (L) =                  Lj
+                                                                       j
+                                                                j=0
+
+the k-th moment of a Poisson-distributed random variable with parameter L, and
+                                                      (
+                                                          0         k odd
+                                     µnormal
+                                      k      =
+                                                          (k − 1)!! k even
+the k-th moment of a standard Gaussian random variable.
+        INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                        15
+
+Lemma A.1. Let L = L (N ) → ∞ as N → ∞, and let (XN )∞      N =1 be a sequence of random
+variables such that for all j ≥ 1 and for all s > 0 we have
+                                           h          i                                
+                                          j
+(A.1)                                  E XN = µPj oisson (L) + O L−s
+as N → ∞. Then
+                                 XN − L d
+                                   √     −→ N (0, 1)
+                                     L
+as N → ∞, where N (0, 1) is the standard Gaussian distribution.
+                                                                                       
+                                                                                      k
+           d
+Proof. Let XN = X√
+                 N −L                                                               d
+                      . It is sufficient to prove that for all k ≥ 1 we have lim E XN =
+                     L                                                                             N →∞
+ normal
+µk      . By (A.1), we have
+                               !
+                    k
+                              k
+                              X k  P oisson    j
+                  d
+                E XN = L −k/2
+                                   µj        (L) (−L)k−j + o (1) ,
+                                                    j=0
+                                                           j
+
+so we have to show that for all k ≥ 1 we have
+                                           !
+                            k
+                            X k                                    j
+(A.2)            L   −k/2
+                                                   µPj oisson (L)        (−L)k−j = µnormal
+                                                                                    k      + o (1) .
+                            j=0
+                                       j
+
+  Let YL be a Poisson-distributed random variable with parameter L and YcL = YL√−L
+                                                                                L
+                                                                                   ;
+                                                                             
+                                                   k
+                                                 c
+we have to show that for all k ≥ 1 we have lim E YL = µnormal . Let MYc (t) be the
+                                                       k             N →∞                                   L
+
+moment-generating function of YcL . Then for any t we have
+                                       √               √
+                                                     t/ L −1
+                                                                         √       √
+                                                                   = e−t L+L(t/ L+t /(2L)+O(L          ))
+                                                                                      2
+              MYc (t) = e−t L+L e
+                                                                                                −3/2
+
+                  L
+                                  t2                                 2
+                        = e 2 +O(L
+                                               −1/2 )
+(A.3)                                                     −→ et /2
+                                                          N →∞
+so that the limit is the moment-generating function of a standard Gaussian random variable.
+Since the convergence in (A.3) is uniform in a complex neighbourhood of t = 0 and all
+the functions involved are (complex) analytic, convergence of the moments (which can be
+expressed as the derivatives of the moment-generating function evaluated at zero) easily
+follows from Cauchy’s integral formula.                                                  
+
+                                                          References
+[1] Berry, M. V. Semiclassical formula for the number variance of the Riemann zeros. Nonlinearity 1
+    (1988), no. 3, 399–407.
+[2] Chaubey, S., Yesha, N. The distribution of spacings of real-valued lacunary sequences modulo one.
+    Mathematika 68 (2022), no. 2, 416–428.
+[3] Hauke M., Zafeiropoulos A. Poissonian correlations of higher orders. arXiv:2107.06523 [math.NT],
+    https://doi.org/10.48550/arXiv.2107.06523.
+[4] Hille, T. On the σ-Pair Correlation Density of Quadratic Sequences Modulo One. arXiv:2203.06266
+    [math.NT], https://doi.org/10.48550/arXiv.2203.06266.
+          INTERMEDIATE-SCALE STATISTICS FOR REAL-VALUED LACUNARY SEQUENCES                                 16
+
+ [5] Kuipers, L., Niederreiter, H. Uniform distribution of sequences. Pure and Applied Mathematics. Wiley-
+     Interscience (John Wiley & Sons), New York-London-Sydney, 1974. xiv+390 pp.
+ [6] Lutsko, C. Long-range correlations of sequences modulo 1. J. Number Theory 234 (2022), 333–348.
+ [7] Marklof, J. Distribution modulo one and Ratner’s theorem. Equidistribution in number theory, an
+     introduction, 217–244, NATO Sci. Ser. II Math. Phys. Chem., 237, Springer, Dordrecht, 2007.
+ [8] Rudnick, Z., Technau, N. The metric theory of the pair correlation function of real-valued lacunary
+     sequences. Illinois J. Math. 64 (2020), no. 4, 583–594.
+ [9] Rudnick, Z., Zaharescu, A. A metric result on the pair correlation of fractional parts of sequences. Acta
+     Arith. 89 (1999), no. 3, 283–293.
+[10] Rudnick, Z., Zaharescu, A. The distribution of spacings between fractional parts of lacunary sequences.
+     Forum Math. 14 (2002), no. 5, 691–712.
+[11] Technau, N., Walker, A. On the triple correlations of fractional parts of n2 α. Canadian J. Math., DOI:
+     10.4153/s0008414x21000249.
+[12] Weyl, H. Über die Gleichverteilung von Zahlen mod. Eins. Math. Ann. 77 (1916), no. 3, 313–352
+
+   Department of Mathematics, University of Haifa, 3498838 Haifa, Israel.
+   Email address: nyesha@univ.haifa.ac.il
+

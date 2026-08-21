@@ -1,0 +1,62 @@
+{
+  "canonicalSource": {
+    "kind": "note",
+    "path": "work/architecture/REVISE_OBSTRUCTION_LIFECYCLE_CORRECTION.md",
+    "role": "canonical-correction",
+    "sha256": "985c3fb4f52da594fcde8afdde0ada91093569aa2934ac27c88567c0ba6486d0"
+  },
+  "corpusId": "corpus:knowledge-correction:revise-obstruction-lifecycle-v1",
+  "edges": [
+    {
+      "from": "decision:knowledge-correction:revise-obstruction-lifecycle-v1",
+      "relation": "supersedes",
+      "to": "obstruction:theory-snapshot:alon-tarsi-latin-parity:5893130ebda6f428:t5:5"
+    },
+    {
+      "from": "decision:knowledge-correction:revise-obstruction-lifecycle-v1",
+      "relation": "supersedes",
+      "to": "obstruction:theory-snapshot:multiplicative-avoidance-gap:c798217db802ac25:t17:21"
+    },
+    {
+      "from": "decision:knowledge-correction:revise-obstruction-lifecycle-v1",
+      "relation": "supersedes",
+      "to": "obstruction:theory-snapshot:pi-lacunary-near-return-sparsity:301ba37e5ae9a31e:t119:148"
+    },
+    {
+      "from": "decision:knowledge-correction:revise-obstruction-lifecycle-v1",
+      "relation": "supersedes",
+      "to": "obstruction:theory-snapshot:pi-positive-decimal-factor-entropy:0af00b0fbbb5aa2e:t91:101"
+    }
+  ],
+  "externalNodeIds": [
+    "local:pi-lacunary-near-return-sparsity",
+    "obstruction:theory-snapshot:alon-tarsi-latin-parity:5893130ebda6f428:t5:5",
+    "obstruction:theory-snapshot:multiplicative-avoidance-gap:c798217db802ac25:t17:21",
+    "obstruction:theory-snapshot:pi-lacunary-near-return-sparsity:301ba37e5ae9a31e:t119:148",
+    "obstruction:theory-snapshot:pi-positive-decimal-factor-entropy:0af00b0fbbb5aa2e:t91:101"
+  ],
+  "pathsRelativeTo": "../..",
+  "records": [
+    {
+      "id": "decision:knowledge-correction:revise-obstruction-lifecycle-v1",
+      "kind": "decision",
+      "scope": {
+        "policy": "revise results are nonterminal"
+      },
+      "sources": [
+        {
+          "kind": "note",
+          "path": "work/architecture/REVISE_OBSTRUCTION_LIFECYCLE_CORRECTION.md",
+          "role": "projection-correction-audit",
+          "sha256": "985c3fb4f52da594fcde8afdde0ada91093569aa2934ac27c88567c0ba6486d0"
+        }
+      ],
+      "statement": "Nonterminal revise results remain retry signals and reviewed results; they do not automatically establish durable mathematical obstructions.",
+      "summary": "Append-only lifecycle correction for four remaining active revise-derived obstruction projections.",
+      "title": "Supersede active revise-derived obstruction interpretations"
+    }
+  ],
+  "rootId": "local:pi-lacunary-near-return-sparsity",
+  "schemaVersion": "allmath-knowledge-corpus/v1",
+  "title": "Revise-result obstruction lifecycle correction"
+}

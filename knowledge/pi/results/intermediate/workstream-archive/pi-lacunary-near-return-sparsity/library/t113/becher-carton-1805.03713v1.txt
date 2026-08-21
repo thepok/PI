@@ -1,0 +1,673 @@
+                                            NORMAL NUMBERS AND NESTED PERFECT NECKLACES
+
+                                                                 VERÓNICA BECHER AND OLIVIER CARTON
+arXiv:1805.03713v1 [math.NT] 9 May 2018
+
+
+
+
+                                                  Abstract. M. B. Levin used Sobol-Faure low discrepancy sequences with
+                                                  Pascal matrices modulo 2 to construct, for each integer b, a real number x
+                                                  such that the first N terms of the sequence (bn x mod 1)n≥1 have discrep-
+                                                  ancy O((log N )2 /N ). This is the lowest discrepancy known for this kind of
+                                                  sequences. In this note we characterize Levin’s construction in terms of nested
+                                                  perfect necklaces, which are a variant of the classical de Bruijn necklaces.
+                                                  Moreover, we show that every real number x whose base b expansion is the con-
+                                                  catenation of nested perfect necklaces of exponentially increasing order satisfies
+                                                  that the first N terms of (bn x mod 1)n≥1 have discrepancy O((log N )2 /N ).
+                                                  For base 2 and the order being a power of 2, we give the exact number of nested
+                                                  perfect necklaces and an explicit method based on matrices to construct each
+                                                  of them.
+
+                                          Mathematics Subject Classification: 68R15, 11K16, 11K38
+
+                                                            1. Introduction and statement of results
+                                             For a sequence (xn )n≥0 of real numbers in the unit interval the discrepancy of
+                                          the first N elements is
+                                                                        1 n                                 o
+                                             DN ((xn )n≥0 ) = sup         # n : 0 ≤ n < N and α ≤ xn < β − (β − α) .
+                                                             0≤α<β≤1 N
+
+                                          In [10] Schmidt showed that there is a constant C such that for every sequence (xn )n≥0
+                                          of real numbers there are infinitely many N s such that
+                                                                                             log N
+                                                                         DN ((xn )n≥0 ) > C        .
+                                                                                               N
+                                          This is an optimal order of discrepancy since this lower bound is achieved by van
+                                          der Corput sequences, see [7, 4, 2].
+                                             The property of Borel normality for real numbers can be defined in terms of
+                                          uniform distribution. A sequence (xn )n≥0 of real numbers in the unit interval is
+                                          uniformly distributed exactly when limN →∞ DN ((xn )n≥0 ) = 0. We write {x} to
+                                          denote x − ⌊x⌋, the fractional part of x. For an integer b greater than 1, a real
+                                          number x is normal to base b if the sequence ({bn x})n≥0 , is uniformly distributed.
+                                          It is still unknown whether the optimal order of discrepancy can also be achieved
+                                          by a sequence of the form ({bn x})n≥0 for some real number x [6, 4, 2].
+                                             The lowest discrepancy known for sequences of this form is O((log N )2 /N ) and
+                                          it holds for a real number x constructed by Levin in [9]. Given an arbitrary integer
+                                          base b, Levin’s construction uses Sobol-Faure sequences with the Pascal triangle
+                                          matrix modulo 2, see [8, 9, 5].
+                                             Our first result in this note is a characterization of Levin’s construction in terms
+                                          of combinatorics of words, showing that it is a concatenation of what we call nested
+                                          perfect necklaces of increasing order. Perfect necklaces were introduced in [1] as
+                                          a variant of the classical de Bruijn necklaces [3]. Fix an alphabet A. A word is
+                                          a finite sequence of symbols and a necklace, or circular word, is the equivalence
+
+                                            Date: May 7, 2018.
+                                                                                          1
+2                      VERÓNICA BECHER AND OLIVIER CARTON
+
+
+class of a word under rotations. For positive integers k and m, we call a necklace
+(k, m)-perfect if each word of length k occurs exactly m times at positions which
+are different modulo m for any convention on the starting point. The length of a
+(k, m)-perfect necklace is m|A|k where |A| denotes the cardinality of the alphabet A.
+In this note we always consider the modulo m being a power of 2.
+   Notice that for m = 1, the (k, m)-perfect necklaces are exactly the de Bruijn
+necklaces of order k. For the binary alphabet the word 0011 is a (1, 2)-perfect
+necklace. Both words 00110110 and 00011011 are (2, 2)-perfect necklaces. The
+segments in Champernowne sequence which are the concatenation in lexicographic
+order of all words of length k is a (k, k)-necklace. For instance the following word
+is a (3, 3)-perfect necklace (the spacing is just for the readers convenience),
+                           000 001 010 011 100 101 110 111
+More generally, every arithmetic sequence with difference coprime with the alphabet
+size yields a perfect necklace.
+   A word w is a (k, m)-nested perfect necklace if for each integer ℓ = 1, 2, . . . , k, each
+block of w of length m|A|ℓ which starts at a position congruent to 1 modulo m|A|ℓ
+is a (ℓ, m)-perfect necklace. An alternative recursive definition of nested perfect
+necklaces is as follows. A word w is a (k, m)-nested perfect necklace if, first, it is
+a (k, m)-perfect necklace; and, second, either k = 1 or whenever w is factorized
+w = w1 · · · w|A| with each word wi of length m|A|k−1 , then each word wi is a
+(k − 1, m)-nested perfect necklace.
+   Notice that each (k, m)-nested perfect necklace is not an equivalence class closed
+under rotations, but it is a single word, with a unique initial position. The word
+00110110 is a (2, 2)-nested perfect necklace because it is a (2, 2)-perfect necklace
+and both words 0011 and 0110 are (1, 2)-perfect necklaces. The four words
+                                    0000111101011010
+                                    0011110001101001
+                                    0001111001001011
+                                    0010110101111000
+are (2, 4)-nested perfect necklaces. Both the concatenation of the first two and the
+concatenation of the last two are (3, 4)-nested perfect necklaces. The concatenation
+of all of them is a (4, 4)-nested perfect necklace. The concatenation of all words of
+the same length in lexicographic order yields a perfect necklace that is not a nested
+perfect necklace.
+   The statement of our first result is as follows.
+Theorem 1. For each base b the number x defined by Levin in [9, Theorem 2]
+using the Pascal triangle matrix modulo 2 is obtained as the concatenation of
+the (m, m)-nested perfect necklaces for m = 2d with d = 0, 1, 2, . . .. Conversely,
+for every number x whose base b expansion is the concatenation of (m, m)-nested
+perfect necklaces for m = 2d with d = 0, 1, 2 . . ., the discrepancy DN (({bn x})n≥1 )
+is O((log N )2 /N ).
+   To state the second result, we consider the field with two elements F2 and we
+introduce a family of 2m−1 matrices of dimension m × m over F2 obtained by
+rotating the columns of the Pascal triangle matrix modulo 2. We identify words of
+two symbols with vectors, for each matrix M of this family, we construct a nested
+perfect necklace by concatenating the words of the form M w ⊕ z where z is a fixed
+word over F2 of length m and w ranges over all words over F2 of length m in
+lexicographic order. Such a necklace is called an affine necklace. Our second result
+is as follows.
+               NORMAL NUMBERS AND NESTED PERFECT NECKLACES                              3
+
+
+Theorem 2. For each m = 2d with d = 0, 1, 2, . . . there are 22m−1 binary (m, m)-
+nested perfect necklaces and they are exactly the affine necklaces.
+   The rest of this note is devoted to the proofs. For the proof of Theorem 1, first
+notice that Levin’s construction in his Theorem 2 in [9] is the concatenation of
+blocks obtained using Pascal triangle matrix modulo 2 for increasing m = 2d with
+d = 0, 1, 2, . . .. Hence, each block is an (m, m)-affine necklace and, by Proposition 7,
+each block is an (m, m)-nested perfect necklace. Conversely, assume that the
+expansion in base b of a given real x can be split in consecutive blocks such that
+each block is an (m, m)-nested perfect necklace for m = 2d with d = 0, 1, 2, . . ..
+Then, Levin’s chain of estimates in [9] yield the wanted discrepancy: his Lemma 5,
+Corollaries 1 and 2 and the end of the proof of his Theorem 2.
+   The proof of Theorem 2 follows from Propositions 7, 13 and 14.
+
+                                2. Affine necklaces
+   In this note we consider transformations on words obtained as linear maps over
+the field F2 with two elements. We identify the words of length n over F2 with the
+column vectors of dimension n × 1 over F2 . More precisely, we always identify the
+word a1 · · · an where ai ∈ F2 with the column vector (a1 , . . . , an )t ∈ (F2 )n×1 where
+t
+  denotes transpose of vectors and matrices. Suppose w1 , . . . , wk is a sequence
+of words, each of them of length n and M is a n × n-matrix over F2 , we may
+consider the concatenation (M w1 )(M w2 ) · · · (M wk ). In this writing, the matrix M
+is multiplied with each word wi considered as a column vector, and the resulting
+column vector is viewed again as a word of length n. Similarly, the component-wise
+sum of vectors in F2 is used directly on words of the same length. It is denoted by
+the symbol ⊕.
+   We assume that the alphabet is F2 = {0, 1} and that the modulo m is always a
+power of 2, namely m = 2d for some non-negative integer d. We now define a family
+of matrices that we will use to construct explicitly some nested perfect necklaces.
+We start by defining by induction on d an m × m-matrix Md for each d ≥ 0 by
+                                                             
+                                                    Md Md
+                       M0 = (1) and Md+1 =                        .
+                                                     0 Md
+   The matrices M1 and M2 are then
+                                                                  
+                                               1       1   1   1
+                          1 1                  0        1   0   1
+                    M1 =              and M2 =                    .
+                          0 1                  0        0   1   1
+                                                 0       0   0   1
+
+    The matrix Md is a variant of the Pascal triangle modulo 2 in rectangular form,
+we prove it in Lemma 3 below. This matrix is almost the one used by Levin in [9]
+because we have reversed the order of the columns. This definition of the matrix
+Md allows us to identify words with column vectors, which is not the case in [9].
+    We now introduce a family of matrices obtained by applying some rotations to
+columns of the matrix Md . Let σ be the function which maps each word a1 · · · an
+to an a1 a2 · · · an−1 obtained by moving the last symbol to the front. Since words
+over F2 are identified with column vectors, the function σ can also be applied to a
+column vector.
+    Let n1 , . . . , nm be a sequence of integers such that nm = 0 and ni+1 ≤ ni ≤
+ni+1 + 1 for each integer 1 ≤ i < m. Let C1 , . . . , Cm be the columns of Md , that
+is, Md = (C1 , . . . , Cm ). Define
+                           Mdn1 ,...,nm = σ n1 (C1 ), . . . , σ nm (Cm ) .
+                                                                        
+4                     VERÓNICA BECHER AND OLIVIER CARTON
+
+
+The following are the eight possible matrices Mdn1 ,...,nm for d = 2 and m = 22 .
+
+            0,0,0,0            1,0,0,0                  1,1,0,0            2,1,0,0
+        M4               M4                 M4                   M4         
+         1 1 1 1            0 1 1 1             0 0        1      1     0 0 1 1
+       0 1 0 1          1 1 0 1            1 1        0      1 0 1 0 1 
+                                                                                  
+                                           
+       0 0 1 1          0 0 1 1            0 1        1      1  1 1 1 1 
+         0 0 0 1            0 0 0 1             0 0        0      1     0 0 0 1
+            1,1,1,0            2,1,1,0                  2,2,1,0            3,2,1,0
+        M4               M4                 M4                   M4         
+         0 0 0 1            0 0 0 1             0 0        0      1     0 0 0 1
+       1 1 1 1          0 1 1 1            0 0        1      1 0 0 1 1 
+                                                                                  
+                                           
+       0 1 0 1          1 1 0 1            1 1        0      1  0 1 0 1 
+         0 0 1 1            0 0 1 1             0 1        1      1     1 1 1 1
+
+
+   Let m = 2d for some d ≥ 0 and let k be some integer such that 1 ≤ k ≤ m. Let
+w1 , . . . , w2m be the enumeration in lexicographic order of all words on length m
+over F2 . Let z be a word over F2 of length m and let wi′ = wi ⊕ z for 1 ≤ i ≤ 2m .
+Let M be a matrix a matrix Mdn1 ,...,nm as above. Then, the concatenation
+                              (M w1′ )(M w2′ ) · · · (M w2′ k )
+is called an (k, m)-affine necklace. In the sequel we refer to this necklace as the
+affine necklace obtained from the matrix Mdn1 ,...,nm and the vector z. Note that
+setting z ′ = M z gives M wi′ = M wi ⊕z ′ which justifies the terminology. In Lemma 4
+we will prove that each matrix Mdn1 ,...,nm is invertible and therefore each vector z ′
+is equal to M z for some vector z.
+    Each matrix Md is upper triangular, that is (Md )i,j = 0 for 1 ≤ i < j ≤ 2d . The
+following lemma states that the upper part of the matrix Md is the beginning of
+the Pascal triangle modulo 2 also known as the Sierpiński triangle.
+Lemma 3. For any integers d, i, j such that d ≥ 0 and 1 ≤ i, j < 2d , (Md )i,j =
+(Md )i+1,j ⊕ (Md )i,j+1 .
+Proof. The proof is carried out by induction on d. If d = 0, the result trivially
+holds. Suppose that the result holds for Md and let i, j be integers such that
+1 ≤ i, j < 2d+1 . If i and j are different from 2d , the result follows directly from the
+induction hypothesis and the definition of Md+1 . If either i = 2d or j = 2d , the
+result follows from the fact that (Md )i,j is equal to 1 if either i = 2d or j = 2d and
+it is equal to 0 if i = 0 or j = 0 (and i and j different from 2d ). This latter fact is
+easily proved by induction on d.                                                       
+
+            3. Affine necklaces are nested perfect necklaces
+
+                                                      
+                                              ℓ
+                                              k    P m
+                                                    
+                               M=
+                                                    
+                                          m−k      k
+                                              m
+
+            Figure 1. Position of the sub-matrix P in M in Lemma 4.
+                NORMAL NUMBERS AND NESTED PERFECT NECKLACES                               5
+
+
+Lemma 4. Let M be a matrix Mdn1 ,...,nm . Let ℓ and k be two integers such that 0 ≤
+ℓ < ℓ + k ≤ 2d . Any sub-matrix obtained by selecting the k rows ℓ + 1, ℓ + 2, . . . , ℓ + k
+and the last k columns 2d − k + 1, . . . , 2d of M is invertible.
+    Note that for k = 2d and ℓ = 0, the sub-matrix in the statement of the lemma ,
+is the whole matrix Mdn1 ,...,nm , which is invertible.
+Proof. Let m = 2d be the number of rows and columns of M . By Lemma 3, each
+entry Mi,j for 1 ≤ i, j < m of the matrix M satisfies either Mi,j = Mi+1,j ⊕ Mi,j+1
+if nj = nj+1 (the column Cj has been rotated as much as the column Cj+1 ) or
+Mi,j = Mi+1,j ⊕ Mi+1,j+1 if nj = nj+1 + 1 (the column Cj has been rotated once
+more than the column Cj+1 ).
+    Let P be the sub-matrix in the statement of the lemma, a picture appears
+as Figure 1. To prove that P is invertible we apply transformations to make it
+triangular. Note that all entries of the last column are 1. The first transformation
+applied to P is as follows. The row L1 is left unchanged and the row Lj for 2 ≤ j ≤ k
+is replaced by Li ⊕ Li−1 . All entries of the last column but its top most one become
+zero. Furthermore, each entry is Pi,j is either replaced by either Pi,j+1 or Pi+1,j+1
+depending on the value nj − nj+1 . Note also that the new values of the entries still
+satisfy either Pi,j = Pi+1,j ⊕ Pi,j+1 or Pi,j = Pi+1,j ⊕ Pi+1,j+1 depending on the
+value nj − nj+1 . The second transformation applied to P is as follows. The rows L1
+and L2 are left unchanged and each row Li for 3 ≤ i ≤ k is replaced by Li ⊕ Li−1 .
+All entries of the second to last column but its two topmost ones are now zero.
+At step n for 1 ≤ n < k, rows L1 , . . . , Ln are left unchanged and each row Li for
+n + 1 ≤ i ≤ k is replaced by Li ⊕ Li−1 . After applying all these transformations for
+1 ≤ n < k, each entry Pi,j for i + j = k + 1 satisfies Pi,j = 1 and each entry Pi,j for
+i + j > k + 1 satisfies Pi,j = 0. It follows that the determinant of P is 1 and that
+the matrix P is invertible.                                                          
+   We now introduce the notions of upper and lower border of a matrix Mdn1 ,...,nm .
+Let m = 2d for some d ≥ 0 and let M be one matrix Mdn1 ,...,nm . An entry Mi,j
+for 1 ≤ i, j ≤ m is said to be in the upper border (respectively lower border ) of M
+if Mi,j = 1 and Mk,j = 0 for all k = 1, ..i − 1 (respectively below). For instance,
+the upper border of the matrix Md is the first row and its lower border is the main
+diagonal. The following pictures in boldface the upper and lower borders of the
+matrix M33,3,2,1,1,1,0,0:
+                                                                
+                                          0 0 0 0 0 0 1 1
+                                         0 0 0 1 1 1 0 1
+                                                                
+                                         0 0 1 1 0 1 1 1
+                                                                
+                       3,3,2,1,1,1,0,0
+                                        1 1 0 1 0 0 0 1 
+                   M3                  =
+                                                                
+                                         0 1 1 1 0 0 1 1
+                                                                 
+                                         0 0 0 0 1 1 0 1
+                                                                
+                                         0 0 0 0 0 1 1 1
+                                          0 0 0 0 0 0 0 1
+
+   We gather now some easy facts about the upper and lower borders of a ma-
+trix Mdn1 ,...,nm . Both borders start in the unique entry 1 of the first column. The
+upper border ends in the top most entry of the last column and the lower border ends
+in the bottom most entry of the last column. The upper border only uses either East
+or North-East steps and the lower border only uses either East or South-East steps.
+The upper border uses a East step from column Cj to column Cj+1 if nj − nj+1 = 0
+and uses a North-East step if nj − nj+1 = 1. Furthermore, whenever the upper
+border uses an East (respectively North-East) step to go from one columns to its
+6                      VERÓNICA BECHER AND OLIVIER CARTON
+
+
+right neighbour, the lower border uses a South-East (respectively East) step. This
+is due to the fact that the distance from the upper border to the lower border in
+the i-th column is i − 1.
+
+                                                  0
+                                                       
+                                                   0
+                                                   1
+
+                                    k         P
+                                                      
+                                M=                    m
+                                                      
+                                               k
+                                              m
+
+            Figure 2. Position of the sub-matrix P in M in Lemma 5
+
+   Due to the symmetry in the matrix Md Lemma 4 applies also to the sub-matrices
+of Md obtained by selecting the first row. Since this symmetry is lost for matrices
+Mdn1 ,...,nm . we need the following lemma which accounts for the rotations made to
+the columns in Md to obtain Mdn1 ,...,nm .
+Lemma 5. Let M be one of the matrix Mdn1 ,...,nm . Let k be an integer such that
+1 ≤ k ≤ 2d . The k × k-sub-matrix obtained by selecting k consecutive rows and
+k consecutive columns in such a way that such that its top right entry lies in the
+upper border of M is invertible.
+Proof. The proof is similar to that of Lemma 4. Let P be the sub-matrix in the
+statement of the lemma, a picture appears in Figure 2. We apply transformations
+to the sub-matrix P to put it in a nice form such that the determinant is easy to
+compute. Just to fix notation, we suppose that the sub-matrix P is obtained by
+selecting rows Lr+1 , . . . , Lr+k and columns Cs+1 , . . . , Cs+k . The hypothesis is that
+the entry Mr+k,s+k is in the upper border of M . Note that the upper borders of
+M and P coincide inside P . We denote by j1 , . . . , jt the indices of the columns
+of P in 1, . . . , k which are reached by a North-East step of the upper border. This
+means that j1 , . . . , jt is the sequences of indices j such that ns+j−1 − ns+j = 1. By
+convention, we set j0 = 1, that is, the index of the first column of P .
+   The first transformation applied to the matrix P is the following. The columns
+C1 , . . . , Cjt −1 and Ck are left unchanged and each column Cj for jt ≤ j ≤ k − 1 is
+replaced by Cj ⊕Cj+1 . All entries of the first row but its right most one become zero.
+   Furthermore, each entry Pi,j for jt ≤ j ≤ k − 1 is replaced by Pi+1,j . The
+second transformation applied to the matrix P is the following. The columns
+C1 , . . . , Cjt−1 −1 and Ck−1 , Ck are left unchanged and each column Cj for jt−1 ≤
+j ≤ k − 2 is replaced by Cj ⊕ Cj+1 . The first row remains unchanged and all entries
+of the second row but the last two become 0. We apply t transformations like this
+using successively jt , jt−1 , . . . , j1 . Then k − t − 1 further steps are made using then
+k0 = 1 each time. After applying all these transformations, each entry Pi,j for
+i + j = ℓ + 1 satisfies Pi,j = 1 and each entry Pi,j for i + j < ℓ + 1 satisfies Pi,j = 0.
+It follows that the determinant of P is 1 and that the matrix P is invertible.             
+
+   For a word w we write wn to denote the word given by concatenation of n copies
+of w. The following lemma states that each (k, m)-nested perfect necklace can be
+transformed into another (k, m)-nested perfect necklace which starts with 0m .
+Lemma 6. Let w be a word of length m2k and let z be a word of length m. The
+                                                                          k
+word w is a (k, m)-nested perfect necklace if and only if the word w ⊕ z 2 is a
+(k, m)-nested perfect necklace.
+                NORMAL NUMBERS AND NESTED PERFECT NECKLACES                                7
+
+                                                 k
+Proof. Note first that both words w and z 2 have a length of m2k . Let w′ be the
+              k
+word w ⊕ z 2 . Let ℓ be an integer such that 1 ≤ ℓ ≤ k and let v ′ be a block of w′ of
+length m2ℓ starting at a position j congruent to 1 modulo m2ℓ . The corresponding
+                                                            ℓ
+block of w at the same position j is of course v = v ′ ⊕ z 2 . By hypothesis, this later
+block v is a (ℓ, m)-nested perfect necklace. We claim that v ′ is also a (ℓ, m)-nested
+perfect necklace.
+    Let i be such that 1 ≤ i ≤ m and let u′ any word of length ℓ. Let t be the block
+of zz of length ℓ starting at position i and consider the word u = u′ ⊕t. This word u
+has an occurrence in the necklace v at a position j ′ congruent to i modulo m. It
+follows that u′ = u ⊕ t has an occurrence at the same position j ′ in v ′ . Since each
+word u has such an occurrence for each possible i and v ′ has length m2ℓ , v ′ is a
+(ℓ, m)-nested perfect necklace.                                                       
+  We can now prove that the all the (k, m)-affine necklaces are (k, m)-nested perfect
+necklaces.
+Proposition 7. Let k, m, d be integers such that d ≥ 0, m = 2d and 1 ≤ k ≤ m.
+Each (k, m)-affine necklace is a (k, m)-nested perfect necklace.
+   The proof of Proposition 7 follows and extends that of [9, Lemma 5] but we use
+a different notation.
+Proof. It suffices of course to prove the result for k = m. By Lemma 6, it may be
+assumed that the vector z in the definition of affine necklaces is the zero vector.
+Let M be one of the matrices Mdn1 ,...,nm , let w1 , . . . , w2m be the enumeration
+in lexicographic order of all words of length m over F2 and suppose that the
+(m, m)-affine necklace w is the concatenation (M w1 )(M w2 ) · · · (M w2m ). Let k
+be an integer such that 1 ≤ k ≤ m and let w′ be a block of w of length m2k
+starting at a position congruent to 1 modulo m2k . The word w′ is thus equal to a
+concatenation of the form (M wp2k +1 ) · · · (M w(p+1)2k ) for some fixed integer p such
+that 0 ≤ p ≤ 2m−k − 1. We claim that w′ is a (k, m)-perfect necklace.
+   To prove the claim, it must be shown that for each integer ℓ such that 0 ≤ ℓ < m,
+each word u of length k has exactly one occurrence in w with a starting position
+congruent to ℓ + 1 modulo m (we write ℓ + 1 rather than ℓ because positions are
+numbered from 1). We now suppose that the word u and the integer ℓ such that
+0 ≤ ℓ < m are fixed. We distinguish two cases depending on whether ℓ + k ≤ m
+or not.
+   We first suppose that k + ℓ ≤ m. It follows that the wanted occurrence of u
+must be fully contained in a single word M wp2k +q for 1 ≤ q ≤ 2k . More precisely
+it must lie in the positions ℓ + 1, . . . , ℓ + k of M wp2k +q . In that case, the claim
+boils down to showing that there is exactly one integer q such that u occurs in
+positions ℓ + 1, . . . , ℓ + k of M wp2k +q . Let us recall that p is fixed and that q ranges
+in 1, . . . , 2k . Since wi is the base 2 expansion of i − 1 with m bits, wp2k +q can
+factorized xp yq−1 where xp and yq−1 are the base 2 expansions of p and q − 1 with
+m − k and k bits.
+                                                      
+
+                                      N              P 
+                                                      
+                                  M=
+                                                      
+
+
+
+   The occurrence of u in wp2k +q is now translated into linear equations by in-
+troducing the following two matrices N and P (see above). Let N and P be the
+following sub-matrices of the matrix M . The k × m − k matrix N is obtained by
+8                      VERÓNICA BECHER AND OLIVIER CARTON
+
+
+selecting the k rows Lℓ+1 , . . . , Lℓ+k and the m − k columns C1 , . . . , Cm−k . The
+k × k matrix P is obtained by selecting the same k rows Lℓ+1 , . . . , Lℓ+k and the k
+columns Cm−k+1 , . . . , Cm . The word u occurs in the positions ℓ + 1, . . . , ℓ + k of
+M wp2k +q if and only if u = N xp +P yq−1 where words u, xp and yq−1 are considered
+as columns vectors of respective dimensions k, m − k and k. Since xp is fixed and
+P is invertible by Lemma 4, there is exactly one solution for yq−1 and thus one
+solution for q. This proves the claim when k + ℓ ≤ m.
+   We now suppose that ℓ + k > m. The wanted occurrence of u must then overlap
+two consecutive words M wp2k +q and M wp2k +q+1 where p2k + q + 1 should be
+understood as p2k + 1 if q = 2k . Let us write u = u1 u2 where u1 and u2 have
+length m − ℓ and ℓ + k − m. The wanted occurrences exist if u1 occurs at positions
+ℓ + 1, . . . , m of M wp2k +q and u2 occurs at positions 1, . . . , ℓ + k − m of M wp2k +q+1
+with the same convention for p2k + q + 1. As in the previous case, these occurrences
+are translated into linear equations. For that purpose, we introduce the following
+four matrices.
+                                                      
+                                     N2           P2 
+                                  M=
+                                    
+                                                      
+                                                      
+                                      N1           P1
+
+
+   The matrices N1 and P1 are obtained by selecting the rows Lℓ+1 , . . . , Lm and the
+columns C1 , . . . , Cm−k for N1 and Cm−k+1 , . . . , Cm for P1 . The matrices N2 and P2
+are obtained by selecting the rows L1 , . . . , Lℓ+k−m and the columns C1 , . . . , Cm−k
+for N2 and Cm−k+1 , . . . , Cm for P2 (see above). The two words wp2k +q and wp2k +q+1
+are then factorized wp2k +q = xp yq−1 and wp2k +q+1 = xp yq where xp is the base 2
+expansion of p with 2m−k bits and words yq−1 and yq are the base 2 expansions of
+q − 1 and q (understood as 0 if q = 2k ) with 2k bits. The occurrences of u1 and u2
+do exist as wanted if and only if these two equalities hold,
+
+
+                                  u1 = N1 xp + P1 yq−1 ,
+                                  u2 = N2 xp + P2 yq
+   Notice that the first equation involves yq−1 while the second one involves yq .
+These two words are strongly related in the sense that each one determines the other.
+For each i such that 0 ≤ i ≤ k, the i right most bits of either yq−1 or yq determine
+the i right most bits of the other. This is due to the fact that either adding or
+subtracting 1 can be performed on the bits from right to left. For that reason, we
+will show that the equations u1 = N1 xp + P1 yq−1 and u2 = N2 xp + P2 yq have a
+unique solution in q by successively computing the bits of q − 1 and q from right
+to left.
+   We actually describe a strategy for solving the two equations. This strategy is
+based of the upper and lower borders of the matrix M . The main ingredient is
+that between two consecutive columns Cj and Cj+1 , one of the two borders uses
+a step which is not horizontal, that is, either North-East for the upper border or
+South-East for the lower border.
+   The right most bit of yq−1 and yq can be found as follows. Either the upper
+border or the lower border makes a non horizontal step from Cm−1 to Cm . It
+means that either the first row or the last row of M has the form (0, . . . , 0, 1). This
+row can be used to find the right most bit of yq−1 and yq as it is the first row the
+equation u1 = N1 xp + P1 yq−1 or the last row of the equation u2 = N2 xp + P2 yq .
+The second right most bit of yq−1 and yq can be found as follows. Either the upper
+                 NORMAL NUMBERS AND NESTED PERFECT NECKLACES                                   9
+
+
+border or the lower border makes a non horizontal step from Cm−2 to Cm−1 . It
+means that one row of M has the form (0, . . . , 0, 1, ∗). It can be used to find the
+second right most bit of yq−1 and yq as it is one row of one of the two equations.
+    This process can be continued using at each step a row of either the first or
+the second equation. In the process rows of the first equation are used from the
+first to the last while rows of the second equation are used from the last to the
+first. This process can be continued until the rows of one the equations have been
+exhausted. By symmetry, it can be assumed that all rows of the second equation
+have been used. Suppose that the left most n bits of yq−1 and yq have still to be
+found. Then the last n rows of the first equations have not been used. Considering
+the known bits as constants, the matrix involving the r unknown bits is a matrix
+as in Lemma 5. By this lemma, this matrix is invertible and these last r bits can
+be found in a unique way. This proves the claim when ℓ + k > m and finishes the
+proof of the proposition.                                                          
+
+             4. Nested perfect necklaces are affine necklaces
+   We shall now show that all (k, m)-nested perfect necklaces are (k, m)-affine
+necklaces. Since the other inclusion has been already proved, it suffices to show
+that they have the same cardinality. The next lemma shows that for k = 1, they
+coincide.
+Lemma 8. The (1, m)-nested perfect necklaces are the words of the form ww′ where
+w and w′ are two words of length m satisfying w′ = w ⊕ 1m . Furthermore, they are
+all affine.
+Proof. It is straightforward that (1, m)-nested perfect necklaces are the words of
+the form stated in the lemma. And for each matrix M of the form Mdn1 ,...,nm , M w0
+and M w1 are respectively equal to 0m and 1m . This proves the last claim.        
+  The next lemma provides the number of (m, m)-affine necklaces. It shows that
+(m, m)-affine necklaces obtained by the different choices of the matrix Mdn1 ,...,nm
+and of the vector z are indeed different.
+Lemma 9. Let m = 2d for some d ≥ 0. There are exactly 22m−1 different (m, m)-
+affine necklaces.
+Proof. There are exactly 2m−1 matrices Mdn1 ,...,nm . Indeed, the sequence n1 , . . . , nm
+is fully determined by the sequence n1 − n2 , . . . , nm−1 − nm of m − 1 differences
+which take their value in {0, 1}. There are also 2m possible values for the word z
+                                                                                           2m−1
+in Fm 2 . This proves that the number of (m, m)-affine necklaces is bounded by 2                .
+     It remains to show that two (m, m)-affine necklaces obtained for two different
+pairs (M, z) and (M ′ , z ′ ) are indeed different. Let w1 , . . . , w2d be the enumeration
+in lexicographic order of all words of length m over F2 . Let M and M ′ be two
+matrices of the form Mdn1 ,...,nm . Let z and z ′ be two words over F2 of length m
+and let ui = wi ⊕ z and u′i = wi ⊕ z ′ for 1 ≤ i ≤ 2m . Let w and w′ be the two
+concatenations (M u1 ) · · · (M u2d ) and (M ′ u′1 ) · · · (M ′ u′2d ). We claim that if w = w′ ,
+then M = M ′ and z = z ′ .
+     We suppose that w = w′ . Since both matrices M and M ′ are invertible by
+Lemma 4, M ui (respectively M ′ u′i ) is the zero vector if and only if ui (respectively
+u′i ) is the zero vector, that is, z = wi (respectively z ′ = wi ). It follows then that
+z = z ′ and thus ui = u′i for 1 ≤ i ≤ 2m . Note that the vector ui ranges over all
+possible vectors of length m. If M ui = M ′ ui for all 1 ≤ i ≤ 2m , then M = M ′ . 
+    Lemma 12 will show how (k, m)-affine necklaces can be concatenated with (k, m)-
+affine necklaces to get (k + 1, m)-perfect necklaces. The next two lemmas are
+10                      VERÓNICA BECHER AND OLIVIER CARTON
+
+
+intermediate steps towards the proof. The first states that each rotation of a column
+of Md is a linear combination of some columns to its right.
+Lemma 10. Let d ≥ 0 be integer and let (C1 , . . . , C2d ) be the columns of the
+matrix Md . For any integers i, k such that 1 ≤ i ≤ 2d and k ≥ 0, the vector
+                                               Ld
+σ k (Ci ) ⊕ Ci is equal to a linear combination 2j=i+1 bj Cj where bj ∈ F2 .
+
+Proof. The result is proved by the induction on the difference 2d − i. If i = 2d , the
+result holds trivially because σ(C2d ) = C2d . Assume that i < 2d is fixed. The proof
+is now by induction on the integer k. The result for k = 0 is void. By Lemma 3
+applied to the column Ci+2d of the matrix Md+1 , the equality σ(Ci ) ⊕ Ci = Ci+1
+holds. We apply Lemma 3 to the column Ci+2d of the matrix Md+1 because this
+column has period 2d and its first half is the column Ci of Md . This proves the
+result for k = 1. Suppose now that the result is true for some k ≥ 1. Applying σ
+to both terms of the equality and replacing first σ(Ci ) by the value Ci ⊕ Ci+1 and
+second each σ(Cj ) by the value given by the induction hypothesis gives the result
+for k + 1.                                                                          
+
+  The next lemma shows for each (k, m)-affine necklace, there is just one possible
+way of rotating it to get another (k, m)-affine necklace.
+Lemma 11. Let d, m, k and p be integers such that d ≥ 0, m = 2d , 1 ≤ k ≤ m
+and p ≥ 0. Let w be a (k, m)-affine necklace. If m divides p and σ p (w) is also a
+(k, m)-affine necklace, then p ≡ m2k−1 mod |w|.
+Proof. Since |w| = m2k and σ |w| (w) = w, we may assume that 0 ≤ p ≤ m2k . The
+result holds if either p = 0 or p = m2k . Therefore we assume that 1 ≤ p ≤ m2k − 1.
+Let w1 , . . . , w2d be the enumeration in lexicographic order of all words over F2 of
+length m. Since w is an affine necklace, it is a concatenation (M u1 ) · · · M (u2k )
+where M is a matrix Mdn1 ,...,nm and ui is equal to wi ⊕ z for each integer 1 ≤
+i ≤ 2k and for some fixed vector z. Since σ p (w) is also an affine necklace, it is a
+concatenation (M ′ u′1 ) · · · (M ′ u′2k ) where M ′ is a matrix Mdn1 ,...,nm and u′i is equal
+to wi ⊕ z ′ for each integer 1 ≤ i ≤ 2k and for some other fixed vector z ′ . For each
+ℓ such that 0 ≤ ℓ < d, the vector M ′ u′1 ⊕ M ′ u′1+2ℓ is equal to the column Cm−ℓ          ′
+                      ′                     ′                                   n1 ,...,nm
+of the matrix M . Since M and M are two matrices of the form Md                            , the
+             ′
+column Cm−ℓ        of M ′ is equal to σ t (Cm−ℓ ) where Cm−ℓ is the corresponding column
+of M and t is some integer. Since m divides p, the necklace σ p (w) is equal to
+                          (M wi′ ) · · · M (w2′ k )(M w1′ ) · · · (M wi−1
+                                                                      ′
+                                                                          )
+where i = 1 + p/m. We consider the word wi which is the base 2 expansion of i − 1
+with m bits. Let ℓ be the greatest integer such that 2ℓ divides i − 1 = p/m. The
+integer i − 1 is equal to 2ℓ (2r + 1) for some non-negative integer r. We claim
+that ℓ = k − 1.
+    Suppose by contradiction that ℓ < k − 1. The integer r satisfies thus r ≥ 1.
+The word wi is then equal to 0m−k u10ℓ where 0m−k is the block leading zeros
+due to i ≤ 2k and u is the base 2 expansion of r with k − ℓ − 1 digits. We
+now consider the word wi+2ℓ . This word is equal to 0m−k u′ 0ℓ+1 where u′ is the
+base 2 expansion of r + 1 with k − ℓ − 1 digits. Computing M ui ⊕ M ui+2ℓ gives
+C2d −ℓ + R where R is a non-zero linear combination of Cm−k , . . . , Cm−ℓ−1 . This
+linear combination R cannot be equal to zero because the words u and u′ are
+different. The vector M ui ⊕ M ui+2ℓ is also equal to M ′ u′1 ⊕ M ′ u′1+2ℓ = Cm−ℓ
+                                                                              ′
+                                                                                  =
+  t                                                            ′          ′
+σ (Cm−ℓ ). By Lemma 10, this vector is equal to Cm−ℓ + R where R is a linear
+combination of Cm−ℓ+1 , . . . , Cm . This is a contradiction: the equality R = R′ is
+impossible because, by Lemma 4, the matrix M is invertible.                       
+               NORMAL NUMBERS AND NESTED PERFECT NECKLACES                           11
+
+
+   We are now ready to show that each (k, m)-affine necklace can be extended by
+at most two (k, m)-affine necklaces to get a (k + 1, m)-perfect necklace.
+Lemma 12. Let m = 2d for some d ≥ 0 and let k be an integer such that 1 ≤
+k ≤ m. Let w be a (k, m)-affine necklace. There are at most two (k, m)-affine
+necklaces w′ such that ww′ is a (k + 1, m)-perfect necklace.
+Proof. We use the characterization of (k, m)-perfect necklaces as cycles in appro-
+priate graphs Gk (which variant of de Bruijn graphs) given in [1]. Consider the
+directed graph Gk whose vertex set is Fk2 × {1, . . . , m} and whose transitions are
+defined as follows. There is an edge in Gk from (u, i) to (u′ , i′ ) if first there two
+symbols a and b in F2 such that ua = bu′ and second i′ ≡ i + 1 mod m. The
+condition on u and u′ means that u and u′ are respectively the prefix and the suffix
+of length k of the word v = ua = bu′ of length k + 1. Therefore, the edges of
+the graph Gk can be identified with the words of length k + 1 over F2 . Note that
+each vertex of Gk has two incoming and two outgoing edges. It follows from the
+definition of the graph Gk , that each (k, m)-nested perfect necklace is identified
+to a Hamiltonian cycle in Gk and that each (k + 1, m)-nested perfect necklaces is
+identified to an Eulerian cycle in Gk .
+    Let w be a (k, m)-affine necklace. Then w determines a Hamiltonian cycle C
+in Gk . Since C visits each node of Gk exactly once, it uses one outgoing edge of each
+node. Any (k, m)-nested perfect necklace w′ such that ww′ is a (k + 1, m)-nested
+perfect necklace induces an Hamiltonian C ′ cycle which cannot use an edge of C.
+Otherwise, it would not be possible to build an Eulerian cycle from C and C ′ and
+ww′ would not be a (k + 1, m)-nested perfect necklace. If there is no (k, m)-affine
+necklace w′ such that ww′ is a (k +1, m)-nested perfect necklace the lemma trivially
+holds. Suppose now that there exists at least one such w′ . Since the graph Gk \ C
+has only one outgoing edge from any vertex, any (k, m)-nested perfect necklace w′′
+such that such that ww′′ is a (k + 1, m)-nested perfect necklace must be of the form
+σ p (w′ ) for some integer p ≥ 0. Since both Hamiltonian cycles C ′ and C ′′ induced
+by w′ and w′′ must must start from a vertex in Fk2 × {1}, it follows that m divides
+m. By Lemma 11, the only possible choices for p are 0 and m2k−1 . This proves
+that there is at most one such w′′ different from w′ .                                
+  We can now give the number of (k, m)-affine necklaces.
+Proposition 13. Let m = 2d for some d ≥ 0. For each integer k such that
+1 ≤ k ≤ m, the number of (k, m)-affine necklaces is exactly 2k+m−1 .
+Proof. We assume the integer m to be fixed and we let tk denote the number of
+(k, m)-affine necklaces. By Lemma 8, t1 is equal to 2m and by Lemma 9, tm is equal
+to 22m−1 . It follows from Lemma 12 that tk+1 ≤ 2tk for each integer k such that
+1 ≤ k < m. None of these inequalities can be strict because otherwise tm would be
+striclty less that 22m−1 . So, for each integer k such that 1 ≤ k ≤ m, tk+1 = 2tk ,
+hence, tk = 2k+m−1 .                                                            
+  The results above allows us to prove the wanted inclusion.
+Proposition 14. Each (k, m)-nested perfect necklace is a (k, m)-affine necklace.
+Proof. Fix m, let sk be the number of (k, m)-nested perfect necklaces and let tk
+be the number of (k, m)-affine necklaces. By Proposition 7, sk ≤ tk holds for each
+integer k such that 1 ≤ k ≤ m. To prove the statement, it suffices to prove that
+sk = tk for each integer k such that 1 ≤ k ≤ m. We prove it by induction on k. By
+Lemma 8, s1 = t1 = 2m . We now suppose sk = tk and we prove that sk+1 = tk+1 .
+Each (k + 1, m)-nested perfect necklace can be written as ww′ where w and w′ are
+two (k, m)-nested perfect necklaces. Since sk = tk , w and w′ are also (k, m)-affine
+12                        VERÓNICA BECHER AND OLIVIER CARTON
+
+
+necklaces. By Lemma 12, there are at most two possible choices of w′ for each w.
+This proves that tk+1 ≤ 2tk . Since sk+1 = 2sk by Proposition 13 and sk+1 ≤ tk+1 ,
+the equality sk+1 = tk+1 holds.                                                
+
+                                    Acknowledgements
+   The authors are members of the Laboratoire International Associé INFINIS,
+CONICET/Universidad de Buenos Aires–CNRS/Université Paris Diderot and they
+are partially supported by the ECOS project PA17C04. Carton is partially funded
+by the DeLTA project (ANR-16-CE40-0007).
+
+                                          References
+ [1] N. Álvarez, V. Becher, P. A. Ferrari, and S. A. Yuhjtman. Perfect necklaces. Advances of
+     Applied Mathematics, 80:48–61, 2016.
+ [2] Y. Bugeaud. Distribution modulo one and Diophantine approximation, volume 193 of
+     Cambridge Tracts in Mathematics. Cambridge University Press, Cambridge, 2012.
+ [3] N. G. de Bruijn. A combinatorial problem. Koninklijke Nederlandse Akademie
+     v.Wetenschappen, 49:758–764, 1946. Indagationes Mathematicae 8 (1946) 461-467.
+ [4] M. Drmota and R. Tichy. Sequences, Discrepancies and Applications. Lecture Notes in
+     Mathematics, Vol. 1651. Springer-Verlag, 1997.
+ [5] H. Faure. Discrépance de suites associées à un système de numération (en dimension s). Acta
+     Arithmetica, 41, 1982.
+ [6] N.M. Korobov. Numbers with bounded quotient and their applications to questions of
+     diophantine approximation. Izv. Akad. Nauk SSSR, Ser. Mat., 19:361–380, 1955.
+ [7] L. Kuipers and H. Niederreiter. Uniform distribution of sequences. Dover Publications, Inc.,
+     New York, 2006.
+ [8] M. B. Levin. On the upper bounds of discrepancy of completely uniform distributed and
+     normal sequences. Abstracts American Mathematical Society, 16:556–557, 1995. AMS-IMU
+     joint meeting, Jerusalem, Israel, May 24–26, 1995.
+ [9] M. B. Levin. On the discrepancy estimate of normal numbers. Acta Arithmetica, 88(2):99–111,
+     1999.
+[10] W. Schmidt. Irregularities of distribution. vii. Acta Arithmetica, 21:45–50, 1972.
+
+
+     Verónica Becher
+     Departamento de Computación, Facultad de Ciencias Exactas y Naturales & ICC
+     Universidad de Buenos Aires & CONICET, Argentina
+     vbecher@dc.uba.ar
+
+     Olivier Carton
+     Institut de Recherche en Informatique Fondamentale
+     Université Paris Diderot, France
+     Olivier.Carton@irif.fr
+
