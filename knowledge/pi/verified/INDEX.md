@@ -16,12 +16,11 @@ Current major families:
 
 The explicit theorem audit is [AxiomAudit.lean](../../../audit/AxiomAudit.lean). The exact allowlist is `propext`, `Classical.choice`, and `Quot.sound`.
 
-Latest verified milestone: [BBP Weyl, circle-density, and symbolic transfer
-(T107--T109)](../results/machine-checked/bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md).
-It machine-checks summable-perturbation transfer for Weyl cancellation,
-endpoint-safe equivalence between sampled-BBP arbitrarily-late circle density
-and canonical V1, and conditional eventual BBP/pi symbolic-code equality.
-It proves no cancellation, density, V1, or prescribed digit occurrence
-unconditionally.
+Latest machine-checked milestone: [T117 common-denominator and excess-gcd
+decomposition](../results/machine-checked/t117_common_denominator_excess_gcd_20260821.md).
+It removes the automatic common-denominator factor from the exact sampled-BBP
+successor arithmetic and preserves the remaining gcd valuations. It proves no
+gcd-size bound, cancellation, cell occupancy, density, V1, or prescribed
+digit occurrence.
 
 No theorem in the core currently proves that every finite decimal word occurs in π.

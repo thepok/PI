@@ -86,6 +86,16 @@ mutation, reconstructs every record and both endpoints by the independent
 literal-pole route, and keeps shards independently generable. See
 [`t117_unscaled_q_workflow_false_positive_20260821.md`](results/negative/t117_unscaled_q_workflow_false_positive_20260821.md).
 
+T117 now machine-checks the generic common-denominator decomposition after
+removing the automatic factor `H=gcd(D,E)`. With reduced quotients `d,e` and
+excess numerator `X`, it proves `U=H*X`, `V=H^2*d*e`, the exact valuation-
+preserving identity `g=H*k`, `k∣D`, `k∣10H`, and both reduced-denominator
+quotient identities. Zero denominators are handled explicitly. This closes
+the representation-only gcd bookkeeping: it supplies no bound on `k` and no
+control of the normalized numerator modulo the reduced denominator, hence no
+cell occupancy, cancellation, density, or V1 conclusion. See
+[`t117_common_denominator_excess_gcd_20260821.md`](results/machine-checked/t117_common_denominator_excess_gcd_20260821.md).
+
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
 `PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge
