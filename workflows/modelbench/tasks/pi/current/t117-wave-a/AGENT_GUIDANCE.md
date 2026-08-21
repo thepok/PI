@@ -19,3 +19,10 @@ positivity assumptions or replace the contracted theorem with a Rat-only one.
 In the positive-H branch, prove `D=H*d`, `E=H*e`, `Coprime d e`, and that X
 is coprime to e. Remove e from `gcd(X,H*d*e)`. Preserve valuations through
 the exact `g=H*k`; T116's prime-support statement alone is insufficient.
+
+For the normalized census workflow, K1 is `k^2≤e` and K2 is `k^2≤d*e`.
+Neither is a theorem. One exact witness rejects a law; finite survival remains
+only `experiment`. Preserve the canonical inclusive `bbpPartial` convention
+and the anchor `Q_0=47/15`. Controller-pinned code and checkpoint hashes, not
+pod self-reports, define the trust boundary. The full range is partitioned
+before inspection into exactly 42 half-open shards covering `[512,4096)`.
