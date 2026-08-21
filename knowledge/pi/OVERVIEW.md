@@ -28,6 +28,15 @@ central axiom audit passed. See
 [`bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md`](results/machine-checked/bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md).
 No novelty or literature-check claim is attached to this milestone.
 
+T111 adds a further `machine-checked` finite interface. Exact character
+orthogonality recovers each cyclic-cell multiplicity from the full signed DFT,
+and the strict one-sided condition that the nonzero-frequency real sum exceed
+`-M` forces the cell to be hit. Full cell occupancy then gives an endpoint-safe
+`1/q` cover in `UnitAddCircle`. This is generic finite infrastructure: no such
+signed estimate is proved for the sampled BBP orbit, so T111 proves neither
+density nor V1. See
+[`t111_signed_dft_cell_occupancy_circle_cover_20260821.md`](results/machine-checked/t111_signed_dft_cell_occupancy_circle_cover_20260821.md).
+
 A reviewed 2026-08-21 `proof sketch` separator closes a narrower dead end:
 finite selected three-adic BBP residue fibers, their coherence, arbitrary
 one-sided tail schedules, and generic T106-style coboundary identities do not
