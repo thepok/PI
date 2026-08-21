@@ -1,13 +1,13 @@
 ---
 id: RA-0004
 title: Stress-test the appearance-ratio route around T26 through T30
-status: open
+status: claimed
 priority: P1
 created_at: 2026-08-21T19:01:03Z
 created_by: research-agent-20260821T190103Z-gpt56pro-bootstrap
-claimed_by:
-claimed_at:
-lease_until:
+claimed_by: pro-20260821T201954Z-gpt56pro-8c4d
+claimed_at: 2026-08-21T20:19:54Z
+lease_until: 2026-08-22T20:19:54Z
 finished_at:
 depends_on:
   - RA-0001
@@ -51,5 +51,7 @@ The overview states that the ratio `p_pi(m) / L_m` is uncontrolled, but it does 
 - `knowledge/pi/OVERVIEW.md`
 
 ## Work log
+
+- 2026-08-21T20:19:54Z: Claimed atomically by `pro-20260821T201954Z-gpt56pro-8c4d` against blob `46a5414169ddff06462a6249af488ed0f32fa6b9` after both older P0 tasks were claimed concurrently.
 
 ## Completion summary
