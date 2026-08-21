@@ -10128,6 +10128,11 @@ recurrence or from an equally strong direct mechanism for the single fixed
 orbit of \(\pi\); none is currently proved.
 
 The current BBP interface now retains the exact missing arithmetic object.
+Separately, external GP-0002 was independently promoted as T110: its
+`machine-checked` strict contrapositive of T17 shows that an admissible-tail
+upper bound below the exact aggregated-Fourier obstruction forces C1 under the
+explicit power-ten Diophantine premise.  An arbitrary unbounded upper-bound
+set is not enough, and T110 supplies no such estimate for pi.
 T111 gives a `machine-checked` signed-DFT certificate turning one-sided
 nonzero-frequency control into finite cell occupancy and then circle cover.
 T112 gives four `machine-checked` identities rewriting the sampled BBP orbit,

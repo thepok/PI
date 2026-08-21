@@ -1,13 +1,13 @@
 # GP-0002 — post-T17 cancellation criterion
 
-**Claim label:** candidate resolution
+**Claim label:** machine-checked
 
 ## Verdict
 
 The sharp clean consequence of T17 is an **eventual admissible-tail**
 criterion, not an arbitrary unbounded-set criterion.
 
-A concrete Lean candidate is staged at:
+A provenance copy of the Lean candidate is retained at:
 
 ```text
 GPTPro/Deliverables/GP-0002/T110Candidate.lean
@@ -20,9 +20,9 @@ Theory.PiDigits.T110PostT17CancellationCriterion.
   C1_of_tail_aggregatedFourierSum_lt_of_powerTenDiophantine
 ```
 
-The candidate is deliberately not present in the canonical `TheoryLib` import
-surface or central axiom audit. It was source-audited but could not be compiled
-in this invocation, so calling it `machine-checked` would be false.
+The independently verified canonical theorem is now present at
+`TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean`,
+imported by `TheoryLib.lean`, and registered in `audit/AxiomAudit.lean`.
 
 ## Exact result
 
@@ -123,18 +123,20 @@ external Diophantine premise intact.
 
 - `GPTPro/Deliverables/GP-0002/T110Candidate.lean` — exact Lean candidate and
   local `#print axioms` command.
-- `GPTPro/Deliverables/GP-0002/promote_t110.py` — deterministic promotion
-  helper. It copies the candidate to
-  `TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean`,
-  registers the root import, registers the central axiom audit, is idempotent,
-  and refuses to overwrite a different canonical module.
+- `TheoryLib/PiQuantitativeBlockHitting/T110T110PostT17CancellationCriterion.lean`
+  — independently compiled canonical theorem.
+- `knowledge/pi/results/machine-checked/t110_post_t17_tail_cancellation_criterion_20260821.md`
+  — integrated result and claim boundary.
 - `GPTPro/Deliverables/GP-0002/README.md` — result, quantifier audit, trust
-  classification, verification record, and promotion protocol.
+  classification, verification record, and promotion history.
 
 An initial canonical-track draft was committed at
 `24953b999b9a8638834b35268a588b86e8ab13e9` solely to attempt execution through
-repository CI. Because no executable evidence was produced, that draft was
-removed from `TheoryLib` in `000fbb0fab5cb4005b441a5ab936c9dffa94441d`.
+repository CI. The late CI report in `CI_VERIFICATION.md` failed before
+compilation because it tested commit `27669ba`, where the canonical T110 file
+did not exist; this is not a candidate compile failure and supplies no positive
+verification evidence. The draft was removed from `TheoryLib` in
+`000fbb0fab5cb4005b441a5ab936c9dffa94441d`.
 The temporary self-reporting workflow was removed in
 `e9c66e9dc44debb57faca8532e94393b0585eb29`. No temporary workflow or
 unverified canonical theorem remains.
@@ -187,37 +189,19 @@ A mock-repository test also passed:
 - a divergent existing canonical T110 caused exit `1` with an explicit refusal
   to overwrite it.
 
-### Lean and repository verification gate — NOT RUN
+### Lean and repository verification gate — PASS
 
-The invocation runtime had no `lean`, `lake`, or `pwsh`. A temporary
-push-triggered self-reporting workflow was attempted, but it produced neither
-its first-step marker nor a verification report. The connector also exposed no
-readable push-run log or status for these commits. Therefore there is no honest
-basis for reporting any of the following as passed:
+The main operator independently compiled the staged candidate, promoted a
+clean canonical module, and ran `pwsh workflows/verification/check.ps1` on
+2026-08-21. The full 8,766-job kernel build, forbidden-marker/exploit scan,
+and exact-allowlist axiom audit passed. The registered theorem depends only on
+`propext`, `Classical.choice`, and `Quot.sound`.
 
-```text
-lake build TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion
-lake build TheoryLib
-pwsh workflows/verification/check.ps1
-#print axioms ...
-```
+## Promotion result
 
-The candidate was kept outside the verified track for exactly this reason.
-
-## Promotion protocol
-
-In a clean checkout of `pi-core-consolidation`:
-
-```text
-python3 GPTPro/Deliverables/GP-0002/promote_t110.py
-lake build TheoryLib.PiQuantitativeBlockHitting.T110T110PostT17CancellationCriterion
-pwsh workflows/verification/check.ps1
-```
-
-Inspect the candidate's `#print axioms` output and require only the repository's
-allowed foundational axioms. If either Lean command fails, revert the helper's
-working-tree changes and fix the staged candidate; do not retain a partially
-promoted module.
+Promotion is complete. The one-use promotion helper was removed after the
+canonical module and audit registration passed the full gate, avoiding stale
+operational machinery that could later diverge from the canonical source.
 
 ## Rejected alternatives
 
@@ -230,8 +214,7 @@ promoted module.
 
 ## Remaining bottleneck
 
-The immediate mechanical step is compilation and the full repository gate
-before promotion. The actual mathematical bottleneck is much harder: prove the
+The actual mathematical bottleneck is much harder: prove the
 displayed strict aggregated-Fourier upper bound for the fixed pi orbit on an
 admissible tail. GP-0002 identifies that target exactly but contributes no
 cancellation estimate.
