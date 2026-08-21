@@ -62,6 +62,54 @@ def test_artifact_contract_rejects_placeholder_markers(tmp_path: Path) -> None:
     assert reason == "artifact contains forbidden markers ['filled after the run']"
 
 
+def test_artifact_contract_checks_json_values_and_ordered_sequences(
+    tmp_path: Path,
+) -> None:
+    (tmp_path / "RESULT.md").write_text("exact result", encoding="utf-8")
+    (tmp_path / "census.json").write_text(
+        json.dumps({"records": [{"n": 0, "q_num": "47"}, {"n": 1}]}),
+        encoding="utf-8",
+    )
+    task = {
+        "grading": {
+            "type": "artifact_contract",
+            "artifact": "RESULT.md",
+            "required_files": ["census.json"],
+            "required_json_values": [
+                {
+                    "file": "census.json",
+                    "path": ["records", 0, "q_num"],
+                    "equals": "47",
+                }
+            ],
+            "required_json_sequences": [
+                {
+                    "file": "census.json",
+                    "path": ["records"],
+                    "key": "n",
+                    "start": 0,
+                    "end": 1,
+                }
+            ],
+        }
+    }
+
+    assert runner.grade(task, "", tmp_path, tmp_path) == (
+        True,
+        "artifact contract satisfied; quality review still required",
+    )
+
+    (tmp_path / "census.json").write_text(
+        json.dumps({"records": [{"n": 1, "q_num": "47"}, {"n": 0}]}),
+        encoding="utf-8",
+    )
+    passed, reason = runner.grade(task, "", tmp_path, tmp_path)
+    assert passed is False
+    assert reason == (
+        "JSON artifact census.json does not contain exact ordered n range 0..1"
+    )
+
+
 def test_lean_artifact_contract_rejects_canonical_definition_replacement(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

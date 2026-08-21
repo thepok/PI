@@ -63,6 +63,20 @@ representation-only work; the next mathematical task must establish or
 falsify a nontrivial property of the actual normalized sequence.  See
 [`t115_sampled_bbp_cell_defect_phase_20260821.md`](results/machine-checked/t115_sampled_bbp_cell_defect_phase_20260821.md).
 
+T116 now adds a `machine-checked` prime-support lemma for the exact T114
+normalization gcd: any prime divisor must divide the current reduced
+denominator and must divide either the forcing denominator or 10.  An exact
+512-point census immediately shows why this is only a support lemma: the raw
+gcd contains large shared-denominator factors.  The preregistered laws that
+all its primes lie in `{2,5}`, that it divides 10, and that it is at most
+`10^6` are rejected; `g^2≤V` merely survives the finite census as an
+`experiment`.  The next falsifier removes the automatic common denominator
+and studies the excess factor `k`, rather than extending raw-gcd bookkeeping.
+See
+[`t116_sampled_bbp_gcd_prime_support_20260821.md`](results/machine-checked/t116_sampled_bbp_gcd_prime_support_20260821.md)
+and
+[`t116_raw_gcd_small_support_bounds_no_go_20260821.md`](results/negative/t116_raw_gcd_small_support_bounds_no_go_20260821.md).
+
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
 `PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge

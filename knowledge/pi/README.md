@@ -14,6 +14,10 @@ This directory holds durable research state. It intentionally excludes raw model
 
 The proof authority is `TheoryLib/`, not this directory. Reports here describe proof artifacts; they do not replace them.
 
+Reproducible research programs belong under `../../workflows/research/pi/`;
+large generated payloads and raw model transcripts remain outside durable
+knowledge unless they are essential and cannot be regenerated.
+
 ## External-model integration
 
 `handoffs/external/` is an inbox and immutable provenance layer. Every newly
