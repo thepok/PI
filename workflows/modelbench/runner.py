@@ -97,6 +97,9 @@ TASK_TIMEOUT_S = 900
 MAX_TRANSPORT_ATTEMPTS = 2
 LEAN_GATE_TIMEOUT_S = 900
 PODMAN_IMAGE = "localhost/allmath-research:latest"
+LEAN_GATE_SCRIPT = (
+    ROOT / "workflows" / "runtime" / "containers" / "allmath-lean-gate.sh"
+)
 GATE_LOCK_PATH = Path("/tmp/allmath-modelbench-lean-gate.lock")
 PROVIDER_SLOT_LOCK_ROOT = Path("/tmp/allmath-modelbench-provider-slots")
 OPERATOR_PAUSE_PATH = ROOT / "workflows" / "state" / "OPERATOR_PAUSED"
@@ -1155,7 +1158,9 @@ def grade_lean_gate(
         "--cpus", "2", "--memory", "8g",
         "--timeout", str(LEAN_GATE_TIMEOUT_S),
         "-v", f"{gate_root}:{gate_root}:ro",
-        PODMAN_IMAGE, "allmath-lean-gate", str(trusted), str(candidate),
+        "-v", f"{LEAN_GATE_SCRIPT}:/controller/allmath-lean-gate.sh:ro",
+        PODMAN_IMAGE, "bash", "/controller/allmath-lean-gate.sh",
+        str(trusted), str(candidate),
         "TheoryLib",
     ]
     with _lean_gate_semaphore, GATE_LOCK_PATH.open("a+", encoding="utf-8") as lock:
