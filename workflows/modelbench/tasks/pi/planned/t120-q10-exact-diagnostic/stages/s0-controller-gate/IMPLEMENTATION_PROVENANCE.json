@@ -1,0 +1,32 @@
+{
+  "schema": "pi-t120-s0-implementation-provenance-v1",
+  "claim_label": "experiment",
+  "status": "controller_accepted_integration_repair",
+  "origin": {
+    "provider": "opencode",
+    "model": "x-preview-f-free",
+    "run": "t120-s0-wave-a-oxzen-r2",
+    "original_source_sha256": "80c40d62c82cd3615a300e2468345603b79a25bf1c971e1d8d3365aafbb02409",
+    "original_report_sha256": "85018359b6fdc064dabf17eff5df055859ce45a6661a35388699384a30f63238"
+  },
+  "integration": {
+    "repair_patch_sha256": "93bc9a01b8b72ccacc7d51b4d8b487fa21af5d74acf5b998a55edd2715c8d9e9",
+    "source_sha256": "15d9409494963ba7087c55dd33b181e53516eb6f358333a6d336c975fe9ebf66",
+    "report_sha256": "85018359b6fdc064dabf17eff5df055859ce45a6661a35388699384a30f63238"
+  },
+  "controller": {
+    "gate_id": "t120_s0_schema_v1",
+    "bundle_sha256": "9ceb6d0fcb754cbebe42067694694f0f69d8e8daf5d731bfa8177d38611abb88",
+    "image_id": "458e58fafe9c54b5a93f3d03ee57047cbdeb8c69b8884eb0ff543ed07a1bf400",
+    "accepted_fixture_seeds": [
+      "be9a3b1b9c18f544693cc9bbeec3430c24028d02b4d43d84a3ecb36d7514beeb",
+      "794e508a805720ed4c77b77ff53212e308a1c1c4d306b5523f782d5ba00afc68",
+      "c10998af0a0c9f519b1314fa915309903094ace2b6bf060baa60c076f18ecb93"
+    ]
+  },
+  "nonclaims": [
+    "This is not an original wave pass.",
+    "This does not authenticate T118 r,w provenance.",
+    "This does not authorize a production computation, CAS object, receipt, or Pi claim."
+  ]
+}
