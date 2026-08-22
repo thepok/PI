@@ -74,9 +74,30 @@ Then
 S_(N+1)=16*g_N*S_N+nu_(N+1)*Lambda_N/h_N.
 ```
 
+Put
+
+```text
+u_(N+1)=nu_(N+1)*Lambda_N/h_N,
+q_N*S_N=w_N*M_N+R_N,
+R_N=center_(M_N)(q_N*S_N).
+```
+
+The exact half-open centered successor is
+
+```text
+R_(N+1)=center_(M_(N+1))(
+  160*g_N*R_N + 2304*g_N*S_N + q_(N+1)*u_(N+1)),
+M_(N+1)=16*g_N*M_N,
+q_(N+1)=10*q_N+144.
+```
+
 Do not hide the generally nonintegral quantity `Lambda_N/D_(N+1)` inside a
 parenthesized expression.  Any claimed arithmetic leverage must use the old
-full numerator `S_N` jointly with the fresh integral summand.
+full numerator `S_N` jointly with the fresh integral summand and must depend
+essentially on `R_N` or `w_N`.  It must fail under arbitrary same-fiber or
+initial-phase replacement.  Any fixed bounded-degree/height expression that,
+after division by powers of `M_N`, `q_N`, and `N`, reduces to a continuous
+polynomial in `A_N` is only smooth asymptotic bookkeeping and does not qualify.
 
 ## Acceptance
 
@@ -87,8 +108,9 @@ Accept only one of:
    depths; or
 2. an explicit unbounded insertion subsequence and a uniform fresh-term
    transversality or successor-branch exclusion lemma that uses both terms in
-   the displayed integral recurrence and excludes at least one outer-quarter
-   successor branch; or
+   the displayed centered recurrence, depends essentially on `R_N` or `w_N`,
+   excludes at least one outer-quarter successor branch, and fails under
+   arbitrary same-fiber replacement; or
 3. a sharply scoped no-go for a named natural full-`S_N` mechanism, whose
    hypotheses are stated independently of the desired conclusion.
 
@@ -103,5 +125,5 @@ endpoint telescoping; product-formula identities; an affine form made trivial
 by imposing a zero constant term; generic carry language; noncanonical or
 modified forcing; finite experiments as proof; generic one-step branch measure,
 exact-orbit injectivity, or irrational-orbit counterexamples; decimal-run
-translations; and
+translations; smooth fixed-polynomial asymptotics of `A_N`; and
 any statement equivalent to `liminf_N z_N=0`.  V1 remains open.
