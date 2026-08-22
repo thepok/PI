@@ -115,6 +115,26 @@ inner-and-outer (`m_L>=3`) geometry therefore holds at every fixed block
 length.  This extension remains noncanonical: it classifies replacements of
 the base numerator while the actual fresh block `U` is frozen.
 
+There is also an exact rigidity progression.  Write
+
+```text
+d=2^a*d_odd.
+```
+
+The odd factor is coprime to `10`, because `d` divides `q=10^N-16`, which is
+odd-prime-to-`5`.  Since `v_2(C_L)=4`, the condition `m_L=1`, equivalently
+`d | C_L`, is exactly
+
+```text
+a<=4  and  ord_(d_odd)(10) | L.
+```
+
+Here `v_2(d)=2,3,8,4` for `N=2,3,4,N>=5`, respectively.  Thus for every fixed
+`N != 4`, every positive multiple of `ord_(d_odd)(10)` is a rigid block
+length.  For `N=4`, rigidity is impossible and every `m_L` is divisible by
+`2^(8-4)=16`.  This arithmetic progression classifies only the noncanonical
+fiber orbit; it does not select or constrain the canonical endpoint residue.
+
 ## Scope
 
 This is a same-fiber sensitivity statement only.  Except at the original
