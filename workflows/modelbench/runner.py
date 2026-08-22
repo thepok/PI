@@ -44,6 +44,37 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 RUNNER_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
+# Raw controller sources are bound here, rather than in a self-hashing gate.
+# Updating any T120 S0 controller source requires an intentional runner change;
+# RUNNER_SHA256 then carries that binding into every result record.
+T120_S0_CONTROLLER_RAW_SHA256 = {
+    "t120_s0_controller_gate.py": "564b537ef4c27187e31e87ae2187b83569f0ab29542f566f5a0ed97955b7aedb",
+    "t120_s0_controller_harness.py": "a05d9dac3fc13bda86444a116c5f3417cf2c3e32b355b8d4cdfe74bfcc454ce6",
+    "t120_s0_controller_oracle.py": "241d4530a7609050c00854184f2db86962ceef1500102e20fabb65248dc8afc8",
+}
+
+
+def _controller_bundle_digest(rows: list[dict[str, str]]) -> str:
+    payload = json.dumps(
+        rows, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    ).encode("ascii")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def t120_s0_controller_provenance() -> dict[str, Any]:
+    """Verify and return the runner-bound T120 S0 controller source bundle."""
+    controller_dir = ROOT / "workflows" / "modelbench"
+    rows: list[dict[str, str]] = []
+    for name, expected in T120_S0_CONTROLLER_RAW_SHA256.items():
+        path = controller_dir / name
+        if path.is_symlink() or not path.is_file():
+            raise RuntimeError(f"unsafe T120 S0 controller source {name}")
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise RuntimeError(f"T120 S0 controller source hash mismatch: {name}")
+        rows.append({"name": name, "sha256": expected})
+    return {"files": rows, "bundle_sha256": _controller_bundle_digest(rows)}
+
 MODELS: dict[str, dict[str, Any]] = {
     "fable": {
         "kind": "claude",
@@ -1615,6 +1646,22 @@ def grade(
                     task["grading"],
                     controller_image=controller_image,
                 )
+            if controller_gate == "t120_s0_schema_v1":
+                try:
+                    controller_provenance = t120_s0_controller_provenance()
+                except (OSError, RuntimeError) as exc:
+                    return False, (
+                        "non-repairable infrastructure failure: "
+                        f"T120 S0 controller provenance rejected: {exc}"
+                    )
+                from workflows.modelbench.t120_s0_controller_gate import run_gate
+
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                    controller_provenance=controller_provenance,
+                )
             return False, f"unknown controller gate {controller_gate!r}"
         return True, "artifact contract satisfied; quality review still required"
     return False, f"unknown grading type {kind}"
@@ -2018,6 +2065,17 @@ def run_pair(
             controller_image
             if grading_type == "artifact_contract"
             and task["grading"].get("controller_gate") is not None
+            else None
+        ),
+        "controller_gate_bundle_sha256": (
+            _controller_bundle_digest(
+                [
+                    {"name": name, "sha256": digest}
+                    for name, digest in T120_S0_CONTROLLER_RAW_SHA256.items()
+                ]
+            )
+            if grading_type == "artifact_contract"
+            and task["grading"].get("controller_gate") == "t120_s0_schema_v1"
             else None
         ),
         "artifact_sha256": file_sha256(artifact_path) if artifact_path else None,
