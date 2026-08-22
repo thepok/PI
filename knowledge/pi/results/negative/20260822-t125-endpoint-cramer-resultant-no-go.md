@@ -172,6 +172,68 @@ M_(N+1)*(q_N*k_N-144*w_N)
 The separate same-fiber successor-coset classification is recorded in
 [`20260822-t125-same-fiber-successor-coset.md`](../intermediate/20260822-t125-same-fiber-successor-coset.md).
 
+## Cross-length full-modulus anti-collision
+
+This corollary was extracted by independent audit from the Ox memo
+[`workflows/state/runs/t126-variable-block-ox-wave-a/work/ox-pi-t126-p2-many-length-collision/MEMO.md`](../../../../workflows/state/runs/t126-variable-block-ox-wave-a/work/ox-pi-t126-p2-many-length-collision/MEMO.md),
+SHA-256
+`43a5af94d1bec555c7b293c6ea1b0b6f8cee1af5976f92a7e1841ca1253e2b26`.
+Only the following full-modulus statement is retained; the memo's other claims
+are not imported here.
+
+For `N>=2` and `L>=1`, define
+
+```text
+Delta_(N,L)=q_N*K_(N,L)-16*(10^L-1)*w_N.
+```
+
+Put `m=N+L`,
+
+```text
+theta_n=q_n*(pi-A_n),
+x_n=R_n/M_n+theta_n.
+```
+
+The exact normalized endpoint identity is
+
+```text
+Delta_(N,L)=q_m*x_N-q_N*x_m.
+```
+
+The half-open centered convention gives `|R_n|/M_n<=1/2`, while the audited
+shadow estimate gives `0<theta_n<eps_n` and
+`eps_n<=eps_2=25/8640` for `n>=2`.  Hence, since `m>=3`,
+
+```text
+|Delta_(N,L)|
+  < (4345/8640)*(10^m+10^N)
+  <= (47795/86400)*10^m
+  < 16^m/7
+  <= M_m/7.
+```
+
+Here `q_m<10^m`, `q_N<10^N<=10^(m-1)`, and the penultimate strict inequality
+follows from `(16/10)^m>=(8/5)^3=512/125` together with
+`47795/86400<512/875`.
+
+Consequently, if `1<=L1<L2`, then
+
+```text
+Delta_(N,L1) == Delta_(N,L2)  (mod M_(N+L2))
+```
+
+forces equality of the two integers.  Indeed, both have absolute value less
+than `M_(N+L2)/7`, so their difference has absolute value less than
+`2*M_(N+L2)/7<M_(N+L2)` and cannot be a nonzero multiple of the deeper full
+modulus.  Thus a pigeonhole argument requiring a congruent pair with nonzero
+defect difference cannot operate modulo that deeper full modulus.
+
+This says nothing about the primitive reduced modulus `M0`, a shared-base
+modulus, or any other weakened modulus.  It neither proves nor excludes exact
+integer equalities between different lengths, and it supplies no nonvanishing
+theorem.  It is not a canonical-injection statement and has no implication for
+T125, `(D)`, or V1.
+
 ## Exact scope
 
 This no-go closes only integer linear combinations of the two block endpoint
