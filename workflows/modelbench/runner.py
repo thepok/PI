@@ -120,6 +120,10 @@ ZERO_TOKEN_RETRY_JITTER_FRACTION = 0.25
 RETRY_WAIT_POLL_INTERVAL_S = 0.25
 SANDBOX_PIDS_LIMIT = 512
 SANDBOX_TMPFS = "/tmp:rw,nosuid,nodev,size=1g"
+# The isolated Lean fallback copies the image's 1.5 GiB prebaked build before
+# incrementally rebuilding changed modules. Keep its scratch filesystem
+# separate from the much smaller model-agent tmpfs; both remain ephemeral.
+LEAN_GATE_TMPFS = "/tmp:rw,nosuid,nodev,size=4g"
 SANDBOX_HEARTBEAT_INTERVAL_S = 2.0
 SANDBOX_HEARTBEAT_STALE_S = 15
 SANDBOX_WATCHDOG_TERM_GRACE_S = 5
@@ -1147,7 +1151,7 @@ def grade_lean_gate(
         "--read-only", "--cap-drop", "ALL",
         "--security-opt", "no-new-privileges",
         "--pids-limit", str(SANDBOX_PIDS_LIMIT),
-        "--tmpfs", SANDBOX_TMPFS,
+        "--tmpfs", LEAN_GATE_TMPFS,
         "--cpus", "2", "--memory", "8g",
         "--timeout", str(LEAN_GATE_TIMEOUT_S),
         "-v", f"{gate_root}:{gate_root}:ro",
@@ -1465,6 +1469,13 @@ def grade(
                     f"JSON artifact {relative_name} does not contain exact ordered "
                     f"{key} range {start}..{end}"
                 )
+        controller_gate = task["grading"].get("controller_gate")
+        if controller_gate is not None:
+            if controller_gate != "t117_normalized_census_v1":
+                return False, f"unknown controller gate {controller_gate!r}"
+            from workflows.modelbench.t117_controller_gate import run_gate
+
+            return run_gate(work_dir, task["grading"])
         return True, "artifact contract satisfied; quality review still required"
     return False, f"unknown grading type {kind}"
 

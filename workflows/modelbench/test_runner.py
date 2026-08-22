@@ -8,6 +8,7 @@ import time
 import pytest
 
 from workflows.modelbench import runner
+from workflows.modelbench import t117_controller_gate
 
 
 def test_sandbox_api_is_repository_local() -> None:
@@ -108,6 +109,124 @@ def test_artifact_contract_checks_json_values_and_ordered_sequences(
     assert reason == (
         "JSON artifact census.json does not contain exact ordered n range 0..1"
     )
+
+
+def test_t117_trusted_oracle_has_scaled_anchors_and_normalized_hidden_record() -> None:
+    zero = t117_controller_gate.trusted_record(0)
+    one = t117_controller_gate.trusted_record(1)
+    hidden = t117_controller_gate.trusted_record(4)
+
+    assert (zero["q_num"], zero["q_den"]) == ("47", "15")
+    assert (one["q_num"], one["q_den"]) == (
+        "16331158360096799798177512637",
+        "519836915885323158521118720",
+    )
+    assert hidden["n"] == 4
+    assert hidden["tuple"]["k"] == hidden["k"]
+    assert hidden["tuple"]["e"] == hidden["e"]
+    assert int(hidden["tuple"]["g"]) == int(hidden["tuple"]["H"]) * int(hidden["k"])
+
+
+def _valid_t117_contract() -> dict:
+    return {
+        "schema": "t117-normalized-census-contract-v1",
+        "workflow": "t117-normalized-census",
+        "status": "experiment",
+        "q_definition": "Q_N=10^N*S_N",
+        "anchors": {
+            "Q_0": "47/15",
+            "Q_1": (
+                "16331158360096799798177512637/"
+                "519836915885323158521118720"
+            ),
+        },
+        "laws": {"K1": "k^2<=e", "K2": "k^2<=d*e"},
+        "census": {"start_n": 512, "end_exclusive_n": 4096},
+        "shards": t117_controller_gate.expected_shard_table(),
+        "additional_operational_field": {"allowed": True},
+    }
+
+
+def test_t117_contract_accepts_exact_42_shard_partition() -> None:
+    contract = _valid_t117_contract()
+
+    t117_controller_gate.validate_contract(contract)
+
+    assert [row["index"] for row in contract["shards"]] == list(range(42))
+
+
+@pytest.mark.parametrize("mutation", ["width", "gap", "reorder"])
+def test_t117_contract_rejects_malformed_shard_partition(mutation: str) -> None:
+    contract = _valid_t117_contract()
+    if mutation == "width":
+        contract["shards"][0]["end_exclusive_n"] = 769
+    elif mutation == "gap":
+        contract["shards"][1]["start_n"] = 769
+    else:
+        contract["shards"][0], contract["shards"][1] = (
+            contract["shards"][1],
+            contract["shards"][0],
+        )
+
+    with pytest.raises(
+        t117_controller_gate.ControllerGateError,
+        match="width/gap/order",
+    ):
+        t117_controller_gate.validate_contract(contract)
+
+
+def test_t117_gate_rejects_archived_unscaled_sequential_candidate() -> None:
+    archived = runner.ROOT / (
+        "workflows/state/runs/t117-wave-a-ox-workflow-r0/work/"
+        "ox-pi-t117-normalized-census-workflow"
+    )
+    passed, reason = t117_controller_gate.run_gate(archived, {})
+
+    assert passed is False
+    assert "unscaled sampled value assignment Q = S" in reason
+
+
+def test_artifact_contract_dispatches_fixed_t117_controller_gate(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "README.md").write_text("controller", encoding="utf-8")
+    called = []
+
+    def fake_gate(work_dir: Path, grading: dict) -> tuple[bool, str]:
+        called.append((work_dir, grading["controller_gate"]))
+        return True, "fixed gate passed"
+
+    monkeypatch.setattr(t117_controller_gate, "run_gate", fake_gate)
+    task = {
+        "grading": {
+            "type": "artifact_contract",
+            "artifact": "README.md",
+            "controller_gate": "t117_normalized_census_v1",
+        }
+    }
+
+    assert runner.grade(task, "", tmp_path, tmp_path) == (True, "fixed gate passed")
+    assert called == [(tmp_path, "t117_normalized_census_v1")]
+
+
+def test_t117_probe_requires_both_exact_routes_and_independent_shard() -> None:
+    records = [t117_controller_gate.trusted_record(n) for n in (0, 1, 3)]
+    probe = {
+        "schema": t117_controller_gate.PROBE_SCHEMA,
+        "contract_sha256": "a" * 64,
+        "generator": records,
+        "verifier": records,
+        "shard1_without_shard0": True,
+    }
+    t117_controller_gate._validate_probe(
+        probe, expected_records=records, contract_sha256="a" * 64
+    )
+
+    probe["verifier"] = [*records[:-1], t117_controller_gate.trusted_record(2)]
+    with pytest.raises(t117_controller_gate.ControllerGateError, match="verifier"):
+        t117_controller_gate._validate_probe(
+            probe, expected_records=records, contract_sha256="a" * 64
+        )
 
 
 def test_lean_artifact_contract_rejects_canonical_definition_replacement(
@@ -356,6 +475,7 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
     assert reason == "compiled; axioms clean"
     assert len(observed) == 1
     assert observed[0][:4] == ["podman", "run", "--rm", "--network"]
+    assert observed[0][observed[0].index("--tmpfs") + 1] == runner.LEAN_GATE_TMPFS
 
 
 def test_lean_gate_does_not_accept_suffix_axiom_result(
