@@ -1,0 +1,102 @@
+[
+  {
+    "id": "pi-t120-window13-combined-exact",
+    "dimension": "exact_experiment",
+    "timeout_s": 14400,
+    "max_attempts": 3,
+    "variant": "high",
+    "prompt": "Compute the complete actual T120 window-13 point set by the combined-term route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Reconstruct the inclusive BBP partial from k=0 using only the exact combined term (120*k^2+151*k+47)/((2*k+1)*(4*k+3)*(8*k+1)*(8*k+5)*16^k). For each N=3840..4095 compute the reduced exact rational S_N=10^(N+1)*P_(7*(N+1)), then r=S_N.num mod S_N.den, w=S_N.den, cell=(10*r)//w. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment, route is combined, and points are ordered. Use Python standard library exact arithmetic, no literals copied from another route, no expected answers, no floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact script and output SHA-256, and nonclaims.",
+    "fixtures": [
+      {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T77T77SelectedPadicDefectShell.lean","destination":"inputs/T77.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T98T98BBPArchimedeanTerm.lean","destination":"inputs/T98.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T118T118SampledBBPNormalizedExcessCell.lean","destination":"inputs/T118.lean"}
+    ],
+    "grading": {
+      "type":"artifact_contract","artifact":"compute_window.py","min_chars":1200,
+      "required_files":["window_points.json","REPORT.md"],
+      "required_markers":["120 * k * k","151 * k","47","3840","4096","window_points.json"],
+      "forbidden_markers":["float(","Decimal(","requests","urllib","socket","subprocess"],
+      "required_json_values":[
+        {"file":"window_points.json","path":["status"],"equals":"experiment"},
+        {"file":"window_points.json","path":["route"],"equals":"combined"},
+        {"file":"window_points.json","path":["start_n"],"equals":3840},
+        {"file":"window_points.json","path":["end_exclusive_n"],"equals":4096}
+      ],
+      "required_json_sequences":[{"file":"window_points.json","path":["points"],"key":"n","start":3840,"end":4095}]
+    }
+  },
+  {
+    "id": "pi-t120-window13-literal-four-pole-exact",
+    "dimension": "exact_experiment",
+    "timeout_s": 14400,
+    "max_attempts": 3,
+    "variant": "high",
+    "prompt": "Compute the complete actual T120 window-13 point set by a literal four-pole route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Implement your own gcd-normalized signed numerator/positive-denominator rational arithmetic. Use the four literal poles separately at every k and never use fractions.Fraction or the combined numerator identity. Reconstruct inclusive P_(7*(N+1)) from k=0 for every N=3840..4095, scale by 10^(N+1), reduce exactly, and output r=num mod den, w=den, cell=(10*r)//w. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment and route is literal-four-pole. Use no expected answers or floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact hashes, and nonclaims.",
+    "fixtures": [
+      {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T74T74ThreePrimaryDecimation.lean","destination":"inputs/T74.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T77T77SelectedPadicDefectShell.lean","destination":"inputs/T77.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T118T118SampledBBPNormalizedExcessCell.lean","destination":"inputs/T118.lean"}
+    ],
+    "grading": {
+      "type":"artifact_contract","artifact":"compute_window.py","min_chars":1400,
+      "required_files":["window_points.json","REPORT.md"],
+      "required_markers":["math.gcd","8 * k + 1","2 * k + 1","8 * k + 5","4 * k + 3","3840","4096"],
+      "forbidden_markers":["Fraction","120 * k * k","float(","Decimal(","requests","urllib","socket","subprocess"],
+      "required_json_values":[
+        {"file":"window_points.json","path":["status"],"equals":"experiment"},
+        {"file":"window_points.json","path":["route"],"equals":"literal-four-pole"},
+        {"file":"window_points.json","path":["start_n"],"equals":3840},
+        {"file":"window_points.json","path":["end_exclusive_n"],"equals":4096}
+      ],
+      "required_json_sequences":[{"file":"window_points.json","path":["points"],"key":"n","start":3840,"end":4095}]
+    }
+  },
+  {
+    "id": "pi-t120-window13-global-lcm-exact",
+    "dimension": "exact_experiment",
+    "timeout_s": 14400,
+    "max_attempts": 3,
+    "variant": "high",
+    "prompt": "Compute the complete actual T120 window-13 point set by an independent global-LCM integer-lift route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Do not use fractions.Fraction, a custom rational-addition class, or the combined numerator identity. Treat every one of the four literal pole fractions as a signed integer numerator/positive denominator, maintain an exact global LCM and lifted integer sum for the inclusive partial from k=0, and reduce only when emitting S_N=10^(N+1)*P_(7*(N+1)). For N=3840..4095 output r=num mod den, w=den, cell=(10*r)//w. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment and route is global-lcm. No expected answers or floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact hashes, and nonclaims.",
+    "fixtures": [
+      {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T74T74ThreePrimaryDecimation.lean","destination":"inputs/T74.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T77T77SelectedPadicDefectShell.lean","destination":"inputs/T77.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T118T118SampledBBPNormalizedExcessCell.lean","destination":"inputs/T118.lean"}
+    ],
+    "grading": {
+      "type":"artifact_contract","artifact":"compute_window.py","min_chars":1400,
+      "required_files":["window_points.json","REPORT.md"],
+      "required_markers":["math.gcd","lcm","8 * k + 1","2 * k + 1","8 * k + 5","4 * k + 3","3840","4096"],
+      "forbidden_markers":["Fraction","120 * k * k","float(","Decimal(","requests","urllib","socket","subprocess"],
+      "required_json_values":[
+        {"file":"window_points.json","path":["status"],"equals":"experiment"},
+        {"file":"window_points.json","path":["route"],"equals":"global-lcm"},
+        {"file":"window_points.json","path":["start_n"],"equals":3840},
+        {"file":"window_points.json","path":["end_exclusive_n"],"equals":4096}
+      ],
+      "required_json_sequences":[{"file":"window_points.json","path":["points"],"key":"n","start":3840,"end":4095}]
+    }
+  },
+  {
+    "id": "pi-t120-window13-statistic-replay-tool",
+    "dimension": "exact_experiment",
+    "timeout_s": 3600,
+    "max_attempts": 3,
+    "variant": "high",
+    "prompt": "Create a small exact independent statistic tool compute_stats.py plus REPORT.md for the T120 window-13 experiment. It will later receive one path argument naming a JSON point artifact with exactly 256 ordered records n=3840..4095 and keys n,r,w,cell. It must fail closed on schema/range/arithmetic violations, recompute cell=(10*r)//w, then compute ten cell counts, J=sum counts^2, all lag C_l/A_l/Z_l for l=1..255, A_sum, Z_sum, the raw maximum same-cell determinant ratio by integer cross multiplication with lexicographically least witness, the identity J=256+2*sum C_l, and the frozen branch precedence: invalid; else 9*J>=65536; else Z_sum>0; else A_sum<=3512; else A_sum>3512. Emit canonical JSON to stdout. No floats, no expected answer, no BBP arithmetic, no workflow or filesystem writes. REPORT.md must say Status: `experiment` and list nonclaims.",
+    "fixtures": [
+      {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
+      {"source":"workflows/modelbench/tasks/pi/planned/t120-q10-exact-diagnostic/CONTRACT.json","destination":"inputs/CONTRACT.json"},
+      {"source":"workflows/modelbench/tasks/pi/planned/t120-q10-exact-diagnostic/INTERFACE.md","destination":"inputs/INTERFACE.md"}
+    ],
+    "grading": {
+      "type":"artifact_contract","artifact":"compute_stats.py","min_chars":1800,
+      "required_files":["REPORT.md"],
+      "required_markers":["65536","3512","range(1, 256)","cross","lex","256"],
+      "forbidden_markers":["float(","Decimal(","requests","urllib","socket","subprocess","Fraction" ]
+    }
+  }
+]
