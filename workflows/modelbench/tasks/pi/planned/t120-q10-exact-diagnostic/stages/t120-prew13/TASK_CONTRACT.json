@@ -1,0 +1,23 @@
+{
+  "schema": "pi-t120-prew13-readiness-v1",
+  "status": "planned_inactive_unimplemented",
+  "active": false,
+  "launch_authorized": false,
+  "claim_label": "experiment",
+  "stage_id": "t120_prew13_v1",
+  "parent_binding": {"experiment_id": "pi-q10-j10-lag-determinant-20260822-v1", "spec_bundle_sha256": "fe180d8a5db818d3b4a9b3931779b3cc3d313a2437e9f4db808f3afecba51f98", "noncircularity": "PREW13 binds immutable predecessor receipts and source/object digests externally; it contains no self hash and no future production digest."},
+  "exact_deliverables": ["PREW13_READINESS.json", "REPORT.md"],
+  "controller_only": true,
+  "required_predecessors": ["accepted S0 implementation provenance", "accepted frozen S1 source and tiny receipts", "accepted frozen S2 source and tiny verdicts", "accepted controller-owned third-route tiny oracle receipts", "accept verdict from all four read-only audits"],
+  "third_route_oracle": {
+    "ownership": "controller-owned source, image, fixtures, and verdict; no model candidate authors expected values",
+    "separation": "no import/copy/shared arithmetic with S1 or S2 and no access to their source trees",
+    "method": "independently reconstruct exact tiny Q,F,H,d,e,X,k,W,R,cell and compare controller-ingested canonical projections",
+    "required_tests": ["[7,11) first without predecessors or supplied endpoint state", "then [0,2) and [2,7)", "all route pairs and third route agree", "synthetic N/N+1, unscaled-Q, unscaled-F missing 10^(N+1), pole-sign, endpoint, gcd, remainder, cell, byte, digest, gap/overlap/reorder mutations are rejected", "hidden synthetic 256-point fixtures drive both S1 and S2 production statistic paths and mutations of counts, J, every C/A/Z family, internal derived C0=256 enforcement, max numerator/denominator, lexicographic tie witness, identities, decision field, and decision precedence are rejected; C0 is never emitted"]
+  },
+  "readiness_schema": {"exact_keys": ["schema", "status", "experiment_id", "spec_bundle_sha256", "s0_binding", "s1_source_sha256", "s2_source_sha256", "third_route_source_sha256", "tiny_receipt_sha256s", "audit_receipt_sha256s", "window13_authorized"], "status": "ready_for_operator_review or rejected", "window13_authorized": false},
+  "resource_limits": {"input_bundle_bytes": 67108864, "output_bytes": 1048576, "timeout_seconds": 120, "cpus": 1, "memory_bytes": 1073741824, "pids": 32, "tmpfs_bytes": 268435456},
+  "forbidden": ["run or mount [3840,4096)", "run any [512,4096) point", "mint production receipt", "open holdouts", "change thresholds", "network", "candidate self-test authority"],
+  "decision": "PREW13 can only reject or record readiness for explicit operator review. Its JSON must always contain window13_authorized=false. Any window13_action field in predecessor artifacts is operational only when window_index is exactly 13 and is inert in synthetic or other-index validation. A separate later controller contract and operator action are required before any production byte exists.",
+  "nonclaims": ["PREW13 is workflow readiness only. It computes no window-13 point/statistic and proves no occupancy, density, cancellation, V1, decimal occurrence, or Pi result."]
+}

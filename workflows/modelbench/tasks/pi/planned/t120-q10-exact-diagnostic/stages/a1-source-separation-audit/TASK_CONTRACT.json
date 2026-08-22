@@ -1,0 +1,11 @@
+{
+  "schema": "pi-t120-readonly-audit-v1", "status": "planned_inactive_unimplemented", "active": false, "launch_authorized": false, "claim_label": "experiment", "stage_id": "t120_a1_source_separation_audit_v1", "experiment_id": "pi-q10-j10-lag-determinant-20260822-v1", "role": "source_separation",
+  "parent_spec_bundle_sha256": "fe180d8a5db818d3b4a9b3931779b3cc3d313a2437e9f4db808f3afecba51f98",
+  "exact_deliverables": ["AUDIT.json", "REPORT.md"],
+  "read_only_inputs": ["frozen S1/S2 source snapshots and hashes", "image/mount manifests", "static AST/import reports", "third-route source manifest"],
+  "checks": ["disjoint source roots/images", "no cross-import/read/hash/introspection", "no shared arithmetic", "only frozen primitive JSON/schema sharing", "immutable image IDs and minimal mounts"],
+  "capabilities": "No execution, network, source edit, repair, CAS write, receipt, or production data; report-only pod, 1 CPU, 512 MiB, 16 pids, 60 seconds.",
+  "verdicts": ["accept", "reject", "blocked_missing_evidence"],
+  "noncircularity": "Audit inputs are controller-hashed before mounting; audit output cannot alter any audited digest.",
+  "nonclaims": ["Audit acceptance is only a workflow-separation finding, not arithmetic verification."]
+}

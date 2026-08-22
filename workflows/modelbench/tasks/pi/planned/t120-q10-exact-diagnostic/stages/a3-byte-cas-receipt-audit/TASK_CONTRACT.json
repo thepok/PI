@@ -1,0 +1,11 @@
+{
+  "schema": "pi-t120-readonly-audit-v1", "status": "planned_inactive_unimplemented", "active": false, "launch_authorized": false, "claim_label": "experiment", "stage_id": "t120_a3_byte_cas_receipt_audit_v1", "experiment_id": "pi-q10-j10-lag-determinant-20260822-v1", "role": "byte_cas_receipt",
+  "parent_spec_bundle_sha256": "fe180d8a5db818d3b4a9b3931779b3cc3d313a2437e9f4db808f3afecba51f98",
+  "exact_deliverables": ["AUDIT.json", "REPORT.md"],
+  "read_only_inputs": ["canonical raw tiny artifacts", "CAS object metadata", "controller receipts", "source/job/spec bindings", "mutation log"],
+  "checks": ["duplicate/BOM/CRLF/final-LF/float/integer grammar", "raw digest and size", "ingest-after-exit before verification", "verify same CAS bytes", "receipt binds exact experiment/spec/range/artifact/generator/verifier/gate", "no candidate authority or verify-then-copy race"],
+  "capabilities": "Read-only digest/schema inspection; no candidate import, arithmetic recomputation, CAS mutation, receipt mint, network, or production access; 1 CPU, 512 MiB, 16 pids, 60 seconds.",
+  "verdicts": ["accept", "reject", "blocked_missing_evidence"],
+  "noncircularity": "Receipt and source bindings are controller-owned external objects; none is embedded in the bytes it hashes.",
+  "nonclaims": ["CAS and receipt integrity does not validate T118 arithmetic or a Pi claim."]
+}
