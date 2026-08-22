@@ -1,0 +1,40 @@
+[
+  {
+    "id": "pi-t122-exact-carry-language",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Attack one exact mathematical question only. First create MEMO.md beginning Status: `proof sketch`; then read INPUT.md and improve the memo in place. Derive one quantified carry-block compatibility lemma or an exact actual-forcing counterexample. Eliminate the two initial centered errors over a finite block and use cross-index arithmetic of the explicit four-pole rational h_n. Do not merely restate the recurrence or use any excluded qualitative surrogate. Include an implication diagram naming the one remaining gap. No workflow design, Lean scaffolding, literature survey, or broad digit computation. V1 remains open.",
+    "fixtures": [
+      {
+        "source": "workflows/modelbench/tasks/pi/current/t122-exact-carry-language/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md"
+      },
+      {
+        "source": "workflows/modelbench/tasks/pi/current/t122-exact-carry-language/INPUT.md",
+        "destination": "INPUT.md"
+      }
+    ],
+    "grading": {
+      "type": "artifact_contract",
+      "artifact": "MEMO.md",
+      "min_chars": 2500,
+      "required_markers": [
+        "Status: `proof sketch`",
+        "kappa",
+        "h_n",
+        "carry block",
+        "V1 remains open"
+      ],
+      "forbidden_markers": [
+        "verified resolution",
+        "candidate resolution",
+        "V1 proved",
+        "normality proved",
+        "workflow design",
+        "schema implementation"
+      ]
+    }
+  }
+]
