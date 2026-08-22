@@ -61,6 +61,23 @@ Chen--Ye--Zheng gives an infinite omega-limit set and excursions away from
 zero for related fixed decimal orbits, but does not locate this orbit inside
 the radius-`1/4` neighborhood of zero.
 
+The exact integral depth update is available.  Put
+
+```text
+h_N=gcd(Lambda_N,D_(N+1)),
+g_N=D_(N+1)/h_N=Lambda_(N+1)/Lambda_N.
+```
+
+Then
+
+```text
+S_(N+1)=16*g_N*S_N+nu_(N+1)*Lambda_N/h_N.
+```
+
+Do not hide the generally nonintegral quantity `Lambda_N/D_(N+1)` inside a
+parenthesized expression.  Any claimed arithmetic leverage must use the old
+full numerator `S_N` jointly with the fresh integral summand.
+
 ## Acceptance
 
 Accept only one of:
@@ -68,7 +85,11 @@ Accept only one of:
 1. an exact cross-depth argument proving the centered inequality at infinitely
    many `N`, using the selected full numerators `S_N` at unboundedly many
    depths; or
-2. a sharply scoped no-go for a named natural full-`S_N` mechanism, whose
+2. an explicit unbounded insertion subsequence and a uniform fresh-term
+   transversality or successor-branch exclusion lemma that uses both terms in
+   the displayed integral recurrence and excludes at least one outer-quarter
+   successor branch; or
+3. a sharply scoped no-go for a named natural full-`S_N` mechanism, whose
    hypotheses are stated independently of the desired conclusion.
 
 A positive proof must exhibit an explicit cross-depth invariant, sign change,
@@ -80,5 +101,7 @@ Strict exclusions: denominator magnitude, gcd growth, or valuations alone;
 isolated-prime and finite-fiber marginals; generic DFT or energy bounds;
 endpoint telescoping; product-formula identities; an affine form made trivial
 by imposing a zero constant term; generic carry language; noncanonical or
-modified forcing; finite experiments as proof; decimal-run translations; and
+modified forcing; finite experiments as proof; generic one-step branch measure,
+exact-orbit injectivity, or irrational-orbit counterexamples; decimal-run
+translations; and
 any statement equivalent to `liminf_N z_N=0`.  V1 remains open.
