@@ -95,59 +95,75 @@ intersect by pigeonhole.  This conclusion is uniform in `r`.
 
 ## Uniform supercritical bound
 
-The T129 localization with the audited wrap constant `K_5<20` gives
+The T129 localization with the audited wrap constant `K_5<18` gives
 
 ```text
 J_m<=2N+8.                                        (4)
 ```
 
-Here is an inspectable certificate for (4).  Put `beta=1+alpha` and
+Here is an inspectable certificate for (4).  The exact pins
 
 ```text
-g(N)=beta N+2log_10(N+1)+log_10 6+4.
+alpha<5/24,
+K_5<18
 ```
 
-Since `H_N<=E6(N)+1` and `c<=3`, `m<=g(N)`.  The T129 upper envelope gives
+follow from
 
 ```text
-J_m < F(N)
-    = beta g(N)+2log_10(g(N)+1)+log_10 K_5+1.
+8^24 < 10^5*5^24
 ```
 
-For `N>=64`, use the exact inequalities
+and, using the exact numerator and denominator of `K_5`,
 
 ```text
-beta<5/4,                 because (8/5)^4<10,
-log_10 6<4/5,             because 6^5<10^4,
-log_10 K_5<4/3,           because K_5<20 and 20^3<10^4,
-log_10(N+1)<N/16,
-log_10(2N)<N/16.
+18*denominator(K_5)-numerator(K_5)
+=12200193382253304732681544866>0.
 ```
 
-The last two hold at 64 and their right-minus-left derivatives are positive
-thereafter.  Consequently
+Put `b=29/24` and
 
 ```text
-g(N)<11N/8+24/5,
-F(N)<59N/32+25/3<2N+8.
+g(N)=bN+2log_10(N+1)+log_10 6+4,
+F(N)=b g(N)+2log_10(g(N)+1)+log_10 18+1.
 ```
 
-For `6<=N<=63`, an exact integer certificate determines `H_N` from
+Since `H_N<=E6(N)+1` and `c<=3`, `m<g(N)` and the T129 upper envelope gives
+`J_m<F(N)`.  At `N=10`,
 
 ```text
-10^(H_N-1)<=6(N+1)^2(8/5)^N<10^H_N
+g(10)=193/12+log_10 726<19,
+F(10)<671/24<28=2*10+8.
 ```
 
-and the T129 upper integer from the corresponding `K_5` inequality after
-clearing denominators.  The minimum slack in (4) is zero only at
+Here `726^12<10^35`, while `20^3<10^4` and `18^3<10^4` bound the logarithms.
+For `N>=10`,
 
 ```text
-(N,c,m,J_upper)=(6,3,13,20),
-                (7,3,15,22),
-                (8,3,16,24).
+g'=b+2/((N+1)ln 10),
+F'=g'[b+2/((g+1)ln 10)].
 ```
 
-All other rows have positive slack.
+Using `ln 10>2`, one has
+
+```text
+g'<343/264,
+b+2/((g+1)ln 10)<29/24+12/205,
+F'<2137919/1298880<2.
+```
+
+Thus `F(N)<2N+8` for every `N>=10`.  The four remaining exact `K_5`-envelope
+checks are
+
+```text
+N=6: H_N=4, max_(c<=3) J_upper=20,
+N=7: H_N=5, max_(c<=3) J_upper=22,
+N=8: H_N=5, max_(c<=3) J_upper=23,
+N=9: H_N=5, max_(c<=3) J_upper=25.
+```
+
+Each row is certified by the adjacent integer inequalities for
+`6(N+1)^2(8/5)^N` and `K_5(m+1)^2(8/5)^m` after clearing denominators.
 
 Using (4), the harder wrap phase satisfies
 
