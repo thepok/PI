@@ -58,13 +58,16 @@ Give a capable model the prompt in [`GPTPro/PROMPT.md`](GPTPro/PROMPT.md). Each 
 
 The main operator may also invoke Marcel's authenticated web ChatGPT Pro through
 the `chatgpt-pro` skill for one sharply bounded, hard creative-mathematics task.
-Web Pro is reserved for inventing or stress-testing genuinely difficult proof
-mechanisms and choosing among deep research directions; routine computation,
-literature triage, extraction, formatting, workflow maintenance, and repetitive
-checking belong to Ox workers or local tools. There must be at most one active
-web-Pro call at a time. Every prompt names this Git repository, branch, exact
-deliverable, and claim boundary; the returned answer is still untrusted
-external input until the knowledge integrator reviews it.
+Web Pro is a mathematician, not an operator: reserve it for inventing or
+stress-testing a genuinely difficult canonical proof mechanism at the current
+frontier. Do not spend it on orchestration, workflow or prompt design,
+architecture audits, task selection, literature triage, computation, extraction,
+formatting, integration, or repetitive checking. Those jobs belong to the main
+operator, research director, knowledge integrator, Ox workers, or local tools.
+There must be at most one active web-Pro call at a time. Every prompt names this
+Git repository, branch, exact mathematical gap, deliverable, and claim boundary;
+the returned answer is still untrusted external input until the knowledge
+integrator reviews it.
 If login/account resumption, a browser permission, or a capacity/break warning
 blocks the call, stop it and notify Marcel immediately rather than guessing
 credentials or starting a second call.

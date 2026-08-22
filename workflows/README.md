@@ -31,12 +31,15 @@ Lean gate.
 
 Do not launch while `workflows/state/OPERATOR_PAUSED` exists.
 
-## Web ChatGPT Pro director
+## Web ChatGPT Pro creative mathematician
 
-Use the `chatgpt-pro` skill only for an explicit bounded high-intelligence
-direction or review task. Name the repository and branch in the prompt, use a
-unique output directory, and wait for the complete four-part success contract:
-exit code zero, `state.json` status `done`, nonempty `answer.md`, and
-`browser_closed: true`. Never run two web-Pro calls concurrently. Authentication,
-permission, or capacity-break conditions require an immediate operator stop and
-notification to Marcel.
+Use the `chatgpt-pro` skill only for a bounded hard creative-mathematics problem
+at the current verified frontier: invent or stress-test a canonical proof
+mechanism. Do not use Pro for workflow design, architecture review, task routing,
+literature triage, computation, formatting, integration, or routine checking.
+Name the repository, branch, exact mathematical gap, deliverable, and claim
+boundary in the prompt; use a unique output directory; and wait for the complete
+four-part success contract: exit code zero, `state.json` status `done`, nonempty
+`answer.md`, and `browser_closed: true`. Never run two web-Pro calls concurrently.
+Authentication, permission, or capacity-break conditions require an immediate
+operator stop and notification to Marcel.
