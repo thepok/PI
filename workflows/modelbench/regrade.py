@@ -10,12 +10,35 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import time
 from pathlib import Path
 
-import runner  # noqa: E402  (same directory)
+if __package__:
+    from workflows.modelbench import runner
+else:
+    import runner  # type: ignore[no-redef]  # direct script execution
 
 HERE = Path(__file__).resolve().parent
+
+
+def lean_regrade_binding(
+    task: dict, entry: dict
+) -> tuple[str | None, str | None]:
+    """Return immutable gate image/source bindings or reject unsafe regrade."""
+    if task["grading"]["type"] not in {"agentic_lean_artifact", "lean_gate"}:
+        return None, None
+    image = entry.get("lean_gate_image_sha256") or entry.get(
+        "sandbox_image_sha256"
+    )
+    source = entry.get("trusted_source_sha256")
+    if not isinstance(image, str) or not re.fullmatch(r"[0-9a-f]{64}", image):
+        raise ValueError(
+            "Lean regrade lacks an immutable lean-gate image binding"
+        )
+    if not isinstance(source, str) or not re.fullmatch(r"[0-9a-f]{64}", source):
+        raise ValueError("Lean regrade lacks a trusted source binding")
+    return image, source
 
 
 def main() -> None:
@@ -38,6 +61,15 @@ def main() -> None:
     for entry in entries:
         latest[(entry["model"], entry["task"])] = entry
     appended = 0
+    for (model, task_id), entry in sorted(latest.items()):
+        if entry["dimension"] not in dims or task_id not in tasks:
+            continue
+        try:
+            lean_regrade_binding(tasks[task_id], entry)
+        except ValueError as exc:
+            raise SystemExit(
+                f"refusing unsafe regrade for {model} x {task_id}: {exc}"
+            ) from exc
     with results_path.open("a", encoding="utf-8") as stream:
         for (model, task_id), entry in sorted(latest.items()):
             if entry["dimension"] not in dims or task_id not in tasks:
@@ -51,9 +83,28 @@ def main() -> None:
             if not response.strip():
                 continue
             work_dir = args.out / "work" / f"{model}-{task_id}"
-            passed, reason = runner.grade(
-                tasks[task_id], response, work_dir, work_dir
+            lean_gate_image, trusted_source = lean_regrade_binding(
+                tasks[task_id], entry
             )
+            passed, reason = runner.grade(
+                tasks[task_id],
+                response,
+                work_dir,
+                work_dir,
+                **(
+                    {
+                        "lean_gate_image": lean_gate_image,
+                        "expected_trusted_source_sha256": trusted_source,
+                    }
+                    if lean_gate_image is not None
+                    else {}
+                ),
+            )
+            if runner.is_gate_infrastructure_failure(reason):
+                raise SystemExit(
+                    f"refusing unsafe regrade for {model} x {task_id}: "
+                    f"{reason}"
+                )
             if passed == entry["passed"]:
                 continue
             corrected = {
@@ -63,6 +114,7 @@ def main() -> None:
                 "recorded_at": time.strftime(
                     "%Y-%m-%dT%H:%M:%SZ", time.gmtime()
                 ),
+                "lean_gate_image_sha256": lean_gate_image,
             }
             stream.write(json.dumps(corrected, sort_keys=True) + "\n")
             appended += 1

@@ -481,6 +481,7 @@ exit "$status"
 
 
 ISOLATED_GATE_RESOURCE_PREFIX = "isolated gate resource failure:"
+ISOLATED_GATE_INFRASTRUCTURE_PREFIX = "isolated gate infrastructure failure:"
 
 
 def provider_slot_status(
@@ -539,7 +540,13 @@ def isolated_gate_resource_failure(output: str) -> str | None:
 
 def is_gate_infrastructure_failure(reason: str) -> bool:
     """Whether an artifact retry cannot repair this independent gate failure."""
-    return reason.startswith(ISOLATED_GATE_RESOURCE_PREFIX)
+    return reason.startswith(
+        (
+            ISOLATED_GATE_RESOURCE_PREFIX,
+            ISOLATED_GATE_INFRASTRUCTURE_PREFIX,
+            "isolated gate source snapshot mismatch:",
+        )
+    )
 
 
 def lean_error_excerpt(output: str, limit: int = 2000) -> str:
@@ -648,16 +655,17 @@ def file_sha256(path: Path) -> str | None:
     return digest.hexdigest()
 
 
-def trusted_source_snapshot_sha256() -> str:
+def trusted_source_snapshot_sha256(root: Path | None = None) -> str:
     """Bind a wave to exact trusted Lean source and project pins."""
-    paths = sorted((ROOT / "TheoryLib").rglob("*.lean"))
+    source_root = ROOT if root is None else root
+    paths = sorted((source_root / "TheoryLib").rglob("*.lean"))
     paths.extend(
-        ROOT / name
+        source_root / name
         for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain")
     )
     digest = hashlib.sha256()
     for path in paths:
-        relative = path.relative_to(ROOT).as_posix().encode("utf-8")
+        relative = path.relative_to(source_root).as_posix().encode("utf-8")
         digest.update(len(relative).to_bytes(8, "big"))
         digest.update(relative)
         content = path.read_bytes()
@@ -666,18 +674,95 @@ def trusted_source_snapshot_sha256() -> str:
     return digest.hexdigest()
 
 
+def prebuilt_source_snapshot_sha256() -> str:
+    """Match refresh-prebuilt-image.sh's exact sha256sum-manifest digest."""
+    paths = sorted((ROOT / "TheoryLib").rglob("*.lean"))
+    paths.extend(
+        ROOT / name
+        for name in (
+            "TheoryLib.lean",
+            "lakefile.toml",
+            "lake-manifest.json",
+            "lean-toolchain",
+        )
+    )
+    manifest = bytearray()
+    for path in paths:
+        content_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+        relative = path.relative_to(ROOT).as_posix()
+        manifest.extend(f"{content_sha256}  {relative}\n".encode("utf-8"))
+    return hashlib.sha256(manifest).hexdigest()
+
+
 def sandbox_image_id(image: str) -> str:
     """Resolve a mutable image tag to the immutable image ID before launch."""
-    proc = subprocess.run(
-        ["podman", "image", "inspect", image, "--format", "{{.Id}}"],
-        capture_output=True,
-        text=True,
-        timeout=30,
-        check=False,
-    )
+    try:
+        proc = subprocess.run(
+            ["podman", "image", "inspect", image, "--format", "{{.Id}}"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise SystemExit(
+            f"cannot resolve sandbox image {image!r}: {exc}"
+        ) from exc
     image_id = proc.stdout.strip()
     if proc.returncode != 0 or not re.fullmatch(r"[0-9a-f]{64}", image_id):
         raise SystemExit(f"cannot resolve sandbox image {image!r}: {proc.stderr.strip()}")
+    return image_id
+
+
+def sandbox_image_prebuilt_sha256(image_id: str) -> str:
+    """Read the trusted Lean snapshot hash from one immutable sandbox image."""
+    command = [
+        "podman", "run", "--rm", "--network", "none", "--read-only",
+        "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
+        image_id, "sh", "-c", "cat /opt/allmath-prebuilt/PREBAKE_SHA",
+    ]
+    try:
+        proc = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise SystemExit(
+            "cannot read /opt/allmath-prebuilt/PREBAKE_SHA from sandbox "
+            f"image {image_id}: {exc}"
+        ) from exc
+    prebuilt_sha256 = proc.stdout.strip()
+    if proc.returncode != 0 or not re.fullmatch(
+        r"[0-9a-f]{64}", prebuilt_sha256
+    ):
+        raise SystemExit(
+            "cannot read a valid /opt/allmath-prebuilt/PREBAKE_SHA from "
+            f"sandbox image {image_id}: {proc.stderr.strip()}"
+        )
+    return prebuilt_sha256
+
+
+def pin_sandbox_image(
+    image: str,
+    expected_prebuilt_sha256: str,
+    *,
+    require_lean_snapshot: bool,
+) -> str:
+    """Resolve a tag once and reject stale Lean source before model spend."""
+    image_id = sandbox_image_id(image)
+    if require_lean_snapshot:
+        prebuilt_sha256 = sandbox_image_prebuilt_sha256(image_id)
+        if prebuilt_sha256 != expected_prebuilt_sha256:
+            raise SystemExit(
+                "sandbox Lean snapshot is stale: image PREBAKE_SHA "
+                f"{prebuilt_sha256}, trusted source "
+                f"{expected_prebuilt_sha256}; run "
+                "workflows/runtime/refresh-prebuilt-image.sh before "
+                "launching Lean artifact tasks"
+            )
     return image_id
 
 
@@ -1086,7 +1171,12 @@ def trusted_tree_declares_theorem(full_name: str) -> bool:
 
 
 def grade_lean_gate(
-    response: str, grading: dict[str, Any], work_dir: Path
+    response: str,
+    grading: dict[str, Any],
+    work_dir: Path,
+    *,
+    lean_gate_image: str = PODMAN_IMAGE,
+    expected_trusted_source_sha256: str | None = None,
 ) -> tuple[bool, str]:
     blocks = LEAN_FENCE_RE.findall(response)
     if not blocks:
@@ -1131,6 +1221,20 @@ def grade_lean_gate(
             shutil.copytree(source, target)
         else:
             shutil.copy2(source, target)
+    copied_source_sha256 = trusted_source_snapshot_sha256(trusted)
+    if (
+        expected_trusted_source_sha256 is not None
+        and copied_source_sha256 != expected_trusted_source_sha256
+    ):
+        return False, (
+            "isolated gate source snapshot mismatch: copied trusted source "
+            f"{copied_source_sha256}, wave source "
+            f"{expected_trusted_source_sha256}"
+        )
+    try:
+        sandbox_image_prebuilt_sha256(lean_gate_image)
+    except SystemExit as exc:
+        return False, f"{ISOLATED_GATE_INFRASTRUCTURE_PREFIX} {exc}"
     candidate = gate_root / "candidate.lean"
     contract_checks = (
         [
@@ -1159,7 +1263,7 @@ def grade_lean_gate(
         "--timeout", str(LEAN_GATE_TIMEOUT_S),
         "-v", f"{gate_root}:{gate_root}:ro",
         "-v", f"{LEAN_GATE_SCRIPT}:/controller/allmath-lean-gate.sh:ro",
-        PODMAN_IMAGE, "bash", "/controller/allmath-lean-gate.sh",
+        lean_gate_image, "bash", "/controller/allmath-lean-gate.sh",
         str(trusted), str(candidate),
         "TheoryLib",
     ]
@@ -1176,7 +1280,9 @@ def grade_lean_gate(
                 timeout=LEAN_GATE_TIMEOUT_S + 120,
             )
         except subprocess.TimeoutExpired:
-            return False, "lean gate timeout"
+            return False, f"{ISOLATED_GATE_INFRASTRUCTURE_PREFIX} timeout"
+        except OSError as exc:
+            return False, f"{ISOLATED_GATE_INFRASTRUCTURE_PREFIX} {exc}"
     output = f"{proc.stdout}\n{proc.stderr}"
     (gate_root / "isolated-gate.log").write_text(output, encoding="utf-8")
     if proc.returncode != 0:
@@ -1260,11 +1366,23 @@ def grade_honesty(
 
 
 def grade(
-    task: dict[str, Any], response: str, work_dir: Path, bench_dir: Path
+    task: dict[str, Any],
+    response: str,
+    work_dir: Path,
+    bench_dir: Path,
+    *,
+    lean_gate_image: str = PODMAN_IMAGE,
+    expected_trusted_source_sha256: str | None = None,
 ) -> tuple[bool, str]:
     kind = task["grading"]["type"]
     if kind == "lean_gate":
-        return grade_lean_gate(response, task["grading"], work_dir)
+        return grade_lean_gate(
+            response,
+            task["grading"],
+            work_dir,
+            lean_gate_image=lean_gate_image,
+            expected_trusted_source_sha256=expected_trusted_source_sha256,
+        )
     if kind == "exact_choice":
         return grade_exact_choice(response, task["grading"])
     if kind == "schema":
@@ -1340,7 +1458,11 @@ def grade(
         if missing_imports:
             return False, f"Lean artifact misses required imports {missing_imports}"
         return grade_lean_gate(
-            f"```lean\n{code}\n```", task["grading"], work_dir
+            f"```lean\n{code}\n```",
+            task["grading"],
+            work_dir,
+            lean_gate_image=lean_gate_image,
+            expected_trusted_source_sha256=expected_trusted_source_sha256,
         )
     if kind == "artifact_contract":
         artifact_name = str(task["grading"]["artifact"])
@@ -1645,6 +1767,7 @@ def run_pair(
     sandbox_settings: ModelSandboxSettings | None = None,
     trusted_source_sha256: str | None = None,
     sandbox_image_sha256: str | None = None,
+    lean_gate_image: str = PODMAN_IMAGE,
 ) -> dict[str, Any]:
     run_id = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + f"-{time.time_ns()}"
     log(f"RUN  {model_key} x {task['id']}")
@@ -1768,7 +1891,14 @@ def run_pair(
         ):
             break
         if is_artifact_task:
-            passed, reason = grade(task, outcome["response"], work_dir, execution_dir)
+            passed, reason = grade(
+                task,
+                outcome["response"],
+                work_dir,
+                execution_dir,
+                lean_gate_image=lean_gate_image,
+                expected_trusted_source_sha256=trusted_source_sha256,
+            )
             final_artifact_grade = (passed, reason)
             attempt_grades.append(
                 {"attempt": attempt, "passed": passed, "reason": reason}
@@ -1842,7 +1972,14 @@ def run_pair(
     elif final_artifact_grade is not None:
         passed, reason = final_artifact_grade
     elif outcome["response"] or artifact_delivered:
-        passed, reason = grade(task, outcome["response"], work_dir, execution_dir)
+        passed, reason = grade(
+            task,
+            outcome["response"],
+            work_dir,
+            execution_dir,
+            lean_gate_image=lean_gate_image,
+            expected_trusted_source_sha256=trusted_source_sha256,
+        )
     else:
         passed, reason = False, f"no response ({outcome['error']})"
     entry = {
@@ -1860,6 +1997,11 @@ def run_pair(
         "trusted_source_sha256": trusted_source_sha256,
         "sandbox_image": sandbox_settings.image if sandbox_settings else None,
         "sandbox_image_sha256": sandbox_image_sha256,
+        "lean_gate_image_sha256": (
+            lean_gate_image
+            if grading_type in {"agentic_lean_artifact", "lean_gate"}
+            else None
+        ),
         "artifact_sha256": file_sha256(artifact_path) if artifact_path else None,
         "gate_log_sha256": file_sha256(work_dir / "lean_gate" / "isolated-gate.log"),
         "attempt_prompt_sha256s": attempt_prompt_sha256s,
@@ -2062,15 +2204,35 @@ def main() -> None:
     cancellation = Cancellation(args.cancel_file)
     sandbox_settings = None
     pinned_image_sha256 = None
+    pinned_source_sha256 = trusted_source_snapshot_sha256()
+    expected_prebuilt_sha256 = prebuilt_source_snapshot_sha256()
+    needs_lean_snapshot = any(
+        str(task["grading"]["type"])
+        in {"agentic_lean_artifact", "lean_gate"}
+        for task in tasks
+    )
+    lean_gate_image = PODMAN_IMAGE
     if args.sandbox:
+        pinned_image_sha256 = pin_sandbox_image(
+            args.sandbox_image,
+            expected_prebuilt_sha256,
+            require_lean_snapshot=needs_lean_snapshot,
+        )
+        lean_gate_image = pinned_image_sha256
         sandbox_settings = ModelSandboxSettings(
-            image=args.sandbox_image,
+            # Pin execution to the same immutable image whose source snapshot
+            # was checked above; never race a mutable tag refresh.
+            image=pinned_image_sha256,
             cpus=args.sandbox_cpus,
             memory=args.sandbox_memory,
             timeout_s=args.sandbox_timeout_s,
         )
-        pinned_image_sha256 = sandbox_image_id(args.sandbox_image)
-    pinned_source_sha256 = trusted_source_snapshot_sha256()
+    elif needs_lean_snapshot:
+        lean_gate_image = pin_sandbox_image(
+            PODMAN_IMAGE,
+            expected_prebuilt_sha256,
+            require_lean_snapshot=True,
+        )
 
     def handle_shutdown(signum: int, _frame: object) -> None:
         if cancellation.request(
@@ -2102,6 +2264,7 @@ def main() -> None:
                 sandbox_settings=sandbox_settings,
                 trusted_source_sha256=pinned_source_sha256,
                 sandbox_image_sha256=pinned_image_sha256,
+                lean_gate_image=lean_gate_image,
             ): (m, t["id"])
             for m, t in pairs
         }
