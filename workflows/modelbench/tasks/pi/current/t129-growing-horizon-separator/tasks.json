@@ -1,0 +1,52 @@
+[
+  {
+    "id": "pi-t129-p1-integral-window-proof",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not read, list, search, or inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. No stub or placeholder. For canonical aggregated BBP data set A_j=S_j/M_j and assume 0<pi-A_N<16^(-N)/(15(N+1)^2). Fix N>=6,L>=0. For 0<=i<=L put B_(N,i)=M_(N+i)/M_N=16^i Lambda_(N+i)/Lambda_N and U_(N,i)=S_(N+i)-B_(N,i)S_N=M_(N+i)(A_(N+i)-A_N), with U_(N,0)=0. Define S~_(N+i)=63M_(N+i)/64+U_(N,i), w~_(N+i)=63*10^(N+i)/64-16, R~_(N+i)=M_(N+i)/4+q_(N+i)U_(N,i), q_j=10^j-16. Prove from definitions: integrality, positivity of U for i>0, propagation by every actual fresh term, exact centering equations, uniqueness in [-M/2,M/2), and both i=0,L=0 boundary cases. Main hypothesis: 10^L(5/8)^N/(15(N+1)^2)<1/4. Derive 0<=q_(N+i)U/M_(N+i)<10^i(5/8)^N/[15(N+1)^2] and prove every R~ lies in [M/4,M/2). GO only for a complete exact proof; STOP only for an explicit arithmetic/index counterexample; otherwise OPEN. Use the literal phrase half-open endpoint.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t129-growing-horizon-separator/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","half-open endpoint","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t129-p2-critical-envelope",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. For N>=6,L>=0 audit the sufficient no-wrap inequality 10^L(5/8)^N/[15(N+1)^2]<1/4 for the 63/64 separator R~=M/4+qU. Let alpha=log_10(8/5). Independently derive the tail bound from nu_k/D_k<5/(8k^2) or a rigorously stronger elementary constant. Solve the strict inequality exactly for integer L. Verify or refute: (i) every fixed L works eventually; (ii) every integer L<=alpha*N works for all N>=6 because 10^L(5/8)^N<=1; (iii) every integer L<alpha*N+2log_10(N+1)+log_10(15/4) works. State exact floor/ceiling consequences without replacing strict inequalities by false equalities. Do not call the upper envelope sharp without a lower bound, and do not infer anything about canonical residues. GO requires a corrected quantified envelope with all constants; STOP requires a counterexample to the stated sufficient condition or corollary; otherwise OPEN. Use the literal phrase critical slope.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t129-growing-horizon-separator/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","critical slope","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t129-p3-threshold-lower-bound",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. For N>=6,L>=1 study only the 63/64 construction with displacement q_(N+L)(A_(N+L)-A_N). The proved upper bound is 10^L(5/8)^N/[15(N+1)^2]. Use the first omitted positive BBP summand, with exact nu_k and D_k if needed, to derive a rigorous lower bound. Determine whether the no-wrap condition qU/M<1/4 necessarily fails once L>=alpha*N+2log_10 N+C for an explicit constant C, alpha=log_10(8/5). GO requires a two-sided threshold up to O(1), explicitly only for this construction. STOP requires proof that the available lower bound cannot match that threshold and the exact quantified loss. Otherwise OPEN with the first missing inequality. Do not claim failure of this construction yields a canonical hit. Use the literal phrase first omitted term.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t129-growing-horizon-separator/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","first omitted term","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t129-p4-local-separator-scope",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. Assume the exact 63/64 construction: for N>=6 and 0<=i<=L, S~=63M/64+U_(N,i), w~=63*10^(N+i)/64-16, R~=M/4+qU, with every actual fresh-term numerator recurrence and centered equation exact. Assume 10^L(5/8)^N/[15(N+1)^2]<1/4, so the whole window is positive outer. State and prove the precise logical no-go: any implication quantified over all integral states and using only the actual coefficient window, exact numerator recurrences, centered equations, and identities universal for such states cannot force a strict T125 hit on this horizon. List exactly what escapes: selected canonical S_N, its finite-sum definition, global prefix consistency, or a canonical-only sign/divisor/selector property. GO requires a sound quantified separator theorem and scope firewall. Reject overclaims against canonical-only arguments, actual pi residues, or all horizons. STOP only for a logical counterexample to the proposed separator statement. Use the literal phrase canonical selector.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t129-growing-horizon-separator/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","canonical selector","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t129-p5-theorem-decomposition",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. Give a minimal Lean-shaped but purely mathematical theorem decomposition for the T129 63/64 window separator: (1) block numerator propagation U_(N,i); (2) the exact integer identity q_j*(63M_j/64)=(63*10^j/64-16)M_j+M_j/4; (3) tail-to-positive-outer bound under 10^L(5/8)^N/[15(N+1)^2]<1/4; (4) fixed-horizon corollary; (5) critical-slope alpha=log_10(8/5) corollary. Audit casts, divisibility by 64, strict/weak inequalities, half-open endpoints, and floor-free formulations. No code changes, sorry, axioms, native_decide, or finite checks as proof. GO means a compile-plausible theorem contract plus independent hand audit; STOP means a precise false statement or genuinely missing lemma. Use the literal phrase theorem decomposition.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t129-growing-horizon-separator/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","theorem decomposition","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER","sorry","native_decide"]}
+  }
+]
