@@ -26,8 +26,11 @@ network access, reflection, randomness, floats, or environment-dependent
 behavior. The supplied `n` sequence is metadata only: S0 does not authenticate
 that supplied `r,w` came from T118 at orbit `N+1`.
 
-`REPORT.md` must begin with the literal text **Status: `experiment`** and describe only this S0
-validation surface. Explicitly state that T118 `r,w` provenance is deferred to
-a later disjoint arithmetic verifier. Do not claim a production result, an
-existing CAS object or accepted receipt, a J10 outcome, occupancy, density,
-cancellation, V1, decimal occurrence, or any result about Pi.
+`REPORT.md` must begin with the literal text **Status: `experiment`** and
+describe only this S0 validation surface. Include this exact sentence without
+added punctuation inside the phrase: **T118 `r,w` provenance is deferred to a
+later disjoint arithmetic verifier.** Do not use the standalone words `PASS`,
+`passed`, or `pass`, and do not claim that any test, gate, or controller
+accepted the artifact. Do not claim a production result, an existing CAS
+object or accepted receipt, a J10 outcome, occupancy, density, cancellation,
+V1, decimal occurrence, or any result about Pi.
