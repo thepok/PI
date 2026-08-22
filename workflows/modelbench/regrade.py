@@ -41,6 +41,24 @@ def lean_regrade_binding(
     return image, source
 
 
+def controller_regrade_image(task: dict, entry: dict) -> str | None:
+    """Return the immutable fixed-controller image or reject unsafe regrade."""
+    grading = task["grading"]
+    if (
+        grading["type"] != "artifact_contract"
+        or grading.get("controller_gate") is None
+    ):
+        return None
+    image = entry.get("controller_image_sha256") or entry.get(
+        "sandbox_image_sha256"
+    )
+    if not isinstance(image, str) or not re.fullmatch(r"[0-9a-f]{64}", image):
+        raise ValueError(
+            "fixed-controller regrade lacks an immutable image binding"
+        )
+    return image
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dimensions", required=True)
@@ -66,6 +84,7 @@ def main() -> None:
             continue
         try:
             lean_regrade_binding(tasks[task_id], entry)
+            controller_regrade_image(tasks[task_id], entry)
         except ValueError as exc:
             raise SystemExit(
                 f"refusing unsafe regrade for {model} x {task_id}: {exc}"
@@ -86,19 +105,23 @@ def main() -> None:
             lean_gate_image, trusted_source = lean_regrade_binding(
                 tasks[task_id], entry
             )
+            controller_image = controller_regrade_image(
+                tasks[task_id], entry
+            )
+            grade_bindings = {}
+            if lean_gate_image is not None:
+                grade_bindings.update(
+                    lean_gate_image=lean_gate_image,
+                    expected_trusted_source_sha256=trusted_source,
+                )
+            if controller_image is not None:
+                grade_bindings["controller_image"] = controller_image
             passed, reason = runner.grade(
                 tasks[task_id],
                 response,
                 work_dir,
                 work_dir,
-                **(
-                    {
-                        "lean_gate_image": lean_gate_image,
-                        "expected_trusted_source_sha256": trusted_source,
-                    }
-                    if lean_gate_image is not None
-                    else {}
-                ),
+                **grade_bindings,
             )
             if runner.is_gate_infrastructure_failure(reason):
                 raise SystemExit(
@@ -115,6 +138,7 @@ def main() -> None:
                     "%Y-%m-%dT%H:%M:%SZ", time.gmtime()
                 ),
                 "lean_gate_image_sha256": lean_gate_image,
+                "controller_image_sha256": controller_image,
             }
             stream.write(json.dumps(corrected, sort_keys=True) + "\n")
             appended += 1

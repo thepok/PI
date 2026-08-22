@@ -343,7 +343,7 @@ print("T117_S1_CONTROLLER_GATE_PASSED")
 '''
 
 
-def _run_isolated(path: Path, timeout_s: int) -> None:
+def _run_isolated(path: Path, timeout_s: int, image: str = IMAGE) -> None:
     temp_dir = Path(tempfile.mkdtemp(prefix="t117-s1-gate-"))
     try:
         candidate = temp_dir / "schema_v1.py"
@@ -373,7 +373,7 @@ def _run_isolated(path: Path, timeout_s: int) -> None:
             f"{temp_dir}:/workspace:ro",
             "-v",
             f"{CONTRACT_FIXTURE}:/fixtures/CONTRACT.production.json:ro",
-            IMAGE,
+            image,
             "python3",
             "-I",
             "/workspace/controller_harness.py",
@@ -399,14 +399,27 @@ def _run_isolated(path: Path, timeout_s: int) -> None:
         shutil.rmtree(temp_dir, ignore_errors=True)
 
 
-def run_gate(work_dir: Path, grading: dict[str, Any]) -> tuple[bool, str]:
+def run_gate(
+    work_dir: Path,
+    grading: dict[str, Any],
+    *,
+    controller_image: str | None = None,
+) -> tuple[bool, str]:
     try:
         validate_frozen_fixtures()
         artifact = (work_dir / "schema_v1.py").resolve()
         if work_dir.resolve() not in artifact.parents or not artifact.is_file() or artifact.is_symlink():
             raise S1GateError("missing safe schema_v1.py")
         static_schema_check(artifact)
-        _run_isolated(artifact, int(grading.get("controller_timeout_s", 45)))
+        _run_isolated(
+            artifact,
+            int(grading.get("controller_timeout_s", 45)),
+            (
+                controller_image
+                if controller_image is not None
+                else str(grading.get("controller_image", IMAGE))
+            ),
+        )
         return True, f"{GATE_ID} passed deterministic schema mutations"
     except (S1GateError, OSError, ValueError) as exc:
         return False, f"{GATE_ID} rejected: {exc}"

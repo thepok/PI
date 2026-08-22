@@ -334,7 +334,12 @@ def _run_networkless_self_test(
         shutil.rmtree(run_dir, ignore_errors=True)
 
 
-def run_gate(work_dir: Path, grading: dict[str, Any]) -> tuple[bool, str]:
+def run_gate(
+    work_dir: Path,
+    grading: dict[str, Any],
+    *,
+    controller_image: str | None = None,
+) -> tuple[bool, str]:
     """Run the fixed T117 executable gate and return a runner verdict."""
     try:
         work_dir = work_dir.resolve()
@@ -365,8 +370,14 @@ def run_gate(work_dir: Path, grading: dict[str, Any]) -> tuple[bool, str]:
             work_dir,
             hidden_n=hidden_n,
             timeout_s=int(grading.get("controller_timeout_s", 180)),
-            image=str(
-                grading.get("controller_image", "localhost/allmath-research:latest")
+            image=(
+                controller_image
+                if controller_image is not None
+                else str(
+                    grading.get(
+                        "controller_image", "localhost/allmath-research:latest"
+                    )
+                )
             ),
         )
         if sandbox_contract != contract_before or contract_path.read_bytes() != contract_before:
