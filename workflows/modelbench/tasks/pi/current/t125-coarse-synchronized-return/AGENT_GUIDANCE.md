@@ -11,9 +11,11 @@ give an exact no-go for a natural, independently stated mechanism.
 
 The preferred intermediate is a fresh-term transversality or successor-branch
 exclusion on an explicitly defined unbounded insertion subsequence.  It must use
-the old full numerator jointly with the new integral summand and exclude at
-least one outer-quarter successor branch uniformly; generic one-step branch
-measure, injectivity, or irrational-orbit counterexamples do not qualify.
+the centered residue or nearest-integer quotient, the old full numerator, and
+the new integral summand jointly, and exclude at least one outer-quarter
+successor branch uniformly.  A smooth fixed polynomial of `A_N` after
+normalization, generic one-step branch measure, injectivity, or an
+irrational-orbit counterexample does not qualify.
 
 An affine form required by definition to vanish at zero is only a tautological
 multiple of the original form and is not a no-go.  V1 remains open.
