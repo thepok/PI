@@ -84,6 +84,20 @@ the missing lift of `P_N`. Determine whether the actual BBP coupling controls
 that lift, whether a minimal augmented state gives descent, or whether this
 produces a rigorous no-go for centered-pair-only arguments.
 
+An exact generic witness uses the actual `N=2` BBP increment
+`u_2/v_2=79/15590400`. With `t_2=84`, both reduced inputs `P/Q=1/15` and
+`11/15` have centered numerator `Delta=-6`. Their next reduced states differ:
+
+```text
+P=1:  h=15, (P',Q',Delta')=(1039439,15590400,-6158424)
+P=11: h=45, (P',Q',Delta')=(3811013, 5196800,-2052808).
+```
+
+This proves nonclosure for arbitrary reduced inputs under the actual update.
+It is not a counterexample about the single canonical BBP orbit; exploiting
+that orbit still requires a global invariant selecting its missing numerator
+lift.
+
 Already inadequate: denominator/gcd growth alone, any finite set of p-adic
 coordinates, same-fiber replacement, ordinary hypergeometric telescoping,
 base-16 normality, generic lacunary almost-everywhere theorems, sampled forcing
