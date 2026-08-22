@@ -1,0 +1,141 @@
+{
+  "schema": "pi-t120-s0-controller-gate-task-v1",
+  "status": "planned_inactive_unimplemented",
+  "claim_label": "experiment",
+  "active": false,
+  "launch_authorized": false,
+  "launch_authority_semantics": "launch_authorized=false records only the present planned/inactive state; it adds no authority requirement beyond the parent experiment's standing operator gate",
+  "controller_gate_id": "t120_s0_schema_v1",
+  "parent_experiment_id": "pi-q10-j10-lag-determinant-20260822-v1",
+  "parent_spec_binding": {
+    "algorithm": "sha256",
+    "ordered_payload_encoding": "compact sorted-key ensure_ascii JSON array of exact {name,sha256} pairs, without trailing LF",
+    "files": [
+      {"name": "CONTRACT.json", "sha256": "5e6ac96f7c3c8a003ffbfbf1b65e582b5583700a68c597968d903e70075ce327"},
+      {"name": "INTERFACE.md", "sha256": "cd1eb2d91c02e866c9f0bf27e2aadeaa4f9c8e1774ccc4d6dfd1a4114f7d8fde"},
+      {"name": "TEST_PLAN.md", "sha256": "ab7f0e1261d472a82789731b9db34ced32afea74f36d188e5b06308357f344ea"}
+    ],
+    "spec_bundle_sha256": "fe180d8a5db818d3b4a9b3931779b3cc3d313a2437e9f4db808f3afecba51f98",
+    "noncircularity": "The three parent files contain no bundle hash; this child contract binds their already-frozen raw bytes."
+  },
+  "child_fixture_binding": {
+    "algorithm": "sha256",
+    "files": [
+      {"name": "AGENT_GUIDANCE.md", "sha256": "5f1ca0f11b8d09f580f67523b89c438fade7ab08481237ff75dc1147548600ce"},
+      {"name": "CONTROLLER_TESTS.json", "sha256": "e1ae99965f24ec5846bc694951f735f7558dc7ff67de965d77946321e4127ead"}
+    ],
+    "gate_rule": "The future fixed controller gate rejects before candidate execution if either raw fixture hash differs.",
+    "noncircularity": "TASK_CONTRACT.json is intentionally excluded from this child fixture hash set and is bound separately by the runner task-contract digest when promoted."
+  },
+  "deliverables": {
+    "exact_files": ["t120_s0_schema.py", "REPORT.md"],
+    "forbidden_files": ["self_test.py", "manifest.json", "receipt.json", "cas.json"],
+    "python_api": [
+      "canonical_json_bytes(value)",
+      "decode_canonical_json(raw)",
+      "validate_point(value, expected_n)",
+      "recompute_window(points, window_index, start_n, end_exclusive_n, spec_bundle_sha256)",
+      "validate_window_bytes(raw, window_index, start_n, end_exclusive_n, spec_bundle_sha256)",
+      "validate_cas_record(value, expected_bindings)",
+      "validate_receipt(value, expected_bindings)"
+    ]
+  },
+  "scope": {
+    "allowed": [
+      "strict canonical JSON byte parsing and serialization",
+      "exact schema and binding validation",
+      "integer-only recomputation from supplied normalized points",
+      "SHA-256 digest calculation and validation"
+    ],
+    "forbidden": [
+      "BBP terms, partial sums, Q/F/H/d/e/X/k/W/R generation, Fraction, or any production arithmetic",
+      "filesystem writes, CAS storage, receipt minting, subprocesses, network, dynamic imports, reflection, or code execution",
+      "candidate-authored tests, pass flags, manifests, receipts, or self-test authority",
+      "floats, decimal approximations, random inputs, clock-dependent values, or environment-dependent behavior"
+    ]
+  },
+  "canonical_raw_bytes": {
+    "accepted": "json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode('ascii') plus exactly one LF",
+    "parser_requirements": [
+      "input type is bytes and bounded by the controller",
+      "UTF-8 without BOM; ASCII canonical output; LF only; exactly one final LF",
+      "reject duplicate object keys with object_pairs_hook",
+      "reject floats with parse_float and NaN/Infinity with parse_constant",
+      "reject invalid UTF-8, BOM, CRLF, missing/folded/multiple final LF, whitespace, parsed-equivalent noncanonical bytes, excessive nesting, and excessive size",
+      "after strict parse, raw bytes must equal canonical_json_bytes(parsed)"
+    ]
+  },
+  "schemas": {
+    "point": {
+      "exact_keys": ["n", "r", "w", "cell"],
+      "types": "n and cell are JSON integers but not booleans; r and w are canonical nonnegative integer strings",
+      "laws": ["n=expected_n", "w>0", "0<=r<w", "cell=(10*r)//w", "0<=cell<10"]
+    },
+    "lag_record": {
+      "exact_keys": ["lag", "same_cell_count", "near_determinant_count", "zero_determinant_count"],
+      "types": "all four fields are JSON integers but not booleans",
+      "laws": ["records are exactly lag 1..255 in order", "0<=C_l,A_l,Z_l<=256-l", "C_l<=A_l", "Z_l<=A_l"]
+    },
+    "maximum_determinant_ratio": {
+      "exact_keys": ["num", "den", "witness_n", "witness_m", "lag", "cell"],
+      "types": "num and den are canonical nonnegative integer strings; the remaining fields are JSON integers but not booleans",
+      "laws": [
+        "witness_n<witness_m are in the window and have the recorded same cell",
+        "lag=witness_m-witness_n",
+        "num=10*abs(r_n*w_m-r_m*w_n) and den=w_n*w_m",
+        "0<=num<den",
+        "the ratio is maximal by integer cross multiplication over distinct same-cell pairs",
+        "ties use lexicographically least (witness_n,witness_m)"
+      ]
+    },
+    "decision": {
+      "exact_keys": ["j_threshold_pass", "c_sum", "a_sum", "has_zero_distinct_pair", "window13_action"],
+      "actions_in_priority_order": [
+        "stop_local_conjecture if 9*J>=65536",
+        "stop_audit_zero if the J test passes and any Z_l>0",
+        "go_holdouts if the J test passes, every Z_l=0, and A_sum<=3512",
+        "stop_determinant_route_pending_optional_refinement otherwise"
+      ]
+    },
+    "window_artifact": {
+      "exact_keys": ["schema", "experiment_id", "spec_bundle_sha256", "window_index", "start_n", "end_exclusive_n", "points", "cell_counts", "j", "j10_strict_pass", "lag_counts", "maximum_determinant_ratio", "decision"],
+      "constants": {"schema": "pi-q10-window-v1", "experiment_id": "pi-q10-j10-lag-determinant-20260822-v1"},
+      "cell_count_exact_keys": ["n0", "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9"]
+    },
+    "cas_record": {
+      "exact_keys": ["schema", "algorithm", "artifact_sha256", "size_bytes", "experiment_id", "spec_bundle_sha256", "window_index", "start_n", "end_exclusive_n"],
+      "constants": {"schema": "pi-q10-cas-record-v1", "algorithm": "sha256"},
+      "authority": "validation only; only the future controller may store bytes or create this record"
+    },
+    "receipt": {
+      "exact_keys": ["schema", "experiment_id", "spec_bundle_sha256", "window_index", "start_n", "end_exclusive_n", "artifact_sha256", "generator_source_sha256", "verifier_source_sha256", "verifier_result", "controller_gate_id"],
+      "constants": {"schema": "pi-q10-controller-receipt-v1", "verifier_result": "accepted"},
+      "binding": "controller_gate_id and every digest/range field must equal the controller-supplied expected binding",
+      "authority": "validation only; candidate code must never mint or claim an accepted receipt, and the S0 gate ID is not a production receipt authority"
+    }
+  },
+  "controller_recomputation": [
+    "require exactly 256 ordered points for the contracted range",
+    "recompute n0..n9 and require their sum is 256",
+    "recompute J=sum n_c^2 and j10_strict_pass=(9*J<65536)",
+    "for every lag 1..255 recompute Delta, C_l, A_l, and Z_l",
+    "require J=256+2*sum C_l, C_l<=A_l, and Z_l<=A_l",
+    "recompute the raw maximum same-cell determinant ratio and lexicographically first witness",
+    "recompute c_sum, a_sum, zero flag, and window13_action with the frozen priority rule",
+    "never accept candidate-reported summaries or decisions without exact equality to recomputation"
+  ],
+  "future_task_template": {
+    "id": "pi-t120-s0-controller-schema",
+    "dimension": "exact_experiment",
+    "timeout_s": 1800,
+    "max_attempts": 6,
+    "variant": "high",
+    "grading_type": "artifact_contract",
+    "controller_gate": "t120_s0_schema_v1"
+  },
+  "nonclaims": [
+    "This is a planned task specification, not an implementation or active task.",
+    "No CAS object or accepted controller receipt exists merely because its schema is specified.",
+    "No BBP value, production window, J10 outcome, pair count, occupancy, density, cancellation, V1, or Pi result is computed or claimed."
+  ]
+}
