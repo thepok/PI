@@ -9,6 +9,7 @@ import pytest
 
 from workflows.modelbench import runner
 from workflows.modelbench import t117_controller_gate
+from workflows.modelbench import t117_s1_controller_gate
 
 
 def test_sandbox_api_is_repository_local() -> None:
@@ -227,6 +228,160 @@ def test_t117_probe_requires_both_exact_routes_and_independent_shard() -> None:
         t117_controller_gate._validate_probe(
             probe, expected_records=records, contract_sha256="a" * 64
         )
+
+
+def test_t117_s1_frozen_fixtures_have_exact_semantics_and_partition() -> None:
+    t117_s1_controller_gate.validate_frozen_fixtures()
+    contract = json.loads(t117_s1_controller_gate.CONTRACT_FIXTURE.read_text())
+
+    assert set(t117_s1_controller_gate.FROZEN_FIXTURE_SHA256) == {
+        "CONTRACT.production.json",
+        "INTERFACE_V1.json",
+        "SEMANTIC_VECTORS.json",
+    }
+    assert contract["p_definition"] == "P_N=sum_(m=0)^(7*N) t_m"
+    assert contract["f_definition"] == "F_N=10^(N+1)*sum_(j=1)^7 t_(7*N+j)"
+    assert contract["semantics"]["failure_implication"] == "K2_failure=>K1_failure"
+    assert contract["shards"] == t117_s1_controller_gate.expected_shards()
+
+
+def test_t117_s1_static_gate_rejects_arithmetic_ownership(tmp_path: Path) -> None:
+    artifact = tmp_path / "schema_v1.py"
+    artifact.write_text(
+        "from fractions import Fraction\n"
+        "def validate_contract(value): return Fraction(1, 2)\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        t117_s1_controller_gate.S1GateError,
+        match="arithmetic/orchestration boundary|unapproved",
+    ):
+        t117_s1_controller_gate.static_schema_check(artifact)
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "def validate_contract(value): return getattr(value, '__class__')\n",
+        "def validate_contract(value): return object.__subclasses__()\n",
+        "def validate_contract(value): return globals()\n",
+    ],
+)
+def test_t117_s1_static_gate_rejects_reflection(
+    tmp_path: Path, source: str
+) -> None:
+    artifact = tmp_path / "schema_v1.py"
+    artifact.write_text(source, encoding="utf-8")
+
+    with pytest.raises(
+        t117_s1_controller_gate.S1GateError,
+        match="forbidden call|forbidden reflective identifier",
+    ):
+        t117_s1_controller_gate.static_schema_check(artifact)
+
+
+def test_artifact_contract_dispatches_fixed_t117_s1_gate(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "schema_v1.py").write_text("schema", encoding="utf-8")
+    called = []
+
+    def fake_gate(work_dir: Path, grading: dict) -> tuple[bool, str]:
+        called.append((work_dir, grading["controller_gate"]))
+        return True, "S1 fixed gate passed"
+
+    monkeypatch.setattr(t117_s1_controller_gate, "run_gate", fake_gate)
+    task = {
+        "grading": {
+            "type": "artifact_contract",
+            "artifact": "schema_v1.py",
+            "controller_gate": "t117_s1_schema_v1",
+        }
+    }
+
+    assert runner.grade(task, "", tmp_path, tmp_path) == (True, "S1 fixed gate passed")
+    assert called == [(tmp_path, "t117_s1_schema_v1")]
+
+
+def test_t117_s1_gate_runs_controller_mutations_in_networkless_pod(
+    tmp_path: Path,
+) -> None:
+    if shutil.which("podman") is None:
+        pytest.skip("podman unavailable")
+    expected = json.dumps(
+        json.loads(t117_s1_controller_gate.CONTRACT_FIXTURE.read_text()),
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    source = f'''import hashlib
+import json
+import re
+
+EXPECTED = json.loads({expected!r})
+INT_RE = re.compile(r"^-?(0|[1-9][0-9]*)$")
+HEX_RE = re.compile(r"^[0-9a-f]{{64}}$")
+TUPLE_KEYS = {{"A","C","D","E","H","U","V","X","d","e","g","k","n"}}
+COMPACT = {{"digest","e","e_bitlen","fails","k","k_bitlen","n"}}
+EXTRA = {{"f_den","f_num","q_den","q_num","tuple"}}
+
+def canonical_json(value):
+    return json.dumps(value, sort_keys=True, separators=(",",":"), ensure_ascii=True)
+
+def sha256_hex_obj(value):
+    return hashlib.sha256(canonical_json(value).encode("ascii")).hexdigest()
+
+def validate_contract(value):
+    if type(value) is not dict or value != EXPECTED:
+        raise ValueError("contract")
+
+def _integer_string(value):
+    return type(value) is str and INT_RE.fullmatch(value) is not None
+
+def validate_record(value):
+    if type(value) is not dict or type(value.get("n")) is not int:
+        raise ValueError("record")
+    if type(value.get("k_bitlen")) is not int or value["k_bitlen"] < 0:
+        raise ValueError("k bits")
+    if type(value.get("e_bitlen")) is not int or value["e_bitlen"] < 0:
+        raise ValueError("e bits")
+    if not HEX_RE.fullmatch(value.get("digest", "")):
+        raise ValueError("digest")
+    if not _integer_string(value.get("k")) or not _integer_string(value.get("e")) or int(value["e"]) <= 0:
+        raise ValueError("k/e")
+    fails = value.get("fails")
+    if fails not in ([], ["K1"], ["K1","K2"]):
+        raise ValueError("fails")
+    if set(value) != (COMPACT | (EXTRA if fails else set())):
+        raise ValueError("keys")
+    if not fails:
+        return
+    for key in ("q_num","f_num"):
+        if not _integer_string(value[key]): raise ValueError(key)
+    for key in ("q_den","f_den"):
+        if not _integer_string(value[key]) or int(value[key]) <= 0: raise ValueError(key)
+    tpl = value["tuple"]
+    if type(tpl) is not dict or set(tpl) != TUPLE_KEYS:
+        raise ValueError("tuple")
+    if any(not _integer_string(item) for item in tpl.values()):
+        raise ValueError("tuple integers")
+    if int(tpl["D"]) <= 0 or int(tpl["E"]) <= 0:
+        raise ValueError("tuple denominators")
+    if tpl["A"] != value["q_num"] or tpl["D"] != value["q_den"]:
+        raise ValueError("q binding")
+    if tpl["C"] != value["f_num"] or tpl["E"] != value["f_den"]:
+        raise ValueError("f binding")
+    if tpl["k"] != value["k"] or tpl["e"] != value["e"] or tpl["n"] != str(value["n"]):
+        raise ValueError("compact binding")
+    if sha256_hex_obj(tpl) != value["digest"]:
+        raise ValueError("tuple digest")
+'''
+    (tmp_path / "schema_v1.py").write_text(source, encoding="utf-8")
+
+    assert t117_s1_controller_gate.run_gate(tmp_path, {}) == (
+        True,
+        "t117_s1_schema_v1 passed deterministic schema mutations",
+    )
 
 
 def test_lean_artifact_contract_rejects_canonical_definition_replacement(
