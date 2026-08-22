@@ -1,0 +1,120 @@
+name: Bootstrap T120 S0 controller gate
+
+on:
+  push:
+    branches:
+      - agent/t120-s0-bootstrap-20260821-1
+
+permissions:
+  contents: write
+
+jobs:
+  implement-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out bootstrap payload
+        uses: actions/checkout@v4
+        with:
+          path: bootstrap
+
+      - name: Check out exact target branch
+        uses: actions/checkout@v4
+        with:
+          ref: pi-core-consolidation
+          fetch-depth: 0
+          path: target
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Materialize audited files and patch fixed dispatch
+        shell: bash
+        working-directory: target
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "2d65e2535fc1d92dbd121dacbc31070b009f10cf"
+
+          cat ../bootstrap/.bootstrap/t120-s0/gate.part*.b64 \
+            | base64 --decode | gzip --decompress \
+            > workflows/modelbench/t120_s0_controller_gate.py
+          cat ../bootstrap/.bootstrap/t120-s0/test.part*.b64 \
+            | base64 --decode | gzip --decompress \
+            > workflows/modelbench/test_t120_s0_controller_gate.py
+
+          test "$(sha256sum workflows/modelbench/t120_s0_controller_gate.py | cut -d' ' -f1)" \
+            = "2f13b070e4b66bacada8a6109b54f6df8ad176c9af1960f0e67f6447cf9e855c"
+          test "$(sha256sum workflows/modelbench/test_t120_s0_controller_gate.py | cut -d' ' -f1)" \
+            = "6196d9d7d5c29a39a768fa817d616d25b6d4e54f45bef9c5f5638491625d383a"
+
+          python - <<'PY'
+          from pathlib import Path
+
+          runner = Path("workflows/modelbench/runner.py")
+          source = runner.read_text(encoding="utf-8")
+          old = '''            if controller_gate == "t117_s1_schema_v1":
+                from workflows.modelbench.t117_s1_controller_gate import run_gate
+
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                )
+            return False, f"unknown controller gate {controller_gate!r}"
+'''
+          new = '''            if controller_gate == "t117_s1_schema_v1":
+                from workflows.modelbench.t117_s1_controller_gate import run_gate
+
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                )
+            if controller_gate == "t120_s0_schema_v1":
+                from workflows.modelbench.t120_s0_controller_gate import run_gate
+
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                )
+            return False, f"unknown controller gate {controller_gate!r}"
+'''
+          if source.count(old) != 1:
+              raise SystemExit("runner dispatch preimage mismatch")
+          runner.write_text(source.replace(old, new, 1), encoding="utf-8")
+          PY
+
+      - name: Run focused controller tests
+        shell: bash
+        working-directory: target
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -q pytest
+          python -m py_compile \
+            workflows/modelbench/runner.py \
+            workflows/modelbench/t120_s0_controller_gate.py \
+            workflows/modelbench/test_t120_s0_controller_gate.py
+          git diff --check
+          pytest -q workflows/modelbench/test_t120_s0_controller_gate.py \
+            --disable-warnings --maxfail=20
+
+      - name: Commit tested implementation
+        shell: bash
+        working-directory: target
+        run: |
+          set -euo pipefail
+          git config user.name "OpenAI Implementation Agent"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            workflows/modelbench/runner.py \
+            workflows/modelbench/t120_s0_controller_gate.py \
+            workflows/modelbench/test_t120_s0_controller_gate.py
+          test "$(git diff --cached --name-only | sort)" = "$(printf '%s\n' \
+            workflows/modelbench/runner.py \
+            workflows/modelbench/t120_s0_controller_gate.py \
+            workflows/modelbench/test_t120_s0_controller_gate.py | sort)"
+          git commit -m "Implement T120 S0 controller validation gate"
+          git push origin HEAD:pi-core-consolidation
+          git push origin --delete agent/t120-s0-bootstrap-20260821-1 || true
