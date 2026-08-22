@@ -1,0 +1,66 @@
+[
+  {
+    "id": "pi-t119-same-cell-cross-determinant",
+    "dimension": "lean_research",
+    "timeout_s": 14400,
+    "max_attempts": 8,
+    "variant": "high",
+    "prompt": "Create Contribution.lean importing exactly the canonical T118 module and no other module. Prove the frozen generic half-open-cell cross-determinant inequality, then specialize it to two sampled-BBP successors by applying T118's exact normalized-excess cell equivalence twice. Preserve signed integer numerators, positive natural denominators, Euclidean remainders, strict upper endpoints, and the explicit hypotheses 0<q and a<q. The sampled theorem is conditional on both given indices lying in the same explicitly named cell. Do not assert existence, recurrence, pair counts, occupancy, density, cancellation, normality, decimal occurrence, V1, or a Pi result. Compile and write a concise REPORT.md explaining the representation-only boundary.",
+    "fixtures": [
+      {
+        "source": "workflows/modelbench/tasks/pi/current/t119-wave-a/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md"
+      },
+      {
+        "source": "TheoryLib/PiQuantitativeBlockHitting/T118T118SampledBBPNormalizedExcessCell.lean",
+        "destination": "inputs/T118.lean"
+      }
+    ],
+    "grading": {
+      "type": "agentic_lean_artifact",
+      "artifact": "Contribution.lean",
+      "theorem_names": [
+        "Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sameHalfOpenCell_crossDeterminant",
+        "Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sampledBBPSuccessors_sameCell_crossDeterminant"
+      ],
+      "expected_types": {
+        "Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sameHalfOpenCell_crossDeterminant": "∀ (q a R₁ R₂ W₁ W₂ : ℤ), 0 < q → 0 < W₁ → 0 < W₂ → a * W₁ ≤ q * R₁ → q * R₁ < (a + 1) * W₁ → a * W₂ ≤ q * R₂ → q * R₂ < (a + 1) * W₂ → q * |R₁ * W₂ - R₂ * W₁| < W₁ * W₂",
+        "Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sampledBBPSuccessors_sameCell_crossDeterminant": "∀ (N M q a : ℕ), 0 < q → a < q → DecimalFactorComplexity.MicroscopicFullEntropy.cyclicCell q (Theory.PiDigits.T106BBPForcedOrbit.sampledBBPOrbit (N + 1)) = (a : ZMod q) → DecimalFactorComplexity.MicroscopicFullEntropy.cyclicCell q (Theory.PiDigits.T106BBPForcedOrbit.sampledBBPOrbit (M + 1)) = (a : ZMod q) → (let QN : ℚ := (10 : ℚ) ^ N * Theory.PiDigits.T77SelectedPadicDefectShell.bbpPartial (7 * N); let FN : ℚ := Theory.PiDigits.T106BBPForcedOrbit.sampledBBPForcingRat N; let HN : ℕ := Nat.gcd QN.den FN.den; let dN : ℕ := QN.den / HN; let eN : ℕ := FN.den / HN; let XN : ℤ := 10 * QN.num * (eN : ℤ) + FN.num * (dN : ℤ); let kN : ℕ := Int.gcd XN ((HN * dN : ℕ) : ℤ); let WN : ℕ := HN * dN * eN / kN; let RN : ℤ := (XN / (kN : ℤ)) % (WN : ℤ); let QM : ℚ := (10 : ℚ) ^ M * Theory.PiDigits.T77SelectedPadicDefectShell.bbpPartial (7 * M); let FM : ℚ := Theory.PiDigits.T106BBPForcedOrbit.sampledBBPForcingRat M; let HM : ℕ := Nat.gcd QM.den FM.den; let dM : ℕ := QM.den / HM; let eM : ℕ := FM.den / HM; let XM : ℤ := 10 * QM.num * (eM : ℤ) + FM.num * (dM : ℤ); let kM : ℕ := Int.gcd XM ((HM * dM : ℕ) : ℤ); let WM : ℕ := HM * dM * eM / kM; let RM : ℤ := (XM / (kM : ℤ)) % (WM : ℤ); (q : ℤ) * |RN * (WM : ℤ) - RM * (WN : ℤ)| < (WN : ℤ) * (WM : ℤ))"
+      },
+      "allowed_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T118T118SampledBBPNormalizedExcessCell"
+      ],
+      "required_imports": [
+        "TheoryLib.PiQuantitativeBlockHitting.T118T118SampledBBPNormalizedExcessCell"
+      ],
+      "required_markers": [
+        "namespace Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant",
+        "sameHalfOpenCell_crossDeterminant",
+        "sampledBBPSuccessors_sameCell_crossDeterminant",
+        "sampledBBPSuccessor_cell_eq_iff_normalizedExcess_interval",
+        "let RN : ℤ :=",
+        "let RM : ℤ :=",
+        "0 < q",
+        "a < q"
+      ],
+      "forbidden_markers": [
+        "sorry",
+        "admit",
+        "native_decide",
+        "axiom ",
+        "opaque ",
+        "constant ",
+        "unsafe ",
+        "syntax ",
+        "#print",
+        "#check",
+        "#eval",
+        "SampledBBPOrbitCircleDenseArbitrarilyLate",
+        "canonicalV1",
+        "Theory.PiDigits.V1",
+        "Real.pi",
+        "Float"
+      ]
+    }
+  }
+]
