@@ -250,6 +250,67 @@ own selector schedule.  This infinite-family `proof sketch` supplies no
 distribution fact about the actual selected `E_N`, and it is not a
 single-prime route to T130 or T125.
 
+### Minimal recursively closed pair state
+
+The pre-wrap/wrap pair nevertheless has an exact closed canonical quotient.
+For `k>=5`,
+
+```text
+q_(k+1)=10q_k+144,
+q_k=16(2^(k-4)5^k-1),
+q_k=3 (mod 9).
+```
+
+Thus `v_2(q_k)=4`, `v_3(q_k)=1`, and
+
+```text
+gcd(q_k,q_(k+1))=gcd(q_k,144)=48.               (12)
+```
+
+Since `48|M_N`, a divisor coordinate `E_N mod L`, `L|M_N`, determines
+`qE_N/M_N (mod 1)` for every entry `E_N` exactly when `M_N|qL`.
+Simultaneously retaining the `q_(J_N-1)` and `q_(J_N)` phases therefore
+requires and is implied by
+
+```text
+M_N/48 | L.                                      (13)
+```
+
+Consequently the minimal such divisor-coordinate is
+
+```text
+barM_N=M_N/48,
+e_N=E_N mod barM_N.                              (14)
+```
+
+It is recursively closed.  From `M_(N+1)=a_NM_N` and
+`E_(N+1)=a_NE_N+u_(N+1)` one obtains
+
+```text
+barM_(N+1)=a_N barM_N,
+e_(N+1)=a_Ne_N+u_(N+1) (mod barM_(N+1)).         (15)
+```
+
+Changing the representative of `e_N` by `barM_N` changes the right side by
+`barM_(N+1)`, so the update is well defined.
+
+Every `q_k`, `k>=5`, is divisible by 48.  Hence (14) also retains the `+1`
+phase, and all three T130 tests have the exact form
+
+```text
+|center_1(1/4+delta_(N,ell_N+s)
+ +(q_(J_N+s)/48)e_N/barM_N)|
+ < 1/4-eps_(J_N+s),                s in {-1,0,1}. (16)
+```
+
+This `proof sketch` completes the structural divisor-quotient audit: the
+three-index phase state can be compressed by exactly the fixed factor 48 and
+still close under the actual fresh numerator recurrence.  Minimality is only
+among plain divisor residue coordinates required to work for every entry
+state; it does not exclude nonlinear or canonical-only encodings.  Since
+`barM_N` still grows like the essentially full modulus, (14)-(16) give no
+sign, distribution, or return theorem.
+
 ## Claim audit
 
 - Selector identity, summand ratios, interlacing, step law, and cofinite
