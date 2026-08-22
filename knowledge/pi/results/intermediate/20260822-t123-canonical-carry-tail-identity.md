@@ -58,3 +58,37 @@ This is only the contradiction endpoint for T123.  It does not prove that
 eventual avoidance of a centered hole forces periodicity or even a rational
 carry tail; those are the open `(AR_eta)` and `(CTR_eta)` implications.  It
 uses no Furstenberg premise and proves neither `(D)` nor V1.  V1 remains open.
+
+## Rigidity-implication collapse
+
+The proposed `(AR_eta)` and `(CTR_eta)` implications are not weaker targets
+after the identity above.  Put
+
+```text
+P_eta := there exists N0 such that |e_n|>=eta for every n>=N0.
+EP    := the canonical carry sequence is eventually periodic.
+RTR   := some canonical carry-tail weighted sum is rational.
+```
+
+The preceding argument proves `not EP`.  It also proves `not RTR`, because for
+every `N` the tail equals the irrational number `10^N*pi-a_N`.  Hence, for
+each `eta>0`, elementary propositional logic gives
+
+```text
+(P_eta -> EP)  iff  not P_eta,
+(P_eta -> RTR) iff  not P_eta.
+```
+
+Finally,
+
+```text
+for every eta>0, not P_eta
+```
+
+means exactly that for every positive `eta` and every starting index `N0` there
+is an `n>=N0` with `|e_n|<eta`.  Since `|e_n|` is nonnegative, this is
+equivalent to `liminf_n |e_n|=0`, namely `(D)`.  Thus proving either quantified
+rigidity implication would already prove the original target.  Presenting
+either as a strictly weaker intermediate reduction would be misleading; each
+is target-equivalent after the entry lemma.  This logical boundary does not
+prove `(D)` or V1.
