@@ -20,6 +20,15 @@ reference. Editing or echoing them, printing a pass marker, or claiming a
 digest confers no acceptance authority; the fixed controller owns all hidden
 fixtures, mutations, expected values, and the verdict.
 
+Keep module structure deliberately plain: imports, immutable scalar/tuple
+constants, ordinary undecorated function/class definitions, and docstrings
+only. Do not use decorators, comprehensions or calls at module scope,
+`getattr`, `hasattr`, `sys`, or computed/mutable module state. The frozen
+two-million-digit integer-string boundary exceeds Python's default `int()`
+conversion limit. Parse long canonical decimal strings manually in fixed
+chunks small enough for `int(chunk)` (for example nine digits), accumulating
+with a literal integer base; do not change interpreter-global limits.
+
 This stage must not implement BBP terms, T118 arithmetic, point provenance,
 production windows, filesystem or CAS writes, receipt minting, subprocesses,
 network access, reflection, randomness, floats, or environment-dependent
