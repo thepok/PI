@@ -2,7 +2,7 @@
 
 Date: 2026-08-22 UTC
 
-Status: `proof sketch` (T119 proposal) and `experiment` (finite q=10 diagnostic)
+Status: `machine-checked` (T119) and `experiment` (planned finite q=10 diagnostic)
 
 ## Direction decision
 
@@ -99,18 +99,19 @@ JSON accepts forbidden inputs; T117 candidate self-tests are insufficient;
 and T116 code is monolithic and fixed below the T120 production range. These
 are implementation hazards, not reusable assurances.
 
-## Planned T119: same-cell cross determinant
+## Canonical T119: same-cell cross determinant
 
-Status: `proof sketch`; an active candidate task is running, but no candidate
-is canonical or machine-checked in the verified core until integration and the
-full repository gate pass.
+Status: `machine-checked`. Six independent candidates passed the isolated gate.
+The selected Oxzen candidate was independently source-audited, integrated as
+canonical T119, registered in the central axiom audit, and passed the full
+repository verification gate.
 
 For positive integers `q,W_N,W_M`, if two normalized residues occupy the same
 half-open q-cell `a`, then elementary interval arithmetic should give
 
 `q * |R_N*W_M - R_M*W_N| < W_N*W_M`.
 
-The planned T119 module first proves this generic integer interval lemma and
+The canonical T119 module first proves this generic integer interval lemma and
 then specializes it using T118's exact endpoint-safe cell equivalence for two
 sampled successors. The specialization is deliberately conditional on both
 successors being in the same explicitly named cell. It does not prove that
@@ -119,8 +120,10 @@ such indices exist or repeat, nor does it bound how many same-cell pairs occur.
 The controller contract is retained as provenance at
 `workflows/modelbench/tasks/pi/planned/t119-same-cell-cross-determinant/TASK_CONTRACT.json`.
 Its task definition was activated only after canonical T118 passed the full
-gate. Candidate output remains untrusted; the q=10 diagnostic stays blocked
-until an accepted T119 is integrated canonically and passes the full gate.
+gate. The accepted theorem and verification evidence are recorded in
+`knowledge/pi/results/machine-checked/t119_sampled_bbp_same_cell_cross_determinant_20260822.md`.
+The q=10 diagnostic now remains blocked only on completion of its staged
+controller implementation and trust gates.
 
 ## ChatGPT Pro architecture audit
 
@@ -160,9 +163,8 @@ The Pro browser job completed normally and required no re-login.
 
 ## Claim firewall
 
-T118 and the proposed T119 are representation-only interfaces. The q=10
-calculation, if run, remains an `experiment`; T119 remains a `proof sketch`
-until canonical integration and the full gate. Nothing here proves an
+T118 and machine-checked T119 are representation-only interfaces. The q=10
+calculation, if run, remains an `experiment`. Nothing here proves an
 arbitrarily-late cell hit, recurrence,
 occupancy beyond a checked finite window, density, Weyl cancellation,
 normality, decimal-block occurrence, V1, or a resolution of the Pi problem.
