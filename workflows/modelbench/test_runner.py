@@ -208,9 +208,15 @@ def test_artifact_contract_dispatches_fixed_t117_controller_gate(
 ) -> None:
     (tmp_path / "README.md").write_text("controller", encoding="utf-8")
     called = []
+    immutable_image = "a" * 64
 
-    def fake_gate(work_dir: Path, grading: dict) -> tuple[bool, str]:
-        called.append((work_dir, grading["controller_gate"]))
+    def fake_gate(
+        work_dir: Path,
+        grading: dict,
+        *,
+        controller_image: str | None = None,
+    ) -> tuple[bool, str]:
+        called.append((work_dir, grading["controller_gate"], controller_image))
         return True, "fixed gate passed"
 
     monkeypatch.setattr(t117_controller_gate, "run_gate", fake_gate)
@@ -222,8 +228,16 @@ def test_artifact_contract_dispatches_fixed_t117_controller_gate(
         }
     }
 
-    assert runner.grade(task, "", tmp_path, tmp_path) == (True, "fixed gate passed")
-    assert called == [(tmp_path, "t117_normalized_census_v1")]
+    assert runner.grade(
+        task,
+        "",
+        tmp_path,
+        tmp_path,
+        controller_image=immutable_image,
+    ) == (True, "fixed gate passed")
+    assert called == [
+        (tmp_path, "t117_normalized_census_v1", immutable_image)
+    ]
 
 
 def test_t117_probe_requires_both_exact_routes_and_independent_shard() -> None:
@@ -302,9 +316,15 @@ def test_artifact_contract_dispatches_fixed_t117_s1_gate(
 ) -> None:
     (tmp_path / "schema_v1.py").write_text("schema", encoding="utf-8")
     called = []
+    immutable_image = "b" * 64
 
-    def fake_gate(work_dir: Path, grading: dict) -> tuple[bool, str]:
-        called.append((work_dir, grading["controller_gate"]))
+    def fake_gate(
+        work_dir: Path,
+        grading: dict,
+        *,
+        controller_image: str | None = None,
+    ) -> tuple[bool, str]:
+        called.append((work_dir, grading["controller_gate"], controller_image))
         return True, "S1 fixed gate passed"
 
     monkeypatch.setattr(t117_s1_controller_gate, "run_gate", fake_gate)
@@ -316,8 +336,44 @@ def test_artifact_contract_dispatches_fixed_t117_s1_gate(
         }
     }
 
-    assert runner.grade(task, "", tmp_path, tmp_path) == (True, "S1 fixed gate passed")
-    assert called == [(tmp_path, "t117_s1_schema_v1")]
+    assert runner.grade(
+        task,
+        "",
+        tmp_path,
+        tmp_path,
+        controller_image=immutable_image,
+    ) == (True, "S1 fixed gate passed")
+    assert called == [(tmp_path, "t117_s1_schema_v1", immutable_image)]
+
+
+def test_t117_s1_isolated_command_uses_only_injected_immutable_image(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    artifact = tmp_path / "schema_v1.py"
+    artifact.write_text("def placeholder(): pass\n", encoding="utf-8")
+    immutable_image = "c" * 64
+    observed: list[list[str]] = []
+
+    def fake_run(
+        command: list[str], **_kwargs: object
+    ) -> subprocess.CompletedProcess[str]:
+        observed.append(command)
+        return subprocess.CompletedProcess(
+            command,
+            0,
+            stdout="T117_S1_CONTROLLER_GATE_PASSED\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(t117_s1_controller_gate.subprocess, "run", fake_run)
+
+    t117_s1_controller_gate._run_isolated(
+        artifact, timeout_s=30, image=immutable_image
+    )
+
+    assert len(observed) == 1
+    assert immutable_image in observed[0]
+    assert t117_s1_controller_gate.IMAGE not in observed[0]
 
 
 def test_t117_s1_gate_runs_controller_mutations_in_networkless_pod(
@@ -955,6 +1011,29 @@ def test_nonlean_regrade_binding_needs_no_lean_provenance() -> None:
     assert regrade.lean_regrade_binding(
         {"grading": {"type": "exact_choice"}}, {}
     ) == (None, None)
+
+
+def test_fixed_controller_regrade_requires_and_accepts_immutable_image() -> None:
+    task = {
+        "grading": {
+            "type": "artifact_contract",
+            "controller_gate": "fixed_gate_v1",
+        }
+    }
+    with pytest.raises(ValueError, match="fixed-controller"):
+        regrade.controller_regrade_image(task, {})
+    assert regrade.controller_regrade_image(
+        task, {"controller_image_sha256": "e" * 64}
+    ) == "e" * 64
+    assert regrade.controller_regrade_image(
+        task, {"sandbox_image_sha256": "f" * 64}
+    ) == "f" * 64
+
+
+def test_noncontroller_regrade_needs_no_controller_image() -> None:
+    assert regrade.controller_regrade_image(
+        {"grading": {"type": "artifact_contract"}}, {}
+    ) is None
 
 
 def test_gate_infrastructure_classifier_includes_source_and_runtime() -> None:
@@ -1694,6 +1773,54 @@ def test_run_pair_declares_support_files_for_sandbox_copyback(
 
     assert entry["passed"] is True
     assert observed == ("EXPERIMENT.md", "REPORT.md", "replay.py")
+
+
+def test_run_pair_records_and_propagates_fixed_controller_image(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(runner, "PROVIDER_SLOT_LOCK_ROOT", tmp_path / "slots")
+    immutable_image = "d" * 64
+    observed: list[str] = []
+
+    def fake_run_model(
+        _model_key: str, _prompt: str, bench_dir: Path, **_kwargs: object
+    ) -> dict[str, object]:
+        (bench_dir / "EXPERIMENT.md").write_text("result\n", encoding="utf-8")
+        return {
+            "response": "done",
+            "trace": "",
+            "error": "",
+            "duration_s": 0.0,
+        }
+
+    def fake_grade(*_args: object, **kwargs: object) -> tuple[bool, str]:
+        observed.append(str(kwargs["controller_image"]))
+        return True, "fixed controller passed"
+
+    monkeypatch.setattr(runner, "run_model", fake_run_model)
+    monkeypatch.setattr(runner, "grade", fake_grade)
+    task = {
+        "id": "fixed-controller-provenance",
+        "prompt": "write artifact",
+        "dimension": "exact_experiment",
+        "max_attempts": 1,
+        "grading": {
+            "type": "artifact_contract",
+            "artifact": "EXPERIMENT.md",
+            "controller_gate": "fixed_gate_v1",
+        },
+    }
+
+    entry = runner.run_pair(
+        "ox",
+        task,
+        tmp_path / "out",
+        tmp_path / "bench",
+        controller_image=immutable_image,
+    )
+
+    assert observed == [immutable_image]
+    assert entry["controller_image_sha256"] == immutable_image
 
 
 def test_resource_exhausted_gate_does_not_trigger_artifact_repair(

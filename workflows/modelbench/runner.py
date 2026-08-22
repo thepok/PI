@@ -1372,6 +1372,7 @@ def grade(
     bench_dir: Path,
     *,
     lean_gate_image: str = PODMAN_IMAGE,
+    controller_image: str = PODMAN_IMAGE,
     expected_trusted_source_sha256: str | None = None,
 ) -> tuple[bool, str]:
     kind = task["grading"]["type"]
@@ -1601,11 +1602,19 @@ def grade(
             if controller_gate == "t117_normalized_census_v1":
                 from workflows.modelbench.t117_controller_gate import run_gate
 
-                return run_gate(work_dir, task["grading"])
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                )
             if controller_gate == "t117_s1_schema_v1":
                 from workflows.modelbench.t117_s1_controller_gate import run_gate
 
-                return run_gate(work_dir, task["grading"])
+                return run_gate(
+                    work_dir,
+                    task["grading"],
+                    controller_image=controller_image,
+                )
             return False, f"unknown controller gate {controller_gate!r}"
         return True, "artifact contract satisfied; quality review still required"
     return False, f"unknown grading type {kind}"
@@ -1768,6 +1777,7 @@ def run_pair(
     trusted_source_sha256: str | None = None,
     sandbox_image_sha256: str | None = None,
     lean_gate_image: str = PODMAN_IMAGE,
+    controller_image: str = PODMAN_IMAGE,
 ) -> dict[str, Any]:
     run_id = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + f"-{time.time_ns()}"
     log(f"RUN  {model_key} x {task['id']}")
@@ -1897,6 +1907,7 @@ def run_pair(
                 work_dir,
                 execution_dir,
                 lean_gate_image=lean_gate_image,
+                controller_image=controller_image,
                 expected_trusted_source_sha256=trusted_source_sha256,
             )
             final_artifact_grade = (passed, reason)
@@ -1978,6 +1989,7 @@ def run_pair(
             work_dir,
             execution_dir,
             lean_gate_image=lean_gate_image,
+            controller_image=controller_image,
             expected_trusted_source_sha256=trusted_source_sha256,
         )
     else:
@@ -2000,6 +2012,12 @@ def run_pair(
         "lean_gate_image_sha256": (
             lean_gate_image
             if grading_type in {"agentic_lean_artifact", "lean_gate"}
+            else None
+        ),
+        "controller_image_sha256": (
+            controller_image
+            if grading_type == "artifact_contract"
+            and task["grading"].get("controller_gate") is not None
             else None
         ),
         "artifact_sha256": file_sha256(artifact_path) if artifact_path else None,
@@ -2211,7 +2229,13 @@ def main() -> None:
         in {"agentic_lean_artifact", "lean_gate"}
         for task in tasks
     )
+    needs_controller_image = any(
+        str(task["grading"]["type"]) == "artifact_contract"
+        and task["grading"].get("controller_gate") is not None
+        for task in tasks
+    )
     lean_gate_image = PODMAN_IMAGE
+    controller_image = PODMAN_IMAGE
     if args.sandbox:
         pinned_image_sha256 = pin_sandbox_image(
             args.sandbox_image,
@@ -2219,6 +2243,7 @@ def main() -> None:
             require_lean_snapshot=needs_lean_snapshot,
         )
         lean_gate_image = pinned_image_sha256
+        controller_image = pinned_image_sha256
         sandbox_settings = ModelSandboxSettings(
             # Pin execution to the same immutable image whose source snapshot
             # was checked above; never race a mutable tag refresh.
@@ -2232,6 +2257,13 @@ def main() -> None:
             PODMAN_IMAGE,
             expected_prebuilt_sha256,
             require_lean_snapshot=True,
+        )
+        controller_image = lean_gate_image
+    elif needs_controller_image:
+        controller_image = pin_sandbox_image(
+            PODMAN_IMAGE,
+            expected_prebuilt_sha256,
+            require_lean_snapshot=False,
         )
 
     def handle_shutdown(signum: int, _frame: object) -> None:
@@ -2265,6 +2297,7 @@ def main() -> None:
                 trusted_source_sha256=pinned_source_sha256,
                 sandbox_image_sha256=pinned_image_sha256,
                 lean_gate_image=lean_gate_image,
+                controller_image=controller_image,
             ): (m, t["id"])
             for m, t in pairs
         }
