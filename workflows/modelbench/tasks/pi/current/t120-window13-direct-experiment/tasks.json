@@ -98,5 +98,24 @@
       "required_markers":["65536","3512","range(1, 256)","delta","10 * abs(delta)","wi * wj","delta == 0","256"],
       "forbidden_markers":["ci < cj","ci > cj","max(ri * wj","float(","Decimal(","requests","urllib","socket","subprocess","Fraction" ]
     }
+  },
+  {
+    "id": "pi-t120-post-window13-mathematical-refinement",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do hard mathematics on the PI problem; do not build code, gates, schemas, workflows, or provenance infrastructure. Read AGENTS.md, the canonical T118/T119 sources, and the window-13 direction memo. The exact actual window-13 experiment has now been independently reproduced by combined and global-LCM routes: cell counts [23,31,31,22,23,27,37,19,24,19], J=6860, 9J=61740<65536, C_sum=3302, A_sum=6319, Z_sum=0. Of A_sum, 3017 are additional adjacent-cell near pairs. Thus all ten cells occur in this window, but the frozen determinant-only target A_sum<=3512 fails badly. Write MEMO.md, starting with Status: `proof sketch`. Seek a cutoff-independent BBP-specific predicate P(N,M) such that sameCell implies nearDet and P, whose pair count could plausibly be <=3512 for every 256-block, or give a precise negative argument showing why a broad natural family of predicates cannot work. Use the exact T118 normalized residues and nonautonomous forcing; do not replace them by generic rationals or random-orbit heuristics. Explore at least three genuinely different mathematical mechanisms, falsify weak ideas, select one best first lemma with explicit quantifiers, and explain exactly how it would advance or kill the route. No claim beyond proof sketch.",
+    "fixtures": [
+      {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T118T118SampledBBPNormalizedExcessCell.lean","destination":"inputs/T118.lean"},
+      {"source":"TheoryLib/PiQuantitativeBlockHitting/T119T119SampledBBPSameCellCrossDeterminant.lean","destination":"inputs/T119.lean"},
+      {"source":"knowledge/pi/results/intermediate/t120_window13_research_direction_20260822.md","destination":"inputs/DIRECTION.md"}
+    ],
+    "grading": {
+      "type":"artifact_contract","artifact":"MEMO.md","min_chars":3000,
+      "required_markers":["Status: `proof sketch`","T118","T119","6319","3512","first lemma"],
+      "forbidden_markers":["verified resolution","candidate resolution","normality proved","V1 proved","controller gate","schema implementation"]
+    }
   }
 ]
