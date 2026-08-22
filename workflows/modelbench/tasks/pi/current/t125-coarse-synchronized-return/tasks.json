@@ -1,0 +1,40 @@
+[
+  {
+    "id": "pi-t125-coarse-synchronized-return",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Attack one canonical restricted-denominator question. First create MEMO.md beginning Status: `proof sketch`; then read INPUT.md and improve the memo in place. Prove the exact BBP shadowing reduction, but do not stop there. Prove that ||(10^N-16)pi||<1/4 for infinitely many N through an unbounded-depth argument using the selected full numerator S_N, or establish an exact no-go for one natural full-S_N mechanism with non-tautological hypotheses. State exact quantifiers, one named gap, and an implication diagram. Reject every route excluded by INPUT. No workflow design, Lean scaffolding, literature survey, or finite experiment as proof. V1 remains open.",
+    "fixtures": [
+      {
+        "source": "workflows/modelbench/tasks/pi/current/t125-coarse-synchronized-return/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md"
+      },
+      {
+        "source": "workflows/modelbench/tasks/pi/current/t125-coarse-synchronized-return/INPUT.md",
+        "destination": "INPUT.md"
+      }
+    ],
+    "grading": {
+      "type": "artifact_contract",
+      "artifact": "MEMO.md",
+      "min_chars": 2500,
+      "required_markers": [
+        "Status: `proof sketch`",
+        "1/4",
+        "S_N",
+        "infinitely many",
+        "V1 remains open"
+      ],
+      "forbidden_markers": [
+        "verified resolution",
+        "candidate resolution",
+        "V1 proved",
+        "normality proved",
+        "workflow design",
+        "schema implementation"
+      ]
+    }
+  }
+]
