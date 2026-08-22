@@ -1,0 +1,67 @@
+[
+  {
+    "id": "pi-t126-p1-prefix-sensitive-resultant",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "First create MEMO.md beginning Status: `proof sketch`, then read read-only INPUT.md and complete it. The two-endpoint S-eliminating determinant module is already closed; do not rederive it. Construct one independently motivated primitive integer auxiliary that retains S_N essentially while coupling actual U, K, both endpoint R values, and at least one intermediate fresh numerator or quotient. GO only if permanent outer survival forces this gauge-sensitive auxiliary to be nonzero and strictly smaller than a proved full-composite divisor on an explicit unbounded block family, yielding the eps-margin hit. STOP only with a normal-form theorem for a natural stated retained-prefix linear/bilinear class, proving every member collapses to the closed determinant or has an uncontrolled outer-scale term. Otherwise Outcome: OPEN. Prove that the candidate changes under every relevant nontrivial same-fiber gauge. V1 remains open.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2500, "required_markers": ["Status: `proof sketch`", "Outcome:", "S_N", "same-fiber", "V1 remains open"], "forbidden_markers": ["verified resolution", "candidate resolution", "V1 proved", "normality proved"]}
+  },
+  {
+    "id": "pi-t126-p2-many-length-collision",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "First create MEMO.md beginning Status: `proof sketch`, then read read-only INPUT.md and complete it. From one canonical N study primitive defects Delta_(N,L) for 1<=L<=H under outer survival through N+H. GO only with a quantitative unbounded H=H(N) and a full-modulus collision whose nonzero difference has a strict sub-divisor bound forcing the eps-margin hit. STOP only with an exact canonical injection or spacing theorem proving available full-composite classes always dominate H and closing this multi-length collision mechanism. Every class must retain actual S,U,w,K data; finite tables are refutation-grade only. Otherwise Outcome: OPEN. V1 remains open.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2500, "required_markers": ["Status: `proof sketch`", "Outcome:", "collision", "U_(N,L)", "V1 remains open"], "forbidden_markers": ["verified resolution", "candidate resolution", "V1 proved", "normality proved"]}
+  },
+  {
+    "id": "pi-t126-p3-concatenated-block-defect",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "First create MEMO.md beginning Status: `proof sketch`, then read read-only INPUT.md and complete it. For L,J>=1 derive and L=1-check the exact concatenation laws for U, K, and the primitive Delta. Seek a sign, contraction, or monotonicity law using both actual fresh blocks and all three endpoint S,w,R values that cannot persist when all three endpoints are outer. GO requires a quantified finite-block forcing theorem with eps margin. STOP requires a proved natural bounded-coefficient bilinear class and a canonical-sensitive counteridentity showing every member has an uncontrolled outer-scale cross term. Cocycle iteration alone is OPEN. Give same-fiber sensitivity. V1 remains open.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2500, "required_markers": ["Status: `proof sketch`", "Outcome:", "concaten", "same-fiber", "V1 remains open"], "forbidden_markers": ["verified resolution", "candidate resolution", "V1 proved", "normality proved"]}
+  },
+  {
+    "id": "pi-t126-p4-actual-offset-lattice",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "First create MEMO.md beginning Status: `proof sketch`, then read read-only INPUT.md and complete it. Put F=C*B*S+q*U and A=10^L*B, so R*=center_(M*)(A*R+F). Use the entire quotient lattice from (A,M*), not a prime or support count. GO only if on an explicit unbounded canonical block family the exact selected F lies in a proved lattice gap that sends every compatible outer R centrally, or excludes the actual outer endpoint, with strict eps margin. STOP only with an exact full-composite covering/separator preserving the block recurrence while varying the permitted numerator fiber and closing offset-lattice information alone. Otherwise Outcome: OPEN. V1 remains open.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2500, "required_markers": ["Status: `proof sketch`", "Outcome:", "lattice", "same-fiber", "V1 remains open"], "forbidden_markers": ["verified resolution", "candidate resolution", "V1 proved", "normality proved"]}
+  },
+  {
+    "id": "pi-t126-p5-block-sensitivity-certificate",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "First create MEMO.md beginning Status: `proof sketch`, then read read-only INPUT.md and complete it. Derive the exact endpoint and all-intermediate residue-preservation lattices for the local same-fiber replacement propagated through the fixed actual U. Seek an integer certificate built jointly from S,w,U,K,R,R* that changes under every nontrivial coarse-fiber-preserving replacement and is forced by outer survival into a strict interval incompatible with its canonical congruence on an unbounded block family. GO requires that sensitivity-plus-contradiction theorem with eps margin. STOP requires a proved maximal replacement lattice annihilating every certificate in a naturally defined bounded-degree bilinear endpoint/block class, without repeating T122's phase-only survivor. Otherwise Outcome: OPEN. V1 remains open.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/t126-variable-block/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2500, "required_markers": ["Status: `proof sketch`", "Outcome:", "certificate", "same-fiber", "V1 remains open"], "forbidden_markers": ["verified resolution", "candidate resolution", "V1 proved", "normality proved"]}
+  }
+]
