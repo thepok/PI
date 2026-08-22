@@ -1731,9 +1731,11 @@ def prepare_fixtures(task: dict[str, Any], execution_dir: Path) -> None:
     for fixture in task.get("fixtures", []):
         if isinstance(fixture, str):
             source_name = destination_name = fixture
+            expected_sha256 = None
         else:
             source_name = str(fixture["source"])
             destination_name = str(fixture.get("destination", source_name))
+            expected_sha256 = fixture.get("sha256")
         source = (root / source_name).resolve()
         destination = (execution_root / destination_name).resolve()
         if source != root and root not in source.parents:
@@ -1744,8 +1746,21 @@ def prepare_fixtures(task: dict[str, Any], execution_dir: Path) -> None:
             )
         if not source.is_file():
             raise FileNotFoundError(f"fixture is not a file: {source_name}")
+        if expected_sha256 is not None:
+            if (
+                not isinstance(expected_sha256, str)
+                or re.fullmatch(r"[0-9a-f]{64}", expected_sha256) is None
+            ):
+                raise ValueError(f"invalid fixture SHA-256 binding: {source_name}")
+            if hashlib.sha256(source.read_bytes()).hexdigest() != expected_sha256:
+                raise ValueError(f"fixture SHA-256 mismatch: {source_name}")
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
+        if (
+            expected_sha256 is not None
+            and hashlib.sha256(destination.read_bytes()).hexdigest() != expected_sha256
+        ):
+            raise ValueError(f"copied fixture SHA-256 mismatch: {destination_name}")
 
     grading = task.get("grading", {})
     if (

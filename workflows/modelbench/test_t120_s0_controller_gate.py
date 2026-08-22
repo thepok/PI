@@ -83,6 +83,72 @@ def test_t120_s0_frozen_hashes_bundle_and_contract_semantics() -> None:
     assert gate.GATE_ID == "t120_s0_schema_v1"
 
 
+def test_t120_s0_current_task_loads_and_binds_exact_planned_inputs(
+    tmp_path: Path,
+) -> None:
+    from workflows.modelbench import runner
+
+    task_dir = (
+        gate.ROOT
+        / "workflows/modelbench/tasks/pi/current/t120-s0-controller-gate"
+    )
+    tasks = runner.load_tasks(task_dir, None)
+    assert len(tasks) == 1
+    task = tasks[0]
+    assert {
+        "id": task["id"],
+        "dimension": task["dimension"],
+        "timeout_s": task["timeout_s"],
+        "max_attempts": task["max_attempts"],
+        "variant": task["variant"],
+    } == {
+        "id": "pi-t120-s0-controller-schema",
+        "dimension": "exact_experiment",
+        "timeout_s": 1800,
+        "max_attempts": 6,
+        "variant": "high",
+    }
+    assert task["grading"] == {
+        "type": "artifact_contract",
+        "controller_gate": gate.GATE_ID,
+        "artifact": gate.SOURCE_FILE,
+        "required_files": [gate.REPORT_FILE],
+    }
+
+    expected = {
+        "inputs/parent/CONTRACT.json": "5e6ac96f7c3c8a003ffbfbf1b65e582b5583700a68c597968d903e70075ce327",
+        "inputs/parent/INTERFACE.md": "cd1eb2d91c02e866c9f0bf27e2aadeaa4f9c8e1774ccc4d6dfd1a4114f7d8fde",
+        "inputs/parent/TEST_PLAN.md": "ab7f0e1261d472a82789731b9db34ced32afea74f36d188e5b06308357f344ea",
+        "inputs/s0/TASK_CONTRACT.json": "7e1250ab42de1430c674ef6fb98680ecc5b3d04982382fe3413d40e21c3a7cd5",
+        "inputs/s0/PLANNED_AGENT_GUIDANCE.md": "02017a5545c0b780e1516b163a09280a11fa8b8883b18313378cf3326c7f921b",
+        "inputs/s0/CONTROLLER_TESTS.json": "addb579617d7d7dcbf7c5bf08da5fefacb5aa397260ab57151280115ede28106",
+    }
+    fixture_rows = task["fixtures"]
+    assert len(fixture_rows) == 7
+    assert fixture_rows[0] == {
+        "source": "workflows/modelbench/tasks/pi/current/t120-s0-controller-gate/AGENT_GUIDANCE.md",
+        "destination": "AGENTS.md",
+        "sha256": "a74fb4c7a038c7445465426bcfdaefce5af40d6c6bf8a07571125bf39b66c905",
+    }
+    assert {row["destination"] for row in fixture_rows[1:]} == set(expected)
+    for row in fixture_rows[1:]:
+        source = gate.ROOT / row["source"]
+        assert row["sha256"] == expected[row["destination"]]
+        assert sha256(source.read_bytes()).hexdigest() == row["sha256"]
+
+    runner.prepare_fixtures(task, tmp_path)
+    assert (tmp_path / "AGENTS.md").read_bytes() == (
+        task_dir / "AGENT_GUIDANCE.md"
+    ).read_bytes()
+    for destination, digest in expected.items():
+        assert sha256((tmp_path / destination).read_bytes()).hexdigest() == digest
+
+    drifted_task = copy.deepcopy(task)
+    drifted_task["fixtures"][1]["sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="fixture SHA-256 mismatch"):
+        runner.prepare_fixtures(drifted_task, tmp_path / "drifted")
+
+
 
 def test_t120_s0_task_contract_semantic_drift_fails_before_candidate(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
