@@ -86,7 +86,7 @@
     "timeout_s": 3600,
     "max_attempts": 3,
     "variant": "high",
-    "prompt": "Create a small exact independent statistic tool compute_stats.py plus REPORT.md for the T120 window-13 experiment. It will later receive one path argument naming a JSON point artifact with exactly 256 ordered records n=3840..4095 and keys n,r,w,cell. It must fail closed on schema/range/arithmetic violations, recompute cell=(10*r)//w, then compute ten cell counts, J=sum counts^2, all lag C_l/A_l/Z_l for l=1..255, A_sum, Z_sum, the raw maximum same-cell determinant ratio by integer cross multiplication with lexicographically least witness, the identity J=256+2*sum C_l, and the frozen branch precedence: invalid; else 9*J>=65536; else Z_sum>0; else A_sum<=3512; else A_sum>3512. Emit canonical JSON to stdout. No floats, no expected answer, no BBP arithmetic, no workflow or filesystem writes. REPORT.md must say Status: `experiment` and list nonclaims.",
+    "prompt": "Create a small exact independent statistic tool compute_stats.py plus REPORT.md for the T120 window-13 experiment. It will later receive one path argument naming a JSON point artifact with exactly 256 ordered records n=3840..4095 and keys n,r,w,cell. It must fail closed on schema/range/arithmetic violations and recompute cell=(10*r)//w. For every i<j define delta=r_i*w_j-r_j*w_i. At lag l=j-i, C_l counts cell_i==cell_j, A_l counts 10*abs(delta)<w_i*w_j regardless of cell order, and Z_l counts delta==0. Enforce C_l<=A_l and Z_l<=A_l. The raw maximum over distinct same-cell pairs has num=10*abs(delta), den=w_i*w_j, compares num/den by integer cross multiplication, and keeps the lexicographically least (n_i,n_j) on ties; never replace this by a ratio of r_i/w_i and r_j/w_j. Compute ten cell counts, J=sum counts^2, all 255 C/A/Z rows, A_sum, Z_sum, J=256+2*sum C_l, and frozen branch precedence: invalid; else 9*J>=65536; else Z_sum>0; else A_sum<=3512; else A_sum>3512. Emit canonical JSON to stdout. No floats, no expected answer, no BBP arithmetic, no workflow or filesystem writes. REPORT.md must say Status: `experiment` and list nonclaims.",
     "fixtures": [
       {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
       {"source":"workflows/modelbench/tasks/pi/planned/t120-q10-exact-diagnostic/CONTRACT.json","destination":"inputs/CONTRACT.json"},
@@ -95,8 +95,8 @@
     "grading": {
       "type":"artifact_contract","artifact":"compute_stats.py","min_chars":1800,
       "required_files":["REPORT.md"],
-      "required_markers":["65536","3512","range(1, 256)","cross","lex","256"],
-      "forbidden_markers":["float(","Decimal(","requests","urllib","socket","subprocess","Fraction" ]
+      "required_markers":["65536","3512","range(1, 256)","delta","10 * abs(delta)","wi * wj","delta == 0","256"],
+      "forbidden_markers":["ci < cj","ci > cj","max(ri * wj","float(","Decimal(","requests","urllib","socket","subprocess","Fraction" ]
     }
   }
 ]
