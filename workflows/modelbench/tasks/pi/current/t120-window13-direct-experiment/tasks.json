@@ -5,7 +5,7 @@
     "timeout_s": 14400,
     "max_attempts": 3,
     "variant": "high",
-    "prompt": "Compute the complete actual T120 window-13 point set by the combined-term route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Reconstruct the inclusive BBP partial from k=0 using only the exact combined term (120*k^2+151*k+47)/((2*k+1)*(4*k+3)*(8*k+1)*(8*k+5)*16^k). For each N=3840..4095 compute the reduced exact rational S_N=10^(N+1)*P_(7*(N+1)), then r=S_N.num mod S_N.den, w=S_N.den, cell=(10*r)//w. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment, route is combined, and points are ordered. Use Python standard library exact arithmetic, no literals copied from another route, no expected answers, no floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact script and output SHA-256, and nonclaims.",
+    "prompt": "Compute the complete actual T120 window-13 point set by the combined-term route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Reconstruct the inclusive BBP partial from k=0 using only the exact combined term (120*k^2+151*k+47)/((2*k+1)*(4*k+3)*(8*k+1)*(8*k+5)*16^k). For each N=3840..4095 compute the reduced exact rational S_N=10^(N+1)*P_(7*(N+1)), then r=S_N.num mod S_N.den, w=S_N.den, cell=(10*r)//w. The scale tracker at the first record must therefore initialize to 10**(START_N+1), never 10**START_N. Exercise the same optimized production function at small N against a direct Fraction reconstruction so an off-by-one scale cannot hide behind a separate self-test path. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment, route is combined, and points are ordered. Use Python standard library exact arithmetic, no literals copied from another route, no expected answers, no floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact script and output SHA-256, and nonclaims.",
     "fixtures": [
       {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
       {"source":"TheoryLib/PiQuantitativeBlockHitting/T77T77SelectedPadicDefectShell.lean","destination":"inputs/T77.lean"},
@@ -15,8 +15,8 @@
     "grading": {
       "type":"artifact_contract","artifact":"compute_window.py","min_chars":1200,
       "required_files":["window_points.json","REPORT.md"],
-      "required_markers":["120 * k * k","151 * k","47","3840","4096","window_points.json"],
-      "forbidden_markers":["float(","Decimal(","requests","urllib","socket","subprocess"],
+      "required_markers":["120 * k * k","151 * k","47","START_N + 1","3840","4096","window_points.json"],
+      "forbidden_markers":["10 ** START_N","float(","Decimal(","requests","urllib","socket","subprocess"],
       "required_json_values":[
         {"file":"window_points.json","path":["status"],"equals":"experiment"},
         {"file":"window_points.json","path":["route"],"equals":"combined"},
