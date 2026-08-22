@@ -26,6 +26,10 @@ spending tokens on the same dead ends.
   obstruct independent literal BAD arcs, and records an exact 64-base
   experiment in which the last-three-growth cylinder excludes both canonical
   and comparator entries, providing no transversality diagnostic.
+- `20260822-t137-tail-origin-gauge-q-balance.md`: derives the exact tail-origin
+  Q-balance/leakage criterion and closes nonnegative same-jump signed-variation
+  arguments on an unbounded four-jump family, within a carefully limited
+  finite-window affine/conic proof class; mixed-jump balance remains open.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.
