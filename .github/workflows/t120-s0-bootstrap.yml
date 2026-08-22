@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - agent/t120-s0-bootstrap-20260821-1
+  pull_request:
+    branches:
+      - pi-core-consolidation
 
 permissions:
   contents: write
