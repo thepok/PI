@@ -83,6 +83,38 @@ Their half-open centered representatives have the following exact geometry.
   an equally spaced `m`-grid; the second follows because an interval of length
   `M'/2` cannot contain the whole grid when `m>=3`.
 
+## Arbitrary block-length corollary
+
+The classification is not special to one successor.  Fix `L>=1` and write
+
+```text
+C_L=16*(10^L-1),
+q_end=10^L*q+C_L,
+M_end=B*M,
+S_end=B*S+U,
+```
+
+where the actual block numerator `U` is held fixed.  Propagating the same
+depth-`N` fiber replacement gives
+
+```text
+S_end(t)=S_end+t*M_end/d,
+R_end(t)=center_(M_end)(R_end+t*q_end*M_end/d).
+```
+
+Since `q_end` is congruent to `C_L` modulo `d`, the endpoint orbit has exactly
+
+```text
+m_L=d/gcd(d,q_end)=d/gcd(d,C_L)
+```
+
+equally spaced points modulo `M_end`.  Positivity again removes no class,
+because every class of `t mod m_L` has arbitrarily large positive
+representatives.  The same rigid (`m_L=1`), antipodal (`m_L=2`), and
+inner-and-outer (`m_L>=3`) geometry therefore holds at every fixed block
+length.  This extension remains noncanonical: it classifies replacements of
+the base numerator while the actual fresh block `U` is frozen.
+
 ## Scope
 
 This is a same-fiber sensitivity statement only.  Except at the original
