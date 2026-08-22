@@ -1476,11 +1476,15 @@ def grade(
                 )
         controller_gate = task["grading"].get("controller_gate")
         if controller_gate is not None:
-            if controller_gate != "t117_normalized_census_v1":
-                return False, f"unknown controller gate {controller_gate!r}"
-            from workflows.modelbench.t117_controller_gate import run_gate
+            if controller_gate == "t117_normalized_census_v1":
+                from workflows.modelbench.t117_controller_gate import run_gate
 
-            return run_gate(work_dir, task["grading"])
+                return run_gate(work_dir, task["grading"])
+            if controller_gate == "t117_s1_schema_v1":
+                from workflows.modelbench.t117_s1_controller_gate import run_gate
+
+                return run_gate(work_dir, task["grading"])
+            return False, f"unknown controller gate {controller_gate!r}"
         return True, "artifact contract satisfied; quality review still required"
     return False, f"unknown grading type {kind}"
 
