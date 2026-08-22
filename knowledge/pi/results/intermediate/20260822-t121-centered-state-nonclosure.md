@@ -38,6 +38,33 @@ The identity was independently reviewed algebraically.  A deterministic
 exhaustive replay over 101528 small signed rational updates also matched both
 sides, but that replay is only `experiment` evidence.
 
+## Adjacent small returns are excluded
+
+The previously audited scalar identity (40av), with `R_N=y_N`, gives
+
+```text
+C_N=y_(N+1)-10*y_N,
+0 < C_N-144*pi < (5/8)^(N+1)/(N+1)^2       (N>=2).
+```
+
+Consequently, if both `||y_N||` and `||y_(N+1)||` are at most `eta`, then
+
+```text
+||144*pi|| <= 11*eta + (5/8)^(N+1)/(N+1)^2.
+```
+
+The elementary decimal enclosure `3.14159 < pi < 3.14160` implies
+`||144*pi|| > 0.38896`.  At `eta=0.0349`, the displayed upper bound is already
+strictly below `0.38896` for every `N>=4`.  Hence
+
+```text
+max(||y_N||,||y_(N+1)||) > 0.0349          (N>=4).
+```
+
+Thus any sufficiently small returns witnessing the desired liminf must be
+isolated rather than adjacent.  This is only a spacing constraint: it neither
+produces nor rules out an infinite sparse sequence of returns.
+
 ## Pair-state nonclosure
 
 The compressed pair `(Delta_N,Q_N)` determines only
