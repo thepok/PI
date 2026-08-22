@@ -253,6 +253,57 @@ Thus at each fixed `N>=6`, at most one integer block length lies between the
 certified no-wrap and certified-wrap ranges.  This is a two-sided threshold
 for this construction only, not a digit-return theorem.
 
+### Audited five-term refinement
+
+The lower envelope can be sharpened without changing that qualitative
+conclusion.  Write
+
+```text
+t_k=16^(-k)*nu_k/D_k,
+r_k=t_(k+1)/t_k=nu_(k+1)D_k/[16 nu_k D_(k+1)].
+```
+
+The numerator of `r_(k+1)-r_k`, after shifting to a nonnegative variable,
+has strictly positive coefficients, so `r_k` is increasing.  Consequently
+the first five terms after `N` contribute at least the exact factor
+
+```text
+G_5=1+r_7+r_7*r_8+r_7*r_8*r_9+r_7*r_8*r_9*r_10
+   =5562312111377435878375/5292449157196155322368.
+```
+
+Any threshold at the resulting scale already forces `L>=5`: for `L<=4`,
+
+```text
+X/(N+1)^2 <= 10^4*(5/8)^6/49
+           = 9765625/802816 < 13.
+```
+
+Hence `m=N+L>=11`, permitting the sharper factor
+`q_m/10^m >= 6249999999/6250000000`.  Applying both improvements to the
+first-omitted-term constant gives the audited five-term wrap threshold
+
+```text
+K_5=11668655238641425170432000000000
+    /648936412890204359731371196937
+   =17.9811997090... .
+```
+
+Therefore
+
+```text
+X >= K_5(N+1)^2  => delta_(N,L)>=1/4.
+```
+
+The real-envelope gap narrows to
+
+```text
+log_10(K_5/6)=0.4766674142... < 1,
+```
+
+so the possible single undecided integer block length remains.  This
+refinement has no canonical consequence.
+
 ## Local-separator scope
 
 Fix `N,L` satisfying (H), and consider all integral windows with the actual
