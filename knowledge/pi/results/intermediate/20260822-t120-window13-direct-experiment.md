@@ -82,8 +82,16 @@ adjacent-cell cross-products directly. It decomposed
 `A_sum = C_sum + adjacent_near = 3302 + 3017 = 6319`.
 
 All three found `Z_sum=0` and the same frozen branch
-`A_sum_gt_3512`. A slower all-pairs replay, including the non-decisive maximum
-ratio statistic, was still running when this compact result was recorded.
+`A_sum_gt_3512`. A slower exact all-pairs replay subsequently completed all
+255 lags and independently returned the same `J=6860`, `C_sum=3302`,
+`A_sum=6319`, `Z_sum=0`, cell counts, and branch. Its compact output SHA-256 is
+`ea3c643afc445ca96c468c1d16325776251a67e3ed717da67eee99073acb1e26`.
+The exact loaded script was recovered from the runner's immutable first-call
+patch after detecting a three-second pathname-overwrite race; its SHA-256 was
+`f991ebb10ace3413069c7a700848e133c63da6331785230496d9bbc1df4380b3`.
+A cleaned equivalent replay is committed at
+[`replay_full_stats.py`](../../../../workflows/experiments/t120_window13/replay_full_stats.py).
+The maximum-ratio field is non-decisive and is not used for the branch.
 
 ## Rejected artifacts and workflow correction
 
