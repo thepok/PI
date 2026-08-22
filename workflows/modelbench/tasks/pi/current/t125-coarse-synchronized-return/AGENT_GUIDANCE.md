@@ -9,5 +9,11 @@ BBP shadowing reduction is required bookkeeping, not acceptance.  A useful
 result must use the selected full numerators across unboundedly many depths or
 give an exact no-go for a natural, independently stated mechanism.
 
+The preferred intermediate is a fresh-term transversality or successor-branch
+exclusion on an explicitly defined unbounded insertion subsequence.  It must use
+the old full numerator jointly with the new integral summand and exclude at
+least one outer-quarter successor branch uniformly; generic one-step branch
+measure, injectivity, or irrational-orbit counterexamples do not qualify.
+
 An affine form required by definition to vanish at zero is only a tautological
 multiple of the original form and is not a no-go.  V1 remains open.
