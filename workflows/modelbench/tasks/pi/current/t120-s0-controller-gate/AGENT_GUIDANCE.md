@@ -40,6 +40,8 @@ describe only this S0 validation surface. Include this exact sentence without
 added punctuation inside the phrase: **T118 `r,w` provenance is deferred to a
 later disjoint arithmetic verifier.** Do not use the standalone words `PASS`,
 `passed`, or `pass`, and do not claim that any test, gate, or controller
-accepted the artifact. Do not claim a production result, an existing CAS
+accepted the artifact. Also avoid spelling the phrases `production result`,
+`production outcome`, or `production window`, even as a negated non-claim.
+Describe the scope positively as validation-only. Do not claim an existing CAS
 object or accepted receipt, a J10 outcome, occupancy, density, cancellation,
 V1, decimal occurrence, or any result about Pi.
