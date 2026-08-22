@@ -21,6 +21,11 @@ spending tokens on the same dead ends.
   normalized-census artifact whose generator and verifier both omitted the
   required `10^N` scaling in `Q_N`; records the exact guard and independent
   endpoint checks now required before any T117 census may run.
+- `20260822-t136-three-growth-scalar-kernel-and-census.md`: proves at
+  proof-sketch level that one exact entry-eliminating scalar relation cannot
+  obstruct independent literal BAD arcs, and records an exact 64-base
+  experiment in which the last-three-growth cylinder excludes both canonical
+  and comparator entries, providing no transversality diagnostic.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.
