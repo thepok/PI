@@ -30,6 +30,10 @@ spending tokens on the same dead ends.
   Q-balance/leakage criterion and closes nonnegative same-jump signed-variation
   arguments on an unbounded four-jump family, within a carefully limited
   finite-window affine/conic proof class; mixed-jump balance remains open.
+- `20260822-t138-plucker-normal-form-and-content-census.md`: reduces each
+  fixed-numeric-Q minor algebra to seven translated carry coordinates and
+  exactly falsifies a universal nonunit raw-minor-content claim on both known
+  five-checkpoint all-BAD runs; the symbolic weighted class remains open.
 - `ultrapi/bbp_odd_lcm_carry_no_go*`: failed odd-LCM carry route with independent audit.
 - `ultrapi/machin_chebotarev_anchor_obstruction*`: obstruction to the proposed Chebotarev anchor.
 - `ultrapi/*adversarial*`: adversarial checks against fixed-modulus and multiprime routes.
