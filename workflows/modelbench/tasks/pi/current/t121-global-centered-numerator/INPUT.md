@@ -21,11 +21,18 @@ The audited fixed-return/Furstenberg bridge reduces V1 to
 (D)  liminf_(N->infinity) ||y_N|| = 0.
 ```
 
-Write `y_N=P_N/Q_N` in lowest terms with `Q_N>0`. If `a_N` is a
-nearest integer, define the centered numerator
+Write `A_N=P_N/Q_N` in lowest terms with `Q_N>0`, set `t_N=10^N-16`, and
+freeze
 
 ```text
-Delta_N = P_N-a_N*Q_N,
+center_m(z) = z-m*floor(z/m+1/2),
+```
+
+so an even-modulus half tie is represented by `-m/2`. Define the integer
+nearest carry `a_N` and centered numerator by
+
+```text
+Delta_N = t_N*P_N-a_N*Q_N = center_(Q_N)(t_N*P_N),
 |Delta_N|/Q_N = ||y_N||.
 ```
 
@@ -54,14 +61,12 @@ For `A_N=P_N/Q_N`, put
 ```text
 X_N = P_N*v_N + u_N*Q_N
 Y_N = Q_N*v_N
-h_N = gcd(X_N,Y_N)
+h_N = gcd(abs(X_N),Y_N)
 P_(N+1)=X_N/h_N
 Q_(N+1)=Y_N/h_N.
 ```
 
-Write `t_N=10^N-16`, choose the fixed nearest-integer convention
-`Delta_N=t_N*P_N-a_N*Q_N`, and let `center_m(z)` be the corresponding centered
-integer representative modulo positive `m`. Direct expansion gives
+With the same centered convention at both indices, direct expansion gives
 
 ```text
 h_N*Delta_(N+1)
@@ -77,26 +82,37 @@ This identity is exact. It also exposes an information-loss issue: from
 t_N*P_N = Delta_N (mod Q_N).
 ```
 
-If `d_N=gcd(t_N,Q_N)`, the unrestricted solution set for `P_N mod Q_N`, when
-nonempty, is a coset with `d_N` lifts. Thus `(Delta_N,Q_N)` is not generally a
-closed Markov state; the next centered residue and reduction gcd can depend on
-the missing lift of `P_N`. Determine whether the actual BBP coupling controls
-that lift, whether a minimal augmented state gives descent, or whether this
-produces a rigorous no-go for centered-pair-only arguments.
+If `d_N=gcd(t_N,Q_N)`, this congruence is solvable exactly when `d_N` divides
+`Delta_N`; then its unrestricted solution set modulo `Q_N` has exactly `d_N`
+lifts. Reducedness may remove some lifts but need not make the lift unique.
+Thus `(Delta_N,Q_N)` is not generally a closed Markov state; the next centered
+residue and reduction gcd can depend on the missing lift of `P_N`.
 
-An exact generic witness uses the actual `N=2` BBP increment
-`u_2/v_2=79/15590400`. With `t_2=84`, both reduced inputs `P/Q=1/15` and
-`11/15` have centered numerator `Delta=-6`. Their next reduced states differ:
+This is only a pair-state warning. If the carry `a_N` is retained, then
 
 ```text
-P=1:  h=15, (P',Q',Delta')=(1039439,15590400,-6158424)
-P=11: h=45, (P',Q',Delta')=(3811013, 5196800,-2052808).
+P_N=(Delta_N+a_N*Q_N)/t_N,
 ```
 
-This proves nonclosure for arbitrary reduced inputs under the actual update.
-It is not a counterexample about the single canonical BBP orbit; exploiting
-that orbit still requires a global invariant selecting its missing numerator
-lift.
+so `(Delta_N,Q_N,a_N)` restores the numerator completely. Determine whether
+the canonical BBP orbit controls the lift or augmented state in a way that
+forces descent; do not claim a no-go for carry-augmented or BBP-specialized
+cocycles from pair nonclosure alone.
+
+An exact generic witness uses the actual `N=2` BBP increment
+`u_2/v_2=79/15590400`. With `t_2=84`, both reduced inputs `P/Q=1/3` and
+`2/3` have centered pair `(Delta,Q)=(0,3)`. Their next reduced states differ:
+
+```text
+P=1: h=9, (P',Q',Delta')=(1732293, 5196800,25912)
+P=2: h=3, (P',Q',Delta')=(10393679,15590400,77736).
+```
+
+This proves that no universal update of only
+`(N,Delta_N,Q_N,u_N,v_N)` recovers the next pair for every reduced rational
+state. It is not a counterexample about the single canonical BBP orbit and
+does not apply when `a_N` is retained; exploiting that orbit still requires a
+global invariant or the full augmented state.
 
 Already inadequate: denominator/gcd growth alone, any finite set of p-adic
 coordinates, same-fiber replacement, ordinary hypergeometric telescoping,
