@@ -1,15 +1,31 @@
 from pathlib import Path
+import hashlib
 import json
 import os
 import shutil
 import subprocess
+import sys
 import time
 
 import pytest
 
 from workflows.modelbench import runner
+from workflows.modelbench import regrade
 from workflows.modelbench import t117_controller_gate
 from workflows.modelbench import t117_s1_controller_gate
+
+
+def test_regrade_cli_imports_when_invoked_as_script() -> None:
+    proc = subprocess.run(
+        [sys.executable, str(Path(regrade.__file__).resolve()), "--help"],
+        cwd=runner.ROOT,
+        capture_output=True,
+        text=True,
+        timeout=30,
+        check=False,
+    )
+
+    assert proc.returncode == 0, proc.stderr
 
 
 def test_sandbox_api_is_repository_local() -> None:
@@ -598,6 +614,9 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
     for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
         (project / name).write_text("\n", encoding="utf-8")
     monkeypatch.setattr(runner, "ROOT", project)
+    monkeypatch.setattr(
+        runner, "sandbox_image_prebuilt_sha256", lambda _image: "b" * 64
+    )
     observed: list[list[str]] = []
 
     def fake_run(command: list[str], **_kwargs: object) -> subprocess.CompletedProcess[str]:
@@ -617,6 +636,7 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
         "theorem target : True := by trivial\nend OxGateNovel\n```"
     )
 
+    immutable_image = "a" * 64
     passed, reason = runner.grade_lean_gate(
         response,
         {
@@ -624,6 +644,7 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
             "expected_types": {"OxGateNovel.target": "True"},
         },
         tmp_path,
+        lean_gate_image=immutable_image,
     )
 
     assert passed is True
@@ -635,11 +656,51 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
         f"{runner.LEAN_GATE_SCRIPT}:/controller/allmath-lean-gate.sh:ro"
         in observed[0]
     )
-    image_index = observed[0].index(runner.PODMAN_IMAGE)
+    image_index = observed[0].index(immutable_image)
     assert observed[0][image_index + 1 : image_index + 3] == [
         "bash",
         "/controller/allmath-lean-gate.sh",
     ]
+
+
+def test_lean_gate_rejects_source_drift_before_container(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    project = tmp_path / "project"
+    (project / "TheoryLib").mkdir(parents=True)
+    (project / "TheoryLib" / "Base.lean").write_text(
+        "theorem base : True := by trivial\n", encoding="utf-8"
+    )
+    for name in (
+        "TheoryLib.lean",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "lean-toolchain",
+    ):
+        (project / name).write_text("\n", encoding="utf-8")
+    monkeypatch.setattr(runner, "ROOT", project)
+    monkeypatch.setattr(
+        runner, "sandbox_image_prebuilt_sha256", lambda _image: "b" * 64
+    )
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("drifted source must not reach the container")
+        ),
+    )
+
+    passed, reason = runner.grade_lean_gate(
+        "```lean\ntheorem target : True := by trivial\n```",
+        {"theorem_names": ["target"], "expected_types": {"target": "True"}},
+        tmp_path,
+        lean_gate_image="a" * 64,
+        expected_trusted_source_sha256="0" * 64,
+    )
+
+    assert passed is False
+    assert reason.startswith("isolated gate source snapshot mismatch:")
+    assert runner.is_gate_infrastructure_failure(reason)
 
 
 def test_lean_gate_scratch_copies_only_writable_dependency_hash_metadata() -> None:
@@ -665,6 +726,9 @@ def test_lean_gate_does_not_accept_suffix_axiom_result(
     for name in ("TheoryLib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
         (project / name).write_text("\n", encoding="utf-8")
     monkeypatch.setattr(runner, "ROOT", project)
+    monkeypatch.setattr(
+        runner, "sandbox_image_prebuilt_sha256", lambda _image: "b" * 64
+    )
     monkeypatch.setattr(
         runner.subprocess,
         "run",
@@ -715,6 +779,191 @@ def test_cross_process_model_slot_has_bounded_wait(
             "ox", wait_timeout_s=0.01, poll_interval_s=0.001
         ):
             pass
+
+
+def test_sandbox_image_prebuilt_sha256_reads_immutable_image(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    image_id = "a" * 64
+    observed: list[list[str]] = []
+
+    def fake_run(command: list[str], **_kwargs: object) -> subprocess.CompletedProcess[str]:
+        observed.append(command)
+        return subprocess.CompletedProcess(command, 0, stdout="b" * 64 + "\n", stderr="")
+
+    monkeypatch.setattr(runner.subprocess, "run", fake_run)
+
+    assert runner.sandbox_image_prebuilt_sha256(image_id) == "b" * 64
+    assert observed == [[
+        "podman", "run", "--rm", "--network", "none", "--read-only",
+        "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
+        image_id, "sh", "-c", "cat /opt/allmath-prebuilt/PREBAKE_SHA",
+    ]]
+
+
+def test_sandbox_image_id_normalizes_inspect_exception(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(OSError("podman down")),
+    )
+
+    with pytest.raises(SystemExit, match="cannot resolve sandbox image"):
+        runner.sandbox_image_id("mutable-tag")
+
+
+@pytest.mark.parametrize("stdout,returncode", [("not-a-hash\n", 0), ("", 1)])
+def test_sandbox_image_prebuilt_sha256_rejects_invalid_probe(
+    stdout: str,
+    returncode: int,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda command, **_kwargs: subprocess.CompletedProcess(
+            command, returncode, stdout=stdout, stderr="probe failed"
+        ),
+    )
+
+    with pytest.raises(SystemExit, match="cannot read a valid"):
+        runner.sandbox_image_prebuilt_sha256("a" * 64)
+
+
+def test_sandbox_image_prebuilt_sha256_normalizes_probe_exception(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        runner.subprocess,
+        "run",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(OSError("podman down")),
+    )
+
+    with pytest.raises(SystemExit, match="cannot read /opt/allmath-prebuilt"):
+        runner.sandbox_image_prebuilt_sha256("a" * 64)
+
+
+def test_pin_sandbox_image_rejects_stale_lean_snapshot(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(runner, "sandbox_image_id", lambda _image: "a" * 64)
+    monkeypatch.setattr(
+        runner, "sandbox_image_prebuilt_sha256", lambda _image: "b" * 64
+    )
+
+    with pytest.raises(SystemExit, match="sandbox Lean snapshot is stale"):
+        runner.pin_sandbox_image(
+            "mutable-tag", "c" * 64, require_lean_snapshot=True
+        )
+
+
+def test_pin_sandbox_image_pins_id_and_skips_lean_probe_when_not_needed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(runner, "sandbox_image_id", lambda _image: "a" * 64)
+    monkeypatch.setattr(
+        runner,
+        "sandbox_image_prebuilt_sha256",
+        lambda _image: (_ for _ in ()).throw(AssertionError("unexpected probe")),
+    )
+
+    assert runner.pin_sandbox_image(
+        "mutable-tag", "c" * 64, require_lean_snapshot=False
+    ) == "a" * 64
+
+
+def test_pin_sandbox_image_accepts_matching_lean_snapshot(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(runner, "sandbox_image_id", lambda _image: "a" * 64)
+    monkeypatch.setattr(
+        runner, "sandbox_image_prebuilt_sha256", lambda _image: "c" * 64
+    )
+
+    assert runner.pin_sandbox_image(
+        "mutable-tag", "c" * 64, require_lean_snapshot=True
+    ) == "a" * 64
+
+
+def test_prebuilt_source_snapshot_sha256_matches_sha256sum_manifest(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    (tmp_path / "TheoryLib" / "Sub").mkdir(parents=True)
+    (tmp_path / "TheoryLib" / "B.lean").write_bytes(b"B\n")
+    (tmp_path / "TheoryLib" / "Sub" / "A.lean").write_bytes(b"A\n")
+    for name in (
+        "TheoryLib.lean",
+        "lakefile.toml",
+        "lake-manifest.json",
+        "lean-toolchain",
+    ):
+        (tmp_path / name).write_bytes((name + "\n").encode("utf-8"))
+    monkeypatch.setattr(runner, "ROOT", tmp_path)
+    ordered = [
+        tmp_path / "TheoryLib" / "B.lean",
+        tmp_path / "TheoryLib" / "Sub" / "A.lean",
+        *(tmp_path / name for name in (
+            "TheoryLib.lean",
+            "lakefile.toml",
+            "lake-manifest.json",
+            "lean-toolchain",
+        )),
+    ]
+    manifest = "".join(
+        f"{hashlib.sha256(path.read_bytes()).hexdigest()}  "
+        f"{path.relative_to(tmp_path).as_posix()}\n"
+        for path in ordered
+    ).encode("utf-8")
+
+    assert runner.prebuilt_source_snapshot_sha256() == hashlib.sha256(
+        manifest
+    ).hexdigest()
+
+
+def test_lean_regrade_binding_requires_immutable_image_and_source() -> None:
+    task = {"grading": {"type": "agentic_lean_artifact"}}
+    with pytest.raises(ValueError, match="image binding"):
+        regrade.lean_regrade_binding(task, {})
+    with pytest.raises(ValueError, match="source binding"):
+        regrade.lean_regrade_binding(
+            task, {"lean_gate_image_sha256": "a" * 64}
+        )
+
+
+def test_lean_regrade_binding_accepts_new_and_legacy_sandbox_field() -> None:
+    task = {"grading": {"type": "lean_gate"}}
+    assert regrade.lean_regrade_binding(
+        task,
+        {
+            "lean_gate_image_sha256": "a" * 64,
+            "trusted_source_sha256": "b" * 64,
+        },
+    ) == ("a" * 64, "b" * 64)
+    assert regrade.lean_regrade_binding(
+        task,
+        {
+            "sandbox_image_sha256": "c" * 64,
+            "trusted_source_sha256": "d" * 64,
+        },
+    ) == ("c" * 64, "d" * 64)
+
+
+def test_nonlean_regrade_binding_needs_no_lean_provenance() -> None:
+    assert regrade.lean_regrade_binding(
+        {"grading": {"type": "exact_choice"}}, {}
+    ) == (None, None)
+
+
+def test_gate_infrastructure_classifier_includes_source_and_runtime() -> None:
+    assert runner.is_gate_infrastructure_failure(
+        "isolated gate source snapshot mismatch: drift"
+    )
+    assert runner.is_gate_infrastructure_failure(
+        runner.ISOLATED_GATE_INFRASTRUCTURE_PREFIX + " image missing"
+    )
 
 
 def test_provider_slot_status_reads_the_runner_lock_state(
@@ -1194,7 +1443,9 @@ def test_failed_artifact_retries_in_the_same_opencode_session(
         }
 
     monkeypatch.setattr(runner, "run_model", fake_run_model)
-    monkeypatch.setattr(runner, "grade", lambda *_args: next(grades))
+    monkeypatch.setattr(
+        runner, "grade", lambda *_args, **_kwargs: next(grades)
+    )
     task = {
         "id": "artifact-retry",
         "prompt": "initial prompt",
@@ -1263,7 +1514,7 @@ def test_zero_token_unknown_without_artifact_retries_fresh_session(
     monkeypatch.setattr(
         runner,
         "grade",
-        lambda _task, _response, work_dir, _execution_dir: (
+        lambda _task, _response, work_dir, _execution_dir, **_kwargs: (
             (True, "compiled")
             if (work_dir / "Contribution.lean").is_file()
             else (False, "missing artifact Contribution.lean")
@@ -1346,7 +1597,11 @@ def test_zero_token_backoff_cancellation_prevents_fresh_call(
         return False
 
     monkeypatch.setattr(runner, "run_model", zero_token_run)
-    monkeypatch.setattr(runner, "grade", lambda *_args: (False, "missing artifact"))
+    monkeypatch.setattr(
+        runner,
+        "grade",
+        lambda *_args, **_kwargs: (False, "missing artifact"),
+    )
     monkeypatch.setattr(runner, "cancellation_aware_sleep", cancel_backoff)
     task = {
         "id": "cancel-zero-token-backoff",
@@ -1387,7 +1642,9 @@ def test_passing_artifact_stops_without_a_second_attempt(
         return {"response": "artifact written", "trace": "", "error": "", "duration_s": 0.0}
 
     monkeypatch.setattr(runner, "run_model", fake_run_model)
-    monkeypatch.setattr(runner, "grade", lambda *_args: (True, "compiled"))
+    monkeypatch.setattr(
+        runner, "grade", lambda *_args, **_kwargs: (True, "compiled")
+    )
     task = {
         "id": "artifact-pass",
         "prompt": "initial prompt",
@@ -1460,7 +1717,9 @@ def test_resource_exhausted_gate_does_not_trigger_artifact_repair(
         "isolated gate resource failure: Lean exited with code 137 while "
         "rebuilding the trusted snapshot"
     )
-    monkeypatch.setattr(runner, "grade", lambda *_args: (False, failure))
+    monkeypatch.setattr(
+        runner, "grade", lambda *_args, **_kwargs: (False, failure)
+    )
     task = {
         "id": "artifact-gate-resource-failure",
         "prompt": "initial prompt",
