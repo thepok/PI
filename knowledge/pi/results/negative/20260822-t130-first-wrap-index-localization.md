@@ -210,6 +210,46 @@ same-fiber lifts.  It duplicates the established same-fiber information-loss
 mechanism and does not vary or constrain the single canonical `E_7`.  Keeping
 the full selected numerator escapes it.
 
+The failure is not confined to a finite prefix.  The T129 envelopes give
+
+```text
+ell_N=alpha N+2log_10(N+1)+O(1),
+J_N/N -> beta=1+alpha,
+alpha=log_10(8/5).
+```
+
+Exactly `beta<5/4`, since `(8/5)^4=4096/625<10`.  If the strictly increasing
+integer sequence `J_N` eventually omitted any one residue class modulo 5,
+then its first `N+O(1)` values would occupy at most `4J_N/5+O(1)` integers.
+This would force `liminf J_N/N>=5/4`, a contradiction.  Hence every residue
+class modulo 5 occurs infinitely often among the `J_N`.
+
+In particular, `J_N=3 (mod 5)` infinitely often.  The exact congruences
+
+```text
+10^5=1 (mod 41),
+10^3=16 (mod 41)
+```
+
+then give `41|q_(J_N)`.  Also `41|D_5`, hence `41|M_N` for `N>=5`.
+For either possible frozen canonical schedule step `h=J_(N+1)-J_N` one has
+
+```text
+q_(J_N+h)=16(10^h-1) (mod 41)
+          =21 (h=1) or 26 (h=2),
+```
+
+so 41 does not divide the next multiplier.  Therefore infinitely many
+canonical coefficient positions have at least 41 distinct successor colors
+on each scalar phase fiber.  The scalar coordinate is not eventually
+autonomous over all compatible entry lifts.
+
+The schedule `J_N,J_(N+1)` is frozen to the canonical one in this statement.
+The alternate lifts are noncanonical and are not claimed to reproduce their
+own selector schedule.  This infinite-family `proof sketch` supplies no
+distribution fact about the actual selected `E_N`, and it is not a
+single-prime route to T130 or T125.
+
 ## Claim audit
 
 - Selector identity, summand ratios, interlacing, step law, and cofinite
