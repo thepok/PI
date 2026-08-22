@@ -96,6 +96,17 @@ control of the normalized numerator modulo the reduced denominator, hence no
 cell occupancy, cancellation, density, or V1 conclusion. See
 [`t117_common_denominator_excess_gcd_20260821.md`](results/machine-checked/t117_common_denominator_excess_gcd_20260821.md).
 
+A subsequent `proof sketch` direction audit closes two generic extensions.
+The reduced pairs `(A,C,D,E)=(1,1,2,1)` give `k=2,e=1`, so `k^2≤e` is not a
+generic consequence of T117. The family `(0,1,1,t)` satisfies that inequality
+and has unbounded reduced denominator, yet its successor `1/t` remains in the
+zero cell of every fixed `q`-mesh once `t>q`; denominator growth does not imply
+cell motion. The retained next target is actual normalized-numerator
+anti-concentration. A preregistered `experiment` tests exact `q=10` collision
+energy on fourteen fixed 256-index windows in `[512,4096)`, with strict stop
+conditions and no inference beyond finite occupancy. See
+[`chatgpt_pro_t117_normalized_occupancy_direction_20260822.md`](results/intermediate/chatgpt_pro_t117_normalized_occupancy_direction_20260822.md).
+
 A direct 2026-08-21 Salikhov audit now records, at `literature-checked` source
 plus `proof sketch` derivation level, that some `A ≥ 1` satisfies
 `PowerTenDiophantine Real.pi 8 A`. This is consistent with the generic bridge
