@@ -107,7 +107,19 @@
   "production_order": {
     "first_window": 13,
     "rule": "window 13 must generate and verify without any lower-window artifact present",
-    "full_run": "operator-controlled after every implementation and trust test passes and the first-window review records no stop condition"
+    "derived_thresholds": {
+      "c_sum": "C_sum=sum(l=1..255,C_l)=(J-256)/2",
+      "strict_test_equivalent": "because J has the parity of 256, 9*J<65536 is equivalent to J<=7280 and C_sum<=3512",
+      "a_sum": "A_sum=sum(l=1..255,A_l); T119 gives C_sum<=A_sum"
+    },
+    "window_13_decision": [
+      "STOP-invalid on any route, canonical-byte, T118, statistic-identity, or T119 mismatch",
+      "STOP-local-conjecture if 9*J>=65536; preserve the first exact failure without retuning",
+      "STOP-and-audit-witness if any distinct-pair Z_l>0",
+      "GO windows 0..12 if the strict J test passes and A_sum<=3512",
+      "if J passes but A_sum>3512, STOP the determinant-only route unless the operator freezes exactly one low-complexity BBP-specific refinement before opening any holdout window"
+    ],
+    "full_run": "operator-controlled after every implementation and trust test passes and the frozen window-13 decision rule records GO"
   },
   "nonclaims": [
     "A finite strict-test pass certifies all ten cells only in that checked window; it proves nothing beyond it.",

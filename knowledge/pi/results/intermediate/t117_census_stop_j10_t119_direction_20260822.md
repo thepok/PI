@@ -27,10 +27,10 @@ all ten cells only inside that finite window.
 
 ## Frozen continue/stop criteria
 
-Run no q=10 diagnostic until canonical T118 exists and the full repository
-gate passes. A run must reconstruct the T118 signed numerator, positive
-denominator, Euclidean remainder, and cell by two independent exact routes;
-any mismatch invalidates the run.
+Run no q=10 diagnostic until canonical T118 and T119 exist and the full
+repository gate passes with both. A run must reconstruct the T118 signed
+numerator, positive denominator, Euclidean remainder, and cell by two
+independent exact routes; any mismatch invalidates the run.
 
 Use the preregistered fourteen consecutive 256-index windows covering
 `[512,4096)`, without moving boundaries or tuning the threshold after seeing
@@ -48,9 +48,62 @@ stop after a fully surviving finite run if no stronger symbolic mechanism is
 identified: finite full occupancy is still only an `experiment`, and extending
 the cutoff is not a substitute for a theorem.
 
+### Window-13 calibration rule
+
+For a 256-point window, let
+
+`C_sum = sum_{l=1}^{255} C_l = (J-256)/2`
+
+count distinct same-cell pairs once, and let
+
+`A_sum = sum_{l=1}^{255} A_l`
+
+count pairs satisfying T119's necessary near-determinant inequality. Since
+`J` has the parity of 256, `9*J<65536` is equivalent to `J<=7280`, hence
+`C_sum<=3512`. T119 implies `C_sum<=A_sum`, so `A_sum<=3512` is the decisive
+signal that the determinant condition alone is selective enough to imply the
+finite collision threshold.
+
+Run window 13 first and freeze its controller receipt before seeing any other
+production window. Stop as invalid on any exact-route, byte, identity, T118,
+or T119 mismatch. Stop the local conjecture if `9*J>=65536`. If any distinct
+pair has determinant zero, stop the production wave and audit that exact
+rational-phase repeat symbolically. If the J test passes and `A_sum<=3512`,
+continue to windows 0--12 as a frozen holdout. If J passes but `A_sum>3512`,
+stop the determinant-only route unless exactly one low-complexity,
+cutoff-independent BBP refinement is frozen before opening the holdout and its
+summed target would imply 3512. Never fit a list of exceptional lags.
+
+Finite occupancy, balanced histograms, random-looking counts, or repeated
+passes are not decision evidence by themselves. After all fourteen windows,
+pursue a symbolic pair-count theorem only if every J test passes and either
+every `A_sum<=3512` or the single preregistered refinement survives every
+holdout window.
+
+### Smallest safe implementation split
+
+No existing workflow is safe to promote wholesale. Reuse only the hardened
+controller patterns: networkless read-only pods, declared-artifact copying,
+frozen fixture hashes, and controller-owned mutation tests. Implement T120 in
+four separately gated stages:
+
+1. a controller-only strict-byte/schema/statistic/CAS/receipt gate with no BBP
+   production arithmetic;
+2. a generator-only combined-term exact CLI for uneven tiny ranges;
+3. a physically separate verifier-only literal-four-pole exact CLI;
+4. controller orchestration over minimal disjoint pod inputs, highest tiny
+   shard first, then window 13 only.
+
+Existing runner hashes are provenance, not a CAS receipt; existing canonical
+JSON accepts forbidden inputs; T117 candidate self-tests are insufficient;
+and T116 code is monolithic and fixed below the T120 production range. These
+are implementation hazards, not reusable assurances.
+
 ## Planned T119: same-cell cross determinant
 
-Status: `proof sketch`; inactive until canonical T118 exists.
+Status: `proof sketch`; an active candidate task is running, but no candidate
+is canonical or machine-checked in the verified core until integration and the
+full repository gate pass.
 
 For positive integers `q,W_N,W_M`, if two normalized residues occupy the same
 half-open q-cell `a`, then elementary interval arithmetic should give
@@ -63,10 +116,11 @@ sampled successors. The specialization is deliberately conditional on both
 successors being in the same explicitly named cell. It does not prove that
 such indices exist or repeat, nor does it bound how many same-cell pairs occur.
 
-The frozen inactive controller contract is
+The controller contract is retained as provenance at
 `workflows/modelbench/tasks/pi/planned/t119-same-cell-cross-determinant/TASK_CONTRACT.json`.
-It imports only the future canonical T118 module and must not be activated or
-launched before that module exists and passes the full gate.
+Its task definition was activated only after canonical T118 passed the full
+gate. Candidate output remains untrusted; the q=10 diagnostic stays blocked
+until an accepted T119 is integrated canonically and passes the full gate.
 
 ## ChatGPT Pro architecture audit
 
@@ -107,7 +161,8 @@ The Pro browser job completed normally and required no re-login.
 ## Claim firewall
 
 T118 and the proposed T119 are representation-only interfaces. The q=10
-calculation, if run, remains an `experiment`; the uncompiled T119 proposal is a
-`proof sketch`. Nothing here proves an arbitrarily-late cell hit, recurrence,
+calculation, if run, remains an `experiment`; T119 remains a `proof sketch`
+until canonical integration and the full gate. Nothing here proves an
+arbitrarily-late cell hit, recurrence,
 occupancy beyond a checked finite window, density, Weyl cancellation,
 normality, decimal-block occurrence, V1, or a resolution of the Pi problem.

@@ -54,6 +54,21 @@ window 13 `[3840,4096)` first, with no lower-window artifact mounted. Compare
 both exact routes record-by-record and statistic-by-statistic, then freeze its
 CAS object and controller receipt. Stop there for review.
 
+Derive `C_sum=(J-256)/2` and `A_sum=sum_l A_l`. Since `J` is even, the strict
+test is equivalent to `J<=7280`, hence `C_sum<=3512`. Apply the following
+pre-data decision rule exactly:
+
+1. stop as invalid on any route, byte, T118, identity, or T119 mismatch;
+2. stop the local conjecture if `9*J>=65536`, without changing the window or
+   threshold;
+3. stop and symbolically audit the witness if any distinct-pair `Z_l>0`;
+4. continue to the frozen holdout windows 0--12 if the J test passes and
+   `A_sum<=3512`;
+5. if J passes but `A_sum>3512`, stop the determinant-only route unless the
+   operator first freezes one low-complexity, cutoff-independent BBP-specific
+   refinement whose displayed summed bound would imply the 3512 target. A
+   fitted list of exceptional lags is not eligible.
+
 Do not run windows 0--12, aggregate fourteen windows, inspect a full-census
 answer, retune the criterion, or extend the range until the operator reviews
 window 13 and records a go decision under the standing PI research mission.
