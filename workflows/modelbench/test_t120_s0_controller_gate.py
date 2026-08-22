@@ -128,7 +128,7 @@ def test_t120_s0_current_task_loads_and_binds_exact_planned_inputs(
     assert fixture_rows[0] == {
         "source": "workflows/modelbench/tasks/pi/current/t120-s0-controller-gate/AGENT_GUIDANCE.md",
         "destination": "AGENTS.md",
-        "sha256": "a74fb4c7a038c7445465426bcfdaefce5af40d6c6bf8a07571125bf39b66c905",
+        "sha256": "24c4b9c1fa66710b2f19a2ec8f66615999ad4c70b63e5d821cd908a43b01c0d7",
     }
     assert {row["destination"] for row in fixture_rows[1:]} == set(expected)
     for row in fixture_rows[1:]:

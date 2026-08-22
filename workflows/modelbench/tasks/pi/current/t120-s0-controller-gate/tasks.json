@@ -5,12 +5,12 @@
     "timeout_s": 1800,
     "max_attempts": 6,
     "variant": "high",
-    "prompt": "Implement only the bounded T120 S0 pure validation library. Read AGENTS.md and every immutable controller-owned specification under inputs/. Produce exactly t120_s0_schema.py and REPORT.md. Expose exactly the seven APIs frozen in TASK_CONTRACT.json; enforce exact built-in types, canonical raw JSON bytes, resource limits, point/window/CAS/receipt schemas, all fourteen frozen window bindings, integer-only recomputation of counts, J, all 255 C/A/Z lag rows, the raw maximum same-cell determinant ratio with lexicographically first witness, and the exact decision priority. Validators return exactly None on acceptance and raise ValueError on rejection; recompute/decoder APIs return the exact complete objects specified. Do not mutate inputs or retain state. Do not implement BBP or T118 arithmetic, authenticate r,w provenance, use floats/randomness/reflection/filesystem/network/subprocesses, write CAS data, mint receipts, create candidate tests/manifests/pass flags, or claim any production/Pi result. REPORT.md must begin Status: `experiment` and explicitly defer T118 r,w provenance to a later disjoint arithmetic verifier.",
+    "prompt": "Implement only the bounded T120 S0 pure validation library. Read AGENTS.md and every immutable controller-owned specification under inputs/. Produce exactly t120_s0_schema.py and REPORT.md. Expose exactly the seven APIs frozen in TASK_CONTRACT.json; enforce exact built-in types, canonical raw JSON bytes, resource limits, point/window/CAS/receipt schemas, all fourteen frozen window bindings, integer-only recomputation of counts, J, all 255 C/A/Z lag rows, the raw maximum same-cell determinant ratio with lexicographically first witness, and the exact decision priority. Validators return exactly None on acceptance and raise ValueError on rejection; recompute/decoder APIs return the exact complete objects specified. Do not mutate inputs or retain state. Do not implement BBP or T118 arithmetic, authenticate r,w provenance, use floats/randomness/reflection/filesystem/network/subprocesses, write CAS data, mint receipts, create candidate tests/manifests/pass flags, or claim any production/Pi result. REPORT.md must begin Status: `experiment`, contain the exact sentence `T118 r,w provenance is deferred to a later disjoint arithmetic verifier.`, and avoid the standalone authority words PASS, passed, and pass.",
     "fixtures": [
       {
         "source": "workflows/modelbench/tasks/pi/current/t120-s0-controller-gate/AGENT_GUIDANCE.md",
         "destination": "AGENTS.md",
-        "sha256": "a74fb4c7a038c7445465426bcfdaefce5af40d6c6bf8a07571125bf39b66c905"
+        "sha256": "24c4b9c1fa66710b2f19a2ec8f66615999ad4c70b63e5d821cd908a43b01c0d7"
       },
       {
         "source": "workflows/modelbench/tasks/pi/planned/t120-q10-exact-diagnostic/CONTRACT.json",
