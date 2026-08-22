@@ -2,7 +2,7 @@
 
 Status: `conjecture`
 
-Last audited: 2026-08-21 UTC
+Last audited: 2026-08-22 UTC
 
 ## Executive finding
 
@@ -95,6 +95,15 @@ the representation-only gcd bookkeeping: it supplies no bound on `k` and no
 control of the normalized numerator modulo the reduced denominator, hence no
 cell occupancy, cancellation, density, or V1 conclusion. See
 [`t117_common_denominator_excess_gcd_20260821.md`](results/machine-checked/t117_common_denominator_excess_gcd_20260821.md).
+
+T118 now specializes that arithmetic to the actual sampled-BBP successor. It
+machine-checks the normalized signed numerator `X/k`, positive denominator
+`W=H*d*e/k`, Euclidean residue `R=(X/k)%W`, exact quotient cell, and the
+endpoint-safe equivalence between cell `a` and
+`aW <= qR < (a+1)W`. This remains pointwise representation only: it proves no
+cell hit, recurrence, occupancy, density, cancellation, V1, or decimal-word
+occurrence. See
+[`t118_sampled_bbp_normalized_excess_cell_20260822.md`](results/machine-checked/t118_sampled_bbp_normalized_excess_cell_20260822.md).
 
 A subsequent `proof sketch` direction audit closes two generic extensions.
 The reduced pairs `(A,C,D,E)=(1,1,2,1)` give `k=2,e=1`, so `k^2≤e` is not a
