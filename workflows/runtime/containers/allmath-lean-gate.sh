@@ -58,7 +58,34 @@ cp -a "$source_root/lean-toolchain" "$gate_root/lean-toolchain"
 cp -a "$source_root/TheoryLib.lean" "$gate_root/TheoryLib.lean"
 cp -a "$source_root/TheoryLib" "$gate_root/TheoryLib"
 mkdir -p "$gate_root/.lake"
-ln -s /opt/allmath-lean/.lake/packages "$gate_root/.lake/packages"
+# Lake occasionally refreshes dependency-owned `.hash` metadata even when all
+# compiled artifacts are already present. Keep the image and its package cache
+# read-only: create real scratch directory trees for the two packages Lake
+# touches, symlink their substantive image-pinned files, and replace only hash
+# symlinks with tiny writable copies. Other packages stay single read-only
+# symlinks. A genuinely stale dependency artifact still cannot be overwritten.
+mkdir -p "$gate_root/.lake/packages"
+for package in /opt/allmath-lean/.lake/packages/*; do
+  name="$(basename "$package")"
+  case "$name" in
+    mathlib|proofwidgets)
+      scratch_package="$gate_root/.lake/packages/$name"
+      mkdir -p "$scratch_package"
+      cp -as "$package"/. "$scratch_package"/
+      # Keep Lake's URL/revision check tied to the image-pinned checkout.
+      # A recursively symlinked .git directory is not recognized as the same
+      # repository and makes networkless Lake attempt a fresh clone.
+      rm -rf "$scratch_package/.git"
+      ln -s "$package/.git" "$scratch_package/.git"
+      (
+        cd "$package"
+        find . -type f -name '*.hash' -print0 |
+          tar --null -T - -cf -
+      ) | tar -C "$scratch_package" --overwrite -xf -
+      ;;
+    *) ln -s "$package" "$gate_root/.lake/packages/$name" ;;
+  esac
+done
 # The trusted source can be newer than the image marker by one or more
 # accepted modules.  Seed the scratch build with the image's kernel-checked
 # oleans and let Lake rebuild only source hashes that changed; without this,

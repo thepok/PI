@@ -476,6 +476,30 @@ def test_lean_gate_appends_exact_type_contract_and_never_host_preflights(
     assert len(observed) == 1
     assert observed[0][:4] == ["podman", "run", "--rm", "--network"]
     assert observed[0][observed[0].index("--tmpfs") + 1] == runner.LEAN_GATE_TMPFS
+    assert (
+        f"{runner.LEAN_GATE_SCRIPT}:/controller/allmath-lean-gate.sh:ro"
+        in observed[0]
+    )
+    image_index = observed[0].index(runner.PODMAN_IMAGE)
+    assert observed[0][image_index + 1 : image_index + 3] == [
+        "bash",
+        "/controller/allmath-lean-gate.sh",
+    ]
+
+
+def test_lean_gate_scratch_copies_only_writable_dependency_hash_metadata() -> None:
+    script = runner.LEAN_GATE_SCRIPT.read_text(encoding="utf-8")
+
+    assert "mathlib|proofwidgets)" in script
+    assert 'cp -as "$package"/. "$scratch_package"/' in script
+    assert 'ln -s "$package/.git" "$scratch_package/.git"' in script
+    assert "find . -type f -name '*.hash' -print0" in script
+    assert "tar -C \"$scratch_package\" --overwrite -xf -" in script
+    assert '*) ln -s "$package" "$gate_root/.lake/packages/$name" ;;' in script
+    assert (
+        'cp -a /opt/allmath-lean/.lake/packages "$gate_root/.lake/packages"'
+        not in script
+    )
 
 
 def test_lean_gate_does_not_accept_suffix_axiom_result(
