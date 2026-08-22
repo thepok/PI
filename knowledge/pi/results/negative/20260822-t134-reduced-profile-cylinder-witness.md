@@ -35,6 +35,20 @@ The exact centered phase residues are different. Thus the witness defeats only
 the coarse finite selector consisting of `(gcd,z,sign,bad)`; it does not defeat
 a condition retaining the full phase residue or margin.
 
+An exact bounded extension over `6<=n<=64` and `1<=|t|<=5000` finds that `n=6`
+is the only canonical full-bad base in that declared range. All 10,000 tested
+nonzero offsets at `n=6` preserve the six coarse `(z,sign,bad)` addresses.
+Exactly 12 also preserve the canonical gcd profile at depths `i=0,1,2,3`:
+
+```text
+-4560, -3990, -3040, -2470, -1140, -570,
+950, 1710, 2090, 2850, 3800, 3990
+```
+
+Because `L_6=2`, all 12 automatically preserve the gcd profile throughout the
+address horizon as well. This bounded multiplicity strengthens the finite
+coarse-selector countermodel but remains an `experiment`.
+
 ## Exact replay
 
 Run:
@@ -46,7 +60,9 @@ python workflows/research/pi/t134_reduced_profile_witness.py
 The script uses integer and `Fraction` arithmetic, independently checks the
 canonical direct identity `center_1(q_j A_j)` at all six phases, verifies the
 half-open phase convention, the four gcd equalities, noncongruence modulo
-`M_6`, and strict distance from all boundaries.
+`M_6`, strict distance from all boundaries, the exact full-bad-base census, and
+the complete bounded offset scan. The horizon is computed by exact integer
+power comparison, not a floating logarithm.
 
 ## Scope
 
