@@ -48,5 +48,25 @@
     "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. Rewrite the T130 hit condition at j=N+i as one exact centered integer congruence over a common full modulus using X_N, U_(N,i), and B=M_(N+i)/M_N. Decide whether 1/4+delta_(N,i)+q_j x_N contains information beyond q_j S_j mod M_j or collapses after X_j=B X_N+64U. GO requires a genuinely smaller primitive congruence retaining nontrivial X/U correlation. STOP requires a complete algebraic proof that every precisely stated natural linear recombination is only the original residue up to an integer. A renamed target is no progress. Use the literal phrase primitive normal form.",
     "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t130-canonical-first-wrap/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
     "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","primitive normal form","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t130-p6-two-speed-selector-cocycle",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a complete substantive MEMO.md of at least 2500 characters, beginning Status: `proof sketch`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`. Use ONLY these registered definitions: a_N=16 Lambda_(N+1)/Lambda_N, M_(N+1)=a_N M_N, E_N=S_N-191M_N/64, E_(N+1)=a_N E_N+u_(N+1), x_N=E_N/M_N, ell_N=min{i>=1:delta_(N,i)>=1/4}, J_N=N+ell_N, and h_N=J_(N+1)-J_N in {1,2}. Put Q_N=q_(J_N)=10^(J_N)-16 and p_N=center_1(Q_N*x_N). Derive the exact full-modulus transition separately for h_N=1 and h_N=2, retaining x_N and the actual u_(N+1), using Q_(N+1)=10^h Q_N+16(10^h-1). Determine rigorously whether any nontrivial coordinate smaller than (E_N mod M_N) closes under both branches, or whether p_N alone provably fails to close. GO requires a genuine canonical congruence/exclusion not equivalent to the original residue. STOP may close a precisely stated quotient/one-coordinate method. The transition identity alone is not progress. Do not invent alternate moduli, counters, BBP bases, or uniform models. Use the literal phrase two-speed cocycle.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t130-canonical-first-wrap/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `proof sketch`","Outcome:","two-speed cocycle","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
+  },
+  {
+    "id": "pi-t130-p7-switch-conditioned-census",
+    "dimension": "research_direction",
+    "timeout_s": 7200,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Do not inspect the workspace before delivery. Your FIRST tool call must write a substantive MEMO.md beginning Status: `experiment`, containing exactly one Outcome: GO, Outcome: STOP, or Outcome: OPEN, and ending `V1 remains open`; then run exact rational/integer arithmetic and update it before finishing. Predeclare 6<=N<=512. Use the actual aggregated BBP A_N, ell_N=min{i>=1:q_(N+i)(A_(N+i)-A_N)>=1/4}, J_N=N+ell_N, h_N=J_(N+1)-J_N in {1,2}, and canonical g_j=[abs(center_1(q_j A_j))<1/4-eps_j]. Tabulate h_N, g_(J_N-1), g_(J_N), signed centered phases, first-wrap overshoot, and run lengths. Give exact smallest counterexamples to each simple claim tested: a fixed branch forces a hit, branch switches force a hit, phase sign is determined by h, bounded failure run, or a fixed residue class of N predicts the branch/hit. Independently replay at least 12 declared N by a disjoint exact formula. Finite data is only experiment and cannot prove boundedness, density, or infinitude. Do not use X_N unless constructed from the registered S_N,M_N exactly. Use the literal phrase switch-conditioned census.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/t130-canonical-first-wrap/AGENT_GUIDANCE.md","destination":"AGENTS.md"}],
+    "grading": {"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["Status: `experiment`","Outcome:","switch-conditioned census","V1 remains open"],"forbidden_markers":["verified resolution","candidate resolution","V1 proved","TODO","TBD","PLACEHOLDER"]}
   }
 ]
