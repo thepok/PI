@@ -32,7 +32,7 @@
     "timeout_s": 14400,
     "max_attempts": 3,
     "variant": "high",
-    "prompt": "Compute the complete actual T120 window-13 point set by a literal four-pole route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Implement your own gcd-normalized signed numerator/positive-denominator rational arithmetic. Use the four literal poles separately at every k and never use fractions.Fraction or the combined numerator identity. Reconstruct inclusive P_(7*(N+1)) from k=0 for every N=3840..4095, scale by 10^(N+1), reduce exactly, and output r=num mod den, w=den, cell=(10*r)//w. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment and route is literal-four-pole. Use no expected answers or floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact hashes, and nonclaims.",
+    "prompt": "Compute the complete actual T120 window-13 point set by a literal four-pole route. Read AGENTS.md and the canonical Lean sources in inputs/. Create compute_window.py, run it, and deliver window_points.json plus REPORT.md. Implement your own gcd-normalized signed numerator/positive-denominator rational arithmetic. Use the four literal poles separately at every k and never use fractions.Fraction or the combined numerator identity. Reconstruct inclusive P_(7*(N+1)) from k=0 for every N=3840..4095, scale by 10^(N+1), reduce exactly, and output r=num mod den, w=den, cell=(10*r)//w. At the first record N=START_N the scale must be exactly 10**(START_N+1), not 10**START_N; exercise the same optimized production function at a small N against an independent direct reconstruction. The JSON has exact top-level keys status,route,start_n,end_exclusive_n,points; status is experiment and route is literal-four-pole. Use no expected answers or floats. REPORT.md must state Status: `experiment`, give runtime/resource observations, exact hashes, and nonclaims.",
     "fixtures": [
       {"source":"workflows/modelbench/tasks/pi/current/t120-window13-direct-experiment/AGENT_GUIDANCE.md","destination":"AGENTS.md"},
       {"source":"TheoryLib/PiQuantitativeBlockHitting/T74T74ThreePrimaryDecimation.lean","destination":"inputs/T74.lean"},
@@ -42,8 +42,8 @@
     "grading": {
       "type":"artifact_contract","artifact":"compute_window.py","min_chars":1400,
       "required_files":["window_points.json","REPORT.md"],
-      "required_markers":["math.gcd","8 * k + 1","2 * k + 1","8 * k + 5","4 * k + 3","3840","4096"],
-      "forbidden_markers":["Fraction","120 * k * k","float(","Decimal(","requests","urllib","socket","subprocess"],
+      "required_markers":["math.gcd","8 * k + 1","2 * k + 1","8 * k + 5","4 * k + 3","START_N + 1","3840","4096"],
+      "forbidden_markers":["10 ** START_N","Fraction","120 * k * k","float(","Decimal(","requests","urllib","socket","subprocess"],
       "required_json_values":[
         {"file":"window_points.json","path":["status"],"equals":"experiment"},
         {"file":"window_points.json","path":["route"],"equals":"literal-four-pole"},
