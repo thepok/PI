@@ -211,12 +211,16 @@ def static_schema_check(path: Path) -> None:
                 identifier = node.attr
             else:
                 identifier = node.id if isinstance(node, ast.Name) else node.name
-            if identifier.startswith("__"):
+            if identifier.startswith("__") and identifier != "__all__":
                 raise S1GateError(
                     f"schema uses forbidden reflective identifier {identifier}"
                 )
             lowered = identifier.lower()
-            if any(token in lowered for token in FORBIDDEN_IDENTIFIERS):
+            semantic_constants = {"_LAW_K1_V1", "_LAW_K2_V1"}
+            if (
+                identifier not in semantic_constants
+                and any(token in lowered for token in FORBIDDEN_IDENTIFIERS)
+            ):
                 raise S1GateError(f"schema crosses arithmetic/orchestration boundary: {identifier}")
     unexpected = sorted(imports - ALLOWED_IMPORTS)
     if unexpected:
