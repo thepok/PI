@@ -10206,6 +10206,14 @@ base-ten state.  This may follow from density of that exact rational coding
 recurrence or from an equally strong direct mechanism for the single fixed
 orbit of \(\pi\); none is currently proved.
 
+The Gauss alternative (40ap)--(40ar) remains mathematically open but is now
+operationally on research HOLD after the bounded T150/T151 reviews and the
+final fixed-i Pro audit.  The audited half-degree argument proves only the
+short-lag estimate \(E_p(\le D_p)<p^{2/3}/4\); all long-lag energy remains
+uncontrolled.  This is not a negative theorem and does not remove the Gauss
+estimate from the sufficient alternatives; see
+[`T151`](results/intermediate/20260822-t151-p22-affine-divisor-switch-hold.md).
+
 The current BBP interface now retains the exact missing arithmetic object.
 Separately, external GP-0002 was independently promoted as T110: its
 `machine-checked` strict contrapositive of T17 shows that an admissible-tail
