@@ -10214,6 +10214,16 @@ uncontrolled.  This is not a negative theorem and does not remove the Gauss
 estimate from the sufficient alternatives; see
 [`T151`](results/intermediate/20260822-t151-p22-affine-divisor-switch-hold.md).
 
+The aligned decimal-0/1 attack on the T69 fixed return is likewise
+mathematically open but operationally on research HOLD.  The final bounded
+T69 audit gives the new
+necessary normal form
+\(10^s(10^m-9d)^q\equiv16\pmod d\) with \(1\le q\le7\), but it neither
+constructs an infinite annular family nor controls its fixed-\(\pi\) phase.
+This is denominator classification, not the missing alignment-phase
+coupling; see
+[`T69 bounded-degree survivor normal form`](results/intermediate/20260823-t69-bounded-degree-survivor-normal-form.md).
+
 The current BBP interface now retains the exact missing arithmetic object.
 Separately, external GP-0002 was independently promoted as T110: its
 `machine-checked` strict contrapositive of T17 shows that an admissible-tail
