@@ -1,0 +1,106 @@
+[
+  {
+    "id": "odc-haar-full-proof",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately, then prove or refute the complete frozen theorem in INPUT.md. Give a line-by-line proof with exact quantifiers. You must explicitly handle half-open endpoints, parent-cell Cauchy-Schwarz, no atoms, L2 martingale convergence, approximate S-invariance including block endpoints, Fourier-ray rigidity, uniqueness of subsequential limits, and arbitrary fixed q cells. Do not work on the missing pi collision estimate. Return one decisive verdict.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2600, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-adversarial-referee",
+    "dimension": "review",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Act as an adversarial referee for the frozen theorem in INPUT.md. Try first to construct a concrete counterexample satisfying every premise. If none survives, certify every implication and identify the weakest exact repair needed for any gap. Audit Portmanteau inequality directions, moving boundaries, endpoint atoms, subsequence constants, and whether every-subsequence uniqueness implies full convergence. No vague objections; return a fatal counterexample or a proof-grade PASS ledger.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2200, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-measure-core",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Isolate and prove or refute only the measure-theoretic core: moving decimal-mesh collision bound implies every weak limit is absolutely continuous with an L2 density. Supply exact parent-child cell algebra, a valid atomlessness argument with correct Portmanteau use, boundary-null convergence of fixed cell masses, and the nested decimal martingale theorem. State precisely where q_j/L_j -> 0 is used. Then state whether this core is sufficient as written.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2200, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-dynamics-core",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Isolate and prove or refute the dynamics core: approximate S(x)=10x block dynamics makes every weak limit S-invariant, and an S-invariant probability with L2 Haar density must equal Haar. Track the last block point and the two endpoint errors exactly; then prove Fourier-ray rigidity without assuming ergodicity. State whether L1 absolute continuity would suffice or L2 is essential for this proof.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 1800, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-assumption-stress",
+    "dimension": "refutation",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Stress-test the frozen hypotheses one at a time. Determine rigorously whether decimal nesting q_j=10^k, k_j->infinity, q_j/L_j->0, uniform block approximate dynamics, and the additive +L_j term are each used. For every hypothesis you claim necessary, give an explicit countermodel when removed; for every unnecessary hypothesis, prove the theorem under the weaker replacement. Do not change multiple assumptions at once. End with the minimal safe theorem you can justify.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2400, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-consumer-interface",
+    "dimension": "review",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Verify the final consumer interface only. Assuming mu_j -> Haar, prove that every arbitrary fixed q>=2 half-open cell is hit in arbitrarily late selected blocks, including cells adjacent to 0 and the wrap endpoint. Distinguish open interiors from half-open membership and show how L_j->infinity supplies any N0. Then state exactly what this condition would supply to a generic cell-occupancy/circle-density consumer and what it does not prove without the collision premise.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 1600, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-quantitative-consumer",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Determine whether the frozen assumptions yield only qualitative weak convergence or a quantitative bound for fixed-cell deficits along selected blocks. Derive the strongest correct explicit inequality available from the moving-mesh L2 bound and approximate dynamics without inventing a mixing rate. If no rate follows, give two sequences satisfying the premises with arbitrarily slow convergence and certify that qualitative convergence is optimal.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 1800, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  },
+  {
+    "id": "odc-haar-independent-proof",
+    "dimension": "honesty",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Reconstruct the theorem independently from INPUT.md without trusting its intended proof skeleton. Prefer an elementary route if possible; otherwise explain why the L2 martingale plus Fourier argument is necessary. Identify any hidden equivalence to the conclusion, any circular use of cell occupancy, and any unverified theorem you invoke. Finish with a concise independent proof or an explicit fatal obstruction.",
+    "fixtures": [
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/AGENT_GUIDANCE.md", "destination": "AGENTS.md"},
+      {"source": "workflows/modelbench/tasks/pi/current/odc-haar-consumer-wave-a/INPUT.md", "destination": "INPUT.md"}
+    ],
+    "grading": {"type": "artifact_contract", "artifact": "MEMO.md", "min_chars": 2200, "required_markers": ["Status: `proof sketch`", "VERDICT:", "V1 remains open"], "forbidden_markers": ["V1 proved", "verified resolution", "candidate resolution", "FSR", "Gauss"]}
+  }
+]
