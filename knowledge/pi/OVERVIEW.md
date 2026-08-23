@@ -2,7 +2,7 @@
 
 Status: `conjecture`
 
-Last audited: 2026-08-22 UTC
+Last audited: 2026-08-23 UTC
 
 ## Executive finding
 
@@ -27,6 +27,17 @@ this is not a prescribed-word occurrence result. The full repository gate and
 central axiom audit passed. See
 [`bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md`](results/machine-checked/bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md).
 No novelty or literature-check claim is attached to this milestone.
+
+A 2026-08-23 independently reviewed `proof sketch` now isolates a generic
+consumer for moving-mesh collision bounds.  Uniform \(L^2\) control of the
+cell-count density, together with averaged approximate times-ten dynamics,
+forces every empirical block limit to be absolutely continuous,
+times-ten-invariant, and therefore Haar by Fourier square summability.  This
+needs no nested or decimal-power meshes.  It is reusable analysis, not a
+fixed-\(\pi\) estimate: the required collision bound for the sampled BBP orbit
+is unproved and expands back into the archived Fejér/long-lag frontier.  No
+quantitative rate, density premise for \(\pi\), or V1 conclusion follows.  See
+[`20260823-moving-mesh-collision-haar-consumer.md`](results/intermediate/20260823-moving-mesh-collision-haar-consumer.md).
 
 T111 adds a further `machine-checked` finite interface. Exact character
 orthogonality recovers each cyclic-cell multiplicity from the full signed DFT,
