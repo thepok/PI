@@ -2,7 +2,7 @@
 
 Status: `conjecture`
 
-Last audited: 2026-08-23 UTC
+Last audited: 2026-08-24 UTC
 
 ## Executive finding
 
@@ -27,6 +27,24 @@ this is not a prescribed-word occurrence result. The full repository gate and
 central axiom audit passed. See
 [`bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md`](results/machine-checked/bbp_weyl_circle_symbolic_transfer_machine_checked_20260821.md).
 No novelty or literature-check claim is attached to this milestone.
+
+A 2026-08-24 `machine-checked` frontier improvement now retains the exact
+Jackson coefficient weights before T19's worst-frequency relaxation.  If the
+normalized weighted nonzero Fourier load is below
+\(1/(3q)+2/(3q^3)\) at one positive sample size for each decimal scale
+\(q=10^k\), then V1 follows.  T19's pointwise premise implies the weighted
+premise, while a finite two-point-grid separator shows that the converse
+between the generic finite predicates fails.  This is a strict weakening of a
+sufficient premise, not a fixed-\(\pi\) estimate; the new weighted premise for
+the decimal orbit of \(\pi\) remains a `conjecture`.  See
+[`weighted_natural_scale_frontier_machine_checked_20260824.md`](results/machine-checked/weighted_natural_scale_frontier_machine_checked_20260824.md).
+
+The same gate also checks the conditional T14 bridge.  From the explicit
+external premise `IrrationalityMeasureBelow Real.pi 8`, T14 derives
+\(\operatorname{changeCount}_\pi(N)\ge \log N/\log 8-C\).  The source premise
+is not proved in the repository, and the conclusion implies neither V1 nor
+V3.  See
+[`t14_irrationality_measure_digit_changes_machine_checked_20260824.md`](results/machine-checked/t14_irrationality_measure_digit_changes_machine_checked_20260824.md).
 
 A 2026-08-23 independently reviewed `proof sketch` now isolates a generic
 consumer for moving-mesh collision bounds.  Uniform \(L^2\) control of the
@@ -991,11 +1009,12 @@ position \(K\). Thus V1 would make every finite word occur infinitely often.
 | `machine-checked` | V3 is equivalent to every digit occurring arbitrarily late in [`T9PiDigitsV3Reduction.lean`](TheoryLib/PiDigits/T9PiDigitsV3Reduction.lean). | The equivalence is exact; its premise for \(\pi\) remains a `conjecture`. |
 | `machine-checked` | Irrationality and Morse–Hedlund give \(p_\pi(m)\ge m+1\) in [`T11PiDigitFactorComplexity.lean`](TheoryLib/PiDigits/T11PiDigitFactorComplexity.lean). | V1 needs \(10^m\), an exponential rather than linear bound. |
 | `machine-checked` | At least two unspecified decimal digits occur arbitrarily late in [`T13PiDigitsTwoRecurrentDigits.lean`](TheoryLib/PiDigits/T13PiDigitsTwoRecurrentDigits.lean). | It does not identify the digits or establish recurrence of all ten. |
-| `machine-checked` | Conditional finite-alphabet counting in [`T18FiniteAlphabetSubsequentialCounting.lean`](TheoryLib/PiDigits/T18FiniteAlphabetSubsequentialCounting.lean) extracts one fixed unequal directed bigram and its two endpoint digits with logarithmic counts along unbounded prefixes. | The specialization to \(\pi\) retains the T14 digit-change premise and is therefore only a `proof sketch`. |
+| `machine-checked` | Conditional T14 in [`T14IrrationalityMeasureDigitChanges.lean`](TheoryLib/PiDigits/T14IrrationalityMeasureDigitChanges.lean) derives \(\operatorname{changeCount}_\pi(N)\ge \log N/\log8-C\) from `IrrationalityMeasureBelow Real.pi 8`; T18 then extracts one fixed unequal directed bigram and its endpoint digits with logarithmic counts along unbounded prefixes. | The published irrationality-measure statement remains an explicit external premise. This closes the named conditional bridge but proves neither V1 nor V3. |
 | `machine-checked` | V1 is equivalent to the orbit-density statement (2) in [`T20BaseTenOrbitDensity.lean`](TheoryLib/PiDigits/T20BaseTenOrbitDensity.lean). | An exact reduction; density at the fixed point \(\pi\) remains a `conjecture`. |
 | `machine-checked` | V1 implies V3, while the converse fails for generic decimal streams, in [`T21PiDigitsV1V3Relationship.lean`](TheoryLib/PiDigits/T21PiDigitsV1V3Relationship.lean). | Prevents a silent swap to the weaker subsequence problem. |
 | `machine-checked` | Weyl cancellation for every nonzero frequency implies V1 in [`T26WeylCancellationV1.lean`](TheoryLib/PiDigits/T26WeylCancellationV1.lean). | The required fixed-\(\pi\) cancellation is unknown. |
 | `machine-checked` | Exact order-\(q\) interval localization in [`T19T19ExactNaturalScaleResonance.lean`](TheoryLib/PiQuantitativeBlockHitting/T19T19ExactNaturalScaleResonance.lean) proves the cutoff \(2q\) and threshold \(1/(24q)+1/(12q^3)\), its direct hitting contrapositive, and its conditional implication to V1. | This is a strictly weaker sufficient condition than the earlier verified T18 target, but its fixed-\(\pi\) premise remains a `conjecture`; no quantitative bound on the witnessing \(N\) is proved. |
+| `machine-checked` | [`T120T120WeightedNaturalScaleFrontier.lean`](TheoryLib/PiQuantitativeBlockHitting/T120T120WeightedNaturalScaleFrontier.lean) and [`T121T121WeightedNaturalScaleCriterion.lean`](TheoryLib/PiQuantitativeBlockHitting/T121T121WeightedNaturalScaleCriterion.lean) retain the exact Jackson-weighted Fourier load, prove weighted smallness implies V1, prove T19's pointwise premise implies it, and give a finite strictness separator. | The weighted fixed-\(\pi\) cancellation premise remains a `conjecture`. The separator compares generic finite predicates and does not assert a fixed-\(\pi\) converse failure. |
 | `machine-checked` | The path-energy identity in [`T20T20DigitChangeFourierDefect.lean`](TheoryLib/PiQuantitativeBlockHitting/T20T20DigitChangeFourierDefect.lean) proves \(N\sin^2(\pi/100)\operatorname{Chg}_\pi(N)\le N^2-|S_N(1)|^2\). | This is unconditional and genuinely concerns the fixed \(\pi\) orbit, but it controls only the first frequency through the number of adjacent digit changes. |
 | `machine-checked` | [`T21T21UnboundedFourierGap.lean`](TheoryLib/PiQuantitativeBlockHitting/T21T21UnboundedFourierGap.lean) and [`T22T22AllFixedFrequencyGap.lean`](TheoryLib/PiQuantitativeBlockHitting/T22T22AllFixedFrequencyGap.lean) prove that for every fixed \(h\ne0\), \(N-|S_N(h)|\) eventually exceeds every real threshold. | The quantifier order is \(\forall h\,\forall A\,\exists N_0\,\forall N\ge N_0\); it gives no rate uniform in \(h\), and does not show \(|S_N(h)|/N\to0\). |
 | `machine-checked` | [`T23T23MorseHedlundFrequencyDefect.lean`](TheoryLib/PiQuantitativeBlockHitting/T23T23MorseHedlundFrequencyDefect.lean) proves fixed relative cancellation on the sample containing one first occurrence of every distinct length-\(m\) factor, and transfers its pair energy into the full canonical first-occurrence prefix. | The sample bound is genuinely relative, but intervening repeated visits can swamp it in the full prefix. Its bare existential full-prefix corollary is already implied qualitatively by T21; the new content is the canonical support/cutoff structure and natural frequency range. |

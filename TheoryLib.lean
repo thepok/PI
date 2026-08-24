@@ -10,6 +10,7 @@ import TheoryLib.PiDigits.T9PiDigitsV3Reduction
 import TheoryLib.PiDigits.T11PiDigitFactorComplexity
 import TheoryLib.PiDigits.T13PiDigitsTwoRecurrentDigits
 import TheoryLib.PiDigits.T18FiniteAlphabetSubsequentialCounting
+import TheoryLib.PiDigits.T14IrrationalityMeasureDigitChanges
 import TheoryLib.PiDigits.T20BaseTenOrbitDensity
 import TheoryLib.PiDigits.T21PiDigitsV1V3Relationship
 import TheoryLib.PiDigits.T22ChampernowneDisjunctive
@@ -296,3 +297,4 @@ import TheoryLib.PiLacunaryNearReturnSparsity.T106FiniteBranchingResonanceTree
 import TheoryLib.PiLacunaryNearReturnSparsity.T108T108LiteralTransport
 import TheoryLib.PiLongLagBlockCollisionDecay.T104T104ProbabilityClosure
 import TheoryLib.PiLacunaryNearReturnSparsity.T166T166FiniteWordPowerFree
+import TheoryLib.PiQuantitativeBlockHitting.T121T121WeightedNaturalScaleCriterion

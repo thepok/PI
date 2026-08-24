@@ -36,25 +36,32 @@ Let
 S_h(N) = ∑_{n < N} exp(2π i h fract(10^n π)).
 ```
 
-[`T19T19ExactNaturalScaleResonance.lean`](TheoryLib/PiQuantitativeBlockHitting/T19T19ExactNaturalScaleResonance.lean)
-proves that a missing length-`k` decimal cylinder before time `N` forces some
-nonzero integer frequency `h` with `|h| ≤ 2 * 10^k` to satisfy
+[`T120T120WeightedNaturalScaleFrontier.lean`](TheoryLib/PiQuantitativeBlockHitting/T120T120WeightedNaturalScaleFrontier.lean)
+and [`T121T121WeightedNaturalScaleCriterion.lean`](TheoryLib/PiQuantitativeBlockHitting/T121T121WeightedNaturalScaleCriterion.lean)
+expose the exact Jackson-coefficient load that precedes the worst-mode step in
+T19. A missing length-`k` decimal cylinder before time `N` forces
 
 ```text
-|S_h(N)| / N ≥ 1 / (24 * 10^k) + 1 / (12 * 10^(3k)).
+sum_{nonzero Jackson modes i} |c_i| |S_{h_i}(N)| / N
+  ≥ 1 / (3 * 10^k) + 2 / (3 * 10^(3k)).
 ```
 
-Consequently, the machine-checked predicate
-`PiNaturalScaleCancellationExact` implies V1. It asks that for every `k ≥ 1`
-there exist one `N > 0` such that, simultaneously for every nonzero
-`|h| ≤ 2 * 10^k`,
+Consequently, V1 follows if for every `k ≥ 1` there is one `N > 0` where this
+weighted load is strictly below the displayed threshold. T19's simultaneous
+pointwise premise implies this weighted premise. A machine-checked finite
+two-point-grid separator proves that the converse implication fails for the
+generic finite predicates; it is not a claim that either fixed-π premise is
+known.
+
+For comparison, T19 asks simultaneously for every nonzero
+`|h| ≤ 2 * 10^k` that
 
 ```text
 |S_h(N)| / N < 1 / (24 * 10^k) + 1 / (12 * 10^(3k)).
 ```
 
-This π-specific simultaneous moving-frequency estimate is open. It is the
-cleanest direct checked frontier currently encoded in the trusted core.
+The π-specific weighted moving-frequency estimate is open. It is now the
+cleanest direct checked Fourier frontier in the trusted core.
 
 ## What is known unconditionally for fixed π
 
@@ -122,7 +129,8 @@ must produce a genuinely new fixed-π quantitative estimate.
 A resolution still requires at least one new fixed-π input of the following
 kind:
 
-1. **Fourier:** simultaneous natural-scale cancellation strong enough for T19;
+1. **Fourier:** Jackson-weighted natural-scale cancellation strong enough for
+   T120/T121;
    or
 2. **Collision:** a moving-mesh occupancy/collision bound strong enough for the
    Haar consumer.

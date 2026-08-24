@@ -100,21 +100,26 @@ Let
 S_h(N) = ∑_{n < N} exp(2π i h fract(10^n π)).
 ```
 
-The machine-checked theorem in
-[`T19T19ExactNaturalScaleResonance.lean`](TheoryLib/PiQuantitativeBlockHitting/T19T19ExactNaturalScaleResonance.lean)
+The machine-checked weighted frontier in
+[`T120T120WeightedNaturalScaleFrontier.lean`](TheoryLib/PiQuantitativeBlockHitting/T120T120WeightedNaturalScaleFrontier.lean)
+and [`T121T121WeightedNaturalScaleCriterion.lean`](TheoryLib/PiQuantitativeBlockHitting/T121T121WeightedNaturalScaleCriterion.lean)
 reduces V1 to the following sufficient condition: for every `k ≥ 1`, find one
-`N > 0` such that simultaneously for every nonzero integer
-`|h| ≤ 2 * 10^k`,
+`N > 0` such that the exact Jackson-coefficient load obeys
 
 ```text
-|S_h(N)| / N < 1 / (24 * 10^k) + 1 / (12 * 10^(3*k)).
+sum_{nonzero Jackson modes i} |c_i| |S_{h_i}(N)| / N
+  < 1 / (3 * 10^k) + 2 / (3 * 10^(3*k)).
 ```
+
+T19's simultaneous pointwise bound for all nonzero `|h| <= 2 * 10^k`
+implies this weighted condition, and a finite machine-checked separator shows
+that the generic converse fails. This does not prove either premise for pi.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work
-must bound the actual sums on a growing natural-scale frequency window, improve
-the sufficient threshold, or rigorously prove that a proposed route cannot do
-so.
+must bound the actual weighted load on a growing natural-scale frequency
+window, strictly weaken this sufficient premise, or rigorously prove that a
+proposed route cannot do so.
 
 ### 2. Moving-mesh collision target
 
