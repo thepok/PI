@@ -293,12 +293,20 @@ frontier. Do not spend it on orchestration, workflow or prompt
 design, architecture audits, task selection, literature triage, computation,
 extraction, formatting, integration, or repetitive checking.
 
-There may be at most three active web-Pro calls at a time. A prompt may let the
-model choose the most promising active edge after reading this README and
-`FRONTIER.md`, but it must demand a materially stronger fixed-π implication,
-a strict weakening with proof, a new effective mechanism, or a decisive no-go
-for a genuinely live route—not a reformulation. The returned answer remains
-untrusted external input until the knowledge integrator reviews it. If
+There may be at most three active web-Pro calls at a time. Give each call a
+small current frontier packet directly in the prompt: the GitHub `main` link,
+the exact V1 statement, one named open pi-arithmetic transition, three to five
+direct `main` links, and a short list of the relevant recorded separators. Do
+not ask a Pro model to map the repository or edit it. Require a self-contained
+mathematical memo containing a genuinely new theorem, estimate, structural
+identity with quantitative force, or decisive no-go—not a reformulation.
+
+Keep the three creative slots differentiated by default: primitive
+exponential sums of the decimal orbit; exact BBP numerator/denominator and
+tail-phase arithmetic; and a free alternative pi-specific arithmetic route.
+When a memo survives local audit, use the next call to attack its strongest
+remaining step instead of restarting a broad search. The returned answer
+remains untrusted external input until the knowledge integrator reviews it. If
 login/account resumption, a browser permission, or a capacity warning blocks
 the call, notify Marcel immediately rather than guessing credentials or
 starting a duplicate call. Do not cancel an active Pro task; allow it to reach
