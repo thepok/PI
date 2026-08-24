@@ -144,6 +144,16 @@ quadratic collision
         => V1 for the exact decimal π orbit.
 ```
 
+A newer [`uniform-integrability consumer`](knowledge/pi/results/intermediate/20260824-uniform-integrability-haar-frontier.md)
+has status `proof sketch`. It replaces bounded entropy by the still weaker
+requirement that cells carrying an arbitrarily large multiple of the mean
+occupancy contain a uniformly vanishing fraction of visits. The Haar argument
+is sound and collision bounds imply this tail condition. The exact decimal
+de Bruijn construction from the entropy note has bounded entropy deficit and
+hence uniform integrability while its normalized second moment diverges, so it
+also certifies strictness inside exact times-ten dynamics. No fixed-pi tail
+estimate is known.
+
 A retained finite experiment checks the separator combinatorics and numerical
 diagnostics through word length five. The proof-sketch implications, not the
 finite table, are the research claim.

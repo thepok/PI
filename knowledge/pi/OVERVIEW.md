@@ -76,6 +76,14 @@ Exact generic decimal de Bruijn constructions separate both implications. No
 such entropy estimate is known for pi. See
 [`20260824-entropy-deficit-haar-hierarchy.md`](results/intermediate/20260824-entropy-deficit-haar-hierarchy.md).
 
+A parallel Pro `proof sketch` weakens the generic Haar consumer further to
+uniform integrability of the cell-smoothed densities. This tail condition is
+implied by the collision estimate and is sufficient for absolutely continuous,
+times-ten-invariant block limits, hence Haar. The reviewed de Bruijn stages from
+the entropy note satisfy this tail condition while their normalized second
+moments diverge, giving a strict separator inside exact decimal dynamics. See
+[`20260824-uniform-integrability-haar-frontier.md`](results/intermediate/20260824-uniform-integrability-haar-frontier.md).
+
 T111 adds a further `machine-checked` finite interface. Exact character
 orthogonality recovers each cyclic-cell multiplicity from the full signed DFT,
 and the strict one-sided condition that the nonzero-frequency real sum exceed

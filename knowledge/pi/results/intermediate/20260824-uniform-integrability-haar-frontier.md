@@ -1,8 +1,8 @@
 # Uniform-integrability frontier for the decimal orbit
 
-**Status:** mathematical proof complete; Lean formalization and the fixed-`π` input remain open.
+Status: `proof sketch`
 
-This note gives a strict weakening of the moving-mesh collision premise recorded in `FRONTIER.md`.
+This note proposes a weakening of the moving-mesh collision premise recorded in `FRONTIER.md`.
 It does **not** prove decimal richness for `π`. It replaces a uniform second-moment requirement by a weaker and more directly targeted tail-nonconcentration requirement.
 
 ## 1. Setup
@@ -112,7 +112,10 @@ Then
 \mu_j\Longrightarrow\lambda.
 \]
 
-Consequently the orbit is equidistributed on the circle. In particular every nonempty open interval is visited, and for `b=10` every finite decimal word occurs.
+Consequently these selected block empirical measures converge to Haar measure.
+This does not assert ordinary prefix equidistribution of the full orbit. It does
+imply that every nonempty open interval is visited somewhere in the selected
+blocks, and for `b=10` every finite decimal word occurs.
 
 No separate assumption that `q_j/L_j` is bounded is required.
 
@@ -270,7 +273,7 @@ So `(C2)` plus bounded `q_j/L_j` implies `(UI)`.
 
 The new premise is therefore no stronger than the previous collision premise.
 
-## 6. The weakening is strict: an exact integer-count separator
+## 6. Histogram-level separation from the second moment
 
 The converse fails even for genuine integer histograms.
 
@@ -349,7 +352,7 @@ q_j/L_j
 
 so the failure is not caused by an excessive mesh-to-block ratio.
 
-This is an explicit separator:
+This is an explicit separator among integer histograms:
 
 \[
 \boxed{
@@ -358,7 +361,32 @@ This is an explicit separator:
 }
 \]
 
-The new sufficient premise is strictly weaker than the previous one.
+This histogram alone does not impose exact dynamics. Exact-orbit strictness is
+supplied next.
+
+### Exact decimal-orbit separator
+
+Use Separator B from
+[`20260824-entropy-deficit-haar-hierarchy.md`](20260824-entropy-deficit-haar-hierarchy.md).
+At decimal scale `q=10^k`, concatenate a zero run of length
+`z=floor(q/k)` with a linearized decimal de Bruijn word, include the `k-1`
+transition windows, and embed these stages at disjoint positions of one
+nonterminating decimal expansion. The resulting selected blocks obey the exact
+times-ten dynamics and may be placed in literal intervals `[L_j,2L_j)`.
+
+Their relative entropy deficits are uniformly bounded. For any cell-smoothed
+density `f` with `D=integral f log f`, the negative part of `t log t` contributes
+at most `1/e`; hence
+
+```text
+integral_(f>M) f <= (D + 1/e) / log M.
+```
+
+Thus these exact-orbit blocks satisfy uniform integrability. On the other hand,
+the zero-word cell has mass at least `z/M_block`, so the same construction has
+`q * sum_a p(a)^2 -> infinity`. Therefore no uniform collision/`L^2` bound can
+hold. This supplies strictness inside the shared exact-decimal-orbit domain,
+not merely among abstract histograms.
 
 ## 7. New fixed-`π` target
 
@@ -395,6 +423,9 @@ A future contribution should target one of those statements for the fixed orbit 
 
 ## 8. Claim boundary
 
-This note proves a new generic implication and proves that its premise is strictly weaker than the previous collision premise.
+This note gives a `proof sketch` of a new generic implication. The collision
+premise implies its uniform-integrability premise. The integer histogram gives
+the basic analytic nonconverse, and the reviewed de Bruijn construction above
+gives strictness inside exact decimal dynamics.
 
 It does **not** prove that the decimal orbit of `π` satisfies `(UI)`. The remaining frontier is still a fixed-`π` quantitative nonconcentration estimate.
