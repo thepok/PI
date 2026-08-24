@@ -246,6 +246,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T129T129BoundaryKernelNormalizedComp
 import TheoryLib.PiQuantitativeBlockHitting.T130T130BoundaryNonzeroCoefficientAlgebra
 import TheoryLib.PiQuantitativeBlockHitting.T131T131MainFrequencyFibers
 import TheoryLib.PiQuantitativeBlockHitting.T132T132EdgeFrequencyFibers
+import TheoryLib.PiQuantitativeBlockHitting.T133T133BoundaryDecimalScaleSeparator
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3112,6 +3113,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T132T132EdgeFrequencyFibers
 #print axioms Theory.PiDigits.EdgeFrequencyFibers.aggregatedJacksonCoefficient_eq_affine
 #print axioms Theory.PiDigits.EdgeFrequencyFibers.aggregatedBoundaryCoefficient_eq_affine
 #print axioms Theory.PiDigits.EdgeFrequencyFibers.normalized_aggregatedBoundary_lt_jackson
+
+-- Exact decimal-scale directional boundary-vs-Jackson separator.
+#print axioms Theory.PiDigits.BoundaryDecimalScaleSeparator.boundary_directional_decimalScale_ten_strict_vs_jackson
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

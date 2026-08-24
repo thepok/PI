@@ -136,8 +136,9 @@ frequency `2q-1`. Identifying every actual interior frequency fiber with the
 cubic formula is now machine-checked in T131. The remaining finite transfer to
 the full actual normalized nonzero-coefficient comparison is now closed in
 T132 by an exact signed edge-fiber formula. The genuine `q=10` separators
-remain an independently audited `proof sketch`. The fixed-pi premise remains
-open.
+are now split: T133 machine-checks the directional Boundary-vs-Jackson
+separator, while the larger 26-point aggregate separator remains an
+independently audited `proof sketch`. The fixed-pi premise remains open.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work
