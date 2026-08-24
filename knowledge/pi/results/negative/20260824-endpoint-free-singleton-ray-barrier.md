@@ -127,6 +127,96 @@ mean over a hypothetical uniform predecessor digit is zero, while their mean
 square is $\sum_{s=1}^9|G_{q,s,A'}(y)|^2$.  This identity is only a sharper
 description of the surviving actual-$\pi$ target, not an estimate for it.
 
+## Exact BBP carry cancellation and tail no-go
+
+Let $y_n$, $\tau_n$, and $f_n$ be the canonical selected BBP orbit, error,
+and seven-term rational forcing from T106.  With
+$\rho=10/16^7$, they satisfy
+
+\[
+y_{n+1}=\{10y_n+f_n\},\qquad
+f_n=10\tau_n-\tau_{n+1},\qquad
+0\leq\tau_n<\rho^n,
+\qquad x_n=\{y_n+\tau_n\}.
+\]
+
+Define the exact rational-forcing and tail-wrap carries
+
+\[
+b_n=\lfloor10y_n+f_n\rfloor,
+\qquad m_n=\lfloor y_n+\tau_n\rfloor.
+\]
+
+The actual predecessor digit then obeys the exact identity
+
+\[
+d_n=b_n+m_{n+1}-10m_n.
+\]
+
+Because every frequency in $G_{q,s,A'}$ is $\ell+s/10$, its
+quasi-periodicity is
+
+\[
+G_{q,s,A'}(z-m)=\omega^{-sm}G_{q,s,A'}(z)
+\qquad(m\in\mathbb Z).
+\]
+
+Thus the factor $\omega^{s m_{n+1}}$ contributed by the digit carry cancels
+the literal tail wrap in $G$ exactly.  For $k\geq2$, the singleton
+correlation consequently has the exact decomposition
+
+\[
+H_{q,q,A}(N)=R_{q,A}(N)+\Delta_{q,A}(N),
+\]
+
+where
+
+\[
+R_{q,A}(N)=-\sum_{n<N}e(y_{n+k})
+ \sum_{s=1}^9\omega^{s(b_n-a)}G_{q,s,A'}(y_{n+1})
+\]
+
+is a target-labelled rational BBP core.  Term by term, if $j=10\ell+s$,
+the residual tail multiplier in $\Delta$ is exactly
+
+\[
+e\!\left(\tau_{n+k}+\frac j{10}\tau_{n+1}\right)-1.
+\]
+
+Writing
+
+\[
+\Lambda_q=\sum_{j\in J_{q,q}}C_{q,q}(q+j),
+\qquad
+M_q=\sum_{j\in J_{q,q}}jC_{q,q}(q+j),
+\]
+
+coefficient-adapted summation gives the uniform-in-$N$ bound
+
+\[
+|\Delta_{q,A}(N)|<B_{q,k}:=
+\frac{2\pi}{1-\rho}
+\left(\rho^k\Lambda_q+\frac{\rho}{10}M_q\right).
+\]
+
+Here $B_{q,k}=O(q)$ by a direct moment bound, while saturating
+$|e(t)-1|$ by $2$ gives the sharper alternative $B_{q,k}=O(\log q)$; the
+minimum of the two estimates is available.  Therefore, for each fixed
+$q,A$,
+
+\[
+\frac{H_{q,q,A}(N)-R_{q,A}(N)}N\longrightarrow0,
+\]
+
+and relative to the unnormalized $N/q$ zero-mode scale the difference
+vanishes whenever $N/(qB_{q,k})\to\infty$.  Hence the positive exact BBP
+tail cannot itself supply extensive T139 cancellation.  This does not
+exclude finite horizons $N\lesssim qB_{q,k}$, and it leaves the sign of
+$R_{q,A}$, all other primitive rays, and the literal endpoint completely
+open.  The broad tail coboundary was already latent in T107; the new content
+here is only this exact target-labelled, carry-cancelled core and its
+coefficient-adapted no-go.  No $\pi$ estimate, T139 premise, or V1 follows.
+
 There is also a quantitative obstruction to the standard diagonal quadratic
 route.  Let $V:\mathbb C^{\mathcal P_q}\to\mathbb C^N$ be the actual-orbit
 evaluation operator $(Vz)_n=\sum_u z_u e(ux_n)$, and let $p$ be the full T139

@@ -149,7 +149,11 @@ of the actual decimal π orbit; no estimate for it is presently known.  A
 frequency-diagonal Gram or weighted large-sieve certificate cannot cross the
 T139 threshold: it has an `Ω(q⁻¹/²)` floor at every horizon, above the
 `O(q⁻¹)` margin, so any live quadratic route must retain target-specific signed
-or off-diagonal actual-π structure.
+or off-diagonal actual-π structure.  Exact BBP carry cancellation further
+shows that the positive selected tail perturbs the target-labelled rational
+core by only `min(O(q), O(log q))`, uniformly in the horizon, so it cannot be
+the extensive cancellation source when `N/(qB_(q,k)) → ∞`; the rational core
+and the remaining rays stay open.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
