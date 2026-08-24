@@ -20,6 +20,11 @@ spending tokens on the same dead ends.
   obstruction forces every pointwise scalar coboundary residual above the
   carry budget, although explicit ray spreading makes its `L2` norm
   arbitrarily small.
+- `20260824-ten-channel-branch-average-pathwise-separator.md`: the exact
+  fixed path `x_n = 4/9` keeps every true carry character fully coherent even
+  though the corresponding Fejer branch-average operator has a strict
+  zero-sum spectral gap; cyclic-label-invariant contraction data therefore do
+  not control a prescribed pathwise carry class.
 - `appearance_ratio_route_no_go_20260821.md`: reviewed scoped separator for
   the T28–T29 route; even optimal appearance ratio leaves a constant bound on
   a moving selected frequency set, and maximal recurrent language/entropy does
