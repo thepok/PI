@@ -125,11 +125,13 @@ compresses the actual T128 positive-frequency obstruction to frequencies not
 divisible by ten plus exact initial/terminal orbit terms. Generic ray
 telescoping was already available. T138 now machine-checks the uniform actual
 T128 coefficient-load gap
-`sum_u |p_(q,A)(u)| < L_q - 1/3000000` for every `q=10^k`; the exact primitive
-exponential-sum/endpoints identity and its directional and modulus T128
-consumers remain `proof sketch` and are not in Lean. No primitive-frequency
-cancellation estimate is known for π, so this proves neither T124 nor V1 and
-supplies no exact π-orbit logical separator.
+`sum_u |p_(q,A)(u)| < L_q - 1/3000000` for every `q=10^k`. T139 now also
+machine-checks the positive/negative conjugate reconstruction, the exact
+actual-π primitive identity with both endpoint blocks, norm and `4E/N` defect
+bounds, strict primitive-only T128 hit consumer and decimal-scale wrapper, and
+the T138-enhanced uniform primitive-cancellation consumer. The needed
+primitive-frequency cancellation estimate remains open for π, so this proves
+neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
 ## Entropy-deficit frontier
 

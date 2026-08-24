@@ -1,12 +1,15 @@
 # T128 primitive-ray coefficient contraction
 
-Status: `machine-checked` (uniform coefficient-load gap); `proof sketch`
-(primitive exponential-sum identity, endpoint bounds, and conditional consumer)
+Status: `machine-checked` (T138 coefficient gap and T139 primitive-ray
+identity/consumers); `proof sketch` (explicit large-`N` threshold comparison)
 
 This note records the independently audited, corrected part of
 `workflows/state/chatgpt-pro/20260824-open-frontier-creative-c/answer.md`.
 The uniform coefficient-load gap is now machine-checked in
 [`T138T138PrimitiveRayCoefficientGap.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T138T138PrimitiveRayCoefficientGap.lean).
+The exact signed reconstruction, actual-orbit primitive identity, endpoint
+bound, and conditional hit consumers are machine-checked in
+[`T139T139PrimitiveRayBoundaryConsumer.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T139T139PrimitiveRayBoundaryConsumer.lean).
 Generic finite decimal-ray telescoping was already known; the new point is a
 uniform, coefficient-specific contraction for the actual T128 coefficients.
 
@@ -68,7 +71,15 @@ Define the positive-frequency load and centered complex obstruction by
 \sum_{h=1}^{2q-1}\alpha_q(h)e(-hc_{q,A})S_h(N).
 \]
 
-The verified T128 directional defect is
+T139 machine-checks the positive/negative conjugate reconstruction
+
+\[
+\sum_{0<|h|\le2q-1}\alpha_q(|h|)e(-hc_{q,A})S_h(N)
+=\mathcal F_{q,A}(N)+\overline{\mathcal F_{q,A}(N)}
+=2\operatorname{Re}\mathcal F_{q,A}(N).
+\]
+
+Consequently the verified T128 directional defect is
 
 \[
 D_{q,A}(N)=-\frac2N\operatorname{Re}\mathcal F_{q,A}(N).
@@ -95,13 +106,24 @@ b_{u,r}=\alpha_q(10^ru)e(-10^ru c_{q,A}),
 \boxed{p_{q,A}(u)=\sum_{r=0}^{R_u}b_{u,r}},
 \]
 
-and the ray tails
+For a positive supported frequency `h`, put
 
 \[
-\tau_{q,A}(u,s)=\sum_{r=s}^{R_u}b_{u,r}\qquad(1\le s\le R_u).
+v_h=\nu_{10}(h),\qquad u_h=h/10^{v_h},
 \]
 
-Exact telescoping along `x_{n+1}={10x_n}` gives
+and retain both literal endpoint blocks in
+
+\[
+R_h(N)=
+\sum_{j=0}^{v_h-1}e(u_hx_{N+j})-
+\sum_{j=0}^{v_h-1}e(u_hx_j),
+\qquad
+\mathcal B_{q,A}(N)=
+\sum_{h=1}^{2q-1}\alpha_q(h)e(-hc_{q,A})R_h(N).
+\]
+
+T139 machine-checks exact telescoping along `x_{n+1}={10x_n}`:
 
 \[
 \boxed{
@@ -110,38 +132,33 @@ Exact telescoping along `x_{n+1}={10x_n}` gives
 }
 \]
 
-with the literal initial and terminal orbit phases
-
-\[
-\boxed{
-\mathcal B_{q,A}(N)=
-\sum_{u\in\mathcal P_q}\sum_{s=1}^{R_u}
-\tau_{q,A}(u,s)
-\bigl(e(ux_{N+s-1})-e(ux_{s-1})\bigr).
-}
-\]
-
-For the exact endpoint quantities
+The exact endpoint budget is
 
 \[
 \boxed{
 \mathfrak E_{q,A}=
-\sum_{u\in\mathcal P_q}\sum_{s=1}^{R_u}
-|\tau_{q,A}(u,s)|,
+\sum_{h=1}^{2q-1}\nu_{10}(h)
+\left|\alpha_q(h)e(-hc_{q,A})\right|,
 \qquad
-W_q=\sum_{h=1}^{2q-1}\nu_{10}(h)\alpha_q(h),
+W_q=\sum_{h=1}^{2q-1}\nu_{10}(h)\alpha_q(h).
 }
 \]
 
-one has
+Because the positive T128 coefficients are positive,
+`mathfrak E_(q,A) = W_q`. T139 machine-checks
 
 \[
 \boxed{
 |\mathcal B_{q,A}(N)|\le2\mathfrak E_{q,A},
 \qquad
-\mathfrak E_{q,A}\le W_q\le kL_q.
+D_{q,A}(N)\le
+-\frac2N\operatorname{Re}\sum_{u\in\mathcal P_q}p_{q,A}(u)S_u(N)
++\frac{4\mathfrak E_{q,A}}N.
 }
 \]
+
+The elementary comparison `mathfrak E_(q,A)=W_q <= kL_q` will only be used
+below for the separate explicit large-`N` simplification.
 
 ## Uniform coefficient gap
 
@@ -166,9 +183,9 @@ uses the single ray `u=1`, whose `h=1` and `h=10` terms already lose more
 than `1/2500`. This is where the result goes beyond the previously known
 generic ray telescope.
 
-## Conditional T128 criteria
+## Machine-checked conditional T128 criteria
 
-The exact directional sufficient condition is
+T139 proves the exact strict primitive-only sufficient condition
 
 \[
 \boxed{
@@ -179,28 +196,29 @@ The exact directional sufficient condition is
 }
 \]
 
-It implies a hit in the cylinder for `A`. Replacing `E` by `W` gives the
-target-independent endpoint budget
+for `q>0`, `A<q`, and `N>0`. It implies a hit in the cylinder for `A`; T139
+also contains the exact wrapper for every `q=10^k`, `k>=1`.
+
+T139 then combines this consumer with T138's load gap. If `epsilon >= 0` and
 
 \[
--\frac2N\operatorname{Re}
-\sum_{u\in\mathcal P_q}p_{q,A}(u)S_u(N)
-+\frac{4W_q}N
-<\alpha_q(0),
+|S_u(N)|\le\varepsilon N\quad(u\in\mathcal P_q)
 \]
 
-and a modulus-only sufficient condition is
+at the actual π orbit, then the machine-checked threshold
 
 \[
 \boxed{
-\frac2N\sum_{u\in\mathcal P_q}|p_{q,A}(u)|\,|S_u(N)|
-+\frac{4W_q}N
-<\alpha_q(0).
+2\varepsilon(L_q-\Delta_*)+
+\frac{4\mathfrak E_{q,A}}N<\alpha_q(0)
 }
 \]
 
-These premises retain the actual π-orbit but require exponential-sum control
-only at primitive frequencies `10 not dividing u`.
+forces the same hit. Every retained arithmetic frequency is proved not
+divisible by ten. This is the T138-enhanced uniform primitive-cancellation
+consumer; it does not establish its cancellation hypothesis for π.
+
+## Proof-sketch explicit threshold comparison
 
 For an explicit comparison, suppose `|S_u(N)| <= epsilon N` for every
 `u in P_q`. Since `L_q < pi^2/4`, the sufficient bound
@@ -241,9 +259,13 @@ large-`N` restriction. It is not an exact logical separator between the two
 
 ## Claim boundary
 
-Only the uniform actual-T128 coefficient-load gap is `machine-checked`. The
-exact primitive exponential-sum identity, its initial/terminal endpoint bound,
-and the resulting conditional T128 consumer remain `proof sketch` and are not
-in Lean. No required primitive-frequency cancellation estimate is known for
-π. This note proves neither the T124 premise nor V1, and it makes no claim of
-an exact logical separation on the π orbit.
+The uniform actual-T128 coefficient-load gap is `machine-checked` in T138.
+The exact positive/negative conjugate reconstruction, actual π-orbit primitive
+identity with both endpoint blocks, endpoint norm and defect bounds, strict
+primitive-only T128 hit consumer, decimal-scale wrapper, and T138-enhanced
+uniform primitive-cancellation consumer are `machine-checked` in T139. The
+displayed coarse large-`N` numerical comparison remains `proof sketch`.
+
+No required primitive-frequency cancellation estimate is known for π. This
+note proves neither the T124 premise nor V1, and it makes no claim of an exact
+logical separation on the π orbit.
