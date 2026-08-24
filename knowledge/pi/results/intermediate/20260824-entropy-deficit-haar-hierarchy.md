@@ -180,9 +180,12 @@ measurable `E`,
 
 The atom-to-cell coupling changes the integral of a continuous test function
 by at most its modulus of continuity at `1/q_j`. Thus the smoothed measures and
-`mu_j` have the same weak subsequential limits. Formula (4), outer regularity,
-and Portmanteau show that every such limit is absolutely continuous with
-respect to Haar measure.
+`mu_j` have the same weak subsequential limits. Formula (4) gives uniform
+absolute continuity: for a Haar-null compact set, place it inside an open set
+of arbitrarily small Haar measure, bound a continuous cutoff between their
+indicators, and pass its integrals to the weak limit. Inner regularity then
+shows that every such limit is absolutely continuous with respect to Haar
+measure.
 
 For a Lipschitz test function `phi`, (E3) and the two block endpoints give
 
@@ -234,7 +237,8 @@ The collision premise therefore yields
  D(p\|u_q)\le\log(C_0(1+K)).
 \]
 
-Thus the implication hierarchy is
+For decimal meshes `q_j=10^k_j` with `k_j -> infinity` on the exact pi orbit,
+the implication hierarchy is
 
 ```text
 quadratic collision bound
@@ -243,12 +247,15 @@ quadratic collision bound
           => V1 for the exact decimal π orbit.
 ```
 
-The first two implications are strict, not merely syntactically weaker.
+The first two implications are strict, not merely syntactically weaker. The
+general Haar consumer of Section 2 does not by itself assert the final
+pi-specific implication; that step additionally uses the exact decimal coding
+and the factor-entropy theorem from Section 1.
 
 ## 4. Exact-times-ten separators
 
-The strictness can be realized by genuine decimal orbits, not only by abstract
-probability vectors.
+The strictness can be realized by genuine generic decimal orbits, not only by
+abstract probability vectors. These separators are not estimates for pi.
 
 For each large `k`, put `q=10^k`. Choose a cyclic decimal de Bruijn word of
 order `k` and linearize it to a digit string of length `q+k-1`; its `q`

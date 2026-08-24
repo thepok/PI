@@ -100,26 +100,35 @@ Let
 S_h(N) = ∑_{n < N} exp(2π i h fract(10^n π)).
 ```
 
-The machine-checked weighted frontier in
-[`T120T120WeightedNaturalScaleFrontier.lean`](TheoryLib/PiQuantitativeBlockHitting/T120T120WeightedNaturalScaleFrontier.lean)
-and [`T121T121WeightedNaturalScaleCriterion.lean`](TheoryLib/PiQuantitativeBlockHitting/T121T121WeightedNaturalScaleCriterion.lean)
-reduces V1 to the following sufficient condition: for every `k ≥ 1`, find one
-`N > 0` such that the exact Jackson-coefficient load obeys
+The machine-checked
+[`T123`](TheoryLib/PiQuantitativeBlockHitting/T123T123AggregatedJacksonFrontier.lean)
+frontier first groups equal Jackson frequencies. The still sharper
+[`T124`](TheoryLib/PiQuantitativeBlockHitting/T124T124DirectionalJacksonFrontier.lean)
+consumer retains the signed real sum centered on one target word. It reduces
+V1 to the following wordwise sufficient condition: for every
+nonempty decimal word `s`, find one `N_s > 0` such that
 
 ```text
-sum_{nonzero Jackson modes i} |c_i| |S_{h_i}(N)| / N
-  < 1 / (3 * 10^k) + 2 / (3 * 10^(3*k)).
+directionalJacksonDefect(piOrbit, N_s, 10^|s|, cylinderLeft(s))
+  < 1 / (3 * 10^|s|) + 2 / (3 * 10^(3*|s|)).
 ```
 
-T19's simultaneous pointwise bound for all nonzero `|h| <= 2 * 10^k`
-implies this weighted condition, and a finite machine-checked separator shows
-that the generic converse fails. This does not prove either premise for pi.
+The checked hierarchy is
+
+```text
+T19 pointwise → raw Jackson load → aggregated load → directional word test → V1.
+```
+
+Actual-Jackson finite separators machine-check strictness at the raw-to-
+aggregated and aggregated-to-directional steps. They do not prove a logical
+separation of the pi-level predicates, and none of those predicates is proved
+for pi.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work
-must bound the actual weighted load on a growing natural-scale frequency
-window, strictly weaken this sufficient premise, or rigorously prove that a
-proposed route cannot do so.
+must bound the actual directional or aggregated quantity on the growing
+natural-scale frequency window, strictly weaken this sufficient premise, or
+rigorously prove that a proposed route cannot do so.
 
 ### 2. Moving-mesh collision target
 
@@ -174,11 +183,12 @@ Normal research runs use four clearly separated roles:
    free workers supplied with bounded tasks, watches provider utilization and
    pod health, repairs general workflow failures, retires stale directions, and
    reports only material progress.
-2. **Research director:** one maximum-intelligence subagent owns the current
-   mathematical direction. It audits `FRONTIER.md`, the verified core, and the
-   negative-result memory; rejects tasks that fail the admission policy; and
-   chooses the next highest-value quantitative question. It does not spend its
-   time on routine worker jobs.
+2. **Creative mathematics directors:** up to three maximum-intelligence Pro
+   calls run in parallel on distinct hard questions at the current frontier.
+   They read `FRONTIER.md`, the verified core, and the negative-result memory
+   and return mathematical proof sketches only. They do not write Lean, edit
+   the repository, design workflows, integrate results, or perform routine
+   worker jobs.
 3. **Knowledge integrator:** one subagent reviews returned artifacts,
    deduplicates them, preserves negative and intermediate findings, and
    prepares narrowly scoped candidates for the trusted core. It must prevent
@@ -189,6 +199,11 @@ Normal research runs use four clearly separated roles:
    research inside isolated pods. Their output is untrusted input, never a
    result by itself. The current machine-wide ceilings are four concurrent
    OpenRouter `ox` calls and ten concurrent OpenCode `oxzen` calls.
+
+Lean implementation, theorem registration, verification, and repository
+integration are performed by the main operator and its local subagents, not by
+the Pro directors. Pro and Ox output remains untrusted until that local path has
+checked the exact statement and proof boundary.
 
 Agents do not constitute the trust boundary. The operator may promote a formal
 finding only after the independent kernel build, exploit scan, exact statement
@@ -220,14 +235,14 @@ SHA, completes a bounded deliverable under `GPTPro/Deliverables/`, and closes
 the task as `done` or `blocked`.
 
 The main operator may also invoke Marcel's authenticated web ChatGPT Pro through
-the `chatgpt-pro` skill for one sharply bounded, hard creative-mathematics task.
+the `chatgpt-pro` skill for sharply bounded, hard creative-mathematics tasks.
 Web Pro is a mathematician, not an operator. Reserve it for inventing or
 stress-testing a genuinely difficult proof mechanism at one of the two active
 quantitative frontiers. Do not spend it on orchestration, workflow or prompt
 design, architecture audits, task selection, literature triage, computation,
 extraction, formatting, integration, or repetitive checking.
 
-There must be at most one active web-Pro call at a time. Every prompt names the
+There may be at most three active web-Pro calls at a time. Every prompt names the
 repository, branch, exact mathematical gap, deliverable, checked usefulness
 edge, stop condition, and claim boundary. The returned answer remains untrusted
 external input until the knowledge integrator reviews it. If login/account

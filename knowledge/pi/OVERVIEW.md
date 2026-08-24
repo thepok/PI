@@ -39,6 +39,17 @@ sufficient premise, not a fixed-\(\pi\) estimate; the new weighted premise for
 the decimal orbit of \(\pi\) remains a `conjecture`.  See
 [`weighted_natural_scale_frontier_machine_checked_20260824.md`](results/machine-checked/weighted_natural_scale_frontier_machine_checked_20260824.md).
 
+The checked T123/T124 refinement now removes two further triangle-inequality
+losses. T123 groups all equal Jackson frequencies before taking absolute
+values; its actual-Jackson `q=2` separator has aggregated load `7/32`, threshold
+`1/4`, and raw load `11/32`. T124 then retains the signed real sum centered on
+the prescribed cylinder and allows the cutoff to depend on the word; an
+actual-Jackson `q=1` singleton separates its finite criterion from the
+aggregated one. Both new pi premises imply canonical V1 and both remain open
+for the decimal orbit of pi. The stronger closed coefficient formulas and the
+all-decimal-scale separator remain `proof sketch`; no fixed-pi cancellation or
+V1 theorem is claimed.
+
 The same gate also checks the conditional T14 bridge.  From the explicit
 external premise `IrrationalityMeasureBelow Real.pi 8`, T14 derives
 \(\operatorname{changeCount}_\pi(N)\ge \log N/\log 8-C\).  The source premise
@@ -56,6 +67,14 @@ fixed-\(\pi\) estimate: the required collision bound for the sampled BBP orbit
 is unproved and expands back into the archived Fejér/long-lag frontier.  No
 quantitative rate, density premise for \(\pi\), or V1 conclusion follows.  See
 [`20260823-moving-mesh-collision-haar-consumer.md`](results/intermediate/20260823-moving-mesh-collision-haar-consumer.md).
+
+A reviewed 2026-08-24 `proof sketch` strictly weakens that collision premise.
+Sublinear Shannon-entropy deficit along selected exact decimal-pi blocks would
+already force maximal factor entropy and V1; uniformly bounded entropy deficit,
+together with the approximate times-ten dynamics, forces Haar block limits.
+Exact generic decimal de Bruijn constructions separate both implications. No
+such entropy estimate is known for pi. See
+[`20260824-entropy-deficit-haar-hierarchy.md`](results/intermediate/20260824-entropy-deficit-haar-hierarchy.md).
 
 T111 adds a further `machine-checked` finite interface. Exact character
 orthogonality recovers each cyclic-cell multiplicity from the full signed DFT,

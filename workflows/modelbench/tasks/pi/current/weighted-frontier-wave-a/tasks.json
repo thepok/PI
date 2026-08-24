@@ -1,0 +1,102 @@
+[
+  {
+    "id": "weighted-collapse-frequency-masses",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Starting from the actual T120/T121 Jackson coefficient and frequency definitions, collapse duplicated indices to exact frequency masses W_q(h)=sum_{i:h_i=h}|c_i|. Derive a closed formula or sharp piecewise bounds for W_q(h), its support, total mass, maximum, and squared mass. State one genuinely useful consequence for J, or prove that the collapse yields no gain beyond T19. No equivalent-definition-only result.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-l2-sharp-bridge",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Derive the sharpest weighted Cauchy-Schwarz/L2 upper bound for J using the exact Jackson masses, with every q and N factor. Determine the precise quadratic-moment threshold sufficient for J<c0(q). Audit strictness and diagonal terms. If the threshold is asymptotically impossible at natural scale for every positive-kernel approach, prove that obstruction and stop.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-pair-kernel",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Rewrite the strongest relevant weighted quadratic Fourier moment exactly as a nonnegative or signed pair kernel in x_m-x_n. Compute the kernel, its diagonal contribution, localization width, sign, and normalization. Give a theorem-ready collision estimate that would imply J<c0(q), or a rigorous reason no such positive kernel can meet the scale.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-moving-mesh-interface",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Determine exactly whether the reviewed occupancy bound sum n(a)^2<=C(L^2/q+L) can force the weighted Jackson threshold on the same block. Prove the best implication including constants and boundary-cell effects, or construct sequences satisfying that collision bound while violating J<c0(q). Identify the minimal quantitative strengthening if one exists.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-diagonal-scale-obstruction",
+    "dimension": "refutation",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Adversarially test all straightforward positive L2, large-sieve, and collision-kernel routes to J<c0(q). Quantify the unavoidable m=n diagonal and determine the necessary relation between N and q. Give an explicit counterexample to every overstrong claimed bridge you find. Return ADVANCE only if a non-vacuous natural-scale regime survives.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-lacunary-shift-identity",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Use only the exact orbit identity x_{n+1}=fract(10*x_n) to seek a direct recurrence or telescoping identity for the collapsed Jackson-weighted load across frequencies h and 10h. Derive a genuinely stronger estimate or a precise no-go showing boundary transport cannot create the needed q^-1 cancellation. Do not repackage existing fixed-frequency shift lemmas.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-dual-optimization",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Treat the exact weighted L1 load as a finite convex optimization/duality problem. Derive its true dual witness class and determine whether missing-cylinder obstruction can be reversed under a weaker structured sign or phase-alignment condition than magnitude control. A useful result must have a checked implication and a strict separator; otherwise provide a decisive counterexample.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-coefficient-sign-gain",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Inspect the actual signs and phase shifts of the T120 Jackson presentation before absolute values. Determine whether a structured complex linear functional can replace part of the absolute-value load while retaining a valid interval-hit implication, thereby giving a strictly weaker sufficient premise. Prove the implication and exhibit a finite separator, or rigorously show why phase dependence on the unknown cylinder forbids the gain.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-minorant-improvement",
+    "dimension": "research_direction",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Ask whether the exact Jackson interval minorant is optimal for minimizing the nonzero coefficient L1 burden at fixed positive zero mode and support O(q). Formulate the finite extremal problem, derive a better admissible minorant with explicit constants or prove an obstruction. Connect any improvement quantifier-by-quantifier to the verified V1 consumer; do not claim progress from a cosmetic constant change without a strict premise separator.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id": "weighted-independent-frontier-attack",
+    "dimension": "honesty",
+    "timeout_s": 10800,
+    "max_attempts": 2,
+    "variant": "high",
+    "prompt": "Create MEMO.md immediately. Independently inspect T120/T121 and choose one hard mathematical mechanism that could meaningfully reduce the fixed-pi weighted load, or kill one live proposed mechanism. Do not merely restate the premise, define a new statistic, or list possibilities. Deliver one derivation with exact constants and falsifiers, and compare it honestly against the current frontier.",
+    "fixtures": [{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/weighted-frontier-wave-a/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  }
+]

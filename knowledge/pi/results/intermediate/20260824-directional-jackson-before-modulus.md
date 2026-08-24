@@ -1,12 +1,20 @@
 # Directional Jackson cancellation before taking a modulus
 
-Status: `proof sketch`
+Status: `machine-checked` core and one actual-Jackson finite separator; the
+closed coefficient formulas and decimal-scale `q=10` evaluation remain
+`proof sketch`
 
 Date: 2026-08-24 UTC
 
 Source branch and commit:
 `pi-core-consolidation` at
 `a9b62f2a61d7acf4e3a86ae3d2c2f4fdd5f016c3`.
+
+Integration note: T124 machine-checks the directional obstruction,
+`directional <= aggregated`, the wordwise pi premise, its implication to V1,
+and an actual-Jackson threshold separator at `q=1`. The exact `q=10`
+coefficient evaluation below remains `proof sketch`. The Lean source and axiom
+audit are proof authority.
 
 ## Claim boundary
 

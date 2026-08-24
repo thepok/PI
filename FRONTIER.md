@@ -36,22 +36,43 @@ Let
 S_h(N) = ∑_{n < N} exp(2π i h fract(10^n π)).
 ```
 
-[`T120T120WeightedNaturalScaleFrontier.lean`](TheoryLib/PiQuantitativeBlockHitting/T120T120WeightedNaturalScaleFrontier.lean)
-and [`T121T121WeightedNaturalScaleCriterion.lean`](TheoryLib/PiQuantitativeBlockHitting/T121T121WeightedNaturalScaleCriterion.lean)
-expose the exact Jackson-coefficient load that precedes the worst-mode step in
-T19. A missing length-`k` decimal cylinder before time `N` forces
+T120/T121 expose the raw Jackson-coefficient load that precedes the worst-mode
+step in T19. [`T123`](TheoryLib/PiQuantitativeBlockHitting/T123T123AggregatedJacksonFrontier.lean)
+now groups equal frequencies before taking absolute values.
+Write `A_q(h)` for the resulting signed coefficient and
 
 ```text
-sum_{nonzero Jackson modes i} |c_i| |S_{h_i}(N)| / N
-  ≥ 1 / (3 * 10^k) + 2 / (3 * 10^(3k)).
+L_agg(q,N) = sum_(h != 0) |A_q(h)| |S_h(N)| / N.
 ```
 
-Consequently, V1 follows if for every `k ≥ 1` there is one `N > 0` where this
-weighted load is strictly below the displayed threshold. T19's simultaneous
-pointwise premise implies this weighted premise. A machine-checked finite
-two-point-grid separator proves that the converse implication fails for the
-generic finite predicates; it is not a claim that either fixed-π premise is
-known.
+A missing length-`k` decimal cylinder forces
+
+```text
+L_agg(10^k,N) ≥ 1 / (3 * 10^k) + 2 / (3 * 10^(3k)).
+```
+
+Consequently V1 follows if the reverse strict inequality holds at one `N>0`
+for every `k≥1`. T123 machine-checks `L_agg ≤ L_raw`, so this premise is weaker
+than T120/T121. Its actual-Jackson `q=2` grid separator crosses the common
+threshold (`7/32 < 1/4 < 11/32`), proving strictness of the generic finite
+criteria. The stronger all-decimal-scale coefficient formulas and separator
+in the companion report remain `proof sketch`.
+
+[`T124`](TheoryLib/PiQuantitativeBlockHitting/T124T124DirectionalJacksonFrontier.lean)
+removes another triangle inequality for a prescribed word. It retains the
+centered signed real Jackson defect `D(q,N,a)` and proves
+
+```text
+D(q,N,a) ≤ L_agg(q,N).
+```
+
+An empty target cylinder forces `D` above the same threshold. Hence the
+wordwise premise “for every nonempty word `s`, some `N_s>0` makes its own
+directional defect smaller than the threshold” implies V1; unlike T123, its
+cutoff may depend on the word rather than only its length. A machine-checked
+actual-Jackson `q=1` singleton separates the finite directional and aggregated
+criteria. This does not independently separate the two pi-level quantifier
+patterns.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that
@@ -60,8 +81,9 @@ For comparison, T19 asks simultaneously for every nonzero
 |S_h(N)| / N < 1 / (24 * 10^k) + 1 / (12 * 10^(3k)).
 ```
 
-The π-specific weighted moving-frequency estimate is open. It is the cleanest
-direct checked Fourier frontier in the trusted core.
+The π-specific directional estimate is the weakest direct machine-checked
+Fourier premise currently in the trusted core. It remains open. No fixed-π
+cancellation, density, normality, or V1 theorem follows from these reductions.
 
 ## Entropy-deficit frontier
 

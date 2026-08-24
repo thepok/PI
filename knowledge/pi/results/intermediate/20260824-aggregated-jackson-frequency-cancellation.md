@@ -1,12 +1,20 @@
 # Aggregating equal Jackson frequencies removes the low-mode surcharge
 
-Status: `proof sketch`
+Status: `machine-checked` core and one actual-Jackson strict separator;
+closed formulas and the all-`q >= 5` separator remain `proof sketch`
 
 Date: 2026-08-24 UTC
 
 Source branch and commit:
 `pi-core-consolidation` at
 `3733305a2e85f57c91d669b7acaad47f5bee3299`.
+
+Integration note: T123 machine-checks exact same-frequency regrouping, the
+aggregated empty-interval obstruction, `aggregated <= raw`, the implication
+from the aggregated pi premise to V1, and an actual Jackson threshold-crossing
+separator at `q=2`. The stronger closed coefficient formulas, surcharge
+identity, more-than-fourfold bound, and uniform `q>=5` separator below remain
+`proof sketch`. The Lean source and axiom audit are proof authority.
 
 ## Frontier edge attacked
 
@@ -413,8 +421,8 @@ existence of `N>0` such that
 No such estimate is proved here.  This note proves no density, normality,
 decimal disjunctivity, prescribed-word occurrence, or fixed-pi cancellation.
 
-The formalization gap is also exact: prove the convolution formulas,
-positivity, grouped obstruction, raw-minus-grouped identity, moment identities,
-and separator in Lean; then register the resulting declarations in
-`audit/AxiomAudit.lean`.  Until that is done and the repository gate passes,
-the claim remains `proof sketch`.
+The remaining formalization gap is exact: prove the convolution formulas,
+positivity, raw-minus-grouped identity, moment identities, and the full
+decimal-scale `q>=5` separator in Lean. The core grouped obstruction and a
+concrete actual-Jackson strict separator are already checked in T123; the
+stronger claims in this paragraph remain `proof sketch`.
