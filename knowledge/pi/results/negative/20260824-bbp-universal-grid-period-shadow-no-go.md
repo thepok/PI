@@ -9,6 +9,14 @@ Source: the standalone period argument in the ChatGPT Pro memo
 after an independent arithmetic and quantifier audit. The unrelated kernel,
 covariance, and finite-modulus claims from that memo are not used here.
 
+The full preperiod-amplification corollary below was prompted by
+`workflows/state/chatgpt-pro/20260824-bbp-numerator-boundary-count/answer.md`,
+but uses the stronger exact all-depth denominator formula already archived in
+[`bbp_all_depth_two_adic_attack.md`](../intermediate/ultrapi-campaign/bbp_all_depth_two_adic_attack.md)
+and independently checked in
+[`bbp_all_depth_two_adic_independent_audit.md`](../intermediate/ultrapi-campaign/bbp_all_depth_two_adic_independent_audit.md).
+The Pro memo's partial case split is not imported.
+
 All logarithms below are natural logarithms.
 
 ## Exact truncation and decimal period
@@ -131,6 +139,73 @@ Thus
 The direction matters: this is a lower bound for the actual truncation error,
 so it upper-bounds how long a universal shadow certificate can last.
 
+## The post-preperiod magnitude radius is already the full circle
+
+There is a stronger finite obstruction once the exact decimal preperiod is
+retained.  The archived two-adic result uses the inclusive convention
+
+\[
+\widetilde B_N=\sum_{j=0}^{N}(\text{the }j\text{-th BBP term}),
+\qquad
+v_2(\operatorname{den}\widetilde B_N)=4N-v_2(N+1).
+\]
+
+The present convention has \(K\) terms, so \(B_K=\widetilde B_{K-1}\).  The
+archived result proves the following formula for \(K\ge2\), and \(K=1\) is
+the immediate value \(a_1=0\).  Thus the exponent in the reduced denominator
+is exactly
+
+\[
+\boxed{a_K=4K-4-v_2(K).} \tag{7a}
+\]
+
+For \(K\ge3\), \(v_2(K)\le K-2\): if \(v_2(K)\ge K-1\), then
+\(2^{K-1}\le K\), contradicting the elementary strict inequality
+\(2^{K-1}>K\) for \(K\ge3\).  Since \(s_K=\max(a_K,b_K)\), (7a) gives
+
+\[
+s_K\ge a_K\ge3K-2. \tag{7b}
+\]
+
+Combining (6) and (7b),
+
+\[
+10^{s_K}R_K
+\ge \frac{10^{3K-2}}{21K^2 16^K}
+=\frac{(125/2)^K}{2100K^2}>1
+\qquad(K\ge3). \tag{7c}
+\]
+
+The final strict inequality is exact, not asymptotic.  At the base case
+
+\[
+\frac{(125/2)^3}{2100\cdot3^2}
+=\frac{1{,}953{,}125}{151{,}200}>1,
+\]
+
+and the ratio of consecutive lower bounds is
+
+\[
+\frac{125K^2}{2(K+1)^2}>1\qquad(K\ge3). \tag{7d}
+\]
+
+Define the post-preperiod one-sided magnitude-only uncertainty radius by
+
+\[
+\rho_{K,m}:=\min\{1,10^{s_K+m}R_K\},\qquad m\ge0.
+\]
+
+Equation (7c) implies the exact finite conclusion
+
+\[
+\boxed{K\ge3,\ m\ge0\quad\Longrightarrow\quad\rho_{K,m}=1.} \tag{7e}
+\]
+
+Thus every such one-sided magnitude-only uncertainty arc is already the full
+circle at the first post-preperiod state and remains so thereafter.  No
+separation of the exact rational numerator from decimal boundaries can rescue
+that certificate: the uncertainty arc itself covers every boundary.
+
 ## The certified window is shorter than one period
 
 A post-preperiod state of `B_K` lies on the grid with denominator
@@ -194,9 +269,10 @@ cannot be justified from those two inputs alone.
 
 ## Scope firewall
 
-This is a denominator-plus-remainder certificate no-go, not a theorem that
-actual BBP shadowing fails. The exact numerator orbit may remain farther from
-decimal boundaries than the universal \(1/(10Q_{0,K})\) separation; proving
-that would require new numerator-sensitive information. Nothing here proves
-or disproves a covariance estimate, Fourier cancellation for pi, decimal
-density, normality, V1, or any occurrence statement for pi.
+This is a denominator-plus-remainder and post-preperiod magnitude-only
+certificate no-go, not a theorem that sampled BBP shadowing fails before the
+preperiod or that the exact tail phase is uncontrolled.  It does not rule out
+signed carry information, signed Fourier cancellation, or another argument
+using the exact tail phase rather than its one-sided magnitude arc.  Nothing
+here proves or disproves a covariance estimate, decimal density, normality,
+V1, or any occurrence statement for pi.

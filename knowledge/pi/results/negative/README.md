@@ -12,8 +12,10 @@ spending tokens on the same dead ends.
 - `20260824-bbp-universal-grid-period-shadow-no-go.md`: audited BBP
   denominator-and-remainder obstruction; surviving primes make the universal
   decimal-grid certificate cover asymptotically at most a
-  `log(4)-1 < 1` fraction of one rational period, without ruling out stronger
-  numerator-sensitive shadowing.
+  `log(4)-1 < 1` fraction of one rational period, while the exact archived
+  two-adic denominator formula makes every post-preperiod one-sided
+  magnitude-only radius full-circle for every `K >= 3`.  Exact tail phase and
+  signed carry/Fourier cancellation remain outside its scope.
 - `20260824-scalar-uniform-coboundary-carry-budget-no-go.md`: a fixed-point
   obstruction forces every pointwise scalar coboundary residual above the
   carry budget, although explicit ray spreading makes its `L2` norm
