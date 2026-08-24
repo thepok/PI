@@ -21,11 +21,31 @@ try {
     & $lake build
     if ($LASTEXITCODE -ne 0) { throw "Lean build failed with exit code $LASTEXITCODE" }
 
-    $forbidden = Get-ChildItem -LiteralPath 'TheoryLib' -Recurse -Filter '*.lean' |
+    # Scan every tracked project-owned Lean file, not only TheoryLib/.  This
+    # includes the root import surface, the explicit audit, and any future
+    # Lean source added elsewhere, while excluding untracked build products
+    # and dependency checkouts under .lake/.
+    $trackedLeanPaths = @(& git ls-files -- '*.lean')
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Could not enumerate tracked Lean files with git ls-files.'
+    }
+    if ($trackedLeanPaths.Count -eq 0) {
+        throw 'The repository contains no tracked Lean files to verify.'
+    }
+
+    $trackedLeanFiles = $trackedLeanPaths | ForEach-Object {
+        if (-not (Test-Path -LiteralPath $_ -PathType Leaf)) {
+            throw "Tracked Lean file is missing from the checkout: $_"
+        }
+        Get-Item -LiteralPath $_
+    }
+
+    Write-Host "Scanning $($trackedLeanPaths.Count) tracked Lean files for forbidden trust shortcuts."
+    $forbidden = $trackedLeanFiles |
         Select-String -Pattern '\b(sorry|admit|native_decide|sorryAx|Lean\.ofReduceBool|Lean\.trustCompiler)\b|^\s*(axiom|opaque|constant|unsafe)\b'
     if ($forbidden) {
         $forbidden | ForEach-Object { Write-Error "$($_.Path):$($_.LineNumber): $($_.Line)" }
-        throw 'Forbidden placeholder, axiom, or compiler-trusting shortcut found in the verified Lean track.'
+        throw 'Forbidden placeholder, axiom, or compiler-trusting shortcut found in tracked Lean source.'
     }
 
     $auditOutput = (& $lake env lean $AuditFile 2>&1 | Out-String)
@@ -56,7 +76,7 @@ try {
     }
 
     Write-Host $auditOutput
-    Write-Host 'PASS: kernel build, exploit scan, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
+    Write-Host 'PASS: kernel build, all-tracked-Lean exploit scan, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
 } finally {
     Pop-Location
 }
