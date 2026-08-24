@@ -133,6 +133,16 @@ the T138-enhanced uniform primitive-cancellation consumer. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
+An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
+still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
+scales it lowers support from `2q-1` to `9q/5-1` and strictly raises the
+worst-mode coefficient threshold; an order-adaptive target-centred version is
+a strict finite-predicate weakening of the current boundary criterion and
+conditionally implies V1 word by word. Exact grid and `q=10` directional
+separators certify those finite comparisons. No literature check or actual-π
+cancellation estimate is supplied, so T139's primitive-sum gap and V1 remain
+open.
+
 ## Entropy-deficit frontier
 
 The
@@ -169,6 +179,18 @@ the decimal expansion only if their starting indices tend to infinity. The
 stationarization statement is restricted to canonical `10^k` meshes,
 consecutive blocks, and exact times-ten dynamics; it does not cover arbitrary
 meshes or pseudo-orbits. No such entropy estimate is proved for π.
+
+An audited [`sharp forbidden-word entropy gap`](knowledge/pi/results/intermediate/20260824-sharp-forbidden-word-entropy-gap.md),
+also only a `proof sketch`, shows uniformly that the constant word `0^r`
+maximizes length-`k` avoidance counts. Its recurrence has Perron root `rho_r`,
+giving the sharp global scalar threshold `log(rho_r)/log(10)` and an exact
+boundary stream attaining it while omitting `0^r`. This strictly lowers T1's
+numerical entropy threshold for `r>=2`, but is not a proved strict π-predicate
+separator. A finite selected-block inequality retains the endpoint proportion
+and binary-mixture slack; its length-free form upgrades `D_(k_j)/k_j -> 0` to
+simultaneous coverage through
+`r_j=floor(log_10(k_j/(D_j+1)))-1 -> infinity`. Single-word automata and prior
+art predate this refinement, and no π entropy estimate or V1 theorem follows.
 
 ### Bounded entropy gives Haar limits
 

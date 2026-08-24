@@ -250,6 +250,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T133T133BoundaryDecimalScaleSeparato
 import TheoryLib.PiQuantitativeBlockHitting.T134T134BoundaryAggregateDecimalScaleSeparator
 import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
 import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
+import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3146,6 +3147,15 @@ import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 #print axioms Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_primitiveBoundary_smallness
 #print axioms Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_primitiveBoundary_smallness_pow_ten
 #print axioms Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_uniform_primitiveCancellation_pow_ten
+
+-- Mixed-order boundary kernel: exact finite directional consumer and the
+-- q=10, r=4 strict separator from the symmetric q=10 criterion.
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.mixedBoundaryMinorant_eq
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.mixedBoundaryMinorant_re_nonpos_outside
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.finite_empty_decimalInterval_mixedBoundary_directional_obstruction
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.finite_decimalInterval_hit_of_mixedBoundary_directional_smallness
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.normalizedDirectionalFourierDefect_eq_zero_sub_average
+#print axioms Theory.PiDigits.MixedOrderBoundaryKernel.mixedBoundary_directional_ten_four_strict_vs_symmetric
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
