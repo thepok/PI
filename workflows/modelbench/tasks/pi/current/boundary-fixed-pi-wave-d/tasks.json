@@ -1,0 +1,62 @@
+[
+  {
+    "id":"boundary-child-phase-law","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Derive the exact relation, or an exact no-go, between boundary directional defects for a parent decimal word and its ten children. Start from the displayed definition, recompute center phases and coefficient scaling, and include a falsifier for every proposed recurrence.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"boundary-kernel-prefix-tree","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Test whether the ten child-centered boundary kernels obey an exact positive or signed partition identity usable on the decimal prefix tree. Derive coefficients exactly. Advance only if the identity reduces a fixed-pi obligation; otherwise give a sharp no-go.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"times-ten-orbit-boundary-telescope","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Combine the exact S_10h boundary identity with the actual boundary coefficients and target phases. Seek a quantitatively useful telescoping or prove that endpoint terms/coefficient mismatch necessarily prevent it. No false scale identity is allowed.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"boundary-stopping-time-selection","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Investigate a genuine stopping-time theorem for the signed kernel averages along the exact times-ten orbit. It must prove existence of one useful N for each center from an explicitly weaker pi-specific premise, or give an exact orbit counterexample to the mechanism. Track the existential quantifier correctly.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"machin-reduced-numerator-phase","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Starting from exact Machin arctangent truncations, retain reduced numerators and derive one correct phase-sensitive inequality relevant to boundary-kernel sums, or prove a precise denominator-fiber obstruction. Audit signs and all 2/5-adic cancellations; common denominator size alone is STOP.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2700,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"bbp-reduced-numerator-boundary-phase","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Use exact BBP reduced numerator/coefficient structure to attack a target-phased boundary sum or isolate a rigorous obstruction. Finite residue-fiber data and irrationality measures are insufficient; exhibit where real phase enters and quantify the remaining input.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2700,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"boundary-pair-lag-centered-estimate","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Derive a centered pair-lag or polarization identity tailored to the boundary kernel that is strictly weaker than bounding all Fourier moduli. Determine exactly what pi-specific signed lag estimate would suffice and whether diagonal/natural-scale terms obstruct it. Equivalent rewrites are STOP.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"boundary-normalized-formula-audit","dimension":"honesty","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Independently derive the exact aggregated nonzero coefficients of the boundary and Jackson kernels on every support range and the cross determinants governing normalized domination. List every endpoint and attempt to falsify strictness before endorsing it.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"sparse-alpha-boundary-separator","dimension":"refutation","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Determine exactly which candidate boundary-directional premises are still defeated by the sparse alpha and which are not. Respect the exists-N wordwise quantifier. Give a rigorous separator only if it distinguishes a live proposed premise rather than repeating the UI no-go.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"independent-boundary-fixed-pi-attack","dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Choose one irreducible fixed-pi obligation in INPUT.md and make a nontrivial mathematical advance. You must include an exact new lemma, derivation, falsifiers, and a statement of what remains. Repackaging the consumer, workflow advice, and finite pi numerics are STOP.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/boundary-fixed-pi-wave-d/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2800,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  }
+]
