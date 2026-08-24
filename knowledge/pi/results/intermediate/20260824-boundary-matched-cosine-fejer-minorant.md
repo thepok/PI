@@ -14,10 +14,13 @@ T128 machine-checks the finite Fourier closed form, outside-sign property,
 coefficientwise domination of the old Jackson coefficients, positive explicit
 zero-mode lower bound, and the resulting finite directional hitting consumer.
 T129 now machine-checks the exact Jackson and boundary signed zero modes and
-their strict boundary-matching gain for every `q > 1`. This note retains
-`proof sketch` status because its closed nonzero aggregated coefficient
-formulas, normalized coefficientwise comparison, exact `q=10` separators, and
-all-scale fixed-pi implications have not all been formalized.
+their strict boundary-matching gain for every `q > 1`. T130 checks the
+piecewise cubic coefficient/cross-determinant algebra, the exact aggregation
+gain identity, and the actual normalized improvement at frequency `2q-1`.
+This note retains `proof sketch` status because the general interior
+frequency-fiber identification, full normalized coefficientwise comparison,
+exact `q=10` separators, and all-scale fixed-pi implications have not all been
+formalized.
 
 The verified Jackson consumer uses a trigonometric minorant whose positive core
 is strictly narrower than the target interval.  This note changes the kernel,
@@ -773,7 +776,7 @@ sharper statements are still open formalization work:
    preferably by reusing the word-cylinder proof pattern already checked in
    T123/T124.
 
-The T128--T129 declarations are registered in `audit/AxiomAudit.lean`. This
+The T128--T130 declarations are registered in `audit/AxiomAudit.lean`. This
 broader note keeps the label
 `proof sketch` until the remaining normalized comparisons, separators, and
 fixed-pi implication are checked.
@@ -794,7 +797,7 @@ fixed-pi implication are checked.
   `T27FiniteExponentialCylinderCoverage.lean`; the argument uses both
   `|t| >= 1/(2q)` and `|t| <= 1-1/(2q)`.
 
-The T128 finite-kernel/hitting-consumer slice and T129 exact zero-mode slice are
-Lean kernel verified. No Lean verification is claimed here for the remaining
-nonzero coefficient formulas, normalized domination, `q=10` separators, or
-fixed-pi premise.
+The T128 finite-kernel/hitting-consumer slice, T129 exact zero-mode slice, and
+T130 cubic algebra/actual outer-endpoint slice are Lean kernel verified. No
+Lean verification is claimed here for the general interior fiber count, full
+actual normalized domination, `q=10` separators, or fixed-pi premise.

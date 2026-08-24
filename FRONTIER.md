@@ -86,11 +86,12 @@ It matches the cylinder boundary exactly. T128 machine-checks the finite
 Fourier closed form, outside-sign property, coefficientwise domination of the
 old Jackson coefficients, positive explicit zero-mode lower bound, and finite
 directional hitting consumer. T129 proves exact closed forms for both signed
-zero modes and their strict boundary-matching gain for every `q > 1`. The
-sharper claim that every normalized nonzero weight is smaller, the closed
-nonzero aggregated coefficient formulas, and the exact `q=10`
-directional and aggregate separators remain `proof sketch`. Its wordwise
-fixed-pi estimate remains open.
+zero modes and their strict boundary-matching gain for every `q > 1`. T130
+checks the piecewise cubic cross-determinant algebra and the actual normalized
+improvement at frequency `2q-1`. The general finite-fiber identification needed
+to transfer that algebra to every actual interior coefficient, and the exact
+`q=10` directional and aggregate separators, remain `proof sketch`. Its
+wordwise fixed-pi estimate remains open.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that

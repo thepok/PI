@@ -1,4 +1,4 @@
-# T122--T129 Jackson and boundary-kernel frontier
+# T122--T130 Jackson and boundary-kernel frontier
 
 Status: `machine-checked`
 
@@ -6,7 +6,7 @@ Date: 2026-08-24 UTC
 
 ## Result
 
-Eight Lean modules now sharpen and connect the natural-scale Jackson consumer
+Nine Lean modules now sharpen and connect the natural-scale Jackson consumer
 and two downstream audited mechanisms.
 
 - T122 defines the coefficient-weighted quadratic Fourier load and its exact
@@ -34,6 +34,9 @@ and two downstream audited mechanisms.
 - T129 proves exact closed forms for the Jackson and boundary signed zero
   modes, an exact formula for their gain, and strict positivity of that gain
   for every `q > 1`.
+- T130 proves the exact aggregation gain identity, both piecewise cubic
+  cross-determinant formulas and their positivity, and the actual normalized
+  boundary improvement at the outer frequency `2q-1`.
 
 The exact checked implication chain is
 
@@ -77,9 +80,10 @@ disjunctivity remain open.
 
 The general closed Jackson coefficient formulas, exact low-frequency
 surcharge, and all-scale claims remain `proof sketch`; they are not promoted
-by this report. For the boundary-matched kernel, the closed nonzero aggregated
-coefficient formulas, normalized coefficientwise comparison, `q=10` boundary
-separators, and fixed-pi premise also remain `proof sketch`.
+by this report. For the boundary-matched kernel, the general interior
+frequency-fiber identification, full actual normalized coefficientwise
+comparison, `q=10` boundary separators, and fixed-pi premise also remain
+`proof sketch`.
 
 The proof authority is:
 
@@ -91,6 +95,7 @@ The proof authority is:
 - `TheoryLib/PiQuantitativeBlockHitting/T127T127BoundaryKernelRatioAlgebra.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T128T128BoundaryMatchedKernel.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T129T129BoundaryKernelNormalizedComparison.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T130T130BoundaryNonzeroCoefficientAlgebra.lean`
 - `audit/AxiomAudit.lean`
 
 The strict verification gate accepts only `propext`, `Classical.choice`, and

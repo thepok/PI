@@ -55,10 +55,11 @@ machine-checks its finite Fourier closed form, exact outside sign,
 coefficientwise domination of the old Jackson coefficients, positive explicit
 zero-mode lower bound, and finite directional hitting consumer. T129 gives
 exact closed forms for the Jackson and boundary signed zero modes and proves
-strict improvement for every `q > 1`. The stronger normalized nonzero-
-coefficient comparison and exact `q=10` directional and aggregate
-separators remain independently audited `proof sketch`; the fixed-pi estimate
-remains open.
+strict improvement for every `q > 1`. T130 checks the piecewise cubic
+cross-determinant algebra and the actual normalized improvement at the outer
+frequency `2q-1`. The general interior frequency-fiber identification and the
+exact `q=10` directional and aggregate separators remain independently audited
+`proof sketch`; the fixed-pi estimate remains open.
 
 The moving-mesh route also has a new decisive negative boundary. The sparse
 decimal seed `sum_j 10^(-j*2^j)` satisfies source-level irrationality exponent

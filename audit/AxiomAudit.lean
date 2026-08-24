@@ -243,6 +243,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T126T126ZeroWindowCell
 import TheoryLib.PiQuantitativeBlockHitting.T127T127BoundaryKernelRatioAlgebra
 import TheoryLib.PiQuantitativeBlockHitting.T128T128BoundaryMatchedKernel
 import TheoryLib.PiQuantitativeBlockHitting.T129T129BoundaryKernelNormalizedComparison
+import TheoryLib.PiQuantitativeBlockHitting.T130T130BoundaryNonzeroCoefficientAlgebra
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3088,6 +3089,16 @@ import TheoryLib.PiQuantitativeBlockHitting.T129T129BoundaryKernelNormalizedComp
 #print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.boundaryZeroCoefficient_eq
 #print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.boundaryZeroCoefficient_sub_jackson
 #print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.jacksonZeroCoefficient_lt_boundaryZeroCoefficient
+
+-- Boundary nonzero-coefficient algebra and the actual outer endpoint.
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.aggregatedFejerSquareCoefficient_eq_card
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.aggregatedBoundaryCoefficient_eq_jackson_add
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.aggregatedJacksonCoefficient_top
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.aggregatedBoundaryCoefficient_top
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_aggregatedBoundary_top_lt_jackson
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.crossDeterminant_eq
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.crossDeterminant_pos
+#print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_boundary_lt_jackson
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
