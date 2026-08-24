@@ -10,6 +10,8 @@ The Lean theorem must match the stated mathematical claim quantifier by quantifi
 
 - Build against the pinned Lean toolchain and mathlib revision.
 - Reject `sorry`, `admit`, `native_decide`, new `axiom` declarations, opaque/constant proof declarations, unsafe declarations, and compiler-trusting shortcuts.
+- Apply the shortcut scan to every tracked `.lean` file in the repository, including the root import surface and the explicit audit—not only files under `TheoryLib/`.
+- Enumerate the scan set with `git ls-files -- '*.lean'`, so newly tracked Lean files enter the gate automatically while dependency and build directories remain excluded.
 - Run `#print axioms` for every theorem supporting a research claim.
 - Accept only `propext`, `Classical.choice`, and `Quot.sound`.
 - Register supporting theorems in `audit/AxiomAudit.lean`.

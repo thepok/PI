@@ -16,16 +16,29 @@ if (-not (Test-Path -LiteralPath $lake)) {
     throw 'Lake was not found. Install Lean with Elan and reopen the terminal.'
 }
 
+$pythonCommand = Get-Command python3 -ErrorAction SilentlyContinue
+if (-not $pythonCommand) {
+    $pythonCommand = Get-Command python -ErrorAction SilentlyContinue
+}
+if (-not $pythonCommand) {
+    throw 'Python 3 was not found. It is required by the tracked-Lean shortcut scanner.'
+}
+$python = $pythonCommand.Source
+
 Push-Location $projectRoot
 try {
     & $lake build
     if ($LASTEXITCODE -ne 0) { throw "Lean build failed with exit code $LASTEXITCODE" }
 
-    $forbidden = Get-ChildItem -LiteralPath 'TheoryLib' -Recurse -Filter '*.lean' |
-        Select-String -Pattern '\b(sorry|admit|native_decide|sorryAx|Lean\.ofReduceBool|Lean\.trustCompiler)\b|^\s*(axiom|opaque|constant|unsafe)\b'
-    if ($forbidden) {
-        $forbidden | ForEach-Object { Write-Error "$($_.Path):$($_.LineNumber): $($_.Line)" }
-        throw 'Forbidden placeholder, axiom, or compiler-trusting shortcut found in the verified Lean track.'
+    $scanner = 'workflows/verification/scan_tracked_lean.py'
+    & $python $scanner --self-test
+    if ($LASTEXITCODE -ne 0) {
+        throw "The tracked-Lean scanner self-test failed with exit code $LASTEXITCODE"
+    }
+
+    & $python $scanner
+    if ($LASTEXITCODE -ne 0) {
+        throw "The tracked-Lean shortcut scan failed with exit code $LASTEXITCODE"
     }
 
     $auditOutput = (& $lake env lean $AuditFile 2>&1 | Out-String)
@@ -56,7 +69,7 @@ try {
     }
 
     Write-Host $auditOutput
-    Write-Host 'PASS: kernel build, exploit scan, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
+    Write-Host 'PASS: kernel build, all-tracked-Lean exploit scan, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
 } finally {
     Pop-Location
 }
