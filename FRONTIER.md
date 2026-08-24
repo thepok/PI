@@ -137,6 +137,11 @@ provide wordwise control because `h=q` survives. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
+A [canonical finite BBP experiment](knowledge/pi/results/negative/20260824-canonical-bbp-singleton-prefix-no-go.md)
+additionally retires T139-compatible all-prefix and uniform termwise lower
+bounds for the singleton core, but leaves later/cofinal horizons, compensation
+by the other primitive rays, T139, and V1 open.
+
 A `proof sketch`
 [`endpoint-free singleton-ray barrier`](knowledge/pi/results/negative/20260824-endpoint-free-singleton-ray-barrier.md)
 shows why decimal-ray compression is only preprocessing: the singleton belt
