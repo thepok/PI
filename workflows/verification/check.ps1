@@ -16,36 +16,29 @@ if (-not (Test-Path -LiteralPath $lake)) {
     throw 'Lake was not found. Install Lean with Elan and reopen the terminal.'
 }
 
+$pythonCommand = Get-Command python3 -ErrorAction SilentlyContinue
+if (-not $pythonCommand) {
+    $pythonCommand = Get-Command python -ErrorAction SilentlyContinue
+}
+if (-not $pythonCommand) {
+    throw 'Python 3 was not found. It is required by the tracked-Lean shortcut scanner.'
+}
+$python = $pythonCommand.Source
+
 Push-Location $projectRoot
 try {
     & $lake build
     if ($LASTEXITCODE -ne 0) { throw "Lean build failed with exit code $LASTEXITCODE" }
 
-    # Scan every tracked project-owned Lean file, not only TheoryLib/.  This
-    # includes the root import surface, the explicit audit, and any future
-    # Lean source added elsewhere, while excluding untracked build products
-    # and dependency checkouts under .lake/.
-    $trackedLeanPaths = @(& git ls-files -- '*.lean')
+    $scanner = 'workflows/verification/scan_tracked_lean.py'
+    & $python $scanner --self-test
     if ($LASTEXITCODE -ne 0) {
-        throw 'Could not enumerate tracked Lean files with git ls-files.'
-    }
-    if ($trackedLeanPaths.Count -eq 0) {
-        throw 'The repository contains no tracked Lean files to verify.'
+        throw "The tracked-Lean scanner self-test failed with exit code $LASTEXITCODE"
     }
 
-    $trackedLeanFiles = $trackedLeanPaths | ForEach-Object {
-        if (-not (Test-Path -LiteralPath $_ -PathType Leaf)) {
-            throw "Tracked Lean file is missing from the checkout: $_"
-        }
-        Get-Item -LiteralPath $_
-    }
-
-    Write-Host "Scanning $($trackedLeanPaths.Count) tracked Lean files for forbidden trust shortcuts."
-    $forbidden = $trackedLeanFiles |
-        Select-String -Pattern '\b(sorry|admit|native_decide|sorryAx|Lean\.ofReduceBool|Lean\.trustCompiler)\b|^\s*(axiom|opaque|constant|unsafe)\b'
-    if ($forbidden) {
-        $forbidden | ForEach-Object { Write-Error "$($_.Path):$($_.LineNumber): $($_.Line)" }
-        throw 'Forbidden placeholder, axiom, or compiler-trusting shortcut found in tracked Lean source.'
+    & $python $scanner
+    if ($LASTEXITCODE -ne 0) {
+        throw "The tracked-Lean shortcut scan failed with exit code $LASTEXITCODE"
     }
 
     $auditOutput = (& $lake env lean $AuditFile 2>&1 | Out-String)
