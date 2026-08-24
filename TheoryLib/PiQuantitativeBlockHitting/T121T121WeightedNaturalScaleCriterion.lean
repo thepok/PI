@@ -1,4 +1,4 @@
-import TheoryLib.PiQuantitativeBlockHitting.T120T120WeightedNaturalScaleFrontier
+import TheoryLib.PiQuantitativeBlockHitting.T122T122FrequencyAggregatedNaturalScale
 
 /-!
 # Weighted natural-scale cancellation criterion
