@@ -60,8 +60,71 @@ For comparison, T19 asks simultaneously for every nonzero
 |S_h(N)| / N < 1 / (24 * 10^k) + 1 / (12 * 10^(3k)).
 ```
 
-The π-specific weighted moving-frequency estimate is open. It is now the
-cleanest direct checked Fourier frontier in the trusted core.
+The π-specific weighted moving-frequency estimate is open. It is the cleanest
+direct checked Fourier frontier in the trusted core.
+
+## Entropy-deficit frontier
+
+The
+[`entropy-deficit hierarchy`](knowledge/pi/results/intermediate/20260824-entropy-deficit-haar-hierarchy.md)
+has status `proof sketch`. On a selected nonempty block of the exact decimal π
+orbit, let `p_k(a)` be the empirical distribution of the canonical `10^k`
+cells and put
+
+```text
+H_k = -∑_a p_k(a) log p_k(a)
+D_k = k * log 10 - H_k.
+```
+
+If there are `k_j -> infinity` and selected blocks with
+
+```text
+D_(k_j) / k_j -> 0,
+```
+
+then V1 follows. The support of `p_k` is bounded by the number `p_π(k)` of
+distinct length-`k` decimal factors. Hence sublinear entropy deficit forces the
+machine-checked factor-entropy limit to equal its maximum, and
+[`T1CanonicalEntropy.lean`](TheoryLib/PiPositiveDecimalFactorEntropy/T1CanonicalEntropy.lean)
+then gives V1.
+
+This criterion does not require every cell to be occupied at any displayed
+scale and gives no first-occurrence rate. No such entropy estimate is proved
+for π.
+
+### Bounded entropy gives Haar limits
+
+For a general approximate times-ten orbit, uniformly bounded cell entropy
+deficit together with vanishing averaged pseudo-orbit error forces the selected
+block measures to converge to Haar. Bounded entropy deficit gives uniform
+integrability of the cell-smoothed densities; absolute continuity plus
+invariance then gives Haar by the Riemann--Lebesgue Fourier-ray argument.
+
+The older
+[`moving-mesh collision-to-Haar consumer`](knowledge/pi/results/intermediate/20260823-moving-mesh-collision-haar-consumer.md)
+assumes
+
+```text
+∑_{a < q_j} n_j(a)^2 ≤ C * (L_j^2 / q_j + L_j)
+```
+
+and bounded `q_j/L_j`. Jensen's inequality implies uniformly bounded entropy
+deficit, so the entropy consumer strictly weakens the quadratic collision
+premise.
+
+The same note gives exact-times-ten decimal de Bruijn separators proving both
+strict implications:
+
+```text
+quadratic collision
+        => bounded entropy deficit
+        => sublinear entropy deficit
+        => V1 for the exact decimal π orbit.
+```
+
+A retained finite experiment checks the separator combinatorics and numerical
+diagnostics through word length five. The proof-sketch implications, not the
+finite table, are the research claim.
 
 ## What is known unconditionally for fixed π
 
@@ -85,28 +148,9 @@ N - |S_h(N)|
 eventually exceeds every fixed real threshold.
 
 This is nontrivial but quantitatively insufficient. A divergent additive gap
-is compatible with `|S_h(N)| / N → 1`, while T19 needs normalized
-`O(10^-k)` cancellation simultaneously over an exponentially growing
-frequency window.
-
-## Alternative collision frontier
-
-The reviewed [`moving-mesh collision-to-Haar consumer`](knowledge/pi/results/intermediate/20260823-moving-mesh-collision-haar-consumer.md)
-has status `proof sketch`. For selected blocks of length `L_j`, partitioned
-into `q_j` equal cells with occupancies `n_j(a)`, it assumes
-
-```text
-∑_{a < q_j} n_j(a)^2 ≤ C * (L_j^2 / q_j + L_j),
-```
-
-bounded `q_j / L_j`, and vanishing averaged error in the approximate dynamics
-`x_{n+1} = 10 x_n mod 1`. These hypotheses force the block empirical measures
-to converge to Haar measure and hence force every fixed decimal cylinder to be
-hit eventually.
-
-The consumer does not prove its collision premise for the decimal π orbit or
-the sampled BBP orbit. Establishing that fixed-π estimate is open and expands
-back into the long-lag/Fejér self-return frontier.
+is compatible with `|S_h(N)| / N → 1`, while the checked Fourier frontier needs
+moving-frequency normalized control and the entropy frontier needs almost
+maximal block entropy at unbounded word lengths.
 
 ## BBP claim boundary
 
@@ -121,31 +165,35 @@ V1  ↔  the sampled BBP orbit is arbitrarily-late dense on the circle.
 ```
 
 Thus BBP identities and recurrences transfer the problem; they do not supply
-density, mixing, cancellation, or word occurrence. Any successful BBP route
-must produce a genuinely new fixed-π quantitative estimate.
+density, mixing, cancellation, entropy, or word occurrence. Any successful BBP
+route must produce a genuinely new fixed-π quantitative estimate.
 
 ## Missing theorem
 
-A resolution still requires at least one new fixed-π input of the following
-kind:
+A resolution still requires a new fixed-π input. The retained targets are:
 
-1. **Fourier:** Jackson-weighted natural-scale cancellation strong enough for
+1. **Entropy:** selected `10^k`-cell laws with
+   `k * log 10 - H_k = o(k)` along unbounded `k`;
+2. **Fourier:** Jackson-weighted natural-scale cancellation strong enough for
    T120/T121;
-   or
-2. **Collision:** a moving-mesh occupancy/collision bound strong enough for the
-   Haar consumer.
+3. **Bounded entropy / collision:** a uniformly bounded cell entropy deficit,
+   or the stronger moving-mesh collision bound, giving Haar block limits.
+
+Among the collision-derived premises, sublinear entropy deficit is the weakest
+current sufficient condition with an explicit strict separator. It remains a
+`proof sketch` and is unproved for π.
 
 Equivalences, exact rational normal forms, recurrence packaging, finite digit
 experiments, and representation-only lemmas are infrastructure, not frontier
-progress, unless they produce such an estimate, strictly weaken a sufficient
-premise with a checked separator, or decisively falsify a live route.
+progress, unless they produce one of these estimates, strictly weaken a
+sufficient premise with a checked separator, or decisively falsify a live route.
 
 ```text
-new fixed-π cancellation or collision estimate
-                    ↓
-             orbit density
-                    ↓
-                   V1
+fixed-π sublinear entropy deficit  ───────────────→ V1
+
+fixed-π bounded entropy / collision + dynamics ─→ Haar ─→ V1
+
+fixed-π weighted Fourier cancellation ──────────→ finite hits ─→ V1
 ```
 
-The first arrow remains open.
+Every fixed-π premise displayed above remains open.
