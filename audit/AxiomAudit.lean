@@ -242,6 +242,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T125T125AggregatedJacksonCoefficient
 import TheoryLib.PiQuantitativeBlockHitting.T126T126ZeroWindowCell
 import TheoryLib.PiQuantitativeBlockHitting.T127T127BoundaryKernelRatioAlgebra
 import TheoryLib.PiQuantitativeBlockHitting.T128T128BoundaryMatchedKernel
+import TheoryLib.PiQuantitativeBlockHitting.T129T129BoundaryKernelNormalizedComparison
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3080,6 +3081,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T128T128BoundaryMatchedKernel
 #print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_empty_decimalInterval_boundary_directional_obstruction
 #print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_directional_smallness
 #print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_explicit_smallness
+
+-- Exact zero modes and strict boundary-matching gain.
+#print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.zeroQuad_card_exact
+#print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.jacksonZeroCoefficient_eq
+#print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.boundaryZeroCoefficient_eq
+#print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.boundaryZeroCoefficient_sub_jackson
+#print axioms Theory.PiDigits.BoundaryKernelNormalizedComparison.jacksonZeroCoefficient_lt_boundaryZeroCoefficient
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

@@ -10,10 +10,12 @@ Source branch and commit:
 
 ## Claim boundary
 
-T128 now machine-checks the finite Fourier closed form, outside-sign property,
+T128 machine-checks the finite Fourier closed form, outside-sign property,
 coefficientwise domination of the old Jackson coefficients, positive explicit
 zero-mode lower bound, and the resulting finite directional hitting consumer.
-This note retains `proof sketch` status because its sharper closed coefficient
+T129 now machine-checks the exact Jackson and boundary signed zero modes and
+their strict boundary-matching gain for every `q > 1`. This note retains
+`proof sketch` status because its closed nonzero aggregated coefficient
 formulas, normalized coefficientwise comparison, exact `q=10` separators, and
 all-scale fixed-pi implications have not all been formalized.
 
@@ -771,8 +773,8 @@ sharper statements are still open formalization work:
    preferably by reusing the word-cylinder proof pattern already checked in
    T123/T124.
 
-The T128 declarations are registered in `audit/AxiomAudit.lean` and passed the
-full strict verification gate.  This broader note keeps the label
+The T128--T129 declarations are registered in `audit/AxiomAudit.lean`. This
+broader note keeps the label
 `proof sketch` until the remaining normalized comparisons, separators, and
 fixed-pi implication are checked.
 
@@ -792,6 +794,7 @@ fixed-pi implication are checked.
   `T27FiniteExponentialCylinderCoverage.lean`; the argument uses both
   `|t| >= 1/(2q)` and `|t| <= 1-1/(2q)`.
 
-The T128 finite-kernel and hitting-consumer slice is Lean kernel verified.  No
-Lean verification is claimed here for the remaining sharper formulas,
-normalized domination, `q=10` separators, or fixed-pi premise.
+The T128 finite-kernel/hitting-consumer slice and T129 exact zero-mode slice are
+Lean kernel verified. No Lean verification is claimed here for the remaining
+nonzero coefficient formulas, normalized domination, `q=10` separators, or
+fixed-pi premise.

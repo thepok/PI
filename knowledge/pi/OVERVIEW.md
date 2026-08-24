@@ -53,8 +53,10 @@ The boundary-matched kernel
 `(cos(2*pi*t)-cos(pi/q))*F_q(t)^2` improves the finite geometry again. T128
 machine-checks its finite Fourier closed form, exact outside sign,
 coefficientwise domination of the old Jackson coefficients, positive explicit
-zero-mode lower bound, and finite directional hitting consumer. The stronger
-normalized-coefficient comparison and exact `q=10` directional and aggregate
+zero-mode lower bound, and finite directional hitting consumer. T129 gives
+exact closed forms for the Jackson and boundary signed zero modes and proves
+strict improvement for every `q > 1`. The stronger normalized nonzero-
+coefficient comparison and exact `q=10` directional and aggregate
 separators remain independently audited `proof sketch`; the fixed-pi estimate
 remains open.
 

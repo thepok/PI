@@ -129,8 +129,10 @@ A newer boundary-matched cosine--Fejer minorant matches the exact cylinder
 boundary. T128 machine-checks its finite Fourier closed form, outside-sign
 property, coefficientwise domination of the old Jackson coefficients, positive
 explicit zero-mode lower bound, and finite directional hitting consumer. The
-sharper normalized-coefficient comparison and genuine `q=10` separators remain
-an independently audited `proof sketch`; its fixed-pi premise remains open.
+T129 exacts both zero modes and proves that boundary matching gives a strictly
+larger signed zero mode for every `q > 1`. The sharper normalized nonzero-
+coefficient comparison and genuine `q=10` separators remain an independently
+audited `proof sketch`; its fixed-pi premise remains open.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work

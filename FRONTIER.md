@@ -85,8 +85,10 @@ K_q(t) = (cos(2*pi*t) - cos(pi/q)) * F_q(t)^2.
 It matches the cylinder boundary exactly. T128 machine-checks the finite
 Fourier closed form, outside-sign property, coefficientwise domination of the
 old Jackson coefficients, positive explicit zero-mode lower bound, and finite
-directional hitting consumer. The sharper claim that every normalized nonzero
-weight is smaller, its closed coefficient formulas, and the exact `q=10`
+directional hitting consumer. T129 proves exact closed forms for both signed
+zero modes and their strict boundary-matching gain for every `q > 1`. The
+sharper claim that every normalized nonzero weight is smaller, the closed
+nonzero aggregated coefficient formulas, and the exact `q=10`
 directional and aggregate separators remain `proof sketch`. Its wordwise
 fixed-pi estimate remains open.
 
