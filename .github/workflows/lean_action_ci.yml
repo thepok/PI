@@ -18,6 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: leanprover/lean-action@v1
+      - name: Compile T122 frequency-aggregated frontier candidate
+        run: lake env lean TheoryLib/PiQuantitativeBlockHitting/T122T122FrequencyAggregatedNaturalScaleFrontier.lean
       - name: Run strict research verification gate
         shell: pwsh
         run: ./workflows/verification/check.ps1
