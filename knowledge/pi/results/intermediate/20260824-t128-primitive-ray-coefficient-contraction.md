@@ -1,7 +1,8 @@
 # T128 primitive-ray coefficient contraction
 
 Status: `machine-checked` (T138 coefficient gap and T139 primitive-ray
-identity/consumers); `proof sketch` (explicit large-`N` threshold comparison)
+identity/consumers); `proof sketch` (sharp endpoint-budget evaluation and
+explicit threshold comparisons)
 
 This note records the independently audited, corrected part of
 `workflows/state/chatgpt-pro/20260824-open-frontier-creative-c/answer.md`.
@@ -218,6 +219,45 @@ forces the same hit. Every retained arithmetic frequency is proved not
 divisible by ten. This is the T138-enhanced uniform primitive-cancellation
 consumer; it does not establish its cancellation hypothesis for π.
 
+## Proof-sketch sharp endpoint evaluation
+
+Put `delta_q = 1 - cos(pi/q)`. Divisor-grid root-of-unity averaging of the
+unshifted T128 kernel gives the exact coefficient-budget formula
+
+\[
+\boxed{
+\mathfrak E_{q,A}
+=\frac{\delta_q q(q-1)}{18}-\frac{k}{2}\alpha_q(0)
+}<\frac{\pi^2}{36},
+\qquad
+\lim_{k\to\infty}\mathfrak E_{10^k,A}=\frac{\pi^2}{36}.
+\]
+
+The equality holds separately for every target `A`: positivity of the T128
+coefficients and the unit target phase remove all `A`-dependence. Together
+with T139's literal initial-and-terminal endpoint estimate, it yields
+
+\[
+|\mathcal B_{q,A}(N)|<\frac{\pi^2}{18},
+\qquad
+\frac{4\mathfrak E_{q,A}}N<\frac{\pi^2}{9N}.
+\]
+
+At the natural horizon `N >= q`, the endpoint term therefore leaves the
+strictly positive zero-mode margin
+
+\[
+\alpha_q(0)-\frac{\pi^2}{9N}
+>\frac{41}{36q}.
+\]
+
+This evaluates and sharply bounds the existing exact T139 premise; it does
+not weaken that premise or prove primitive-frequency cancellation. Averaging
+over the target labels itself gives only averaged control and does not yield a
+wordwise estimate: the supported frequency `h=q` survives. Hence this remains
+an endpoint improvement for every target and the actual literal orbit blocks,
+not a proof of T124 or V1.
+
 ## Proof-sketch explicit threshold comparison
 
 For an explicit comparison, suppose `|S_u(N)| <= epsilon N` for every
@@ -264,7 +304,8 @@ The exact positive/negative conjugate reconstruction, actual π-orbit primitive
 identity with both endpoint blocks, endpoint norm and defect bounds, strict
 primitive-only T128 hit consumer, decimal-scale wrapper, and T138-enhanced
 uniform primitive-cancellation consumer are `machine-checked` in T139. The
-displayed coarse large-`N` numerical comparison remains `proof sketch`.
+sharp endpoint-budget evaluation and displayed numerical comparisons remain
+`proof sketch`.
 
 No required primitive-frequency cancellation estimate is known for π. This
 note proves neither the T124 premise nor V1, and it makes no claim of an exact

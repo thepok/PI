@@ -129,7 +129,11 @@ T128 coefficient-load gap
 machine-checks the positive/negative conjugate reconstruction, the exact
 actual-π primitive identity with both endpoint blocks, norm and `4E/N` defect
 bounds, strict primitive-only T128 hit consumer and decimal-scale wrapper, and
-the T138-enhanced uniform primitive-cancellation consumer. The needed
+the T138-enhanced uniform primitive-cancellation consumer. A further `proof
+sketch` evaluates the exact endpoint budget as
+`E=δq(q-1)/18-(k/2)α₀<π²/36`, sharp in the limit, reducing the literal
+endpoint defect below `π²/(9N)` for every target; target averaging does not
+provide wordwise control because `h=q` survives. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
