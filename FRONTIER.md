@@ -261,6 +261,12 @@ every `B>3` and an explicit exponent-`4` effective bound, yet every moving-mesh
 selection fails UI. T126 machine-checks the local zero-window concentration
 lemma; the full construction remains `proof sketch`.
 
+Even optimal polynomial and algebraic repulsion at every fixed degree is
+generically insufficient: an audited `proof sketch` constructs a
+full-dimensional family inside the decimal \(\{0,1\}\)-Cantor set, whose exact
+times-ten orbits have linear entropy deficit and maximally fail moving-mesh UI
+([no-go note](knowledge/pi/results/negative/20260824-fixed-degree-transcendence-measures-do-not-force-decimal-dispersion.md)).
+
 A retained finite experiment checks the separator combinatorics and numerical
 diagnostics through word length five. The proof-sketch implications, not the
 finite table, are the research claim.
