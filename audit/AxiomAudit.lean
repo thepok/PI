@@ -248,6 +248,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T131T131MainFrequencyFibers
 import TheoryLib.PiQuantitativeBlockHitting.T132T132EdgeFrequencyFibers
 import TheoryLib.PiQuantitativeBlockHitting.T133T133BoundaryDecimalScaleSeparator
 import TheoryLib.PiQuantitativeBlockHitting.T134T134BoundaryAggregateDecimalScaleSeparator
+import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3122,6 +3123,16 @@ import TheoryLib.PiQuantitativeBlockHitting.T134T134BoundaryAggregateDecimalScal
 #print axioms Theory.PiDigits.BoundaryAggregateDecimalScaleSeparator.sin_le_quintic
 #print axioms Theory.PiDigits.BoundaryAggregateDecimalScaleSeparator.jacksonAggregateCriterion_ten_fails
 #print axioms Theory.PiDigits.BoundaryAggregateDecimalScaleSeparator.boundary_aggregate_decimalScale_ten_strict_vs_jackson
+
+-- Actual coefficient-specific primitive-ray contraction, including the
+-- target- and scale-uniform gap on every decimal mesh `10^k`.
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.one_div_three_mul_lt_positiveBoundaryCoefficient
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.one_div_twenty_lt_positiveBoundaryCoefficient_ten
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.odd_phase_spread
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.decimal_center_phase_spread
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_lt_positiveBoundaryLoad_sub_gap
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_ten_lt_positiveBoundaryLoad_sub_gap
+#print axioms Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_pow_ten_lt_positiveBoundaryLoad_sub_gap
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

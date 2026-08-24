@@ -119,6 +119,18 @@ transports a child score to a carry-corrected incoming suffix edge with
 π. Its no-gos are deliberately narrow: successor-only scalar reconstruction
 and exact coboundary telescoping for the finite boundary polynomial.
 
+An audited
+[`primitive-ray coefficient contraction`](knowledge/pi/results/intermediate/20260824-t128-primitive-ray-coefficient-contraction.md)
+compresses the actual T128 positive-frequency obstruction to frequencies not
+divisible by ten plus exact initial/terminal orbit terms. Generic ray
+telescoping was already available. T138 now machine-checks the uniform actual
+T128 coefficient-load gap
+`sum_u |p_(q,A)(u)| < L_q - 1/3000000` for every `q=10^k`; the exact primitive
+exponential-sum/endpoints identity and its directional and modulus T128
+consumers remain `proof sketch` and are not in Lean. No primitive-frequency
+cancellation estimate is known for π, so this proves neither T124 nor V1 and
+supplies no exact π-orbit logical separator.
+
 ## Entropy-deficit frontier
 
 The
