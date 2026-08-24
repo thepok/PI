@@ -132,21 +132,29 @@ H_k = -∑_a p_k(a) log p_k(a)
 D_k = k * log 10 - H_k.
 ```
 
-If there are `k_j -> infinity` and selected blocks with
+If there are `k_j -> infinity` and nonempty consecutive selected blocks of the
+exact decimal orbit with
 
 ```text
 D_(k_j) / k_j -> 0,
 ```
 
-then V1 follows. The support of `p_k` is bounded by the number `p_π(k)` of
-distinct length-`k` decimal factors. Hence sublinear entropy deficit forces the
-machine-checked factor-entropy limit to equal its maximum, and
+then every fixed-depth cell law on those blocks converges in total variation to
+uniform, so the selected empirical measures converge to Haar and V1 follows.
+The finite stationarization inequality in the entropy note gives this directly
+from exact digit overlap and endpoint control. The older support-size argument
+also remains valid: sublinear deficit forces the machine-checked factor-entropy
+limit to equal its maximum, and
 [`T1CanonicalEntropy.lean`](TheoryLib/PiPositiveDecimalFactorEntropy/T1CanonicalEntropy.lean)
 then gives V1.
 
 This criterion does not require every cell to be occupied at any displayed
-scale and gives no first-occurrence rate. No such entropy estimate is proved
-for π.
+moving scale and gives no first-occurrence rate. Every fixed word occurs in
+every sufficiently large stage `j`, but those stages are arbitrarily late in
+the decimal expansion only if their starting indices tend to infinity. The
+stationarization statement is restricted to canonical `10^k` meshes,
+consecutive blocks, and exact times-ten dynamics; it does not cover arbitrary
+meshes or pseudo-orbits. No such entropy estimate is proved for π.
 
 ### Bounded entropy gives Haar limits
 
@@ -185,8 +193,12 @@ occupancy contain a uniformly vanishing fraction of visits. The Haar argument
 is sound and collision bounds imply this tail condition. The exact decimal
 de Bruijn construction from the entropy note has bounded entropy deficit and
 hence uniform integrability while its normalized second moment diverges, so it
-also certifies strictness inside exact times-ten dynamics. No fixed-pi tail
-estimate is known.
+also certifies strictness inside exact times-ten dynamics. On canonical meshes,
+UI implies sublinear entropy deficit, and an exact-global de Bruijn separator
+shows that implication is strict: the moving-scale densities fail UI maximally
+while all fixed-depth laws stationarize. This comparison does not extend to
+arbitrary meshes or pseudo-orbits. No fixed-pi tail or entropy estimate is
+known.
 
 The audited sparse-decimal construction
 `alpha=sum_j 10^(-j*2^j)` shows that effective irrationality cannot supply this
@@ -253,9 +265,12 @@ A resolution still requires a new fixed-π input. The retained targets are:
 4. **Bounded entropy / collision:** a uniformly bounded cell entropy deficit,
    or the stronger moving-mesh collision bound, giving Haar block limits.
 
-Uniform integrability is the weakest retained Haar premise. Sublinear entropy
-deficit is a separate exact-orbit route to V1; the boundary kernel is the
-weakest currently audited direct Fourier consumer. All remain unproved for pi.
+For arbitrary moving meshes, uniform integrability remains the weakest retained
+Haar premise. For exact canonical decimal meshes, sublinear entropy deficit is
+strictly weaker and already forces Haar block limits. The boundary kernel is
+the weakest currently audited direct Fourier consumer. All pi-specific inputs
+remain unproved; this entropy strengthening supplies no T128/T124, BBP, or
+carry-flow estimate.
 
 Equivalences, exact rational normal forms, recurrence packaging, finite digit
 experiments, and representation-only lemmas are infrastructure, not frontier
@@ -263,7 +278,7 @@ progress, unless they produce one of these estimates, strictly weaken a
 sufficient premise with a checked separator, or decisively falsify a live route.
 
 ```text
-fixed-π sublinear entropy deficit  ───────────────→ V1
+fixed-π sublinear canonical entropy deficit ─→ Haar ─→ V1
 
 fixed-π bounded entropy / collision + dynamics ─→ Haar ─→ V1
 

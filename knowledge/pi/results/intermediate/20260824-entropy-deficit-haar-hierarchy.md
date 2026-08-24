@@ -16,11 +16,13 @@ The existing moving-mesh collision premise is stronger than necessary in two
 separate senses.
 
 For the exact decimal orbit of π, a sublinear Shannon-entropy deficit along any
-unbounded sequence of decimal word lengths already implies canonical V1. For a
-general approximate times-ten orbit, a uniformly bounded entropy deficit forces
-Haar block limits. The former is strictly weaker than bounded entropy deficit,
-and the latter is strictly weaker than the existing quadratic collision bound,
-even inside exact base-ten dynamics.
+unbounded sequence of decimal word lengths implies more than canonical V1: on
+consecutive selected blocks it forces every fixed-depth word law to converge to
+uniform, and hence forces the selected empirical measures to converge to Haar.
+For a general approximate times-ten orbit, a uniformly bounded entropy deficit
+also forces Haar block limits. Sublinear deficit is strictly weaker than
+canonical-mesh uniform integrability in exact base-ten dynamics; bounded
+deficit is strictly weaker than the existing quadratic collision bound.
 
 No entropy estimate of either strength is proved here for π. V1 remains open.
 
@@ -330,6 +332,265 @@ Hence no constant can satisfy the previous normalized collision estimate on
 these blocks, even though the entropy premise is bounded and the dynamics is
 exact.
 
+## 5. Finite entropy stationarization in exact canonical dynamics
+
+This strengthening uses two hypotheses that must not be dropped: the mesh is
+the canonical `b^k` digit mesh, and the points form consecutive blocks of one
+exact orbit under `T_b(x)=b*x mod 1`. It is not a statement for arbitrary
+moving meshes or for pseudo-orbits.
+
+Let `b >= 2`, let `x_(n+1)=T_b(x_n)`, and let
+
+\[
+ B=[A,A+L),\qquad L\ge1.
+\]
+
+For `s >= 1`, let `p_(B,s)` be the empirical law of the canonical half-open
+`b^s` cells on this block, and put
+
+\[
+ H_s(B)=-\sum_{a<b^s}p_{B,s}(a)\log p_{B,s}(a),
+ \qquad D_s(B)=s\log b-H_s(B).
+\]
+
+For laws `P,Q` on `M` symbols, use the convention
+
+\[
+ d_{\rm TV}(P,Q)={1\over2}\sum_{a=1}^M|P(a)-Q(a)|.
+\]
+
+For `M >= 2` and `t >= 0`, define
+
+\[
+ \tau_M(t)=\min\left\{t,1-{1\over M}\right\},
+ \qquad
+ \Omega_M(t)=h_2(\tau_M(t))+\tau_M(t)\log(M-1), \tag{7}
+\]
+
+where `h_2(u)=-u log u-(1-u)log(1-u)` with `0 log 0=0`.
+Thus `Omega_M` is the monotone Fannes--Audenaert envelope: if
+`d_TV(P,Q) <= t`, then
+
+\[
+ |H(P)-H(Q)|\le\Omega_M(t). \tag{8}
+\]
+
+The clamp at `1-1/M` is intentional. For larger `t`, `Omega_M(t)=log M`,
+the universal entropy-difference bound.
+
+### Finite stationarization theorem
+
+For integers `k >= r >= 1`, put
+
+\[
+ m=\left\lfloor{k\over r}\right\rfloor,
+ \qquad M=b^r.
+\]
+
+Then every finite block above satisfies
+
+\[
+ \boxed{
+ D_r(B)\le {D_k(B)\over m}
+ +{1\over m}\sum_{u=0}^{m-1}
+   \Omega_M\!\left({ur\over L}\right).} \tag{9}
+\]
+
+In particular,
+
+\[
+ \boxed{
+ D_r(B)\le {D_k(B)\over m}
+ +\Omega_M\!\left({(m-1)r\over L}\right).} \tag{10}
+\]
+
+Since the empirical `k`-cell law has support at most `L`, one also has
+
+\[
+ L\ge b^k e^{-D_k(B)}, \tag{11}
+\]
+
+and therefore the length-free bound
+
+\[
+ \boxed{
+ D_r(B)\le {D_k(B)\over m}
+ +\Omega_{b^r}\!\left(
+ { (m-1)r e^{D_k(B)}\over b^k}
+ \right).} \tag{12}
+\]
+
+To prove (9), choose `N` uniformly in `B` and let
+`Y_t=floor(b*x_(N+t))` for `0 <= t < k`. Exact dynamics and the canonical
+half-open convention identify `(Y_0,...,Y_(k-1))` with the `k`-cell of `x_N`,
+so its entropy is `H_k(B)`. Split its first `m*r` coordinates into `m`
+successive `r`-blocks `Z_u`, and write
+
+\[
+ \Delta_u=r\log b-H(Z_u).
+\]
+
+Entropy subadditivity, with the remaining fewer than `r` digits bounded by
+their full entropy, gives
+
+\[
+ \sum_{u=0}^{m-1}\Delta_u\le D_k(B). \tag{13}
+\]
+
+The law of `Z_u` is the canonical `r`-cell law on the shifted block `B+ur`.
+The two length-`L` index blocks differ only at their endpoints, so
+
+\[
+ d_{\rm TV}(p_{B,r},p_{B+ur,r})
+ \le\min\left\{1,{ur\over L}\right\}. \tag{14}
+\]
+
+Since `Delta_0=D_r(B)`, (8) gives
+`D_r(B) <= Delta_u+Omega_M(ur/L)`. Averaging over `u` and using (13) proves
+(9); monotonicity gives (10). Finally,
+`H_k(B) <= log L` proves (11), whose substitution into (10) gives (12).
+
+There is also an exact finite simultaneous-hitting certificate. If any one of
+the `b^r` cells is absent, then
+
+\[
+ D_r(B)\ge\log{b^r\over b^r-1}. \tag{15}
+\]
+
+Consequently every length-`r` base-`b` word occurs at a starting index in `B`
+whenever the right side of (12) is strictly smaller than the threshold in
+(15). Pinsker also gives, for each such word `w`,
+
+\[
+ p_{B,r}(w)\ge b^{-r}-\sqrt{D_r(B)/2}. \tag{16}
+\]
+
+## 6. Sublinear canonical deficit forces Haar block limits
+
+Let `B_j=[A_j,A_j+L_j)` be nonempty consecutive blocks of one exact base-`b`
+orbit. If `k_j -> infinity` and
+
+\[
+ {D_{k_j}(B_j)\over k_j}\longrightarrow0, \tag{17}
+\]
+
+then, for every fixed `r >= 1`,
+
+\[
+ D_r(B_j)\longrightarrow0,
+ \qquad
+ d_{\rm TV}(p_{B_j,r},u_{b^r})\longrightarrow0. \tag{18}
+\]
+
+Indeed, `m_j=floor(k_j/r)` makes the first term in (10) tend to zero. From
+(11),
+
+\[
+ {k_j\over L_j}
+ \le k_j\exp(D_{k_j}(B_j)-k_j\log b)\longrightarrow0, \tag{19}
+\]
+
+so its endpoint term also tends to zero. Pinsker yields the total-variation
+claim.
+
+For the block empirical measures
+
+\[
+ \mu_j={1\over L_j}\sum_{n\in B_j}\delta_{x_n},
+\]
+
+this fixed-depth convergence implies `mu_j => lambda`. Precisely, if
+`omega_phi` is the modulus of continuity of a continuous test function, then
+
+\[
+ \left|\int\varphi\,d\mu_j-\int\varphi\,d\lambda\right|
+ \le 2\omega_\varphi(b^{-r})
+ +2\|\varphi\|_\infty
+   d_{\rm TV}(p_{B_j,r},u_{b^r}). \tag{20}
+\]
+
+First let `j -> infinity` and then `r -> infinity`.
+
+For `b=10` and `x_n={10^n*pi}`, (18) says that every fixed decimal word has
+frequency tending to `10^-r` along the selected blocks. Hence every fixed word
+occurs in every sufficiently large **stage** `j`. This does not say that those
+occurrences are arbitrarily late in the decimal expansion unless one also
+assumes `A_j -> infinity`. In either case, occurrence in at least one selected
+block implies V1.
+
+Thus the earlier factor-complexity implication is strengthened to
+
+```text
+sublinear canonical entropy deficit on exact consecutive orbit blocks
+          => fixed-depth total-variation convergence
+          => selected-block Haar convergence
+          => V1 for the exact decimal pi orbit.
+```
+
+## 7. Canonical UI is strictly stronger
+
+For the canonical `b^k_j` mesh, let `f_j=b^k_j*p_(B_j,k_j)(a)` on cell `a`.
+Then
+
+\[
+ D_{k_j}(B_j)=\int f_j\log f_j\,d\lambda.
+\]
+
+Because `0 <= f_j <= b^k_j`, for every `R>1`,
+
+\[
+ D_{k_j}(B_j)
+ \le \log R+k_j\log b
+       \int_{\{f_j>R\}}f_j\,d\lambda. \tag{21}
+\]
+
+Canonical-mesh uniform integrability therefore implies
+`D_(k_j)(B_j)=o(k_j)`. This implication uses only the canonical mesh; the Haar
+conclusion additionally uses exact dynamics and consecutive blocks.
+
+The converse fails within one exact global orbit. For `j >= 2`, set
+
+\[
+ k_j=j^2,\qquad \ell_j=j,\qquad r_j=j^2-j,
+ \qquad P_j=b^{r_j}.
+\]
+
+Choose a cyclic base-`b` de Bruijn word `W_j` of order `r_j`. At pairwise
+disjoint digit positions in one infinite base-`b` expansion, embed
+`P_j+k_j-1` digits of `W_j` repeated periodically, and let `B_j` be the `P_j`
+starting positions spanning one full period. The `P_j` length-`k_j` windows
+are distinct because their first `r_j` digits are the distinct cyclic
+`r_j`-windows. Hence their `k_j`-cell law is uniform on exactly `P_j` cells and
+
+\[
+ D_{k_j}(B_j)=j\log b=o(k_j). \tag{22}
+\]
+
+On every occupied fine cell the smoothed density is `b^j`; all mass lies on
+those cells. Thus, for every finite `R`,
+
+\[
+ \sup_j\int_{\{f_j>R\}}f_j\,d\lambda=1, \tag{23}
+\]
+
+so UI fails maximally. Nevertheless every fixed `s <= r_j` word occurs
+exactly `b^(r_j-s)` times in the stage. The separator is therefore an exact
+global orbit, not an abstract histogram or pseudo-orbit.
+
+On canonical meshes and exact consecutive-block dynamics, the revised strict
+hierarchy is
+
+```text
+quadratic collision + bounded mesh ratio
+          => uniform integrability
+          =>(strict) sublinear entropy deficit
+          => selected-block Haar convergence
+          => V1 for the exact decimal pi orbit.
+```
+
+This hierarchy does not compare sublinear deficit with UI on arbitrary meshes,
+and it gives no analogous stationarization theorem for pseudo-orbits.
+
 ## Fixed-π research target
 
 The weakest retained target from this note is now:
@@ -339,9 +600,9 @@ The weakest retained target from this note is now:
 >
 > `H_j = k_j * log 10 - o(k_j)`.
 
-This is strictly weaker than the existing collision target. A stronger but
-still weaker-than-collision route is to prove `D_j=O(1)` and use the Haar
-consumer above.
+This is strictly weaker than canonical-mesh UI and therefore than the existing
+collision target. On exact consecutive blocks it already gives Haar limits;
+there is no need to strengthen it to `D_j=O(1)` for that conclusion.
 
 A finite computation can falsify a proposed uniform entropy law, identify
 where the deficit concentrates, or compare scaling models. It cannot establish
@@ -370,11 +631,16 @@ mathematical argument above, not an extrapolation from the table.
 
 - This note proves no entropy bound for π.
 - It provides no first-occurrence rate and no quantitative C1 deadline.
-- The Haar conclusion needs bounded deficit; sublinear deficit alone gives V1
-  through factor entropy and does not imply Haar convergence of the displayed
-  blocks.
-- No novelty claim is attached to the entropy inequalities or de Bruijn
-  separators.
+- Sublinear canonical deficit gives Haar convergence only for consecutive
+  blocks of exact base-ten dynamics. The stationarization theorem does not
+  cover arbitrary meshes or pseudo-orbits.
+- "Every fixed word occurs in every sufficiently large `j`" refers to the
+  stage index; it means arbitrarily late decimal positions only if `A_j ->
+  infinity` is assumed.
+- No literature or novelty claim is attached to the entropy inequalities or
+  de Bruijn separators.
+- No pi-specific entropy estimate, T128/T124 Fourier estimate, BBP estimate,
+  or carry-flow estimate is proved or advanced here.
 - The result is not yet integrated into Lean and is therefore `proof sketch`,
   not `machine-checked`.
 
