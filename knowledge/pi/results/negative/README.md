@@ -14,6 +14,10 @@ spending tokens on the same dead ends.
   decimal-grid certificate cover asymptotically at most a
   `log(4)-1 < 1` fraction of one rational period, without ruling out stronger
   numerator-sensitive shadowing.
+- `20260824-scalar-uniform-coboundary-carry-budget-no-go.md`: a fixed-point
+  obstruction forces every pointwise scalar coboundary residual above the
+  carry budget, although explicit ray spreading makes its `L2` norm
+  arbitrarily small.
 - `appearance_ratio_route_no_go_20260821.md`: reviewed scoped separator for
   the T28–T29 route; even optimal appearance ratio leaves a constant bound on
   a moving selected frequency set, and maximal recurrent language/entropy does
