@@ -120,9 +120,17 @@ T19 pointwise → raw Jackson load → aggregated load → directional word test
 ```
 
 Actual-Jackson finite separators machine-check strictness at the raw-to-
-aggregated and aggregated-to-directional steps. They do not prove a logical
+aggregated and aggregated-to-directional steps, including an exact `q=10`
+directional separator. They do not prove a logical
 separation of the pi-level predicates, and none of those predicates is proved
 for pi.
+
+A newer boundary-matched cosine--Fejer minorant matches the exact cylinder
+boundary. T128 machine-checks its finite Fourier closed form, outside-sign
+property, coefficientwise domination of the old Jackson coefficients, positive
+explicit zero-mode lower bound, and finite directional hitting consumer. The
+sharper normalized-coefficient comparison and genuine `q=10` separators remain
+an independently audited `proof sketch`; its fixed-pi premise remains open.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work
@@ -152,9 +160,15 @@ the displayed tail estimate is not proved for the decimal π orbit or the
 sampled BBP orbit. The valuable work is to prove, sharpen, or falsify that
 fixed-π premise, not to restate the consumer.
 
+Effective irrationality alone is now decisively excluded as a route to this
+tail premise: an audited sparse-decimal seed has irrationality exponent at
+most `3`, satisfies an explicit exponent-`4` effective bound, and nevertheless
+fails UI on every moving-mesh selection. T126 machine-checks its local
+zero-window-to-first-cell mechanism; the full separator remains `proof sketch`.
+
 ### Priority order
 
-1. Prove or falsify a fixed-π Fourier or collision estimate at the required
+1. Prove or falsify a fixed-π Fourier or UI estimate at the required
    moving scale.
 2. Find a strictly weaker sufficient condition and certify the strict
    improvement.

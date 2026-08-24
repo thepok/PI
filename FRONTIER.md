@@ -71,8 +71,24 @@ wordwise premise “for every nonempty word `s`, some `N_s>0` makes its own
 directional defect smaller than the threshold” implies V1; unlike T123, its
 cutoff may depend on the word rather than only its length. A machine-checked
 actual-Jackson `q=1` singleton separates the finite directional and aggregated
-criteria. This does not independently separate the two pi-level quantifier
-patterns.
+criteria. A second machine-checked separator works at the actual decimal scale
+`q=10`: its directional value is `-983/500`, while the aggregated criterion
+already fails from the `h=10` term `83/1000`. This does not independently
+separate the two pi-level quantifier patterns.
+
+An independently audited `proof sketch` improves the minorant itself:
+
+```text
+K_q(t) = (cos(2*pi*t) - cos(pi/q)) * F_q(t)^2.
+```
+
+It matches the cylinder boundary exactly. T128 machine-checks the finite
+Fourier closed form, outside-sign property, coefficientwise domination of the
+old Jackson coefficients, positive explicit zero-mode lower bound, and finite
+directional hitting consumer. The sharper claim that every normalized nonzero
+weight is smaller, its closed coefficient formulas, and the exact `q=10`
+directional and aggregate separators remain `proof sketch`. Its wordwise
+fixed-pi estimate remains open.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that
@@ -154,6 +170,13 @@ hence uniform integrability while its normalized second moment diverges, so it
 also certifies strictness inside exact times-ten dynamics. No fixed-pi tail
 estimate is known.
 
+The audited sparse-decimal construction
+`alpha=sum_j 10^(-j*2^j)` shows that effective irrationality cannot supply this
+tail estimate by itself. It satisfies `IrrationalityMeasureBelow alpha B` for
+every `B>3` and an explicit exponent-`4` effective bound, yet every moving-mesh
+selection fails UI. T126 machine-checks the local zero-window concentration
+lemma; the full construction remains `proof sketch`.
+
 A retained finite experiment checks the separator combinatorics and numerical
 diagnostics through word length five. The proof-sketch implications, not the
 finite table, are the research claim.
@@ -204,16 +227,17 @@ route must produce a genuinely new fixed-π quantitative estimate.
 
 A resolution still requires a new fixed-π input. The retained targets are:
 
-1. **Entropy:** selected `10^k`-cell laws with
+1. **Uniform integrability:** the two-level moving-mesh occupancy-tail bound;
+2. **Entropy:** selected `10^k`-cell laws with
    `k * log 10 - H_k = o(k)` along unbounded `k`;
-2. **Fourier:** Jackson-weighted natural-scale cancellation strong enough for
-   T120/T121;
-3. **Bounded entropy / collision:** a uniformly bounded cell entropy deficit,
+3. **Fourier:** the boundary-matched wordwise signed estimate, or the stronger
+   machine-checked Jackson directional premise;
+4. **Bounded entropy / collision:** a uniformly bounded cell entropy deficit,
    or the stronger moving-mesh collision bound, giving Haar block limits.
 
-Among the collision-derived premises, sublinear entropy deficit is the weakest
-current sufficient condition with an explicit strict separator. It remains a
-`proof sketch` and is unproved for π.
+Uniform integrability is the weakest retained Haar premise. Sublinear entropy
+deficit is a separate exact-orbit route to V1; the boundary kernel is the
+weakest currently audited direct Fourier consumer. All remain unproved for pi.
 
 Equivalences, exact rational normal forms, recurrence packaging, finite digit
 experiments, and representation-only lemmas are infrastructure, not frontier
@@ -225,7 +249,7 @@ fixed-π sublinear entropy deficit  ──────────────�
 
 fixed-π bounded entropy / collision + dynamics ─→ Haar ─→ V1
 
-fixed-π weighted Fourier cancellation ──────────→ finite hits ─→ V1
+fixed-π boundary directional cancellation ─────→ finite hits ─→ V1
 ```
 
 Every fixed-π premise displayed above remains open.

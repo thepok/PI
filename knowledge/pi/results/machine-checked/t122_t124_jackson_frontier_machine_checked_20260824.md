@@ -1,4 +1,4 @@
-# T122--T124 Jackson frontier
+# T122--T128 Jackson and boundary-kernel frontier
 
 Status: `machine-checked`
 
@@ -6,7 +6,8 @@ Date: 2026-08-24 UTC
 
 ## Result
 
-Three new Lean modules sharpen and connect the natural-scale Jackson consumer.
+Seven Lean modules now sharpen and connect the natural-scale Jackson consumer
+and two downstream audited mechanisms.
 
 - T122 defines the coefficient-weighted quadratic Fourier load and its exact
   pair-collision kernel. It proves weighted Cauchy--Schwarz, the centered pair
@@ -20,6 +21,16 @@ Three new Lean modules sharpen and connect the natural-scale Jackson consumer.
   modulus. It proves directional defect `<=` aggregated load, the directional
   empty-interval obstruction, and a wordwise pi premise with its own cutoff
   `N_s` for each word implying V1.
+- T125 proves the exact total signed mass `2` of the Jackson coefficients and
+  that frequency aggregation preserves it.
+- T126 proves the generic zero-window concentration bridge used by the new
+  effective-irrationality/UI no-go.
+- T127 proves the exact affine ratio identity and strict monotonicity lemma
+  needed by the boundary-matched kernel comparison.
+- T128 proves the boundary-matched kernel's exact finite Fourier closed form,
+  outside-sign property, coefficientwise domination of the old Jackson
+  coefficients, positive explicit zero-mode lower bound, and finite
+  directional hitting consumer.
 
 The exact checked implication chain is
 
@@ -45,6 +56,11 @@ single point at the center of `[0,1)`: its directional defect is `-1 < 1`,
 while its aggregated load is exactly `1` and therefore fails the strict
 threshold.
 
+T124 also contains an actual decimal-scale separator at `q=10`, `N=1`, with
+the singleton `x=1/20` centered in `[0,1/10)`. Its directional defect is
+exactly `-983/500 < 17/500`; the aggregated criterion already fails because
+the single `h=10` contribution is `83/1000 > 17/500`.
+
 These witnesses prove strictness of the corresponding generic finite
 criteria. They do not prove logical separation between properties of the
 specific pi orbit. In particular, the T124 witness does not separately prove
@@ -56,15 +72,22 @@ No collision, aggregated-cancellation, or directional-cancellation premise is
 proved for the decimal orbit of pi. V1, density, normality, and decimal
 disjunctivity remain open.
 
-The closed Jackson coefficient formulas, exact low-frequency surcharge,
-more-than-fourfold pointwise improvement, and the proposed separator at every
-`q >= 5` remain `proof sketch`; they are not promoted by this report.
+The general closed Jackson coefficient formulas, exact low-frequency
+surcharge, and all-scale claims remain `proof sketch`; they are not promoted
+by this report. For the boundary-matched kernel, the sharper exact zero-mode
+formula, closed aggregated coefficient formulas, normalized coefficientwise
+comparison, `q=10` boundary separators, and fixed-pi premise also remain
+`proof sketch`.
 
 The proof authority is:
 
 - `TheoryLib/PiQuantitativeBlockHitting/T122T122JacksonCollisionBridge.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T123T123AggregatedJacksonFrontier.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T124T124DirectionalJacksonFrontier.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T125T125AggregatedJacksonCoefficientMass.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T126T126ZeroWindowCell.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T127T127BoundaryKernelRatioAlgebra.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T128T128BoundaryMatchedKernel.lean`
 - `audit/AxiomAudit.lean`
 
 The strict verification gate accepts only `propext`, `Classical.choice`, and

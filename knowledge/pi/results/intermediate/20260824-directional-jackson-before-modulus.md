@@ -1,7 +1,7 @@
 # Directional Jackson cancellation before taking a modulus
 
-Status: `machine-checked` core and one actual-Jackson finite separator; the
-closed coefficient formulas and decimal-scale `q=10` evaluation remain
+Status: `machine-checked` core and actual-Jackson separators at `q=1` and
+decimal scale `q=10`; the general closed coefficient formulas remain
 `proof sketch`
 
 Date: 2026-08-24 UTC
@@ -12,9 +12,10 @@ Source branch and commit:
 
 Integration note: T124 machine-checks the directional obstruction,
 `directional <= aggregated`, the wordwise pi premise, its implication to V1,
-and an actual-Jackson threshold separator at `q=1`. The exact `q=10`
-coefficient evaluation below remains `proof sketch`. The Lean source and axiom
-audit are proof authority.
+and actual-Jackson threshold separators at `q=1` and `q=10`. At `q=10`, Lean
+checks the exact directional value and proves aggregated failure from the
+single `h=10` term. The general coefficient formulas and exact full aggregate
+load remain `proof sketch`. The Lean source and axiom audit are proof authority.
 
 ## Claim boundary
 
@@ -166,8 +167,8 @@ one obtains the exact directional value
  \tag{8}
 \]
 
-The same sample has `|S_h(x,1)|=1` for every `h`.  Positivity of all aggregated
-nonzero coefficients and (2) give
+The same sample has `|S_h(x,1)|=1` for every `h`. Positivity of all aggregated
+nonzero coefficients and (2) give at proof-sketch level
 
 \[
  \boxed{
@@ -179,8 +180,10 @@ nonzero coefficients and (2) give
  \tag{9}
 \]
 
-Consequently the directional finite criterion succeeds while the aggregated
-criterion fails; by (7), the current T120 raw criterion fails as well.  This is
+Lean does not need the full equality in (9): the single exact coefficient
+`A_10(10)=83/1000` already exceeds `17/500`, so the aggregated criterion
+fails. Consequently the directional finite criterion succeeds while the
+aggregated criterion fails; by (7), the current T120 raw criterion fails as well. This is
 an exact threshold-crossing separator using the actual Jackson kernel, an
 actual decimal cylinder, and `q=10`.  It is not an equivalent reformulation,
 a duplicated-frequency artifact, or computational orbit evidence.
@@ -278,11 +281,10 @@ center-dependent fixed-pi sum.  A successful arithmetic argument must retain
 phase information tied to the target cylinder; once absolute values are taken,
 the gain in (7) cannot be recovered.
 
-The formalization gap is exact: define (3)--(4) from the already verified
-Jackson presentation, prove (5), (7), the decimal-scale separator (8)--(9),
-and the implication (10) `->` V1 in Lean; then register the declarations in
-`audit/AxiomAudit.lean`.  Until that gate passes, the claim remains
-`proof sketch`.
+T124 now formalizes (3)--(5), (7), the directional value in (8), aggregated
+threshold failure at `q=10`, and the implication (10) `->` V1. The remaining
+formalization gap is the general closed coefficient formula, its positivity,
+and the exact full-load identity (9).
 
 ## Verification performed
 
@@ -296,4 +298,6 @@ and the implication (10) `->` V1 in Lean; then register the declarations in
 - The implication to V1 is the same missing-cylinder contrapositive as T121,
   with the cutoff allowed to depend on the word.
 
-No Lean kernel verification is claimed for this note.
+The T124 declarations cited above are kernel-checked and registered in the
+central axiom audit. The remaining general formulas retain `proof sketch`
+status.

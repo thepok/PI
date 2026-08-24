@@ -10,6 +10,13 @@ Source branch and commit:
 
 ## Claim boundary
 
+T128 now machine-checks the finite Fourier closed form, outside-sign property,
+coefficientwise domination of the old Jackson coefficients, positive explicit
+zero-mode lower bound, and the resulting finite directional hitting consumer.
+This note retains `proof sketch` status because its sharper closed coefficient
+formulas, normalized coefficientwise comparison, exact `q=10` separators, and
+all-scale fixed-pi implications have not all been formalized.
+
 The verified Jackson consumer uses a trigonometric minorant whose positive core
 is strictly narrower than the target interval.  This note changes the kernel,
 not merely the representation or the order of a triangle inequality: replace
@@ -28,7 +35,7 @@ The resulting minorant has all of the following properties.
   parameters that have the required outside sign and positive zero mode.
 - Its aggregate and directional hitting predicates are strictly weaker than
   the corresponding machine-checked T123/T124 predicates, with
-  exact separators at the actual decimal scale `q = 10`.
+  exact separators at the actual decimal scale `q = 10` (still `proof sketch`).
 
 No fixed-pi estimate is proved.  Consequently this note proves no density,
 normality, canonical V1, prescribed decimal occurrence, or fixed-pi
@@ -745,10 +752,13 @@ Taking absolute values recovers the stronger aggregate premise (42), and
 replacing `C_q` by the Jackson coefficients recovers the stronger
 machine-checked T124 directional premise.
 
-The formalization gap is also exact.  A Lean module should define the
-boundary-matched minorant and its finite Fourier presentation, reuse the
-generic aggregated and directional consumers already proved in T123/T124,
-and then prove:
+T128 closes the first finite formalization slice.  It defines the
+boundary-matched minorant and its finite Fourier presentation and reuses the
+generic directional consumer already proved in T124.  In the list below,
+items 1 and 4 are machine-checked except that open-interior positivity was not
+needed; the zero-mode lower bound in item 2 is machine-checked, as is raw
+coefficientwise domination before normalization in item 5.  The remaining
+sharper statements are still open formalization work:
 
 1. the outside nonpositivity and open-interior positivity in (5)--(6);
 2. the zero mode (11), coefficient positivity, and total mass (13);
@@ -761,8 +771,10 @@ and then prove:
    preferably by reusing the word-cylinder proof pattern already checked in
    T123/T124.
 
-Those declarations must then be registered in `audit/AxiomAudit.lean`.  Until
-that kernel check passes, the claim label remains `proof sketch`.
+The T128 declarations are registered in `audit/AxiomAudit.lean` and passed the
+full strict verification gate.  This broader note keeps the label
+`proof sketch` until the remaining normalized comparisons, separators, and
+fixed-pi implication are checked.
 
 ## 10. Verification performed
 
@@ -780,4 +792,6 @@ that kernel check passes, the claim label remains `proof sketch`.
   `T27FiniteExponentialCylinderCoverage.lean`; the argument uses both
   `|t| >= 1/(2q)` and `|t| <= 1-1/(2q)`.
 
-No Lean kernel verification is claimed for this note.
+The T128 finite-kernel and hitting-consumer slice is Lean kernel verified.  No
+Lean verification is claimed here for the remaining sharper formulas,
+normalized domination, `q=10` separators, or fixed-pi premise.

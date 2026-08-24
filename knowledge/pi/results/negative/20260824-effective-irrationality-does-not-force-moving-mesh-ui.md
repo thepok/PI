@@ -147,9 +147,9 @@ Therefore the UI limit cannot vanish.
 - No fixed-pi collision or UI premise is decided here. V1, density, and
   normality remain open.
 
-## Lean boundary
+## Machine-checked slice and remaining boundary
 
-The recommended checked slice is deliberately small: a generic theorem that
+T126 machine-checks the deliberately small generic slice that
 `k` consecutive zero decimal digits after orbit time `n` force
 
 \[
@@ -158,4 +158,7 @@ The recommended checked slice is deliberately small: a generic theorem that
 
 and hence membership in the first `q`-cell whenever `q<10^k`. The full sparse
 series construction, its irrationality estimate, and the UI quantifiers remain
-at `proof sketch` status until separately formalized.
+at `proof sketch` status until separately formalized. The proof authority for
+the checked slice is
+`TheoryLib/PiQuantitativeBlockHitting/T126T126ZeroWindowCell.lean` and its
+central axiom-audit registration.

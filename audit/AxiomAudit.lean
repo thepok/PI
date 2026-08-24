@@ -241,6 +241,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T124T124DirectionalJacksonFrontier
 import TheoryLib.PiQuantitativeBlockHitting.T125T125AggregatedJacksonCoefficientMass
 import TheoryLib.PiQuantitativeBlockHitting.T126T126ZeroWindowCell
 import TheoryLib.PiQuantitativeBlockHitting.T127T127BoundaryKernelRatioAlgebra
+import TheoryLib.PiQuantitativeBlockHitting.T128T128BoundaryMatchedKernel
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3071,6 +3072,14 @@ import TheoryLib.PiQuantitativeBlockHitting.T127T127BoundaryKernelRatioAlgebra
 #print axioms Theory.PiQuantitativeBlockHitting.T126.baseTenOrbit_le_invPow_of_zero_window
 #print axioms Theory.PiQuantitativeBlockHitting.T126.baseTenOrbit_mem_firstCell_of_zero_window
 #print axioms Theory.PiDigits.BoundaryKernelRatioAlgebra.normalizedAffineCoefficient_strictMono
+
+-- Boundary-matched cosine--Fejer finite directional consumer.
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.boundaryMinorant_eq
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.boundaryZeroCoefficient_lower
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.boundaryMinorant_re_nonpos_outside
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_empty_decimalInterval_boundary_directional_obstruction
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_directional_smallness
+#print axioms Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_explicit_smallness
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

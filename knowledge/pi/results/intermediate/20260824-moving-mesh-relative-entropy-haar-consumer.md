@@ -2,9 +2,9 @@
 
 Status: `proof sketch`
 
-Audited: 2026-08-24 UTC
+Independently audited: 2026-08-24 UTC
 
-## Frontier gain
+## Intermediate sufficient premise
 
 The moving-mesh consumer in
 [`20260823-moving-mesh-collision-haar-consumer.md`](20260823-moving-mesh-collision-haar-consumer.md)
@@ -19,8 +19,11 @@ argument needs. Uniform integrability is enough to make every block limit
 absolutely continuous, and a bounded mesh relative entropy gives an explicit
 finite condition implying that uniform integrability.
 
-This yields a strictly weaker conditional frontier. It does not prove the
-new premise for the decimal orbit of pi or for the sampled BBP orbit.
+This strictly weakens the older collision premise, but it is stronger than the
+already reviewed uniform-integrability condition. It is therefore a useful
+explicit intermediate premise, not the active weakest moving-mesh frontier.
+It does not prove the premise for the decimal orbit of pi or for the sampled
+BBP orbit.
 
 ## Statement
 
@@ -247,10 +250,10 @@ needed by the Haar argument. This explicitly escapes, rather than ignores,
 the sparse-periodic-island obstruction recorded in
 `T19T19SparsePeriodicIslands.lean`.
 
-## Exact remaining gap
+## Optional stronger fixed-pi target
 
-The new fixed-pi premise is to prove that there are unbounded selected blocks
-and meshes for which
+One sufficient fixed-pi target is to prove that there are unbounded selected
+blocks and meshes for which
 
 \[
  \sup_j\sum_{a<q_j}\frac{n_j(a)}{L_j}
@@ -258,10 +261,13 @@ and meshes for which
 \]
 
 No such estimate is proved here for the decimal orbit of pi or the sampled BBP
-orbit. The result does not prove V1, density, normality, or fixed-pi Fourier
-cancellation, and it makes no novelty or literature-optimality claim. Its
-mathematical gain is solely the strict replacement of the `L^2` collision
-premise by an `L log L` compactness premise with an explicit separator.
+orbit. The weakest retained Haar target remains uniform integrability; bounded
+relative entropy is one stronger way to establish it. The result does not
+prove V1, density, normality, or fixed-pi Fourier cancellation, and it makes no
+novelty or literature-optimality claim. Its mathematical gain is the strict
+replacement of the `L^2` collision premise by an `L log L` compactness premise
+with an explicit generic pseudo-orbit separator. The existing exact-global-
+orbit de Bruijn separator is stronger than this separator.
 
 Relevant checked and archived context:
 

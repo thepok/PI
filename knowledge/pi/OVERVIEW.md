@@ -43,12 +43,28 @@ The checked T123/T124 refinement now removes two further triangle-inequality
 losses. T123 groups all equal Jackson frequencies before taking absolute
 values; its actual-Jackson `q=2` separator has aggregated load `7/32`, threshold
 `1/4`, and raw load `11/32`. T124 then retains the signed real sum centered on
-the prescribed cylinder and allows the cutoff to depend on the word; an
-actual-Jackson `q=1` singleton separates its finite criterion from the
-aggregated one. Both new pi premises imply canonical V1 and both remain open
-for the decimal orbit of pi. The stronger closed coefficient formulas and the
-all-decimal-scale separator remain `proof sketch`; no fixed-pi cancellation or
-V1 theorem is claimed.
+the prescribed cylinder and allows the cutoff to depend on the word. Besides
+the `q=1` singleton, T124 now checks a decimal-scale `q=10` separator with
+directional value `-983/500`, threshold `17/500`, and an aggregated `h=10`
+term `83/1000`. T125 checks total signed coefficient mass `2`. Both pi premises
+imply canonical V1 and remain open for the decimal orbit of pi.
+
+The boundary-matched kernel
+`(cos(2*pi*t)-cos(pi/q))*F_q(t)^2` improves the finite geometry again. T128
+machine-checks its finite Fourier closed form, exact outside sign,
+coefficientwise domination of the old Jackson coefficients, positive explicit
+zero-mode lower bound, and finite directional hitting consumer. The stronger
+normalized-coefficient comparison and exact `q=10` directional and aggregate
+separators remain independently audited `proof sketch`; the fixed-pi estimate
+remains open.
+
+The moving-mesh route also has a new decisive negative boundary. The sparse
+decimal seed `sum_j 10^(-j*2^j)` satisfies source-level irrationality exponent
+at most `3` and an explicit exponent-`4` effective inequality, yet no selected
+moving meshes satisfy uniform integrability. Thus effective irrationality,
+digit-change bounds, and periodic-window exclusion alone cannot produce the
+active tail premise. T126 checks the zero-window concentration mechanism; the
+full construction is retained as `proof sketch`.
 
 The same gate also checks the conditional T14 bridge.  From the explicit
 external premise `IrrationalityMeasureBelow Real.pi 8`, T14 derives
