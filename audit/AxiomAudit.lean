@@ -244,6 +244,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T127T127BoundaryKernelRatioAlgebra
 import TheoryLib.PiQuantitativeBlockHitting.T128T128BoundaryMatchedKernel
 import TheoryLib.PiQuantitativeBlockHitting.T129T129BoundaryKernelNormalizedComparison
 import TheoryLib.PiQuantitativeBlockHitting.T130T130BoundaryNonzeroCoefficientAlgebra
+import TheoryLib.PiQuantitativeBlockHitting.T131T131MainFrequencyFibers
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3099,6 +3100,10 @@ import TheoryLib.PiQuantitativeBlockHitting.T130T130BoundaryNonzeroCoefficientAl
 #print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.crossDeterminant_eq
 #print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.crossDeterminant_pos
 #print axioms Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_boundary_lt_jackson
+
+-- Exact main-frequency fibers throughout the positive support.
+#print axioms Theory.PiDigits.MainFrequencyFibers.mainFrequencyMultiplicity_eq_cubic
+#print axioms Theory.PiDigits.MainFrequencyFibers.aggregatedFejerSquareCoefficient_eq
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

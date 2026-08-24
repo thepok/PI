@@ -89,9 +89,10 @@ directional hitting consumer. T129 proves exact closed forms for both signed
 zero modes and their strict boundary-matching gain for every `q > 1`. T130
 checks the piecewise cubic cross-determinant algebra and the actual normalized
 improvement at frequency `2q-1`. The general finite-fiber identification needed
-to transfer that algebra to every actual interior coefficient, and the exact
-`q=10` directional and aggregate separators, remain `proof sketch`. Its
-wordwise fixed-pi estimate remains open.
+to transfer that algebra to every actual interior coefficient is now checked
+in T131. The remaining signed edge-fiber identity and the exact `q=10`
+directional and aggregate separators remain `proof sketch`. Its wordwise
+fixed-pi estimate remains open.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that

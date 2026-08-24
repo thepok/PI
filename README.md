@@ -133,8 +133,9 @@ T129 exacts both zero modes and proves that boundary matching gives a strictly
 larger signed zero mode for every `q > 1`. T130 checks the full piecewise cubic
 cross-determinant algebra and the actual normalized improvement at the outer
 frequency `2q-1`. Identifying every actual interior frequency fiber with the
-cubic formula, and hence the full normalized nonzero-coefficient comparison,
-remains open; the genuine `q=10` separators remain an independently audited
+cubic formula is now machine-checked in T131. The remaining finite transfer to
+the full actual normalized nonzero-coefficient comparison is the signed edge-
+fiber identity; the genuine `q=10` separators remain an independently audited
 `proof sketch`. The fixed-pi premise remains open.
 
 The current unconditional fixed-frequency results give only additive gaps and
