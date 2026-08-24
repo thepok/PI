@@ -134,15 +134,26 @@ larger signed zero mode for every `q > 1`. T130 checks the full piecewise cubic
 cross-determinant algebra and the actual normalized improvement at the outer
 frequency `2q-1`. Identifying every actual interior frequency fiber with the
 cubic formula is now machine-checked in T131. The remaining finite transfer to
-the full actual normalized nonzero-coefficient comparison is the signed edge-
-fiber identity; the genuine `q=10` separators remain an independently audited
-`proof sketch`. The fixed-pi premise remains open.
+the full actual normalized nonzero-coefficient comparison is now closed in
+T132 by an exact signed edge-fiber formula. The genuine `q=10` separators
+remain an independently audited `proof sketch`. The fixed-pi premise remains
+open.
 
 The current unconditional fixed-frequency results give only additive gaps and
 do not approach this moving-frequency normalized estimate. Future Fourier work
 must bound the actual directional or aggregated quantity on the growing
 natural-scale frequency window, strictly weaken this sufficient premise, or
 rigorously prove that a proposed route cannot do so.
+
+Two audited `proof sketch` transfer analyses sharpen what such work must
+retain. The
+[transfer-compatible directional family](knowledge/pi/results/intermediate/20260824-transfer-compatible-directional-kernel.md)
+has an exact decimal preimage law but shows that parent positivity cannot force
+all prescribed children. The
+[boundary carry-flow identity](knowledge/pi/results/intermediate/20260824-boundary-kernel-carry-flow.md)
+isolates the missing input as a carry-corrected predecessor-digit correlation;
+successor-only scalar transport and exact finite-polynomial telescoping are
+insufficient. Neither note supplies the missing fixed-π estimate.
 
 ### 2. Moving-mesh occupancy-tail target
 

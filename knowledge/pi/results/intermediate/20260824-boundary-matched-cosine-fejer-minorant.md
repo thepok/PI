@@ -18,10 +18,11 @@ their strict boundary-matching gain for every `q > 1`. T130 checks the
 piecewise cubic coefficient/cross-determinant algebra, the exact aggregation
 gain identity, and the actual normalized improvement at frequency `2q-1`.
 T131 checks the general positive-support frequency-fiber count and resulting
-actual aggregated Fejer-square coefficient formula. This note retains `proof
-sketch` status because the signed edge-fiber identity, full actual normalized
-coefficientwise comparison, exact `q=10` separators, and all-scale fixed-pi
-implications have not all been formalized.
+actual aggregated Fejer-square coefficient formula. T132 checks the signed
+edge-fiber formula, actual Jackson and boundary coefficient formulas, and full
+strict normalized coefficientwise improvement on the positive support. This
+note retains `proof sketch` status because its exact `q=10` separators and
+all-scale fixed-pi implications have not all been formalized.
 
 The verified Jackson consumer uses a trigonometric minorant whose positive core
 is strictly narrower than the target interval.  This note changes the kernel,
@@ -777,7 +778,7 @@ sharper statements are still open formalization work:
    preferably by reusing the word-cylinder proof pattern already checked in
    T123/T124.
 
-The T128--T131 declarations are registered in `audit/AxiomAudit.lean`. This
+The T128--T132 declarations are registered in `audit/AxiomAudit.lean`. This
 broader note keeps the label
 `proof sketch` until the remaining normalized comparisons, separators, and
 fixed-pi implication are checked.
@@ -799,7 +800,7 @@ fixed-pi implication are checked.
   `|t| >= 1/(2q)` and `|t| <= 1-1/(2q)`.
 
 The T128 finite-kernel/hitting-consumer slice, T129 exact zero-mode slice, and
-T130 cubic algebra/actual outer-endpoint slice, and T131 general main-fiber
-count are Lean kernel verified. No Lean verification is claimed here for the
-signed edge-fiber identity, full actual normalized domination, `q=10`
-separators, or fixed-pi premise.
+T130 cubic algebra/actual outer-endpoint slice, T131 general main-fiber count,
+and T132 signed edge/full actual normalized-domination slice are Lean kernel
+verified. No Lean verification is claimed here for the `q=10` separators or
+fixed-pi premise.

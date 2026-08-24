@@ -1,4 +1,4 @@
-# T122--T131 Jackson and boundary-kernel frontier
+# T122--T132 Jackson and boundary-kernel frontier
 
 Status: `machine-checked`
 
@@ -6,7 +6,7 @@ Date: 2026-08-24 UTC
 
 ## Result
 
-Ten Lean modules now sharpen and connect the natural-scale Jackson consumer
+Eleven Lean modules now sharpen and connect the natural-scale Jackson consumer
 and two downstream audited mechanisms.
 
 - T122 defines the coefficient-weighted quadratic Fourier load and its exact
@@ -40,6 +40,9 @@ and two downstream audited mechanisms.
 - T131 proves the exact main-quadruple frequency-fiber count throughout the
   positive support and the resulting actual aggregated Fejer-square
   coefficient formula.
+- T132 proves the exact signed edge-fiber formula, the actual Jackson and
+  boundary aggregated coefficient formulas, and full strict normalized
+  boundary improvement throughout the positive support.
 
 The exact checked implication chain is
 
@@ -83,9 +86,8 @@ disjunctivity remain open.
 
 The general closed Jackson coefficient formulas, exact low-frequency
 surcharge, and all-scale claims remain `proof sketch`; they are not promoted
-by this report. For the boundary-matched kernel, the signed edge-fiber
-identity, full actual normalized coefficientwise comparison, `q=10` boundary
-separators, and fixed-pi premise also remain `proof sketch`.
+by this report. For the boundary-matched kernel, the `q=10` boundary separators
+and fixed-pi premise also remain `proof sketch`.
 
 The proof authority is:
 
@@ -99,6 +101,7 @@ The proof authority is:
 - `TheoryLib/PiQuantitativeBlockHitting/T129T129BoundaryKernelNormalizedComparison.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T130T130BoundaryNonzeroCoefficientAlgebra.lean`
 - `TheoryLib/PiQuantitativeBlockHitting/T131T131MainFrequencyFibers.lean`
+- `TheoryLib/PiQuantitativeBlockHitting/T132T132EdgeFrequencyFibers.lean`
 - `audit/AxiomAudit.lean`
 
 The strict verification gate accepts only `propext`, `Classical.choice`, and

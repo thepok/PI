@@ -90,9 +90,10 @@ zero modes and their strict boundary-matching gain for every `q > 1`. T130
 checks the piecewise cubic cross-determinant algebra and the actual normalized
 improvement at frequency `2q-1`. The general finite-fiber identification needed
 to transfer that algebra to every actual interior coefficient is now checked
-in T131. The remaining signed edge-fiber identity and the exact `q=10`
-directional and aggregate separators remain `proof sketch`. Its wordwise
-fixed-pi estimate remains open.
+in T131. T132 checks the signed edge fibers and therefore the full actual
+normalized coefficientwise improvement throughout the positive support. The
+exact `q=10` directional and aggregate separators remain `proof sketch`. Its
+wordwise fixed-pi estimate remains open.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that
@@ -104,6 +105,18 @@ For comparison, T19 asks simultaneously for every nonzero
 The π-specific directional estimate is the weakest direct machine-checked
 Fourier premise currently in the trusted core. It remains open. No fixed-π
 cancellation, density, normality, or V1 theorem follows from these reductions.
+
+Two audited transfer calculations, both still `proof sketch`, delimit the next
+attack. The
+[transfer-compatible family](knowledge/pi/results/intermediate/20260824-transfer-compatible-directional-kernel.md)
+classifies the scalar Fejér-square kernels with an exact preimage law and shows
+only that parent positivity cannot imply positivity of every prescribed child.
+The
+[boundary carry-flow reduction](knowledge/pi/results/intermediate/20260824-boundary-kernel-carry-flow.md)
+transports a child score to a carry-corrected incoming suffix edge with
+`O(Q^-2)` leakage. Its sufficient incoming-edge estimate remains unproved for
+π. Its no-gos are deliberately narrow: successor-only scalar reconstruction
+and exact coboundary telescoping for the finite boundary polynomial.
 
 ## Entropy-deficit frontier
 

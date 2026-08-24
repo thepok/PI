@@ -59,10 +59,22 @@ strict improvement for every `q > 1`. T130 checks the piecewise cubic
 cross-determinant algebra and the actual normalized improvement at the outer
 frequency `2q-1`. The general interior frequency-fiber identification and the
 corresponding actual aggregated Fejer-square coefficient formula are now
-machine-checked in T131. The signed edge-fiber identity needed for the full
-actual normalized comparison, and the exact `q=10` directional and aggregate
-separators, remain independently audited `proof sketch`; the fixed-pi estimate
-remains open.
+machine-checked in T131. T132 checks the signed edge-fiber formula and closes
+the full actual normalized coefficientwise improvement. The exact `q=10`
+directional and aggregate separators remain independently audited `proof
+sketch`; the fixed-pi estimate remains open.
+
+Two further audited `proof sketch` notes clarify scale transfer without
+claiming that estimate. The
+[`transfer-compatible directional kernel`](results/intermediate/20260824-transfer-compatible-directional-kernel.md)
+classifies an exact preimage-compatible Fejér-square family, identifies the
+optimal all-scale sign constant `4/pi^2`, and shows that a positive parent can
+force at most some child—not every prescribed child—without branch state. The
+[`boundary-kernel carry flow`](results/intermediate/20260824-boundary-kernel-carry-flow.md)
+gives an exact carry-corrected child/suffix identity with `O(Q^-2)` leakage and
+an explicit sufficient incoming-edge criterion. It also rules out only
+successor-only scalar recovery and exact finite-trigonometric-polynomial
+telescoping; π-specific predecessor/numerator control remains open.
 
 The moving-mesh route also has a new decisive negative boundary. The sparse
 decimal seed `sum_j 10^(-j*2^j)` satisfies source-level irrationality exponent
