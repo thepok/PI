@@ -1,0 +1,23 @@
+Work as the creative mathematics director for
+https://github.com/thepok/PI, branch `pi-core-consolidation`.
+
+Read the current `README.md`, `FRONTIER.md`, T120--T125, and the directional
+Jackson research notes. The current sharp consumer retains the target-cylinder
+phase before modulus: for every nonempty decimal word s it would suffice to
+find N_s with the signed directional Jackson defect at q=10^|s| below the exact
+zero coefficient. Frequency aggregation and directional-before-modulus are
+already done; q=1 and q=10 strict separators and total signed mass 2 are being
+Lean-checked. The fixed-pi directional estimate remains open.
+
+Move this frontier meaningfully forward with hard creative mathematics. Seek
+a genuinely new phase-sensitive identity, recurrence, averaging mechanism, or
+pi-specific arithmetic reduction that could prove the wordwise estimate, or a
+decisive no-go that retires a live proposed mechanism. Do not merely regroup
+coefficients, restate the premise, provide an equivalent representation, or
+offer computation as proof. Do not write Lean, edit files, commit, or work on
+orchestration.
+
+Return a self-contained mathematical memo with exact statements, derivations,
+falsifiers, and the irreducible remaining input. Clearly label proof sketches
+and experiments. Do not claim V1, density, normality, novelty, or fixed-pi
+cancellation unless actually proved.

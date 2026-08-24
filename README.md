@@ -130,24 +130,27 @@ must bound the actual directional or aggregated quantity on the growing
 natural-scale frequency window, strictly weaken this sufficient premise, or
 rigorously prove that a proposed route cannot do so.
 
-### 2. Moving-mesh collision target
+### 2. Moving-mesh occupancy-tail target
 
 For a selected block `[L, 2L)` and a partition into `q` equal cells, let `n(a)`
-be the number of orbit points in cell `a`. The reviewed collision-to-Haar
-consumer uses a bound of the shape
+be the number of orbit points in cell `a`. The weakest reviewed Haar consumer
+currently asks for uniform integrability of the cell-smoothed densities:
 
 ```text
-∑_{a < q} n(a)^2 ≤ C * (L^2 / q + L),
+lim_(M→∞) sup_j (1/L_j)
+  ∑_{a : n_j(a) > M L_j/q_j} n_j(a) = 0.
 ```
 
-with a controlled relation between `q` and `L` and vanishing averaged
-pseudo-orbit error. Such a bound forces Haar limits and hence fixed-cylinder
-hits.
+Together with `L_j,q_j→∞` and vanishing averaged pseudo-orbit error, this tail
+condition forces selected-block Haar limits and hence fixed-cylinder hits. The
+older collision second-moment bound and the intermediate bounded-entropy-
+deficit premise both imply this condition; reviewed exact decimal de Bruijn
+stages separate the converses.
 
-The consumer is currently a `proof sketch`; more importantly, the displayed
-collision estimate is not proved for the decimal π orbit or the sampled BBP
-orbit. The valuable work is to prove, sharpen, or falsify that fixed-π premise,
-not to restate the consumer.
+The consumers and separators are currently `proof sketch`; more importantly,
+the displayed tail estimate is not proved for the decimal π orbit or the
+sampled BBP orbit. The valuable work is to prove, sharpen, or falsify that
+fixed-π premise, not to restate the consumer.
 
 ### Priority order
 

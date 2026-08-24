@@ -298,6 +298,156 @@ theorem directional_finite_criterion_strict_vs_aggregated :
       Theory.PiDigits.T27.norm_phase] at hsmall
     norm_num at hsmall
 
+set_option maxHeartbeats 2000000 in
+private lemma jacksonAggregatedCoefficient_ten_zero :
+    aggregatedCoefficient
+      (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+      (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) 0 =
+        (17 : ℝ) / 500 := by
+  unfold aggregatedCoefficient
+  rw [Finset.sum_filter, Fintype.sum_sum_type]
+  simp only [Fintype.sum_prod_type]
+  norm_num (config := { maxSteps := 2000000 })
+    [Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeFrequency,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeSign,
+    Fin.sum_univ_succ]
+
+set_option maxHeartbeats 2000000 in
+private lemma jacksonAggregatedCoefficient_ten_ten :
+    aggregatedCoefficient
+      (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+      (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) 10 =
+        (83 : ℝ) / 1000 := by
+  unfold aggregatedCoefficient
+  rw [Finset.sum_filter, Fintype.sum_sum_type]
+  simp only [Fintype.sum_prod_type]
+  norm_num (config := { maxSteps := 2000000 })
+    [Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeFrequency,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeSign,
+    Fin.sum_univ_succ]
+
+private lemma jacksonCoefficient_ten_total :
+    (∑ i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10,
+      Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10 i) =
+        (2 : ℝ) := by
+  rw [Fintype.sum_sum_type]
+  simp only [Fintype.sum_prod_type]
+  norm_num [Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient,
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeSign,
+    Fin.sum_univ_succ]
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 100000 in
+/- At the decimal scale `q = 10`, the singleton at the center of `[0,1/10)`
+passes the directional threshold while it fails the aggregated threshold. -/
+theorem directional_decimalScale_ten_strict_vs_aggregated :
+    let x : ℕ → ℝ := fun _ => 1 / 20
+    directionalJacksonDefect x 1 10 0 <
+        1 / (3 * (10 : ℝ)) + 2 / (3 * (10 : ℝ) ^ 3) ∧
+      ¬ aggregatedJacksonFourierLoad x 1 10 <
+        1 / (3 * (10 : ℝ)) + 2 / (3 * (10 : ℝ) ^ 3) := by
+  dsimp only
+  constructor
+  · unfold directionalJacksonDefect normalizedDirectionalFourierDefect
+      centeredAggregatedNonzeroSum
+    norm_num only [Nat.cast_ofNat, zero_add]
+    have hregroup := sum_aggregatedCoefficient_mul_ne_zero
+      (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+      (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10)
+      (fun h => Theory.PiDigits.T27.phase h (-(1 / 20 : ℝ)) *
+        Theory.PiDigits.T27.exponentialSum (fun _ => (1 / 20 : ℝ)) 1 h)
+    simp_rw [centered_singleton_phase] at hregroup
+    simp_rw [scalar_centered_singleton_phase]
+    have hregroup' :
+        (∑ h ∈ Finset.image
+            (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10)
+            Finset.univ with h ≠ 0,
+          (aggregatedCoefficient
+            (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+            (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) h : ℂ)) =
+          ∑ i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10 with
+            Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency i ≠ 0,
+            (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10 i : ℂ) := by
+      simpa using hregroup
+    rw [hregroup']
+    have hsplit := Finset.sum_filter_add_sum_filter_not Finset.univ
+      (fun i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10 =>
+        Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency i = 0)
+      (fun i => (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient
+        10 10 i : ℂ))
+    have hzero :
+        (∑ i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10 with
+          Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency i = 0,
+          (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10 i : ℂ)) =
+            (17 : ℝ) / 500 := by
+      exact_mod_cast jacksonAggregatedCoefficient_ten_zero
+    have htotal :
+        (∑ i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10,
+          (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10 i : ℂ)) = 2 := by
+      exact_mod_cast jacksonCoefficient_ten_total
+    rw [← hsplit] at htotal
+    rw [hzero] at htotal
+    have hnonzero :
+        (∑ i : Theory.PiDigits.PiNaturalScaleResonanceObstruction.JacksonIndex 10 with
+          Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency i ≠ 0,
+          (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10 i : ℂ)) =
+            (983 : ℝ) / 500 := by
+      apply Complex.ext
+      · have h := congrArg Complex.re htotal
+        norm_num at h ⊢
+        linarith
+      · have h := congrArg Complex.im htotal
+        norm_num at h ⊢
+    rw [hnonzero]
+    norm_num
+  · intro hsmall
+    unfold aggregatedJacksonFourierLoad normalizedAggregatedFourierLoad at hsmall
+    have hmem : (10 : ℤ) ∈ Finset.image
+        (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10)
+        Finset.univ := by
+      apply Finset.mem_image.mpr
+      refine ⟨Sum.inr (((false, ⟨0, by norm_num⟩), (true, ⟨0, by norm_num⟩))),
+        Finset.mem_univ _, ?_⟩
+      norm_num [Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency,
+        Theory.PiDigits.PiNaturalScaleResonanceObstruction.edgeFrequency]
+    have hterm :
+        |aggregatedCoefficient
+            (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+            (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) 10| *
+            ‖Theory.PiDigits.T27.exponentialSum (fun _ => (1 / 20 : ℝ)) 1 10‖ ≤
+          ∑ h ∈ Finset.image
+              (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10)
+              Finset.univ with h ≠ 0,
+            |aggregatedCoefficient
+              (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+              (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) h| *
+              ‖Theory.PiDigits.T27.exponentialSum (fun _ => (1 / 20 : ℝ)) 1 h‖ := by
+      let s := (Finset.image
+        (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10)
+        Finset.univ).filter (fun h => h ≠ 0)
+      let f : ℤ → ℝ := fun h =>
+        |aggregatedCoefficient
+            (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient 10 10)
+            (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency 10) h| *
+          ‖Theory.PiDigits.T27.exponentialSum (fun _ => (1 / 20 : ℝ)) 1 h‖
+      have hf : ∀ h ∈ s, 0 ≤ f h := by
+        intro h hh
+        exact mul_nonneg (abs_nonneg _) (norm_nonneg _)
+      have h10 : (10 : ℤ) ∈ s := Finset.mem_filter.mpr ⟨hmem, by norm_num⟩
+      simpa only [s, f] using (Finset.single_le_sum hf h10)
+    rw [jacksonAggregatedCoefficient_ten_ten] at hterm
+    simp only [Theory.PiDigits.T27.exponentialSum, Finset.sum_range_one,
+      Theory.PiDigits.T27.norm_phase, abs_of_pos (by norm_num : (0 : ℝ) < 83 / 1000),
+      mul_one] at hterm
+    simp_rw [Theory.PiDigits.T27.exponentialSum, Finset.sum_range_one,
+      Theory.PiDigits.T27.norm_phase, mul_one] at hsmall
+    norm_num at hsmall hterm
+    linarith
+
 /-- Wordwise directional cancellation for pi.  Its cutoff may depend on the
 actual word, not only on its length. -/
 def PiWordwiseDirectionalJacksonCancellation : Prop :=
@@ -380,4 +530,5 @@ end Theory.PiDigits.DirectionalJacksonFrontier
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.directionalJacksonDefect_le_aggregatedJacksonFourierLoad
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.finite_decimalInterval_hit_of_directional_smallness
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.directional_finite_criterion_strict_vs_aggregated
+#print axioms Theory.PiDigits.DirectionalJacksonFrontier.directional_decimalScale_ten_strict_vs_aggregated
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.piWordwiseDirectionalJacksonCancellation_implies_canonicalV1

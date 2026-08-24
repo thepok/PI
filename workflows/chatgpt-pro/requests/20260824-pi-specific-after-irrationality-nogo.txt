@@ -1,0 +1,23 @@
+Work as the creative mathematics director for
+https://github.com/thepok/PI, branch `pi-core-consolidation`.
+
+Read the current `README.md`, `FRONTIER.md`, and relevant verified Lean and
+negative-result files. A newly audited separator is the sparse decimal
+alpha=sum_j 10^(-j*2^j): it has IrrationalityMeasureBelow(alpha,B) for every
+B>3 and EffectiveIrrationality(alpha,4,1,10^64), yet every moving-mesh
+selection fails uniform integrability and collision because almost all orbit
+points concentrate in the first cell. Therefore effective irrationality,
+periodic-window exclusion, digit changes, and fixed-frequency gaps alone are
+retired routes.
+
+Move the fixed-pi frontier meaningfully forward beyond that no-go. Seek one
+genuinely pi-specific arithmetic mechanism that could control the aggregate
+residual lags or a decisive theorem/no-go narrowing such mechanisms. Work on
+hard creative mathematics only. Do not design workflows, write Lean, edit the
+repository, commit, or merely rename/reformulate an existing premise. A useful
+result must contain a new derivation, exact quantitative statement, and
+falsifiers; it may be a rigorous obstruction if it retires a live route.
+
+Return a self-contained mathematical memo. Clearly distinguish proved facts,
+proof sketches, experiments, and open inputs. Do not claim V1, density,
+normality, novelty, or fixed-pi cancellation unless actually established.
