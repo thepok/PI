@@ -104,11 +104,14 @@ quantitative rate, density premise for \(\pi\), or V1 conclusion follows.  See
 [`20260823-moving-mesh-collision-haar-consumer.md`](results/intermediate/20260823-moving-mesh-collision-haar-consumer.md).
 
 A reviewed 2026-08-24 `proof sketch` strictly weakens that collision premise.
-Sublinear Shannon-entropy deficit along selected exact decimal-pi blocks would
-already force maximal factor entropy and V1; uniformly bounded entropy deficit,
-together with the approximate times-ten dynamics, forces Haar block limits.
-Exact generic decimal de Bruijn constructions separate both implications. No
-such entropy estimate is known for pi. See
+On consecutive blocks of the exact decimal-pi orbit, sublinear Shannon-entropy
+deficit on canonical `10^k` meshes forces every fixed-depth cell law to converge
+in total variation to uniform. The selected empirical measures therefore
+converge to Haar and V1 follows; the older maximal-factor-entropy argument gives
+the same V1 endpoint. Uniformly bounded entropy deficit, together with
+approximate times-ten dynamics, also forces Haar block limits. Exact generic
+decimal de Bruijn constructions separate the relevant implications. No such
+entropy estimate is known for pi. See
 [`20260824-entropy-deficit-haar-hierarchy.md`](results/intermediate/20260824-entropy-deficit-haar-hierarchy.md).
 
 A parallel Pro `proof sketch` weakens the generic Haar consumer further to
@@ -116,7 +119,11 @@ uniform integrability of the cell-smoothed densities. This tail condition is
 implied by the collision estimate and is sufficient for absolutely continuous,
 times-ten-invariant block limits, hence Haar. The reviewed de Bruijn stages from
 the entropy note satisfy this tail condition while their normalized second
-moments diverge, giving a strict separator inside exact decimal dynamics. See
+moments diverge, giving a strict separator inside exact decimal dynamics. On
+exact canonical meshes UI implies sublinear entropy deficit, while an exact
+global de Bruijn orbit has sublinear deficit and fixed-depth stationarization
+but fails UI maximally; thus the canonical implication is strict. This
+comparison does not extend to arbitrary meshes or pseudo-orbits. See
 [`20260824-uniform-integrability-haar-frontier.md`](results/intermediate/20260824-uniform-integrability-haar-frontier.md).
 
 T111 adds a further `machine-checked` finite interface. Exact character

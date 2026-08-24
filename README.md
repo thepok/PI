@@ -156,11 +156,12 @@ isolates the missing input as a carry-corrected predecessor-digit correlation;
 successor-only scalar transport and exact finite-polynomial telescoping are
 insufficient. Neither note supplies the missing fixed-π estimate.
 
-### 2. Moving-mesh occupancy-tail target
+### 2. Moving-mesh occupancy-tail and canonical entropy targets
 
 For a selected block `[L, 2L)` and a partition into `q` equal cells, let `n(a)`
-be the number of orbit points in cell `a`. The weakest reviewed Haar consumer
-currently asks for uniform integrability of the cell-smoothed densities:
+be the number of orbit points in cell `a`. For arbitrary moving meshes, the
+weakest reviewed Haar consumer currently asks for uniform integrability of the
+cell-smoothed densities:
 
 ```text
 lim_(M→∞) sup_j (1/L_j)
@@ -173,10 +174,19 @@ older collision second-moment bound and the intermediate bounded-entropy-
 deficit premise both imply this condition; reviewed exact decimal de Bruijn
 stages separate the converses.
 
-The consumers and separators are currently `proof sketch`; more importantly,
-the displayed tail estimate is not proved for the decimal π orbit or the
-sampled BBP orbit. The valuable work is to prove, sharpen, or falsify that
-fixed-π premise, not to restate the consumer.
+On exact consecutive decimal-orbit blocks and canonical `10^k` meshes, there is
+a still weaker audited `proof sketch` premise: sublinear Shannon-entropy deficit
+`k * log 10 - H_k = o(k)`. Finite entropy stationarization then forces every
+fixed-depth cell law to converge in total variation to uniform, hence the
+selected empirical measures converge to Haar and V1 follows. Canonical-mesh
+uniform integrability implies this sublinear deficit, and an exact global de
+Bruijn separator shows that the implication is strict.
+
+These consumers and separators are currently `proof sketch`; more importantly,
+neither the displayed tail estimate nor the sublinear canonical entropy estimate
+is proved for the decimal π orbit or the sampled BBP orbit. The valuable work is
+to prove, sharpen, or falsify one of those fixed-π premises, not to restate a
+consumer.
 
 Effective irrationality alone is now decisively excluded as a route to this
 tail premise: an audited sparse-decimal seed has irrationality exponent at
@@ -186,8 +196,8 @@ zero-window-to-first-cell mechanism; the full separator remains `proof sketch`.
 
 ### Priority order
 
-1. Prove or falsify a fixed-π Fourier or UI estimate at the required
-   moving scale.
+1. Prove or falsify a fixed-π Fourier estimate, canonical sublinear entropy
+   estimate, or UI estimate at the required moving scale.
 2. Find a strictly weaker sufficient condition and certify the strict
    improvement.
 3. Formalize an external theorem only when it closes a named premise on a live
@@ -212,12 +222,12 @@ Tasks that cannot fill in these fields are too vague and should not run.
 
 ## Default operating model
 
-Normal research runs use four clearly separated roles:
+Research uses four clearly separated roles when the relevant resources are
+enabled:
 
-1. **Main operator:** one persistent oversight agent owns the run. It keeps the
-   free workers supplied with bounded tasks, watches provider utilization and
-   pod health, repairs general workflow failures, retires stale directions, and
-   reports only material progress.
+1. **Main operator:** one persistent oversight agent owns the run. It keeps
+   enabled resources focused on the live frontier, monitors active work,
+   retires stale directions, and reports only material progress.
 2. **Creative mathematics directors:** up to three maximum-intelligence Pro
    calls run in parallel on distinct hard questions at the current frontier.
    They read `FRONTIER.md`, the verified core, and the negative-result memory
@@ -230,10 +240,12 @@ Normal research runs use four clearly separated roles:
    representation-only theorem volume from being mistaken for progress and
    integrate supported `GPTPro/` conclusions into the canonical knowledge
    hierarchy.
-4. **Ox workers:** the free Ox Alpha providers perform high-volume bounded
+4. **Ox workers (currently stopped):** when explicitly re-enabled by the
+   operator, the free Ox Alpha providers may perform high-volume bounded
    research inside isolated pods. Their output is untrusted input, never a
-   result by itself. The current machine-wide ceilings are four concurrent
-   OpenRouter `ox` calls and ten concurrent OpenCode `oxzen` calls.
+   result by itself. Operator direction currently forbids launching this work;
+   the configured ceilings remain four concurrent OpenRouter `ox` calls and ten
+   concurrent OpenCode `oxzen` calls for a future authorized run.
 
 Lean implementation, theorem registration, verification, and repository
 integration are performed by the main operator and its local subagents, not by
@@ -270,22 +282,30 @@ SHA, completes a bounded deliverable under `GPTPro/Deliverables/`, and closes
 the task as `done` or `blocked`.
 
 The main operator may also invoke Marcel's authenticated web ChatGPT Pro through
-the `chatgpt-pro` skill for sharply bounded, hard creative-mathematics tasks.
+the `chatgpt-pro` skill for relatively open but progress-gated hard
+creative-mathematics tasks.
 Web Pro is a mathematician, not an operator. Reserve it for inventing or
-stress-testing a genuinely difficult proof mechanism at one of the two active
-quantitative frontiers. Do not spend it on orchestration, workflow or prompt
+stress-testing a genuinely difficult proof mechanism at an active quantitative
+frontier. Do not spend it on orchestration, workflow or prompt
 design, architecture audits, task selection, literature triage, computation,
 extraction, formatting, integration, or repetitive checking.
 
-There may be at most three active web-Pro calls at a time. Every prompt names the
-repository, branch, exact mathematical gap, deliverable, checked usefulness
-edge, stop condition, and claim boundary. The returned answer remains untrusted
-external input until the knowledge integrator reviews it. If login/account
-resumption, a browser permission, or a capacity warning blocks the call, stop
-it and notify Marcel rather than guessing credentials or starting a second
-call.
+There may be at most three active web-Pro calls at a time. A prompt may let the
+model choose the most promising active edge after reading this README and
+`FRONTIER.md`, but it must demand a materially stronger fixed-π implication,
+a strict weakening with proof, a new effective mechanism, or a decisive no-go
+for a genuinely live route—not a reformulation. The returned answer remains
+untrusted external input until the knowledge integrator reviews it. If
+login/account resumption, a browser permission, or a capacity warning blocks
+the call, notify Marcel immediately rather than guessing credentials or
+starting a duplicate call. Do not cancel an active Pro task; allow it to reach
+its own terminal state.
 
-## Run the sandboxed Ox workflow
+## Paused sandboxed Ox workflow
+
+Ox research is stopped by current operator direction. Do not run the command
+below unless Marcel explicitly re-enables Ox work; it is retained only as the
+reproducible invocation for a future authorized run.
 
 ```bash
 .venv/bin/python workflows/modelbench/runner.py \
