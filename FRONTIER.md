@@ -93,8 +93,8 @@ to transfer that algebra to every actual interior coefficient is now checked
 in T131. T132 checks the signed edge fibers and therefore the full actual
 normalized coefficientwise improvement throughout the positive support. The
 exact `q=10` directional Boundary-vs-Jackson separator is machine-checked in
-T133; only the larger aggregate separator remains `proof sketch`. Its wordwise
-fixed-pi estimate remains open.
+T133, and the larger 26-point aggregate separator is machine-checked in T134.
+Its wordwise fixed-pi estimate remains open.
 
 For comparison, T19 asks simultaneously for every nonzero
 `|h| ≤ 2 * 10^k` that

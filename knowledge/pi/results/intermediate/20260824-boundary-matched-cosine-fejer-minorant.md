@@ -21,8 +21,8 @@ T131 checks the general positive-support frequency-fiber count and resulting
 actual aggregated Fejer-square coefficient formula. T132 checks the signed
 edge-fiber formula, actual Jackson and boundary coefficient formulas, and full
 strict normalized coefficientwise improvement on the positive support. This
-note retains `proof sketch` status because only its exact `q=10` directional
-separator is machine-checked in T133; the larger aggregate separator and
+note retains `proof sketch` status because, although its exact `q=10`
+directional and aggregate separators are machine-checked in T133--T134, its
 all-scale fixed-pi implications have not been formalized.
 
 The verified Jackson consumer uses a trigonometric minorant whose positive core
@@ -779,10 +779,9 @@ sharper statements are still open formalization work:
    preferably by reusing the word-cylinder proof pattern already checked in
    T123/T124.
 
-The T128--T133 declarations are registered in `audit/AxiomAudit.lean`. This
+The T128--T134 declarations are registered in `audit/AxiomAudit.lean`. This
 broader note keeps the label
-`proof sketch` until the remaining normalized comparisons, separators, and
-fixed-pi implication are checked.
+`proof sketch` until the remaining all-scale fixed-pi implication is checked.
 
 ## 10. Verification performed
 
@@ -804,5 +803,5 @@ The T128 finite-kernel/hitting-consumer slice, T129 exact zero-mode slice, and
 T130 cubic algebra/actual outer-endpoint slice, T131 general main-fiber count,
 and T132 signed edge/full actual normalized-domination slice are Lean kernel
 verified. T133 also checks the `q=10` directional Boundary-vs-Jackson
-separator. No Lean verification is claimed here for the aggregate separator
-or fixed-pi premise.
+separator, and T134 checks the 26-point aggregate separator. No Lean
+verification is claimed here for the fixed-pi premise.

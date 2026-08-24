@@ -62,8 +62,8 @@ corresponding actual aggregated Fejer-square coefficient formula are now
 machine-checked in T131. T132 checks the signed edge-fiber formula and closes
 the full actual normalized coefficientwise improvement. The exact `q=10`
 directional Boundary-vs-Jackson separator is machine-checked in T133; the
-larger aggregate separator remains independently audited `proof sketch`. The
-fixed-pi estimate remains open.
+larger 26-point aggregate separator is machine-checked in T134. The fixed-pi
+estimate remains open.
 
 Two further audited `proof sketch` notes clarify scale transfer without
 claiming that estimate. The
