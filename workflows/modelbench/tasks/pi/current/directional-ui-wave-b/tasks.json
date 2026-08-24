@@ -1,0 +1,72 @@
+[
+  {
+    "id":"directional-decimal-scale-separator",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Derive an exact threshold-crossing separator between D and L_agg at every decimal scale q=10^k, or prove the proposed singleton/grid mechanisms cannot do this. Track the target interval a and all phases exactly. Success requires an analytic family, not a q=1 toy or numerical table.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"directional-times-ten-transport",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Combine the exact h->10h boundary identity with the target-cylinder phases in D. Seek a true recurrence across word extensions s->sd that reduces the wordwise directional obligation. Either obtain a quantitatively useful inequality or a sharp reversible-transport no-go. Do not merely restate the shift identity.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"directional-wordwise-quantifier-separator",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Determine whether word-dependent cutoffs N_s are genuinely weaker than one common N_k for all words of length k. Construct one exact times-ten orbit satisfying the wordwise directional premise but failing the length-uniform aggregated premise, or prove why the proposed separation cannot be certified from finite predicates.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"directional-feasibility-obstruction",
+    "dimension":"refutation","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Adversarially test whether D<c_q is substantially easier for deterministic lacunary orbits than L_agg<c_q. Derive exact lower/upper constraints from conjugate pairing, cylinder phases, and N. Kill any false claim that signed cancellation alone supplies the fixed-pi estimate.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"ui-exact-orbit-separator-audit",
+    "dimension":"honesty","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Reconstruct and stress-test the exact decimal de Bruijn stage claimed to satisfy uniform integrability while q*sum p(a)^2 diverges. Verify all window counts, transition terms, entropy/UI tail constants, block placement [L_j,2L_j), and compatibility with one nonterminating exact times-ten orbit. Give a repaired theorem or a fatal counterexample.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2600,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"ui-minimal-tail-condition",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Determine the weakest explicit occupancy-tail condition sufficient to pass absolute continuity to selected-block weak limits. Compare uniform integrability, bounded entropy deficit, weak-L1 tails, and truncated moments. Any claimed weakening needs a rigorous implication to Haar and an exact-orbit separator.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"ui-fixed-pi-arithmetic-interface",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Express the UI tail mass for the exact pi orbit in terms of repeated length-k decimal words and pair-return counts. Find a genuinely weaker arithmetic estimate than the full collision second moment that implies UI, with exact two-level quantifiers in M and j. Do not merely rename UI.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"ui-tail-falsifier",
+    "dimension":"refutation","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Build exact decimal streams separating UI from tempting but insufficient scalar diagnostics such as max occupancy=o(L), entropy deficit=o(log q), or finitely many tail thresholds. Each counterexample must respect consecutive word windows and one exact times-ten orbit. State the minimal repaired diagnostic.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2400,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"aggregated-closed-form-audit",
+    "dimension":"honesty","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Independently derive the piecewise closed form for A_q(h), positivity, zero mode, total mass, and raw-minus-aggregated surcharge from the Jackson index definitions summarized in INPUT. Test edge cases q=1,2 and locate any sign or endpoint error. Return only theorem-ready formulas and proof steps.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2200,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  },
+  {
+    "id":"independent-current-frontier-attack",
+    "dimension":"research_direction","timeout_s":10800,"max_attempts":2,"variant":"high",
+    "prompt":"Create MEMO.md. Choose exactly one of the directional or uniform-integrability obligations in INPUT and move it nontrivially toward the fixed pi orbit, or retire a live proposed mechanism with a decisive exact counterexample. Equivalent reformulations, generic consumers without strict separators, and favorable finite pi numerics are STOP results.",
+    "fixtures":[{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/AGENT_GUIDANCE.md","destination":"AGENTS.md"},{"source":"workflows/modelbench/tasks/pi/current/directional-ui-wave-b/INPUT.md","destination":"INPUT.md"}],
+    "grading":{"type":"artifact_contract","artifact":"MEMO.md","min_chars":2500,"required_markers":["VERDICT:","V1 remains open"],"forbidden_markers":["V1 proved","verified resolution"]}
+  }
+]
