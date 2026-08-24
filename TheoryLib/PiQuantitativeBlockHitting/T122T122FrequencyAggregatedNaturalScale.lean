@@ -1,4 +1,4 @@
-import TheoryLib.PiQuantitativeBlockHitting.T121T121WeightedNaturalScaleCriterion
+import TheoryLib.PiQuantitativeBlockHitting.T120T120WeightedNaturalScaleFrontier
 
 /-!
 # Frequency-aggregated natural-scale Fourier frontier
@@ -365,28 +365,9 @@ theorem piNaturalScaleFrequencyAggregatedCancellation_implies_canonicalV1
           (d :: s) N hN hmissingBefore
       exact (not_lt_of_ge hlarge) hsmall
 
-/-- T120's open indexed weighted premise implies the frequency-aggregated
-premise. -/
-theorem piNaturalScaleWeightedCancellation_implies_frequencyAggregated
-    (hweighted :
-      Theory.PiDigits.WeightedNaturalScaleFrontier.PiNaturalScaleWeightedCancellation) :
-    PiNaturalScaleFrequencyAggregatedCancellation := by
-  intro k hk
-  obtain ⟨N, hN, hsmall⟩ := hweighted k hk
-  refine ⟨N, hN, ?_⟩
-  exact lt_of_le_of_lt
-    (frequencyAggregatedLoad_le_indexedWeightedLoad
-      (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient
-        (10 ^ k) (10 ^ k))
-      (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency
-        (10 ^ k))
-      Theory.PiDigits.T27.piFractionalOrbit N hN)
-    hsmall
-
 end Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier
 
 #print axioms Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier.finiteFourierPresentation_frequencyAggregated_obstruction
 #print axioms Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier.frequencyAggregatedLoad_le_indexedWeightedLoad
 #print axioms Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier.finite_empty_decimalInterval_frequencyAggregated_obstruction
 #print axioms Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier.piNaturalScaleFrequencyAggregatedCancellation_implies_canonicalV1
-#print axioms Theory.PiDigits.FrequencyAggregatedNaturalScaleFrontier.piNaturalScaleWeightedCancellation_implies_frequencyAggregated
