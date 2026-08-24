@@ -17,6 +17,67 @@ FORBIDDEN = re.compile(
 )
 
 
+def mask_comments_and_strings(source: str) -> str:
+    """Replace Lean comments and string contents with spaces, preserving lines."""
+    masked: list[str] = []
+    index = 0
+    block_depth = 0
+    in_string = False
+
+    def mask(character: str) -> str:
+        return "\n" if character == "\n" else " "
+
+    while index < len(source):
+        if block_depth:
+            if source.startswith("/-", index):
+                masked.extend((" ", " "))
+                block_depth += 1
+                index += 2
+            elif source.startswith("-/", index):
+                masked.extend((" ", " "))
+                block_depth -= 1
+                index += 2
+            else:
+                masked.append(mask(source[index]))
+                index += 1
+            continue
+
+        if in_string:
+            if source[index] == "\\" and index + 1 < len(source):
+                masked.append(" ")
+                masked.append(mask(source[index + 1]))
+                index += 2
+            else:
+                character = source[index]
+                masked.append(mask(character))
+                index += 1
+                if character == '"':
+                    in_string = False
+            continue
+
+        if source.startswith("--", index):
+            newline = source.find("\n", index)
+            if newline < 0:
+                masked.extend(" " for _ in source[index:])
+                break
+            masked.extend(" " for _ in source[index:newline])
+            masked.append("\n")
+            index = newline + 1
+        elif source.startswith("/-", index):
+            masked.extend((" ", " "))
+            block_depth = 1
+            index += 2
+        elif source[index] == '"':
+            masked.append(" ")
+            in_string = True
+            index += 1
+        else:
+            masked.append(source[index])
+            index += 1
+
+    return "".join(masked)
+
+
 def tracked_lean_paths(root: Path) -> list[Path]:
     try:
         result = subprocess.run(
@@ -46,9 +107,12 @@ def forbidden_lines(root: Path, paths: Iterable[Path]) -> list[str]:
     findings: list[str] = []
     for relative in paths:
         source = (root / relative).read_text(encoding="utf-8")
-        for line_number, line in enumerate(source.splitlines(), start=1):
-            if FORBIDDEN.search(line):
-                findings.append(f"{relative}:{line_number}: {line}")
+        code = mask_comments_and_strings(source)
+        for line_number, (source_line, code_line) in enumerate(
+            zip(source.splitlines(), code.splitlines(), strict=True), start=1
+        ):
+            if FORBIDDEN.search(code_line):
+                findings.append(f"{relative}:{line_number}: {source_line}")
     return findings
 
 
@@ -59,7 +123,13 @@ def self_test() -> None:
         (root / "TheoryLib").mkdir()
         (root / "TheoryLib.lean").write_text("import TheoryLib.Safe\n", encoding="utf-8")
         (root / "TheoryLib" / "Safe.lean").write_text(
-            "theorem safe : True := by trivial\n", encoding="utf-8"
+            "/- axiom documented : True\n"
+            "  /- nested unsafe def example -/\n"
+            "-/\n"
+            "-- `sorry` is forbidden in proof code.\n"
+            'def quoted := "admit native_decide"\n'
+            "theorem safe : True := by trivial\n",
+            encoding="utf-8",
         )
         subprocess.run(
             ["git", "add", "TheoryLib.lean", "TheoryLib/Safe.lean"],
@@ -68,16 +138,21 @@ def self_test() -> None:
         )
 
         paths = tracked_lean_paths(root)
-        assert set(paths) == {Path("TheoryLib.lean"), Path("TheoryLib/Safe.lean")}
-        assert forbidden_lines(root, paths) == []
+        expected = {Path("TheoryLib.lean"), Path("TheoryLib/Safe.lean")}
+        if set(paths) != expected:
+            raise AssertionError(f"unexpected tracked paths: {paths}")
+        if findings := forbidden_lines(root, paths):
+            raise AssertionError(f"comments or strings caused false positives: {findings}")
 
         untracked = root / "Untracked.lean"
         untracked.write_text("axiom bypass : True\n", encoding="utf-8")
-        assert Path("Untracked.lean") not in tracked_lean_paths(root)
+        if Path("Untracked.lean") in tracked_lean_paths(root):
+            raise AssertionError("an untracked Lean file entered the scan set")
 
         subprocess.run(["git", "add", "Untracked.lean"], cwd=root, check=True)
         findings = forbidden_lines(root, tracked_lean_paths(root))
-        assert len(findings) == 1 and findings[0].startswith("Untracked.lean:1:")
+        if len(findings) != 1 or not findings[0].startswith("Untracked.lean:1:"):
+            raise AssertionError(f"tracked forbidden declaration was not rejected: {findings}")
 
 
 def main(argv: list[str]) -> int:
