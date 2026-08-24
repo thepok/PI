@@ -133,6 +133,16 @@ the T138-enhanced uniform primitive-cancellation consumer. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
+A `proof sketch`
+[`endpoint-free singleton-ray barrier`](knowledge/pi/results/negative/20260824-endpoint-free-singleton-ray-barrier.md)
+shows why decimal-ray compression is only preprocessing: the singleton belt
+retains coefficient mass at least `27/160` for T139, `27/200` at mixed order
+`4q/5`, and `9/400` for every positive-zero mixed order, while the zero-mode
+margin is only `O(1/q)`. Thus controlling colliding rays but leaving singleton
+rays at phase-blind coordinatewise caps still requires `O(1/q)` cancellation.
+The exact surviving target is a lag-`k`, target-dependent signed correlation
+of the actual decimal π orbit; no estimate for it is presently known.
+
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
 scales it lowers support from `2q-1` to `9q/5-1` and strictly raises the
