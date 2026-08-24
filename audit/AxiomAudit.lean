@@ -9,6 +9,7 @@ import TheoryLib.PiDigits.T9PiDigitsV3Reduction
 import TheoryLib.PiDigits.T11PiDigitFactorComplexity
 import TheoryLib.PiDigits.T13PiDigitsTwoRecurrentDigits
 import TheoryLib.PiDigits.T18FiniteAlphabetSubsequentialCounting
+import TheoryLib.PiDigits.T14IrrationalityMeasureDigitChanges
 import TheoryLib.PiDigits.T20BaseTenOrbitDensity
 import TheoryLib.PiDigits.T21PiDigitsV1V3Relationship
 import TheoryLib.PiDigits.T26WeylCancellationV1
@@ -233,6 +234,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T116T116SampledBBPGCDPrimeSupport
 import TheoryLib.PiQuantitativeBlockHitting.T117T117CommonDenominatorExcessGCD
 import TheoryLib.PiQuantitativeBlockHitting.T118T118SampledBBPNormalizedExcessCell
 import TheoryLib.PiQuantitativeBlockHitting.T119T119SampledBBPSameCellCrossDeterminant
+import TheoryLib.PiQuantitativeBlockHitting.T121T121WeightedNaturalScaleCriterion
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -1725,6 +1727,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T119T119SampledBBPSameCellCrossDeter
 #print axioms Theory.PiDigits.FactorComplexity.pi_factorComplexity_lower_bound
 #print axioms Theory.PiDigits.TwoRecurrentDigits.pi_has_two_distinct_arbitrarily_late_digits
 #print axioms Theory.PiDigits.T18.pi_fixed_pair_log_lower_bound_of_T14
+#print axioms Theory.PiDigits.T14.changeCount_checkpoint_bound
+#print axioms Theory.PiDigits.T14.effectiveIrrationality_pi_sub_three
+#print axioms Theory.PiDigits.T14.pi_changeCount_log_lower_bound
 #print axioms Theory.PiDigits.T20.v1_iff_pi_baseTenOrbitDense
 #print axioms Theory.PiDigits.T21.canonicalV1_implies_siblingV3
 #print axioms Theory.PiDigits.T21.periodicDecimalStream_satisfies_genericV3_and_not_genericV1
@@ -3022,6 +3027,16 @@ import TheoryLib.PiQuantitativeBlockHitting.T119T119SampledBBPSameCellCrossDeter
 #print axioms Theory.PiDigits.T118SampledBBPNormalizedExcessCell.sampledBBPSuccessor_cell_eq_iff_normalizedExcess_interval
 #print axioms Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sameHalfOpenCell_crossDeterminant
 #print axioms Theory.PiDigits.T119SampledBBPSameCellCrossDeterminant.sampledBBPSuccessors_sameCell_crossDeterminant
+
+-- Weighted natural-scale Fourier frontier and its exact finite separator.
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.finiteFourierPresentation_weighted_obstruction
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.finite_empty_decimalInterval_weighted_obstruction
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.finite_decimalInterval_hit_of_weighted_smallness
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.piOrbit_weighted_obstruction_of_missingBefore
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.piNaturalScaleWeightedCancellation_implies_canonicalV1
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.exact_finite_frequency_hypothesis_implies_weighted
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.piNaturalScaleCancellationExact_implies_weighted
+#print axioms Theory.PiDigits.WeightedNaturalScaleFrontier.weighted_finite_frequency_hypothesis_strict_vs_exact
 
 -- Representative endpoint registrations recovered by the RA-0003 audit.
 #print axioms Theory.PiDigits.QuantitativeBlockHitting.acceptance_audit_surface

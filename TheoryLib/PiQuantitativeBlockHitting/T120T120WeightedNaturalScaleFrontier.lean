@@ -22,11 +22,6 @@ open Finset Set
 
 namespace Theory.PiDigits.WeightedNaturalScaleFrontier
 
-namespace T6 = Theory.PiDigits.PiNaturalScaleResonanceObstruction
-namespace T18 = Theory.PiDigits.SharperNaturalScaleResonance
-namespace T19 = Theory.PiDigits.ExactNaturalScaleResonance
-namespace T20 = Theory.PiDigits.DigitBlockOrbitTarget
-namespace T27 = Theory.PiDigits.T27
 
 /-- The exact coefficient-weighted nonzero Fourier load, normalized by the
 sample size. -/
@@ -36,7 +31,7 @@ def normalizedWeightedFourierLoad
     (x : ℕ → ℝ) (N : ℕ) : ℝ :=
   (∑ i with frequency i ≠ 0,
       |coefficient i| *
-        ‖T27.exponentialSum x N (frequency i)‖) / (N : ℝ)
+        ‖Theory.PiDigits.T27.exponentialSum x N (frequency i)‖) / (N : ℝ)
 
 /-- A nonpositive finite Fourier presentation with positive zero mode forces
 its full coefficient-weighted nonzero Fourier load to dominate the zero-mode
@@ -50,47 +45,47 @@ theorem finiteFourierPresentation_weighted_obstruction
     (hzero : c0 ≤ ∑ i with frequency i = 0, coefficient i)
     (hnonpos : ∀ j < N,
       (∑ i, coefficient i *
-        T27.phase (frequency i) (x j - center)).re ≤ 0) :
+        Theory.PiDigits.T27.phase (frequency i) (x j - center)).re ≤ 0) :
     c0 ≤ normalizedWeightedFourierLoad coefficient frequency x N := by
   classical
   have hNR : (0 : ℝ) < N := by exact_mod_cast hN
   let z : ℂ := ∑ i with frequency i ≠ 0,
-    coefficient i * T27.phase (frequency i) (-center) *
-      T27.exponentialSum x N (frequency i)
+    coefficient i * Theory.PiDigits.T27.phase (frequency i) (-center) *
+      Theory.PiDigits.T27.exponentialSum x N (frequency i)
   have htotal :
       (∑ j ∈ Finset.range N, ∑ i, coefficient i *
-        T27.phase (frequency i) (x j - center)).re ≤ 0 := by
+        Theory.PiDigits.T27.phase (frequency i) (x j - center)).re ≤ 0 := by
     simp_rw [← Complex.reCLM_apply]
     rw [map_sum]
     exact Finset.sum_nonpos fun j hj => hnonpos j (Finset.mem_range.mp hj)
   have hfourier :
       (∑ j ∈ Finset.range N, ∑ i, coefficient i *
-        T27.phase (frequency i) (x j - center)) =
-      ∑ i, coefficient i * T27.phase (frequency i) (-center) *
-        T27.exponentialSum x N (frequency i) := by
+        Theory.PiDigits.T27.phase (frequency i) (x j - center)) =
+      ∑ i, coefficient i * Theory.PiDigits.T27.phase (frequency i) (-center) *
+        Theory.PiDigits.T27.exponentialSum x N (frequency i) := by
     rw [Finset.sum_comm]
     apply Finset.sum_congr rfl
     intro i hi
-    rw [T27.exponentialSum, Finset.mul_sum]
+    rw [Theory.PiDigits.T27.exponentialSum, Finset.mul_sum]
     apply Finset.sum_congr rfl
     intro j hj
     rw [show x j - center = -center + x j by ring,
-      T27.phase_add_real]
+      Theory.PiDigits.T27.phase_add_real]
     ring
   rw [hfourier] at htotal
   have hsplit :
-      (∑ i, coefficient i * T27.phase (frequency i) (-center) *
-        T27.exponentialSum x N (frequency i)) =
+      (∑ i, coefficient i * Theory.PiDigits.T27.phase (frequency i) (-center) *
+        Theory.PiDigits.T27.exponentialSum x N (frequency i)) =
       (N : ℝ) * (∑ i with frequency i = 0, coefficient i) + z := by
     calc
-      (∑ i, coefficient i * T27.phase (frequency i) (-center) *
-          T27.exponentialSum x N (frequency i)) =
+      (∑ i, coefficient i * Theory.PiDigits.T27.phase (frequency i) (-center) *
+          Theory.PiDigits.T27.exponentialSum x N (frequency i)) =
         (∑ i with frequency i = 0, coefficient i *
-          T27.phase (frequency i) (-center) *
-            T27.exponentialSum x N (frequency i)) +
+          Theory.PiDigits.T27.phase (frequency i) (-center) *
+            Theory.PiDigits.T27.exponentialSum x N (frequency i)) +
         ∑ i with frequency i ≠ 0, coefficient i *
-          T27.phase (frequency i) (-center) *
-            T27.exponentialSum x N (frequency i) :=
+          Theory.PiDigits.T27.phase (frequency i) (-center) *
+            Theory.PiDigits.T27.exponentialSum x N (frequency i) :=
           (Finset.sum_filter_add_sum_filter_not Finset.univ
             (fun i => frequency i = 0) _).symm
       _ = (N : ℝ) * (∑ i with frequency i = 0, coefficient i) + z := by
@@ -100,7 +95,7 @@ theorem finiteFourierPresentation_weighted_obstruction
         apply Finset.sum_congr rfl
         intro i hi
         have hz := (Finset.mem_filter.mp hi).2
-        simp [hz, T27.phase_zero, T27.exponentialSum_zero]
+        simp [hz, Theory.PiDigits.T27.phase_zero, Theory.PiDigits.T27.exponentialSum_zero]
         ring
   rw [hsplit] at htotal
   have htotal' :
@@ -117,31 +112,31 @@ theorem finiteFourierPresentation_weighted_obstruction
   have hzupper :
       ‖z‖ ≤ ∑ i with frequency i ≠ 0,
         |coefficient i| *
-          ‖T27.exponentialSum x N (frequency i)‖ := by
+          ‖Theory.PiDigits.T27.exponentialSum x N (frequency i)‖ := by
     calc
       ‖z‖ ≤ ∑ i with frequency i ≠ 0,
-          ‖coefficient i * T27.phase (frequency i) (-center) *
-            T27.exponentialSum x N (frequency i)‖ :=
+          ‖coefficient i * Theory.PiDigits.T27.phase (frequency i) (-center) *
+            Theory.PiDigits.T27.exponentialSum x N (frequency i)‖ :=
         norm_sum_le _ _
       _ = ∑ i with frequency i ≠ 0,
           |coefficient i| *
-            ‖T27.exponentialSum x N (frequency i)‖ := by
+            ‖Theory.PiDigits.T27.exponentialSum x N (frequency i)‖ := by
         apply Finset.sum_congr rfl
         intro i hi
         rw [norm_mul, norm_mul, Complex.norm_real, Real.norm_eq_abs,
-          T27.norm_phase, mul_one]
+          Theory.PiDigits.T27.norm_phase, mul_one]
   unfold normalizedWeightedFourierLoad
   exact (le_div_iff₀ hNR).2 (hzlarge.trans hzupper)
 
 /-- The normalized weighted load for the exact order-`q` Jackson
-presentation used in T19. -/
+presentation used in Theory.PiDigits.ExactNaturalScaleResonance. -/
 def jacksonWeightedFourierLoad
     (x : ℕ → ℝ) (N q : ℕ) : ℝ :=
   normalizedWeightedFourierLoad
-    (T6.jacksonCoefficient q q) (@T6.jacksonFrequency q) x N
+    (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient q q) (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency q) x N
 
 /-- An empty interval of length `1/q` forces the exact Jackson-weighted load
-to be at least the sharp zero-mode lower bound from T19. -/
+to be at least the sharp zero-mode lower bound from Theory.PiDigits.ExactNaturalScaleResonance. -/
 theorem finite_empty_decimalInterval_weighted_obstruction
     (x : ℕ → ℝ) (N q : ℕ) (a : ℝ) (hN : 0 < N) (hq : 0 < q)
     (hx : ∀ j < N, x j ∈ Set.Ico (0 : ℝ) 1)
@@ -152,13 +147,13 @@ theorem finite_empty_decimalInterval_weighted_obstruction
   let center := a + (q : ℝ)⁻¹ / 2
   unfold jacksonWeightedFourierLoad
   refine finiteFourierPresentation_weighted_obstruction
-    (T6.jacksonCoefficient q q) (@T6.jacksonFrequency q)
+    (Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonCoefficient q q) (@Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonFrequency q)
     x N center
     (1 / (3 * (q : ℝ)) + 2 / (3 * (q : ℝ) ^ 3))
-    hN (T19.jackson_zeroCoefficient_self_lower q hq) ?_
+    hN (Theory.PiDigits.ExactNaturalScaleResonance.jackson_zeroCoefficient_self_lower q hq) ?_
   intro j hj
-  simpa only [T6.jacksonMinorant, center] using
-    T6.jacksonMinorant_re_nonpos_outside q q hq hq (x j) a
+  simpa only [Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonMinorant, center] using
+    Theory.PiDigits.PiNaturalScaleResonanceObstruction.jacksonMinorant_re_nonpos_outside q q hq hq (x j) a
       (hx j hj) ha haq (hempty j hj)
 
 /-- Direct contrapositive of the weighted empty-interval obstruction. -/
