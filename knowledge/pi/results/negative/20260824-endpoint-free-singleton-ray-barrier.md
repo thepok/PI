@@ -101,3 +101,62 @@ This endpoint-free, lag-$k$, target-dependent correlation is the surviving
 π-specific arithmetic object. No estimate for it is proved here. The result
 supplies no π cancellation estimate, strict predicate separator, T124, V1,
 or literature novelty; it only retires the phase-blind route described above.
+
+## Predecessor channels and a diagonal-$L^2$ no-go
+
+For $k\ge2$, put $Q=q/10$, write $A=aQ+A'$ and
+$c'=(2A'+1)/(2Q)$, and let $d_n=\lfloor10x_n\rfloor$.  With
+$\omega=e(1/10)$ and
+
+\[
+G_{q,s,A'}(y)=e\!\left(\frac{s(y-c')}{10}\right)
+ \sum_{\ell=0}^{Q/2-1}C_{q,q}(q+10\ell+s)
+ \,e\bigl(\ell(y-c')\bigr),
+\qquad 1\le s\le9,
+\]
+
+the surviving target has the exact nine-channel form
+
+\[
+H_{q,q,A}(N)=-\sum_{n<N}e(x_{n+k})
+ \sum_{s=1}^{9}\omega^{s(d_n-a)}G_{q,s,A'}(x_{n+1}).
+\]
+
+These are precisely the nine nontrivial predecessor-digit characters: their
+mean over a hypothetical uniform predecessor digit is zero, while their mean
+square is $\sum_{s=1}^9|G_{q,s,A'}(y)|^2$.  This identity is only a sharper
+description of the surviving actual-$\pi$ target, not an estimate for it.
+
+There is also a quantitative obstruction to the standard diagonal quadratic
+route.  Let $V:\mathbb C^{\mathcal P_q}\to\mathbb C^N$ be the actual-orbit
+evaluation operator $(Vz)_n=\sum_u z_u e(ux_n)$, and let $p$ be the full T139
+primitive coefficient vector.  Every diagonal majorant
+
+\[
+V^*V\preceq D
+\]
+
+has $D_{u,u}\ge N$, since every column of $V$ has squared norm $N$.  Hence the
+corresponding Cauchy--Schwarz certificate is bounded below, for every $N$, by
+
+\[
+2\sqrt{p^*Dp/N}\ge2\lVert p\rVert_2.
+\]
+
+The endpoint-free singleton coordinates give
+
+\[
+2\lVert p\rVert_2\ge\frac{9\sqrt5}{40\sqrt q}
+\quad(q\ge100),
+\qquad
+\alpha_q(0)<\frac{\pi^2}{3q},
+\]
+
+and the remaining decimal scale $q=10$ satisfies the same strict comparison
+by direct evaluation.  Thus $2\lVert p\rVert_2\gg q^{-1/2}>\alpha_q(0)
+=O(q^{-1})$ at every decimal scale, independently of the horizon.  This rules
+out scalar or weighted large-sieve arguments, and more generally any proof
+that passes through such a frequency-diagonal Gram majorant.  It does **not**
+rule out a direct actual-$\pi$ bound on $V^*\mathbf1$, a $p$-specific signed or
+off-diagonal estimate, or a different quadratic argument retaining those
+correlations.  No $\pi$ estimate or V1 consequence follows.

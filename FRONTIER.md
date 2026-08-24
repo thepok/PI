@@ -145,7 +145,11 @@ retains coefficient mass at least `27/160` for T139, `27/200` at mixed order
 margin is only `O(1/q)`. Thus controlling colliding rays but leaving singleton
 rays at phase-blind coordinatewise caps still requires `O(1/q)` cancellation.
 The exact surviving target is a lag-`k`, target-dependent signed correlation
-of the actual decimal π orbit; no estimate for it is presently known.
+of the actual decimal π orbit; no estimate for it is presently known.  A
+frequency-diagonal Gram or weighted large-sieve certificate cannot cross the
+T139 threshold: it has an `Ω(q⁻¹/²)` floor at every horizon, above the
+`O(q⁻¹)` margin, so any live quadratic route must retain target-specific signed
+or off-diagonal actual-π structure.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
