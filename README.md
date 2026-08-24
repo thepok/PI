@@ -15,6 +15,9 @@ fixed-π results, and the quantitative estimate that is still missing. It is an
 orientation document; the proof authority remains `TheoryLib/` together with
 the explicit axiom audit.
 
+The sole active research branch is `main`. Read and target `main` directly;
+do not create side branches unless the main operator explicitly requests one.
+
 ## Repository map
 
 - `TheoryLib/` and `TheoryLib.lean`: canonical Lean proof source.
