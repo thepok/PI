@@ -99,3 +99,149 @@ transcendence-measure route was not the named active frontier, so this note
 only closes a plausible strengthening of the already recorded effective-
 irrationality route. No literature novelty is claimed beyond verifying and
 applying the cited source; the deductions above have not been checked in Lean.
+
+## Growing-degree quantitative supplement
+
+Status: `proof sketch`. This subsection records a self-contained generic
+separator and coding obstruction; it is not a statement about the digits of
+π.
+
+Fix a decimal digit $c$, let $A_c=\{0,\ldots,9\}\setminus\{c\}$, and let
+$\mu_c$ be the fair Bernoulli measure on
+
+\[
+ K_c=\left\{3+\sum_{n\ge1}a_n10^{-n}:a_n\in A_c\right\},
+ \qquad \delta=\frac{\log9}{\log10}.
+\]
+
+Discard the $\mu_c$-null set of ambiguous eventually-$9$ representations.
+For $H\ge1$, put $h=\lfloor\log_2 H\rfloor$ and
+
+\[
+ F_9(d,H)=\frac d\delta\log\!\left(
+  24d\,2^{d+1}(h+1)(h+2)
+  (3\cdot2^{h+1})^{d+1}\right).
+\]
+
+There is $E_c\subseteq K_c$ with $\mu_c(E_c)\ge1/2$ such that,
+simultaneously for every $\alpha\in E_c$, $d\ge1$, and nonzero
+$P\in\mathbb Z[X]$ with $\deg P\le d$ and naive polynomial height
+$H(P)=\max_i|a_i|=H\ge1$,
+
+\[
+ |P(\alpha)|\ge \exp(-F_9(d,H)). \tag{G1}
+\]
+
+Indeed, $\mu_c(I)\le12|I|^\delta$ for real intervals $I$ of length below
+one, hence a complex-root covering argument gives
+
+\[
+ \mu_c\{x:|P(x)|<\varepsilon\}\le24d\varepsilon^{\delta/d}.
+\]
+
+There are at most $(3\cdot2^{h+1})^{d+1}$ coefficient vectors in the
+$(d,h)$ dyadic class. Choosing the threshold encoded by $F_9$ makes the
+sum of all bad-class measures at most
+$\sum_{d\ge1}2^{-(d+1)}
+\sum_{h\ge0}((h+1)(h+2))^{-1}=1/2$.
+The complement therefore satisfies (G1) in every degree and height and
+consists of transcendental numbers.
+
+Every $\alpha\in E_c$ omits $c$. Its decimal orbit occupies at most
+$9^r$ canonical depth-$r$ cells, so every block has entropy deficit
+
+\[
+ D_{A,L}(r)\ge r\log(10/9).
+\]
+
+On an equal $q$-cell moving mesh, the orbit occupies fewer than
+$18q^\delta$ cells. Consequently
+
+\[
+ T_{A,L,q}(M)\ge1-18M q^{-(1-\delta)},
+\]
+
+which tends to one for every fixed $M$. Thus explicit simultaneous
+all-degree polynomial repulsion coexists with linear canonical entropy
+deficit and maximal failure of the retained moving-mesh UI premise.
+
+Here is the precise uniform-bridge obstruction. For a nonempty decimal word
+$w$, let $Y_w\subset[3,4)$ be the reals whose canonical decimal expansion
+omits $w$. For integers $d,H\ge1$, define
+
+\[
+ K(d,H)=d\bigl((2H+1)^{d+1}-1\bigr),\qquad
+ N^*(d,H)=\lfloor\log_9K(d,H)\rfloor+1,
+\]
+\[
+ T_{\rm alg}=\log3+N^*\log10,\qquad
+ T_{\rm poly}=dT_{\rm alg}.
+\]
+
+For algebraic $\beta$, $H(\beta)$ below means the naive height of its
+primitive irreducible minimal polynomial. If fixed $d,H,T$ have the literal
+uniform property
+
+\[
+ \forall y\in Y_w\ \exists\beta_y:\quad
+ \deg\beta_y\le d,\ H(\beta_y)\le H,\ |y-\beta_y|<e^{-T},
+\]
+
+then $T\le T_{\rm alg}(d,H)$. Likewise, if
+
+\[
+ \forall y\in Y_w\ \exists\,0\ne P_y\in\mathbb Z[X]:\quad
+ \deg P_y\le d,\ H(P_y)\le H,\ |P_y(y)|<e^{-T},
+\]
+
+then $T\le T_{\rm poly}(d,H)$. To see this, choose a digit $c$ occurring
+in $w$ and $9^N$ digit-$c$-omitting codepoints with a common tail. They
+are $10^{-N}$-separated. There are at most
+$(2H+1)^{d+1}-1$ nonzero coefficient vectors and at most $d$ relevant
+roots per vector. Balls of radius $10^{-N}/3$, followed in the polynomial
+case by the elementary implication
+$|P(y)|<(10^{-N}/3)^d\Rightarrow y$ lies within $10^{-N}/3$ of a
+root, give the stated bounds at $N=N^*$. This theorem concerns only the
+displayed universal statements; it does not constrain a π-specific bridge
+using additional arithmetic information.
+
+For each fixed $d$, as $H\to\infty$,
+
+\[
+ F_9(d,H)=\frac{d(d+1)}\delta\log H+O_d(\log\log H),
+ \qquad
+ T_{\rm poly}(d,H)=\frac{d(d+1)}\delta\log H+O_d(1).
+\]
+
+Thus the direct-polynomial separator and codebook obstruction match only at
+the fixed-$d$ leading scale. The algebraic codebook scale is
+$(d+1)\log H/\delta+O_d(1)$.
+
+Bugeaud records, and attributes to Waldschmidt, the π transcendence-measure
+formula
+
+\[
+ |P(\pi)|\ge
+ \exp\{-240d(\log H+d\log d)(1+\log d)\}
+\]
+
+for nonzero integer polynomials of degree at most $d$ and naive height at
+most $H$: see [Bugeaud, *Approximation by Algebraic Numbers*, Chapter
+8](https://www.cambridge.org/core/books/approximation-by-algebraic-numbers/other-classifications-of-real-and-complex-numbers/ED51F082B43AC7ACAF3F6F7DEE976EE4)
+and Waldschmidt's [*Transcendence measures for exponentials and
+logarithms*](https://doi.org/10.1017/S1446788700021431). The recorded theorem
+only says that $d$ and $H$ are sufficiently large; it supplies no numerical
+starting range.
+
+Accordingly, $d=1965$ is only the first integer at which the leading
+coefficients in this formal comparison satisfy
+
+\[
+ \frac{d+1}{\delta}>240(1+\log d).
+\]
+
+Conditional on the external estimate being valid at that degree, a relaxed
+necessary comparison gives $\log_{10}H>45{,}415{,}673.08$. Neither number is
+a theorem-backed threshold without the missing starting range. This
+supplement proves no π entropy or UI estimate, has not been checked in Lean,
+and makes no `literature-checked` or novelty claim.
