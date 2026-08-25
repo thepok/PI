@@ -1106,6 +1106,169 @@ They isolate an explicit local factor of the target phase while leaving the
 same-index complementary CRT factor uncontrolled.  Thus they do not yet
 prove temporal cancellation, a T139 premise, density, normality, or V1.
 
+## Cross-index stable factors and the forcing-cell no-go
+
+Status: `machine-checked` in T168 for literal forcing support, odd-prime
+integrality, valuation persistence, and equality-aware prime-power transport;
+`proof sketch` for the composite cocycle, dyadic isometry, forcing-cell law,
+and their stated limitations. These are the compact, independently audited
+conclusions of the BC and BD follow-ups.
+
+Write
+
+\[
+ Q_m=\frac{P_m}{D_m},\qquad F_m=Q_{m+1}-10Q_m,
+\]
+
+in lowest terms.  Over a finite block `m,...,m+R`, let
+`L_(m,R)` be the product of the odd denominators occurring in the literal
+seven new four-pole rows at each transition.  Let `S_(m,R)` be the product of
+the complete prime powers `p^e || D_m` with `p != 2,5` and
+`p` not dividing `L_(m,R)`.  The recurrence and strict ultrametric inequality
+then transport all these old prime powers simultaneously.  For every
+`0<=j<=R`, each `p^e || S_(m,R)` still has
+
+\[
+ v_p(Q_{m+j})=-e,
+ \qquad
+ p^eQ_{m+j}\equiv10^jp^eQ_m\pmod {p^e}.
+\]
+
+The congruence must use the equality-or-positive-valuation convention at
+`j=0`: its two sides are exactly equal, while the repository's
+`padicValRat 0` convention does not support replacing that equality by a
+positive valuation assertion.  For `j>=1`, positivity of the intervening BBP
+forcing makes the difference nonzero and the displayed valuation bound is
+valid.
+
+Writing `D_t=S_(m,R) E_t` with coprime factors, the actual composite residue
+
+\[
+ a_t\equiv P_tE_t^{-1}\pmod {S_{m,R}}
+\]
+
+obeys `a_(t+1)=10*a_t (mod S_(m,R))`.  If `q=10^k`, set
+
+\[
+ \Phi_t^{(k)}(h)=e(hQ_t/q),\qquad
+ \chi_t^{(k)}(h)=e_{S_{m,R}}(h q^{-1}a_t),\qquad
+ \psi_t^{(k)}(h)=\Phi_t^{(k)}(h)/\chi_t^{(k)}(h).
+\]
+
+Then the exact stable/complementary cocycle is
+
+\[
+ \chi_{t+1}^{(k)}(h)=\chi_t^{(k)}(10h),\qquad
+ \psi_{t+1}^{(k)}(h)=
+ \psi_t^{(k)}(10h)e(hF_t/q).
+\]
+
+This is simultaneous prime-power transport through the actual forcing, not a
+collection of independent one-prime marginals.  It remains a factorization,
+not a cancellation estimate for either factor.
+
+T168 machine-checks this transport one prime power at a time, simultaneously
+over every lag in any block whose literal innovation supports avoid that
+prime. Its `PrimePowerCongruent` predicate deliberately has an equality
+branch, so lag zero is represented correctly. The composite product `S_(m,R)`
+and the `chi/psi` factorization below remain `proof sketch` rather than hidden
+inside generic CRT infrastructure.
+
+There is also a finite dyadic local cancellation statement retaining the
+actual odd denominator inside the two-local unit.  At positive even `m`, put
+
+\[
+ W_m=2^{27m}Q_m=\frac{P_m}{R_m},\qquad
+ \Gamma_m=W_{m+2}-25\,2^{56}W_m,
+\]
+
+where `D_m=2^(27m)R_m` and `R_m` is odd.  The audited two-adic divided-
+difference argument gives, for distinct positive even `m,n`,
+
+\[
+ v_2(\Gamma_m-\Gamma_n)=v_2(m-n).
+\]
+
+Consequently, for positive even `M` and `K>=1`, the finite residues
+`Gamma_(M+2j) mod 2^K`, `0<=j<2^(K-1)`, permute the odd residue classes, and
+their additive-character sum is the Ramanujan sum `c_(2^K)(s)`.  This is only
+a statement about the dyadic local character.  Although `Gamma_m` contains
+the actual numerator and odd denominator in its two-local value, it does not
+give cancellation for the simultaneous odd CRT character or for the full
+Archimedean T155 phase.
+
+The BD forcing-cell law makes the failure of recurrence-preserving full-odd
+shadows exact.  For `m>=2`, write `D_m=2^(kappa_m)R_m`, with `R_m` odd, and
+define
+
+\[
+ \mu_m=\frac{5^{m-1}}{2^{27m}}=\frac{\rho^m}{5},
+ \qquad \mathcal O_m=Q_m+\mu_m\mathbb Z,
+ \qquad B=2^{28}.
+\]
+
+The class `O_m` preserves the complete negative odd-primary principal parts,
+that is, the image of `Q_m` in `Q_p/Z_p` for every odd prime.  It does not
+preserve arbitrary positive p-adic digits.  Since `10*mu_m=B*mu_(m+1)`, the
+normalized literal forcing
+
+\[
+ \delta_m=F_m/\mu_{m+1}
+\]
+
+satisfies the exact cell recurrence
+
+\[
+ u_{m+1}=Bu_m+\delta_m-\beta_m,qquad
+ \beta_m=\lfloor Bu_m+\delta_m\rfloor,
+\]
+
+for the normalized residue `u_m in [0,1)`.  The seven-row BBP formula gives
+
+\[
+ \frac{5\,2^{21}}{(7m+1)^2}<\delta_m<
+ \frac{5\,2^{22}}{(7m+1)^2}.
+\]
+
+Because `4586^2>5*2^22`, one has `0<delta_m<1` for every `m>=655`.
+Thus
+
+\[
+ \beta_m=\lceil Bu_m-u_{m+1}\rceil,
+ \qquad
+ \delta_m=\{u_{m+1}-Bu_m\}
+\]
+
+from that depth onward.  If another sequence has
+`Qhat_m in O_m`, write `Qhat_m-Q_m=mu_m*z_m`.  Its forcing satisfies
+
+\[
+ \widehat F_m-F_m=\mu_{m+1}(z_{m+1}-Bz_m).
+\]
+
+Hence two forcings in the same open cell `(0,mu_(m+1))` are equal.  If, for
+one fixed `C`, this holds at every `m>=M>=655` and additionally
+
+\[
+ |\widehat Q_m-10^m\pi|\le C\rho^m,
+\]
+
+then `z_(m+1)=B*z_m`, while the approximation and actual BBP tail keep `z_m`
+uniformly bounded.  Therefore every `z_m` is zero.  This is a genuine
+cross-index rigidity/no-go: no nontrivial full-odd `O(rho^m)` shadow can also
+preserve positive subcell forcing indefinitely.
+
+These results do not reduce the live consumer to a solved scalar problem.
+The singleton skew product treated in BC is only one constant-mass,
+endpoint-free sector of the full T139 primitive polynomial; all other
+primitive rays and their target signs remain.  At odd depths the convenient
+`2^(27m+k)` dyadic modulus is an unreduced common-modulus representation, not
+the actual conductor.  The scalar rational history `u_m` itself losslessly
+encodes the large odd modulus and residue, and no target-signed `O(N/q)` bound
+is proved for it.  Thus neither the local Ramanujan cancellation, the forcing
+cell selection, nor the rigidity theorem supplies a T139/T148 premise or a V1
+consequence.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
@@ -1174,7 +1337,10 @@ The strict verifier and exact axiom audit accept the following declarations:
   T159--T162 upper-, safe-later-, and lower-band corollaries;
 - T166: multiplicity-one denominator decomposition, generic and actual
   delayed local-coordinate transport, and the `4`, `-2`, and `-8/3`
-  residue wrappers.
+  residue wrappers;
+- T168: exact seven-row innovation support, odd-prime forcing integrality,
+  one-step and finite-block negative-valuation persistence, and equality-aware
+  prime-power transport through the actual scaled BBP recurrence.
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
