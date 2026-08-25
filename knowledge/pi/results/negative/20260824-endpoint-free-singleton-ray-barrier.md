@@ -377,3 +377,67 @@ This is only a cofinal obstruction to eventual **termwise** rehabilitation.
 Positive increments at intervening times can still compensate in prefixes,
 and the other primitive rays can compensate in the full T139 sum.  It proves
 no adverse prefix, T139 failure, target hit, cancellation estimate, or V1.
+
+## Full-primitive fixed-target prefix obstruction (`experiment`)
+
+A separate actual-$\pi$ replay closes the compensation escape in the
+preceding paragraph only for the two stronger, horizon-uniform mechanisms
+stated here.  Fix $q=100$, $A=96$,
+$c=193/200$, and let $\alpha(h)$ be the positive T128 coefficient.  On the
+complete primitive support
+
+\[
+U=\{1\le u\le199:10\nmid u\},
+\]
+
+the exact collapsed coefficient is
+
+\[
+p(u)=\alpha(u)e(7u/200)
+ +\mathbf1_{u\le19}\alpha(10u)e(7u/20)
+ -\mathbf1_{u=1}\alpha(100).
+\]
+
+Put $P(t)=\sum_{u\in U}p(u)e(ut)$ and
+$Z(N)=\sum_{n<N}P(x_n)$.  A standard-library, 190-digit Machin/Taylor replay
+at the fixed horizon $N=107$ gives
+
+\[
+\begin{aligned}
+\alpha(0)&=0.0228976204166770947639\ldots,\\
+\operatorname{Re}P(x_{106})&=-0.2742511550856701156157\ldots,\\
+\operatorname{Re}Z(107)&=-1.6785026447206228974210\ldots.
+\end{aligned}
+\]
+
+The exact T139 endpoint specialization has real part
+$0.2622735217394053984665\ldots$, and the direct uncompressed T128 sum agrees
+with `Z + endpoint` in the replay.  Hence
+
+\[
+-\frac{100}{107}\operatorname{Re}Z(107)
+=1.5686940604865634\ldots
+>50\alpha(0)=1.1448810208338547\ldots,
+\]
+
+while the single complete-ray increment requires
+
+\[
+-100\operatorname{Re}P(x_{106})=27.4251155085670\ldots.
+\]
+
+Thus neither an all-prefix bound
+$\operatorname{Re}Z(N)\ge-CN/100$ for every $N\ge1$ nor a termwise bound
+$\operatorname{Re}P(x_n)\ge-C/100$ for every $n\ge0$ can hold with a
+T139-compatible constant.  This is genuinely a full-primitive obstruction,
+not a singleton calculation.  The first 108 post-decimal digits of $\pi$
+contain no `96`, and the exact signed defect is
+$0.0264715723921722897\ldots>\alpha(0)$, consistent with T128.
+
+Reproduce the high-precision calculation with
+[`t139_full_primitive_q100_A96_N107_replay.py`](../../../../workflows/experiments/t139_full_primitive_q100_A96_N107_replay.py).
+This is a high-precision replay, not a formal directed-interval certificate;
+the target was selected from finite data and is fixed throughout the witness.
+One finite witness refutes the two universal mechanisms above, but it says
+nothing about eventual or cofinal estimates, a favorable selected later
+horizon, additive transient losses, off-diagonal cancellation, T139, or V1.
