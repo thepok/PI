@@ -4,6 +4,12 @@ This directory records routes that were explicitly falsified or reduced to a
 durable obstruction. These artifacts prevent future workers from repeatedly
 spending tokens on the same dead ends.
 
+- `20260825-bbp-machin-cross-carrier-independence-no-go.md`: corrected
+  Hermitian cross-correlation bounds show that the complete BBP and Machin
+  phase arrays recover the same unresolved pi Toeplitz signal up to a
+  horizon-uniform approximation error; this retires bounded
+  independence-based two-carrier averaging, but not exact joint arithmetic or
+  an estimate of the common signal.
 - `20260825-natural-horizon-de-bruijn-no-go.md`: an exact rational Machin
   prefix scan finds `002` absent from the first 1000 length-three π windows;
   the de Bruijn endpoint condition and T153 contrapositive retire universal
