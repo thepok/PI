@@ -256,6 +256,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
 import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
+import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3203,6 +3204,16 @@ import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
 #print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryZeroCoefficient_lt_twelve_div_five_mul
 #print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryLayerMass_ten_gt
 #print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryLayerMass_hundred_gt
+
+-- Torus-distance separation and explicit sine margins for the first two
+-- decimal endpoint phases.
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.nearestIntegerDistance_nine_mul_pi_gt
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.decimal_phase_distance_dichotomy
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.decimal_center_phase_distance_dichotomy
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.abs_sin_pi_eq_sin_nearestIntegerDistance
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sin_pi_mul_le_abs_sin_of_le_distance
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sine_seven_pi_div_thousand_gt
+#print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sine_nineteen_pi_div_hundred_gt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
