@@ -6,7 +6,8 @@ projections listed below); `proof sketch` (the explicit `nu_k <= 4*k`
 burn-in, its use to discharge the logarithmic hypothesis, the
 coefficient-summed corollary, the predecessor/residue CRT identity, the
 finite-local polynomial-division obstruction, the general reciprocal-profile
-adaptation, and the scalar Hausdorff/TP2 diagnostic)
+adaptation, the scalar Hausdorff/TP2 diagnostic, and the critical
+truncation-overlap law)
 
 Date: 2026-08-25 UTC
 
@@ -510,6 +511,156 @@ weighted or modular combinations, nonlinear characters, or the coupled
 prime-skeleton/complement correlation above. In particular it proves no
 signed primitive estimate, T139 premise, or V1 consequence.
 
+## Critical truncation overlap and its consumer mismatch
+
+Status in this section: `proof sketch`; this is the compact conclusion of the
+independently audited ChatGPT Pro BB memo. It concerns the actual four-pole
+BBP summand with the sevenfold truncation schedule `j<=7m`. It is not a
+T155 numerator-phase estimate. Source:
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bb/answer.md`.
+
+Put
+
+\[
+ Y_m=10^mB_m,\qquad
+ \Delta_{m,r}=Y_{m+r}-10^rY_m.
+\]
+
+For every `m,r in Nat`, direct subtraction gives the exact overlap identity
+
+\[
+ \boxed{\Delta_{m,r}=10^{m+r}(B_{m+r}-B_m)
+ =10^{m+r}\sum_{j=7m+1}^{7(m+r)}16^{-j}a_j,}
+\]
+
+where
+
+\[
+ a_j=\frac4{8j+1}-\frac2{8j+4}-\frac1{8j+5}-\frac1{8j+6}.
+\]
+
+Thus, for every `h in Int`,
+
+\[
+ e(hY_{m+r})e(-h10^rY_m)=e(h\Delta_{m,r}).
+\]
+
+Strict positivity holds for `r>=1`; for `r=0`, `Delta_(m,0)=0`. More
+generally, for integer coefficients `c_nu` and nonnegative lags `r_nu`,
+
+\[
+ \sum_\nu c_\nu Y_{m+r_\nu}
+ =\left(\sum_\nu c_\nu10^{r_\nu}\right)Y_m
+  +\sum_\nu c_\nu\Delta_{m,r_\nu}.
+\]
+
+The tail bound makes the last term
+
+\[
+ O\!\left(\frac{\rho^m}{m}
+   \sum_\nu |c_\nu|10^{r_\nu}\right),
+ \qquad \rho=10/16^7.
+\]
+
+Accordingly, for every fixed `epsilon>0`, bounded-order stencils with
+`max r_nu <= (Lambda-epsilon)m` and total coefficient `l1` mass
+`sum |c_nu|=exp(o(m))` collapse to the single frequency
+`sum c_nu*10^(r_nu)`, where
+
+\[
+ \Lambda=\log_{10}(16^7/10).
+\]
+
+Equivalently, the exact requirement is that the weighted `l1` mass
+`sum |c_nu|*10^(r_nu)` be at most
+`10^((Lambda-epsilon)m+o(m))`; allowing unbounded stencil order or larger
+mass is not covered. This retires only those bounded/subcritical linear
+stencils, not all possible overlap arguments.
+
+The tail asymptotic
+
+\[
+ \boxed{m^2 16^{7m}(\pi-B_m)=\frac1{3136}+O(m^{-1})}
+\]
+
+was already recorded, in equivalent notation, in
+[`bbp_rational_phase_density_separator_20260813.md`](ultrapi-campaign/bbp_rational_phase_density_separator_20260813.md),
+equation (10). It is not new to this memo. Its new use is to identify the
+critical overlap window. Fix `tau in Real`, and choose `m_0(tau)` so that
+`Lambda*m+2*log_10(m)+tau>=1` for every `m>=m_0(tau)`. On that eventual
+domain define
+
+\[
+ r_m(\tau)=\left\lfloor
+ \Lambda m+2\log_{10}m+\tau\right\rfloor,
+ \qquad
+ \theta_m(\tau)=\left\{
+ \Lambda m+2\log_{10}m+\tau\right\}.
+\]
+
+Then `r_m(tau)>=1` on this eventual domain, and
+
+\[
+ \boxed{\Delta_{m,r_m(\tau)}
+ =\frac{10^{\tau-\theta_m(\tau)}}{3136}+O_\tau(m^{-1}),}
+\]
+
+uniformly when `tau` ranges over a fixed compact interval. The irrationality
+of `Lambda` and partial summation show that
+`theta_m(tau)` is uniformly distributed modulo one. Hence the empirical
+distribution of the overlap defect is log-uniform on
+
+\[
+ \left[\frac{10^{\tau-1}}{3136},
+       \frac{10^\tau}{3136}\right],
+\]
+
+and for every fixed `h in Int`,
+
+(after assigning arbitrary nonnegative lags at the finitely many earlier
+indices, which does not affect the limit),
+
+\[
+ \lim_{M\to\infty}\frac1{M-m_0(\tau)+1}
+ \sum_{m=m_0(\tau)}^M e(h\Delta_{m,r_m(\tau)})
+ =\frac1{\log 10}
+   \int_{10^{\tau-1}/3136}^{10^\tau/3136}\frac{e(hx)}x\,dx.
+\]
+
+A fixed `O(1)` shift below the critical window means a fixed negative value
+of `tau`; its limiting interval remains nondegenerate and the defect does
+**not** vanish. Vanishing follows only when the lag lies an unbounded amount
+below the critical window (or after a separate limit `tau -> -infinity`).
+
+The fatal limitation is a consumer mismatch. At a nontrivial decimal scale
+`q=10^k` with `k>=1`, the T154--T155 delayed phase is
+
+\[
+ e(hY_m/q)=e(h10^nB_{n+k}),\qquad m=n+k.
+\]
+
+T155's natural-window transfer assumes `|h|<=2q-1`; the live T139 primitive
+consumer further has `0<|h|` and `10` not dividing `h`.
+
+The overlap limit instead concerns `e(hY_m)`, which is the delayed phase at
+frequency `qh`, already divisible by ten when `k>=1`. Its second overlap
+frequency is `q*10^(r_m(tau))*h`: for `r_m(tau)>=1` it is divisible by ten and
+has magnitude at least `10q`, far outside the primitive natural window.
+T155's natural-window error bound therefore cannot transfer this mixed phase
+to pi. Indeed, replacing each truncation value `Y_m` by the exact pi value
+`10^m*pi` makes the analogue identically
+
+\[
+ e\!\left(h(10^{m+r}\pi-10^r10^m\pi)\right)=1.
+\]
+
+The log-uniform cancellation is therefore a truncation-overlap phenomenon,
+not an actual-pi off-diagonal estimate. No extraction inequality bridging it
+to the low primitive T155 phases is supplied, and the displayed frequency
+mismatch prevents treating such a bridge as routine. This section proves no
+T139 premise, cancellation for the required consumer, or V1 consequence; it
+also does not retire overlap methods that use different coupled information.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
@@ -549,6 +700,6 @@ The strict verifier and exact axiom audit accept the following declarations:
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
-Hausdorff/TP2 diagnostic are not among these declarations and remain `proof
-sketch`. No theorem listed here proves cancellation, a T139 premise, density,
-normality, or V1.
+Hausdorff/TP2 diagnostic, and critical truncation-overlap law are not among
+these declarations and remain `proof sketch`. No theorem listed here proves
+cancellation, a T139 premise, density, normality, or V1.
