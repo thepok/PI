@@ -267,12 +267,95 @@ BBP truncation -> shadow a complete rational period -> transfer the period
 
 cannot be justified from those two inputs alone.
 
+## Sampled-quotient carry corollary
+
+Status: `proof sketch`.
+
+There is a more local consequence for the exact T112 sampled quotient.  Put
+
+\[
+ \widetilde B_m=\sum_{r=0}^{7m}\frac{120r^2+151r+47}
+ {(2r+1)(4r+3)(8r+1)(8r+5)16^r},\qquad
+ Q_m=10^m\widetilde B_m=\frac{a_m}{d_m}=j_m+y_m
+\]
+
+in lowest terms, with \(d_m>0\), \(j_m=\lfloor Q_m\rfloor\), and
+\(0\le y_m<1\).  Also put
+
+\[
+ \tau_m=10^m(\pi-\widetilde B_m).
+\]
+
+The inherited all-depth valuation formula cited above, specialized to the
+inclusive endpoint \(7m\) and then scaled by the factor \(10^m\), gives
+
+\[
+ \nu_2(d_m)=27m\qquad(m>0\ \text{even}). \tag{13}
+\]
+
+This is not a new denominator theorem.  Notice also the endpoint exception:
+at \(m=0\), \(d_0=15\) (and its two-adic valuation is zero), so `d_m is
+even` is valid here only for positive even \(m\).
+
+Positivity of the BBP summands and the first omitted term give, for even
+\(m\),
+
+\[
+ d_m\tau_m>
+ \frac{5^m(120(7m+1)^2+151(7m+1)+47)}
+ {16(2(7m+1)+1)(4(7m+1)+3)(8(7m+1)+1)(8(7m+1)+5)}
+ >\frac{5^m}{336(7m+1)^2}. \tag{14}
+\]
+
+The first displayed lower bound is already greater than one at \(m=8\) and
+increases thereafter (its successive ratio is greater than
+\(20480/6561\)).  Hence
+
+\[
+ \boxed{d_m\tau_m>1\qquad(m\ge8\text{ even}).} \tag{15}
+\]
+
+This has an exact carry interpretation.  Let
+
+\[
+ r_m=a_m\bmod d_m,\qquad g_m=d_m-r_m,\qquad
+ c_m=\lfloor y_m+\tau_m\rfloor\in\{0,1\}.
+\]
+
+Then
+
+\[
+ \boxed{c_m=1\iff g_m\le d_m\tau_m.} \tag{16}
+\]
+
+For \(L\ge1\), define
+
+\[
+ R_{n,L}=j_{n+L}\bmod10^L,\qquad
+ D_{n,L}=\left\lfloor10^L\{10^n\pi\}\right\rfloor.
+\]
+
+Comparing integer and fractional parts in
+\(10^n\pi=(j_{n+L}+y_{n+L}+\tau_{n+L})/10^L\) gives the exact block relation
+
+\[
+ \boxed{D_{n,L}\equiv R_{n,L}+c_{n+L}\pmod{10^L}.} \tag{17}
+\]
+
+Thus, cofinally along even sampled depths, the actual positive tail is longer
+than one cell of the actual reduced-denominator lattice.  The generic reduced
+fraction bound \(g_m\ge1\) therefore cannot certify \(c_m=0\); denominator
+size, its exact two-adic valuation, reducedness, and numerator parity do not
+replace control of the specific top remainder \(g_m\).
+
 ## Scope firewall
 
 This is a denominator-plus-remainder and post-preperiod magnitude-only
-certificate no-go, not a theorem that sampled BBP shadowing fails before the
-preperiod or that the exact tail phase is uncontrolled.  It does not rule out
+certificate no-go, together with the narrower sampled-quotient granularity
+obstruction above.  It does not prove that any carry \(c_m=1\) actually occurs,
+that sampled BBP shadowing fails before the preperiod, or that the exact tail
+phase is uncontrolled.  It does not rule out a specific-remainder estimate,
 signed carry information, signed Fourier cancellation, or another argument
 using the exact tail phase rather than its one-sided magnitude arc.  Nothing
-here proves or disproves a covariance estimate, decimal density, normality,
-V1, or any occurrence statement for pi.
+here proves or disproves T139, a covariance estimate, decimal density,
+normality, V1, or any occurrence statement for pi.

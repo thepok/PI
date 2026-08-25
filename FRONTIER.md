@@ -174,7 +174,11 @@ or off-diagonal actual-π structure.  Exact BBP carry cancellation further
 shows that the positive selected tail perturbs the target-labelled rational
 core by only `min(O(q), O(log q))`, uniformly in the horizon, so it cannot be
 the extensive cancellation source when `N/(qB_(q,k)) → ∞`; the rational core
-and the remaining rays stay open.
+and the remaining rays stay open.  The
+[`sampled-quotient carry corollary`](knowledge/pi/results/negative/20260824-bbp-universal-grid-period-shadow-no-go.md#sampled-quotient-carry-corollary)
+also shows that the actual BBP tail exceeds one reduced-denominator cell at
+cofinally many even depths, so denominator granularity alone cannot remove
+the quotient carry; the specific numerator remainder remains open.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
