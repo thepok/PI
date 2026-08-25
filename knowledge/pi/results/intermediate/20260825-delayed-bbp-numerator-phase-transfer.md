@@ -4,14 +4,17 @@ Status: `machine-checked` (the exact T154--T155 arithmetic identities and
 horizon-uniform phase-transfer bounds and the exact T159 top-band prime
 projections, plus the exact T160 two-factor decimal resonance and its delayed
 value/numerator-phase transfer bounds, and the exact T161 safe-block
-unique-pole/projection/valuation statements listed below); `proof sketch` (the
+unique-pole/projection/valuation statements, the exact T162 lower minus-band
+projections, and the exact T163 even-depth dyadic lift statements listed
+below); `proof sketch` (the
 explicit `nu_k <= 4*k`
 burn-in, its use to discharge the logarithmic hypothesis, the
 coefficient-summed corollary, the predecessor/residue CRT identity, the
 finite-local polynomial-division obstruction, the general reciprocal-profile
 adaptation, the scalar Hausdorff/TP2 diagnostic, and the critical
 truncation-overlap law, including its all-finite-product and moving-horizon
-generalizations, plus the BA sharp-tail and terminal-prime analysis below)
+generalizations, plus the BA sharp-tail and terminal-prime analysis and the
+BC/BD shadow boundaries below)
 
 Date: 2026-08-25 UTC
 
@@ -29,6 +32,10 @@ The exact two-factor decimal-resonance transfer is checked in
 [`T160`](../../../../TheoryLib/PiQuantitativeBlockHitting/T160T160DelayedBBPDecimalResonance.lean).
 The exact terminal-prime safe-block subset is checked in
 [`T161`](../../../../TheoryLib/PiQuantitativeBlockHitting/T161T161SafeLaterBBPPrimeProjection.lean).
+The exact lower minus-band projections are checked in
+[`T162`](../../../../TheoryLib/PiQuantitativeBlockHitting/T162T162ExactBBPMinusPrimeProjection.lean),
+and the even-depth dyadic conductor and immediate-lift localization in
+[`T163`](../../../../TheoryLib/PiQuantitativeBlockHitting/T163T163EvenBBPDyadicLift.lean).
 It is not the whole T139 consumer and proves no cancellation or V1
 consequence. Later sections also retain the scoped proof-sketch conclusion of
 the AY follow-up and the broader adaptation from the independently audited AZ
@@ -675,6 +682,95 @@ Because both the prime and the resulting core depend on the chosen block,
 this is only a diagnostic reduction of the live arithmetic problem. It proves
 no T139 premise, density, normality, or V1.
 
+## Exact lower minus-band projections and even-depth dyadic lift
+
+Status in this section: `machine-checked` in T162 and T163.
+
+For `m>=1`, let `p` be prime and
+
+```text
+14*m+1 < p <= 28*m+3.
+```
+
+T162 gives the complete `p=8*a+3` and `p=8*a+7` lower minus-band split. For
+`p=8*a+3`, the quiet condition `56*m+1 < 3*p` leaves only the fourth-family
+pole at `2*a` and gives
+
+\[
+ \operatorname{PrimeCongruent}_p
+   (p\,\operatorname{scaledBBPRat}(m),-2\,10^m);
+\]
+
+the complementary active condition `3*p <= 56*m+1` adds the first-family
+`3*p` pole at `3*a+1` and changes the residue to
+`-(8/3)*10^m`. For `p=8*a+7`, the analogous quiet/active threshold is
+`56*m+5 < 3*p` versus `3*p <= 56*m+5`; the secondary pole is then the
+third-family pole at `3*a+2`, with the same respective residues `-2*10^m`
+and `-(8/3)*10^m`. In all four cases T162 also proves the exact valuation
+
+\[
+ \boxed{v_p(\operatorname{scaledBBPRat}(m))=-1.}
+\]
+
+At every even depth `m`, T163 proves
+
+\[
+ v_2(\operatorname{scaledBBPRat}(m))=-27m.
+\]
+
+For positive even `m`, the reduced denominator therefore contains exactly
+`2^(27*m)` and the reduced numerator is odd. Define
+
+\[
+ g_m=\frac{2\,5^{m-1}}{2^{27m}}.
+\]
+
+T163 proves for every `m>=1`, without a parity assumption, that
+
+\[
+ 0<10^m\pi-\operatorname{scaledBBPRat}(m)<g_m.
+\]
+
+Consequently, at positive even depth the actual sampled BBP rational is the
+unique point `scaledBBPRat(m)+z*g_m`, `z in Int`, in the immediate interval
+`(10^m*pi-g_m,10^m*pi]`. This is exact localization of the actual rational;
+it supplies no cancellation or T139 estimate.
+
+## Exact-denominator and full-odd shadow boundaries
+
+Status in this section: `proof sketch`; the shadow constructions themselves
+are not Lean-checked.
+
+The audited BC construction gives, for each **fixed** decimal delay `k` and
+every prescribed word-omitting decimal carrier, reduced shadows with the
+exact actual denominator `D_m` at every sufficiently large depth. They also
+copy the specified five-primary, two-primary delayed, and exponentially large
+odd local phase factors. The quantifiers matter: the construction is
+eventual for one fixed `k`; it does not produce one shadow simultaneously
+valid for all delays. Its numerators are selected depth by depth and do not
+satisfy the literal seven-new-term/four-pole BBP recurrence or preserve the
+complete actual numerator residue.
+
+The audited BD construction is stronger in a different direction. At every
+sampled depth `m>=2` it copies the entire actual odd denominator `R_m` and the
+complete class of the actual rational in `Q_p/Z_p` for every odd prime. A
+single word-omitting carrier can therefore be shadowed through all depths,
+so completing all odd-prime projections cannot by itself force T139. The
+shadow denominator is `2^(27*m)*R_m`; by T163 this is the exact actual
+denominator at positive even depths, but no such all-depth exact-denominator
+claim is available at odd depths. The shadow deliberately retains dyadic
+freedom and again does not obey the literal BBP recurrence. Thus the surviving
+fixed-pi information is the cross-depth coupling of the dyadic and full-odd
+characters through the actual four-pole recurrence and target signs, not
+either primary sector separately.
+
+The BE cubic lag identity is a correct base-16 diagnostic, not progress on
+this decimal frontier. It rewrites phases of
+`e(m*(16^s-1)*16^n*pi)` with positive coefficient differences of cubic size,
+but T139/T154/T155 require phases on the decimal carrier `10^n*pi`. The named
+consumer asserted in that memo is absent from current main, and no abstract
+base-16-to-base-10 transfer is valid. No BE statement is promoted here.
+
 ## Critical truncation overlap and its consumer mismatch
 
 Status in this section: `machine-checked` only for the three explicitly named
@@ -1003,13 +1099,27 @@ The strict verifier and exact axiom audit accept the following declarations:
   `scaledBBPRat_safeLaterProjection_one`,
   `scaledBBPRat_safeLaterProjection_three`,
   `scaledBBPRat_safeLaterVal_one`, and
-  `scaledBBPRat_safeLaterVal_three`.
+  `scaledBBPRat_safeLaterVal_three`;
+- T162: `caseThree_quiet_unique_poles`,
+  `caseThree_active_unique_poles`, `caseSeven_quiet_unique_poles`,
+  `caseSeven_active_unique_poles`,
+  `scaledBBPRat_minusThreeProjection_of_quiet`,
+  `scaledBBPRat_minusThreeProjection_of_secondary`,
+  `scaledBBPRat_minusSevenProjection_of_quiet`,
+  `scaledBBPRat_minusSevenProjection_of_secondary`,
+  `scaledBBPRat_minusThreeVal_of_quiet`,
+  `scaledBBPRat_minusThreeVal_of_secondary`,
+  `scaledBBPRat_minusSevenVal_of_quiet`, and
+  `scaledBBPRat_minusSevenVal_of_secondary`;
+- T163: `bbpPartial_eq_sum_combined`, `scaledBBPRat_two_val_even`,
+  `scaledBBPRat_even_two_primary`, `scaledBBPRat_even_tail_lt_spacing`, and
+  `scaledBBPRat_even_unique_immediate_lift`.
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
 Hausdorff/TP2 diagnostic, critical truncation-overlap law, and arbitrary
 finite-product/moving-horizon extensions, as well as the BA sharp-tail,
 improved-transfer, reduced-cofactor, short-order, compensation, negligibility,
-and off-diagonal claims, are not among these declarations and remain
-`proof sketch`. No theorem listed here proves cancellation, a T139 premise,
-density, normality, or V1.
+and off-diagonal claims and the BC/BD shadow constructions are not among these
+declarations and remain `proof sketch`. No theorem listed here proves
+cancellation, a T139 premise, density, normality, or V1.

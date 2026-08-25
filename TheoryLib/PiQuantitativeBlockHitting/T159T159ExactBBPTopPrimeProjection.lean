@@ -31,19 +31,19 @@ open Theory.PiDigits.T115SampledBBPCellDefectPhase
 def PrimeCongruent (p : ℕ) (x y : ℚ) : Prop :=
   x = y ∨ (1 : ℤ) ≤ padicValRat p (x - y)
 
-private lemma prime_gt_five_not_dvd_two
+lemma prime_gt_five_not_dvd_two
     (p : ℕ) (hpgt : 5 < p) : ¬ p ∣ 2 := by
   intro h
   have hle : p ≤ 2 := Nat.le_of_dvd (by norm_num) h
   omega
 
-private lemma prime_gt_five_not_dvd_sixteen
+lemma prime_gt_five_not_dvd_sixteen
     (p : ℕ) (hp : p.Prime) (hpgt : 5 < p) : ¬ p ∣ 16 := by
   intro h
   have h2 : p ∣ 2 := hp.dvd_of_dvd_pow (n := 4) (by simpa using h)
   exact prime_gt_five_not_dvd_two p hpgt h2
 
-private lemma prime_gt_five_not_dvd_ten
+lemma prime_gt_five_not_dvd_ten
     (p : ℕ) (hp : p.Prime) (hpgt : 5 < p) : ¬ p ∣ 10 := by
   intro h
   have h' : p ∣ 2 * 5 := by norm_num at h ⊢; exact h
@@ -52,7 +52,7 @@ private lemma prime_gt_five_not_dvd_ten
   · have hle : p ≤ 5 := Nat.le_of_dvd (by norm_num) h5
     omega
 
-private lemma padicValRat_poleOne_eq_zero
+lemma padicValRat_poleOne_eq_zero
     (p j : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hlin : ¬ p ∣ 8 * j + 1) :
     padicValRat p (poleOne j) = 0 := by
@@ -73,7 +73,7 @@ private lemma padicValRat_poleOne_eq_zero
     padicValRat.pow (by norm_num), hv16]
   norm_num
 
-private lemma padicValRat_poleTwo_eq_zero
+lemma padicValRat_poleTwo_eq_zero
     (p j : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hlin : ¬ p ∣ 2 * j + 1) :
     padicValRat p (poleTwo j) = 0 := by
@@ -95,7 +95,7 @@ private lemma padicValRat_poleTwo_eq_zero
     padicValRat.pow (by norm_num), hv16]
   norm_num
 
-private lemma padicValRat_poleThree_eq_zero
+lemma padicValRat_poleThree_eq_zero
     (p j : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hlin : ¬ p ∣ 8 * j + 5) :
     padicValRat p (poleThree j) = 0 := by
@@ -112,7 +112,7 @@ private lemma padicValRat_poleThree_eq_zero
     padicValRat.pow (by norm_num), hv16]
   norm_num
 
-private lemma padicValRat_poleFour_eq_zero
+lemma padicValRat_poleFour_eq_zero
     (p j : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hlin : ¬ p ∣ 4 * j + 3) :
     padicValRat p (poleFour j) = 0 := by
@@ -327,7 +327,7 @@ def topThreeRegularRat (m i : ℕ) : ℚ :=
     (∑ j ∈ (range (7 * m + 1)).erase i, poleThree j) +
       polePartial poleFour (7 * m)
 
-private lemma zero_or_padicValRat_sum_nonneg
+lemma zero_or_padicValRat_sum_nonneg
     {p : ℕ} (hp : p.Prime) {s : Finset ℕ} {f : ℕ → ℚ}
     (hf : ∀ j ∈ s, padicValRat p (f j) = 0) :
     (∑ j ∈ s, f j) = 0 ∨ 0 ≤ padicValRat p (∑ j ∈ s, f j) := by
@@ -336,7 +336,7 @@ private lemma zero_or_padicValRat_sum_nonneg
   · exact Or.inr (padicValRat_sum_nonneg hp s f
       (fun j hj ↦ by rw [hf j hj]) hz)
 
-private lemma zero_or_padicValRat_add_nonneg
+lemma zero_or_padicValRat_add_nonneg
     {p : ℕ} (hp : p.Prime) {x y : ℚ}
     (hx : x = 0 ∨ 0 ≤ padicValRat p x)
     (hy : y = 0 ∨ 0 ≤ padicValRat p y) :
@@ -345,7 +345,7 @@ private lemma zero_or_padicValRat_add_nonneg
   · exact Or.inl hz
   · exact Or.inr (padicValRat_add_nonneg_of_each_nonneg p hp hx hy hz)
 
-private lemma zero_or_padicValRat_add_ge_one
+lemma zero_or_padicValRat_add_ge_one
     {p : ℕ} (hp : p.Prime) {x y : ℚ}
     (hx : x = 0 ∨ (1 : ℤ) ≤ padicValRat p x)
     (hy : y = 0 ∨ (1 : ℤ) ≤ padicValRat p y) :
@@ -360,7 +360,7 @@ private lemma zero_or_padicValRat_add_ge_one
     · simpa using hx
     exact le_trans (le_min hx hy) (padicValRat.min_le_padicValRat_add hz)
 
-private lemma mul_prime_zero_or_val_ge_one
+lemma mul_prime_zero_or_val_ge_one
     {p : ℕ} (hp : p.Prime) {x : ℚ}
     (hx : x = 0 ∨ 0 ≤ padicValRat p x) :
     (p : ℚ) * x = 0 ∨ (1 : ℤ) ≤ padicValRat p ((p : ℚ) * x) := by
@@ -645,7 +645,7 @@ theorem bbpPartial_topPrimeProjection_three
         ((p : ℚ) * poleThree i - 4) + (p : ℚ) * topThreeRegularRat m i by ring]
     exact hv
 
-private lemma PrimeCongruent.mul_ten_pow
+lemma PrimeCongruent.mul_ten_pow
     {m p : ℕ} (hp : p.Prime) (hpgt : 5 < p) {x y : ℚ}
     (hxy : PrimeCongruent p x y) :
     PrimeCongruent p ((10 : ℚ) ^ m * x) ((10 : ℚ) ^ m * y) := by
@@ -723,7 +723,7 @@ theorem scaledBBPRat_topPrimeProjection_three
   unfold scaledBBPRat
   convert h using 1 <;> ring
 
-private lemma padicValRat_eq_zero_of_primeCongruent
+lemma padicValRat_eq_zero_of_primeCongruent
     {p : ℕ} (hp : p.Prime) {x y : ℚ} (hy0 : y ≠ 0)
     (hy : padicValRat p y = 0) (hxy : PrimeCongruent p x y) :
     padicValRat p x = 0 := by
@@ -745,6 +745,18 @@ private lemma padicValRat_eq_zero_of_primeCongruent
     rw [show x = y + (x - y) by ring]
     exact hv.trans hy
 
+theorem scaledBBPRat_val_eq_neg_one_of_projection_of_unit
+    (m p : ℕ) (hp : p.Prime) {y : ℚ} (hy0 : y ≠ 0)
+    (hy : padicValRat p y = 0)
+    (hproj : PrimeCongruent p ((p : ℚ) * scaledBBPRat m) y) :
+    padicValRat p (scaledBBPRat m) = -1 := by
+  letI : Fact p.Prime := ⟨hp⟩
+  have hx := padicValRat_eq_zero_of_primeCongruent hp hy0 hy hproj
+  have hpq : (p : ℚ) ≠ 0 := by exact_mod_cast hp.ne_zero
+  have hR := Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_ne_zero m
+  rw [padicValRat.mul hpq hR, padicValRat.of_nat, padicValNat_self] at hx
+  omega
+
 theorem scaledBBPRat_val_eq_neg_one_of_projection
     (m p : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hproj : PrimeCongruent p ((p : ℚ) * scaledBBPRat m)
@@ -762,11 +774,7 @@ theorem scaledBBPRat_val_eq_neg_one_of_projection
     rw [padicValRat.mul (by norm_num) (pow_ne_zero _ (by norm_num)), h4,
       padicValRat.pow (by norm_num), h10]
     norm_num
-  have hx := padicValRat_eq_zero_of_primeCongruent hp hy0 hy hproj
-  have hpq : (p : ℚ) ≠ 0 := by exact_mod_cast hp.ne_zero
-  have hR := Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_ne_zero m
-  rw [padicValRat.mul hpq hR, padicValRat.of_nat, padicValNat_self] at hx
-  omega
+  exact scaledBBPRat_val_eq_neg_one_of_projection_of_unit m p hp hy0 hy hproj
 
 /-- Every first-family prime covered by the actual projection occurs with
 exact valuation `-1` in the reduced sampled BBP rational. -/

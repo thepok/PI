@@ -260,6 +260,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T158T158ExactBBPFiveAdicPulses
 import TheoryLib.PiQuantitativeBlockHitting.T159T159ExactBBPTopPrimeProjection
 import TheoryLib.PiQuantitativeBlockHitting.T160T160DelayedBBPDecimalResonance
 import TheoryLib.PiQuantitativeBlockHitting.T161T161SafeLaterBBPPrimeProjection
+import TheoryLib.PiQuantitativeBlockHitting.T162T162ExactBBPMinusPrimeProjection
+import TheoryLib.PiQuantitativeBlockHitting.T163T163EvenBBPDyadicLift
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3315,6 +3317,29 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterProjection_three
 #print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterVal_one
 #print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterVal_three
+
+-- Exact lower minus-band projections.  The optional compatible `3*p` pole
+-- changes the actual scaled BBP residue from `-2` to `-8/3`; all four cases
+-- retain exact denominator valuation `-1`.
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_val_eq_neg_one_of_projection_of_unit
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.caseThree_quiet_unique_poles
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.caseThree_active_unique_poles
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.caseSeven_quiet_unique_poles
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.caseSeven_active_unique_poles
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusThreeProjection_of_quiet
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusThreeProjection_of_secondary
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusSevenProjection_of_quiet
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusSevenProjection_of_secondary
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusThreeVal_of_quiet
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusThreeVal_of_secondary
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusSevenVal_of_quiet
+#print axioms Theory.PiDigits.T162ExactBBPMinusPrimeProjection.scaledBBPRat_minusSevenVal_of_secondary
+
+#print axioms Theory.PiDigits.T163EvenBBPDyadicLift.bbpPartial_eq_sum_combined
+#print axioms Theory.PiDigits.T163EvenBBPDyadicLift.scaledBBPRat_two_val_even
+#print axioms Theory.PiDigits.T163EvenBBPDyadicLift.scaledBBPRat_even_two_primary
+#print axioms Theory.PiDigits.T163EvenBBPDyadicLift.scaledBBPRat_even_tail_lt_spacing
+#print axioms Theory.PiDigits.T163EvenBBPDyadicLift.scaledBBPRat_even_unique_immediate_lift
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
