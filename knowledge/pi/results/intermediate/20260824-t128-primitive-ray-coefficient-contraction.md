@@ -1,8 +1,10 @@
 # T128 primitive-ray coefficient contraction
 
-Status: `machine-checked` (T138 coefficient gap and T139 primitive-ray
-identity/consumers); `proof sketch` (sharp endpoint-budget evaluation,
-actual-pi two-layer endpoint contraction, and explicit threshold comparisons)
+Status: `machine-checked` (T138 coefficient gap, T139 primitive-ray
+identity/consumers, T147 actual-pi two-layer endpoint contraction, and T148
+improved defect/hit consumer);
+`proof sketch` (sharp endpoint-budget evaluation and explicit threshold
+comparisons)
 
 This note records the independently audited, corrected part of
 `workflows/state/chatgpt-pro/20260824-open-frontier-creative-c/answer.md`.
@@ -11,6 +13,12 @@ The uniform coefficient-load gap is now machine-checked in
 The exact signed reconstruction, actual-orbit primitive identity, endpoint
 bound, and conditional hit consumers are machine-checked in
 [`T139T139PrimitiveRayBoundaryConsumer.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T139T139PrimitiveRayBoundaryConsumer.lean).
+The exact decimal-layer budget partition and fixed actual-pi endpoint saving
+are machine-checked at commit `c917e3d` in
+[`T147T147BoundaryEndpointContraction.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T147T147BoundaryEndpointContraction.lean).
+Their strict transport through the T139 defect identity and the resulting hit
+consumer are machine-checked at commit `c06952b` in
+[`T148T148ImprovedPrimitiveBoundaryConsumer.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T148T148ImprovedPrimitiveBoundaryConsumer.lean).
 Generic finite decimal-ray telescoping was already known; the new point is a
 uniform, coefficient-specific contraction for the actual T128 coefficients.
 
@@ -258,7 +266,7 @@ wordwise estimate: the supported frequency `h=q` survives. Hence this remains
 an endpoint improvement for every target and the actual literal orbit blocks,
 not a proof of T124 or V1.
 
-## Proof-sketch actual-pi two-layer endpoint contraction
+## Machine-checked actual-pi two-layer endpoint contraction
 
 For `q=10^k`, split the literal T139 endpoint as `B=T-I`.  Regrouping its
 pairs `(h,j)` by `s=v_10(h)-j` gives
@@ -285,14 +293,14 @@ magnitudes below interpreted as circle distances.  The exact relation
 \[
  \|\theta_1\|\ge\frac7{1000}
  \quad\text{or}\quad
- \|\theta_2\|>\frac{19}{100}.
+ \|\theta_2\|\ge\frac{19}{100}.
 \]
 
 The sampled coefficient sequences `m -> alpha_q(10^s m)` are nonnegative and
 unimodal, with `max_h alpha_q(h)<5/(2q)`.  Abel summation therefore gives
 
 \[
- |P_{q,s}(t)|<\frac5{q|\sin(\pi t)|}.
+ |P_{q,s}(t)|<\frac5{2q|\sin(\pi t)|}.
 \]
 
 For `k>=3`, the first alternative saves more than `7/500` from the first
@@ -304,15 +312,39 @@ uniformly in `A` and `N`,
  \boxed{|\mathcal B_{q,A}(N)|<2\mathfrak E_{q,A}-\frac7{500}}.
 \]
 
-This is an unconditional actual-pi improvement over the phase-blind T139
-endpoint bound.  It yields the strictly weaker non-strict hit premise
+The public theorem
+`Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub`
+machine-checks the second boxed inequality for every `k>=3` and all `A,N`.
+The accompanying public theorem
+`primitiveBoundaryEndpointBudget_eq_sum_layerMasses` machine-checks
+`sum_s M_(q,s)=mathfrak E_(q,A)`. This is an unconditional actual-pi
+improvement over the phase-blind T139 endpoint bound.
+
+For `N>0`, put
 
 \[
+ R_{q,A}(N)=
  -\frac2N\operatorname{Re}\sum_{u\in\mathcal P_q}p_{q,A}(u)S_u(N)
- +\frac{4\mathfrak E_{q,A}-7/250}{N}\le\alpha_q(0).
+ +\frac{4\mathfrak E_{q,A}-7/250}{N}.
 \]
 
-At `N>=q`, elementary scalar bounds leave margin greater than
+At commit `c06952b`, T148 machine-checks the strict defect bound
+
+\[
+ D_{q,A}(N)<R_{q,A}(N)
+\]
+
+in
+`Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.directionalBoundaryDefect_lt_primitive_add_improvedEndpointBudget`.
+For `A<q`, the theorem
+`piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten` then
+machine-checks the non-strict sufficient premise
+`R_(q,A)(N) <= boundaryZeroCoefficient q`, equivalently
+`R_(q,A)(N) <= alpha_q(0)`: the strict preceding inequality still gives the
+strict boundary-defect hypothesis required for a hit.
+
+The remaining scalar comparisons in this section are `proof sketch`. At
+`N>=q`, elementary bounds leave margin greater than
 `5413/(4500q)`; at `N=q`, it is enough that the primitive real part is at
 least `-5413/9000`.  These are sufficient conditions, not equivalent
 reformulations.  The gain is only `7/(250N)` and does not affect endpoint-free
@@ -364,9 +396,17 @@ The uniform actual-T128 coefficient-load gap is `machine-checked` in T138.
 The exact positive/negative conjugate reconstruction, actual π-orbit primitive
 identity with both endpoint blocks, endpoint norm and defect bounds, strict
 primitive-only T128 hit consumer, decimal-scale wrapper, and T138-enhanced
-uniform primitive-cancellation consumer are `machine-checked` in T139. The
-sharp endpoint-budget evaluation and displayed numerical comparisons remain
-`proof sketch`.
+uniform primitive-cancellation consumer are `machine-checked` in T139. At
+commit `c917e3d`, T147 machine-checks the exact decimal-layer budget partition
+and the unconditional actual-pi bound
+`|B_(q,A)(N)| < 2 E_(q,A) - 7/500` for `q=10^k`, `k>=3`, via
+`primitiveBoundaryEndpoint_norm_lt_two_budget_sub`. At commit `c06952b`, T148
+machine-checks both the strict improved defect bound in
+`directionalBoundaryDefect_lt_primitive_add_improvedEndpointBudget` and the
+non-strict sufficient hit premise in
+`piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten`. The sharp
+closed-form endpoint-budget evaluation and the later explicit scalar and
+uniform-cancellation threshold comparisons remain `proof sketch`.
 
 No required primitive-frequency cancellation estimate is known for π. This
 note proves neither the T124 premise nor V1, and it makes no claim of an exact

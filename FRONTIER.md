@@ -133,12 +133,21 @@ the T138-enhanced uniform primitive-cancellation consumer. A further `proof
 sketch` evaluates the exact endpoint budget as
 `E=δq(q-1)/18-(k/2)α₀<π²/36`, sharp in the limit, reducing the literal
 endpoint defect below `π²/(9N)` for every target; target averaging does not
-provide wordwise control because `h=q` survives. The needed
-An actual-pi two-layer `proof sketch` further improves the literal endpoint term
-from `4E/N` to `(4E-7/250)/N` for `k>=3`; the endpoint-free singleton and
-primitive/off-diagonal estimates remain open. The needed
-primitive-frequency cancellation estimate remains open for π, so this proves
-neither T124 nor V1 and supplies no exact π-orbit logical separator.
+provide wordwise control because `h=q` survives. At commit `c917e3d`, T147
+machine-checks the exact decimal-layer budget partition and the actual-pi
+endpoint theorem
+`primitiveBoundaryEndpoint_norm_lt_two_budget_sub`:
+`|B|<2E-7/500` for every `k>=3` and all targets and horizons. Thus the literal
+endpoint defect contribution improves from `4E/N` to `(4E-7/250)/N`. At commit
+`c06952b`, T148 machine-checks the strict transport
+`directionalBoundaryDefect_lt_primitive_add_improvedEndpointBudget`, namely
+`D<R` for this improved right-hand side, and the hit consumer
+`piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten`: the non-strict
+premise `R<=boundaryZeroCoefficient` implies the target-cylinder hit. This is
+still only an endpoint-sector contraction and conditional consumer: the
+endpoint-free singleton and primitive/off-diagonal cancellation estimates
+remain open. It proves neither T124 nor V1 and supplies no exact π-orbit
+logical separator.
 
 The [fixed-degree no-go](knowledge/pi/results/negative/20260824-fixed-degree-transcendence-measures-do-not-force-decimal-dispersion.md)
 now also has an exact fixed-target T139 form: affine
