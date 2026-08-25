@@ -3172,6 +3172,10 @@ import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 #print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_sub_eq
 #print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_sub_eq_tail
 #print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_lt_tail
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.three_lt_one_sub_cos_pi_div_mul
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_exists_peak
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_quasiconcave
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.sampled_positiveBoundaryCoefficient_quasiconcave
 #print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_lt_five_div_two_mul
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
