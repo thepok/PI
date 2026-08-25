@@ -93,6 +93,10 @@ Checker SHA-256:
 
 The target was selected after inspecting the finite data and is already hit
 at `n=39`. Later times can compensate for the negative prefix, and other
-primitive rays can compensate in the full T139 sum. This experiment does not
-exclude a later or cofinal bound, obstruct the full primitive sum, falsify
-T139, prove a strict pi-level predicate separation, or resolve V1.
+primitive rays can compensate in the full T139 sum. This finite experiment by
+itself does not exclude a later or cofinal bound, obstruct the full primitive
+sum, falsify T139, prove a strict pi-level predicate separation, or resolve
+V1. The later `proof sketch` in the
+[singleton-ray note](20260824-endpoint-free-singleton-ray-barrier.md#cofinal-fixed-target-termwise-no-go-proof-sketch)
+does exclude eventual termwise rehabilitation at `q=100`, while retaining all
+of the prefix, full-sum, T139, and V1 limitations just listed.

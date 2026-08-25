@@ -302,3 +302,78 @@ that passes through such a frequency-diagonal Gram majorant.  It does **not**
 rule out a direct actual-$\pi$ bound on $V^*\mathbf1$, a $p$-specific signed or
 off-diagonal estimate, or a different quadratic argument retaining those
 correlations.  No $\pi$ estimate or V1 consequence follows.
+
+## Cofinal fixed-target termwise no-go (`proof sketch`)
+
+At the concrete scale $q=100$, the rational core can be simplified further
+without dropping its carries or forcing phase.  Put
+
+\[
+\Phi(t)=\sum_{\substack{1\le j\le49\\10\nmid j}}
+ C_{100,100}(100+j)e((100+j)t),
+\qquad z_n=y_n+\frac{f_n}{10}.
+\]
+
+If $r_A(n)$ is the $n$th summand of the carry-cancelled core above, direct
+substitution of $y_{n+1}=10y_n+f_n-b_n$ twice gives the exact identity
+
+\[
+r_A(n)=e(f_{n+1})\Phi(z_n-c_{100,A}).
+\]
+
+A directed rational interval certificate constructs a selector
+$\sigma:\mathbb N\to\{0,\ldots,99\}$, depending only on the fractional part
+of $100z_n$, for which every $n$ satisfies
+
+\[
+\operatorname{Re}r_{\sigma(n)}(n)
+ <-\frac{9343}{400000}<-\frac1{50}.
+\]
+
+The certificate uses 501 distinct mesh nodes and the exact coefficient
+moments
+
+\[
+\sum_j C_{100,100}(100+j)<1,
+\qquad
+\sum_j jC_{100,100}(100+j)<7.
+\]
+
+The BBP error coboundary then transfers the same selector to the actual-$\pi$
+singleton increment $\eta_A(n)$ with an error below $1/4000000$:
+
+\[
+\operatorname{Re}\eta_{\sigma(n)}(n)
+ <-\frac{93429}{4000000}<-\frac1{50}.
+\]
+
+Since the selector has finite range, the exact, time-independent target
+
+\[
+A_*:=\min\{A<100:\{n:\sigma(n)=A\}\text{ is infinite}\}
+\]
+
+has both adverse bounds at arbitrarily late times.  Thus a finite transient
+cannot produce, for every target, an eventual termwise estimate
+
+\[
+\operatorname{Re}\eta_A(n)\ge-\frac C{100}
+\]
+
+for any $C\le93429/40000$.  In particular it cannot do so with a constant
+compatible with the endpoint-free T139 zero-mode budget, since
+
+\[
+C<C_{\mathrm{T139}}:=50\alpha_{100}(0)
+=\frac{20001(1-\cos(\pi/100))-3}{6}
+=1.144881020833854738\ldots .
+\]
+
+Reproduce the inclusive-T112 index checks, the directed interval bounds, and
+the deterministic certificate hash with
+[`bbp_q100_cofinal_fixed_target_obstruction.py`](../../../../workflows/experiments/bbp_q100_cofinal_fixed_target_obstruction.py).
+
+This is only a cofinal obstruction to eventual **termwise** rehabilitation.
+Positive increments at intervening times can still compensate in prefixes,
+and the other primitive rays can compensate in the full T139 sum.  It proves
+no adverse prefix, T139 failure, target hit, cancellation estimate, or V1.
