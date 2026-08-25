@@ -266,6 +266,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T164T164QuadraticBBPTailTransfer
 import TheoryLib.PiQuantitativeBlockHitting.T165T165DelayedBBPActualPhaseArithmetic
 import TheoryLib.PiQuantitativeBlockHitting.T166T166DelayedBBPLocalCoordinate
 import TheoryLib.PiQuantitativeBlockHitting.T168T168StableBBPPrimePowerTransport
+import TheoryLib.PiQuantitativeBlockHitting.T169T169SingleRateMachinPhaseTransfer
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3377,6 +3378,18 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T168StableBBPPrimePowerTransport.scaledBBPRat_padicVal_persists_one_step
 #print axioms Theory.PiDigits.T168StableBBPPrimePowerTransport.scaledBBPRat_padicVal_persists_block
 #print axioms Theory.PiDigits.T168StableBBPPrimePowerTransport.scaledBBPRat_primePower_transport
+
+-- A single-rate explicit rational Machin carrier for the actual decimal pi
+-- phases, including the complete natural frequency window and a transfer
+-- bound uniform in the finite horizon.  No carrier cancellation is asserted.
+#print axioms Theory.PiDigits.T169SingleRateMachinPhaseTransfer.delayedSingleRateMachinValue_isRat
+#print axioms Theory.PiDigits.T169SingleRateMachinPhaseTransfer.scaled_machinLower_error_lt
+#print axioms
+  Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_phase_pi_sub_delayedSingleRateMachinValue_lt
+#print axioms
+  Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
+#print axioms
+  Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
