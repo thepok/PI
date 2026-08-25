@@ -253,6 +253,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
+import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3182,6 +3183,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 #print axioms Theory.Shared.FiniteQuasiconcaveAbel.norm_sum_mul_circleExp_pow_le
 #print axioms Theory.Shared.FiniteQuasiconcaveAbel.norm_sum_mul_circleExp_pow_lt
 #print axioms Theory.PiDigits.BoundaryCoefficientAbel.sampled_positiveBoundaryCoefficient_abel_lt
+
+-- Exact decimal-valuation reindexing of T139's literal endpoint into the
+-- coefficient layers consumed by the finite Abel estimate.
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_terminal_sub_initial
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.initialBoundaryEndpoint_eq_sum_layers
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.terminalBoundaryEndpoint_eq_sum_layers
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
