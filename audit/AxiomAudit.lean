@@ -259,6 +259,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
 import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
 import TheoryLib.PiQuantitativeBlockHitting.T147T147BoundaryEndpointContraction
 import TheoryLib.PiQuantitativeBlockHitting.T148T148ImprovedPrimitiveBoundaryConsumer
+import TheoryLib.PiQuantitativeBlockHitting.T149T149BoundaryRootGridProjection
+import TheoryLib.PiQuantitativeBlockHitting.T150T150BoundaryKernelFloors
+import TheoryLib.PiQuantitativeBlockHitting.T151T151BoundaryProjectedLayerFloor
+import TheoryLib.PiQuantitativeBlockHitting.T152T152BoundaryRootGridEndpoint
+import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsumer
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3221,12 +3226,25 @@ import TheoryLib.PiQuantitativeBlockHitting.T148T148ImprovedPrimitiveBoundaryCon
 -- Exact layer partition of the literal endpoint budget and the unconditional
 -- pi-specific saving supplied by the first two decimal valuation layers.
 #print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpointBudget_eq_sum_layerMasses
+#print axioms Theory.PiDigits.BoundaryEndpointContraction.boundaryLayerPolynomial_norm_le_mass
+#print axioms Theory.PiDigits.BoundaryEndpointContraction.initial_layers_strict_saving
 #print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub
 
 -- T147's unconditional endpoint saving transported to the exact signed
 -- defect and decimal-cylinder hitting consumer.
 #print axioms Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.directionalBoundaryDefect_lt_primitive_add_improvedEndpointBudget
 #print axioms Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten
+
+-- Exact root-grid projection, analytic kernel floors, the resulting terminal
+-- endpoint contraction, and its natural-horizon decimal-cylinder consumer.
+#print axioms Theory.PiDigits.BoundaryRootGridProjection.rootGridProjection_eq
+#print axioms Theory.PiDigits.BoundaryRootGridProjection.boundaryLayerPolynomial_eq_divisible
+#print axioms Theory.PiDigits.BoundaryKernelFloors.fejerFactor_eq_sine_quotient
+#print axioms Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_193
+#print axioms Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_eight_mul_sq_div
+#print axioms Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt
+#print axioms Theory.PiDigits.BoundaryRootGridEndpoint.primitiveBoundaryEndpoint_re_gt_neg_two_budget_add
+#print axioms Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

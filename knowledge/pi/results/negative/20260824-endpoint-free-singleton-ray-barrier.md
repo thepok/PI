@@ -127,6 +127,117 @@ mean over a hypothetical uniform predecessor digit is zero, while their mean
 square is $\sum_{s=1}^9|G_{q,s,A'}(y)|^2$.  This identity is only a sharper
 description of the surviving actual-$\pi$ target, not an estimate for it.
 
+## Matched finite carry characters collapse (`proof sketch`)
+
+The natural finite fractional-successor refinement of these channels does not
+create a new frequency algebra. Let `b >= 2`, `r >= 1`, `x in [0,1)`, and put
+
+\[
+D_r(x)=\lfloor b^r x\rfloor,\qquad
+T_r(x)=b^r x-D_r(x).
+\]
+
+For `0 <= s < b^r` and `m in Z`, direct expansion gives
+
+\[
+\boxed{
+e\!\left(\frac{s}{b^r}D_r(x)\right)
+e\!\left(\left(m+\frac{s}{b^r}\right)T_r(x)\right)
+=e((b^rm+s)x).}
+\]
+
+The map `(s,m) -> b^r m+s` is a bijection from
+`{0,...,b^r-1} x Z` to `Z`. Thus a finite linear combination of these
+*matched* local characters is exactly a finite ordinary integer-frequency
+trigonometric polynomial, with its coefficients merely reindexed. This is a
+no-go only for this matched finite local family; it does not say that every
+fractional carry observable collapses or that every noncollapsed observable
+must have one universal form.
+
+For the displayed nine-channel singleton belt, the specialization `b=10`,
+`r=1`, `m=ell` is exact term by term:
+
+\[
+\omega^{s(d_n-a)}G_{q,s,A'}(x_{n+1})
+=\sum_{\ell=0}^{Q/2-1}C_{q,q}(q+10\ell+s)
+e((10\ell+s)(x_n-c_{q,A})).
+\]
+
+The discrepancy before exponentiation is the integer
+`ell*(a-d_n)`. This displayed identity covers the endpoint-free singleton
+belt encoded by `G`; it is not, by itself, an identity for the entire T139
+primitive polynomial.
+
+For a forced recurrence
+
+\[
+y_{n+r}=b^r y_n+F_{n,r}-D_{n,r},\qquad D_{n,r}\in\mathbb Z,
+\]
+
+the same calculation leaves the exact forcing factor
+
+\[
+e\!\left(\frac{s}{b^r}D_{n,r}\right)
+e\!\left(\left(m+\frac{s}{b^r}\right)y_{n+r}\right)
+=e((b^rm+s)y_n)
+e\!\left(\left(m+\frac{s}{b^r}\right)F_{n,r}\right).
+\]
+
+The sampled-BBP forcing phase on the right remains unbounded here. This
+identity reorganizes the rational numerator/forcing correlation; it proves no
+BBP cancellation estimate.
+
+The unmatched bare predecessor-digit character
+
+\[
+g_s(x)=\omega^{s\lfloor10x\rfloor},\qquad 1\le s\le9,
+\]
+
+has mean zero and Fourier coefficients
+
+\[
+\widehat g_s(h)=
+\begin{cases}
+\displaystyle\frac{10(1-e(-h/10))}{2\pi i h},
+  &h\ne0,\ h\equiv s\pmod {10},\\
+0,&\text{otherwise}.
+\end{cases}
+\]
+
+Hence
+
+\[
+|\widehat g_s(h)|=
+\frac{10|\sin(\pi s/10)|}{\pi|h|}
+\quad(h\equiv s\bmod 10),
+\]
+
+so its Fourier coefficients are not in `ell^1`. At the decimal jump points a
+Fourier series has the usual midpoint boundary behavior; quantitative use of
+a truncation therefore needs actual-orbit anti-concentration near those
+boundaries. The phrase "first noncollapsed channel" is justified here only
+relative to the matched finite family above.
+
+Finally, for
+
+\[
+J_{q,s}=\{1\le j\le q/2:j\equiv s\pmod {10}\},
+\qquad 1\le s\le9,
+\]
+
+one has `|J_(q,s)|=q/20` and
+`C_(q,q)(q+j) >= 1/(4q)`. Therefore every residue channel retains
+
+\[
+\sum_{j\in J_{q,s}}C_{q,q}(q+j)\ge\frac1{80},
+\qquad
+\left(\sum_{j\in J_{q,s}}C_{q,q}(q+j)^2\right)^{1/2}
+\ge\frac1{8\sqrt{5q}}.
+\]
+
+These are coefficient-mass facts. They are not an empirical-orbit `L^2`
+lower bound and supply no signed off-diagonal cancellation estimate.
+
 ## Exact BBP carry cancellation and tail no-go
 
 Let $y_n$, $\tau_n$, and $f_n$ be the canonical selected BBP orbit, error,

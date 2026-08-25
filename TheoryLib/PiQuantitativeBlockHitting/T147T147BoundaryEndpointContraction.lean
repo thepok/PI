@@ -79,7 +79,7 @@ private lemma boundaryLayerPolynomial_abel_lt
   rw [boundaryLayerPolynomial_eq_abel]
   exact sampled_positiveBoundaryCoefficient_abel_lt q (10 ^ s) hq (by positivity) t hsin
 
-private lemma boundaryLayerPolynomial_norm_le_mass
+theorem boundaryLayerPolynomial_norm_le_mass
     (q s : ℕ) (hq : 1000 ≤ q) (t : ℝ) :
     ‖boundaryLayerPolynomial q s t‖ ≤ boundaryLayerMass q (10 ^ s) := by
   unfold boundaryLayerPolynomial boundaryLayerMass
@@ -163,7 +163,7 @@ private lemma sum_layer_norm_lt_budget_sub
     exact boundaryLayerPolynomial_norm_le_mass (10 ^ k) s hq (t s)
   linarith
 
-private lemma initial_layers_strict_saving
+theorem initial_layers_strict_saving
     (k A : ℕ) (hk : 3 ≤ k) :
     ‖∑ s ∈ Icc 1 k,
         boundaryLayerPolynomial (10 ^ k) s

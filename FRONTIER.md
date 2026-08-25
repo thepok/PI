@@ -149,6 +149,29 @@ endpoint-free singleton and primitive/off-diagonal cancellation estimates
 remain open. It proves neither T124 nor V1 and supplies no exact π-orbit
 logical separator.
 
+The independently audited
+[`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
+is now `machine-checked` through T149--T153. T149's
+`Theory.PiDigits.BoundaryRootGridProjection.rootGridProjection_eq` and
+`Theory.PiDigits.BoundaryRootGridProjection.boundaryLayerPolynomial_eq_divisible`
+express each terminal divisibility layer as an exact grid average of the T128
+kernel. T150's
+`Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_193` and
+`Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_eight_mul_sq_div`,
+followed by T151's
+`Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt`,
+supply the pointwise projected-layer floor. T152 then proves
+`Theory.PiDigits.BoundaryRootGridEndpoint.primitiveBoundaryEndpoint_re_gt_neg_two_budget_add`:
+`Re B > -2E + 52909/200000` for every `k>=3`, target, and horizon. At `N=q`,
+T153's
+`Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge`
+machine-checks the exact scale-dependent conditional consumer. The scalar
+comparison reducing this premise to `Re Z_(q,A)(q) >= -861/1000` remains
+`proof sketch`, as do the stronger AX savings `1983/100000`, `2163/8000`, and
+the `-8669/10000` threshold. No actual-pi estimate proving either signed
+primitive inequality is known, so the primitive/off-diagonal frontier and V1
+remain open.
+
 The [fixed-degree no-go](knowledge/pi/results/negative/20260824-fixed-degree-transcendence-measures-do-not-force-decimal-dispersion.md)
 now also has an exact fixed-target T139 form: affine
 digit recoding produces, for every prescribed cylinder, a transcendental
@@ -203,6 +226,17 @@ prime to five and numerator divisible by `5^ceil(m/2)`. The
 [`machine-checked record`](knowledge/pi/results/machine-checked/t141_scaled_bbp_five_adic_numerator_20260825.md)
 retains only this audited arithmetic statement. It supplies no control of the
 remaining Archimedean phase, primitive cancellation, T139, or V1.
+
+The audited `proof sketch`
+[`T106--T141 phase-flexibility separator`](knowledge/pi/results/negative/20260825-t106-t141-five-adic-phase-flexibility-no-go.md)
+shows that the logarithmically sharper T141 valuation, positive T106-form
+forcing, exact coboundary and geometric tail, and the cofinal even-depth
+`2^(27m)` denominator scale still admit strictly increasing rational shadows
+of every decimal orbit. A word-omitting example has asymptotically maximal
+primitive Weyl sums on an expanding window. Thus this envelope cannot supply
+T139 cancellation; a live BBP route must retain the actual odd-denominator,
+numerator-residue, or seven-pole coefficient coupling destroyed by the
+countermodel.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
