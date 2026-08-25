@@ -1055,6 +1055,57 @@ limit to `2-2*Re(I_h(A_tau))`; as `tau -> +infinity` this tends to the
 decorrelated value `2`, not the pointwise maximum squared distance `4`.
 This reinforces non-transfer rather than proving cancellation for T139 or V1.
 
+## Machine-checked quadratic transfer and actual local arithmetic
+
+T164 replaces the coarse exponential transfer constant by an explicit
+quadratic one.  With
+
+\[
+ \Lambda_t=(56t+9)(56t+10),\qquad \rho=10/16^7,
+\]
+
+the actual sampled BBP error now satisfies the machine-checked finite bounds
+
+\[
+ \frac{\rho^t}{4\Lambda_t}<10^t(\pi-B_{7t})
+ <\frac{\rho^t}{\Lambda_t}.
+\]
+
+Consequently T164 gives both pointwise and horizon-uniform T155 transfers
+with the additional factor `1/Lambda_(n+k)`, including the literal delayed
+numerator phase under the existing per-index burn-in.  This sharpens a real
+verified bridge but does not bound the rational carrier itself.
+
+T165 and T166 add two exact pieces of actual carrier arithmetic.  At positive
+even depth `t=n+k`, under the T154 burn-in, T165 proves
+
+\[
+ \gcd\!\left(|U_{k,n}|,2^kD_t\right)=1
+\]
+
+and proves no alias between distinct frequencies throughout
+`|h|<2*10^k`.  It also transports every verified T159--T162 prime projection
+from `p*scaledBBPRat t` to the literal delayed coordinate
+
+\[
+ \frac{pU_{k,n}}{2^kD_t}\pmod p.
+\]
+
+T166 uses the valuation `v_p(scaledBBPRat t)=-1` to write `D_t=pE` with
+`p` not dividing `E`, and removes the pole.  The delayed local coordinate is
+then exactly
+
+\[
+ \frac{U_{k,n}}{2^kE}\equiv c10^n\pmod p,
+ \qquad c\in\{4,-2,-8/3\},
+\]
+
+for the corresponding verified upper- and lower-band projections.  These are
+genuine fixed-pi numerator/denominator consequences, not same-fiber data.
+They isolate an explicit local factor of the target phase while leaving the
+same-index complementary CRT factor uncontrolled.  Thus they do not yet
+prove temporal cancellation, a T139 premise, density, normality, or V1.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
@@ -1113,13 +1164,23 @@ The strict verifier and exact axiom audit accept the following declarations:
   `scaledBBPRat_minusSevenVal_of_secondary`;
 - T163: `bbpPartial_eq_sum_combined`, `scaledBBPRat_two_val_even`,
   `scaledBBPRat_even_two_primary`, `scaledBBPRat_even_tail_lt_spacing`, and
-  `scaledBBPRat_even_unique_immediate_lift`.
+  `scaledBBPRat_even_unique_immediate_lift`;
+- T164: `bbpCombinedTerm_quadratic_bounds`,
+  `real_bbp_tail_quadratic_bounds`, `sampledBBPError_quadratic_bounds`, the
+  two sharpened pointwise phase-transfer theorems, and the sharpened delayed
+  value and numerator-phase horizon theorems;
+- T165: actual even-depth delayed-numerator coprimality and natural-window
+  no-alias, the generic delayed prime-projection transport, and its concrete
+  T159--T162 upper-, safe-later-, and lower-band corollaries;
+- T166: multiplicity-one denominator decomposition, generic and actual
+  delayed local-coordinate transport, and the `4`, `-2`, and `-8/3`
+  residue wrappers.
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
 Hausdorff/TP2 diagnostic, critical truncation-overlap law, and arbitrary
-finite-product/moving-horizon extensions, as well as the BA sharp-tail,
-improved-transfer, reduced-cofactor, short-order, compensation, negligibility,
-and off-diagonal claims and the BC/BD shadow constructions are not among these
+finite-product/moving-horizon extensions, as well as the remaining BA
+asymptotic-limit, short-order, compensation, negligibility, and off-diagonal
+claims and the BC/BD shadow constructions are not among these
 declarations and remain `proof sketch`. No theorem listed here proves
 cancellation, a T139 premise, density, normality, or V1.
