@@ -3,6 +3,7 @@ TheoryLib — the canonical machine-verified Pi knowledge base. Modules enter
 this import surface only after isolated Lean compilation, exact axiom audit,
 and controller review. Model output is never trusted directly.
 -/
+import TheoryLib.Shared.FiniteQuasiconcaveAbel
 import TheoryLib.PiDigits.T7Statements
 import TheoryLib.PiDecimalFactorComplexity.T1DecimalFactorComplexity
 import TheoryLib.PiDigits.T8PiDigitsV2Diagonal

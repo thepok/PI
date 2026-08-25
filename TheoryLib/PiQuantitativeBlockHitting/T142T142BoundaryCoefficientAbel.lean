@@ -1,4 +1,5 @@
 import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
+import TheoryLib.Shared.FiniteQuasiconcaveAbel
 
 /-!
 # T142: boundary-coefficient Abel bounds
@@ -362,6 +363,32 @@ theorem positiveBoundaryCoefficient_quasiconcave
       apply (hdecr n (le_trans hpj hjn) (by omega)).le
     exact (min_le_right _ _).trans hanti
 
+/-- Every coefficient in the positive support is strictly positive. -/
+theorem positiveBoundaryCoefficient_pos
+    (q h : ℕ) (hq : 1000 ≤ q) (hh0 : 1 ≤ h) (hhsupp : h ≤ 2 * q - 1) :
+    0 < positiveBoundaryCoefficient q h := by
+  have hq1 : 1 < q := by omega
+  have hleft : 0 < positiveBoundaryCoefficient q 1 := by
+    have hlower := one_div_three_mul_lt_positiveBoundaryCoefficient q 1 hq1
+      (by omega) (by omega)
+    exact (by positivity : 0 < 1 / (3 * (q : ℝ))).trans hlower
+  have hright : 0 < positiveBoundaryCoefficient q (2 * q - 1) := by
+    rw [positiveBoundaryCoefficient_eq_piecewise q (2 * q - 1) hq1 (by omega) le_rfl]
+    simp only [if_neg (show ¬2 * q - 1 ≤ q by omega)]
+    have hcast : (((2 * q - 1 : ℕ) : ℝ)) = 2 * (q : ℝ) - 1 := by
+      rw [Nat.cast_sub (by omega : 1 ≤ 2 * q)]
+      push_cast
+      ring
+    rw [hcast]
+    have hqR : (0 : ℝ) < q := by positivity
+    field_simp
+    nlinarith [sq_pos_of_pos hqR]
+  have hmiddle := positiveBoundaryCoefficient_quasiconcave q 1 h (2 * q - 1)
+    hq (by omega) hh0 hhsupp le_rfl
+  have hmin : 0 < min (positiveBoundaryCoefficient q 1)
+      (positiveBoundaryCoefficient q (2 * q - 1)) := lt_min hleft hright
+  exact hmin.trans_le hmiddle
+
 /-- Sampling the coefficient profile along any positive dilation preserves its
 one-peak shape.  The statement includes the full supported sample range. -/
 theorem sampled_positiveBoundaryCoefficient_quasiconcave
@@ -522,6 +549,51 @@ theorem positiveBoundaryCoefficient_lt_five_div_two_mul
         exact_mod_cast (show 2 * q - h ≤ q by omega)
       nlinarith
     nlinarith
+
+/-- Sharp finite Abel bound for every positively dilated coefficient layer.
+The sum contains exactly the supported positive frequencies `d,2d,...`. -/
+theorem sampled_positiveBoundaryCoefficient_abel_lt
+    (q d : ℕ) (hq : 1000 ≤ q) (hd : 0 < d) (t : ℝ)
+    (hsin : Real.sin (Real.pi * t) ≠ 0) :
+    ‖∑ i ∈ range ((2 * q - 1) / d),
+        (positiveBoundaryCoefficient q (d * (i + 1)) : ℂ) *
+          Theory.Shared.FiniteQuasiconcaveAbel.circleExp t ^ (i + 1)‖ <
+      5 / (2 * (q : ℝ) * |Real.sin (Real.pi * t)|) := by
+  let M := (2 * q - 1) / d
+  by_cases hM : M = 0
+  · have habs : 0 < |Real.sin (Real.pi * t)| := abs_pos.mpr hsin
+    simp [M, hM]
+    positivity
+  · have hMpos : 0 < M := Nat.pos_of_ne_zero hM
+    let a : ℕ → ℝ := fun i => positiveBoundaryCoefficient q (d * (i + 1))
+    have hfreq (i : ℕ) (hi : i ≤ M - 1) : d * (i + 1) ≤ 2 * q - 1 := by
+      have hiM : i + 1 ≤ M := by omega
+      have hmul := (Nat.le_div_iff_mul_le hd).1 (show i + 1 ≤ (2 * q - 1) / d by
+        simpa [M] using hiM)
+      simpa [Nat.mul_comm] using hmul
+    have hnonneg : ∀ i, i ≤ M - 1 → 0 ≤ a i := by
+      intro i hi
+      exact (positiveBoundaryCoefficient_pos q (d * (i + 1)) hq
+        (Nat.mul_pos hd (by omega)) (hfreq i hi)).le
+    have hbound : ∀ i, i ≤ M - 1 → a i < 5 / (2 * (q : ℝ)) := by
+      intro i hi
+      exact positiveBoundaryCoefficient_lt_five_div_two_mul q (d * (i + 1)) hq
+        (Nat.mul_pos hd (by omega)) (hfreq i hi)
+    have hquasi : ∀ i j k, i ≤ j → j ≤ k → k ≤ M - 1 →
+        min (a i) (a k) ≤ a j := by
+      intro i j k hij hjk hk
+      apply sampled_positiveBoundaryCoefficient_quasiconcave q d (i + 1) (j + 1) (k + 1)
+        hq hd (by omega) (by omega) (by omega)
+      have hkM : k + 1 ≤ M := by omega
+      simpa [M] using hkM
+    have hmain :=
+      Theory.Shared.FiniteQuasiconcaveAbel.norm_sum_mul_circleExp_pow_lt
+        a (M - 1) (5 / (2 * (q : ℝ))) t hnonneg hbound hquasi hsin
+    have hlen : M - 1 + 1 = M := Nat.sub_add_cancel hMpos
+    change ‖∑ i ∈ range M, (a i : ℂ) *
+        Theory.Shared.FiniteQuasiconcaveAbel.circleExp t ^ (i + 1)‖ < _
+    rw [← hlen]
+    convert hmain using 1 <;> field_simp
 
 end Theory.PiDigits.BoundaryCoefficientAbel
 
