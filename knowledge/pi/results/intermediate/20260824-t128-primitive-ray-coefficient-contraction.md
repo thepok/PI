@@ -1,8 +1,8 @@
 # T128 primitive-ray coefficient contraction
 
 Status: `machine-checked` (T138 coefficient gap and T139 primitive-ray
-identity/consumers); `proof sketch` (sharp endpoint-budget evaluation and
-explicit threshold comparisons)
+identity/consumers); `proof sketch` (sharp endpoint-budget evaluation,
+actual-pi two-layer endpoint contraction, and explicit threshold comparisons)
 
 This note records the independently audited, corrected part of
 `workflows/state/chatgpt-pro/20260824-open-frontier-creative-c/answer.md`.
@@ -257,6 +257,67 @@ over the target labels itself gives only averaged control and does not yield a
 wordwise estimate: the supported frequency `h=q` survives. Hence this remains
 an endpoint improvement for every target and the actual literal orbit blocks,
 not a proof of T124 or V1.
+
+## Proof-sketch actual-pi two-layer endpoint contraction
+
+For `q=10^k`, split the literal T139 endpoint as `B=T-I`.  Regrouping its
+pairs `(h,j)` by `s=v_10(h)-j` gives
+
+\[
+ I=\sum_{s=1}^kP_{q,s}(\pi-10^sc_{q,A}),\qquad
+ T=\sum_{s=1}^kP_{q,s}(10^N\pi-10^sc_{q,A}),
+\]
+
+where
+
+\[
+ P_{q,s}(t)=\sum_{10^sm\le2q-1}\alpha_q(10^sm)e(mt),\qquad
+ M_{q,s}=\sum_{10^sm\le2q-1}\alpha_q(10^sm)
+ =\frac{\delta_q q^2/10^s-\alpha_q(0)}2.
+\]
+
+Thus `sum_s M_(q,s)=E_(q,A)`.  Put
+`theta_1=pi-10c_(q,A)` and `theta_2=pi-100c_(q,A)`, with all phase
+magnitudes below interpreted as circle distances.  The exact relation
+`theta_2=10 theta_1-9pi`, together with
+`dist(9pi,Z)>13/50`, forces
+
+\[
+ \|\theta_1\|\ge\frac7{1000}
+ \quad\text{or}\quad
+ \|\theta_2\|>\frac{19}{100}.
+\]
+
+The sampled coefficient sequences `m -> alpha_q(10^s m)` are nonnegative and
+unimodal, with `max_h alpha_q(h)<5/(2q)`.  Abel summation therefore gives
+
+\[
+ |P_{q,s}(t)|<\frac5{q|\sin(\pi t)|}.
+\]
+
+For `k>=3`, the first alternative saves more than `7/500` from the first
+layer mass, and the second saves more than `7/500` from the second.  Hence,
+uniformly in `A` and `N`,
+
+\[
+ \boxed{|I|<\mathfrak E_{q,A}-\frac7{500}},\qquad
+ \boxed{|\mathcal B_{q,A}(N)|<2\mathfrak E_{q,A}-\frac7{500}}.
+\]
+
+This is an unconditional actual-pi improvement over the phase-blind T139
+endpoint bound.  It yields the strictly weaker non-strict hit premise
+
+\[
+ -\frac2N\operatorname{Re}\sum_{u\in\mathcal P_q}p_{q,A}(u)S_u(N)
+ +\frac{4\mathfrak E_{q,A}-7/250}{N}\le\alpha_q(0).
+\]
+
+At `N>=q`, elementary scalar bounds leave margin greater than
+`5413/(4500q)`; at `N=q`, it is enough that the primitive real part is at
+least `-5413/9000`.  These are sufficient conditions, not equivalent
+reformulations.  The gain is only `7/(250N)` and does not affect endpoint-free
+singleton rays or prove the still-open extensive primitive/off-diagonal
+estimate.
 
 ## Proof-sketch explicit threshold comparison
 

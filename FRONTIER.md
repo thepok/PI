@@ -134,6 +134,9 @@ sketch` evaluates the exact endpoint budget as
 `E=δq(q-1)/18-(k/2)α₀<π²/36`, sharp in the limit, reducing the literal
 endpoint defect below `π²/(9N)` for every target; target averaging does not
 provide wordwise control because `h=q` survives. The needed
+An actual-pi two-layer `proof sketch` further improves the literal endpoint term
+from `4E/N` to `(4E-7/250)/N` for `k>=3`; the endpoint-free singleton and
+primitive/off-diagonal estimates remain open. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
