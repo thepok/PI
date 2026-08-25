@@ -13,6 +13,8 @@ noncomputable section
 
 namespace Theory.PiDigits.T106BBPForcedOrbit
 
+open Theory.PiDigits.OversampledBBPGridStability
+
 def sampledBBPValue (N : ℕ) : ℝ :=
   T100BBPRealBridge.bbpRealPartial (7 * N)
 
@@ -97,6 +99,37 @@ theorem pi_sub_sampledBBPValue_lt_pow16 (N : ℕ) :
   exact
     (T100BBPRealBridge.real_bbp_hasSum_tail_bounds
       T104BBPSeriesIdentity.bbpRealTerm_hasSum_pi (7 * N)).2.2
+
+/-- Conditional on the published exponent-eight irrationality-measure input,
+the `m`-digit decimal prefix floor of the sevenfold sampled BBP partial sum
+eventually agrees with that of `pi`.  This is only a fixed-grid carry-stability
+statement; it supplies no cancellation, density, or word occurrence. -/
+theorem eventually_decimalPrefixFloor_sampledBBPValue_eq_pi
+    (hSource :
+      Theory.PiDigits.LongLagBlockCollisionDecay.T4.IrrationalityMeasureBelow
+        Real.pi 8) :
+    ∃ C : ℕ, ∀ m : ℕ, C ≤ m →
+      decimalPrefixFloor (sampledBBPValue m) m =
+        decimalPrefixFloor Real.pi m := by
+  obtain ⟨A, hD⟩ :=
+    irrationalityMeasureBelow_eight_implies_exists_powerTenDiophantine
+      hSource
+  obtain ⟨Cscale, hscale⟩ :=
+    eventually_powTenEight_lt_powSixteenSeven 0
+  refine ⟨max A Cscale, fun m hm ↦ ?_⟩
+  have hmA : A ≤ m := (Nat.le_max_left A Cscale).trans hm
+  have hmScale : Cscale ≤ m := (Nat.le_max_right A Cscale).trans hm
+  have hscale' :
+      (10 : ℝ) ^ (8 * m) < (16 : ℝ) ^ (7 * m) := by
+    simpa using hscale m hmScale
+  have hbelow : sampledBBPValue m ≤ Real.pi :=
+    (T100BBPRealBridge.real_bbp_hasSum_tail_bounds
+      T104BBPSeriesIdentity.bbpRealTerm_hasSum_pi (7 * m)).1
+  have hclose :
+      Real.pi - sampledBBPValue m < 1 / (10 : ℝ) ^ (8 * m) :=
+    (pi_sub_sampledBBPValue_lt_pow16 m).trans
+      (one_div_lt_one_div_of_lt (by positivity) hscale')
+  exact decimalPrefixFloor_eq_of_powerTenDiophantine hD hmA hbelow hclose
 
 theorem sampledBBPError_nonneg (N : ℕ) : 0 ≤ sampledBBPError N := by
   refine mul_nonneg (by positivity) ?_

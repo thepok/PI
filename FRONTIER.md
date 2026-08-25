@@ -178,7 +178,12 @@ and the remaining rays stay open.  The
 [`sampled-quotient carry corollary`](knowledge/pi/results/negative/20260824-bbp-universal-grid-period-shadow-no-go.md#sampled-quotient-carry-corollary)
 also shows that the actual BBP tail exceeds one reduced-denominator cell at
 cofinally many even depths, so denominator granularity alone cannot remove
-the quotient carry; the specific numerator remainder remains open.
+the quotient carry.  Conditional on the existing explicit
+`IrrationalityMeasureBelow Real.pi 8` premise, the same note specializes
+T35 through T104/T106 to prove eventual equality of the sampled BBP and pi
+prefix floors, hence eventual zero carry; cofinal carry compensation is
+retired.  This is not distribution or cancellation: the signed T139 quotient
+core and V1 remain open.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal

@@ -2989,6 +2989,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.sampledBBPForcing_pos
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.sampledBBPOrbit_succ
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.pi_sub_sampledBBPValue_lt_pow16
+#print axioms Theory.PiDigits.T106BBPForcedOrbit.eventually_decimalPrefixFloor_sampledBBPValue_eq_pi
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.sampledBBPError_nonneg
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.scaled_sampledBBPValue_add_error
 #print axioms Theory.PiDigits.T106BBPForcedOrbit.sampledBBPError_lt_geometric

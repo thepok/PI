@@ -348,14 +348,80 @@ fraction bound \(g_m\ge1\) therefore cannot certify \(c_m=0\); denominator
 size, its exact two-adic valuation, reducedness, and numerator parity do not
 replace control of the specific top remainder \(g_m\).
 
+### Conditional eventual noncarry
+
+Assume the repository's existing explicit external hypothesis
+
+\[
+ \operatorname{IrrationalityMeasureBelow}(\pi,8). \tag{18}
+\]
+
+Then there is \(m_0\) such that, for every \(m\ge m_0\),
+
+\[
+ \boxed{\lfloor10^m\widetilde B_m\rfloor
+ =\lfloor10^m\pi\rfloor},
+ \qquad \boxed{c_m=0}. \tag{19}
+\]
+
+To expose the exact carry boundary, define
+
+\[
+ t_m:=\lfloor Q_m\rfloor+1=j_m+1,
+\]
+
+not \(\lceil Q_m\rceil\), since those differ when \(Q_m\) is integral.  From
+the definitions above,
+
+\[
+ \frac{t_m}{10^m}-\pi
+ =\frac{g_m/d_m-\tau_m}{10^m}. \tag{20}
+\]
+
+Write \(t_m/10^m=p_m/b_m\) in lowest terms.  Then \(b_m\mid10^m\), so
+\(b_m\le10^m\).  The T104 BBP identity and T106 sampled tail bound give
+
+\[
+ 0<\pi-\widetilde B_m<16^{-7m},\qquad
+ 0<\frac{t_m}{10^m}-\widetilde B_m\le10^{-m},
+\]
+
+and hence \(t_m/10^m\to\pi\).  The reduced denominators \(b_m\) therefore tend
+to infinity: otherwise a bounded-denominator subsequence would contain a
+constant rational further subsequence converging to \(\pi\), contrary to
+(18).  The
+effective exponent-eight consequence of (18) now yields, eventually,
+
+\[
+ \left|\frac{t_m}{10^m}-\pi\right|>b_m^{-8}\ge10^{-8m},
+ \qquad
+ \left|\frac{g_m}{d_m}-\tau_m\right|>10^{-7m}. \tag{21}
+\]
+
+But T106 also gives
+
+\[
+ \tau_m<\left(\frac{10}{16^7}\right)^m<10^{-7m}.
+\]
+
+If \(g_m/d_m\le\tau_m\), then the absolute value in (21) is strictly less
+than \(\tau_m\), a contradiction.  Thus \(g_m/d_m>\tau_m\), so (16) gives
+\(c_m=0\), and (19) follows from
+\(10^m\pi=Q_m+\tau_m\).
+
+This is essentially T35's one-sided decimal-grid stability specialized to the
+BBP truncations through T104/T106; (20)--(21) merely expose the corresponding
+specific-remainder statement.  It is not a new distribution or cancellation
+estimate.  Cofinal carry compensation is retired, while V1 and the full signed
+T139 quotient-core estimate remain open.
+
 ## Scope firewall
 
 This is a denominator-plus-remainder and post-preperiod magnitude-only
 certificate no-go, together with the narrower sampled-quotient granularity
-obstruction above.  It does not prove that any carry \(c_m=1\) actually occurs,
-that sampled BBP shadowing fails before the preperiod, or that the exact tail
-phase is uncontrolled.  It does not rule out a specific-remainder estimate,
-signed carry information, signed Fourier cancellation, or another argument
-using the exact tail phase rather than its one-sided magnitude arc.  Nothing
-here proves or disproves T139, a covariance estimate, decimal density,
-normality, V1, or any occurrence statement for pi.
+obstruction and the conditional eventual-noncarry closure above.  The closure
+depends explicitly on (18); it is not an unconditional theorem about the BBP
+quotients.  It shows that no carry occurs eventually under that premise, but
+does not supply signed Fourier cancellation or control of the surviving
+quotient core.  Nothing here proves T139, a covariance estimate, decimal
+density, normality, V1, or any occurrence statement for pi.
