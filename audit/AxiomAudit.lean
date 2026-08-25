@@ -258,6 +258,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
 import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
 import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
 import TheoryLib.PiQuantitativeBlockHitting.T147T147BoundaryEndpointContraction
+import TheoryLib.PiQuantitativeBlockHitting.T148T148ImprovedPrimitiveBoundaryConsumer
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3221,6 +3222,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T147T147BoundaryEndpointContraction
 -- pi-specific saving supplied by the first two decimal valuation layers.
 #print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpointBudget_eq_sum_layerMasses
 #print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub
+
+-- T147's unconditional endpoint saving transported to the exact signed
+-- defect and decimal-cylinder hitting consumer.
+#print axioms Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.directionalBoundaryDefect_lt_primitive_add_improvedEndpointBudget
+#print axioms Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
