@@ -185,6 +185,13 @@ prefix floors, hence eventual zero carry; cofinal carry compensation is
 retired.  This is not distribution or cancellation: the signed T139 quotient
 core and V1 remain open.
 
+T141 now proves an additional exact property of the actual reduced sampled
+BBP rational: for every `m >= 8`, `10^m * bbpPartial (7*m)` has denominator
+prime to five and numerator divisible by `5^ceil(m/2)`. The
+[`machine-checked record`](knowledge/pi/results/machine-checked/t141_scaled_bbp_five_adic_numerator_20260825.md)
+retains only this audited arithmetic statement. It supplies no control of the
+remaining Archimedean phase, primitive cancellation, T139, or V1.
+
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
 scales it lowers support from `2q-1` to `9q/5-1` and strictly raises the

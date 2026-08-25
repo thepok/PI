@@ -251,6 +251,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T134T134BoundaryAggregateDecimalScal
 import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
 import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
+import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3157,6 +3158,10 @@ import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 #print axioms Theory.PiDigits.MixedOrderBoundaryKernel.finite_decimalInterval_hit_of_mixedBoundary_directional_smallness
 #print axioms Theory.PiDigits.MixedOrderBoundaryKernel.normalizedDirectionalFourierDefect_eq_zero_sub_average
 #print axioms Theory.PiDigits.MixedOrderBoundaryKernel.mixedBoundary_directional_ten_four_strict_vs_symmetric
+
+-- Actual reduced arithmetic of the sampled BBP partial sum: the denominator
+-- is a five-unit and the numerator retains at least ceil(m/2) factors of five.
+#print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
