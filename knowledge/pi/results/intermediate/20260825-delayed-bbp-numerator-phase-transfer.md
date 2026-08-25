@@ -1,10 +1,12 @@
 # Delayed BBP transfer to actual numerator phases
 
 Status: `machine-checked` (the exact T154--T155 arithmetic identities and
-horizon-uniform phase-transfer bounds listed below); `proof sketch` (the
-explicit `nu_k <= 4*k` burn-in, its use to discharge the logarithmic
-hypothesis, the coefficient-summed corollary, and the predecessor/residue CRT
-identity, and the finite-local polynomial-division obstruction)
+horizon-uniform phase-transfer bounds and the exact T159 top-band prime
+projections listed below); `proof sketch` (the explicit `nu_k <= 4*k`
+burn-in, its use to discharge the logarithmic hypothesis, the
+coefficient-summed corollary, the predecessor/residue CRT identity, the
+finite-local polynomial-division obstruction, the general reciprocal-profile
+adaptation, and the scalar Hausdorff/TP2 diagnostic)
 
 Date: 2026-08-25 UTC
 
@@ -15,8 +17,14 @@ and phase-transfer core is now machine-checked in
 [`T154`](../../../../TheoryLib/PiQuantitativeBlockHitting/T154T154DelayedBBPFivePrimary.lean)
 and
 [`T155`](../../../../TheoryLib/PiQuantitativeBlockHitting/T155T155DelayedBBPPhaseTransfer.lean).
+The exact top-band subset of the later reciprocal-prime adaptation is checked
+in
+[`T159`](../../../../TheoryLib/PiQuantitativeBlockHitting/T159T159ExactBBPTopPrimeProjection.lean).
 It is not the whole T139 consumer and proves no cancellation or V1
-consequence.
+consequence. Later sections also retain the scoped proof-sketch conclusion of
+the AY follow-up and the broader adaptation from the independently audited AZ
+follow-up. Except for the explicitly identified T159 top-band subset, those
+later statements are not promoted to the verified core.
 
 ## Setup and logarithmic burn-in
 
@@ -281,6 +289,227 @@ congruences, or the seven-term rational formula before it is collapsed to the
 Archimedean recurrence. No primitive/off-diagonal estimate, T139 premise, or
 V1 consequence is obtained.
 
+## Reciprocal-prime profiles at the delayed phase
+
+Status in this section: `machine-checked` only for the exact T159 top-band
+subset stated next; `proof sketch` for the general quotient profiles,
+middle bands, endpoint corrections, delayed CRT factorization, and all
+cancellation discussion. This is the compact, independently audited part of
+the ChatGPT Pro AZ follow-up. The general `p^2` localization,
+height-protected survival, and simultaneous high-prime CRT skeleton are **not
+new here**: they were already derived in
+[`bbp_actual_odd_quotient_attack.md`](ultrapi-campaign/bbp_actual_odd_quotient_attack.md),
+especially (27a)--(27b), and compressed further in
+[`bbp_high_prime_phase_compression_20260813.md`](ultrapi-campaign/bbp_high_prime_phase_compression_20260813.md).
+The new adaptation packages the clean sampled-depth localization into two
+quotient profiles and connects it literally to the T154--T155 numerator
+phase.
+
+### Exact T159 top-band subset
+
+Let `m,i,p in Nat`, assume that `p` is prime, `5<p`, and
+
+```text
+56*m+6 < 2*p.
+```
+
+For the first pole family additionally assume `p<=56*m+1` and `p=8*i+1`;
+for the third pole family assume `p<=56*m+5` and `p=8*i+5`. In module
+`Theory.PiDigits.T159ExactBBPTopPrimeProjection`, theorems
+`bbpPartial_topPrimeProjection_one` and
+`bbpPartial_topPrimeProjection_three` machine-check, respectively,
+
+\[
+ \operatorname{PrimeCongruent}_p
+   \bigl(p\,\operatorname{bbpPartial}(7m),4\bigr).
+\]
+
+Here `PrimeCongruent p x y` means `x=y` or
+`1<=padicValRat p (x-y)`. The scaled theorems
+`scaledBBPRat_topPrimeProjection_one` and
+`scaledBBPRat_topPrimeProjection_three` give the same exact residue for both
+top pole families:
+
+\[
+ \boxed{\operatorname{PrimeCongruent}_p
+   \bigl(p\,\operatorname{scaledBBPRat}(m),4\cdot10^m\bigr).}
+\]
+
+Finally, `scaledBBPRat_topPrime_val_eq_neg_one` and
+`scaledBBPRat_topPrimeThree_val_eq_neg_one` prove, under the corresponding
+hypotheses,
+
+\[
+ \boxed{\operatorname{padicValRat}_p
+   (\operatorname{scaledBBPRat}(m))=-1.}
+\]
+
+The strict top band itself rules out a second multiple of `p`; T159 assumes
+neither a general middle-band profile nor the clean-endpoint hypotheses used
+below. It does not machine-check a delayed `U_m` CRT phase or any cancellation
+estimate.
+
+Keep the sampled notation above and write `X_m=56m`. For `L>=0`, define
+
+\[
+ C_+(L)=\sum_{\substack{r\ge0,\ s\in\{1,4,5,6\}\\8r+s\le L}}
+ \frac{c_s}{16^r(8r+s)},
+ \qquad (c_1,c_4,c_5,c_6)=(4,-2,-1,-1),
+\]
+
+and
+
+\[
+\begin{aligned}
+ C_-(L)={}&-
+ \sum_{\substack{r\ge0\\8r+2\le L}}\frac4{16^r(8r+2)}
+ -\sum_{\substack{r\ge0\\8r+3\le L}}\frac2{16^r(8r+3)}\\
+ &-\sum_{\substack{r\ge0\\8r+4\le L}}\frac2{16^r(8r+4)}
+ +\sum_{\substack{r\ge0\\8r+7\le L}}\frac1{2\cdot16^r(8r+7)}.
+\end{aligned}
+\]
+
+Fix `m in Nat` and a prime `p>5` satisfying
+
+```text
+p^2 > 56*m + 6,
+p does not divide product_(t=1)^6 (56*m+t).
+```
+
+Put `L=floor(56*m/p)` and let `epsilon(p)=+` for `p=1 mod 4` and
+`epsilon(p)=-` for `p=3 mod 4`. Reindexing the already recorded localization
+gives the clean rational-value congruence
+
+\[
+ \boxed{p\,(10^mB_m)\equiv
+ 10^m C_{\varepsilon(p)}(L)\pmod p.}
+\]
+
+The congruence is in the `p`-local rationals after multiplication by `p`; it
+is not a congruence of an arbitrarily chosen raw numerator. The first clean
+hypothesis implies `L<p`, so all profile denominators are units modulo `p`.
+If the second clean hypothesis is dropped, one explicit final pole term may
+have to be added.
+If `C_(epsilon(p))(L)` is nonzero modulo `p`, then `p` occurs to exponent one
+in the reduced denominator `D_m`. Rational nonvanishing alone does not imply
+this modular nonvanishing; the earlier height condition is still required
+outside the already protected prime bands.
+
+The Archimedean limits are
+
+\[
+ C_+(L)\longrightarrow\pi,
+ \qquad C_-(L)\longrightarrow-\pi.
+\]
+
+The first is the ordinary BBP series. For the second, geometric summation
+gives the proof-sketch identity
+
+\[
+ C_-(\infty)=\int_0^1
+ \frac{-4x-2x^2-2x^3+\tfrac12x^6}{1-x^8/16}\,dx.
+\]
+
+Factoring numerator and denominator reduces the integrand to
+
+\[
+ -\frac{4x}{x^2-2x+2}+\frac2{x+\sqrt2}+\frac2{x-\sqrt2}.
+\]
+
+The antiderivative
+`-2*log((x-1)^2+1)-4*arctan(x-1)+2*log|x^2-2|` has values `0` at `x=1`
+and `pi` at `x=0`, proving `C_-(infinity)=-pi`. This real limit must not be
+used as a modular phase approximation: reduction of a rational modulo `p`
+uses its denominator inverse modulo `p`.
+
+Now fix `k,n in Nat`, put `m=n+k`, and assume the exact T154 burn-in
+
+```text
+2 <= n+k,
+Nat.log 5 (56*(n+k)+5) <= n.
+```
+
+Let `10^m B_m=P_m/D_m` be reduced and `U_m=P_m/5^k`. For every prime `p`
+satisfying the clean hypotheses above and
+`C_(epsilon(p))(floor(56*m/p)) != 0 mod p`, write `D_m=p*d_(m,p)`.
+Then the new packaging specializes the exact T154 numerator phase to
+
+\[
+ \boxed{U_m(2^k d_{m,p})^{-1}\equiv
+ 10^n C_{\varepsilon(p)}(\lfloor56m/p\rfloor)\pmod p,}
+\]
+
+and, for every `h in Int`, CRT gives
+
+\[
+ e_{2^kD_m}(hU_m)=
+ e_p\!\left(h10^nC_{\varepsilon(p)}(\lfloor56m/p\rfloor)\right)
+ e_{2^kd_{m,p}}\!\left(hU_mp^{-1}\right).
+\]
+
+For a target left endpoint `A/10^k`, with arbitrary `A in Int`, the cleared
+local numerator is `5^kU_m-A D_m`, so the `A D_m` term vanishes modulo every
+such `p`. The same statement holds for the centre
+`(A+1/2)/10^k` after clearing the factor two. Thus this particular local
+prime component is target-independent. The valid conclusion is only that it
+does not carry target dependence by itself: it may still contribute to a
+target-signed estimate through its correlation with the complementary and
+`q`-primary target characters and the target-dependent coefficient vector.
+No independence or adversarial-correlation principle is available.
+
+More generally, for `N>=1`, `|h|<=2*10^k-1`, and the displayed burn-in at
+every `n+j` with `j<N`, T155 transfers the pi phase sum to these exact delayed
+numerator phases with its horizon-independent error. The factorization above
+may then be applied separately at every `m=n+j+k` and every prime satisfying
+its stated local hypotheses. It does not supply a prime set stable in `j`, a
+bound for the complementary characters, or cancellation of their product.
+
+## Scalar forcing is a Hausdorff/TP2 diagnostic
+
+Status in this section: `proof sketch`; no asymptotic determinant formula is
+used. Put
+
+\[
+ F_m=10^{m+1}\sum_{r=1}^7 b_{7m+r},\qquad
+ \rho=10/16^7,
+\]
+
+where `b_j` is the ordinary four-pole BBP summand. Since
+
+\[
+ \frac4{8j+1}-\frac2{8j+4}-\frac1{8j+5}-\frac1{8j+6}
+ =\int_0^1x^{8j}(1-x)(x^2+2)(x^2+2x+2)\,dx,
+\]
+
+there is a positive measure `mu` on `[0,1]`, with support accumulating at
+one, such that for every `m in Nat`
+
+\[
+ \boxed{F_m/\rho^m=\int_0^1t^m\,d\mu(t).}
+\]
+
+Consequently, for every `m,r in Nat`, the ordinary forward difference obeys
+
+\[
+ (-1)^r\Delta^r(F_m/\rho^m)>0.
+\]
+
+In particular `0<F_(m+1)<rho*F_m`, the sequence is strictly log-convex,
+`F_mF_(m+2)>F_(m+1)^2`, and `F_(m+1)/F_m` increases to `rho`. If
+`F_(m,r)=10^(m+1)b_(7m+r)`, then for every `m in Nat` and
+`1<=r<s<=7`, the direct double-integral comparison gives the strict TP2 law
+
+\[
+ F_{m,r}F_{m+1,s}-F_{m+1,r}F_{m,s}>0.
+\]
+
+This is a negative diagnostic only for the scalar real forcing and its seven
+positive slices: their `rho`-adapted differences are one-signed and their
+relative weights are monotonically ordered. It does not rule out arbitrary
+weighted or modular combinations, nonlinear characters, or the coupled
+prime-skeleton/complement correlation above. In particular it proves no
+signed primitive estimate, T139 premise, or V1 consequence.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
@@ -310,8 +539,16 @@ The strict verifier and exact axiom audit accept the following declarations:
   `abs_piPoint_sub_delayedBBPValue`,
   `norm_phase_pi_sub_delayedBBPValue_lt`,
   `norm_sum_phase_pi_sub_delayedBBPValue_lt`, and
-  `norm_sum_phase_pi_sub_delayedBBPNumeratorPhase_lt`.
+  `norm_sum_phase_pi_sub_delayedBBPNumeratorPhase_lt`;
+- T159: `bbpPartial_topPrimeProjection_one`,
+  `bbpPartial_topPrimeProjection_three`,
+  `scaledBBPRat_topPrimeProjection_one`,
+  `scaledBBPRat_topPrimeProjection_three`,
+  `scaledBBPRat_topPrime_val_eq_neg_one`, and
+  `scaledBBPRat_topPrimeThree_val_eq_neg_one`.
 
-The explicit `nu_k<=4*k` derivation and the predecessor/residue CRT identity
-are not among these declarations and remain `proof sketch`. No theorem listed
-here proves cancellation, a T139 premise, density, normality, or V1.
+The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
+finite-local polynomial reduction, general reciprocal-profile adaptation, and
+Hausdorff/TP2 diagnostic are not among these declarations and remain `proof
+sketch`. No theorem listed here proves cancellation, a T139 premise, density,
+normality, or V1.

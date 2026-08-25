@@ -257,6 +257,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T155T155DelayedBBPPhaseTransfer
 import TheoryLib.PiQuantitativeBlockHitting.T156T156BoundaryNaturalThresholdClosure
 import TheoryLib.PiQuantitativeBlockHitting.T157T157ExactBBPFiveAdicShell
 import TheoryLib.PiQuantitativeBlockHitting.T158T158ExactBBPFiveAdicPulses
+import TheoryLib.PiQuantitativeBlockHitting.T159T159ExactBBPTopPrimeProjection
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3282,6 +3283,16 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_eq_of_shell_jump
 #print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_eq_of_secondary_activation
 #print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_ge_of_quiet_shell
+
+-- Exact top-band odd-prime projections of the actual sampled BBP rational.
+-- Both admissible pole families have local residue `4`; the scaled
+-- projection and exact denominator valuation remain actual-BBP statements.
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_one
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_three
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_one
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_three
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrime_val_eq_neg_one
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeThree_val_eq_neg_one
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

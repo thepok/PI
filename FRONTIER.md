@@ -278,6 +278,37 @@ residual and that even perfectly uniform separate `2^k` and `5^k` marginals
 can omit a joint target. Those abstract separators do not model BBP joint
 dynamics, which remains the live boundary.
 
+T159 now `machine-checks` the exact top-band subset of the
+[`reciprocal-prime adaptation`](knowledge/pi/results/intermediate/20260825-delayed-bbp-numerator-phase-transfer.md#exact-t159-top-band-subset).
+For every prime `p>5` with `56*m+6<2*p`, the first-family hypotheses
+`p=8*i+1` and `p<=56*m+1`, and separately the third-family hypotheses
+`p=8*i+5` and `p<=56*m+5`, both give
+`PrimeCongruent p (p*scaledBBPRat m) (4*10^m)` and
+`padicValRat p (scaledBBPRat m)=-1`. The exact declarations are
+`Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_one`,
+`scaledBBPRat_topPrimeProjection_three`,
+`scaledBBPRat_topPrime_val_eq_neg_one`, and
+`scaledBBPRat_topPrimeThree_val_eq_neg_one`; the corresponding unscaled
+prefix projections are `bbpPartial_topPrimeProjection_one` and
+`bbpPartial_topPrimeProjection_three`.
+
+Beyond this top-band subset, an independently audited `proof sketch` adapts
+the already known general `p^2` localization and high-prime skeleton to the
+T154--T155 delayed phases:
+two clean quotient profiles `C_+` and `C_-`, with `C_+(infinity)=pi` and the
+new-to-this-frontier identity `C_-(infinity)=-pi`, give each eligible local
+component of `e_(2^k D_m)(h U_m)` explicitly. That local factor is
+target-independent, but only inside an exact product with unresolved
+complementary and `q`-primary target factors; no cancellation follows from
+either factor alone.
+The same audit records the geometrically normalized actual scalar forcing as
+a strict Hausdorff moment sequence and its seven slices as TP2, a negative
+diagnostic for scalar differencing rather
+than a signed/off-diagonal, T139, or V1 estimate. General `C_+`/`C_-` and
+middle-band formulas, endpoint corrections, the delayed `U_m` CRT phase, and
+the Hausdorff/TP2 statements remain `proof sketch`; T159 proves none of their
+cancellation conclusions.
+
 The exact actual-BBP core recorded in the
 [`T106--T141 phase-flexibility separator`](knowledge/pi/results/negative/20260825-t106-t141-five-adic-phase-flexibility-no-go.md)
 is now `machine-checked` in T157--T158. T157's
