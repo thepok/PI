@@ -301,6 +301,15 @@ not ask a Pro model to map the repository or edit it. Require a self-contained
 mathematical memo containing a genuinely new theorem, estimate, structural
 identity with quantitative force, or decisive no-go—not a reformulation.
 
+Treat that packet as a starting compass, not a closed reading list. Permit the
+model to follow a small number of mathematically motivated repository links or
+primary literature sources when they may unlock the argument. Keep the prompt
+open: state the hard boundary and the progress test, but do not prescribe a
+long method sequence or enumerate every forbidden construction. Mention only
+the few separators that would otherwise cause an immediate duplicate. A Pro
+memo should be judged afterward by independent audit, rather than steered into
+proving a narrow no-go for an operator-invented mechanism.
+
 Keep the three creative slots differentiated by default: primitive
 exponential sums of the decimal orbit; exact BBP numerator/denominator and
 tail-phase arithmetic; and a free alternative pi-specific arithmetic route.
