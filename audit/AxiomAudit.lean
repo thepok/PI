@@ -3390,6 +3390,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
 #print axioms
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
+#print axioms
+  Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

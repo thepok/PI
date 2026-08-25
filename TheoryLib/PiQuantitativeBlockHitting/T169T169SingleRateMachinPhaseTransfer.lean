@@ -1,4 +1,5 @@
 import TheoryLib.PiQuantitativeBlockHitting.T38T38MachinForcedOrbit
+import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 
 /-!
 # T169: natural-window transfer to a single-rate rational Machin carrier
@@ -22,6 +23,7 @@ namespace Theory.PiDigits.T169SingleRateMachinPhaseTransfer
 
 open Finset
 open Theory.PiDigits.MachinGridStability
+open Theory.PiDigits.PrimitiveRayCoefficientGap
 
 /-- The geometric ratio after scaling a depth-`t` Machin error by `10^t`. -/
 def singleRateMachinErrorRatio : ℝ := 10 / 625
@@ -192,6 +194,99 @@ theorem norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
     _ = 4 * Real.pi * singleRateMachinErrorRatio ^ (n + k) /
         (1 - singleRateMachinErrorRatio) := by ring
 
+/-- The complete positive-frequency T128 score on the shifted actual pi
+orbit.  At `n = 0` this is T139's positive boundary Fourier sum, written out
+so the shifted block remains explicit. -/
+def shiftedPositiveBoundaryPiScore (k A n N : ℕ) : ℂ :=
+  ∑ h ∈ positiveBoundarySupport (10 ^ k),
+    centeredBoundaryTerm (10 ^ k) A h *
+      ∑ j ∈ range N,
+        Theory.PiDigits.T27.phase (h : ℤ)
+          (Theory.PiDigits.T27.piFractionalOrbit (n + j))
+
+/-- The same complete target-centred coefficient score evaluated on the
+single-rate rational Machin carrier. -/
+def delayedSingleRateMachinBoundaryScore (k A n N : ℕ) : ℂ :=
+  ∑ h ∈ positiveBoundarySupport (10 ^ k),
+    centeredBoundaryTerm (10 ^ k) A h *
+      ∑ j ∈ range N,
+        Theory.PiDigits.T27.phase (h : ℤ)
+          (delayedSingleRateMachinValue k (n + j))
+
+/-- Direct transfer of the complete positive-frequency T128/T139 score from
+the shifted actual pi orbit to the explicit single-rate Machin carrier.  This
+only removes coefficient bookkeeping; it supplies no estimate for the
+carrier score itself. -/
+theorem norm_shiftedPositiveBoundaryPiScore_sub_machin_le
+    (k A n N : ℕ) (hN : 1 ≤ N) :
+    ‖shiftedPositiveBoundaryPiScore k A n N -
+        delayedSingleRateMachinBoundaryScore k A n N‖ ≤
+      (4 * Real.pi * singleRateMachinErrorRatio ^ (n + k) /
+          (1 - singleRateMachinErrorRatio)) * positiveBoundaryLoad (10 ^ k) := by
+  unfold shiftedPositiveBoundaryPiScore delayedSingleRateMachinBoundaryScore
+  rw [← sum_sub_distrib]
+  calc
+    ‖∑ h ∈ positiveBoundarySupport (10 ^ k),
+        (centeredBoundaryTerm (10 ^ k) A h *
+            ∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+              (Theory.PiDigits.T27.piFractionalOrbit (n + j)) -
+          centeredBoundaryTerm (10 ^ k) A h *
+            ∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+              (delayedSingleRateMachinValue k (n + j)))‖ ≤
+      ∑ h ∈ positiveBoundarySupport (10 ^ k),
+        ‖centeredBoundaryTerm (10 ^ k) A h‖ *
+          ‖(∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                (Theory.PiDigits.T27.piFractionalOrbit (n + j))) -
+            ∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                (delayedSingleRateMachinValue k (n + j))‖ := by
+      refine (norm_sum_le _ _).trans ?_
+      apply sum_le_sum
+      intro h hh
+      rw [← mul_sub, norm_mul]
+    _ ≤ ∑ h ∈ positiveBoundarySupport (10 ^ k),
+        ‖centeredBoundaryTerm (10 ^ k) A h‖ *
+          (4 * Real.pi * singleRateMachinErrorRatio ^ (n + k) /
+            (1 - singleRateMachinErrorRatio)) := by
+      apply sum_le_sum
+      intro h hh
+      have hmem := Finset.mem_Icc.mp hh
+      have hh0 : (h : ℤ) ≠ 0 := by exact_mod_cast (by omega : h ≠ 0)
+      have hfreq : Int.natAbs (h : ℤ) < 2 * 10 ^ k := by
+        simpa using (show h < 2 * 10 ^ k by omega)
+      have htransfer :=
+        norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
+          (h : ℤ) k n N hh0 hN hfreq
+      have htransfer' :
+          ‖(∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                (Theory.PiDigits.T27.piFractionalOrbit (n + j))) -
+            ∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                (delayedSingleRateMachinValue k (n + j))‖ ≤
+            4 * Real.pi * singleRateMachinErrorRatio ^ (n + k) /
+              (1 - singleRateMachinErrorRatio) := by
+        have horbit :
+            (∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                (Theory.PiDigits.T27.piFractionalOrbit (n + j))) =
+              ∑ j ∈ range N, Theory.PiDigits.T27.phase (h : ℤ)
+                ((10 : ℝ) ^ (n + j) * Real.pi) := by
+          apply sum_congr rfl
+          intro j hj
+          unfold Theory.PiDigits.T27.piFractionalOrbit
+          exact Theory.PiDigits.T29.phase_fract_eq_phase _ _
+        rw [horbit]
+        exact htransfer.le
+      exact mul_le_mul_of_nonneg_left htransfer' (norm_nonneg _)
+    _ = (4 * Real.pi * singleRateMachinErrorRatio ^ (n + k) /
+          (1 - singleRateMachinErrorRatio)) * positiveBoundaryLoad (10 ^ k) := by
+      unfold positiveBoundaryLoad
+      rw [mul_sum]
+      apply sum_congr rfl
+      intro h hh
+      have hnorm : ‖centeredBoundaryTerm (10 ^ k) A h‖ =
+          ‖centeredBoundaryTerm (10 ^ k) 0 h‖ := by
+        simp [centeredBoundaryTerm, Theory.PiDigits.T27.norm_phase]
+      rw [hnorm]
+      ring
+
 end Theory.PiDigits.T169SingleRateMachinPhaseTransfer
 
 #print axioms Theory.PiDigits.T169SingleRateMachinPhaseTransfer.delayedSingleRateMachinValue_isRat
@@ -202,3 +297,5 @@ end Theory.PiDigits.T169SingleRateMachinPhaseTransfer
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
 #print axioms
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
+#print axioms
+  Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le

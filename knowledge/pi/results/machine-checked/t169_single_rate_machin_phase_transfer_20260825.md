@@ -54,13 +54,36 @@ any horizon `N >= 1`, without making the bound depend on `N`:
   < 4*pi * (2/125)^(n+k) / (1 - 2/125).
 ```
 
+T169 also connects this pointwise-frequency transfer directly to the actual
+positive-frequency T128/T139 coefficient family. It defines
+
+```text
+shiftedPositiveBoundaryPiScore k A n N
+delayedSingleRateMachinBoundaryScore k A n N
+```
+
+using the exact `centeredBoundaryTerm` and `positiveBoundarySupport` at
+`q=10^k`. The theorem
+`norm_shiftedPositiveBoundaryPiScore_sub_machin_le` proves
+
+```text
+||shiftedPositiveBoundaryPiScore k A n N
+    - delayedSingleRateMachinBoundaryScore k A n N||
+  <= (4*pi*(2/125)^(n+k)/(1-2/125)) * positiveBoundaryLoad (10^k)
+```
+
+for every `N>=1`. Thus the complete target-centred positive score, not merely
+each separate frequency, transfers to the explicit rational carrier with a
+horizon-independent error.
+
 Compared with T38, which uses the deeper index `3*t` and records a
 fixed-frequency prefix transfer, T169 samples the checked T36 rational Machin
 approximant at index `t` and covers the complete moving natural window needed
-by the T139 setting. This is a carrier-transfer theorem only: it does not prove
-the coefficient-weighted T139 score transfer as a separate declaration, any
-cancellation estimate for the rational carrier, the T139 premise, density,
-normality, or V1.
+by the T139 setting. This is a carrier-transfer theorem only: the new weighted
+declaration performs exact coefficient bookkeeping but supplies no sign or
+cancellation estimate for `delayedSingleRateMachinBoundaryScore`. It proves
+neither the T139 or T148 premise nor density, normality, decimal disjunctivity,
+or V1.
 
 The declarations are exported through `TheoryLib.lean` and registered in
 `audit/AxiomAudit.lean`. Their audited axiom surface is exactly `propext`,

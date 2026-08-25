@@ -159,6 +159,18 @@ isolates the missing input as a carry-corrected predecessor-digit correlation;
 successor-only scalar transport and exact finite-polynomial telescoping are
 insufficient. Neither note supplies the missing fixed-π estimate.
 
+T169 now machine-checks a second exact rational-carrier bridge: throughout the
+natural window `|h| < 2*10^k`, the decimal pi phases can be replaced by the
+single-rate Machin phases `10^n * machinLower(n+k)` with geometric ratio
+`10/625` and an error uniform in every nonempty horizon. An independently
+audited [`proof sketch`](knowledge/pi/results/negative/20260825-high-prime-bbp-matching-complement-no-go.md)
+also shows that the currently exposed T159--T166 high-prime BBP pole sector,
+once its matching complementary factors are retained, changes the complete
+target-signed score by only `O((5/64)^m/m)`. This retires separate averaging of
+those known prime coordinates, not joint low-prime or complementary-carrier
+arguments. Neither result supplies the still-open fixed-pi signed cancellation
+estimate.
+
 ### 2. Moving-mesh occupancy-tail and canonical entropy targets
 
 For a selected block `[L, 2L)` and a partition into `q` equal cells, let `n(a)`
