@@ -257,6 +257,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
 import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
 import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
+import TheoryLib.PiQuantitativeBlockHitting.T147T147BoundaryEndpointContraction
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3190,6 +3191,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
 -- Exact decimal-valuation reindexing of T139's literal endpoint into the
 -- coefficient layers consumed by the finite Abel estimate.
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_terminal_sub_initial
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.sum_valuation_eq_sum_decimal_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.initialBoundaryEndpoint_eq_sum_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.terminalBoundaryEndpoint_eq_sum_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial
@@ -3214,6 +3216,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T146T146BoundaryPhaseTorusBounds
 #print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sin_pi_mul_le_abs_sin_of_le_distance
 #print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sine_seven_pi_div_thousand_gt
 #print axioms Theory.PiDigits.BoundaryPhaseTorusBounds.sine_nineteen_pi_div_hundred_gt
+
+-- Exact layer partition of the literal endpoint budget and the unconditional
+-- pi-specific saving supplied by the first two decimal valuation layers.
+#print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpointBudget_eq_sum_layerMasses
+#print axioms Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

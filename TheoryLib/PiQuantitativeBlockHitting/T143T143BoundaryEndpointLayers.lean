@@ -248,6 +248,30 @@ private lemma terminal_phase_reindex
   rw [hfreqC, pow_add]
   ring
 
+/-- Generic scalar form of the valuation-layer partition.  Each supported
+frequency `h` occurs once for every `j < tenValuation h`; on the right it is
+written uniquely as `h = 10^s * m` with `1 <= s <= k`. -/
+theorem sum_valuation_eq_sum_decimal_layers
+    {R : Type*} [AddCommMonoid R] (k : ℕ) (f : ℕ → R) :
+    (∑ h ∈ positiveBoundarySupport (10 ^ k),
+        ∑ _j ∈ range (tenValuation h), f h) =
+      ∑ s ∈ Icc 1 k,
+        ∑ m ∈ Icc 1 ((2 * 10 ^ k - 1) / 10 ^ s), f (10 ^ s * m) := by
+  classical
+  rw [Finset.sum_sigma', Finset.sum_sigma']
+  change (∑ x ∈ endpointIndexSet (10 ^ k), f x.1) =
+    ∑ x ∈ layerIndexSet k, f (10 ^ x.1 * x.2)
+  apply Finset.sum_bij' (fun x _ => endpointToLayer x) (fun x _ => layerToEndpoint x)
+  · exact endpointToLayer_mem k
+  · exact layerToEndpoint_mem k
+  · intro x hx
+    exact layer_endpoint_inverse (10 ^ k) x hx
+  · intro x hx
+    exact endpoint_layer_inverse k x hx
+  · intro x hx
+    congr 1
+    exact congrArg Sigma.fst (layer_endpoint_inverse (10 ^ k) x hx) |>.symm
+
 /-- Exact valuation-layer decomposition of the literal initial endpoint. -/
 theorem initialBoundaryEndpoint_eq_sum_layers
     (k A : ℕ) :
@@ -308,6 +332,7 @@ theorem primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial
 
 end Theory.PiDigits.BoundaryEndpointLayers
 
+#print axioms Theory.PiDigits.BoundaryEndpointLayers.sum_valuation_eq_sum_decimal_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.initialBoundaryEndpoint_eq_sum_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.terminalBoundaryEndpoint_eq_sum_layers
 #print axioms Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial
