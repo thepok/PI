@@ -258,6 +258,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T156T156BoundaryNaturalThresholdClos
 import TheoryLib.PiQuantitativeBlockHitting.T157T157ExactBBPFiveAdicShell
 import TheoryLib.PiQuantitativeBlockHitting.T158T158ExactBBPFiveAdicPulses
 import TheoryLib.PiQuantitativeBlockHitting.T159T159ExactBBPTopPrimeProjection
+import TheoryLib.PiQuantitativeBlockHitting.T160T160DelayedBBPDecimalResonance
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3293,6 +3294,12 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_three
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrime_val_eq_neg_one
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeThree_val_eq_neg_one
+
+-- Exact decimal resonance and two-factor T155 transfer, including the
+-- actual delayed numerator-phase form under the two burn-in hypotheses.
+#print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.pi_decimal_resonant_phase_product
+#print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.norm_delayedBBP_resonant_product_sub_one_lt
+#print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.norm_delayedBBPNumerator_resonant_product_sub_one_lt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

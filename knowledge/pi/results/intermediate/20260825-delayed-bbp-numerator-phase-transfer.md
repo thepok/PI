@@ -2,12 +2,14 @@
 
 Status: `machine-checked` (the exact T154--T155 arithmetic identities and
 horizon-uniform phase-transfer bounds and the exact T159 top-band prime
-projections listed below); `proof sketch` (the explicit `nu_k <= 4*k`
+projections, plus the exact T160 two-factor decimal resonance and its delayed
+value/numerator-phase transfer bounds listed below); `proof sketch` (the explicit `nu_k <= 4*k`
 burn-in, its use to discharge the logarithmic hypothesis, the
 coefficient-summed corollary, the predecessor/residue CRT identity, the
 finite-local polynomial-division obstruction, the general reciprocal-profile
 adaptation, the scalar Hausdorff/TP2 diagnostic, and the critical
-truncation-overlap law)
+truncation-overlap law, including its all-finite-product and moving-horizon
+generalizations)
 
 Date: 2026-08-25 UTC
 
@@ -21,6 +23,8 @@ and
 The exact top-band subset of the later reciprocal-prime adaptation is checked
 in
 [`T159`](../../../../TheoryLib/PiQuantitativeBlockHitting/T159T159ExactBBPTopPrimeProjection.lean).
+The exact two-factor decimal-resonance transfer is checked in
+[`T160`](../../../../TheoryLib/PiQuantitativeBlockHitting/T160T160DelayedBBPDecimalResonance.lean).
 It is not the whole T139 consumer and proves no cancellation or V1
 consequence. Later sections also retain the scoped proof-sketch conclusion of
 the AY follow-up and the broader adaptation from the independently audited AZ
@@ -513,11 +517,15 @@ signed primitive estimate, T139 premise, or V1 consequence.
 
 ## Critical truncation overlap and its consumer mismatch
 
-Status in this section: `proof sketch`; this is the compact conclusion of the
+Status in this section: `machine-checked` only for the three explicitly named
+T160 two-factor statements below; the overlap identity, tail and critical
+scale, log-uniform law, all-finite-product/moving-horizon generalization, and
+gauge diagnostic remain `proof sketch`. This is the compact conclusion of the
 independently audited ChatGPT Pro BB memo. It concerns the actual four-pole
-BBP summand with the sevenfold truncation schedule `j<=7m`. It is not a
-T155 numerator-phase estimate. Source:
-`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bb/answer.md`.
+BBP summand with the sevenfold truncation schedule `j<=7m`. Source:
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bb/answer.md`,
+with the transfer audit in
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bb/turns/0002/answer.md`.
 
 Put
 
@@ -632,6 +640,16 @@ of `tau`; its limiting interval remains nondegenerate and the defect does
 **not** vanish. Vanishing follows only when the lag lies an unbounded amount
 below the critical window (or after a separate limit `tau -> -infinity`).
 
+The follow-up audit also gives the following explicit one-sided form of the
+already-known tail constant: for every integer `m>=1`,
+
+\[
+ \boxed{0<\frac1{3136}-m^2 16^{7m}(\pi-B_m)<\frac1{3430m}.}
+\]
+
+This sharpened error bound remains a `proof sketch`; it is not a new
+asymptotic constant or a machine-checked result.
+
 The fatal limitation is a consumer mismatch. At a nontrivial decimal scale
 `q=10^k` with `k>=1`, the T154--T155 delayed phase is
 
@@ -660,6 +678,126 @@ to the low primitive T155 phases is supplied, and the displayed frequency
 mismatch prevents treating such a bridge as routine. This section proves no
 T139 premise, cancellation for the required consumer, or V1 consequence; it
 also does not retire overlap methods that use different coupled information.
+
+The follow-up audit makes this incompatibility quantitative for every finite
+decimal-resonant product. Write
+
+\[
+ V_{d,n}=10^nB_{n+d},\qquad
+ \Phi_{d,n}(g)=e(gV_{d,n}),\qquad
+ \rho=10/16^7.
+\]
+
+The exact two-factor core is now `machine-checked` in
+`Theory.PiDigits.T160DelayedBBPDecimalResonance`. For every `h in Int` and
+`n,r in Nat`, theorem `pi_decimal_resonant_phase_product` proves
+
+\[
+ \operatorname{phase}(h,10^{n+r}\pi)\,
+ \operatorname{phase}(-10^rh,10^n\pi)=1.
+\]
+
+For `k0,k1,n,r in Nat`, if
+
+\[
+ |h|<2\,10^{k1},\qquad |-10^rh|<2\,10^{k0},
+\]
+
+theorem `norm_delayedBBP_resonant_product_sub_one_lt` proves
+
+\[
+ \left\|\Phi_{k1,n+r}(h)\Phi_{k0,n}(-10^rh)-1\right\|
+ <4\pi\left(\rho^{n+r+k1}+\rho^{n+k0}\right).
+\]
+
+Under the additional burn-in hypotheses
+
+\[
+ 2\le n+r+k1,\quad \log_5(56(n+r+k1)+5)\le n+r,
+\]
+
+\[
+ 2\le n+k0,\quad \log_5(56(n+k0)+5)\le n,
+\]
+
+theorem `norm_delayedBBPNumerator_resonant_product_sub_one_lt` gives the same
+bound with both `Phi` factors replaced by the corresponding actual
+`delayedBBPNumeratorPhase` values. These three declarations establish only a
+preselected resonant pair inside both transfer windows; they provide no
+cancellation or abundance of such pairs.
+
+The following arbitrary finite-product strengthening remains `proof sketch`.
+
+Fix `n>=0` and `s>=1`. For each `1<=nu<=s`, let
+`r_nu,d_nu in Nat` and `g_nu in Int`, and assume
+
+\[
+ |g_\nu|<2\,10^{d_\nu},\qquad
+ \sum_{\nu=1}^s g_\nu10^{r_\nu}=0.
+\]
+
+Then the pointwise T155 transfer bound and a telescoping product estimate give
+
+\[
+ \boxed{\left|\prod_{\nu=1}^s
+ \Phi_{d_\nu,n+r_\nu}(g_\nu)-1\right|
+ <4\pi\sum_{\nu=1}^s\rho^{n+r_\nu+d_\nu}
+ \le 4\pi s\rho^n.}
+\]
+
+When every corresponding T154 burn-in hypothesis holds, these factors are
+literally the actual delayed numerator/denominator phases. The same estimate
+holds pointwise when all lags, delays, and frequencies move with `n` while
+`s` stays fixed. Consequently, for every `M,H>=1`, their block average is
+within `4*pi*s*rho^M` of `1`, uniformly in `H` and in those moving choices.
+Thus every fully T155-admissible decimal-resonant product is exponentially
+coherent, including at target-dependent later horizons.
+
+For the two-factor critical defect at common delay `d`, put `m=n+d`. Its
+nondegenerate scale is not the undelayed lag above but
+
+\[
+ r_{d,n}(\tau)=d+\left\lfloor
+ \Lambda m+2\log_{10}m+\tau\right\rfloor.
+\]
+
+At this scale the earlier resonant frequency has magnitude
+`|h|*10^(r_(d,n)(tau))`, which eventually violates
+`|g|<2*10^d` for every fixed nonzero `h`. Conversely, if both resonant
+frequencies satisfy their T155 windows, the magnified tail is exponentially
+small and the defect phase tends to `1`. Hence a nondegenerate critical
+truncation defect necessarily exits at least one verified transfer window;
+increasing the BBP delay cannot rescue both criticality and transferability.
+
+There is also an exact information-loss obstruction. For any real `beta`,
+fixed nonzero integer `h`, delayed errors `epsilon_(d,n)`, and arbitrary
+moving lags `r_n`, set
+
+\[
+ a_n^{(\beta)}=e\!\left(h(10^n\beta-\epsilon_{d,n})\right).
+\]
+
+Then
+
+\[
+ a_{n+r_n}^{(\beta)}
+ \left(\overline{a_n^{(\beta)}}\right)^{10^{r_n}}
+ =e\!\left(h(10^{r_n}\epsilon_{d,n}-\epsilon_{d,n+r_n})\right),
+\]
+
+independently of `beta`. The critical-defect data is therefore blind to the
+lacunary carrier gauge `a_n -> a_n*e(h*10^n*gamma)`. This is not a separator
+preserving the actual BBP numerator/denominator coupling; it proves only that
+defect data alone cannot recover the carrier needed by an extraction theorem.
+The genuine same-frequency correlation still contains the uncontrolled
+factor `e(h*(10^r-1)*V_(d,n))`, so exact cross-index carrier arithmetic remains
+the hard input.
+
+For completeness, the critical log-uniform law gives, for fixed nonzero `h`,
+a mean-square distance from the exact-pi resonant product `1` equal in the
+limit to `2-2*Re(I_h(A_tau))`; as `tau -> +infinity` this tends to the
+decorrelated value `2`, not the pointwise maximum squared distance `4`.
+This reinforces non-transfer rather than proving cancellation for T139 or V1.
 
 ## Narrowed live arithmetic target
 
@@ -696,10 +834,14 @@ The strict verifier and exact axiom audit accept the following declarations:
   `scaledBBPRat_topPrimeProjection_one`,
   `scaledBBPRat_topPrimeProjection_three`,
   `scaledBBPRat_topPrime_val_eq_neg_one`, and
-  `scaledBBPRat_topPrimeThree_val_eq_neg_one`.
+  `scaledBBPRat_topPrimeThree_val_eq_neg_one`;
+- T160: `pi_decimal_resonant_phase_product`,
+  `norm_delayedBBP_resonant_product_sub_one_lt`, and
+  `norm_delayedBBPNumerator_resonant_product_sub_one_lt`.
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
-Hausdorff/TP2 diagnostic, and critical truncation-overlap law are not among
-these declarations and remain `proof sketch`. No theorem listed here proves
-cancellation, a T139 premise, density, normality, or V1.
+Hausdorff/TP2 diagnostic, critical truncation-overlap law, and arbitrary
+finite-product/moving-horizon extensions are not among these declarations and
+remain `proof sketch`. No theorem listed here proves cancellation, a T139
+premise, density, normality, or V1.
