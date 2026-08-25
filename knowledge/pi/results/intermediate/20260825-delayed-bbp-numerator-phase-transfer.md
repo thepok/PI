@@ -3,13 +3,15 @@
 Status: `machine-checked` (the exact T154--T155 arithmetic identities and
 horizon-uniform phase-transfer bounds and the exact T159 top-band prime
 projections, plus the exact T160 two-factor decimal resonance and its delayed
-value/numerator-phase transfer bounds listed below); `proof sketch` (the explicit `nu_k <= 4*k`
+value/numerator-phase transfer bounds, and the exact T161 safe-block
+unique-pole/projection/valuation statements listed below); `proof sketch` (the
+explicit `nu_k <= 4*k`
 burn-in, its use to discharge the logarithmic hypothesis, the
 coefficient-summed corollary, the predecessor/residue CRT identity, the
 finite-local polynomial-division obstruction, the general reciprocal-profile
 adaptation, the scalar Hausdorff/TP2 diagnostic, and the critical
 truncation-overlap law, including its all-finite-product and moving-horizon
-generalizations)
+generalizations, plus the BA sharp-tail and terminal-prime analysis below)
 
 Date: 2026-08-25 UTC
 
@@ -25,11 +27,13 @@ in
 [`T159`](../../../../TheoryLib/PiQuantitativeBlockHitting/T159T159ExactBBPTopPrimeProjection.lean).
 The exact two-factor decimal-resonance transfer is checked in
 [`T160`](../../../../TheoryLib/PiQuantitativeBlockHitting/T160T160DelayedBBPDecimalResonance.lean).
+The exact terminal-prime safe-block subset is checked in
+[`T161`](../../../../TheoryLib/PiQuantitativeBlockHitting/T161T161SafeLaterBBPPrimeProjection.lean).
 It is not the whole T139 consumer and proves no cancellation or V1
 consequence. Later sections also retain the scoped proof-sketch conclusion of
 the AY follow-up and the broader adaptation from the independently audited AZ
-follow-up. Except for the explicitly identified T159 top-band subset, those
-later statements are not promoted to the verified core.
+follow-up. Except for the explicitly identified T159, T160, and T161 subsets,
+those later statements are not promoted to the verified core.
 
 ## Setup and logarithmic burn-in
 
@@ -515,6 +519,162 @@ weighted or modular combinations, nonlinear characters, or the coupled
 prime-skeleton/complement correlation above. In particular it proves no
 signed primitive estimate, T139 premise, or V1 consequence.
 
+## Sharp four-pole bounds and terminal-prime compensation
+
+Status in this section: `machine-checked` only for the six explicitly named
+T161 safe-block unique-pole, rational-projection, and valuation statements
+below. The sharp summand/tail/forcing bounds, improved transfer, reduced
+cofactor congruence, short-order example, compensation, negligibility, and
+off-diagonal consequences remain `proof sketch`. This compactly records the
+independently audited ChatGPT Pro BA follow-up. Its original status discussion
+predates the current verified core: T157 now checks the actual five-adic
+statements, T158 the forcing identity and pulse laws, T159 the exact top-prime
+projections, T160 the two-factor decimal-resonance transfer, and T161 the
+safe-block subset just described. Source:
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-ba/turns/0002/answer.md`.
+
+For `r>=1`, let the positive four-pole BBP summand be
+
+\[
+ b_r=\frac{120r^2+151r+47}
+ {(2r+1)(4r+3)(8r+1)(8r+5)16^r}.
+\]
+
+Direct polynomial comparison gives the sharp-order bounds
+
+\[
+ \boxed{\frac1{8r^2 16^r}<b_r<\frac{15}{64r^2 16^r}.}
+\]
+
+With `rho=10/16^7`, `K_m=7m+1`,
+`tau_m=10^m(pi-B_m)`, and
+`F_m=10^(m+1)*sum_(r=7m+1)^(7m+7)b_r`, this yields, for every `m>=0`,
+
+\[
+ \boxed{\frac{\rho^m}{128K_m^2}<\tau_m<
+ \frac{\rho^m}{64K_m^2}},\qquad
+ \boxed{\frac{5\rho^m}{64K_m^2}<F_m<
+ \frac{5\rho^m}{32K_m^2}}.
+\]
+
+In particular `F_(m+1)<2*rho*((7m+1)/(7m+8))^2*F_m`. If
+`q=10^k`, `m=n+k`, and
+
+\[
+ \Phi(x)=\sum_{0<|h|<2q}c_h e(hx),\qquad
+ \Lambda(\Phi)=\sum_h|c_h|,
+\]
+
+then for every finite horizon `R>=1`, the same delayed comparison as T155 has
+the sharper proof-sketch bound
+
+\[
+ \boxed{\left|\sum_{r=0}^{R-1}\Phi(10^{n+r}\pi)
+ -\sum_{r=0}^{R-1}\Phi(10^{n+r}B_{m+r})\right|
+ <\frac{\pi\Lambda(\Phi)}{16(1-\rho)}
+ \frac{\rho^m}{(7m+1)^2}.}
+\]
+
+This improves only the transfer error; it does not estimate the transferred
+sum.
+
+The terminal-prime safe-block core is now `machine-checked` in
+`Theory.PiDigits.T161SafeLaterBBPPrimeProjection`. Fix `m>=1`, put `K=7m`,
+and take either
+
+- `p=56m+1` and `m<=t<=4m-1`; or
+- `p=56m+5` and `m<=t<=4m`.
+
+Theorems `caseOne_unique_terminal_pole` and
+`caseThree_unique_terminal_pole` prove, throughout the corresponding stated
+range, that the terminal first-pole denominator `8*(7m)+1=p`, respectively
+third-pole denominator `8*(7m)+5=p`, is the unique denominator divisible by
+`p` among all four pole families through index `7t`.
+
+If `p` is prime, theorems `scaledBBPRat_safeLaterProjection_one` and
+`scaledBBPRat_safeLaterProjection_three` prove in their respective ranges
+
+\[
+ \boxed{\operatorname{PrimeCongruent}_p
+   \left(p\,\operatorname{scaledBBPRat}(t),4\,10^t\right)}.
+\]
+
+Theorems `scaledBBPRat_safeLaterVal_one` and
+`scaledBBPRat_safeLaterVal_three` then prove
+
+\[
+ \boxed{v_p(\operatorname{scaledBBPRat}(t))=-1}.
+\]
+
+For clarity, the first range is exactly `m<=t<=4m-1` with
+`p=56m+1`; the second is exactly `m<=t<=4m` with `p=56m+5`.
+
+The further reduced-pair unpacking remains `proof sketch`: writing the actual
+reduced rational as `R_t=10^tB_t=P_t/D_t` and `D_t=p*d_t`, `p` not dividing
+`d_t`, it gives
+
+\[
+ \boxed{P_t\equiv4\,10^t d_t\pmod p}.
+\]
+
+Thus the fresh local factor at decimal scale `q=10^k` is exactly
+`e_p(4h*10^(t-k))`. Its order need not be comparable with the safe-block
+length: the certified example
+
+\[
+ p=4649=56\cdot83+1,\qquad 10^7\equiv1\pmod{4649}
+\]
+
+already has order dividing seven inside a block of length about `3*83`.
+
+More decisively, remove the literal terminal pole
+
+\[
+ S_t=\frac{\sigma10^t}{p16^K},\qquad R_t^\circ=R_t-S_t.
+\]
+
+Here the remaining proof sketch takes `sigma=4` in the first case and
+`sigma=-1` in the second.
+
+The reduced denominator of `R_t^circ` is prime to `p`, and the exact cofactor
+decomposition contains `e_p(-4h*10^(t-k))`, cancelling the fresh local factor
+`e_p(4h*10^(t-k))`. The complete phase is therefore exactly
+
+\[
+ e(hR_t/q)=e(hR_t^\circ/q)e(hS_t/q).
+\]
+
+For a natural-window polynomial of coefficient load `Lambda`, summing the
+literal-pole removal over any safe prefix costs less than
+
+\[
+ \frac{16\pi\Lambda}{9p}(1000\rho)^m
+ \quad\text{in the first case},\qquad
+ \frac{40\pi\Lambda}{9p}(1000\rho)^m
+ \quad\text{in the second},
+\]
+
+where `1000*rho<1/20000`. Iterating
+`R_(t+1)^circ=10R_t^circ+F_t` inside the block gives a forcing twist
+`G_(t,ell)=sum_(j<ell)10^(ell-1-j)F_(t+j)` satisfying
+
+\[
+ \left|e(-vG_{t,\ell}/q)-1\right|
+ <\frac{5\pi}{8}\,
+ \frac{10^{\ell-1}\rho^t}{(7t+1)^2(1-\rho/10)}
+ \qquad(0<|v|<2q).
+\]
+
+The scoped negative consequence is that neither the fresh `p`-character nor
+the positive literal forcing supplies an independent source of primitive
+cancellation: the former is exactly cofactor-compensated, while the literal
+pole and forcing phases are quantitatively negligible on their safe block.
+What remains is a block-dependent, pole-removed, target-signed correlation of
+the actual `R_t^circ`; no sign or cancellation estimate is known for it.
+Because both the prime and the resulting core depend on the chosen block,
+this is only a diagnostic reduction of the live arithmetic problem. It proves
+no T139 premise, density, normality, or V1.
+
 ## Critical truncation overlap and its consumer mismatch
 
 Status in this section: `machine-checked` only for the three explicitly named
@@ -837,11 +997,19 @@ The strict verifier and exact axiom audit accept the following declarations:
   `scaledBBPRat_topPrimeThree_val_eq_neg_one`;
 - T160: `pi_decimal_resonant_phase_product`,
   `norm_delayedBBP_resonant_product_sub_one_lt`, and
-  `norm_delayedBBPNumerator_resonant_product_sub_one_lt`.
+  `norm_delayedBBPNumerator_resonant_product_sub_one_lt`;
+- T161: `caseOne_unique_terminal_pole`,
+  `caseThree_unique_terminal_pole`,
+  `scaledBBPRat_safeLaterProjection_one`,
+  `scaledBBPRat_safeLaterProjection_three`,
+  `scaledBBPRat_safeLaterVal_one`, and
+  `scaledBBPRat_safeLaterVal_three`.
 
 The explicit `nu_k<=4*k` derivation, predecessor/residue CRT identity,
 finite-local polynomial reduction, general reciprocal-profile adaptation, and
 Hausdorff/TP2 diagnostic, critical truncation-overlap law, and arbitrary
-finite-product/moving-horizon extensions are not among these declarations and
-remain `proof sketch`. No theorem listed here proves cancellation, a T139
-premise, density, normality, or V1.
+finite-product/moving-horizon extensions, as well as the BA sharp-tail,
+improved-transfer, reduced-cofactor, short-order, compensation, negligibility,
+and off-diagonal claims, are not among these declarations and remain
+`proof sketch`. No theorem listed here proves cancellation, a T139 premise,
+density, normality, or V1.

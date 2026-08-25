@@ -259,6 +259,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T157T157ExactBBPFiveAdicShell
 import TheoryLib.PiQuantitativeBlockHitting.T158T158ExactBBPFiveAdicPulses
 import TheoryLib.PiQuantitativeBlockHitting.T159T159ExactBBPTopPrimeProjection
 import TheoryLib.PiQuantitativeBlockHitting.T160T160DelayedBBPDecimalResonance
+import TheoryLib.PiQuantitativeBlockHitting.T161T161SafeLaterBBPPrimeProjection
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3288,6 +3289,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 -- Exact top-band odd-prime projections of the actual sampled BBP rational.
 -- Both admissible pole families have local residue `4`; the scaled
 -- projection and exact denominator valuation remain actual-BBP statements.
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_primeProjection_one_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_primeProjection_three_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_primeProjection_one_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_primeProjection_three_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_val_eq_neg_one_of_projection
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_one
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_three
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_one
@@ -3300,6 +3306,15 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.pi_decimal_resonant_phase_product
 #print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.norm_delayedBBP_resonant_product_sub_one_lt
 #print axioms Theory.PiDigits.T160DelayedBBPDecimalResonance.norm_delayedBBPNumerator_resonant_product_sub_one_lt
+
+-- Persistence of a terminal first- or third-family prime throughout the
+-- later sevenfold-sampled safe block, with exact local residue and valuation.
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.caseOne_unique_terminal_pole
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.caseThree_unique_terminal_pole
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterProjection_one
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterProjection_three
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterVal_one
+#print axioms Theory.PiDigits.T161SafeLaterBBPPrimeProjection.scaledBBPRat_safeLaterVal_three
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

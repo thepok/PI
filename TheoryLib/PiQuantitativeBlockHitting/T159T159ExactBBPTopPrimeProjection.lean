@@ -468,6 +468,132 @@ private lemma bbpPartial_eq_topThreeRegular_add
   rw [← hs]
   ring
 
+private lemma topOneRegularRat_zero_or_nonneg_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p)
+    (hone : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    topOneRegularRat t i = 0 ∨
+      0 ≤ padicValRat p (topOneRegularRat t i) := by
+  have h1 := zero_or_padicValRat_sum_nonneg hp
+    (s := (range (7 * t + 1)).erase i) (f := poleOne) (by
+      intro j hj
+      exact padicValRat_poleOne_eq_zero p j hp hpgt
+        (hone j (Nat.lt_succ_iff.mp (mem_range.mp (mem_of_mem_erase hj)))
+          (ne_of_mem_erase hj)))
+  have h2 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleTwo) (by
+      intro j hj
+      exact padicValRat_poleTwo_eq_zero p j hp hpgt
+        (htwo j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  have h3 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleThree) (by
+      intro j hj
+      exact padicValRat_poleThree_eq_zero p j hp hpgt
+        (hthree j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  have h4 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleFour) (by
+      intro j hj
+      exact padicValRat_poleFour_eq_zero p j hp hpgt
+        (hfour j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  unfold topOneRegularRat polePartial
+  exact zero_or_padicValRat_add_nonneg hp
+    (zero_or_padicValRat_add_nonneg hp
+      (zero_or_padicValRat_add_nonneg hp h1 h2) h3) h4
+
+private lemma topThreeRegularRat_zero_or_nonneg_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p)
+    (hone : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    topThreeRegularRat t i = 0 ∨
+      0 ≤ padicValRat p (topThreeRegularRat t i) := by
+  have h1 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleOne) (by
+      intro j hj
+      exact padicValRat_poleOne_eq_zero p j hp hpgt
+        (hone j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  have h2 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleTwo) (by
+      intro j hj
+      exact padicValRat_poleTwo_eq_zero p j hp hpgt
+        (htwo j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  have h3 := zero_or_padicValRat_sum_nonneg hp
+    (s := (range (7 * t + 1)).erase i) (f := poleThree) (by
+      intro j hj
+      exact padicValRat_poleThree_eq_zero p j hp hpgt
+        (hthree j (Nat.lt_succ_iff.mp (mem_range.mp (mem_of_mem_erase hj)))
+          (ne_of_mem_erase hj)))
+  have h4 := zero_or_padicValRat_sum_nonneg hp
+    (s := range (7 * t + 1)) (f := poleFour) (by
+      intro j hj
+      exact padicValRat_poleFour_eq_zero p j hp hpgt
+        (hfour j (Nat.lt_succ_iff.mp (mem_range.mp hj))))
+  unfold topThreeRegularRat polePartial
+  exact zero_or_padicValRat_add_nonneg hp
+    (zero_or_padicValRat_add_nonneg hp
+      (zero_or_padicValRat_add_nonneg hp h1 h2) h3) h4
+
+/-- Projection at an arbitrary sevenfold sampled depth once the selected
+first-family pole is the unique `p`-divisible pole in the four BBP families. -/
+theorem bbpPartial_primeProjection_one_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p) (hi : i ≤ 7 * t)
+    (hpdef : p = 8 * i + 1)
+    (hone : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    PrimeCongruent p ((p : ℚ) * bbpPartial (7 * t)) 4 := by
+  rw [bbpPartial_eq_topOneRegular_add t i p hpdef (by omega)]
+  unfold PrimeCongruent at ⊢
+  have hs := primeCongruent_singular_one p i hp hpgt hpdef
+  unfold PrimeCongruent at hs
+  have hs' : (p : ℚ) * poleOne i - 4 = 0 ∨
+      (1 : ℤ) ≤ padicValRat p ((p : ℚ) * poleOne i - 4) :=
+    hs.imp sub_eq_zero.mpr id
+  have hr := mul_prime_zero_or_val_ge_one hp
+    (topOneRegularRat_zero_or_nonneg_of_unique t i p hp hpgt
+      hone htwo hthree hfour)
+  have hadd := zero_or_padicValRat_add_ge_one hp hs' hr
+  rcases hadd with hz | hv
+  · left
+    linarith
+  · right
+    rw [show (p : ℚ) * (topOneRegularRat t i + poleOne i) - 4 =
+        ((p : ℚ) * poleOne i - 4) + (p : ℚ) * topOneRegularRat t i by ring]
+    exact hv
+
+/-- Projection at an arbitrary sevenfold sampled depth once the selected
+third-family pole is the unique `p`-divisible pole in the four BBP families. -/
+theorem bbpPartial_primeProjection_three_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p) (hi : i ≤ 7 * t)
+    (hpdef : p = 8 * i + 5)
+    (hone : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    PrimeCongruent p ((p : ℚ) * bbpPartial (7 * t)) 4 := by
+  rw [bbpPartial_eq_topThreeRegular_add t i p hpdef (by omega)]
+  unfold PrimeCongruent at ⊢
+  have hs := primeCongruent_singular_three p i hp hpgt hpdef
+  unfold PrimeCongruent at hs
+  have hs' : (p : ℚ) * poleThree i - 4 = 0 ∨
+      (1 : ℤ) ≤ padicValRat p ((p : ℚ) * poleThree i - 4) :=
+    hs.imp sub_eq_zero.mpr id
+  have hr := mul_prime_zero_or_val_ge_one hp
+    (topThreeRegularRat_zero_or_nonneg_of_unique t i p hp hpgt
+      hone htwo hthree hfour)
+  have hadd := zero_or_padicValRat_add_ge_one hp hs' hr
+  rcases hadd with hz | hv
+  · left
+    linarith
+  · right
+    rw [show (p : ℚ) * (topThreeRegularRat t i + poleThree i) - 4 =
+        ((p : ℚ) * poleThree i - 4) + (p : ℚ) * topThreeRegularRat t i by ring]
+    exact hv
+
 /-- Actual top-band projection for a prime in the `8*i+1` pole
 family.  The square and endpoint hypotheses are displayed explicitly; the
 strict band already implies that no second multiple of `p` occurs. -/
@@ -541,6 +667,38 @@ private lemma PrimeCongruent.mul_ten_pow
     norm_num
     exact hval
 
+/-- The unique first-family pole projection transported to the actual scaled
+sampled BBP rational. -/
+theorem scaledBBPRat_primeProjection_one_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p) (hi : i ≤ 7 * t)
+    (hpdef : p = 8 * i + 1)
+    (hone : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    PrimeCongruent p ((p : ℚ) * scaledBBPRat t) (4 * (10 : ℚ) ^ t) := by
+  have h := PrimeCongruent.mul_ten_pow (m := t) hp hpgt
+    (bbpPartial_primeProjection_one_of_unique t i p hp hpgt hi hpdef
+      hone htwo hthree hfour)
+  unfold scaledBBPRat
+  convert h using 1 <;> ring
+
+/-- The unique third-family pole projection transported to the actual scaled
+sampled BBP rational. -/
+theorem scaledBBPRat_primeProjection_three_of_unique
+    (t i p : ℕ) (hp : p.Prime) (hpgt : 5 < p) (hi : i ≤ 7 * t)
+    (hpdef : p = 8 * i + 5)
+    (hone : ∀ j ≤ 7 * t, ¬ p ∣ 8 * j + 1)
+    (htwo : ∀ j ≤ 7 * t, ¬ p ∣ 2 * j + 1)
+    (hthree : ∀ j ≤ 7 * t, j ≠ i → ¬ p ∣ 8 * j + 5)
+    (hfour : ∀ j ≤ 7 * t, ¬ p ∣ 4 * j + 3) :
+    PrimeCongruent p ((p : ℚ) * scaledBBPRat t) (4 * (10 : ℚ) ^ t) := by
+  have h := PrimeCongruent.mul_ten_pow (m := t) hp hpgt
+    (bbpPartial_primeProjection_three_of_unique t i p hp hpgt hi hpdef
+      hone htwo hthree hfour)
+  unfold scaledBBPRat
+  convert h using 1 <;> ring
+
 /-- The first-family top-prime projection for the actual scaled sampled BBP
 rational. -/
 theorem scaledBBPRat_topPrimeProjection_one
@@ -587,7 +745,7 @@ private lemma padicValRat_eq_zero_of_primeCongruent
     rw [show x = y + (x - y) by ring]
     exact hv.trans hy
 
-private lemma scaledBBPRat_val_eq_neg_one_of_projection
+theorem scaledBBPRat_val_eq_neg_one_of_projection
     (m p : ℕ) (hp : p.Prime) (hpgt : 5 < p)
     (hproj : PrimeCongruent p ((p : ℚ) * scaledBBPRat m)
       (4 * (10 : ℚ) ^ m)) :
@@ -632,6 +790,11 @@ theorem scaledBBPRat_topPrimeThree_val_eq_neg_one
 
 end Theory.PiDigits.T159ExactBBPTopPrimeProjection
 
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_primeProjection_one_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_primeProjection_three_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_primeProjection_one_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_primeProjection_three_of_unique
+#print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_val_eq_neg_one_of_projection
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_one
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.bbpPartial_topPrimeProjection_three
 #print axioms Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrimeProjection_one
