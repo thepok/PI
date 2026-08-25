@@ -255,6 +255,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
+import TheoryLib.PiQuantitativeBlockHitting.T145T145BoundaryLayerScalarBounds
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3196,6 +3197,12 @@ import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
 -- including its decimal-power specialization.
 #print axioms Theory.PiDigits.BoundaryLayerMass.boundaryLayerMass_eq
 #print axioms Theory.PiDigits.BoundaryLayerMass.boundaryLayerMass_pow_ten_eq
+
+-- Explicit scalar margins for the first two decimal endpoint layers.
+#print axioms Theory.PiDigits.BoundaryLayerScalarBounds.cosineDeficit_mul_sq_gt
+#print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryZeroCoefficient_lt_twelve_div_five_mul
+#print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryLayerMass_ten_gt
+#print axioms Theory.PiDigits.BoundaryLayerScalarBounds.boundaryLayerMass_hundred_gt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
