@@ -4,7 +4,7 @@ Status: `machine-checked` (the exact T154--T155 arithmetic identities and
 horizon-uniform phase-transfer bounds listed below); `proof sketch` (the
 explicit `nu_k <= 4*k` burn-in, its use to discharge the logarithmic
 hypothesis, the coefficient-summed corollary, and the predecessor/residue CRT
-identity)
+identity, and the finite-local polynomial-division obstruction)
 
 Date: 2026-08-25 UTC
 
@@ -213,6 +213,73 @@ e_{10^k}\!\left(h\frac{r_m}{D_m}\right)
 where `w_2=w mod 2^k` and `w_5=w mod 5^k`. This is an arithmetic realization
 of an ordinary natural-window frequency, not a new frequency algebra and not
 a bypass of T139's primitive-ray reduction.
+
+## Finite-local forcing reduction
+
+Status in this section: `proof sketch`; this is the compact conclusion of the
+independently audited AY follow-up and is not Lean-checked. It adds an exact
+identity for the actual BBP sequence, but no positive cancellation estimate.
+
+Put `R_m=10^m B_m=P_m/D_m`, let `E` be the forward shift, and write the exact
+forcing and tail coboundary as
+
+\[
+F_m=R_{m+1}-10R_m=10\tau_m-\tau_{m+1}.
+\]
+
+For every `C(X)=sum_(r=0)^R c_r X^r` in `Z[X]`, set
+
+\[
+H=C(10),\qquad Q_C(X)=\frac{C(X)-C(10)}{X-10}\in\mathbb Z[X].
+\]
+
+Polynomial division by `X-10` gives the exact identities
+
+\[
+\boxed{C(E)R=C(10)R+Q_C(E)F},
+\qquad
+\boxed{Q_C(E)F=C(10)\tau-C(E)\tau}.
+\]
+
+Thus, for `q=10^k`, `m=n+k`, and `z_(n,k)=R_(n+k)/q`, the corresponding
+finite product of delayed characters is simultaneously
+
+\[
+\prod_{r=0}^R e(c_r z_{n+r,k})
+=e\!\left(\frac{H R_m+(Q_C(E)F)_m}{q}\right)
+=e(H10^n\pi)
+ e\!\left(-\frac{\sum_{r=0}^R c_r\tau_{m+r}}q\right).
+\]
+
+Because the tail is geometrically summable, this yields a finite-local
+dichotomy. If `C(10)=0`, the products are a summable perturbation of `1`, so
+their Cesaro averages tend to `1`, not `0`. If `C(10) != 0`, they remain a
+summable perturbation of a nonzero fixed-pi character. At a T139
+primitive-ray leaf whose earliest coefficient `c_0` is not divisible by ten,
+
+\[
+C(10)\equiv c_0\pmod {10};
+\]
+
+hence that surviving frequency is already decimal-primitive. For a general
+nonzero `C(10)` divisible by ten, one must first perform the usual decimal-ray
+reduction, including its finite endpoint terms; nonzero alone does not imply
+primitive.
+
+Consequently, the Archimedean forcing recurrence by itself cannot turn finite
+character telescoping or finite-order van der Corput into the missing
+cancellation: it gives either zero-frequency coherence or another nonzero
+fixed-pi phase. Repeated differences of a single primitive character have
+frequency `h * product_i (10^(r_i)-1)` and therefore stay primitive (with
+`9^d` growth after `d` differences); this growth assertion is not being made
+for arbitrary cross terms of a polynomial expansion.
+
+This is incremental negative progress, not a closure of all finite BBP
+arguments. It does not exclude finite arguments that also use exact nonlocal
+relations among the actual numerators and denominators, cross-index
+congruences, or the seven-term rational formula before it is collapsed to the
+Archimedean recurrence. No primitive/off-diagonal estimate, T139 premise, or
+V1 consequence is obtained.
 
 ## Narrowed live arithmetic target
 

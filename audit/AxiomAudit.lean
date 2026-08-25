@@ -255,6 +255,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 import TheoryLib.PiQuantitativeBlockHitting.T154T154DelayedBBPFivePrimary
 import TheoryLib.PiQuantitativeBlockHitting.T155T155DelayedBBPPhaseTransfer
 import TheoryLib.PiQuantitativeBlockHitting.T156T156BoundaryNaturalThresholdClosure
+import TheoryLib.PiQuantitativeBlockHitting.T157T157ExactBBPFiveAdicShell
+import TheoryLib.PiQuantitativeBlockHitting.T158T158ExactBBPFiveAdicPulses
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3267,6 +3269,19 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.rootGridNaturalThreshold_lt_neg_861
 #print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861
 #print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.primitiveBoundary_lt_neg_861_of_piOrbit_misses
+
+-- Exact all-depth five-adic shell and leading unit of the actual sampled BBP
+-- rational, followed by the three exact seven-term forcing pulse laws.
+#print axioms Theory.PiDigits.T157ExactBBPFiveAdicShell.normalized_bbpPartial_five_congruent
+#print axioms Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPFiveUnit_five_congruent
+#print axioms Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPFiveUnit_five_val
+#print axioms Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPFiveUnit_ne_zero
+#print axioms Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_five_val_eq
+#print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_eq_scaledBBPRat_sub
+#print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.fiveShellLog_succ_eq_or
+#print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_eq_of_shell_jump
+#print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_eq_of_secondary_activation
+#print axioms Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_five_val_ge_of_quiet_shell
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

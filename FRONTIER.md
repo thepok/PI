@@ -278,16 +278,28 @@ residual and that even perfectly uniform separate `2^k` and `5^k` marginals
 can omit a joint target. Those abstract separators do not model BBP joint
 dynamics, which remains the live boundary.
 
-The audited `proof sketch`
+The exact actual-BBP core recorded in the
 [`T106--T141 phase-flexibility separator`](knowledge/pi/results/negative/20260825-t106-t141-five-adic-phase-flexibility-no-go.md)
-shows that the logarithmically sharper T141 valuation, positive T106-form
-forcing, exact coboundary and geometric tail, and the cofinal even-depth
-`2^(27m)` denominator scale still admit strictly increasing rational shadows
-of every decimal orbit. A word-omitting example has asymptotically maximal
-primitive Weyl sums on an expanding window. Thus this envelope cannot supply
-T139 cancellation; a live BBP route must retain the actual odd-denominator,
-numerator-residue, or seven-pole coefficient coupling destroyed by the
-countermodel.
+is now `machine-checked` in T157--T158. T157's
+`Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_five_val_eq` proves the
+exact five-adic valuation at every sampled depth, including `m=0,1`;
+`normalized_bbpPartial_five_congruent`,
+`scaledBBPFiveUnit_five_congruent`, `scaledBBPFiveUnit_five_val`, and
+`scaledBBPFiveUnit_ne_zero` check the normalized residue, explicit leading
+unit with `secondaryPoleIndicator`, and its unit corollaries. T158's
+`Theory.PiDigits.T158ExactBBPFiveAdicPulses.sampledBBPForcingRat_eq_scaledBBPRat_sub`
+and `fiveShellLog_succ_eq_or` check the forcing identity and shell dichotomy;
+`sampledBBPForcingRat_five_val_eq_of_shell_jump`,
+`sampledBBPForcingRat_five_val_eq_of_secondary_activation`, and
+`sampledBBPForcingRat_five_val_ge_of_quiet_shell` check the two exact pulse
+cases and the quiet-shell gain. The growing-modulus rational shadow and the
+negative separator remain `proof sketch`: positive T106-form forcing, exact
+coboundary and geometric tail, the `2^(27m)` denominator scale, and actual
+rational-value congruences through `5^(m-1)` still admit strictly increasing
+shadows of a word-omitting decimal orbit, but do not preserve a raw numerator
+or the actual coupled numerator/odd-denominator and seven-term/four-pole
+structure. None of T157--T158 supplies signed/off-diagonal cancellation, a
+later-horizon estimate, T139, or V1.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
 still only a `proof sketch`, replaces `F_q^2` by `F_q F_(4q/5)`. At decimal
