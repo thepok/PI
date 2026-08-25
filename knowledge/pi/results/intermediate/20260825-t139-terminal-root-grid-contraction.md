@@ -2,13 +2,15 @@
 
 Status: `machine-checked` (T149 exact root-grid projection, T150 kernel floors,
 T151 projected-layer floor, T152 endpoint contraction, and T153 exact
-natural-horizon consumer); `proof sketch` (the `-861/1000` scalar consequence
-and closed-form endpoint-budget evaluation, plus the stronger AX constants)
+natural-horizon consumer, plus T156 scalar threshold closure, hit consumer,
+and missed-cylinder contrapositive); `proof sketch` (the closed-form
+endpoint-budget evaluation and stronger AV endpoint constant)
 
 This note records the independently audited mathematical core of the
-2026-08-25 ChatGPT Pro AW memo and the compatible initial-side improvement in
-the later AX memo. The AW root-grid chain is now machine-checked in T149--T153;
-the later scalar simplification and AX strengthening remain `proof sketch`.
+2026-08-25 ChatGPT Pro AW memo and the compatible initial-side improvements in
+the later AX and AV memos. The AW root-grid chain and its scalar natural-scale
+closure are now machine-checked in T149--T153 and T156; the AV strengthening
+remains `proof sketch`.
 These results improve only the literal valuation-positive endpoint sector of
 T139; the actual-pi primitive/off-diagonal estimate remains open.
 
@@ -25,10 +27,15 @@ The verified modules and public declarations are:
 - [`T152T152BoundaryRootGridEndpoint.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T152T152BoundaryRootGridEndpoint.lean):
   `Theory.PiDigits.BoundaryRootGridEndpoint.primitiveBoundaryEndpoint_re_gt_neg_two_budget_add`;
 - [`T153T153BoundaryRootGridNaturalConsumer.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T153T153BoundaryRootGridNaturalConsumer.lean):
-  `Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge`.
+  `Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge`;
+- [`T156T156BoundaryNaturalThresholdClosure.lean`](../../../../TheoryLib/PiQuantitativeBlockHitting/T156T156BoundaryNaturalThresholdClosure.lean):
+  `Theory.PiDigits.BoundaryNaturalThresholdClosure.rootGridNaturalThreshold_lt_neg_861`,
+  `Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861`,
+  and
+  `Theory.PiDigits.BoundaryNaturalThresholdClosure.primitiveBoundary_lt_neg_861_of_piOrbit_misses`.
 
 The complete `lake build TheoryLib` and strict
-`pwsh workflows/verification/check.ps1` gate pass for this chain.
+`pwsh workflows/verification/check.ps1` gate pass for this chain through T156.
 
 ## Setup
 
@@ -160,58 +167,27 @@ consequence `Re B > -2E_q+7/500`; the extra saving is
 
 ### Stronger initial-side combination (`proof sketch`)
 
-An independent audit of the AX calculation gives the sharper initial estimate
+An independent audit of the later AV calculation gives, uniformly for
+`k >= 3`, every target and every horizon,
 
 \[
-|I_{q,A}|<E_q-\frac{1983}{100000}.
+\boxed{|I_{q,A}|<E_q-\frac3{125},
+\qquad |\mathcal B_{q,A}(N)|<2E_q-\frac3{125}.}
 \]
 
-The exact rational replay uses
-
-\[
-q^2(1-\cos(\pi/q))>\frac{49345}{10000},
-\qquad q\alpha_q(0)<\frac{23}{10},
-\]
-
-and hence
-
-\[
-M_{q,1}>\frac{9823}{40000},\qquad
-M_{q,2}>\frac{9409}{400000}.
-\]
-
-The fixed relation between the first two initial phases gives the dichotomy
-
-\[
-\|\theta_1\|_{\mathbb T}\ge\frac1{280}
-\quad\text{or}\quad
-\|\theta_2\|_{\mathbb T}>\frac{3329}{14000}.
-\]
-
-The corresponding sine and Abel bounds are
-
-\[
-\sin(\pi/280)>\frac{500}{45149},\qquad
-\sin(3329\pi/14000)>\frac{1000}{1477},
-\]
-
-\[
-|P_{q,1}(\theta_1)|<\frac{45149}{200000},\qquad
-|P_{q,2}(\theta_2)|<\frac{1477}{400000}.
-\]
-
-These caps are exactly the displayed mass floors minus `1983/100000`.
-Replacing the `7/500` initial saving in the terminal root-grid argument by
-this stronger value therefore yields
+The initial estimate supersedes the earlier AX proof-sketch saving
+`1983/100000`: `3/125 = 2400/100000`. Replacing the machine-checked `7/500`
+initial saving in the AW terminal root-grid argument by `3/125` yields
 
 \[
 \boxed{
 \operatorname{Re}\mathcal B_{q,A}(N)>
--2E_q+\frac{2163}{8000}.}
+-2E_q+\frac{54909}{200000}.}
 \]
 
-This is a modest strengthening of `52909/200000`, not a new source of
-primitive cancellation. It remains pending Lean verification.
+This improves the earlier AX/AW combined proof-sketch constant `2163/8000`
+by exactly `417/100000`. It remains endpoint-sector polish pending Lean
+verification; it supplies no primitive or off-diagonal cancellation.
 
 ## Conditional natural-horizon consumer
 
@@ -230,29 +206,39 @@ exact T139 defect identity. Its theorem
 \]
 
 forces a hit of the cylinder `[A/q,(A+1)/q)`. The separate audited scalar
-comparison `R_q < -861/1000` remains `proof sketch`; it yields the simpler
-non-strict sufficient premise
+comparison is now machine-checked by T156 as
+`rootGridNaturalThreshold_lt_neg_861`:
+
+\[
+\boxed{R_q< -\frac{861}{1000}.}
+\]
+
+Consequently T156's `piOrbit_hit_of_primitiveBoundary_ge_neg_861`
+machine-checks the simpler non-strict sufficient premise
 
 \[
 \boxed{
 \operatorname{Re}Z_{q,A}(q)\ge-\frac{861}{1000}.}
 \]
 
-Equivalently, a target cylinder missed by the first `q` orbit points must have
-`Re Z_(q,A)(q) < -861/1000`. This is a strictly weaker sufficient lower-bound
-requirement than the earlier `-5413/9000` threshold.
+T156's `primitiveBoundary_lt_neg_861_of_piOrbit_misses` machine-checks the
+strict contrapositive: a target cylinder missed by the first `q` orbit points
+must have `Re Z_(q,A)(q) < -861/1000`. This is a strictly weaker sufficient
+lower-bound requirement than the earlier `-5413/9000` threshold. It remains a
+generic implication; T156 supplies no premise proving a hit or primitive
+lower bound for any particular target.
 
 Using the stronger combined endpoint saving above, define instead
 
 \[
-R_q^*=2E_q-\frac{2163}{8000}-\frac{q\alpha_q(0)}2.
+R_q^*=2E_q-\frac{54909}{200000}-\frac{q\alpha_q(0)}2.
 \]
 
-The same scalar calculation gives
+This is smaller than the earlier AX/AW value by `417/100000`. In particular,
+the already audited weaker scalar consequence remains valid:
 
 \[
-R_q^*<-\frac{78029502281}{90000000000}
-<-\frac{8669}{10000}.
+R_q^*<-\frac{8669}{10000}.
 \]
 
 Consequently the still-unformalized, non-strict premise
@@ -262,19 +248,23 @@ Consequently the still-unformalized, non-strict premise
 \operatorname{Re}Z_{q,A}(q)\ge-\frac{8669}{10000}}
 \]
 
-is sufficient for the corresponding target hit. This supersedes the
-`-861/1000` proof-sketch threshold once the stronger initial calculation is
-included; neither premise is an actual-pi estimate.
+is sufficient for the corresponding target hit. This is deliberately not
+advertised as an optimized scalar threshold for the new endpoint constant;
+it only records a previously audited clean consequence. Neither premise is an
+actual-pi estimate.
 
 ## Claim boundary
 
 The T149 root-grid identity, T150 kernel floors, T151 projected-layer bound,
 T152 endpoint inequality with saving `52909/200000`, and T153 exact
-scale-dependent natural-horizon consumer are `machine-checked`. The scalar
-endpoint-budget evaluation and comparison producing `-861/1000` are still
-`proof sketch`. The stronger AX initial saving `1983/100000`, combined
-endpoint saving `2163/8000`, and scalar threshold `-8669/10000` also remain
-`proof sketch` pending Lean verification.
+scale-dependent natural-horizon consumer are `machine-checked`. T156's generic
+scalar comparison producing `-861/1000`, its hit consumer, and its strict
+missed-cylinder contrapositive are also `machine-checked`. The convenient
+closed-form evaluation of `E_q` displayed above remains `proof sketch`; T156
+derives the needed bound without formalizing that equality. The stronger AV
+initial saving `3/125`, combined endpoint saving `54909/200000`, and inherited
+scalar threshold `-8669/10000` also remain `proof sketch` pending Lean
+verification. They supersede the weaker AX initial and combined constants.
 Even the machine-checked part is an unconditional actual-pi endpoint
 contraction plus a conditional hit consumer, not primitive cancellation.
 

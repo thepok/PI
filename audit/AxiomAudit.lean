@@ -252,6 +252,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
 import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
+import TheoryLib.PiQuantitativeBlockHitting.T154T154DelayedBBPFivePrimary
+import TheoryLib.PiQuantitativeBlockHitting.T155T155DelayedBBPPhaseTransfer
+import TheoryLib.PiQuantitativeBlockHitting.T156T156BoundaryNaturalThresholdClosure
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3245,6 +3248,25 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt
 #print axioms Theory.PiDigits.BoundaryRootGridEndpoint.primitiveBoundaryEndpoint_re_gt_neg_two_budget_add
 #print axioms Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge
+
+-- T141's logarithmic five-adic retention reindexed at the delayed depth
+-- `n+k`, together with the exact five-free reduced rational presentation.
+#print axioms Theory.PiDigits.T154DelayedBBPFivePrimary.delayed_scaledBBPRat_five_arithmetic
+#print axioms Theory.PiDigits.T154DelayedBBPFivePrimary.scaledBBPRat_num_eq_five_pow_mul_delayedBBPNumerator
+#print axioms Theory.PiDigits.T154DelayedBBPFivePrimary.delayed_bbpPartial_eq_num_div_two_pow_den
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.delayedBBPValue_eq_num_div_two_pow_den
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.phase_delayedBBPValue_eq_delayedBBPNumeratorPhase
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.abs_piPoint_sub_delayedBBPValue
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.norm_phase_pi_sub_delayedBBPValue_lt
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.norm_sum_phase_pi_sub_delayedBBPValue_lt
+#print axioms Theory.PiDigits.T155DelayedBBPPhaseTransfer.norm_sum_phase_pi_sub_delayedBBPNumeratorPhase_lt
+
+-- Scalar closure of the natural-horizon root-grid threshold and its strict
+-- missed-cylinder contrapositive.  No primitive cancellation is asserted.
+#print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.cosineDeficit_mul_sq_gt_98681_div_20000
+#print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.rootGridNaturalThreshold_lt_neg_861
+#print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861
+#print axioms Theory.PiDigits.BoundaryNaturalThresholdClosure.primitiveBoundary_lt_neg_861_of_piOrbit_misses
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

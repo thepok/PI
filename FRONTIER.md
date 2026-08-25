@@ -151,7 +151,7 @@ logical separator.
 
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
-is now `machine-checked` through T149--T153. T149's
+is now `machine-checked` through T149--T153 and T156. T149's
 `Theory.PiDigits.BoundaryRootGridProjection.rootGridProjection_eq` and
 `Theory.PiDigits.BoundaryRootGridProjection.boundaryLayerPolynomial_eq_divisible`
 express each terminal divisibility layer as an exact grid average of the T128
@@ -165,12 +165,33 @@ supply the pointwise projected-layer floor. T152 then proves
 `Re B > -2E + 52909/200000` for every `k>=3`, target, and horizon. At `N=q`,
 T153's
 `Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge`
-machine-checks the exact scale-dependent conditional consumer. The scalar
-comparison reducing this premise to `Re Z_(q,A)(q) >= -861/1000` remains
-`proof sketch`, as do the stronger AX savings `1983/100000`, `2163/8000`, and
-the `-8669/10000` threshold. No actual-pi estimate proving either signed
-primitive inequality is known, so the primitive/off-diagonal frontier and V1
-remain open.
+machine-checks the exact scale-dependent conditional consumer. T156 now
+machine-checks the scalar closure: its
+`Theory.PiDigits.BoundaryNaturalThresholdClosure.rootGridNaturalThreshold_lt_neg_861`
+proves the exact T153 threshold is strictly below `-861/1000`,
+`piOrbit_hit_of_primitiveBoundary_ge_neg_861` turns the corresponding
+non-strict primitive lower bound into a hit, and
+`primitiveBoundary_lt_neg_861_of_piOrbit_misses` records the strict
+missed-cylinder contrapositive. The stronger AV endpoint saving and its
+`-8669/10000` consequence remain `proof sketch`. No actual-pi estimate proving
+such a signed primitive lower bound is known, so the primitive/off-diagonal
+frontier and V1 remain open.
+
+The proposed universal natural horizon is now retired. An exact rational
+Machin-prefix `experiment` certifies that among π's first 1000 length-three
+windows only 634 are distinct and 366 are missing, including `002`; the
+initial and terminal two-digit blocks are `14` and `38`. The accompanying
+[`de Bruijn no-go`](knowledge/pi/results/negative/20260825-natural-horizon-de-bruijn-no-go.md)
+shows at `proof sketch` level that coverage of all `q=10^k` words by exactly
+the first `q` windows would force those endpoint blocks to agree. Combining
+the unformalized finite prefix certificate for the missed `A=2` cell with the
+machine-checked T153--T156 implication gives, only at `proof sketch` status for
+this actual instance,
+`Re Z_(1000,2)(1000) < R_1000 < -861/1000`. Thus the proposed universal `N=q`
+route is mathematically falsified for the actual π orbit, while only the
+generic conditional implication and contrapositive are machine-checked. This
+does not threaten V1: target-dependent witnesses at later horizons, and
+signed π-specific estimates at such horizons, remain live.
 
 The [fixed-degree no-go](knowledge/pi/results/negative/20260824-fixed-degree-transcendence-measures-do-not-force-decimal-dispersion.md)
 now also has an exact fixed-target T139 form: affine
@@ -226,6 +247,36 @@ prime to five and numerator divisible by `5^ceil(m/2)`. The
 [`machine-checked record`](knowledge/pi/results/machine-checked/t141_scaled_bbp_five_adic_numerator_20260825.md)
 retains only this audited arithmetic statement. It supplies no control of the
 remaining Archimedean phase, primitive cancellation, T139, or V1.
+
+The exact core of the independently audited delayed phase transfer is now
+`machine-checked` in T154--T155. Under the exact logarithmic burn-in
+hypothesis at every summed index, T154 proves `5^k | P_(n+k)`, removes this
+factor from the actual reduced numerator, and identifies the delayed
+truncation with denominator `2^k D`. T155 identifies its literal phase and
+proves, for
+`|h| < 2*10^k`, the pointwise and arbitrary-horizon transfer bounds,
+including
+
+```text
+e(h * 10^n * B_(n+k)) = e_(2^k D_(n+k))(h U_(n+k)).
+```
+
+Replacing an arbitrarily long delayed pi-orbit sum by these actual numerator
+phases costs less than
+`4*pi*rho^(n+k)/(1-rho)`, independently of the horizon. The denominator
+`2^k D_m` is five-free but need not be the reduced phase modulus. The
+[`delayed numerator-phase transfer`](knowledge/pi/results/intermediate/20260825-delayed-bbp-numerator-phase-transfer.md)
+therefore narrows the live object to target-signed joint/off-diagonal sums in
+the varying actual `(U_m,D_m)`; it is not the whole T139 consumer and proves no
+cancellation or V1 implication. The explicit formula
+`nu_k=min {n : 5^n >= 224k}`, its bound `nu_k<=4k`, the deduction of the Lean
+logarithmic hypothesis from `n>=nu_k`, and the predecessor/residue CRT identity
+remain `proof sketch`. Its companion
+[`unpaired-alias and two-marginal no-go`](knowledge/pi/results/negative/20260825-unpaired-alias-and-two-marginal-blindness.md)
+shows that bare digit characters retain a constant natural-window alias
+residual and that even perfectly uniform separate `2^k` and `5^k` marginals
+can omit a joint target. Those abstract separators do not model BBP joint
+dynamics, which remains the live boundary.
 
 The audited `proof sketch`
 [`T106--T141 phase-flexibility separator`](knowledge/pi/results/negative/20260825-t106-t141-five-adic-phase-flexibility-no-go.md)

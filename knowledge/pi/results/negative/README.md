@@ -4,6 +4,11 @@ This directory records routes that were explicitly falsified or reduced to a
 durable obstruction. These artifacts prevent future workers from repeatedly
 spending tokens on the same dead ends.
 
+- `20260825-natural-horizon-de-bruijn-no-go.md`: an exact rational Machin
+  prefix scan finds `002` absent from the first 1000 length-three π windows;
+  the de Bruijn endpoint condition and T153 contrapositive retire universal
+  coverage at the minimal horizon `N=q`, while later target-dependent
+  horizons remain live.
 - `ultrapi/bbp_fiber_matching_no_go*`: failed fiber-matching route with replay checks.
 - `bbp_three_adic_fiber_archimedean_density_no_go_20260821.md`:
   reviewed same-fiber density separator; finite three-adic BBP residue data
