@@ -137,6 +137,15 @@ provide wordwise control because `h=q` survives. The needed
 primitive-frequency cancellation estimate remains open for π, so this proves
 neither T124 nor V1 and supplies no exact π-orbit logical separator.
 
+The [fixed-degree no-go](knowledge/pi/results/negative/20260824-fixed-degree-transcendence-measures-do-not-force-decimal-dispersion.md)
+now also has an exact fixed-target T139 form: affine
+digit recoding produces, for every prescribed cylinder, a transcendental
+countermodel with simultaneous optimal fixed-degree repulsion whose complete
+primitive polynomial fails the T139 threshold at every horizon. Arbitrary
+finite full-polynomial van der Corput recurrences stay at nonzero primitive
+frequencies, so lower Diophantine repulsion on those phases alone is closed;
+actual-π signed/off-diagonal correlation remains the live boundary.
+
 A [canonical finite BBP experiment](knowledge/pi/results/negative/20260824-canonical-bbp-singleton-prefix-no-go.md)
 retires T139-compatible all-prefix bounds for the singleton core. A subsequent
 audited `proof sketch` in the singleton-ray barrier upgrades its termwise part:
