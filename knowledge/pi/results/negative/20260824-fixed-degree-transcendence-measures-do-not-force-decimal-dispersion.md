@@ -246,6 +246,78 @@ a theorem-backed threshold without the missing starting range. This
 supplement proves no π entropy or UI estimate, has not been checked in Lean,
 and makes no `literature-checked` or novelty claim.
 
+## Denominator hole for uniform bounded-polynomial covers
+
+Status: `proof sketch`. This closes only a scale-wise, language-uniform
+covering mechanism; it is not a statement about a polynomial constructed
+specifically at π.
+
+Let $w$ be a nonempty decimal word. For every $d,H\ge1$ there is a reduced
+rational $x_{w,H}=p/q\in[3,4)$ whose canonical fractional decimal expansion
+avoids $w$, such that
+
+\[
+ H<q\le10H,
+ \qquad
+ |P(x_{w,H})|\ge(10H)^{-d}                                      \tag{G2}
+\]
+
+for every nonzero $P\in\mathbb Z[X]$ with $\deg P\le d$ and naive height
+$H(P)\le H$.
+
+To construct it, choose a digit $c$ occurring in $w$ and
+$a\in\{1,7\}\setminus\{c\}$. Let $m\ge0$ be least such that
+$q=9\cdot10^m>H$. For $m=0$, take the fractional part $0.\overline a=a/9$.
+For $m\ge1$, choose an even digit
+$b\in\{0,2,4,6,8\}\setminus\{c\}$ with
+$4b+a\not\equiv0\pmod5$, and take
+
+\[
+ 0.\underbrace{aa\ldots a}_{m-1\text{ digits}}b\overline a
+   =\frac{9U+a}{9\cdot10^m},
+\]
+
+where $U$ is the integer represented by the first $m$ digits. Such a $b$
+exists because exactly one even digit fails the congruence and excluding $c$
+removes at most one more choice. The numerator $9U+a$ is odd, is nonzero
+modulo $5$ by construction, and is congruent to $a\equiv1\pmod3$; hence the
+displayed denominator is reduced. All fractional digits omit $c$, while the
+eventual digit $a\in\{1,7\}$ removes terminating-tail ambiguity. Adding $3$
+preserves the denominator and puts the result in $[3,4)$. Minimality of $m$
+gives $H<q\le10H$.
+
+If a positive-degree $P$ in (G2) vanished at $p/q$, the rational-root theorem
+would make $q$ divide its leading coefficient, impossible because $q>H$.
+The constant case is immediate. Thus $q^dP(p/q)$ is a nonzero integer, so
+$|P(p/q)|\ge q^{-d}\ge(10H)^{-d}$.
+
+For comparison, Theorem 2 of Nesterenko--Waldschmidt,
+[*On the approximation of the values of exponential function and logarithm by
+algebraic numbers*](https://arxiv.org/abs/math/0002047), gives for every
+$d\ge1$, $L\ge3$, and nonzero integer polynomial with $\deg P\le d$ and
+coefficient length $L(P)=\sum_j|a_j|\le L$,
+
+\[
+ |P(\pi)|\ge
+ \exp\{-2\cdot10^6d(\log L+d\log d)(1+\log d)\}.                \tag{G3}
+\]
+
+Since $L(P)\le(d+1)H(P)$, put $L_0=\max\{3,(d+1)H\}$ and denote the
+right-hand side of (G3) by $\varepsilon_\pi(d,H)$. For all $d,H\ge1$,
+
+\[
+ \varepsilon_\pi(d,H)< (10H)^{-d},
+\]
+
+because $L_0\ge2H$ and $2\cdot10^6\log(2H)>\log(10H)$. Therefore the strict
+sublevel sets $\{|P(x)|<\varepsilon_\pi(d,H)\}$, over all nonzero polynomials
+of degree at most $d$ and height at most $H$, do not cover the full
+$w$-avoiding language at any scale $(d,H)$. This strengthens the preceding
+uniform codebook obstruction in the growing-degree regime. It does not rule
+out a nonuniform bridge that uses arithmetic information specific to π, and
+it proves no π cancellation, entropy estimate, UI estimate, or part of V1.
+No Lean or novelty claim is made.
+
 ## Fixed-target T139 and finite-differencing separator
 
 Status: `proof sketch`. This is a target-specific sharpening of the same

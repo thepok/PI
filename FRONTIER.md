@@ -145,6 +145,10 @@ primitive polynomial fails the T139 threshold at every horizon. Arbitrary
 finite full-polynomial van der Corput recurrences stay at nonzero primitive
 frequencies, so lower Diophantine repulsion on those phases alone is closed;
 actual-π signed/off-diagonal correlation remains the live boundary.
+The same note also closes, at every degree and height, the scale-wise uniform
+cover of an entire forbidden-word language by polynomial sublevel sets at the
+explicit all-degree Nesterenko--Waldschmidt π-measure scale; a π-specific
+nonuniform remainder construction is not affected.
 
 A [canonical finite BBP experiment](knowledge/pi/results/negative/20260824-canonical-bbp-singleton-prefix-no-go.md)
 retires T139-compatible all-prefix bounds for the singleton core. A subsequent
