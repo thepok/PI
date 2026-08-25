@@ -11,21 +11,29 @@ For the actual reduced rational
 
 `scaledBBPRat m = 10^m * bbpPartial (7*m)`,
 
-T141 proves that for every `m >= 8`
+T141 proves the all-depth valuation bound
+
+`m - Nat.log 5 (56*m+5) <= padicValRat 5 (scaledBBPRat m)`.
+
+The constant uses the inclusive BBP range `0 <= k <= 7*m`; the largest of
+the four reduced linear pole denominators is `8*(7*m)+5 = 56*m+5`.
+
+Consequently, for every `m >= 2`,
 
 `not (5 divides (scaledBBPRat m).den)`
 
 and
 
-`5^((m+1)/2) divides (scaledBBPRat m).num.natAbs`.
+`5^(m - Nat.log 5 (56*m+5)) divides (scaledBBPRat m).num.natAbs`.
 
 Thus the reduced denominator is a five-adic unit while the reduced numerator
-retains at least `ceil(m/2)` powers of five. The proof works directly with
+retains `m - O(log m)` powers of five. The earlier theorem for `m >= 8`, with
+the simpler exponent `ceil(m/2)`, is preserved. The proof works directly with
 the four registered BBP poles and the existing finite-sum valuation theorem;
 it does not introduce a second common-denominator representation.
 
-The theorem is registered in the central axiom audit. The strict verifier
-accepts it with only `propext`, `Classical.choice`, and `Quot.sound`.
+The theorems are registered in the central axiom audit. The strict verifier
+accepts them with only `propext`, `Classical.choice`, and `Quot.sound`.
 
 This is exact representation arithmetic. It does not control the remaining
 Archimedean phase, primitive-frequency cancellation, T139, density, V1, or

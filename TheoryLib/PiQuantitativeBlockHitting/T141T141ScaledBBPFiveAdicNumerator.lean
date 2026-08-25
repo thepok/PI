@@ -191,6 +191,146 @@ private theorem scaledBBPRat_five_val_ge (m : ℕ) (hm : 8 ≤ m) :
       exact mul_pos (pow_pos (by norm_num) _) (bbpCombinedTerm_pos 0)
   exact hs.resolve_left (ne_of_gt hpos)
 
+private lemma linear_padicVal_le_log (m a : ℕ) (ha : a ≤ 56 * m + 5) :
+    padicValNat 5 a ≤ Nat.log 5 (56 * m + 5) := by
+  exact (padicValNat_le_nat_log a).trans (Nat.log_mono_right ha)
+
+private lemma poleOne_five_val_ge_log (m k : ℕ) (hk : k ≤ 7 * m) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 ((10 : ℚ) ^ m * poleOne k) := by
+  have hlin := linear_padicVal_le_log m (8 * k + 1) (by omega)
+  simp only [poleOne]
+  rw [show (8 : ℚ) * k + 1 = ((8 * k + 1 : ℕ) : ℚ) by push_cast; ring]
+  rw [padicValRat.mul (pow_ne_zero _ (by norm_num)) (by positivity),
+    padicValRat.pow (by norm_num), padicValRat_five_ten,
+    padicValRat.div (div_ne_zero (by norm_num) (by positivity))
+      (pow_ne_zero _ (by norm_num)),
+    padicValRat.div (by norm_num) (by positivity), padicValRat_five_four,
+    padicValRat.of_nat, padicValRat.pow (by norm_num), padicValRat_five_sixteen]
+  norm_num
+  omega
+
+private lemma poleTwo_five_val_ge_log (m k : ℕ) (hk : k ≤ 7 * m) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 ((10 : ℚ) ^ m * poleTwo k) := by
+  have hlin := linear_padicVal_le_log m (2 * k + 1) (by omega)
+  simp only [poleTwo]
+  rw [show (2 : ℚ) * k + 1 = ((2 * k + 1 : ℕ) : ℚ) by push_cast; ring]
+  rw [padicValRat.mul (pow_ne_zero _ (by norm_num)) (by positivity),
+    padicValRat.pow (by norm_num), padicValRat_five_ten,
+    padicValRat.div (div_ne_zero (div_ne_zero (by norm_num) (by norm_num))
+      (by positivity)) (pow_ne_zero _ (by norm_num)),
+    padicValRat.div (div_ne_zero (by norm_num) (by norm_num)) (by positivity),
+    padicValRat.div (by norm_num) (by norm_num), padicValRat.neg,
+    padicValRat_five_two, padicValRat.of_nat,
+    padicValRat.pow (by norm_num), padicValRat_five_sixteen]
+  norm_num
+  omega
+
+private lemma poleThree_five_val_ge_log (m k : ℕ) (hk : k ≤ 7 * m) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 ((10 : ℚ) ^ m * poleThree k) := by
+  have hlin := linear_padicVal_le_log m (8 * k + 5) (by omega)
+  simp only [poleThree]
+  rw [show (8 : ℚ) * k + 5 = ((8 * k + 5 : ℕ) : ℚ) by push_cast; ring]
+  rw [padicValRat.mul (pow_ne_zero _ (by norm_num)) (by positivity),
+    padicValRat.pow (by norm_num), padicValRat_five_ten,
+    padicValRat.div (div_ne_zero (by norm_num) (by positivity))
+      (pow_ne_zero _ (by norm_num)),
+    padicValRat.div (by norm_num) (by positivity), padicValRat.neg,
+    padicValRat.of_nat, padicValRat.pow (by norm_num), padicValRat_five_sixteen]
+  norm_num
+  omega
+
+private lemma poleFour_five_val_ge_log (m k : ℕ) (hk : k ≤ 7 * m) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 ((10 : ℚ) ^ m * poleFour k) := by
+  have hlin := linear_padicVal_le_log m (4 * k + 3) (by omega)
+  simp only [poleFour]
+  rw [show (4 : ℚ) * k + 3 = ((4 * k + 3 : ℕ) : ℚ) by push_cast; ring]
+  rw [padicValRat.mul (pow_ne_zero _ (by norm_num)) (by positivity),
+    padicValRat.pow (by norm_num), padicValRat_five_ten,
+    padicValRat.div (div_ne_zero (div_ne_zero (by norm_num) (by norm_num))
+      (by positivity)) (pow_ne_zero _ (by norm_num)),
+    padicValRat.div (div_ne_zero (by norm_num) (by norm_num)) (by positivity),
+    padicValRat.div (by norm_num) (by norm_num), padicValRat.neg,
+    padicValRat_five_two, padicValRat.of_nat,
+    padicValRat.pow (by norm_num), padicValRat_five_sixteen]
+  norm_num
+  omega
+
+private lemma scaled_combined_five_val_ge_log (m k : ℕ) (hk : k ≤ 7 * m) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 ((10 : ℚ) ^ m * bbpCombinedTerm k) := by
+  let c : ℤ := (m : ℤ) - Nat.log 5 (56 * m + 5)
+  have h1 := poleOne_five_val_ge_log m k hk
+  have h2 := poleTwo_five_val_ge_log m k hk
+  have h3 := poleThree_five_val_ge_log m k hk
+  have h4 := poleFour_five_val_ge_log m k hk
+  have hs := padicValRat_five_sum_lower (S := Finset.range 4)
+    (fun i ↦ match i with
+      | 0 => (10 : ℚ) ^ m * poleOne k
+      | 1 => (10 : ℚ) ^ m * poleTwo k
+      | 2 => (10 : ℚ) ^ m * poleThree k
+      | _ => (10 : ℚ) ^ m * poleFour k)
+    c (by
+      intro i hi
+      have hi' : i < 4 := Finset.mem_range.mp hi
+      interval_cases i <;> simp_all [c])
+  have hpos : 0 < (10 : ℚ) ^ m * bbpCombinedTerm k :=
+    mul_pos (by positivity) (bbpCombinedTerm_pos k)
+  simp only [Finset.sum_range_succ, Finset.sum_range_zero, zero_add] at hs
+  change ((10 : ℚ) ^ m * poleOne k + (10 : ℚ) ^ m * poleTwo k +
+      (10 : ℚ) ^ m * poleThree k + (10 : ℚ) ^ m * poleFour k = 0) ∨ _ at hs
+  have heq :
+      (10 : ℚ) ^ m * poleOne k + (10 : ℚ) ^ m * poleTwo k +
+          (10 : ℚ) ^ m * poleThree k + (10 : ℚ) ^ m * poleFour k =
+        (10 : ℚ) ^ m * bbpCombinedTerm k := by
+    simp only [bbpCombinedTerm]
+    ring
+  rw [heq] at hs
+  exact hs.resolve_left (ne_of_gt hpos)
+
+/-- The sampled BBP rational loses at most logarithmically many of the `m`
+five-adic factors supplied by its `10^m` scaling. -/
+theorem scaledBBPRat_five_val_ge_log (m : ℕ) :
+    (m : ℤ) - Nat.log 5 (56 * m + 5) ≤
+      padicValRat 5 (scaledBBPRat m) := by
+  have heq : scaledBBPRat m =
+      ∑ k ∈ Finset.range (7 * m + 1), (10 : ℚ) ^ m * bbpCombinedTerm k := by
+    unfold scaledBBPRat bbpPartial polePartial bbpCombinedTerm
+    simp only [mul_add, Finset.mul_sum]
+    repeat rw [← Finset.sum_add_distrib]
+  rw [heq]
+  have hs := padicValRat_five_sum_lower (S := Finset.range (7 * m + 1))
+    (fun k ↦ (10 : ℚ) ^ m * bbpCombinedTerm k)
+    ((m : ℤ) - Nat.log 5 (56 * m + 5)) (fun k hk ↦
+      scaled_combined_five_val_ge_log m k
+        (Nat.lt_succ_iff.mp (Finset.mem_range.mp hk)))
+  have hpos : 0 < ∑ k ∈ Finset.range (7 * m + 1),
+      (10 : ℚ) ^ m * bbpCombinedTerm k := by
+    apply Finset.sum_pos'
+    · intro k hk
+      exact le_of_lt (mul_pos (pow_pos (by norm_num) _) (bbpCombinedTerm_pos k))
+    · refine ⟨0, by simp, ?_⟩
+      exact mul_pos (pow_pos (by norm_num) _) (bbpCombinedTerm_pos 0)
+  exact hs.resolve_left (ne_of_gt hpos)
+
+private lemma log_linear_le (m : ℕ) (hm : 2 ≤ m) :
+    Nat.log 5 (56 * m + 5) ≤ m := by
+  have hpow : 56 * m + 5 < 5 ^ (m + 1) := by
+    induction m, hm using Nat.le_induction with
+    | base => norm_num
+    | succ m hm ih =>
+        rw [show m + 1 + 1 = (m + 1) + 1 by rfl, pow_succ]
+        calc
+          56 * (m + 1) + 5 < 5 * (56 * m + 5) := by omega
+          _ < 5 * 5 ^ (m + 1) :=
+            (Nat.mul_lt_mul_left (by norm_num : 0 < 5)).2 ih
+          _ = 5 ^ (m + 1) * 5 := by ring
+  exact Nat.lt_succ_iff.mp
+    ((Nat.log_lt_iff_lt_pow (by norm_num) (by positivity)).2 hpow)
+
 private lemma not_five_dvd_den_of_nonneg_val {q : ℚ}
     (h : 0 ≤ padicValRat 5 q) : ¬ 5 ∣ q.den := by
   intro hd
@@ -228,6 +368,37 @@ theorem scaledBBPRat_five_arithmetic (m : ℕ) (hm : 8 ≤ m) :
       (padicValNat 5 (scaledBBPRat m).num.natAbs : ℤ) by
         simpa [padicValInt] using hvnum)
 
+/-- For every `m ≥ 2`, the reduced denominator is prime to five and the
+reduced numerator retains all but at most `log₅(56m+5)` of the five-adic
+factors supplied by the `10^m` scaling. -/
+theorem scaledBBPRat_five_arithmetic_log (m : ℕ) (hm : 2 ≤ m) :
+    ¬ 5 ∣ (scaledBBPRat m).den ∧
+      5 ^ (m - Nat.log 5 (56 * m + 5)) ∣
+        (scaledBBPRat m).num.natAbs := by
+  have hlog := log_linear_le m hm
+  have hv := scaledBBPRat_five_val_ge_log m
+  have hv' : ((m - Nat.log 5 (56 * m + 5) : ℕ) : ℤ) ≤
+      padicValRat 5 (scaledBBPRat m) := by
+    rw [Nat.cast_sub hlog]
+    exact hv
+  have hv0 : 0 ≤ padicValRat 5 (scaledBBPRat m) := by omega
+  have hden := not_five_dvd_den_of_nonneg_val hv0
+  refine ⟨hden, ?_⟩
+  by_cases hz : (scaledBBPRat m).num.natAbs = 0
+  · simp [hz]
+  · have hvden : padicValNat 5 (scaledBBPRat m).den = 0 :=
+      padicValNat.eq_zero_of_not_dvd hden
+    have hvnum : ((m - Nat.log 5 (56 * m + 5) : ℕ) : ℤ) ≤
+        padicValInt 5 (scaledBBPRat m).num := by
+      rw [padicValRat_def, hvden] at hv'
+      simpa using hv'
+    apply (Nat.pow_dvd_iff_le_padicValNat (p := 5) (by norm_num) hz).2
+    exact_mod_cast (show ((m - Nat.log 5 (56 * m + 5) : ℕ) : ℤ) ≤
+      (padicValNat 5 (scaledBBPRat m).num.natAbs : ℤ) by
+        simpa [padicValInt] using hvnum)
+
 end Theory.PiDigits.T141ScaledBBPFiveAdicNumerator
 
 #print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic
+#print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_val_ge_log
+#print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic_log

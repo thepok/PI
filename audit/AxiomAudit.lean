@@ -3160,8 +3160,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 #print axioms Theory.PiDigits.MixedOrderBoundaryKernel.mixedBoundary_directional_ten_four_strict_vs_symmetric
 
 -- Actual reduced arithmetic of the sampled BBP partial sum: the denominator
--- is a five-unit and the numerator retains at least ceil(m/2) factors of five.
+-- is a five-unit and the numerator retains a linear-minus-logarithmic number
+-- of factors of five (and hence at least ceil(m/2) for m >= 8).
 #print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic
+#print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_val_ge_log
+#print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic_log
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
