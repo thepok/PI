@@ -252,6 +252,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T138T138PrimitiveRayCoefficientGap
 import TheoryLib.PiQuantitativeBlockHitting.T139T139PrimitiveRayBoundaryConsumer
 import TheoryLib.PiQuantitativeBlockHitting.T140T140MixedOrderBoundaryKernel
 import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
+import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -3165,6 +3166,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T141T141ScaledBBPFiveAdicNumerator
 #print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic
 #print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_val_ge_log
 #print axioms Theory.PiDigits.T141ScaledBBPFiveAdicNumerator.scaledBBPRat_five_arithmetic_log
+
+-- Uniform upper envelope for every actual positive T128 boundary coefficient.
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_eq_piecewise
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_sub_eq
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_sub_eq_tail
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_succ_lt_tail
+#print axioms Theory.PiDigits.BoundaryCoefficientAbel.positiveBoundaryCoefficient_lt_five_div_two_mul
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
