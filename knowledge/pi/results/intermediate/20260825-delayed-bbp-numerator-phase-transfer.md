@@ -1167,6 +1167,45 @@ This is simultaneous prime-power transport through the actual forcing, not a
 collection of independent one-prime marginals.  It remains a factorization,
 not a cancellation estimate for either factor.
 
+The independently audited BD turn-0003 memo
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bd/turns/0003/answer.md`
+adds one narrow `proof sketch` consequence.  Assume the sharp forcing bound
+used below,
+
+\[
+ 0<F_t<\frac{5}{32}\frac{\rho^t}{(7t+1)^2},
+ \qquad \rho=\frac{10}{16^7},
+\]
+
+which follows from the displayed sharp bound for `delta_t` and
+`F_t=mu_(t+1) delta_t`.  For `q=10^k`, `0<|h|<2q`, and every `m,N in Nat`,
+the exact recurrence gives
+
+\[
+ \Phi_{m+j+1}^{(k)}(h)\,
+ \overline{\Phi_{m+j}^{(k)}(10h)}=e(hF_{m+j}/q).
+\]
+
+Using `1-cos(theta)<=theta^2/2` and summing the resulting geometric tail gives
+
+\[
+ \boxed{
+ \operatorname{Re}\sum_{j=0}^{N-1}
+ \Phi_{m+j+1}^{(k)}(h)
+ \overline{\Phi_{m+j}^{(k)}(10h)}
+ >N-\frac{25\pi^2}{128(1-\rho^2)}
+ \frac{\rho^{2m}}{(7m+1)^4}.}
+\]
+
+Thus the matched adjacent branches on a decimal frequency ray are nearly
+maximally coherent, uniformly in the horizon.  This narrowly retires an
+argument that averages those matched branches as if they were independent.
+It supplies no control of the full target-signed off-diagonal sum.  In
+particular, the repository has no shifted T139/T148 primitive consumer to
+which this display can be passed directly; the scalar forcing coordinate is
+only a lossless representation, not finite-memory progress.  No cancellation
+estimate, T139/T148 premise, or V1 consequence follows.
+
 T168 machine-checks this transport one prime power at a time, simultaneously
 over every lag in any block whose literal innovation supports avoid that
 prime. Its `PrimePowerCongruent` predicate deliberately has an equality
