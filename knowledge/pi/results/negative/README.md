@@ -10,6 +10,12 @@ spending tokens on the same dead ends.
   horizon-uniform approximation error; this retires bounded
   independence-based two-carrier averaging, but not exact joint arithmetic or
   an estimate of the common signal.
+- `20260825-pure-prime-power-natural-window-no-go.md`: the explicit
+  `alpha=1/9` carrier has reduced pure `13`-power denominators, unit
+  numerators, maximal terminal-unit finite-stencil 13-conductors, and exact
+  complete-modulus Parseval orthogonality, yet its natural-window frequency
+  `h=9` remains coherent; these structural facts alone cannot imply T139
+  cancellation.
 - `20260825-natural-horizon-de-bruijn-no-go.md`: an exact rational Machin
   prefix scan finds `002` absent from the first 1000 length-three π windows;
   the de Bruijn endpoint condition and T153 contrapositive retire universal

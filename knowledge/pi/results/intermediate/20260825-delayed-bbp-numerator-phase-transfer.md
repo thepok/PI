@@ -1308,6 +1308,130 @@ is proved for it.  Thus neither the local Ramanujan cancellation, the forcing
 cell selection, nor the rigidity theorem supplies a T139/T148 premise or a V1
 consequence.
 
+## Fixed-future high-dyadic fibre averaging
+
+Status: `proof sketch`.  Source: the independently audited BC turn-0003 memo
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bc/turns/0003/answer.md`.
+
+This construction freezes one future actual BBP rational and averages only
+artificial high dyadic lifts.  Fix `k>=3`, `q=10^k`, a target `a<q`,
+
+\[
+ L=4800(k+1)q,\qquad n\ge4k+6\ \text{even},\qquad T=n+L,
+\]
+
+and write the reduced future rational as
+
+\[
+ Q_T=10^TB_T=\frac{P_T}{D_T}.
+\]
+
+The T154 burn-in and the even-depth denominator law give
+
+\[
+ P_T=5^LU_T,\qquad D_T=2^{27T}R_T,\qquad
+ R_T\ \text{odd},\qquad 5\nmid R_T,\qquad \gcd(U_T,2R_T)=1.
+\]
+
+The condition `5∤R_T` is essential here: it follows because `P_T/D_T` is
+reduced and `5^L∣P_T`.  Put
+
+\[
+ A_T=27T+L,\qquad d=A_T-k-1,\qquad
+ \lambda_t=1+2^{k+1}R_T5^kt\quad(0\le t<2^d).
+\]
+
+To make the endpoint bookkeeping legitimate, define the lifted decimal orbit
+for every `j>=0`, not only on the averaging block,
+
+\[
+ z_j^{(t)}=\operatorname{fract}\!\left(
+   \lambda_t10^{n+j}B_T\right).
+\]
+
+Then `z_(j+1)^(t)=fract(10*z_j^(t))`.  For `0<=j<L`, its phase calculation
+uses the reduced denominator
+
+\[
+ 2^{27T+L-j}R_T
+\]
+
+and gives, for every decimal-primitive frequency `u`,
+
+\[
+e(uz_j^{(t)})=e(uz_j^{(0)})
+\cdot e_{2^d}(tU_T5^ku10^j).
+\]
+
+The explicit parameters satisfy the no-wrap hypothesis
+
+\[
+ 4q10^{L-1}<2^d.
+\]
+
+Consequently the equality `u*10^j=v*10^r` among primitive frequencies in the
+natural support forces `(j,u)=(r,v)`.  Thus, for arbitrary complex arrays
+`c_(j,u), b_(j,u)` and
+
+\[
+ S_c(t)=\sum_{j<L}\sum_u c_{j,u}e(uz_j^{(t)}),
+\]
+
+the correctly conjugated fibre identities are
+
+\[
+ 2^{-d}\sum_{t<2^d}S_c(t)=0,
+\]
+
+\[
+ 2^{-d}\sum_{t<2^d}S_c(t)\overline{S_b(t)}
+ =\sum_{j<L}\sum_u c_{j,u}\overline{b_{j,u}}.
+\]
+
+For the actual T139 primitive coefficients `p_(q,a)(u)`, the audited
+coefficient calculation gives the target-uniform estimate
+
+\[
+ \sum_u|p_{q,a}(u)|^2<\frac{31}{q}.
+\]
+
+Writing
+
+\[
+ Z_{n,k,a}(t)=\sum_{j<L}\sum_u p_{q,a}(u)e(uz_j^{(t)}),
+\]
+
+one therefore has the exact artificial-fibre second moment
+
+\[
+ 2^{-d}\sum_{t<2^d}|Z_{n,k,a}(t)|^2
+ =L\sum_u|p_{q,a}(u)|^2<\frac{31L}{q}.
+\]
+
+Chebyshev with the displayed value of `L` yields
+
+\[
+ \#\left\{t<2^d:\operatorname{Re}Z_{n,k,a}(t)
+       \ge-\frac{L}{12q}\right\}
+ >\frac{307}{400}\,2^d.
+\]
+
+The generic boundary consumer and its universal endpoint budget imply that
+every such good lifted orbit hits the target cylinder during the length-`L`
+block.  The distinguished lift `t=0` is the actual fixed-future BBP carrier;
+if it satisfies the same lower bound, the T164 transfer gives an actual late
+pi-orbit hit.  At the first allowed start `n=4k+6`, bounding the preceding
+prefix separately also gives the literal unshifted T148 premise.
+
+The fatal gap is that a subset of density greater than `307/400` need not
+contain the distinguished point `t=0`.  Both the good set and its modulus move
+with `n`, while their coefficients retain the changing actual odd state.  A
+proof that the actual lift avoids these moving exceptional sets would itself
+be a new target-signed fixed-pi estimate; it is not supplied by the fibre
+average.  Hence this establishes no unconditional actual-pi T139 estimate,
+proves no unconditional T148 premise or V1, and does not currently justify
+Lean formalization of the lift or martingale package.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
