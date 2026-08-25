@@ -217,6 +217,58 @@ open.  The broad tail coboundary was already latent in T107; the new content
 here is only this exact target-labelled, carry-cancelled core and its
 coefficient-adapted no-go.  No $\pi$ estimate, T139 premise, or V1 follows.
 
+## Full primitive-polynomial tail stability (`proof sketch`)
+
+The same tail no-go extends, without a lag-dependent loss, to all T139
+primitive rays at once.  Fix $q=10^k$ with $k\geq1$ and $A<q$, and put
+
+\[
+\mathcal P_q=\{\operatorname{prim}_{10}(h):1\leq h\leq2q-1\},\qquad
+p_{q,A}(u)=\sum_{\substack{1\leq h\leq2q-1\\
+ \operatorname{prim}_{10}(h)=u}}C_{q,q}(h)e(-hc_{q,A}),
+\]
+
+\[
+P_{q,A}(t)=\sum_{u\in\mathcal P_q}p_{q,A}(u)e(ut),\qquad
+Z^x_{q,A}(N)=\sum_{n<N}P_{q,A}(x_n),\qquad
+Z^y_{q,A}(N)=\sum_{n<N}P_{q,A}(y_n).
+\]
+
+Define
+
+\[
+m_q=\min\{m\in\mathbb N:\pi(2q-1)\rho^m\leq1\},
+\qquad D_q=5m_q+\frac5{1-\rho}.
+\]
+
+The complete primitive coefficient load is less than $5/2$.  Since the
+frequencies are integral, $e(ux_n)=e(uy_n)e(u\tau_n)$, and hence
+
+\[
+\sum_{n=0}^{\infty}|P_{q,A}(x_n)-P_{q,A}(y_n)|
+ <D_q.
+\]
+
+Indeed, each summand is at most
+$(5/2)\min\{2,2\pi(2q-1)\rho^n\}$; splitting at $m_q$ gives the displayed
+bound.  Consequently, uniformly for every $N$,
+
+\[
+|Z^x_{q,A}(N)-Z^y_{q,A}(N)|<D_q,
+\]
+
+and for $N>0$ the corresponding normalized signed T139 terms differ by
+
+\[
+\left|{-\frac2N\operatorname{Re}Z^x_{q,A}(N)}
+      +\frac2N\operatorname{Re}Z^y_{q,A}(N)\right|<\frac{2D_q}{N}.
+\]
+
+Thus passing from the selected rational orbit to the actual $\pi$ orbit
+cannot amplify the positive BBP tail across the omitted primitive rays.  This
+is only a stability estimate: it leaves cancellation in the selected rational
+numerators, the T139 premise, and V1 open.
+
 There is also a quantitative obstruction to the standard diagonal quadratic
 route.  Let $V:\mathbb C^{\mathcal P_q}\to\mathbb C^N$ be the actual-orbit
 evaluation operator $(Vz)_n=\sum_u z_u e(ux_n)$, and let $p$ be the full T139
