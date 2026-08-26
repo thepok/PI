@@ -204,3 +204,130 @@ points may be discarded there. It also says nothing about π-specific
 residual averages, vector-valued states retaining incoming-digit characters,
 or arithmetic numerator/carry structure. Those remain possible inputs; V1
 remains open.
+
+## Addendum: exact T139 primitive survivor obstruction
+
+Status: `proof sketch`
+
+Source: independently audited from
+`workflows/state/chatgpt-pro/20260825-open-frontier-creative-bd/turns/0005/answer.md`.
+
+The same fixed-point mechanism applies directly to the complete primitive
+arithmetic term consumed by T139. Let \(q=10^k\), \(k\ge1\), let
+\(T(x)=\{10x\}\), and write
+
+\[
+c_{q,A}=\frac{2A+1}{2q},\qquad
+\alpha_q=\operatorname{boundaryZeroCoefficient}(q).
+\]
+
+With the repository's exact primitive coefficients \(p_{q,A}(u)\), define
+
+\[
+\Phi_{q,A}(x)=2\operatorname{Re}
+  \sum_{u\in\operatorname{primitiveBoundarySupport}(q)}
+    p_{q,A}(u)e(ux).
+\]
+
+On the actual pi orbit, finite-sum rearrangement gives
+
+\[
+\sum_{n<N}\Phi_{q,A}(\{10^n\pi\})
+=2\operatorname{Re}
+  \operatorname{primitiveBoundaryFourierSum}(q,A,N).
+\]
+
+More generally, if \(\mu\) is any \(T\)-invariant probability measure, then
+invariance collapses every primitive ray: for \(h=10^r u\), \(10\nmid u\),
+
+\[
+\int e(ux)\,d\mu=\int e(hx)\,d\mu.
+\]
+
+Expanding the exact T139 fibre sums therefore yields the joint identity
+
+\[
+\boxed{
+\int\Phi_{q,A}\,d\mu
+=\int K_q(x-c_{q,A})\,d\mu-\alpha_q,
+}
+\]
+
+where \(K_q=\operatorname{Re}(\operatorname{boundaryMinorant}(q,\cdot))\).
+This is an identity for the full primitive polynomial, not a marginal bound
+on individual frequencies.
+
+For every target \(A<q\), choose the fixed survivor
+
+\[
+\xi_{q,A}=
+\begin{cases}
+0,&1\le A\le q-2,\\
+1/3,&A=0\text{ or }A=q-1.
+\end{cases}
+\]
+
+It satisfies \(T\xi_{q,A}=\xi_{q,A}\) and lies outside the target cylinder.
+Put \(t_{q,A}=\xi_{q,A}-c_{q,A}\) and
+
+\[
+\gamma_{q,A}=
+\left(\cos\frac{\pi}{q}-\cos(2\pi t_{q,A})\right)
+\frac{\sin^4(\pi q t_{q,A})}
+     {q^2\sin^4(\pi t_{q,A})}.
+\]
+
+The chosen points avoid the removable singularities. The boundary-kernel
+closed form and pointwise primitive-ray collapse at the fixed point give
+
+\[
+\boxed{
+\Phi_{q,A}(\xi_{q,A})=-\alpha_q-\gamma_{q,A},
+\qquad
+\gamma_{q,A}>\frac1{32q^2}.
+}
+\]
+
+For interior targets the stronger bound
+\(\gamma_{q,A}>3/(2q^2)\) follows from the odd half-grid phase. For the two
+endpoint targets, \(q\equiv1\pmod3\) gives
+\(\sin^4(\pi q t_{q,A})=1/16\), while the cosine gap is greater than
+\(1/2\).
+
+Let \(\Omega_{q,A}\) be the set of states whose forward decimal orbit avoids
+the target. For every scalar \(\Psi\) defined at the survivor, the literal
+pointwise supremum satisfies
+
+\[
+\left\|\Phi_{q,A}-(\Psi\circ T-\Psi)\right\|_{
+  \sup,\Omega_{q,A}}
+\ge \alpha_q+\gamma_{q,A}
+>\alpha_q+\frac1{32q^2}.
+\]
+
+Thus no state-uniform scalar coboundary decomposition can have a residual
+bounded below by \(-\alpha_q\) everywhere on the survivor set. The same
+point also prevents late horizons from diluting a nonautonomous endpoint. If
+\(\eta\ge0\) and
+
+\[
+\Phi_{q,A}(x)\ge-\alpha_q+\eta
+  +\Psi_{n+1}(Tx)-\Psi_n(x)
+\]
+
+holds for every \(x\in\Omega_{q,A}\) and \(0\le n<N\), then
+
+\[
+\boxed{
+\Psi_N(\xi_{q,A})-\Psi_0(\xi_{q,A})
+<-N\left(\eta+\frac1{32q^2}\right).
+}
+\]
+
+This closes only pointwise, state-uniform scalar subactions, literal-sup
+approximations, and infinite expansions that converge at the fixed survivor.
+It does not cover essential-\(L^\infty\)/almost-everywhere or \(L^p\)
+statements, series not convergent at \(\xi_{q,A}\), general vector or skew
+extensions without a fixed lift, zero-total-mass temporal filters, or
+estimates defined only along the actual pi orbit. In particular, it proves no
+fixed-pi T139 bound, T148 premise, target hit, or V1 consequence.

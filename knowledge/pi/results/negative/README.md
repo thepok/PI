@@ -35,8 +35,9 @@ spending tokens on the same dead ends.
   signed carry/Fourier cancellation remain outside its scope.
 - `20260824-scalar-uniform-coboundary-carry-budget-no-go.md`: a fixed-point
   obstruction forces every pointwise scalar coboundary residual above the
-  carry budget, although explicit ray spreading makes its `L2` norm
-  arbitrarily small.
+  carry budget; its exact T139 addendum also blocks state-uniform literal-sup
+  primitive subactions and endpoint dilution, while `L2`, almost-everywhere,
+  vector, and pi-specific routes remain open.
 - `20260824-ten-channel-branch-average-pathwise-separator.md`: the exact
   fixed path `x_n = 4/9` keeps every true carry character fully coherent even
   though the corresponding Fejer branch-average operator has a strict

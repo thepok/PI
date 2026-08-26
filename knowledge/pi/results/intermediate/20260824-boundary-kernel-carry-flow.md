@@ -133,7 +133,10 @@ the support \(|h|\le2q-1\); the audited coefficient calculation gives a
 nonzero ray sum. Hence this finite centered kernel is not an exact finite
 \(T\)-coboundary.
 
-This rules out only exact endpoint telescoping of this finite trigonometric
-polynomial (and, generally, finite polynomials with a nonzero primitive-ray
-sum). It does not rule out approximate coboundaries, infinite expansions,
-inequalities, vector transfer, or arithmetic cancellation special to π.
+This finite-ray calculation by itself rules out only exact endpoint
+telescoping.  The later audited fixed-survivor addendum in
+`../negative/20260824-scalar-uniform-coboundary-carry-budget-no-go.md` also
+closes state-uniform pointwise scalar subactions, literal-sup approximations,
+and infinite expansions convergent at the survivor. Essential-
+\(L^\infty\)/almost-everywhere and \(L^p\) statements, general vector or skew
+extensions, and arithmetic cancellation special to π remain open.
