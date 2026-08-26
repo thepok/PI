@@ -291,6 +291,10 @@ match the prose claim quantifier by quantifier.
 
 ## Run one GPT Pro research turn
 
+Persistent web-Pro operating rules are collected in
+[`GptProGuide.md`](GptProGuide.md); the operator must read it before launching
+or continuing a Pro call.
+
 Give a capable model the prompt in [`GPTPro/PROMPT.md`](GPTPro/PROMPT.md). Each
 invocation atomically claims one task through that task file's current Git blob
 SHA, completes a bounded deliverable under `GPTPro/Deliverables/`, and closes
@@ -332,6 +336,15 @@ login/account resumption, a browser permission, or a capacity warning blocks
 the call, notify Marcel immediately rather than guessing credentials or
 starting a duplicate call. Do not cancel an active Pro task; allow it to reach
 its own terminal state.
+
+End each web-Pro memo with a compact attempt ledger covering every substantive
+route tried during that turn, not only the route selected for exposition. For
+each route give the proposed lemma or mechanism, its first fatal line (or the
+surviving open step), and the genuinely new ingredient that would be required
+to reopen it. The operator audits and deduplicates those entries into
+[`GPTPro/ATTEMPT_LEDGER.md`](GPTPro/ATTEMPT_LEDGER.md). Future prompts should
+quote only the few ledger entries relevant to that run: enough to prevent
+repetition without turning the ledger into a closed list of permitted ideas.
 
 ## Paused sandboxed Ox workflow
 
