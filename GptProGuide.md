@@ -43,6 +43,15 @@ paths, and only the relevant entries from
 [`GPTPro/ATTEMPT_LEDGER.md`](GPTPro/ATTEMPT_LEDGER.md). Do not make it map the
 repository, and do not constrain it to one operator-invented method.
 
+State the central bottleneck plainly: the repository already has abundant
+exact BBP, Machin, p-adic, denominator, fibre, and rational-shadow structure,
+but those routes repeatedly lose the Archimedean, target-dependent sign needed
+by the consumer. More local structure is unlikely to bridge that gap by
+itself. The primary positive target is therefore a bound for the complete
+primitive T148 expression of the actual pi orbit on unbounded decimal scales.
+Every proposed bridge must identify where its target-signed cancellation comes
+from.
+
 Ask for a genuinely new positive theorem, quantitative estimate, or exact
 pi-specific mechanism with explicit quantifiers and a concrete implication to
 a verified V1 consumer. A decisive no-go is useful only when it closes a live
@@ -51,12 +60,26 @@ criteria, denominator-only facts, fixed-modulus projections, unsigned
 averages, kernel changes, generic countermodels, and representation-only
 identities are not frontier progress by themselves.
 
-Differentiate the three slots by default—decimal-orbit exponential sums, exact
-BBP arithmetic, and a free alternative pi-specific route—but let each model
-abandon its starting direction when another idea is mathematically stronger.
-When an audited memo has a substantive surviving step, use a follow-up to
-attack that step. Otherwise start the next fresh investigation without asking
-for more polish of the failed route.
+Differentiate the three slots by default:
+
+1. one attacks the strongest positive actual-pi T148 bridge;
+2. one investigates a genuinely different pi-specific theory and may pursue
+   primary literature on fixed lacunary orbits, quantitative discrepancy,
+   Fourier dimension, Diophantine hypotheses, and Mahler/Nesterenko/Padé
+   techniques;
+3. one is adversarial and tries to prove or destroy the critical step of the
+   best current positive candidate.
+
+Do a serious literature comparison before treating an idea as new. Separate
+almost-everywhere theorems for lacunary sequences from results applicable to
+the explicit constant pi, and record exactly which hypothesis fails. Put at
+most three relevant attempt-ledger warnings in one prompt; the ledger is memory,
+not a creativity-limiting catalogue.
+
+Use a follow-up only when an audited memo has genuine momentum: a new
+supportable statement with one sharply identified remaining step. A no-go,
+representation identity, or broad failed search ends the conversation even if
+fewer than five follow-ups were used. Five is a ceiling, not a target.
 
 ## Required answer shape
 
@@ -82,6 +105,9 @@ the few relevant entries go into any one future prompt.
 - Integrate only correct and materially new results, with the repository claim
   vocabulary and precise limitations. Preserve useful negative results, but
   do not bloat the knowledge base with duplicate failure analyses.
+- Do not formalize another representation theorem unless a specific current
+  proof attempt shows how it feeds a required sign, correlation, entropy, or
+  other named consumer bound.
 - Lean changes must pass the strict verifier and axiom audit. A green build
   means machine-checked, not that V1 or novelty has been established.
 - Keep `FRONTIER.md` concise and current. Prefer mathematical progress over
