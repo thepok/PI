@@ -149,6 +149,17 @@ endpoint-free singleton and primitive/off-diagonal cancellation estimates
 remain open. It proves neither T124 nor V1 and supplies no exact π-orbit
 logical separator.
 
+A new audited
+[`proof sketch`](knowledge/pi/results/intermediate/20260826-papersearch-primitive-martingale-frontier.md)
+uses the complete T139 primitive polynomial rather than separate rays. Since
+all retained frequencies are nondivisible by ten, its real part is an exact
+reverse martingale difference under Lebesgue measure; its variance is at least
+`9/(640q)`, and a source-checked functional LIL gives positive excursions for
+almost every starting point. T148/T156 also give the clean fixed-pi consumer
+that one target-dependent horizon `N>=q` with nonnegative complete primitive
+sum forces the target hit. The metric theorem does not select pi, so this
+isolates rather than closes the remaining pointwise arithmetic boundary.
+
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
 is now `machine-checked` through T149--T153 and T156. T149's

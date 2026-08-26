@@ -19,6 +19,7 @@ the recorded fatal line.
 | Fixed-modulus BBP residue fibres | Same-fibre replacement preserves all registered local data while changing the real decimal phase. | Exact numerator/denominator or coefficient structure not invariant under same-fibre replacement. |
 | Independent BBP--Machin carrier averaging | Both close rational carriers recover the same unresolved pi Toeplitz signal; closeness does not create independent signed cancellation. | A genuinely independent arithmetic coupling with a proved signed cross-term gain. |
 | Furstenberg semigroup hit descended by a multiplier congruent to one | Density of `{10^m (10^k+1)^r pi}` does not determine a hit of the original decimal orbit: the within-cell carry `floor((10^k+1)^r t) mod 10^k` can absorb every target difference. | A genuine pi-specific correlation controlling that carry across the two-parameter orbit, not semigroup density alone. |
+| Primitive reverse-martingale / metric LIL | Removing ten-divisible rays makes the complete T139 target polynomial an exact reverse martingale difference under Lebesgue measure, with variance at least `9/(640q)` and a.e. positive excursions. The exceptional null set may contain pi, so the metric theorem does not prove the fixed-pi sign. | A pointwise arithmetic theorem selecting the actual pi orbit or the complete delayed numerator/complementary-denominator carrier. |
 
 For a new Pro turn, include only entries that closely overlap its intended
 direction. The model should remain free to discover an unrelated route.
