@@ -16,6 +16,12 @@ spending tokens on the same dead ends.
   complete-modulus Parseval orthogonality, yet its natural-window frequency
   `h=9` remains coherent; these structural facts alone cannot imply T139
   cancellation.
+- `20260826-fixed-future-bbp-fibre-derandomization-no-go.md`: the artificial
+  fixed-future fibre is only a translated uniform dyadic grid; fixed-modulus
+  characters leave the natural window, while the complete actual odd CRT
+  factor reverses the dyadic phase on the matched two-step innovation.  This
+  closes the proposed majority-plus-local-isometry selection of `t=0`, not
+  the unpaired moving-conductor T139 problem.
 - `20260825-natural-horizon-de-bruijn-no-go.md`: an exact rational Machin
   prefix scan finds `002` absent from the first 1000 length-three π windows;
   the de Bruijn endpoint condition and T153 contrapositive retire universal

@@ -1432,6 +1432,13 @@ average.  Hence this establishes no unconditional actual-pi T139 estimate,
 proves no unconditional T148 premise or V1, and does not currently justify
 Lean formalization of the lift or martingale package.
 
+The later audited
+[`fixed-future fibre de-randomization no-go`](../negative/20260826-fixed-future-bbp-fibre-derandomization-no-go.md)
+closes one proposed repair of this gap: fibre majority plus the existing
+fixed-modulus dyadic isometry and a supposedly harmless complementary CRT
+state cannot select `t=0`.  Direct distinguished-point estimates and the full
+unpaired moving-conductor problem remain open.
+
 ## Narrowed live arithmetic target
 
 After the transfer, the hard delayed rational sum is
