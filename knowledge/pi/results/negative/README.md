@@ -4,6 +4,12 @@ This directory records routes that were explicitly falsified or reduced to a
 durable obstruction. These artifacts prevent future workers from repeatedly
 spending tokens on the same dead ends.
 
+- `20260826-t169-terminal-common-modulus-prime-pulse-no-go.md`: the natural
+  terminal-LCM embedding of the moving T169 Machin carrier is exact, but every
+  newly introduced prime `p=4S+5` is zero on all earlier embedded states and
+  nonzero only at the terminal state. New terminal factors therefore do not
+  furnish a long bounded-conductor trace family; persistent older factors and
+  the complete complementary CRT coupling remain open.
 - `20260825-bbp-machin-cross-carrier-independence-no-go.md`: corrected
   Hermitian cross-correlation bounds show that the complete BBP and Machin
   phase arrays recover the same unresolved pi Toeplitz signal up to a

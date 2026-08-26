@@ -160,6 +160,14 @@ that one target-dependent horizon `N>=q` with nonnegative complete primitive
 sum forces the target hit. The metric theorem does not select pi, so this
 isolates rather than closes the remaining pointwise arithmetic boundary.
 
+The directed T169 follow-up records a narrow
+[`proof sketch`](knowledge/pi/results/negative/20260826-t169-terminal-common-modulus-prime-pulse-no-go.md):
+an exact terminal-common-denominator embedding exists, but infinitely many new
+prime coordinates are zero throughout the earlier block and nonzero only at
+its endpoint. They therefore do not create the hoped-for long
+bounded-conductor trace family. Persistent older factors and their full
+complementary CRT coupling remain open.
+
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
 is now `machine-checked` through T149--T153 and T156. T149's
