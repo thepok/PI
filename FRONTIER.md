@@ -323,13 +323,20 @@ and `fiveShellLog_succ_eq_or` check the forcing identity and shell dichotomy;
 `sampledBBPForcingRat_five_val_eq_of_shell_jump`,
 `sampledBBPForcingRat_five_val_eq_of_secondary_activation`, and
 `sampledBBPForcingRat_five_val_ge_of_quiet_shell` check the two exact pulse
-cases and the quiet-shell gain. The growing-modulus rational shadow and the
-negative separator remain `proof sketch`: positive T106-form forcing, exact
-coboundary and geometric tail, the `2^(27m)` denominator scale, and actual
-rational-value congruences through `5^(m-1)` still admit strictly increasing
-shadows of a word-omitting decimal orbit, but do not preserve a raw numerator
-or the actual coupled numerator/odd-denominator and seven-term/four-pole
-structure. None of T157--T158 supplies signed/off-diagonal cancellation, a
+cases and the quiet-shell gain. T163 separately machine-checks the actual
+even-depth dyadic conductor: `scaledBBPRat_two_val_even` gives exact two-adic
+order `-27*m`; `scaledBBPRat_even_two_primary` gives reduced denominator
+two-primary part `2^(27*m)` and an odd numerator; and
+`scaledBBPRat_even_tail_lt_spacing` together with
+`scaledBBPRat_even_unique_immediate_lift` places the sampled BBP rational as
+the unique point of that lift lattice immediately below `10^m*pi`. The
+growing-modulus rational shadow and the negative separator remain `proof
+sketch`: positive T106-form forcing, exact coboundary and geometric-tail
+control, this now-verified dyadic scale, and actual rational-value congruences
+through `5^(m-1)` still admit strictly increasing shadows of a word-omitting
+decimal orbit, but those shadows do not preserve a raw numerator or the
+actual coupled numerator/odd-denominator and seven-term/four-pole structure.
+None of T157--T158 or T163 supplies signed/off-diagonal cancellation, a
 later-horizon estimate, T139, or V1.
 
 An audited [`mixed-order Fejer boundary construction`](knowledge/pi/results/intermediate/20260824-mixed-order-fejer-boundary-kernels.md),
