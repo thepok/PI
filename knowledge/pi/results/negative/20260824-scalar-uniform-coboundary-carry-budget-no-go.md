@@ -328,6 +328,99 @@ This closes only pointwise, state-uniform scalar subactions, literal-sup
 approximations, and infinite expansions that converge at the fixed survivor.
 It does not cover essential-\(L^\infty\)/almost-everywhere or \(L^p\)
 statements, series not convergent at \(\xi_{q,A}\), general vector or skew
-extensions without a fixed lift, zero-total-mass temporal filters, or
-estimates defined only along the actual pi orbit. In particular, it proves no
-fixed-pi T139 bound, T148 premise, target hit, or V1 consequence.
+extensions without a fixed lift, horizon-dependent temporal-filter families
+with growing endpoint budget, or estimates defined only along the actual pi
+orbit. The stationary scalar temporal-filter case is closed by the addendum
+below. In particular, this proves no fixed-pi T139 bound, T148 premise, target
+hit, or V1 consequence.
+
+## Addendum: stationary scalar temporal filters only rescale drift
+
+Status: `proof sketch`
+
+Source: independently audited from
+`workflows/state/chatgpt-pro/20260826-pi-positive-frontier-a/answer.md`.
+
+This closes the zero-total-mass stationary-filter gap left above. Let
+
+\[
+a_{q,A}(x)=\operatorname{Re}\sum_u p_{q,A}(u)e(ux),
+\qquad
+\operatorname{Re}Z_{q,A}(N)=\sum_{n<N}a_{q,A}(T^n\{\pi\}),
+\]
+
+and put \(P_1(q,A)=\sum_u|p_{q,A}(u)|\), so that
+\(\|a_{q,A}\|_\infty\le P_1(q,A)\). Consider a real stationary forward
+filter satisfying
+
+\[
+\sum_{j\ge0}(j+1)|c_j|<\infty.
+\]
+
+Define
+
+\[
+C=\sum_{j\ge0}c_j,
+\qquad d_r=\sum_{j>r}c_j,
+\qquad D=\sum_{r\ge0}|d_r|,
+\]
+
+\[
+\psi_c(x)=\sum_{j\ge0}c_j a_{q,A}(T^jx),
+\qquad
+g_c(x)=\sum_{r\ge0}d_r a_{q,A}(T^rx).
+\]
+
+All series converge absolutely and uniformly, and finite partial-sum
+telescoping followed by uniform convergence gives the exact factorization
+
+\[
+\boxed{\psi_c=C a_{q,A}+g_c\circ T-g_c},
+\qquad
+\|g_c\|_\infty\le P_1(q,A)D.
+\]
+
+Thus every zero-mass filter \(C=0\) is itself a bounded coboundary. For the
+actual pi orbit and every \(N\ge1\),
+
+\[
+\boxed{
+\sum_{n<N}\psi_c(T^n\{\pi\})
+=C\operatorname{Re}Z_{q,A}(N)
+ +g_c(T^N\{\pi\})-g_c(\{\pi\})
+},
+\]
+
+with endpoint error at most \(2P_1(q,A)D\). Hence \(C=0\) creates no
+accumulating signed interior term, while \(C\ne0\) has exactly the original
+primitive drift, rescaled by \(C\), plus a bounded endpoint.
+
+The fixed survivor above makes the pointwise limitation quantitative. Since
+\(2a_{q,A}(\xi_{q,A})=-\alpha_q-\gamma_{q,A}\),
+
+\[
+\operatorname{sgn}(C)\psi_c(\xi_{q,A})
+=-\frac{|C|}{2}(\alpha_q+\gamma_{q,A})<0
+\qquad(C\ne0).
+\]
+
+At the registered natural-horizon consumer, the factorization gives the exact
+safe implication for \(C\ne0\)
+
+\[
+\operatorname{sgn}(C)
+  \sum_{n<q}\psi_c(T^n\{\pi\})
+\ge -\frac{861}{1000}|C|+2P_1(q,A)D
+\Longrightarrow
+\operatorname{Re}Z_{q,A}(q)\ge-\frac{861}{1000},
+\]
+
+after which T156 supplies the target hit. This is a transfer of the old signed
+premise, not a new source of signed information.
+
+The obstruction is deliberately narrow. It does not exclude nonlinear or
+state-dependent preprocessing, vector/skew extensions, or a family of
+nonstationary filters whose width and endpoint budget vary with the horizon.
+Such a family would still need an independently controlled endpoint and a
+pi-specific source for the sign. No fixed-pi bound or V1 consequence is proved
+here.

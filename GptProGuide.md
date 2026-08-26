@@ -37,6 +37,10 @@ lemmas.
 
 ## Prompt contract
 
+The persistent operator's full current contract is
+[`workflows/research/pi/SIGNED_BRIDGE_OPERATOR_PROMPT.md`](workflows/research/pi/SIGNED_BRIDGE_OPERATOR_PROMPT.md).
+Keep that file and this shorter Pro-facing guide aligned.
+
 Keep prompts open but progress-gated. Give Pro a small current packet: the
 exact V1 target, the live pi-arithmetic boundary, a few direct links or file
 paths, and only the relevant entries from
