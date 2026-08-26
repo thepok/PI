@@ -211,16 +211,39 @@ zero-window-to-first-cell mechanism; the full separator remains `proof sketch`.
 
 ### Priority order
 
-1. Prove or falsify a fixed-π Fourier estimate, canonical sublinear entropy
-   estimate, or UI estimate at the required moving scale.
-2. Find a strictly weaker sufficient condition and certify the strict
-   improvement.
-3. Formalize an external theorem only when it closes a named premise on a live
-   path.
-4. Build supporting representation lemmas only when a current proof attempt has
-   reached a precise missing identity that blocks one of the items above.
-5. Use experiments to kill bad conjectures early, not to accumulate favorable
-   statistics.
+The current research cycle is not primarily another attempt to derive V1 from
+the existing BBP, Machin, p-adic, irrationality, or generic-dynamical library.
+Those routes repeatedly supply local structure, denominators, periods,
+magnitudes, or almost-everywhere statements while losing the Archimedean,
+target-dependent sign of the actual pi orbit.  The new priority is to build a
+small pi-specific bridge theory around precisely that missing information.
+
+Its provisional summit is
+
+```text
+forall k >= 3, forall A < 10^k, exists N >= 10^k:
+  Re (primitiveBoundaryFourierSum (10^k) A N) >= 0.
+```
+
+An explicitly stronger theorem or a theorem with a shorter checked path to V1
+is equally acceptable.  Work backward from that summit.  For every proposed
+lemma ask: **where does its target-signed Archimedean information about the
+actual constant pi come from?**  Symmetry, averaging, almost-everywhere
+behavior, denominator size, periodicity, local congruences, unsigned energy,
+or a rational shadow do not answer that question by themselves.
+
+1. Establish the first rigorous lemma of this pi-specific signed bridge
+   theory: a new invariant, recurrence, drift, energy, or special-arithmetic
+   estimate that retains the complete target information.
+2. Use PaperSearch early to find mathematical components that may generate
+   that information, without restricting invention to standard literature
+   routes.
+3. Prove or sharply falsify the critical signed step of the best surviving
+   candidate before multiplying representations or consumers.
+4. Formalize a representation or external theorem only after a concrete
+   argument shows how it supplies a named signed consumer bound.
+5. Use computation to kill bad conjectures early, never as evidence that the
+   required pointwise statement holds for pi.
 
 ## Required task contract
 
@@ -244,7 +267,8 @@ enabled:
    enabled resources focused on the live frontier, monitors active work,
    retires stale directions, and reports only material progress.
 2. **Creative mathematics directors:** up to three maximum-intelligence Pro
-   calls run in parallel on distinct hard questions at the current frontier.
+   calls run in parallel on distinct hard questions in the pi-specific signed
+   bridge program.
    They read `FRONTIER.md`, the verified core, and the negative-result memory
    and return mathematical proof sketches only. They do not write Lean, edit
    the repository, design workflows, integrate results, or perform routine
@@ -326,16 +350,24 @@ the few separators that would otherwise cause an immediate duplicate. A Pro
 memo should be judged afterward by independent audit, rather than steered into
 proving a narrow no-go for an operator-invented mechanism.
 
-Keep the three creative slots differentiated by default: primitive
-exponential sums of the decimal orbit; exact BBP numerator/denominator and
-tail-phase arithmetic; and a free alternative pi-specific arithmetic route.
-When a memo survives local audit, use the next call to attack its strongest
-remaining step instead of restarting a broad search. The returned answer
-remains untrusted external input until the knowledge integrator reviews it. If
-login/account resumption, a browser permission, or a capacity warning blocks
-the call, notify Marcel immediately rather than guessing credentials or
-starting a duplicate call. Do not cancel an active Pro task; allow it to reach
-its own terminal state.
+Keep the three creative slots differentiated by default:
+
+1. invent a signed invariant, recurrence, or energy/drift structure that
+   preserves the complete target information;
+2. seek a special pi-arithmetic input—from integrals, Padé/hypergeometric or
+   special-function theory, modular structure, or another promising source—
+   that could control that invariant;
+3. work adversarially on the strongest current candidate by proving its
+   critical step or destroying it with a narrow separator.
+
+The roles are mathematical compasses, not closed method lists. When a memo
+survives local audit, use the next call to attack its strongest remaining step
+instead of restarting a broad search. The returned answer remains untrusted
+external input until the knowledge integrator reviews it. If login/account
+resumption, a browser permission, or a capacity warning blocks the call,
+notify Marcel immediately rather than guessing credentials or starting a
+duplicate call. Do not cancel an active Pro task; allow it to reach its own
+terminal state.
 
 End each web-Pro memo with a compact attempt ledger covering every substantive
 route tried during that turn, not only the route selected for exposition. For

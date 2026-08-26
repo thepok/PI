@@ -160,6 +160,29 @@ that one target-dependent horizon `N>=q` with nonnegative complete primitive
 sum forces the target hit. The metric theorem does not select pi, so this
 isolates rather than closes the remaining pointwise arithmetic boundary.
 
+### Current signed-bridge research program
+
+The next cycle no longer treats additional BBP, Machin, p-adic,
+irrationality, or generic-dynamical structure as the primary route.  Existing
+results from those families repeatedly lose the target-signed Archimedean
+information of the actual pi orbit.  The provisional summit of the new
+pi-specific bridge theory is
+
+```text
+forall k >= 3, forall A < 10^k, exists N >= 10^k:
+  Re (primitiveBoundaryFourierSum (10^k) A N) >= 0.
+```
+
+T148/T156 give its short checked consumer path.  An explicitly stronger or
+shorter-to-V1 theorem is welcome.  The immediate research objective is the
+first rigorous new lemma that genuinely *produces* target-signed Archimedean
+information for pi: a signed invariant, recurrence, drift/energy structure,
+or a special pi-arithmetic estimate controlling one. PaperSearch is used early
+for ingredients. Averages, almost-everywhere results, denominator or period
+data, local congruences, unsigned energy, and rational shadows do not qualify
+without a proved mechanism transferring their information to the required
+target sign.
+
 The directed T169 follow-up records a narrow
 [`proof sketch`](knowledge/pi/results/negative/20260826-t169-terminal-common-modulus-prime-pulse-no-go.md):
 an exact terminal-common-denominator embedding exists, but infinitely many new

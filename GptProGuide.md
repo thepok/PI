@@ -44,13 +44,26 @@ paths, and only the relevant entries from
 repository, and do not constrain it to one operator-invented method.
 
 State the central bottleneck plainly: the repository already has abundant
-exact BBP, Machin, p-adic, denominator, fibre, and rational-shadow structure,
-but those routes repeatedly lose the Archimedean, target-dependent sign needed
-by the consumer. More local structure is unlikely to bridge that gap by
-itself. The primary positive target is therefore a bound for the complete
-primitive T148 expression of the actual pi orbit on unbounded decimal scales.
-Every proposed bridge must identify where its target-signed cancellation comes
-from.
+exact BBP, Machin, p-adic, denominator, fibre, irrationality, generic-dynamical,
+and rational-shadow structure, but those routes repeatedly lose the
+Archimedean, target-dependent sign needed by the consumer. More local structure
+is unlikely to bridge that gap by itself. The current program is therefore to
+build a small pi-specific signed bridge theory, not to derive V1 once more from
+the existing representation library.
+
+Its provisional summit is
+
+```text
+forall k >= 3, forall A < 10^k, exists N >= 10^k:
+  Re (primitiveBoundaryFourierSum (10^k) A N) >= 0.
+```
+
+Permit an explicitly stronger or shorter-to-V1 theorem. Work backward, and
+require every proposed component to answer: **where does the target-signed
+Archimedean information for the actual constant pi enter?** Symmetry, mean
+zero, almost-everywhere behavior, denominator size, periodicity, local
+congruences, unsigned energy, and rational shadows are not sources of that
+information by themselves.
 
 Ask for a genuinely new positive theorem, quantitative estimate, or exact
 pi-specific mechanism with explicit quantifiers and a concrete implication to
@@ -62,19 +75,21 @@ identities are not frontier progress by themselves.
 
 Differentiate the three slots by default:
 
-1. one attacks the strongest positive actual-pi T148 bridge;
-2. one investigates a genuinely different pi-specific theory and may pursue
-   primary literature on fixed lacunary orbits, quantitative discrepancy,
-   Fourier dimension, Diophantine hypotheses, and Mahler/Nesterenko/Padé
-   techniques;
+1. one seeks a new signed invariant, recurrence, or energy/drift structure
+   that preserves the complete target information;
+2. one seeks a special pi-arithmetic input—possibly from integrals,
+   Padé/hypergeometric or special-function theory, modular structures, or a
+   genuinely different representation—that could control that invariant;
 3. one is adversarial and tries to prove or destroy the critical step of the
    best current positive candidate.
 
-Do a serious literature comparison before treating an idea as new. Separate
-almost-everywhere theorems for lacunary sequences from results applicable to
-the explicit constant pi, and record exactly which hypothesis fails. Put at
-most three relevant attempt-ledger warnings in one prompt; the ledger is memory,
-not a creativity-limiting catalogue.
+Use PaperSearch early as mathematical building material and do a serious
+literature comparison before treating an idea as new. Do not let known theory
+confine the search to standard routes. Separate almost-everywhere theorems for
+lacunary sequences from results applicable to the explicit constant pi, and
+record exactly which hypothesis fails. Put at most three relevant
+attempt-ledger warnings in one prompt; the ledger is memory, not a
+creativity-limiting catalogue.
 
 Use a follow-up only when an audited memo has genuine momentum: a new
 supportable statement with one sharply identified remaining step. A no-go,
