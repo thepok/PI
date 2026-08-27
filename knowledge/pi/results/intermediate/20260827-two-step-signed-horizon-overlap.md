@@ -200,6 +200,25 @@ does not refute a future theorem about the actual-pi selector.  It does refute
 treating four-node argmax success itself as fresh-tail pi arithmetic: the same
 selection and regeneration occur for an eventually periodic continuation.
 
+The next predeclared argmax step behaves the same way.  Following the
+`A=3334` argmax digit `4` reaches `(q,A)=(100000,43334)`.  At the next natural
+step the actual-pi argmax is `d_*=1`, the only MR-diag witness, with
+
+```text
+G_1 ~= 2137430,  W_1-B_parent ~= 1076108,
+W_1-U_1 ~= -1061323.
+```
+
+The continuation that is `333...` after position `10000` again has the same
+argmax and singleton MR set, with respective margins about `2167578`,
+`1137135`, and `-1030443`.  Suffix widths `16,18,22` preserve every sign and
+selection.  This is again an `experiment`.  It does not refute MR-diag as a
+capital-transport mechanism, but it sharply separates it from positive fresh
+regeneration: at the sole surviving digit, more than a million units of
+inherited gain absorb a fresh-block loss of comparable size, even for the
+eventually periodic control.  Finite MR persistence therefore cannot itself
+be advertised as newly created target-signed pi mass.
+
 The weakest recursive quantifier is only a reached path of positive diagonal
 nodes satisfying MR-diag.  A reusable theorem for every positive
 `A<10^k` would be sufficient but substantially stronger.  Neither quantifier
