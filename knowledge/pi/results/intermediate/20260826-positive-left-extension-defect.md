@@ -1,15 +1,23 @@
 # Positive left-extension defect for the primitive boundary score
 
-Status: `proof sketch`; independently algebra-audited against T130, T132,
-T139, T142, and T156. No fixed-pi signed estimate is proved.
+Status: `machine-checked` for (1)--(5), including coefficient positivity and
+the explicit `21/(10q^2)` defect bound. No fixed-pi signed estimate is created
+by this theorem.
 
 Date: 2026-08-26 UTC
 
-This note records a new exact scale-transport law proposed by ChatGPT Pro and
-checked independently by the operator and three local audit passes. It is a
-useful structural bridge, not the missing source of target-signed information
-for the actual decimal orbit of pi. Under the signed-bridge operator rule it
-must remain unformalized until a genuine fixed-pi input feeds it.
+This note records a new exact scale-transport law proposed by ChatGPT Pro,
+checked independently, and now formalized in T172. It is a useful structural
+bridge, not the missing source of target-signed information for the actual
+decimal orbit of pi. Formalization became justified once the independently
+replayed finite fixed-pi seed at `(q,A,N)=(1000,334,10000)` visibly fed it.
+
+The registered implementation is
+`Theory.PiDigits.PositiveLeftExtensionTransport`. In particular,
+`primitiveBoundaryFourierSum_leftExtension`,
+`leftExtensionCoefficientDefect_pos`, `leftExtensionDefectMass_lt`, and
+`exists_leftExtension_score_ge_of_large` machine-check the identity,
+positivity, mass bound, and unconditional child step respectively.
 
 ## Statement
 
@@ -184,10 +192,10 @@ lemma. It must not be counted as progress merely because it composes with
 (5).
 
 The shortest legitimate next research rung must instead prove a genuinely
-fixed-pi one-sided estimate for either the parent score or a named nonzero
-predecessor-digit character sector, with an explicit arithmetic source for
-the sign. Until such a rung survives, no Lean declarations from this note
-should be added.
+fixed-pi one-sided estimate for either a new natural-horizon parent score or a
+named nonzero predecessor-digit character sector, with an explicit arithmetic
+source for the sign. T172 preserves a supplied sign; it does not manufacture
+one.
 
 ## Trust-boundary corrections
 

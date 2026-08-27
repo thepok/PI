@@ -256,10 +256,30 @@ The replay uses the exact Chudnovsky-certified prefix and the complete
 T128/T139 kernel-plus-endpoint identity; see
 [`20260827-finite-signed-parent-334-certificate.md`](knowledge/pi/results/intermediate/20260827-finite-signed-parent-334-certificate.md).
 T170 separately machine-checks a 100-decimal-place fixed-point Machin
-enclosure as the first Lean feasibility rung. The direct encoding consumes
-about 6.5 GiB even at that scale, so the full 10,000-term score still requires
-a compact integer certificate checker. Neither finite result supplies an
+enclosure as the first Lean feasibility rung. T171 replaces its direct
+rational normalization by a compact integer-row checker, and T173 scales that
+checker to a machine-checked 10,015-fractional-place cylinder for pi: 14,341
+rows at scale `10^10021`, checked in about 41 seconds with about 9.6 GB peak
+memory in the focused audit. This supplies enough trusted decimal information
+for the finite score calculation; the directed trigonometric score evaluator
+itself is the next certificate rung. None of these finite results supplies an
 unbounded-scale signed mechanism or advances the claim status of V1.
+
+T172 now machine-checks the exact ten-child zero-character transport, strict
+positivity of every coefficient defect, and total defect mass
+`<21/(10q^2)`. With the finite actual-pi seed this gives a rigorously audited
+positive-score predecessor ray at unbounded decimal scales, but at the fixed
+horizon `N=10000`. It selects only one existential leading digit per level;
+after the first child the horizon is below the scale, so no current checked
+consumer turns the ray into new occurrences. The next mathematical rung is
+therefore not another coefficient identity: it is horizon-growing actual-pi
+sign control or a prescribed nonzero predecessor-character estimate.
+
+T176 and T177 make that boundary exact. T176 proves the strict block Bellman
+surplus with potential `7/(3q)`; T177 Fourier-resolves all ten predecessor
+digits, proves exact inversion, and isolates nine mean-zero nonzero-character
+corrections. A specified next digit now has one named missing signed quantity
+rather than an informal appeal to "child phases."
 
 ## Required task contract
 

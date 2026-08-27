@@ -50,6 +50,13 @@ exact rational Chudnovsky bracket. Its report and one-command regeneration are
 in
 [`library/t17/REPORT.md`](workstream-archive/pi-lacunary-near-return-sparsity/library/t17/REPORT.md).
 
+T173 now independently machine-checks the particular 10,015-fractional-place
+pi cylinder needed for this finite horizon, using 14,341 compact integer
+Machin rows. This closes the prefix-trust and scaling rung inside Lean. The
+claim in this memo nevertheless remains `experiment`: the outward-rounded
+sine/cosine evaluation and its final score inequality are still replayed by
+Python rather than accepted by the Lean kernel.
+
 For each required orbit point, T170 reads a 145-digit suffix and therefore
 encloses the fractional part between adjacent exact decimal rationals. It
 then evaluates the T128 closed kernel, the exact zero coefficient, and the
@@ -94,8 +101,7 @@ prefix already contains `334`, and all ten one-digit left extensions of that
 suffix occur by start 14250. It also gives no recurrence, prescribed-child
 selection, unbounded scale family, or proof of V1.
 
-The next trust step is deliberately narrow: prove the same inequality in Lean
-with a fixed-point prefix enclosure and a kernel-checked interval evaluator.
-The accompanying T170 Lean prototype first tests that architecture on a
-100-decimal-place pi enclosure. Until the full score theorem compiles and is
+The next trust step is deliberately narrow: connect the T173 cylinder to a
+compact kernel-checked directed trigonometric interval evaluator and prove the
+same inequality in Lean. Until that full score theorem compiles and is
 registered in the axiom audit, this note remains labeled `experiment`.

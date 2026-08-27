@@ -203,10 +203,28 @@ This is actual-pi, prescribed-target Archimedean sign information for one
 finite triple `(q,A,N)`, evaluated with the complete endpoint. It does not add
 a new digit occurrence—the certified prefix already contains `334`—and it
 does not propagate to unbounded scales. T170 machine-checks the first
-100-decimal-place fixed-point Machin enclosure needed for a future trusted
-version. Its measured 6.5-GiB isolated elaboration shows that the direct
-`norm_num` representation must be replaced by a compact integer certificate
-checker before the 10,000-place score can enter the verified core.
+100-decimal-place fixed-point Machin enclosure. T171 then introduces a compact
+integer-row checker, and T173 successfully uses it to machine-check the full
+10,015-fractional-place pi cylinder needed by the finite score program (14,341
+rows, about 41 seconds and 9.6 GB peak memory in the independent focused
+audit). The remaining finite trust step is therefore no longer decimal-prefix
+generation but a compact directed trigonometric score certificate.
+
+The complementary scale-transport rung is now machine-checked in T172. For
+every `q>=1000`, all coefficient defects are strictly positive, their total
+mass is `<21/(10q^2)`, and some left child satisfies the explicit signed lower
+bound
+
+```text
+score(10q,A+dq,N) >= (score(q,A,N) - N*21/(10q^2))/10.
+```
+
+Composed with the finite `(1000,334,10000)` experiment, this yields the
+audited [`fixed-horizon signed predecessor ray`](knowledge/pi/results/intermediate/20260827-fixed-horizon-signed-predecessor-ray.md): coherent existential targets have positive complete primitive scores at every decimal scale. This is genuine target-phase preservation, but the horizon remains `N=10000`; only the first child is at natural scale, and the construction neither prescribes the child digit nor supplies an unbounded hit consumer. The live arithmetic gap is therefore horizon-growing signed control or a one-sided estimate for a named nonzero predecessor-digit character sector.
+
+T176 strengthens this to arbitrary finite blocks with a strict max-plus
+potential `7/(3q)`. T177 then machine-checks the exact ten-point
+[`predecessor-digit DFT`](knowledge/pi/results/intermediate/20260827-predecessor-digit-dft-frontier.md): its zero sector is T172, the nine nonzero sectors reconstruct every specified child, and their real corrections sum to zero over the digits. This precisely names the prescribed-child gap without pretending that mean zero supplies its sign.
 
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)

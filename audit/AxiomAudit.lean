@@ -268,6 +268,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T166T166DelayedBBPLocalCoordinate
 import TheoryLib.PiQuantitativeBlockHitting.T168T168StableBBPPrimePowerTransport
 import TheoryLib.PiQuantitativeBlockHitting.T169T169SingleRateMachinPhaseTransfer
 import TheoryLib.PiQuantitativeBlockHitting.T170T170MachinFixedPointIntervals
+import TheoryLib.PiQuantitativeBlockHitting.T171T171CompactFixedPointCertificate
+import TheoryLib.PiQuantitativeBlockHitting.T172T172PositiveLeftExtensionTransport
+import TheoryLib.PiQuantitativeBlockHitting.T173T173MachinIntegerCertificate10015
+import TheoryLib.PiQuantitativeBlockHitting.T174T174FinitePrimitiveScoreIdentity
+import TheoryLib.PiQuantitativeBlockHitting.T175T175DecimalSuffixCylinder
+import TheoryLib.PiQuantitativeBlockHitting.T176T176SignedBlockBellmanTransport
+import TheoryLib.PiQuantitativeBlockHitting.T177T177PredecessorDigitDFT
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3402,6 +3409,54 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T170MachinFixedPointIntervals.fixedMachinLowerRat_le_machinLowerRat
 #print axioms Theory.PiDigits.T170MachinFixedPointIntervals.machinLowerRat_le_fixedMachinUpperRat
 #print axioms Theory.PiDigits.T170MachinFixedPointIntervals.pi_mem_decimalCylinder_100
+
+-- Compact integer certificates scale the fixed-point Machin enclosure from
+-- the representative 500-place prototype to the 10,015-place cylinder needed
+-- by the finite signed-score program.  These are finite pi enclosures, not a
+-- distribution result.
+#print axioms Theory.PiDigits.T171CompactFixedPointCertificate.checked_sum_bounds
+#print axioms Theory.PiDigits.T171CompactFixedPointCertificate.pi_mem_decimalCylinder_500
+#print axioms Theory.PiDigits.T173MachinIntegerCertificate10015.pi_mem_decimalCylinder_10015
+#print axioms Theory.PiDigits.T173MachinIntegerCertificate10015.pi_mem_certified_decimalCylinder
+
+-- Public exact bridge from the compact finite interval checker to the T139
+-- primitive score.  It retains the signed zero mode and endpoint literally.
+#print axioms Theory.PiDigits.FinitePrimitiveScoreIdentity.boundaryMinorant_re_eq_zero_add_positive
+#print axioms Theory.PiDigits.FinitePrimitiveScoreIdentity.two_mul_primitiveBoundaryFourierSum_re_eq_finite_score
+
+-- Generic strict transport from the certified decimal prefix to every
+-- required finite orbit suffix; includes the all-nines boundary case.
+#print axioms Theory.PiDigits.T175DecimalSuffixCylinder.fract_mul_mem_suffixCylinder
+#print axioms Theory.PiDigits.T175DecimalSuffixCylinder.fract_powTen_mem_decimalSuffixCylinder
+#print axioms Theory.PiDigits.T175DecimalSuffixCylinder.piOrbit_mem_certified_suffixCylinder
+
+-- Exact decimal left-extension identity and coefficient-mass bookkeeping.
+-- The actual-pi sign still enters only through a separate finite or arithmetic
+-- input; this transport does not manufacture it.
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.primitiveBoundaryFourierSum_eq_support_sum
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.primitiveBoundaryFourierSum_leftExtension
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.leftExtensionCoefficientDefect_pos
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.leftExtensionDefectMass_eq_closed
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.leftExtensionDefectMass_lt
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.norm_leftExtensionRemainder_le
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.exists_leftExtension_score_ge
+#print axioms Theory.PiDigits.PositiveLeftExtensionTransport.exists_leftExtension_score_ge_of_large
+
+-- The Pro-planned block extension and coarse rational Bellman potential.
+-- This preserves an supplied signed surplus along some child; it does not
+-- select a prescribed digit or increase the block horizon.
+#print axioms Theory.PiDigits.SignedBlockBellmanTransport.primitiveBoundaryFourierBlockSum_leftExtension
+#print axioms Theory.PiDigits.SignedBlockBellmanTransport.norm_leftExtensionBlockRemainder_lt
+#print axioms Theory.PiDigits.SignedBlockBellmanTransport.exists_leftExtension_block_bellman_gt
+#print axioms Theory.PiDigits.SignedBlockBellmanTransport.exists_leftExtension_prefix_bellman_gt
+
+-- Exact digit-character resolution of all ten children.  The zero sector is
+-- T172; the nine nonzero sectors expose the prescribed-digit arithmetic gap.
+#print axioms Theory.PiDigits.PredecessorDigitDFT.predecessorDigitSector_zero
+#print axioms Theory.PiDigits.PredecessorDigitDFT.primitiveBoundaryFourierSum_child_eq_sector_sum
+#print axioms Theory.PiDigits.PredecessorDigitDFT.ten_mul_child_re_eq_zeroSector_add_nonzero
+#print axioms Theory.PiDigits.PredecessorDigitDFT.sum_predecessorNonzeroContribution_eq_zero
+#print axioms Theory.PiDigits.PredecessorDigitDFT.exists_predecessorNonzeroContribution_nonneg
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
