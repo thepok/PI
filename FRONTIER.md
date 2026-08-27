@@ -306,8 +306,8 @@ selector word `...d_2d_1d_0 334` recur.  No current theorem promotes one such
 language to V1.  The missing coverage statement can be disjunctivity of the
 selector word or, as a different sufficient condition, a viable branch
 reaching `w334` for every finite word `w`.  These are not logically
-equivalent: the second may use a different branch for each `w`.  MR remains
-the first transport-mechanism rung, not a complete V1 bridge.
+equivalent: the second may use a different branch for each `w`.  Any one-ray
+transport condition remains incomplete without such coverage.
 
 The recursion can be shortened after one T176 initialization.  The root
 `(1000,334,10000)` reaches the positive child `(10000,3334,10000)`, where
@@ -320,8 +320,36 @@ B(10q,A+dq,10q)-B(10q,A+dq,q)
 
 This pays one tenth of the previous fresh debt and lands directly at a T156
 natural horizon.  At the first actual-pi diagonal step, MR has witnesses
-`{0,4}` even though strong fresh overlap is empty.  A proposed one-DFT-anchor
-cone with absolute non-anchor tails fails there by margins between about
+`{0,4}` even though both digits lose fresh capital.  A second tested MR level
+is likewise carried by inherited gain and survives an eventually periodic
+`333...` continuation.  MR remains a valid capital-transport condition, but
+finite MR persistence is not evidence for newly created signed pi mass.
+
+The live diagonal rung is therefore fresh-monotone regeneration.  With
+`G_d=U_d-B(q,A,q)` and `D_d=W_d-U_d`, it asks
+
+```text
+exists d<10: D_d > max(0,-G_d).
+```
+
+This forces both a strictly positive fresh T189 contribution and capital
+growth at the next natural horizon.  It is experimentally nonempty at all
+four first diagonal actual-pi parents and empty for all four matched
+pi-prefix-plus-`333...` controls.  From the initialized parent `A=3334`, all
+four FMR children `{53334,63334,73334,83334}` have another FMR level, with 19
+second-level witnesses in total and minimum joint margin above `358497`.
+Independent suffix-width replays preserve every sign.  This is the first
+two-level branching experiment that both follows the exact T189 fresh sector
+and passes the recorded periodic-tail control; it is not a certificate or an
+unbounded theorem.  The atomic open line is
+
+```text
+exists d<10:
+  Xi_d > 21/(10q)-Delta_0+max(0,-G_d)/q.
+```
+
+A proposed one-DFT-anchor cone with absolute non-anchor tails fails there by
+margins between about
 `-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children
 were also replayed: every one has MR witnesses, but every `rho=1,3` old and
 final cone margin is negative.  No initialization reroute rescues that

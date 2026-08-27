@@ -132,6 +132,20 @@ positive actual-pi seed
   -> positive surplus at a larger, consumer-valid horizon.
 ```
 
+On the natural diagonal, the current atomic version is fresh-monotone
+regeneration.  With `G_d=U_d-B_parent` and
+`D_d=W_d-U_d=q*(Delta_0+Xi_d)-21/10`, seek
+
+```text
+exists d<10: D_d > max(0,-G_d).
+```
+
+This is preferred to capital-only MR because it forbids inherited gain from
+masking a negative fresh block.  Two finite actual-pi levels survive and the
+matched pi-prefix-plus-`333...` controls fail at the first level, but this is
+only an experiment; the open task is an actual-pi theorem on unbounded reached
+nodes, not another finite replay.
+
 Differentiate the slots around one shared backward lemma ladder:
 
 1. **Ladder designer:** derive the shortest ladder from T189 back to its first

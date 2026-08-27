@@ -153,7 +153,7 @@ F_d = Delta_0(q,A;q,10q)+Xi_d(q,A;q,10q).
 ```
 
 T176 machine-checks that some `G_d>0`.  The first unproved pi-specific
-diagonal rung is exactly
+capital-only diagonal rung is exactly
 
 ```text
 exists d<10: G_d>0 and q*F_d > 21/10-G_d.              (MR-diag)
@@ -171,6 +171,62 @@ Xi_d > 21/(10q)-Delta_0-G_d/q
 for one old-horizon improving digit.  This is an alignment statement between
 the past-derived improving set and the actual-pi predecessor-digit/suffix
 correlation, not a separate average or unsigned bound.
+
+MR-diag can regenerate capital while the fresh block is negative.  To retain
+the signed-horizon objective itself, put
+
+```text
+D_d = W_d-U_d = q*F_d-21/10.
+```
+
+The live **fresh-monotone regeneration** rung is
+
+```text
+exists d<10: D_d>0 and G_d+D_d>0.                     (FMR)
+```
+
+Equivalently, its single pi-specific line is
+
+```text
+exists d<10:
+  Xi_d > 21/(10q)-Delta_0+max(0,-G_d)/q.              (FMR-atom)
+```
+
+FMR gives both `W_d>U_d` and `W_d>B(q,A,q)>0`: the new block contributes
+strictly positive target-signed capital and the next natural node strictly
+improves the parent.  It is not equivalent to MR.  Writing strong overlap as
+`G_d>0 and D_d>0`, strong overlap implies both MR and FMR, while MR and FMR
+are otherwise incomparable.  FMR is therefore the diagonal weakening of
+strong overlap that preserves positive fresh mass; MR is the weakening that
+preserves the past-derived T176 digit.
+
+Literal actual-pi replay gives the following FMR sets at the four available
+first diagonal parents:
+
+```text
+A=2334: {2,6}      A=3334: {5,6,7,8}
+A=4334: {3}        A=9334: {1,2,6}.
+```
+
+Every corresponding continuation that keeps the first `10000` pi digits and
+then uses `333...` has an empty FMR set.  Thus FMR passes the predeclared
+replacement control that MR and the past-only argmax selector fail.
+
+More importantly, every FMR child of the initialized `A=3334` node has a
+second FMR level:
+
+```text
+53334 -> {1,2,4,5,7}      63334 -> {0,2,3,4,7,8}
+73334 -> {3,5,6,7}        83334 -> {0,1,2,4}.
+```
+
+An independent literal replay at suffix widths `16` and `22` preserved all
+four positive parent capitals, all 19 second-level child signs, and every FMR
+set.  The smallest first-level joint margin is about `42998`; the smallest
+second-level joint margin exceeds `358497`.  These results are `experiment`,
+not certificates.  They establish two finite branching FMR levels, not an
+unbounded pi theorem, selector coverage, or V1.  The initialization through
+the specific root digit `3` is itself still experimental.
 
 A useful stronger atom fixes `d_*` as a past-only maximizer of `G_d` and asks
 for the displayed inequality at `d_*`.  T176 makes `G_(d_*)>0`, but it does
