@@ -228,6 +228,38 @@ not certificates.  They establish two finite branching FMR levels, not an
 unbounded pi theorem, selector coverage, or V1.  The initialization through
 the specific root digit `3` is itself still experimental.
 
+A sharp mean-energy compression does not yet replace FMR.  If `mu` and `E`
+are the mean and centered mean-square of the ten `D_d`, then
+
+```text
+max_d D_d >= mu+sqrt(E/9).
+```
+
+This follows from the sharp ten-point zero-sum bound
+`sum_d (D_d-mu)^2 <= 90*(max_d D_d-mu)^2`.  Therefore
+
+```text
+mu+sqrt(E/9) > max(0,-min_d G_d)
+```
+
+is sufficient for FMR without a same-digit alignment premise.  It certifies
+the initialized node and three of its four FMR children, but fails at
+`A=73334` by about `234599`, even though literal FMR holds there.  The
+max-fresh digit at the initialized node is exactly the digit leading to this
+failure, so the moment selector does not give two recursive certified levels.
+
+The exact T177/T189 Parseval identity also requires the real-projected sector
+pairs.  If `C_r` is the horizon increment of predecessor sector `r`, then
+
+```text
+E = (q^2/4) * sum_(1<=r<=9) |C_r+conj(C_(10-r))|^2.
+```
+
+Raw unsigned energy `sum |C_r|^2` cannot lower-bound this expression: paired
+sectors may cancel exactly.  Thus ordinary energy is a known dead end here;
+a useful lower bound would already have to control the target-relevant paired
+real projections.
+
 A useful stronger atom fixes `d_*` as a past-only maximizer of `G_d` and asks
 for the displayed inequality at `d_*`.  T176 makes `G_(d_*)>0`, but it does
 not prove the signed-sector inequality.  If that atom is still too large, an
