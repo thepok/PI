@@ -276,6 +276,23 @@ Further computation is used only to falsify a concrete rung. A CM, BBP,
 Machin, modular, or other representation is live only when it supplies an
 explicit rung of this horizon transport.
 
+The first concrete backward ladder is the audited
+[`two-step signed horizon overlap`](knowledge/pi/results/intermediate/20260827-two-step-signed-horizon-overlap.md).
+For `N=10q`, `H=10N`, it separates old-horizon child improvement `P_d` from
+fresh signed mass `M_d` and gives the exact capital identity
+
+```text
+B(10q,A+dq,H) = B(q,A,N) + P_d + q*M_d.
+```
+
+The strong recursive rung asks for one common digit with `P_d>0` and `M_d>0`.
+It holds as an `experiment` at the root and at the next actual-pi node; the
+second step has three witnesses `{0,5,6}` and reaches target `63334` at
+horizon `1000000`.  This is the first multi-horizon positive observation for
+the constructive ladder, not a persistence theorem.  The exact open
+pi-arithmetic task is to force the same-digit overlap on every reached node,
+or to prove a weaker capital-regeneration condition that still iterates.
+
 A tight adjacent fixed-point separator now limits the permitted input. On the
 decimal orbit `x_n=1/3`, which stays below and never enters the child cylinder
 `[0.3334,0.3335)`, the exact digit-3 T189 summand has directed enclosure
