@@ -215,6 +215,87 @@ loses strict capital growth.  For recursion, the weakest needed quantifier is
 one consistently selected digit sequence satisfying R1/R2 at every reached
 node; requiring FMR at every positive diagonal node is stronger.
 
+### Exact R1 average and its first sufficient premise
+
+Subtracting T177's zero-sum nonzero-sector identity at the two horizons gives
+
+```text
+sum_(d<10) Xi_d = 0.
+```
+
+Consequently the exact fresh-capital average is
+
+```text
+sum_(d<10) D_d = 10*q*Delta_0-21,
+mean_(d<10) D_d = q*Delta_0-21/10.                   (R1-mean)
+```
+
+The maximum form of R1 is still only a coordinate rewrite.  The first
+strictly stronger averaging premise is instead
+
+```text
+Delta_0 > 21/(10q).                                  (ZS)
+```
+
+It forces the sum of the ten `D_d` to be positive and hence proves R1.
+Strictness is essential.  ZS is sufficient but not necessary: nonzero-sector
+variation can produce a positive coordinate with negative mean.
+
+Writing
+
+```text
+P = Re[Z_(q,A)(10q)-Z_(q,A)(q)],
+E = Re[R_(q,A)(10q)-R_(q,A)(q)],
+```
+
+T189 gives `Delta_0=P+E`.  T176 bounds `|E|<189/(10q)`, so the pure parent
+fresh-block condition
+
+```text
+P >= 21/q                                             (Parent-R1)
+```
+
+suffices strictly for R1.  Equivalently, T176 at block start `q` and length
+`9q` gives some digit with `D_d>q*P-21`.  No existing theorem supplies ZS or
+Parent-R1 on an unbounded coherently reached actual-pi path.  Positive old
+capital `B(q,A,q)>0` does not control this new parent block.  Thus these are
+`proof sketch` reductions to a smaller signed parent quantity, not a source
+of the missing pi sign.
+
+### Sharp marginal certificate for R2
+
+Let `D^[j]` and `G^[j]` be the `j`-th largest coordinates, with ranks starting
+at one.  For any `1 <= k <= 10`, the complementary-rank conditions
+
+```text
+D^[k] > 0,
+D^[k] + G^[11-k] > 0                                 (CR_k)
+```
+
+imply R2.  Indeed the top `k` digits for `D` and the top `11-k` digits for
+`G` have total cardinality eleven inside a ten-digit universe, so they share
+one digit `d`; that witness has both `D_d>0` and `G_d+D_d>0`.
+
+The shared-witness implication is now `machine-checked` as T190.  Its Lean
+statement uses cardinal lower bounds for the threshold sets rather than
+introducing order-statistic infrastructure.
+
+The rank complement is sharp.  With only `10-k` large `G` coordinates the two
+sets may be disjoint.  More generally, if `(CR_k)` fails for every rank having
+`D^[k]>0`, pair decreasing `D` with increasing `G`; the same two marginal
+multisets then admit an alignment with no R2 witness.  Hence no criterion that
+sees only the separate marginals can improve this family without new aligned
+information.  In Xi coordinates the exact sufficient line is
+
+```text
+Xi^[k] > 21/(10q)-Delta_0+max(0,-G^[11-k]/q).
+```
+
+No current theorem controls an intermediate fresh Xi rank together with its
+complementary old-capital rank.  T190 does not assert these pi-specific rank
+premises.  The separate-marginal optimality statement remains a `proof
+sketch`; it is not needed by T190's verified implication.
+
 FMR gives both `W_d>U_d` and `W_d>B(q,A,q)>0`: the new block contributes
 strictly positive target-signed capital and the next natural node strictly
 improves the parent.  It is not equivalent to MR.  Writing strong overlap as

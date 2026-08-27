@@ -155,6 +155,23 @@ Keep strict inequalities and seek only the weakest recursive quantifier along
 one consistently selected reached path unless a stronger universal statement
 is actually proved.
 
+The first exact subrungs are already audited. T177 gives
+`sum_d D_d=10*q*Delta_0-21`, so `Delta_0>21/(10q)` proves R1; after T172's
+remainder bound, the pure fresh-parent premise
+`Re[Z_(q,A)(10q)-Z_(q,A)(q)]>=21/q` also suffices by T176. For R2, the sharp
+separate-marginal certificate is
+
+```text
+D^[k]>0 and D^[k]+G^[11-k]>0
+```
+
+for some `1<=k<=10`, by complementary top-set intersection. The rank
+`11-k` is optimal without aligned information. Neither the parent sign nor a
+useful pair of complementary ranks is currently known for actual pi on an
+unbounded reached path. Pro work must attack those pi-specific premises or
+find a genuinely stronger aligned mechanism, not rederive the deterministic
+averaging or pigeonhole steps.
+
 This is preferred to capital-only MR because it forbids inherited gain from
 masking a negative fresh block.  Two finite actual-pi levels survive and the
 matched pi-prefix-plus-`333...` controls fail at the first level, but this is

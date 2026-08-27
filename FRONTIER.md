@@ -371,6 +371,35 @@ existence of one digit sequence satisfying these rungs at every node reached
 by that same sequence; a theorem for every positive diagonal node would be
 substantially stronger.
 
+The first exact reductions are now known.  T177 gives `sum_d Xi_d=0`, hence
+
+```text
+sum_(d<10) D_d = 10*q*Delta_0-21.
+```
+
+Thus the zero-sector premise `Delta_0>21/(10q)` proves R1.  After splitting
+`Delta_0` into the parent fresh score `P` and T172 remainder, the coarser pure
+parent premise `P>=21/q` also proves R1 by T176.  Neither premise is known on
+an unbounded actual-pi path; positive old capital does not control the fresh
+parent block.
+
+For R2 there is a sharp alignment-free marginal rung.  If `D^[k]` is the
+`k`-th largest fresh coordinate and `G^[j]` the `j`-th largest inherited
+coordinate, then for any `1<=k<=10`
+
+```text
+D^[k]>0 and D^[k]+G^[11-k]>0
+```
+
+forces a common R2 witness by intersection of `k` top-`D` digits with
+`11-k` top-`G` digits.  This shared-witness implication is machine-checked in
+T190.  The complementary rank is optimal from separate
+marginals: with total selected cardinality ten the sets may be disjoint, and
+opposite sorting produces a no-R2 alignment whenever every such inequality
+fails.  The missing pi input is therefore either an intermediate fresh Xi
+rank plus the complementary old-capital rank, or genuinely aligned
+information stronger than the marginals.
+
 A proposed one-DFT-anchor cone with absolute non-anchor tails fails there by
 margins between about
 `-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children
