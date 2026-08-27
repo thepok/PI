@@ -1,30 +1,15 @@
-# Pi knowledge base
+# π knowledge base
 
-This directory holds durable research state. It intentionally excludes raw model transcripts, copied sandboxes, and retry logs.
+The default packet is [`active/`](active/). It contains the exact target,
+shortest verified consumer, T189/FMR R1/R2 frontier, first open π-specific
+lemma, compressed attempt ledger, at most ten separators, and direct evidence.
 
-- `verified/`: trust policy and indexes into the canonical Lean source in `../../TheoryLib/`.
-- `results/machine-checked/`: concise reports for results accepted by Lean and the axiom audit.
-- `results/intermediate/`: useful reductions, experiments, literature notes, and legacy campaign artifacts.
-- `results/negative/`: refuted routes and reusable obstructions.
-- `workstreams/`: bounded current/restartable lines of work.
-- `programs/`: a compact index; program JSON lives with its workstream.
-- `state/`: migration and continuation metadata.
-- `statements/`: normalized Pi problem statements and variants.
-- `handoffs/`: concise review or continuation handoffs.
+[`verified/`](verified/) documents the proof trust boundary.
 
-The proof authority is `TheoryLib/`, not this directory. Reports here describe proof artifacts; they do not replace them.
+[`archive/`](archive/) preserves all other history but is excluded from normal
+navigation and prompts. Search it only for a named provenance or novelty
+question.
 
-Reproducible research programs belong under `../../workflows/research/pi/`;
-large generated payloads and raw model transcripts remain outside durable
-knowledge unless they are essential and cannot be regenerated.
-
-## External-model integration
-
-`handoffs/external/` is an inbox and immutable provenance layer. Every newly
-committed GPT Pro handoff receives an independent semantic and source review.
-Accepted conclusions are distilled into the appropriate `results/negative/`,
-`results/intermediate/`, `workstreams/`, or `results/machine-checked/` location
-with their source commit recorded; they are not left only in the inbox.
-Promotion preserves the existing claim label. External work is never upgraded
-to `machine-checked` without canonical Lean integration and the complete axiom
-gate.
+Cleanliness invariant: 20–40 active files, one canonical frontier, no duplicate
+attempt memos, no archived paths in routine prompts, and immediate archival of
+superseded active material.

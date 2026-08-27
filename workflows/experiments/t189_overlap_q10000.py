@@ -13,10 +13,9 @@ import math
 from pathlib import Path
 
 
-DIGIT_PATH = Path(
-    "/home/Marcel/dev/PI/knowledge/pi/results/intermediate/"
-    "workstream-archive/pi-lacunary-near-return-sparsity/library/t17/"
-    "pi_digits.txt"
+DIGIT_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "workflows/research/pi/data/pi_digits_1048596.txt"
 )
 EXPECTED_SHA256 = (
     "77eeccb0067283e14c460b33dc230de54ef15c2e825fc2a35c984fb6984bf684"

@@ -40,9 +40,7 @@ static double xi_step(double x) {
 }
 
 int main() {
-  const char *path =
-      "knowledge/pi/results/intermediate/workstream-archive/"
-      "pi-lacunary-near-return-sparsity/library/t17/pi_digits.txt";
+  const char *path = "workflows/research/pi/data/pi_digits_1048596.txt";
   FILE *file = std::fopen(path, "r");
   if (!file) return 2;
   auto *digits = static_cast<unsigned char *>(std::malloc(1050000));

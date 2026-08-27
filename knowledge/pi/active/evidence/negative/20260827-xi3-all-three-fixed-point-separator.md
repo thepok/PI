@@ -33,7 +33,7 @@ K = Re[10 * sum_(r=1)^9 e(r*t/10)
 where `alpha_Q` is T142's exact positive boundary coefficient.
 
 The directed replay
-[`t189_xi3_fixed_point_separator.py`](../../../../workflows/experiments/t189_xi3_fixed_point_separator.py)
+[`t189_xi3_fixed_point_separator.py`](../../../../../workflows/experiments/t189_xi3_fixed_point_separator.py)
 gives
 
 ```text

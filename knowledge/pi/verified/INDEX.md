@@ -1,26 +1,20 @@
 # Verified-core index
 
-Last audited: 2026-08-25 UTC
+Last audited: 2026-08-27 UTC
 
-Canonical source: [TheoryLib](../../../TheoryLib/) and [TheoryLib.lean](../../../TheoryLib.lean).
+Canonical source: [`TheoryLib/`](../../../TheoryLib/) and
+[`TheoryLib.lean`](../../../TheoryLib.lean). The explicit theorem audit is
+[`audit/AxiomAudit.lean`](../../../audit/AxiomAudit.lean); the allowlist is
+`propext`, `Classical.choice`, and `Quot.sound`.
 
-Current major families:
+Current frontier modules are T148, T153, T156, T172, T176–T179, T189, and
+T190 in `TheoryLib/PiQuantitativeBlockHitting/`. The latest machine-checked
+milestone is T190's complementary-rank same-digit alignment theorem; its
+actual-π rank premises are unproved.
 
-- `PiDigits`
-- `PiDecimalFactorComplexity`
-- `PiQuantitativeBlockHitting`
-- `PiPositiveLowerBlockDensity`
-- `PiPositiveDecimalFactorEntropy`
-- `PiLacunaryNearReturnSparsity`
-- `PiLongLagBlockCollisionDecay`
+See [`../active/VERIFIED_CONSUMER_PATH.md`](../active/VERIFIED_CONSUMER_PATH.md)
+for the short path and [`../active/evidence/machine-checked/20260827-complementary-rank-alignment.md`](../active/evidence/machine-checked/20260827-complementary-rank-alignment.md)
+for the T190 report.
 
-The explicit theorem audit is [AxiomAudit.lean](../../../audit/AxiomAudit.lean). The exact allowlist is `propext`, `Classical.choice`, and `Quot.sound`.
-
-Latest machine-checked milestone: [T141 sampled-BBP five-adic numerator
-divisibility](../results/machine-checked/t141_scaled_bbp_five_adic_numerator_20260825.md).
-For `m >= 8`, the actual reduced rational `10^m * bbpPartial (7*m)` has
-denominator prime to five and numerator divisible by `5^ceil(m/2)`. This is
-exact representation arithmetic; it proves no Archimedean phase control,
-cancellation, density, V1, or prescribed digit occurrence.
-
-No theorem in the core currently proves that every finite decimal word occurs in π.
+No theorem in the core proves V1, decimal density, normality, or the required
+actual-π signed cancellation.

@@ -281,10 +281,7 @@ def phase_interval(lo: Fraction, hi: Fraction) -> CIv:
 
 def load_digits() -> str:
     repo = Path(__file__).resolve().parents[2]
-    path = repo / (
-        "knowledge/pi/results/intermediate/workstream-archive/"
-        "pi-lacunary-near-return-sparsity/library/t17/pi_digits.txt"
-    )
+    path = repo / "workflows/research/pi/data/pi_digits_1048596.txt"
     raw = path.read_bytes()
     assert sha256(raw).hexdigest() == EXPECTED_DIGIT_FILE_SHA256
     digits = raw.rstrip(b"\n").decode("ascii")

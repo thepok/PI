@@ -37,7 +37,7 @@ constant pi. It is finite computation, not an all-scale source mechanism.
 ## Certificate chain
 
 The replay is
-[`workflows/experiments/t170_signed_parent_334_interval.py`](../../../workflows/experiments/t170_signed_parent_334_interval.py).
+[`workflows/experiments/t170_signed_parent_334_interval.py`](../../../../../workflows/experiments/t170_signed_parent_334_interval.py).
 It uses only the Python standard library and checks the complete-file SHA-256
 of the retained T17 prefix:
 
@@ -48,7 +48,7 @@ of the retained T17 prefix:
 T17 independently forces those 1,048,596 fractional decimal digits from an
 exact rational Chudnovsky bracket. Its report and one-command regeneration are
 in
-[`library/t17/REPORT.md`](workstream-archive/pi-lacunary-near-return-sparsity/library/t17/REPORT.md).
+[`library/t17/REPORT.md`](../../../archive/results/intermediate/workstream-archive/pi-lacunary-near-return-sparsity/library/t17/REPORT.md).
 
 T173 now independently machine-checks the particular 10,015-fractional-place
 pi cylinder needed for this finite horizon, using 14,341 compact integer
@@ -81,7 +81,7 @@ score Re    = 19.01562368868706624909250620246127388700590636768134...
 Replay from the repository root:
 
 ```bash
-bash knowledge/pi/results/intermediate/workstream-archive/pi-lacunary-near-return-sparsity/library/t17/reproduce.sh
+bash knowledge/pi/archive/results/intermediate/workstream-archive/pi-lacunary-near-return-sparsity/library/t17/reproduce.sh
 python3 workflows/experiments/t170_signed_parent_334_interval.py
 ```
 
