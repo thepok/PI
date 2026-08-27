@@ -116,22 +116,93 @@ variation.
 
 ## First open pi-specific rung
 
-The constructive first open rung is now the recursive strong-overlap claim
+There are three logically different research targets.  The weakest recursive
+condition is positive-capital preservation
 
 ```text
-at every reached actual-pi node, there exists d<10 with P_d>0 and M_d>0.
+exists d<10: B(q,A,N) + P_d + q*M_d > 0.
 ```
 
-Its target-signed information enters only through the same-digit coupling of
-the old-horizon improvement with the fresh T189 predecessor/suffix sector.
-T176 supplies an improving digit and T189 identifies the fresh mass, but
-neither theorem makes their favorable digit sets intersect.
+This is necessary and sufficient for one more positive rung, but merely
+restates the desired child conclusion.  The weakest presently useful
+same-digit bridge with genuine monotone gain is
 
-One failed level would destroy the strong ladder.  Two successful levels do
-not prove persistence.  The next proof task is therefore a one-sided
-cross-horizon overlap or covariance lemma forcing this intersection for the
-actual pi state.  Counts, separate digit averages, unsigned energy, universal
-kernel geometry, and fiber-uniform representation data cannot provide it.
+```text
+exists d<10: P_d > 0 and P_d + q*M_d > 0.               (MR)
+```
+
+It is strictly weaker than strong fresh overlap: the new block may lose some
+of the old-horizon improvement.  By (1), MR gives
+`B(Q,A+dq,H)>B(q,A,N)>0`.  In T189 notation its atomic pi-specific line is
+
+```text
+max_{d:P_d>0} (Xi_d + P_d/q) > 21/q - Delta_0.           (2)
+```
+
+Strong overlap remains a robust sufficient candidate, not the logically
+minimal rung.  T176 makes `{d:P_d>0}` nonempty and T189 identifies `Xi_d`, but
+neither aligns the fresh sector with that same digit.  The target-signed
+information in (2) can enter only through the literal coupling of the actual
+pi predecessor digit, suffix, and target character.
+
+The recursive quantifier is an existential path: starting at the seed, choose
+one witness digit at each reached node.  It is not a claim about every node in
+the branching tree.  One failed level along every available branch would
+destroy the ladder; two successful selected levels do not prove persistence.
+Counts, separate digit averages, unsigned energy, universal kernel geometry,
+and fiber-uniform representation data cannot provide (2).
+
+The finite root input is itself still only an `experiment`.  The recorded
+directed bound `Re Z(1000,334,10000)>47539/2500` would imply
+`B(1000,334,10000)>284884/15>0`, but the full inequality is not yet checked in
+Lean.  Certifying that bounded seed and proving the unbounded MR rung are
+separate tasks.
+
+## Prefix-preserving periodic-tail separator
+
+The existing generic inputs cannot prove even positive-capital preservation.
+Keep the first `N=10000` fractional decimal digits of pi and then replace the
+tail by `333...`:
+
+```text
+theta = (floor(10^N * fract(pi)) + 1/3) / 10^N.
+```
+
+A literal floating-point replay at the root gives
+
+```text
+Re Z_theta(1000,334,10000) ~= 19.0165484,
+B_theta(1000,334,10000)     ~= 18993.215 > 0,
+{d:P_d>0}                    = {2,3,4,9},
+{d:M_d>0}                    = empty.
+```
+
+The improving set is exactly the actual-pi root set.  Nevertheless every
+final child capital is negative.  For its improving digit `d=3`,
+
+```text
+P_3 ~= 11274.7323,
+M_3 ~= -3521.2309,
+B_child(H) ~= -3.491e6.
+```
+
+For the other nine digits, `M_d` is about `-103.066`.  This simultaneously
+destroys strong overlap, MR, and positive-capital preservation for the
+replacement.  It does not refute an explicitly actual-pi theorem.  It proves
+that the positive seed, T176/T189 identities, decimal recurrence, the old
+improving set, and a long shared decimal prefix do not force any recursive
+transport.  A continuation with a long fixed block and a sufficiently small
+transcendental perturbation gives the same finite separator by continuity, so
+generic transcendence does not repair it either.
+
+Only the first `N` decimal digits are shared, not the first `N` real orbit
+points: near the endpoint their infinite suffixes differ, and T139 also reads
+terminal orbit values.  The replay therefore recomputes every primitive score
+rather than identifying the old-horizon sums.  It can be reproduced without
+editing the audited script by resetting its root parameters and inserting
+`digits = digits[:N] + "3" * (len(digits)-N)` immediately after its digit-file
+length assertion.  The numerical margins are large, but the result remains
+an `experiment`, not a directed certificate.
 
 ## Failed scalar compression
 

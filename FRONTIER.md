@@ -285,13 +285,27 @@ fresh signed mass `M_d` and gives the exact capital identity
 B(10q,A+dq,H) = B(q,A,N) + P_d + q*M_d.
 ```
 
-The strong recursive rung asks for one common digit with `P_d>0` and `M_d>0`.
-It holds as an `experiment` at the root and at the next actual-pi node; the
-second step has three witnesses `{0,5,6}` and reaches target `63334` at
-horizon `1000000`.  This is the first multi-horizon positive observation for
-the constructive ladder, not a persistence theorem.  The exact open
-pi-arithmetic task is to force the same-digit overlap on every reached node,
-or to prove a weaker capital-regeneration condition that still iterates.
+Strong overlap asks for one common digit with `P_d>0` and `M_d>0`.  It holds
+as an `experiment` at the root and at the next actual-pi node; the second step
+has three witnesses `{0,5,6}` and reaches target `63334` at horizon `1000000`.
+It is only a robust sufficient condition.  The weaker live research rung is
+same-digit monotone regeneration
+
+```text
+exists d<10: P_d>0 and P_d+q*M_d>0,
+```
+
+equivalently `max_(d:P_d>0)(Xi_d+P_d/q)>21/q-Delta_0`.  Iterated along an
+existentially selected path, it yields strictly increasing positive capital;
+it is not quantified over every node of the predecessor tree.  Positive child
+capital alone is still weaker but simply restates the desired transport.
+
+A sharp replacement control keeps the first 10,000 pi digits, then uses the
+periodic tail `333...`.  It retains a positive root score and exactly the
+actual-pi improving set `{2,3,4,9}`, yet every `M_d` and every final child
+capital is negative.  Thus no recursive rung follows from the finite seed,
+T176/T189, decimal recurrence, or old improving set alone.  The open theorem
+must use genuinely new target-signed information about the actual pi tail.
 
 A tight adjacent fixed-point separator now limits the permitted input. On the
 decimal orbit `x_n=1/3`, which stays below and never enters the child cylinder
