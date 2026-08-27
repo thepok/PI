@@ -392,3 +392,29 @@ This limitation is exact at the finite-vector level: permuting the same
 energies, and order statistics but can change a vector with one positive
 `B+P_d+qM_d` coordinate into a vector with none.  Thus target alignment, not
 portfolio bookkeeping, is the atomic missing information.
+
+A later sparse-Fourier supporting-weight proposal also fails to compress the
+problem.  For any probability vector `lambda` supported on the improving set,
+positivity of `sum_d lambda_d*(P_d+qM_d)` certainly implies MR.  The literal
+weighted T179 identity, however, retains every fine frequency:
+
+```text
+sum_d lambda_d*Xi_d
+ = 10*Re sum_(0<h<2Q,10 not| h)
+     alpha_Q(h)*e(-h*c_parent/10)*lambdahat(h mod 10)
+       * sum_(N<=n<H)e(h*10^n*pi).
+```
+
+It does not collapse to one coefficient times `e(10^n*pi)`.  At the root,
+the preferred zero-plus-one-conjugate-pair Fourier support is impossible for
+a nonnegative weight supported on `{2,3,4,9}`: its inverse transform is a
+degree-one sinusoid and cannot vanish on all six excluded grid points.  The
+finite choice `(delta_3+delta_4)/2` kills only character `5`, retains nine
+characters, and has positive weighted gain only because it includes the
+fresh-successful digit `3`.  It is not a past-derived reusable selector.
+
+One-sided Machin truncation gives the side and size of `pi-r_J`, but the
+derivative of the complete multi-`h` polynomial has either sign.  Correct
+Taylor transfer therefore remains a directed rational replay of the same
+unknown carrier, not a source of its sign.  No new pi-arithmetic lemma survives
+this supporting-functional proposal.
