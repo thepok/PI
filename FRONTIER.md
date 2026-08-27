@@ -303,10 +303,11 @@ capital alone is still weaker but simply restates the desired transport.
 An infinite selected path is not yet the all-target summit.  It hits words
 `d_(r-1)...d_0 334` and makes every factor of the single left-infinite
 selector word `...d_2d_1d_0 334` recur.  No current theorem promotes one such
-language to V1.  The missing coverage statement is either disjunctivity of
-the selector word or, equivalently for this anchored construction, a viable
-branch reaching `w334` for every finite word `w`.  MR remains the first
-transport-mechanism rung, not a complete V1 bridge.
+language to V1.  The missing coverage statement can be disjunctivity of the
+selector word or, as a different sufficient condition, a viable branch
+reaching `w334` for every finite word `w`.  These are not logically
+equivalent: the second may use a different branch for each `w`.  MR remains
+the first transport-mechanism rung, not a complete V1 bridge.
 
 The recursion can be shortened after one T176 initialization.  The root
 `(1000,334,10000)` reaches the positive child `(10000,3334,10000)`, where

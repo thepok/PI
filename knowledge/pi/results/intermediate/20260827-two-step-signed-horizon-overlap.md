@@ -145,6 +145,46 @@ arbitrary-horizon T148 scalar comparison.  This diagonal identity is a
 `proof sketch` specialization of the machine-checked T189 identity, not a new
 pi estimate.
 
+For quantifier discipline, define the old-horizon gain and fresh sector by
+
+```text
+G_d = U_d-B(q,A,q),
+F_d = Delta_0(q,A;q,10q)+Xi_d(q,A;q,10q).
+```
+
+T176 machine-checks that some `G_d>0`.  The first unproved pi-specific
+diagonal rung is exactly
+
+```text
+exists d<10: G_d>0 and q*F_d > 21/10-G_d.              (MR-diag)
+```
+
+Indeed, (D1) gives
+`W_d=B(q,A,q)+G_d+q*F_d-21/10`, so MR-diag strictly regenerates the parent
+capital at the next natural horizon.  In literal signed-sector form, its only
+new arithmetic line is
+
+```text
+Xi_d > 21/(10q)-Delta_0-G_d/q
+```
+
+for one old-horizon improving digit.  This is an alignment statement between
+the past-derived improving set and the actual-pi predecessor-digit/suffix
+correlation, not a separate average or unsigned bound.
+
+A useful stronger atom fixes `d_*` as a past-only maximizer of `G_d` and asks
+for the displayed inequality at `d_*`.  T176 makes `G_(d_*)>0`, but it does
+not prove the signed-sector inequality.  If that atom is still too large, an
+explicit margin `G_(d_*)>=gamma(q,A)>0` separates the remaining target as
+`F_(d_*)>(21/10-gamma)/q`.  Splitting `Delta_0` and `Xi_(d_*)` further is not
+licensed without an independent pi input; the observed negative zero sector
+already warns that such a split can be strictly stronger.
+
+The weakest recursive quantifier is only a reached path of positive diagonal
+nodes satisfying MR-diag.  A reusable theorem for every positive
+`A<10^k` would be sufficient but substantially stronger.  Neither quantifier
+implies V1 without the separate symbolic coverage condition below.
+
 At the first actual-pi diagonal node
 
 ```text
