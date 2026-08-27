@@ -267,6 +267,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T165T165DelayedBBPActualPhaseArithme
 import TheoryLib.PiQuantitativeBlockHitting.T166T166DelayedBBPLocalCoordinate
 import TheoryLib.PiQuantitativeBlockHitting.T168T168StableBBPPrimePowerTransport
 import TheoryLib.PiQuantitativeBlockHitting.T169T169SingleRateMachinPhaseTransfer
+import TheoryLib.PiQuantitativeBlockHitting.T170T170MachinFixedPointIntervals
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3392,6 +3393,15 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_sum_phase_pi_sub_delayedSingleRateMachinValue_natural_lt
 #print axioms
   Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le
+
+-- Termwise fixed-point enclosures avoid constructing one enormous normalized
+-- rational.  The representative 100-place pi cylinder is a scalability
+-- prototype for later signed finite-orbit certificates, not a V1 result.
+#print axioms Theory.PiDigits.T170MachinFixedPointIntervals.fixedFloorRat_le
+#print axioms Theory.PiDigits.T170MachinFixedPointIntervals.lt_fixedUpperRat
+#print axioms Theory.PiDigits.T170MachinFixedPointIntervals.fixedMachinLowerRat_le_machinLowerRat
+#print axioms Theory.PiDigits.T170MachinFixedPointIntervals.machinLowerRat_le_fixedMachinUpperRat
+#print axioms Theory.PiDigits.T170MachinFixedPointIntervals.pi_mem_decimalCylinder_100
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

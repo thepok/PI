@@ -245,6 +245,22 @@ or a rational shadow do not answer that question by themselves.
 5. Use computation to kill bad conjectures early, never as evidence that the
    required pointwise statement holds for pi.
 
+The first finite rung of this program is now concrete but deliberately
+limited. A directed-interval `experiment` proves numerically that
+
+```text
+Re (primitiveBoundaryFourierSum 1000 334 10000) > 47539 / 2500.
+```
+
+The replay uses the exact Chudnovsky-certified prefix and the complete
+T128/T139 kernel-plus-endpoint identity; see
+[`20260827-finite-signed-parent-334-certificate.md`](knowledge/pi/results/intermediate/20260827-finite-signed-parent-334-certificate.md).
+T170 separately machine-checks a 100-decimal-place fixed-point Machin
+enclosure as the first Lean feasibility rung. The direct encoding consumes
+about 6.5 GiB even at that scale, so the full 10,000-term score still requires
+a compact integer certificate checker. Neither finite result supplies an
+unbounded-scale signed mechanism or advances the claim status of V1.
+
 ## Required task contract
 
 Every mathematical task given to a model or human collaborator must state:

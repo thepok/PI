@@ -2,7 +2,7 @@
 
 Status: `conjecture`
 
-Last audited: 2026-08-24 UTC
+Last audited: 2026-08-27 UTC
 
 No theorem in this repository proves that every finite decimal word occurs in
 the decimal expansion of π. The proof authority is [`TheoryLib/`](TheoryLib/)
@@ -190,6 +190,23 @@ prime coordinates are zero throughout the earlier block and nonzero only at
 its endpoint. They therefore do not create the hoped-for long
 bounded-conductor trace family. Persistent older factors and their full
 complementary CRT coupling remain open.
+
+A first finite signed benchmark now survives independent replay:
+[`20260827-finite-signed-parent-334-certificate.md`](knowledge/pi/results/intermediate/20260827-finite-signed-parent-334-certificate.md)
+records the directed-interval `experiment`
+
+```text
+Re (primitiveBoundaryFourierSum 1000 334 10000) > 47539 / 2500.
+```
+
+This is actual-pi, prescribed-target Archimedean sign information for one
+finite triple `(q,A,N)`, evaluated with the complete endpoint. It does not add
+a new digit occurrence—the certified prefix already contains `334`—and it
+does not propagate to unbounded scales. T170 machine-checks the first
+100-decimal-place fixed-point Machin enclosure needed for a future trusted
+version. Its measured 6.5-GiB isolated elaboration shows that the direct
+`norm_num` representation must be replaced by a compact integer certificate
+checker before the 10,000-place score can enter the verified core.
 
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
