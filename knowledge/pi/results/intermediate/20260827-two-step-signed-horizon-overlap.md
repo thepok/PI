@@ -132,3 +132,31 @@ not prove persistence.  The next proof task is therefore a one-sided
 cross-horizon overlap or covariance lemma forcing this intersection for the
 actual pi state.  Counts, separate digit averages, unsigned energy, universal
 kernel geometry, and fiber-uniform representation data cannot provide it.
+
+## Failed scalar compression
+
+The most natural one-number reductions were tested before promotion.  The
+old-prefix-weighted scalar
+
+```text
+C_strong = sum_d max(P_d,0) * M_d
+```
+
+is sufficient when positive, but it is not necessary for strong overlap.  At
+the root, where `d=3` is a valid joint-positive witness, the improving but
+fresh-negative digits `2,4,9` dominate and give
+
+```text
+C_strong ~= -2.7849e6.
+```
+
+The analogous monotone-regeneration scalar is about `-6.8598e8` there.  Both
+become strongly positive at the second node, so neither has a scale-stable
+sign even across the two successful steps.
+
+Sign counts plus raw covariance and the sharp mean/Parseval-variance lower
+bound also fail at the root.  A directed clipped pairing such as
+`sum_d P_d*max(M_d,0)` passes both pi nodes, but retains exactly the favorable
+paired-sign sector and also passes matched de Bruijn periodic controls.  It is
+therefore a diagnostic repackaging, not an independent pi-specific source or
+a smaller proof target.
