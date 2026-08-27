@@ -257,6 +257,25 @@ only an `experiment`. The atomic research target is now a rigorous lower bound
 for that exact `Xi_3` fresh-block expression and then a mechanism repeating it
 at unbounded scales.
 
+The current research cycle treats T189 as a finished consumer rather than a
+source of further equivalent criteria. Its constructive summit is the signed
+horizon transport
+
+```text
+positive actual-pi seed
+  -> new target-signed mass on a fresh block
+  -> positive surplus at a larger, consumer-valid horizon.
+```
+
+Work proceeds through one backward lemma ladder: first isolate the earliest
+unproved pi-specific rung, then try to prove it, then attack that same rung
+adversarially. The completed low-dimensional empirical cycle is now exclusion
+memory: counts, short cylinder statistics, universal two-scale kernel
+surrogates, and the tested representation clocks do not supply the fresh sign.
+Further computation is used only to falsify a concrete rung. A CM, BBP,
+Machin, modular, or other representation is live only when it supplies an
+explicit rung of this horizon transport.
+
 A tight adjacent fixed-point separator now limits the permitted input. On the
 decimal orbit `x_n=1/3`, which stays below and never enters the child cylinder
 `[0.3334,0.3335)`, the exact digit-3 T189 summand has directed enclosure

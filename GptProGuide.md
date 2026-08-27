@@ -77,15 +77,21 @@ criteria, denominator-only facts, fixed-modulus projections, unsigned
 averages, kernel changes, generic countermodels, and representation-only
 identities are not frontier progress by themselves.
 
-Differentiate the three slots by default:
+The current mode is a single constructive signed-horizon-transport program,
+not an open-ended empirical phenomenon search. T189 is fixed as the completed
+consumer. Differentiate the three slots around one shared lemma ladder:
 
-1. one seeks a new signed invariant, recurrence, or energy/drift structure
-   that preserves the complete target information;
-2. one seeks a special pi-arithmetic input—possibly from integrals,
-   Padé/hypergeometric or special-function theory, modular structures, or a
-   genuinely different representation—that could control that invariant;
-3. one is adversarial and tries to prove or destroy the critical step of the
-   best current positive candidate.
+1. design the backward ladder from the positive pi seed to new target-signed
+   mass at a growing horizon;
+2. try to prove the first genuinely pi-specific unproved rung;
+3. attack exactly that rung adversarially, proving its critical step or
+   closing it with a narrow separator.
+
+The operator decomposes a failed rung and reassigns the smaller atomic step;
+it does not restart a broad search after every failure. Empirical work is used
+only to falsify a concrete proposed rung quickly. CM, BBP, Machin, modular,
+Padé, hypergeometric, or other representations are admissible only when they
+feed that named rung rather than merely recoding the carrier.
 
 Use PaperSearch early as mathematical building material and do a serious
 literature comparison before treating an idea as new. Do not let known theory

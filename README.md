@@ -432,15 +432,21 @@ the few separators that would otherwise cause an immediate duplicate. A Pro
 memo should be judged afterward by independent audit, rather than steered into
 proving a narrow no-go for an operator-invented mechanism.
 
-Keep the three creative slots differentiated by default:
+For the current research cycle, keep the three creative slots focused on one
+shared constructive object: a backward lemma ladder transporting the positive
+pi seed to new target-signed mass at a growing horizon.
 
-1. invent a signed invariant, recurrence, or energy/drift structure that
-   preserves the complete target information;
-2. seek a special pi-arithmetic input—from integrals, Padé/hypergeometric or
-   special-function theory, modular structure, or another promising source—
-   that could control that invariant;
-3. work adversarially on the strongest current candidate by proving its
-   critical step or destroying it with a narrow separator.
+1. design the shortest backward lemma ladder from T189 to a genuinely
+   pi-specific atomic premise;
+2. try to prove the first unproved pi-specific rung of that ladder, rather
+   than replacing it with another representation;
+3. attack exactly that rung adversarially, either repairing its critical step
+   or destroying it with the narrowest valid separator.
+
+Empirical computation is now a fast falsifier for a proposed rung, not a
+standalone search program. CM, BBP, Machin, modular, Padé, or other
+representations are relevant only when they feed a named rung of this horizon
+transport.
 
 The roles are mathematical compasses, not closed method lists. When a memo
 survives local audit, use the next call to attack its strongest remaining step
