@@ -300,6 +300,14 @@ existentially selected path, it yields strictly increasing positive capital;
 it is not quantified over every node of the predecessor tree.  Positive child
 capital alone is still weaker but simply restates the desired transport.
 
+An infinite selected path is not yet the all-target summit.  It hits words
+`d_(r-1)...d_0 334` and makes every factor of the single left-infinite
+selector word `...d_2d_1d_0 334` recur.  No current theorem promotes one such
+language to V1.  The missing coverage statement is either disjunctivity of
+the selector word or, equivalently for this anchored construction, a viable
+branch reaching `w334` for every finite word `w`.  MR remains the first
+transport-mechanism rung, not a complete V1 bridge.
+
 A sharp replacement control keeps the first 10,000 pi digits, then uses the
 periodic tail `333...`.  It retains a positive root score and exactly the
 actual-pi improving set `{2,3,4,9}`, yet every `M_d` and every final child

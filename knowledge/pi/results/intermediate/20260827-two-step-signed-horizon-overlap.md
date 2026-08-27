@@ -152,6 +152,36 @@ destroy the ladder; two successful selected levels do not prove persistence.
 Counts, separate digit averages, unsigned energy, universal kernel geometry,
 and fiber-uniform representation data cannot provide (2).
 
+### Exact scope of an infinite ray
+
+Even a proof of MR at every selected rung would not by itself prove V1.  If
+the successive selected digits are `d_0,d_1,...`, the scale-`r` word is
+
+```text
+W_r = d_(r-1) ... d_1 d_0 334.
+```
+
+Positive capital at horizon `10q_r`, followed by the still-unpackaged T148
+scalar comparison, gives a hit of `W_r`.  T156 alone cannot consume this rung
+because it is stated at the natural horizon `N=q_r`.  Since every later
+`W_r` contains each earlier `W_s` as a suffix, the ray would give arbitrarily
+late recurrences of every finite factor of the single left-infinite word
+`...d_2 d_1 d_0 334`.  There is no checked theorem amplifying that language to
+all decimal words.
+
+The weakest symbolic addition sufficient for V1 is that the selected
+left-infinite word itself is disjunctive.  A branching alternative is
+
+```text
+for every finite decimal word w, some viable MR branch reaches w334.
+```
+
+A hit of `w334` contains `w`, so this also suffices.  Full ten-way
+regeneration at every node is stronger than necessary.  Thus one-ray MR is a
+meaningful first transport mechanism, but not the all-target summit; future
+work must not report it as a V1 bridge without one of these additional
+coverage statements.
+
 The finite root input is itself still only an `experiment`.  The recorded
 directed bound `Re Z(1000,334,10000)>47539/2500` would imply
 `B(1000,334,10000)>284884/15>0`, but the full inequality is not yet checked in
