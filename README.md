@@ -276,7 +276,12 @@ late root-horizon points, with 128 Horner terms at scale `10^100`; all ten
 denominator-sine rows are certified nonzero. T188 checks each T173 suffix
 cylinder once and shares it across the three phase leaves at that orbit point;
 T187 uses this grouped production API. The shard takes about 10.3 minutes and
-9.1 GB peak memory, so the remaining payload must stay finely sharded. A
+9.1 GB peak memory. A deterministic generator reproduces the shard
+byte-for-byte, but its focused cost audit projects at least about 134 CPU-hours
+and roughly 113 GB of `.olean` output for the complete 10,000-point payload.
+The full payload is therefore explicitly deferred: the finite root path stops
+at this reproducible cost checkpoint unless the checker is made materially
+cheaper for an immediate mathematical need. A
 benchmark rejected exact Taylor powers
 (about 39 GB projected) and
 selected the compact Horner representation instead. The complete generated
@@ -307,7 +312,18 @@ rather than an informal appeal to "child phases." T178 machine-checks the
 conditional infinite recursive ray and its explicit all-level lower bound,
 leaving only the finite root-score certificate outside Lean. T179 then
 rewrites every nonzero character sector exactly as an actual-pi lag-one
-correlation between the predecessor digit and the next suffix. The remaining
+correlation between the predecessor digit and the next suffix. T189 now
+subtracts this identity at two horizons and machine-checks the direct signed
+horizon-sector consumer. For a child digit `d`, all new information from
+`N <= n < H` is concentrated in one explicit correlation `Xi_d`; a sufficient
+one-sided bound on it yields positive child surplus at the consumer-valid
+horizon `H`. The coarse parent/zero-sector bootstrap is experimentally false
+at the first tested step, while `d=3` survives with a large positive nonzero
+sector. Thus the live lemma is no longer “some growing-horizon estimate,” but
+a lower bound for this named fresh-block `Xi_3` expression, followed by an
+unbounded-scale version. See
+[`20260827-signed-horizon-sector-bridge.md`](knowledge/pi/results/intermediate/20260827-signed-horizon-sector-bridge.md).
+The remaining
 gap is therefore a genuine one-sided arithmetic estimate for these explicit
 correlations, not another transport or DFT identity.
 

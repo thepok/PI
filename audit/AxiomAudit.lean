@@ -286,6 +286,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T185T185BoundaryMinorantSineBridge
 import TheoryLib.PiQuantitativeBlockHitting.T186T186ReflectedTrigLeaf
 import TheoryLib.PiQuantitativeBlockHitting.T187T187ReflectedTrigShard9965
 import TheoryLib.PiQuantitativeBlockHitting.T188T188SharedOrbitCylinderBatch
+import TheoryLib.PiQuantitativeBlockHitting.T189T189SignedHorizonSectorBridge
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3529,6 +3530,14 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T188SharedOrbitCylinderBatch.checkedTrigLeafAtCylinder_sound
 #print axioms Theory.PiDigits.T188SharedOrbitCylinderBatch.checkedOrbitTrigGroup_sound
 #print axioms Theory.PiDigits.T188SharedOrbitCylinderBatch.checkedOrbitTrigGroupBatch_sound
+
+-- Exact growing-horizon decomposition.  The fresh nonzero sector is the
+-- literal target-sensitive lag-one correlation over the new orbit block;
+-- no sign estimate for that correlation is assumed or manufactured here.
+#print axioms Theory.PiDigits.SignedHorizonSectorBridge.predecessorZeroBlockIncrement_eq_parent_add_remainder
+#print axioms Theory.PiDigits.SignedHorizonSectorBridge.ten_mul_childBlock_re_eq_zeroBlock_add_nonzeroBlock
+#print axioms Theory.PiDigits.SignedHorizonSectorBridge.predecessorNonzeroBlockIncrement_eq_shiftedLagOneCorrelation_re
+#print axioms Theory.PiDigits.SignedHorizonSectorBridge.signedPrefixSurplus_child_pos_of_horizon_sector_gt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

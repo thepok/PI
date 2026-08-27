@@ -236,6 +236,34 @@ coefficients. No favorable sign is inferred. The live frontier is a one-sided
 estimate for this joint digit/suffix correlation, or horizon-growing signed
 control strong enough to bypass it.
 
+T189 makes the horizon-growth alternative exact. Subtracting T177/T179 at
+`N <= H` gives, for every child digit `d`,
+
+```text
+10 * Re (Z_d(H) - Z_d(N)) = Delta_0(N,H) + Xi_d(N,H),
+```
+
+where `Delta_0` is the parent plus left-extension-remainder increment and
+`Xi_d` is one literal target-sensitive lag-one correlation over precisely the
+fresh indices `N <= n < H`. Its final theorem turns the corresponding
+one-sided sector inequality directly into positive T178 surplus at `H`; it
+does not assert that inequality. At the first root-to-child experiment
+`(q,A,N,H,d)=(1000,334,10000,100000,3)`, the parent/zero sector is negative,
+so the coarse transport is falsified, while the digit-3 nonzero sector is
+about `43` and easily clears the sufficient threshold (between about `-2.02`
+and `-1.64`, depending on the bounded remainder; `Xi_3 > -1.6412` is the
+uniform sufficient choice from that bound). This numerical statement is
+only an `experiment`. The atomic research target is now a rigorous lower bound
+for that exact `Xi_3` fresh-block expression and then a mechanism repeating it
+at unbounded scales.
+
+The finite root certificate remains a bounded checkpoint. T187's ten-point
+production shard takes about 10.3 minutes and 9.1 GB; deterministic replay and
+a focused one-orbit audit project at least about 134 CPU-hours and roughly
+113 GB of `.olean` output for the complete 10,000-point payload. No full
+payload will be generated with the present checker. This is a cost boundary,
+not mathematical progress and not evidence against the signed bridge.
+
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
 is now `machine-checked` through T149--T153 and T156. T149's
