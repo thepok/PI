@@ -301,6 +301,30 @@ known, the modulus supplies no R2 same-digit alignment, and `r=5` must not be
 double-counted as two distinct sectors.  It should not be formalized unless
 an independent pi-arithmetic input makes it a live consumer.
 
+For every natural `q>=1000`, two exact abstract separators delimit this
+compression.  They are `proof sketch` finite-vector statements at the
+T177/T189 linear interface, not actual-pi orbit realizations.
+
+* With `Delta_0=2/q`, `Xi=(9/(5q),-1/(5q),...,-1/(5q))`, one gets
+  `D=(17/10,-3/10,...,-3/10)` and `|P_r|/2=1/(5q)` for every nonzero
+  representative, so Pair-R1 holds.  Taking
+  `G=(-9/5,59/45,...,59/45)` gives `sum G=10`; the unique fresh-positive
+  digit has `G_0+D_0=-1/10`, while the other nine combined gains are
+  positive.  Thus Pair-R1 alone supplies no R2 alignment.  Joint cyclic
+  shifts of `Xi` and `G` preserve the paired moduli, separate ranks, and
+  failure, so phase-blind or separately marginal data cannot recover the
+  witness.
+* With `Delta_0=0`, `Xi=(9/(100q),-1/(100q),...,-1/(100q))`, and
+  `G_d=3`, every `G_d+D_d` is positive although every `D_d` is negative.
+  Hence even all-digit capital regeneration does not imply R1; inherited
+  gain can mask negative fresh mass on every digit.
+
+Both examples satisfy `sum Xi=0` and `0<sum G<42` and admit the corresponding
+zero-mean sector vectors by inverse DFT.  They close only generic scalar,
+phase-blind, and separate-marginal deductions.  A pi-specific joint old/fresh
+carrier theorem could impose additional nonlinear structure and is not
+refuted.
+
 ### Sharp marginal certificate for R2
 
 Let `D^[j]` and `G^[j]` be the `j`-th largest coordinates, with ranks starting
