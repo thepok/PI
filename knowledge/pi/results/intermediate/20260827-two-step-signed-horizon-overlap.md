@@ -270,6 +270,37 @@ demand to the parent, is strictly stronger than R1, and supplies no R2
 alignment.  It is therefore retained only as a `proof sketch` reduction, not
 as the live pi-specific rung or a source of the missing sign.
 
+There is one sharper deterministic R1 reduction.  Let `C_r` be the
+unnormalized T189 increment of predecessor sector `r`, and put
+
+```text
+P_r=C_r+conj(C_(10-r))  (1<=r<=4),
+P_5=C_5+conj(C_5)=2*Re C_5.
+```
+
+The normalized forward DFT of the real vector `Xi` satisfies
+`Xi_hat(r)=P_r/2` for `1<=r<=5`.  If `M=max_d Xi_d`, then
+`y_d=M-Xi_d>=0`, `sum_d y_d=10M`, and character orthogonality gives
+
+```text
+|P_r|/2 = |Xi_hat(r)| <= M.
+```
+
+The factor `1/2` is sharp in the ten-point mean-zero DFT algebra.  Hence the
+strict one-sector premise
+
+```text
+exists r in {1,...,5}:
+  Delta_0+|P_r|/2 > 21/(10q)                         (Pair-R1)
+```
+
+implies R1.  Pair-R1 is pointwise weaker than ZS because a paired nonzero
+sector may cover negative zero-sector debt.  This remains only a `proof
+sketch` deterministic reduction: no actual-pi lower bound for any `|P_r|` is
+known, the modulus supplies no R2 same-digit alignment, and `r=5` must not be
+double-counted as two distinct sectors.  It should not be formalized unless
+an independent pi-arithmetic input makes it a live consumer.
+
 ### Sharp marginal certificate for R2
 
 Let `D^[j]` and `G^[j]` be the `j`-th largest coordinates, with ranks starting
