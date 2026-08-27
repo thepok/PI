@@ -261,9 +261,13 @@ rational normalization by a compact integer-row checker, and T173 scales that
 checker to a machine-checked 10,015-fractional-place cylinder for pi: 14,341
 rows at scale `10^10021`, checked in about 41 seconds with about 9.6 GB peak
 memory in the focused audit. This supplies enough trusted decimal information
-for the finite score calculation; the directed trigonometric score evaluator
-itself is the next certificate rung. None of these finite results supplies an
-unbounded-scale signed mechanism or advances the claim status of V1.
+for the finite score calculation. T180 now supplies the small trusted analytic
+core of the next certificate rung: mathlib's complex-exponential remainder
+bound, simultaneous reflected sine/cosine intervals, input-width transport,
+and an integer-checked rational-sum certificate. The full generated `q=1000`,
+`N=10000` kernel/endpoint payload is still missing, so the root-score claim
+remains an `experiment`. None of these finite results supplies an unbounded-
+scale signed mechanism or advances the claim status of V1.
 
 T172 now machine-checks the exact ten-child zero-character transport, strict
 positivity of every coefficient defect, and total defect mass

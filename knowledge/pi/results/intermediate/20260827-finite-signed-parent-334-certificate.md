@@ -101,7 +101,11 @@ prefix already contains `334`, and all ten one-digit left extensions of that
 suffix occur by start 14250. It also gives no recurrence, prescribed-child
 selection, unbounded scale family, or proof of V1.
 
-The next trust step is deliberately narrow: connect the T173 cylinder to a
-compact kernel-checked directed trigonometric interval evaluator and prove the
-same inequality in Lean. Until that full score theorem compiles and is
-registered in the axiom audit, this note remains labeled `experiment`.
+T180 now machine-checks the small trusted core of that evaluator.  It derives
+a simultaneous sine/cosine error from mathlib's `Complex.exp_bound'`, adds
+the one-Lipschitz input-cylinder width, and checks exact rational Taylor
+coordinate sums through regenerated common-scale integer rows.  The remaining
+trust step is deliberately narrow but large: generate and check the complete
+kernel, zero-mode, and endpoint payload for all required orbit suffixes, then
+apply T174. Until that full score theorem compiles and is registered in the
+axiom audit, this note remains labeled `experiment`.

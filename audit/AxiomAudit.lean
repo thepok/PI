@@ -277,6 +277,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T176T176SignedBlockBellmanTransport
 import TheoryLib.PiQuantitativeBlockHitting.T177T177PredecessorDigitDFT
 import TheoryLib.PiQuantitativeBlockHitting.T178T178SignedPredecessorRay
 import TheoryLib.PiQuantitativeBlockHitting.T179T179PredecessorLagOneCorrelation
+import TheoryLib.PiQuantitativeBlockHitting.T180T180ReflectedTrigIntervalCore
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3472,6 +3473,15 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.PredecessorLagOneCorrelation.piOrbit_eq_predecessor_add_suffix
 #print axioms Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_finePredecessorSector
 #print axioms Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_lagOneCorrelation
+
+-- Trusted analytic/reflection core for converting the finite actual-pi root
+-- experiment into a kernel theorem.  This does not yet contain the large
+-- q=1000 payload or prove the root inequality.
+#print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.expIPartial_trig_error
+#print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.checkedRationalSum_bounds
+#print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.trig_error_with_input_width
+#print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.checked_trig_bounds
+#print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.demo_half_enclosed
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
