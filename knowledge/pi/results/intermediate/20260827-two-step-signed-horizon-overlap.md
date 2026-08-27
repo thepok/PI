@@ -160,3 +160,17 @@ bound also fail at the root.  A directed clipped pairing such as
 paired-sign sector and also passes matched de Bruijn periodic controls.  It is
 therefore a diagnostic repackaging, not an independent pi-specific source or
 a smaller proof target.
+
+A multibranch portfolio does not bypass this alignment.  For
+`X_d=B(q,A,N)+P_d+qM_d`, the weakest positive-capital portfolio condition is
+`sum_d max(X_d,0)>0`, which is exactly `max_d X_d>0` in disguise.  Equal
+weights erase every nonzero digit character because `sum_d Xi_d=0` and leave
+the root-failing zero sector.  Unequal linear weights, log-sum-exp, top-k, or
+positive-part potentials succeed only after retaining the jointly aligned
+`P_d,M_d` coordinates, hence reintroduce the missing target signs.
+
+This limitation is exact at the finite-vector level: permuting the same
+`M_d` multiset against a fixed `P_d` preserves all separate means, norms,
+energies, and order statistics but can change a vector with one positive
+`B+P_d+qM_d` coordinate into a vector with none.  Thus target alignment, not
+portfolio bookkeeping, is the atomic missing information.
