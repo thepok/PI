@@ -266,6 +266,15 @@ bare transcendence are compatible with such a fixed tested block. The next
 lemma must use a stronger pi-specific joint transition property, not merely
 exclude a target hit or a rational tail.
 
+The earlier finite-cylinder horizon separator also admits a repaired
+Roth-optimal upgrade: append a base-ten Thue--Morse `{0,1}` tail to the T173
+prefix. The root sign survives only by the recorded Lipschitz margin, while
+every sufficiently deep left descendant still ends in `334` and is absent.
+The resulting number is transcendental with irrationality exponent exactly
+`2`. This remains a `proof sketch` because the T146--T156 endpoint chain is
+not yet parameterized away from pi, but it closes finite irrationality measure
+as a possible source of the missing signed bootstrap.
+
 The finite root certificate remains a bounded checkpoint. T187's ten-point
 production shard takes about 10.3 minutes and 9.1 GB; deterministic replay and
 a focused one-orbit audit project at least about 134 CPU-hours and roughly

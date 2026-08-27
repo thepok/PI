@@ -105,3 +105,72 @@ tail.  The most economical remaining quantities are
 or the corresponding prescribed T179 digit/suffix correlation on the fresh
 block.  A tighter defect constant or another finite-cylinder identity cannot
 cross this separator.
+
+## Roth-optimal upgrade
+
+The Liouville property of the displayed `lambda` is not essential. Let
+
+```text
+tau_10 = sum_(j>=1) t_j * 10^-j
+```
+
+be the base-ten Thue--Morse--Mahler number and define
+
+```text
+xi_TM = P_D * 10^-D + 10^-D * tau_10.
+```
+
+Its tail contains only zeroes and ones, so `xi_TM` lies in the same strict
+T173 cylinder. Bugeaud's theorem gives `mu(tau_10)=2`; rational affine
+invariance therefore gives `mu(xi_TM)=2`. Classical Mahler transcendence also
+makes `xi_TM` transcendental. The exact exponent source is Y. Bugeaud,
+*On the rational approximation to the Thue--Morse--Mahler numbers*, Annales
+de l'Institut Fourier 61 (2011), DOI `10.5802/aif.2666`, already pinned and
+audited in the T16 record.
+
+The coherent-target orientation is important. If
+
+```text
+q_r = 1000 * 10^r,
+A_(r+1) = A_r + d_r*q_r,
+A_0 = 334,
+```
+
+then the padded target word is
+
+```text
+d_(r-1) ... d_1 d_0 334.
+```
+
+It ends in `334`; these are left extensions, not nested prefixes of one real
+beginning with `334`. For every sufficiently large `r`, the terminal `334` of
+any occurrence would lie beyond decimal position `D`, where `xi_TM` has only
+zeroes and ones. Hence one `xi_TM` uniformly avoids every sufficiently deep
+target on every coherent left ray. No prescribed-ray diagonalization is
+needed.
+
+The finite root score is not identical throughout the cylinder. It remains
+positive only by the Lipschitz stability estimate (1)--(2) above. Likewise,
+the checked T156 theorem is pi-specific. The natural-horizon conclusion for
+`xi_TM` still requires the unformalized generic T146--T156 chain parameterized
+by
+
+```text
+13/50 < nearestIntegerDistance (9*xi_TM).
+```
+
+This premise follows from the shared coarse cylinder
+`3.14 < xi_TM < 3.15`, which puts `9*xi_TM` strictly between `28.26` and
+`28.35`. Conditional on that parameterization, the same missed-cylinder
+contrapositive gives
+
+```text
+Re Z^xi_TM_(q_r,A_r)(q_r) < -861/1000
+```
+
+eventually for every coherent ray.
+
+This repaired statement remains a `proof sketch`, not `machine-checked`.
+It strengthens the separator by showing that transcendence, non-Liouville
+behavior, an effective finite irrationality measure, and even the optimal
+irrationality exponent `mu=2` do not bootstrap the finite signed seed.
