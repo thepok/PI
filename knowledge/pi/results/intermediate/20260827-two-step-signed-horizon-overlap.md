@@ -196,9 +196,22 @@ rho=3: delta/pi ~= 0.06888,
 Thus the actual joint-positive coordinates `{0,4}` coexist with enormous
 absolute non-anchor tails.  The fixed one-anchor plus `l1`-tail rung is
 falsified on the registered `d=3` diagonal path and must not receive a proof
-program.  It does not exclude rerouting the initialization through a different
-positive root child, but it destroys the advertised uniform reached-state
-claim.
+program.
+
+The three alternative T176-positive root children were then replayed at the
+same diagonal horizons.  None rescues the cone:
+
+```text
+parent A   MR witnesses   rho=1 margins (old,final)    rho=3 margins (old,final)
+2334       {2,5}          (-79889,-272515)             (-63225,-208127)
+3334       {0,4}          (-174012,-171802)            (-75021,-145701)
+4334       {1,2,9}        (-52020,-48574)              (-112273,-181306)
+9334       {2,5}          (-110177,-235182)            (-49086,-173682)
+```
+
+Every actual root initialization has MR witnesses, while every proposed
+one-anchor absolute-tail margin is negative.  This closes the whole
+`rho in {1,3}` initialization class, not just one selected path.
 
 For `rho=1`, the midpoint digit is `d=4`; the signed residual after subtracting
 the zero and anchor modes is positive for both vectors.  That weaker condition

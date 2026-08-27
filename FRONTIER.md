@@ -321,8 +321,10 @@ This pays one tenth of the previous fresh debt and lands directly at a T156
 natural horizon.  At the first actual-pi diagonal step, MR has witnesses
 `{0,4}` even though strong fresh overlap is empty.  A proposed one-DFT-anchor
 cone with absolute non-anchor tails fails there by margins between about
-`-7.5e4` and `-1.74e5`; that low-mode compression is closed in its proposed
-form.  The surviving signed residual still contains the complete
+`-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children
+were also replayed: every one has MR witnesses, but every `rho=1,3` old and
+final cone margin is negative.  No initialization reroute rescues that
+low-mode compression.  The surviving signed residual still contains the complete
 target-evaluated non-anchor tail and has no independent pi source.
 
 A sharp replacement control keeps the first 10,000 pi digits, then uses the
