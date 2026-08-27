@@ -275,6 +275,14 @@ The resulting number is transcendental with irrationality exponent exactly
 not yet parameterized away from pi, but it closes finite irrationality measure
 as a possible source of the missing signed bootstrap.
 
+Machin remainder positivity is now excluded just as sharply. The complete
+T189 nonzero sector is an exact target-centered lacunary polynomial at
+`exp(2*i*pi^2)`, and T169 transfers it to the moving Machin carrier with error
+below `10^-17963` at the current block. Nevertheless the full-sector response
+to a fixed positive phase increment assumes both signs. Thus essentially all
+of the observed sign is already in the exact rational carrier arithmetic;
+the positive arctangent tail cannot manufacture it.
+
 The finite root certificate remains a bounded checkpoint. T187's ten-point
 production shard takes about 10.3 minutes and 9.1 GB; deterministic replay and
 a focused one-orbit audit project at least about 134 CPU-hours and roughly
