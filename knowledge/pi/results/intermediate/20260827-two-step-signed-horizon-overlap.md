@@ -180,6 +180,26 @@ explicit margin `G_(d_*)>=gamma(q,A)>0` separates the remaining target as
 licensed without an independent pi input; the observed negative zero sector
 already warns that such a split can be strictly stronger.
 
+This past-only selector survives the four available natural-diagonal replays,
+but that finite success is not evidence for a pi-specific source.  For parent
+targets `A in {2334,3334,4334,9334}`, the actual-pi argmax digits are
+respectively `{5,4,2,5}` and every one is an MR-diag witness.  Replacing all
+decimal digits after position `10000` by `3` leaves the same four argmax
+digits and the same full MR witness sets:
+
+```text
+A=2334: {2,5}    A=3334: {0,4}
+A=4334: {1,2,9}  A=9334: {2,5}.
+```
+
+An independent literal replay preserved every sign with suffix widths
+`16,18,20,22`; the smallest argmax gap was about `2584.8` and the smallest
+positive MR coordinate margin about `4352.9`.  These are `experiment` values,
+not certificates.  Because the control deliberately retains the pi prefix, it
+does not refute a future theorem about the actual-pi selector.  It does refute
+treating four-node argmax success itself as fresh-tail pi arithmetic: the same
+selection and regeneration occur for an eventually periodic continuation.
+
 The weakest recursive quantifier is only a reached path of positive diagonal
 nodes satisfying MR-diag.  A reusable theorem for every positive
 `A<10^k` would be sufficient but substantially stronger.  Neither quantifier
