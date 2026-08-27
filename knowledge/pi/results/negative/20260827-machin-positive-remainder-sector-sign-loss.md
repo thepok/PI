@@ -147,3 +147,46 @@ T189 carrier route: T169 already transfers the complete phase polynomial
 directly with the tiny error above, without requiring digit equality. The
 remaining problem is the signed value of the actual rational carrier, not
 decimal-prefix stability.
+
+## Terminal private-prime fiber separator
+
+There is a stronger but still narrowly scoped obstruction for terminal Machin
+truncations.  Let `p=4*S+5>239` be prime, write the exact terminal common
+denominator as `L_S=p*D_S`, and write the reduced numerator as `V_S`.  The
+terminal `239`-branch gives exactly
+
+```text
+V_S = -4*D_S*239^(-p)  (mod p).
+```
+
+Hence the normalized private coordinate
+
+```text
+beta_p = V_S*D_S^(-1) = -4*239^(-1)  (mod p),
+```
+
+where Fermat removes the exponent.  If `1<=beta_p<p` and
+`mu_p*p=4 (mod 239)`, `1<=mu_p<=238`, then this also has the exact directed
+Archimedean form
+
+```text
+beta_p/p = mu_p/239 - 4/(239*p).
+```
+
+Fix the complete complementary CRT coordinate modulo `D_S` and vary the
+private `p`-cyclotomic embedding.  Under the explicit coprimality and
+frequency-separation hypotheses, the resulting finite T189 values have zero
+first moment and a positive exact second moment over the fiber.  Equivalently,
+the carrier phases form a translated `1/p` mesh.  For any fixed horizon and
+sufficiently large terminal `p`, one nonidentity member shadows the certified
+`x=1/3` fixed-point separator closely enough to fall below the robust T189
+threshold.
+
+The scope is essential.  The bad conjugate replaces the distinguished
+private coordinate `beta_p` by `t*beta_p`; it does **not** preserve that exact
+coordinate, and only the identity carrier is close to pi.  The separator
+therefore rules out estimates that are uniform over this private-prime fiber
+or depend only on Galois-invariant data.  It does not rule out a one-sided
+theorem that uses the distinguished joint `(beta_p, complementary CRT phase)`
+at the identity embedding.  That joint ordered real inequality remains the
+missing pi-specific input.

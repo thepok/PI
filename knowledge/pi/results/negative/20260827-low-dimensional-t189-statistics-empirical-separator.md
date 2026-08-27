@@ -69,6 +69,52 @@ counts, low digit moments, simple nonlinear distance features, and index
 classes modulo 3 or 5 all likewise fail either circularity or a periodic /
 replacement-control test.
 
+## Out-of-sample block and whole-class separators
+
+The same literal `Q=10000`, `B=3334` kernel was evaluated on eighteen
+disjoint 10,000-step blocks of the certified pi prefix.  The local signed
+count
+
+```text
+9 * count(3334) - count(a334 with a!=3)
+```
+
+remains correlated with the kernel value but does not preserve the sign or
+the robust T189 threshold.  In particular,
+
+```text
+[20000,30000):   signed count +3,  Xi ~= -4.080195952
+[160000,170000): signed count +19, Xi ~= -9.004425325.
+```
+
+The second block contains three target hits.  Their weighted contribution is
+only `+4.413438652`, while eight competitors contribute `-12.638981782`.
+This is an actual-pi out-of-sample failure, not merely a synthetic control.
+
+There is also a separator for the entire class of additive statistics of at
+most four consecutive digits.  Two decimal de Bruijn cycles of order four
+have identical cyclic histograms for every word of lengths one through four,
+including every `a334` and `3334` count.  Deterministic generator seeds 26 and
+10 nevertheless give opposite literal kernel values:
+
+```text
+seed 26: Xi ~= -12.7448902381
+seed 10: Xi ~= +12.5547823886.
+```
+
+Thus no additive statistic determined by length-at-most-four cylinder counts,
+digit moments, or transition counts can determine the T189 sign at this
+scale.  This does not exclude longer-window, nonlinear, ordering-sensitive,
+or full arithmetic-state statistics.
+
+The double-precision replay sources are
+`workflows/experiments/t189_pi_block_oos.cpp` and
+`workflows/experiments/t189_debruijn_order4_separator.cpp`.  They use the
+literal T142 coefficient formula and the existing certified digit file.  The
+first reproduces the registered nine-block aggregate
+`43.164129457`; the second verifies equality of all two cycle histograms for
+lengths one through four before reporting the sign reversal.
+
 ## Pi-representation state tests
 
 On 4,096 stratified actual-pi suffixes, a separate held-out test used exact
