@@ -275,6 +275,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T174T174FinitePrimitiveScoreIdentity
 import TheoryLib.PiQuantitativeBlockHitting.T175T175DecimalSuffixCylinder
 import TheoryLib.PiQuantitativeBlockHitting.T176T176SignedBlockBellmanTransport
 import TheoryLib.PiQuantitativeBlockHitting.T177T177PredecessorDigitDFT
+import TheoryLib.PiQuantitativeBlockHitting.T178T178SignedPredecessorRay
+import TheoryLib.PiQuantitativeBlockHitting.T179T179PredecessorLagOneCorrelation
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3457,6 +3459,19 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.PredecessorDigitDFT.ten_mul_child_re_eq_zeroSector_add_nonzero
 #print axioms Theory.PiDigits.PredecessorDigitDFT.sum_predecessorNonzeroContribution_eq_zero
 #print axioms Theory.PiDigits.PredecessorDigitDFT.exists_predecessorNonzeroContribution_nonneg
+
+-- Conditional infinite iteration of the strict Bellman selector.  The root
+-- signed surplus remains an explicit premise; no finite experiment is promoted.
+#print axioms Theory.PiDigits.SignedPredecessorRay.exists_infinite_signed_predecessor_ray
+#print axioms Theory.PiDigits.SignedPredecessorRay.primitiveBoundaryFourierSum_ray_lower_bound
+
+-- Exact actual-pi realization of each nonzero predecessor-character sector
+-- as a lag-one decimal digit/suffix correlation.  This identifies the signed
+-- arithmetic input still missing; it does not prove a favorable sign.
+#print axioms Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigit_lt_ten
+#print axioms Theory.PiDigits.PredecessorLagOneCorrelation.piOrbit_eq_predecessor_add_suffix
+#print axioms Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_finePredecessorSector
+#print axioms Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_lagOneCorrelation
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

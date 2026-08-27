@@ -84,6 +84,18 @@ make the increase strict. This block theorem is `machine-checked`; composing
 it with the still-experimental root score leaves the actual-pi ray itself at
 `proof sketch` status.
 
+T178 additionally machine-checks the infinite recursive selection itself:
+the coherent targets stay below `q_r`, every selected digit is below ten, and
+the Bellman surplus strictly increases at each level. Conditional on a
+positive root surplus it proves the explicit all-level bound
+
+\[
+ \frac{7L}{3q_r^2}<\Re Z^\pi_{q_r,A_r}(L).
+\]
+
+Thus no compactness or informal dependent-choice step remains. Only the
+actual numerical root premise is outside the Lean trust boundary.
+
 ## What is genuinely new
 
 This is an actual-pi, target-signed, coherent family on unbounded decimal

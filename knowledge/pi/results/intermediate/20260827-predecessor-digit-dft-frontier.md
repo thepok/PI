@@ -1,7 +1,7 @@
 # Exact predecessor-digit DFT frontier
 
-Status: `machine-checked` in T177. No one-sided estimate for a prescribed
-nonzero sector is proved.
+Status: `machine-checked` in T177 and T179. No one-sided estimate for a
+prescribed nonzero sector is proved.
 
 Date: 2026-08-27 UTC
 
@@ -65,14 +65,36 @@ positivity, defect mass, and the zero-sector Bellman surplus can guarantee one
 maximizing child, but cannot determine a prescribed digit. That requires a
 one-sided actual-pi estimate for its particular `Xi`.
 
-The corresponding Pro derivation expands each `r != 0` sector into singleton
-primitive frequencies and a lag-one predecessor-digit/suffix-phase
-correlation. That further formula remains a `proof sketch`; T177 deliberately
-formalizes only the DFT facts needed to state the gap without ambiguity.
+T179 now machine-checks the corresponding actual-pi expansion. With
+
+\[
+ a_n=\lfloor 10x_n\rfloor,\qquad x_n=\{10^n\pi\},
+\]
+
+it first proves the exact decimal recurrence
+
+\[
+ x_n=\frac{a_n+x_{n+1}}{10},\qquad 0\le a_n<10.
+\]
+
+For every `1 <= r < 10`, it then proves
+
+\[
+ C_r(q,A,N)=\sum_{n<N}e(ra_n/10)\,
+ H_{q,r}\!\left(x_{n+1}-c_{q,A}\right), \tag{5}
+\]
+
+where `H_{q,r}` is the explicit finite kernel retaining the literal T139
+coefficients at frequencies `10 ell + r`. Thus the nonzero sectors are no
+longer an informal "digit phase" heuristic: they are exact lag-one
+predecessor-digit/suffix correlations for the actual decimal orbit of pi.
+Equation (5) is an identity, not a cancellation or sign estimate.
 
 ## Next atomic rung
 
 Prove or sharply falsify, for a named scale, target, and prescribed digit, a
-lower bound for `Xi_{q,A,d}` whose sign comes from the actual decimal orbit of
-pi. A zero-sum argument, unsigned energy estimate, target symmetry, rational
-shadow, or coefficient-only calculation cannot supply this information.
+one-sided bound for the explicit correlations in (5), strong enough after the
+nine-character recombination to control `Xi_{q,A,d}`. Its sign must come from
+the actual predecessor digits jointly with their next suffixes. A zero-sum
+argument, unsigned energy estimate, target symmetry, rational shadow, or
+coefficient-only calculation cannot supply this information.

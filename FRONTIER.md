@@ -226,6 +226,16 @@ T176 strengthens this to arbitrary finite blocks with a strict max-plus
 potential `7/(3q)`. T177 then machine-checks the exact ten-point
 [`predecessor-digit DFT`](knowledge/pi/results/intermediate/20260827-predecessor-digit-dft-frontier.md): its zero sector is T172, the nine nonzero sectors reconstruct every specified child, and their real corrections sum to zero over the digits. This precisely names the prescribed-child gap without pretending that mean zero supplies its sign.
 
+T178 machine-checks the conditional infinite recursive selector itself,
+including coherent targets and the explicit lower bound at every scale; the
+experimental finite root inequality remains an explicit premise. T179 now
+machine-checks the next arithmetic normalization: every nonzero digit sector
+is exactly an actual-pi lag-one correlation between the predecessor digit
+character and a suffix-centered finite kernel with the literal boundary
+coefficients. No favorable sign is inferred. The live frontier is a one-sided
+estimate for this joint digit/suffix correlation, or horizon-growing signed
+control strong enough to bypass it.
+
 The independently audited
 [`terminal root-grid contraction`](knowledge/pi/results/intermediate/20260825-t139-terminal-root-grid-contraction.md)
 is now `machine-checked` through T149--T153 and T156. T149's

@@ -279,7 +279,13 @@ T176 and T177 make that boundary exact. T176 proves the strict block Bellman
 surplus with potential `7/(3q)`; T177 Fourier-resolves all ten predecessor
 digits, proves exact inversion, and isolates nine mean-zero nonzero-character
 corrections. A specified next digit now has one named missing signed quantity
-rather than an informal appeal to "child phases."
+rather than an informal appeal to "child phases." T178 machine-checks the
+conditional infinite recursive ray and its explicit all-level lower bound,
+leaving only the finite root-score certificate outside Lean. T179 then
+rewrites every nonzero character sector exactly as an actual-pi lag-one
+correlation between the predecessor digit and the next suffix. The remaining
+gap is therefore a genuine one-sided arithmetic estimate for these explicit
+correlations, not another transport or DFT identity.
 
 ## Required task contract
 
