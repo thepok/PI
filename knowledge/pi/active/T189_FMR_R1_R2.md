@@ -43,6 +43,28 @@ but it is not known for π. T190 proves a sharp deterministic R2 certificate
 from complementary top-set cardinalities, but no suitable actual-π rank
 bounds are known.
 
+An audited `proof sketch` gives a smaller aligned alternative. Put
+
+```text
+h_d=(-G_d)_+,                 Y_d=D_d-h_d,
+hbar=(1/10) sum_d h_d,
+hhat_1=(1/10) sum_d h_d*zeta^d,
+P_1=C_1+conj(C_9),            zeta=exp(2*pi*i/10).
+```
+
+Then `max_d Y_d>0` is exactly FMR. If `gamma_10` is the Minkowski gauge of
+the regular decagon `conv{zeta^d:d<10}`, the sharp decagon envelope gives
+
+```text
+max_d Y_d >= q*Delta_0 - 21/10 - hbar
+             + gamma_10(hhat_1-(q/2)*P_1).          (DC1)
+```
+
+Thus strict positivity of the right side is a same-digit FMR certificate. It
+retains the inherited deficit direction and only one fresh paired sector,
+instead of separating R1 and R2. This is deterministic consumer algebra, not
+π arithmetic: no theorem controls the displayed gauge for actual π.
+
 Finite π replay supplies a positive root and two surviving levels only. The
 inductive theorem needed is along one consistently selected unbounded path;
 assuming such reached nodes in advance is circular. After transport, a

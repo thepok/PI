@@ -86,6 +86,20 @@ necessary; a weaker version is admissible only if it jointly constructs the
 recursive selector/path rather than quantifying over nodes assumed to have
 been reached. R2 then still needs same-digit alignment.
 
+The preferred aligned alternative clips the inherited deficit
+`h_d=(-G_d)_+`, sets `Y_d=D_d-h_d`, and applies the sharp regular-decagon
+envelope to its mean and first DFT sector. It yields the sufficient premise
+
+```text
+q*Delta_0-21/10-hbar
+  + gamma_10(hhat_1-(q/2)*P_1) > 0.                (DC1)
+```
+
+This corrected audited `proof sketch` preserves the same FMR witness and uses
+only one fresh paired sector, but supplies no actual-π lower bound. It is the
+preferred target when an arithmetic source couples past deficits to the fresh
+sector; Pair-π remains the simpler R1-only fallback.
+
 This is a research target, not a proved theorem. See
 [`FIRST_OPEN_PI_LEMMA.md`](knowledge/pi/active/FIRST_OPEN_PI_LEMMA.md).
 

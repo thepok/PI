@@ -79,6 +79,13 @@ of `L_r`, and exponential exponent gaps make it far smaller than `1/q`.
 
 ## Disposition
 
+A later antipodal Fejér-collapse attempt does not apply to this carrier. It
+replaces the literal frequency-dependent T142 boundary coefficient by the
+triangular surrogate `Q^(-1)*(1-h/(2Q))`, uses a different center, and shifts
+the half-open T189 horizon. The collapse is correct for that artificial
+kernel, but the coefficient ratios vary with `h`, so no common normalization
+transfers it to `P_r`.
+
 The algebraic encoding is exact and directly attached to Pair-R1, but generic
 nonvanishing or transcendence is not the missing arithmetic input.  Reopening
 this route requires special structure of the literal `L_r`: positivity,

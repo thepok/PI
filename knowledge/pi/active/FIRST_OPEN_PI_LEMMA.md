@@ -35,3 +35,18 @@ the same digit must cover `-G_d`.
 Research may replace Pair-π with a genuinely shorter aligned theorem that
 directly yields FMR. It may not replace it by an equivalent normalization of
 `Xi_d`, or assume the unbounded reached path that the transport must construct.
+
+## Preferred aligned alternative
+
+The audited decagon certificate `DC1` in [`T189_FMR_R1_R2.md`](T189_FMR_R1_R2.md)
+reduces direct FMR to the strict actual-π estimate
+
+```text
+q*Delta_0 - 21/10 - hbar
+  + gamma_10(hhat_1-(q/2)*P_1) > 0.                (Aligned-π)
+```
+
+This is a better target when an arithmetic mechanism naturally couples the
+past deficit profile to the fresh paired sector. It is smaller than evaluating
+all ten `Xi_d` coordinates and preserves the same witness, but currently has
+no π-specific proof source. Pair-π remains the simpler R1-only fallback.
