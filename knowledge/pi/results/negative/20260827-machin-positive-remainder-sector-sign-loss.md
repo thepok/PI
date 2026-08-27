@@ -73,6 +73,48 @@ Even a positive, exactly bounded Machin or Padé remainder can therefore move
 the complete nonzero sector either way, depending on the carrier phase.
 Remainder positivity alone supplies no drift.
 
+## Natural-horizon valuation cost of a scalar phase pulse
+
+There is a narrow asymptotic obstruction even before target centering.  Let
+`B=10^v*u`, `10∤u`, and let `L=B*pi-a>0`.  For `n=v+t`, the elementary
+identity
+
+```text
+e(u*fract(10^n*pi)) = e(10^t*L)
+```
+
+does give a strict first-quadrant phase when `0<10^t*L<1/4`.  It is an
+uncentred scalar pulse, not a sign for T179.  The pulse inequality implies
+
+```text
+|pi-a/B| < 1/(4*u*10^n).
+```
+
+[Zeilberger--Zudilin](https://arxiv.org/abs/1912.06345) prove
+`mu(pi)<=7.103205334137...`.  Thus, for every fixed
+`mu>7.103205334137...` and all sufficiently large `B`, comparison with the
+irrationality-measure lower bound gives
+
+```text
+n < mu*v+(mu-1)*log_10(u)-log_10(4).
+```
+
+If this scalar is identified with one supported T179 primitive frequency,
+then `u<=20q-1`; requiring a pulse at `n>=q` therefore forces
+
+```text
+v >= (1/7.104-o(1))*q.
+```
+
+This is only a `proof sketch` asymptotic necessary condition for the scalar
+pulse architecture.  The cited irrationality-exponent statement supplies no
+explicit finite onset here.  It does not prove that every Padé,
+hypergeometric, or Machin family has only logarithmic reach: such a conclusion
+would additionally require a family-specific upper bound on `v_10(B)` or a
+lower bound on the complementary cofactor `u`.  After target rotation the
+pulse still has either sign, and one frequency still does not control the
+complete T179 sector.
+
 ## The tail is quantitatively negligible
 
 Let `rho=2/125`. T169's moving single-rate Machin carrier and the positive
