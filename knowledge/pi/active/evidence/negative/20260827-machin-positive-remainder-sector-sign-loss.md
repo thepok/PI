@@ -145,6 +145,49 @@ target-weighted `F_(Q,C)` with a genuinely signed kernel. Faster approximation,
 tail positivity, scalar Padé nonvanishing, and tighter error constants do not
 cross the boundary.
 
+## Fixed-carrier exactification collapse
+
+A checked `proof sketch` also closes the variant that fixes one rational
+Machin lower approximant `M_K` across the whole horizon and expands the
+literal target-rotated `D_d,T_d=D_d+G_d` branches at `M_K`.  Strict rational
+bounds
+
+```text
+0 < L_K < pi-M_K < U_K
+```
+
+give exact algebraic lower certificates after replacing the remaining `pi`
+and `pi^2` factors by the same rational enclosure.  For each fixed
+`q,A,d`, these certificates converge from below to the actual `D_d(pi)` and
+`T_d(pi)`.  Consequently
+
+```text
+exists K: carrierLower_K(D_d)>0 and carrierLower_K(T_d)>0
+```
+
+is equivalent to the original strict same-digit FMR event.  An unrestricted
+carrier depth therefore exactifies FMR rather than weakening it.
+
+There is also a coefficient-independent fresh-branch resolution barrier.  If
+`Q=10q`, the first- and second-derivative absolute loads satisfy
+
+```text
+H_D/S_D >= (10^Q+10^q)/11.
+```
+
+For a fixed carrier to turn a nonpositive rational-center fresh score into a
+positive lower certificate, it is necessary that
+
+```text
+(4*K+5)*5^(4*K+5) > (48/11)*(10^Q+10^q),
+```
+
+hence `K > 0.3576691395*Q-O(log Q)`.  This is necessary, not sufficient; past
+that scale only convergence as `K -> infinity` is guaranteed.  Thus the
+one-sided remainder cannot supply an independent macroscopic source of fresh
+positivity between a coarse rational carrier and the fully resolved original
+event.
+
 ## Exact numerator-blind decimal-transfer limit
 
 There is a narrower exact separator at the digit-transfer layer. Let `A/B` be
