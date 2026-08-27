@@ -308,6 +308,23 @@ the selector word or, equivalently for this anchored construction, a viable
 branch reaching `w334` for every finite word `w`.  MR remains the first
 transport-mechanism rung, not a complete V1 bridge.
 
+The recursion can be shortened after one T176 initialization.  The root
+`(1000,334,10000)` reaches the positive child `(10000,3334,10000)`, where
+`N=q`.  Subsequent diagonal steps `q -> 10q` obey
+
+```text
+B(10q,A+dq,10q)-B(10q,A+dq,q)
+  = q*(Delta_0+Xi_d)-21/10.
+```
+
+This pays one tenth of the previous fresh debt and lands directly at a T156
+natural horizon.  At the first actual-pi diagonal step, MR has witnesses
+`{0,4}` even though strong fresh overlap is empty.  A proposed one-DFT-anchor
+cone with absolute non-anchor tails fails there by margins between about
+`-7.5e4` and `-1.74e5`; that low-mode compression is closed in its proposed
+form.  The surviving signed residual still contains the complete
+target-evaluated non-anchor tail and has no independent pi source.
+
 A sharp replacement control keeps the first 10,000 pi digits, then uses the
 periodic tail `333...`.  It retains a positive root score and exactly the
 actual-pi improving set `{2,3,4,9}`, yet every `M_d` and every final child

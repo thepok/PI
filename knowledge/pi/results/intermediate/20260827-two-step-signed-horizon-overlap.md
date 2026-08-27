@@ -114,6 +114,98 @@ implementation agreed on every sign; the smallest reported strong-overlap
 margins are still many orders of magnitude above the observed numerical
 variation.
 
+## Natural-diagonal ladder improvement
+
+The `N=10q,H=100q` ladder is not the shortest recursion.  The root seed has
+`(q,A,N)=(1000,334,10000)`.  One T176 fixed-horizon step with the observed
+digit `d=3` reaches
+
+```text
+(q,A,N)=(10000,3334,10000),
+```
+
+so `N=q` and the recursion can continue on the natural diagonal.  For a
+diagonal parent `B(q,A,q)>0`, put `Q=10q`, `H=10q` and
+
+```text
+U_d = B(Q,A+dq,q),
+W_d = B(Q,A+dq,10q).
+```
+
+T189 and direct scalar arithmetic give
+
+```text
+W_d-U_d = q*(Delta_0(q,A;q,10q)+Xi_d(q,A;q,10q)) - 21/10.   (D1)
+```
+
+The debt is exactly `(10q-q)*7/(3*10q)=21/10`, one tenth of
+the old `N=10q,H=100q` debt.  A positive `W_d` is already at the next natural
+horizon and therefore composes directly with T156, avoiding the separate
+arbitrary-horizon T148 scalar comparison.  This diagonal identity is a
+`proof sketch` specialization of the machine-checked T189 identity, not a new
+pi estimate.
+
+At the first actual-pi diagonal node
+
+```text
+(q,A,N,H)=(10000,3334,10000,100000),
+```
+
+the literal replay gives
+
+```text
+{d:U_d>0}            = {0,4},
+{d:W_d>0}            = {0,4,5,6,7,8},
+{d:U_d>0 and W_d>0}  = {0,4}.
+```
+
+Both old-improving digits lose fresh capital, so strong fresh overlap is
+empty.  Nevertheless their inherited gain is large enough that MR holds for
+both `d=0` and `d=4`.  This `experiment` is a direct reason to keep MR rather
+than the stronger `M_d>0` condition.
+
+### Failed dominant-mode compression
+
+A proposed smaller rung used one normalized digit-DFT anchor.  For a real
+digit vector `X`, define
+
+```text
+Xhat(r) = (1/10) * sum_(d<10) X_d*zeta^(r*d).
+```
+
+For `rho in {1,3}`, bound every non-anchor mode absolutely by
+
+```text
+E_X(rho) = 2*sum_(1<=r<=4,r!=rho)|Xhat(r)| + |Xhat(5)|.
+```
+
+If the angle between `Uhat(rho)` and `What(rho)` is `delta<4*pi/5`, a
+ten-grid midpoint selects one digit at which the anchor contribution to both
+vectors is at least
+`2*|Xhat(rho)|*cos(pi/10+delta/2)`.  Positive zero-plus-anchor-minus-tail
+margins would force a common positive digit.  The generic geometry is sound,
+but the sufficient margins fail decisively at the first diagonal pi node:
+
+```text
+rho=1: delta/pi ~= 0.72626,
+       old margin ~= -174012.26, final margin ~= -171802.02;
+rho=3: delta/pi ~= 0.06888,
+       old margin ~=  -75021.12, final margin ~= -145700.62.
+```
+
+Thus the actual joint-positive coordinates `{0,4}` coexist with enormous
+absolute non-anchor tails.  The fixed one-anchor plus `l1`-tail rung is
+falsified on the registered `d=3` diagonal path and must not receive a proof
+program.  It does not exclude rerouting the initialization through a different
+positive root child, but it destroys the advertised uniform reached-state
+claim.
+
+For `rho=1`, the midpoint digit is `d=4`; the signed residual after subtracting
+the zero and anchor modes is positive for both vectors.  That weaker condition
+survives numerically, but it retains the complete target-evaluated non-anchor
+tail.  No independent pi theorem controls its sign, so it is only another
+candidate interface, not a new arithmetic result.
+
 ## First open pi-specific rung
 
 There are three logically different research targets.  The weakest recursive
