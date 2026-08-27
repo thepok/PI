@@ -65,7 +65,19 @@ mechanisms with ordered real sign, and results stated specifically for pi.
    orbits. Its distribution conclusion depends on the explicitly unproved
    Hypothesis A. The proved bridge is only `o(1)` in torus distance and gives
    neither a one-sided local gauge bound, a `1/q` rate, nor decimal
-   same-digit alignment for DC1.
+   same-digit alignment for DC1. More precisely, if
+   `E_q=sup_(m>=q+1)|epsilon_m|`, direct use of the two literal T179 residue
+   classes gives
+
+   ```text
+   |P_1(pi)-P_1(shadow)| < 200*pi*q^2*E_q,
+   |DC1_pi-DC1_hybrid| < 100*pi*sec(pi/10)*q^3*E_q.
+   ```
+
+   Thus even a constant-margin hybrid DC1 transfer needs `E_q=o(q^-3)` plus
+   an independent positive signed carrier margin. A degree-gap-one rational
+   perturbation has only `E_q=O(q^-1)`. The familiar pi BBP formula is also
+   power-of-two based, not a literal decimal rational-function expansion.
 
 7. Beukers--Tijdeman, [A one-sided power sum
    inequality](https://arxiv.org/abs/1107.5495), proves signed pointwise lower
@@ -75,6 +87,16 @@ mechanisms with ordered real sign, and results stated specifically for pi.
    inherited deficit with the node and needs the prescribed natural-scale
    block; the theorem has no effective hitting time, fixed-node selector, or
    coupling to actual pi.
+
+   A proof-level specialization sharpens this mismatch. Every fixed literal
+   T179 paired-sector Laurent polynomial satisfies the source hypotheses, so
+   in every complex direction it has syndetic positive excursions under
+   integer dilation `z -> z^m`; at natural scales the directional amplitude
+   is `>1/(450q)`. But the theorem selects an unrestricted integer `m`. A
+   syndetic set can avoid every `10^s`, and `m` changes the constant from pi
+   to `m*pi`; even `m=10^s` shifts the fresh block without transporting the
+   same node's inherited DC1 deficit. The right-size excursion therefore
+   occurs at the wrong quantifier.
 
 ## Boundary
 

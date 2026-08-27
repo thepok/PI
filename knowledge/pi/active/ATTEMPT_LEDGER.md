@@ -5,8 +5,8 @@ nearby entries in a Pro prompt.
 
 | Route family | First fatal line | Reopen only with |
 |---|---|---|
-| Generic lacunary, metric, topological | Almost-everywhere or orbit-spread results do not select π or the target-signed event. | A pointwise actual-π theorem for the literal aligned correlation. |
-| BBP, p-adic fibres, residues, rational shadows | Exact local structure is invariant under replacements that alter the Archimedean target phase. | A joint exact numerator/denominator theorem with a one-sided Archimedean consequence. |
+| Generic lacunary, metric, topological | Almost-everywhere or orbit-spread results do not select π or the target-signed event. Beukers–Tijdeman gives right-scale one-sided excursions for each fixed T179 polynomial only after a free integer dilation; that syndetic set need not meet `10^s` and does not preserve the node deficit. | A pointwise actual-π theorem at the literal `m=1`, or recurrence along the prescribed decimal semigroup coupled to the moving deficit. |
+| BBP, p-adic fibres, residues, rational shadows | Exact local structure is invariant under replacements that alter the Archimedean target phase. Lagarias shadow transfer into literal DC1 needs `E_q=o(q^-3)` plus an independent positive signed hybrid margin; degree-gap-one BBP errors are only `O(q^-1)`. | A joint exact numerator/denominator theorem with a one-sided Archimedean consequence and the required moving-block rate. |
 | Machin, Padé, hypergeometric carriers | Approximation quality and positive remainder do not determine the target-rotated full sector sign. | A one-sided identity for the complete target-weighted carrier. |
 | New kernels or equivalent consumers | They relocate the same unknown cancellation and do not create π arithmetic. | A strictly weaker checked premise plus a concrete actual-π input. |
 | Finite π prefix and certificate replay | It proves a finite seed only; matched tails preserve the seed and destroy transport. | A theorem using genuinely fresh actual-π digits at unbounded horizons. |
