@@ -439,6 +439,22 @@ it is strengthened to quantitative return frequency or gap control for a
 jointly predecessor/suffix-signed good set.  The construction does not prove
 MR failure for actual pi or on all scales.
 
+A targeted PaperSearch audit of the direct R1 boundary found the same sharp
+quantifier gap in the closest source families: lacunary signed fluctuation
+theorems are almost-everywhere, pointwise avoidance results construct a
+favorable number rather than select pi, Mahler results use contracting
+algebraic orbits, and Barral--Loiseau's direct pi digit property is explicitly
+conjectural.  The dated source audit is
+[`direct R1 literature boundary`](knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md).
+
+The final broad empirical Pro run also produced one narrow geometric
+separator.  Integer Riesz disk discrepancy has a phase-locked square-shell
+Bessel sector, but its complete modulo-one carrier is exactly
+`{pi*X^(r+1)}` and obeys the same decimal recurrence.  Full-carrier cylinder
+hits therefore relabel V1 on a subsequence.  This does not exclude a future
+partial-shell cancellation theorem; see the corrected
+[`Riesz disk carrier`](knowledge/pi/results/negative/20260827-riesz-disk-carrier-relabeling.md).
+
 A tight adjacent fixed-point separator now limits the permitted input. On the
 decimal orbit `x_n=1/3`, which stays below and never enters the child cylinder
 `[0.3334,0.3335)`, the exact digit-3 T189 summand has directed enclosure
