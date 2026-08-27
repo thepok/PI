@@ -269,10 +269,19 @@ and an integer-checked rational-sum certificate. The full generated `q=1000`,
 interval arithmetic, T182 proves one stack-program interpreter sound, T183
 uses compact fixed-point Horner evaluation, T184 certifies reduced actual-pi
 phase requests from the T173/T175 cylinder, and T185 reconnects the closed
-sine kernel to the literal T174 score. A benchmark rejected exact Taylor
-powers (about 39 GB projected) and selected roughly 16 MB of Horner payload in
-small shards instead. The generated numerical payload itself is still
-missing, so the root-score claim remains an `experiment`. A fail-fast replay
+sine kernel to the literal T174 score. T186 now combines phase and Horner
+checks into one common-scale batch induction. T187 kernel-checks the first
+production-precision actual-pi shard: 30 full/half/q-half phase leaves for ten
+late root-horizon points, with 128 Horner terms at scale `10^100`; all ten
+denominator-sine rows are certified nonzero. T188 checks each T173 suffix
+cylinder once and shares it across the three phase leaves at that orbit point;
+T187 uses this grouped production API. The shard takes about 10.3 minutes and
+9.1 GB peak memory, so the remaining payload must stay finely sharded. A
+benchmark rejected exact Taylor powers
+(about 39 GB projected) and
+selected the compact Horner representation instead. The complete generated
+numerical payload is still missing, so the root-score claim remains an
+`experiment`. A fail-fast replay
 using exactly the T173/T175 information boundary (no digit after fractional
 place 10,015) still leaves a lower margin `>2.36886869e-5`, with total interval
 width below `2.40e-13` and no denominator crossing. Thus the existing trusted
