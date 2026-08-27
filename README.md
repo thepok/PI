@@ -265,9 +265,20 @@ for the finite score calculation. T180 now supplies the small trusted analytic
 core of the next certificate rung: mathlib's complex-exponential remainder
 bound, simultaneous reflected sine/cosine intervals, input-width transport,
 and an integer-checked rational-sum certificate. The full generated `q=1000`,
-`N=10000` kernel/endpoint payload is still missing, so the root-score claim
-remains an `experiment`. None of these finite results supplies an unbounded-
-scale signed mechanism or advances the claim status of V1.
+`N=10000` path is now also implemented semantically: T181 checks common-scale
+interval arithmetic, T182 proves one stack-program interpreter sound, T183
+uses compact fixed-point Horner evaluation, T184 certifies reduced actual-pi
+phase requests from the T173/T175 cylinder, and T185 reconnects the closed
+sine kernel to the literal T174 score. A benchmark rejected exact Taylor
+powers (about 39 GB projected) and selected roughly 16 MB of Horner payload in
+small shards instead. The generated numerical payload itself is still
+missing, so the root-score claim remains an `experiment`. A fail-fast replay
+using exactly the T173/T175 information boundary (no digit after fractional
+place 10,015) still leaves a lower margin `>2.36886869e-5`, with total interval
+width below `2.40e-13` and no denominator crossing. Thus the existing trusted
+prefix is sufficient for the planned payload. None of these finite results
+supplies an unbounded-scale signed mechanism or advances the claim status of
+V1.
 
 T172 now machine-checks the exact ten-child zero-character transport, strict
 positivity of every coefficient defect, and total defect mass

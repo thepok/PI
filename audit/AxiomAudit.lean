@@ -278,6 +278,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T177T177PredecessorDigitDFT
 import TheoryLib.PiQuantitativeBlockHitting.T178T178SignedPredecessorRay
 import TheoryLib.PiQuantitativeBlockHitting.T179T179PredecessorLagOneCorrelation
 import TheoryLib.PiQuantitativeBlockHitting.T180T180ReflectedTrigIntervalCore
+import TheoryLib.PiQuantitativeBlockHitting.T181T181ReflectedIntervalArithmetic
+import TheoryLib.PiQuantitativeBlockHitting.T182T182ReflectedStackProgram
+import TheoryLib.PiQuantitativeBlockHitting.T183T183ReflectedExpHorner
+import TheoryLib.PiQuantitativeBlockHitting.T184T184CertifiedPiPhaseRequest
+import TheoryLib.PiQuantitativeBlockHitting.T185T185BoundaryMinorantSineBridge
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3482,6 +3487,35 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.trig_error_with_input_width
 #print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.checked_trig_bounds
 #print axioms Theory.PiDigits.T180ReflectedTrigIntervalCore.demo_half_enclosed
+
+-- Reflected arithmetic and a single semantic stack induction replace tens of
+-- thousands of handwritten interval-operation proof calls.
+#print axioms Theory.PiDigits.T181ReflectedIntervalArithmetic.checkAdd_sound
+#print axioms Theory.PiDigits.T181ReflectedIntervalArithmetic.checkSub_sound
+#print axioms Theory.PiDigits.T181ReflectedIntervalArithmetic.checkMul_sound
+#print axioms Theory.PiDigits.T181ReflectedIntervalArithmetic.checkSquare_sound
+#print axioms Theory.PiDigits.T181ReflectedIntervalArithmetic.checkDiv_sound
+#print axioms Theory.PiDigits.T182ReflectedStackProgram.step_sound
+#print axioms Theory.PiDigits.T182ReflectedStackProgram.run_sound
+#print axioms Theory.PiDigits.T182ReflectedStackProgram.checkedProgram_sound
+#print axioms Theory.PiDigits.T182ReflectedStackProgram.demo_encloses_half
+
+-- Compact fixed-point Horner leaves and certified actual-pi phase requests.
+-- These are the executable analytic leaves for the pending finite payload.
+#print axioms Theory.PiDigits.T183ReflectedExpHorner.mulRationalInterval_sound
+#print axioms Theory.PiDigits.T183ReflectedExpHorner.reflectedExpPartial_eq_expIPartial
+#print axioms Theory.PiDigits.T183ReflectedExpHorner.hornerRows_sound
+#print axioms Theory.PiDigits.T183ReflectedExpHorner.checkedHorner_sound
+#print axioms Theory.PiDigits.T183ReflectedExpHorner.checkedHorner_trig_bounds
+#print axioms Theory.PiDigits.T184CertifiedPiPhaseRequest.checkedPhaseRequest_sound
+#print axioms Theory.PiDigits.T184CertifiedPiPhaseRequest.checkedPhaseRequest_trig_input
+
+-- Public closed-sine bridge from the reflected payload back to the literal
+-- T174 primitive score, retaining zero mode and endpoint exactly.
+#print axioms Theory.PiDigits.T185BoundaryMinorantSineBridge.fejerFactor_eq_closed_sine
+#print axioms Theory.PiDigits.T185BoundaryMinorantSineBridge.boundaryMinorant_re_eq_closed_sine
+#print axioms Theory.PiDigits.T185BoundaryMinorantSineBridge.closed_sine_eq_closed_zero_add_positive
+#print axioms Theory.PiDigits.T185BoundaryMinorantSineBridge.two_mul_primitiveBoundaryFourierSum_re_eq_closed_sine_score
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

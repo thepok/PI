@@ -109,3 +109,29 @@ trust step is deliberately narrow but large: generate and check the complete
 kernel, zero-mode, and endpoint payload for all required orbit suffixes, then
 apply T174. Until that full score theorem compiles and is registered in the
 axiom audit, this note remains labeled `experiment`.
+
+T181--T185 now close the remaining semantic interfaces: outward integer
+arithmetic, a sound reflected stack program, fixed-point backward Horner
+evaluation, actual-pi phase requests with exact periodic reduction, and the
+closed-sine-to-T174 bridge.  A measured prototype showed that exact Taylor
+powers would extrapolate to about 39.4 GB and roughly 38 hours, whereas
+80-place fixed-point Horner rows at scale `10^100` project to about 15.8 MB
+and roughly 3.2 serial hours when checked in shards of 50--100 phases.  The
+next action is therefore payload generation and replay, not another analytic
+checker layer.
+
+The required information-width fail-fast has also passed.  A separate
+directed replay used no fractional digit after T173 place 10,015: for late
+orbit points it widened the suffix cylinders exactly as T175 does, down to
+only 13 remaining digits at the largest endpoint index 10,002.  It obtained
+
+```text
+score lower = 19.01562368868694627599774649246024945309...
+total width = 2.39922596e-13
+margin      = 0.00002368868694627599774649246024945309...
+```
+
+No Fejer denominator crossed zero; the weakest lower denominator was about
+`7.13895e-7`.  Endpoint uncertainty dominated the width but remained nearly
+`10^8` times smaller than the strict margin.  Therefore extending the pi
+prefix is not a prerequisite for the full Lean payload.
