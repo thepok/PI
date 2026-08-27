@@ -381,7 +381,10 @@ Thus the zero-sector premise `Delta_0>21/(10q)` proves R1.  After splitting
 `Delta_0` into the parent fresh score `P` and T172 remainder, the coarser pure
 parent premise `P>=21/q` also proves R1 by T176.  Neither premise is known on
 an unbounded actual-pi path; positive old capital does not control the fresh
-parent block.
+parent block.  Indeed `q*P-21=B(q,A,10q)-B(q,A,q)`, so this premise exactly
+asks for nonnegative parent-capital regeneration.  It is a clean scalar
+reduction but only relocates the signed-horizon monotonicity problem and is
+not the live arithmetic source.
 
 For R2 there is a sharp alignment-free marginal rung.  If `D^[k]` is the
 `k`-th largest fresh coordinate and `G^[j]` the `j`-th largest inherited

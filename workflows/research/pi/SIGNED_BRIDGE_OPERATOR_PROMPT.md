@@ -172,6 +172,12 @@ unbounded reached path. Pro work must attack those pi-specific premises or
 find a genuinely stronger aligned mechanism, not rederive the deterministic
 averaging or pigeonhole steps.
 
+The fresh-parent premise is only a reduction: its left side satisfies
+`q*P-21=B(q,A,10q)-B(q,A,q)`, so it literally assumes nonnegative parent
+capital regeneration and supplies no R2 alignment. Do not promote it as the
+creative pi-specific rung unless an independent arithmetic theorem actually
+proves that signed block inequality.
+
 This is preferred to capital-only MR because it forbids inherited gain from
 masking a negative fresh block.  Two finite actual-pi levels survive and the
 matched pi-prefix-plus-`333...` controls fail at the first level, but this is

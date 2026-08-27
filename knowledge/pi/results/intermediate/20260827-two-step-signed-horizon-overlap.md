@@ -258,9 +258,17 @@ P >= 21/q                                             (Parent-R1)
 suffices strictly for R1.  Equivalently, T176 at block start `q` and length
 `9q` gives some digit with `D_d>q*P-21`.  No existing theorem supplies ZS or
 Parent-R1 on an unbounded coherently reached actual-pi path.  Positive old
-capital `B(q,A,q)>0` does not control this new parent block.  Thus these are
-`proof sketch` reductions to a smaller signed parent quantity, not a source
-of the missing pi sign.
+capital `B(q,A,q)>0` does not control this new parent block.  In fact
+
+```text
+B(q,A,10q)-B(q,A,q) = q*P-21,
+```
+
+so Parent-R1 is exactly nonnegative parent-capital regeneration over the same
+fresh horizon.  It reduces dimension but merely shifts the signed monotonicity
+demand to the parent, is strictly stronger than R1, and supplies no R2
+alignment.  It is therefore retained only as a `proof sketch` reduction, not
+as the live pi-specific rung or a source of the missing sign.
 
 ### Sharp marginal certificate for R2
 
