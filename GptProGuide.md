@@ -81,6 +81,20 @@ The current mode is a single constructive signed-horizon-transport program,
 not an open-ended empirical phenomenon search. T189 is fixed as the completed
 consumer. Differentiate the three slots around one shared lemma ladder:
 
+On the natural-diagonal FMR frontier, the literal `Xi_d` threshold is only an
+equivalent coordinate form of FMR. The first honest backward split preserves
+the witness:
+
+```text
+S_+={d<10:D_d>0};
+(R1) S_+ is nonempty;
+(R2) exists d in S_+: G_d+D_d>0.
+```
+
+R1 is the first strictly weaker pi-specific rung; R2 is the same-digit
+alignment/deficit-cover rung. Never replace them with separate existential
+witnesses or silently universalize an existential reached path.
+
 1. design the backward ladder from the positive pi seed to new target-signed
    mass at a growing horizon;
 2. try to prove the first genuinely pi-specific unproved rung;

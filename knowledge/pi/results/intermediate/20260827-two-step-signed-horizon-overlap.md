@@ -192,6 +192,29 @@ exists d<10:
   Xi_d > 21/(10q)-Delta_0+max(0,-G_d)/q.              (FMR-atom)
 ```
 
+The label `FMR-atom` is only an exact coordinate normalization, not a
+strictly smaller proof rung.  The minimal non-tautological backward split must
+preserve the digit witness.  Define
+
+```text
+S_+ = {d<10 : D_d>0}.
+```
+
+Then FMR is equivalent to the conjunction
+
+```text
+(R1) S_+ is nonempty;
+(R2) exists d in S_+ : G_d+D_d>0.
+```
+
+R1 is the first strictly weaker pi-specific open line.  R2 is the remaining
+same-digit alignment condition: one of the fresh-positive digits must cover
+its own inherited deficit.  Separate witnesses for the two inequalities are
+insufficient.  Equality in R1 loses positive fresh mass, and equality in R2
+loses strict capital growth.  For recursion, the weakest needed quantifier is
+one consistently selected digit sequence satisfying R1/R2 at every reached
+node; requiring FMR at every positive diagonal node is stronger.
+
 FMR gives both `W_d>U_d` and `W_d>B(q,A,q)>0`: the new block contributes
 strictly positive target-signed capital and the next natural node strictly
 improves the parent.  It is not equivalent to MR.  Writing strong overlap as

@@ -436,6 +436,21 @@ For the current research cycle, keep the three creative slots focused on one
 shared constructive object: a backward lemma ladder transporting the positive
 pi seed to new target-signed mass at a growing horizon.
 
+At the current natural-diagonal FMR frontier, the literal `Xi_d` threshold is
+only an equivalent coordinate form of FMR. The first honest backward split
+must preserve the witness:
+
+```text
+S_+={d<10:D_d>0};
+(R1) S_+ is nonempty;
+(R2) exists d in S_+: G_d+D_d>0.
+```
+
+R1 is the first strictly weaker pi-specific rung and R2 is the same-digit
+alignment/deficit-cover rung. Separate existential witnesses are invalid,
+and an existential reached path must not be silently strengthened to every
+positive diagonal node.
+
 1. design the shortest backward lemma ladder from T189 to a genuinely
    pi-specific atomic premise;
 2. try to prove the first unproved pi-specific rung of that ladder, rather

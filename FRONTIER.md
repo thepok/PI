@@ -348,6 +348,29 @@ exists d<10:
   Xi_d > 21/(10q)-Delta_0+max(0,-G_d)/q.
 ```
 
+This displayed line is an exact normalization of FMR, not yet a smaller
+proof rung.  The minimal witness-preserving backward split is to put
+
+```text
+S_+ = {d<10 : D_d>0}
+```
+
+and prove, in order,
+
+```text
+(R1) S_+ is nonempty;
+(R2) exists d in S_+ : G_d+D_d>0.
+```
+
+Together R1 and R2 are equivalent to FMR.  R1 is the first strictly weaker
+pi-specific open rung; R2 is the irreducible same-digit alignment problem,
+requiring the fresh-positive digit to cover its own inherited deficit.
+Separate witnesses for fresh positivity and final capital do not suffice,
+and both inequalities must remain strict.  The weakest recursive target is
+existence of one digit sequence satisfying these rungs at every node reached
+by that same sequence; a theorem for every positive diagonal node would be
+substantially stronger.
+
 A proposed one-DFT-anchor cone with absolute non-anchor tails fails there by
 margins between about
 `-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children

@@ -140,6 +140,21 @@ regeneration.  With `G_d=U_d-B_parent` and
 exists d<10: D_d > max(0,-G_d).
 ```
 
+Do not mistake its equivalent `Xi_d` inequality for a backward lemma. Use
+the minimal witness-preserving split
+
+```text
+S_+={d<10:D_d>0};
+(R1) S_+ is nonempty;
+(R2) exists d in S_+: G_d+D_d>0.
+```
+
+R1 is the first strictly weaker pi-specific rung; R2 is the same-digit
+alignment/deficit-cover rung. Separate existential witnesses are invalid.
+Keep strict inequalities and seek only the weakest recursive quantifier along
+one consistently selected reached path unless a stronger universal statement
+is actually proved.
+
 This is preferred to capital-only MR because it forbids inherited gain from
 masking a negative fresh block.  Two finite actual-pi levels survive and the
 matched pi-prefix-plus-`333...` controls fail at the first level, but this is
@@ -149,8 +164,10 @@ nodes, not another finite replay.
 Differentiate the slots around one shared backward lemma ladder:
 
 1. **Ladder designer:** derive the shortest ladder from T189 back to its first
-   genuinely pi-specific unproved rung, with exact losses and quantifiers.
-2. **Rung prover:** try to prove that exact first rung and, if it fails,
+   genuinely pi-specific unproved rung, beginning with R1/R2 above and
+   improving on them only by a strict non-tautological implication, with exact
+   losses and quantifiers.
+2. **Rung prover:** try to prove that exact shared rung and, if it fails,
    isolate a smaller non-tautological pi-specific line rather than changing
    the consumer or recoding the unknown sum.
 3. **Adversarial mathematician:** attack the same rung, repairing its critical
