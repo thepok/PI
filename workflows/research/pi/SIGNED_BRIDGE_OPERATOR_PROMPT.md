@@ -172,6 +172,13 @@ unbounded reached path. Pro work must attack those pi-specific premises or
 find a genuinely stronger aligned mechanism, not rederive the deterministic
 averaging or pigeonhole steps.
 
+Retained actual-pi vectors pass fixed `k=1,2,3,4` at all five tested nodes,
+but this does not select a proof target. Exact old-capital bookkeeping gives
+only `0<sum_d G_d<42`: `k=1` therefore hides a worst-child `min G` theorem,
+while `k=4` needs two unsupported rank bounds. Keep T190 available when rank
+information arises independently, but do not force the creative search into
+a fixed-rank premise merely because the finite replay passes.
+
 The fresh-parent premise is only a reduction: its left side satisfies
 `q*P-21=B(q,A,10q)-B(q,A,q)`, so it literally assumes nonnegative parent
 capital regeneration and supplies no R2 alignment. Do not promote it as the

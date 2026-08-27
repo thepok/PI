@@ -403,6 +403,15 @@ fails.  The missing pi input is therefore either an intermediate fresh Xi
 rank plus the complementary old-capital rank, or genuinely aligned
 information stronger than the marginals.
 
+The targeted retained-data replay passes every fixed `k` in `{1,2,3,4}` at
+all five available actual-pi nodes; `k=4` has minimum combined margin about
+`42601.5`.  This is only an `experiment`.  Exact old-capital bookkeeping gives
+`0<sum_d G_d<42`, which guarantees only `G^[1]>0`.  Consequently `k=1`
+reduces its fresh side to R1 but hides a worst-child `min G` bound, while
+`k=4` requires two entirely new rank theorems.  No fixed rank is therefore
+the preferred arithmetic frontier; T190 is retained as a sharp consumer for
+independently arising rank information.
+
 A proposed one-DFT-anchor cone with absolute non-anchor tails fails there by
 margins between about
 `-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children

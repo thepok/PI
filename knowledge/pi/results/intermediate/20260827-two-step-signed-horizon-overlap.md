@@ -304,6 +304,51 @@ complementary old-capital rank.  T190 does not assert these pi-specific rank
 premises.  The separate-marginal optimality statement remains a `proof
 sketch`; it is not needed by T190's verified implication.
 
+The retained two-level actual-pi vectors give a robust targeted `experiment`:
+
+```text
+A=3334:  k={1,2,3,4}
+A=53334: k={1,2,3,4,5}
+A=63334: k={1,2,3,4,5,6}
+A=73334: k={1,2,3,4}
+A=83334: k={1,2,3,4}.
+```
+
+Thus every fixed `k` in `{1,2,3,4}` certifies all five tested nodes.  For
+`k=4` the smallest combined margin `D^[4]+G^[7]` is about `42601.5` at the
+initialized node.  This is finite evidence only.
+
+An exact rank-burden audit prevents overinterpreting that replay.  At a
+positive natural parent, write `R_q=Re(leftExtensionRemainder(q,A,q))` and
+`C_d` for its old nonzero predecessor sector.  Then
+
+```text
+G_d = 21/10+q*(R_q+C_d),
+sum_d C_d = 0,
+sum_d G_d = 21+10q*R_q,
+0 < sum_d G_d < 42.                                  (G-sum)
+```
+
+The last strict bounds follow from T172's remainder estimate.  They prove
+only that `G^[1]>0`; they give no second positive old digit.  For the fresh
+block,
+
+```text
+mean D = q*(P+E)-21/10,
+q*P-21 < mean D < q*P+84/5.                          (D-mean-window)
+```
+
+Hence `k=1` has the shortest fresh premise—`D^[1]>0` is exactly R1—but its
+complement requires a lower bound for `G^[10]=min G`, effectively a
+worst-coordinate problem.  The balanced `k=4` requires two wholly new rank
+bounds, while `k=10` uses the verified `G^[1]>0` only by demanding every
+fresh coordinate positive and already fails the finite replay.  Therefore no
+fixed complementary rank is promoted as the live pi-arithmetic target.  T190
+remains a valid consumer if independent rank information appears; the live
+search stays on a genuine pi-specific proof of R1 followed by same-witness
+R2, rather than hiding reconstruction inside `min G` or unsupported rank
+counts.
+
 FMR gives both `W_d>U_d` and `W_d>B(q,A,q)>0`: the new block contributes
 strictly positive target-signed capital and the next natural node strictly
 improves the parent.  It is not equivalent to MR.  Writing strong overlap as
