@@ -123,15 +123,31 @@ call. Resume an interrupted saved call with its identical prompt instead of
 creating a duplicate. Use at most five follow-ups per conversation, and only
 when an independently audited memo has genuine mathematical momentum.
 
-Differentiate the slots:
+Treat T189 as the finished consumer and make signed horizon transport the
+single constructive summit of the current cycle:
 
-1. **Signed structure:** invent an invariant, recurrence, decomposition, or
-   energy/drift mechanism that preserves the complete target information.
-2. **Special pi input:** search for arithmetic from integrals, Pade or
-   hypergeometric theory, special functions, modular structures, or another
-   pi-specific source that could control the strongest signed structure.
-3. **Adversarial mathematician:** prove the critical step of the strongest
-   candidate or destroy it with the narrowest correct separator.
+```text
+positive actual-pi seed
+  -> new target-signed mass on a fresh block
+  -> positive surplus at a larger, consumer-valid horizon.
+```
+
+Differentiate the slots around one shared backward lemma ladder:
+
+1. **Ladder designer:** derive the shortest ladder from T189 back to its first
+   genuinely pi-specific unproved rung, with exact losses and quantifiers.
+2. **Rung prover:** try to prove that exact first rung and, if it fails,
+   isolate a smaller non-tautological pi-specific line rather than changing
+   the consumer or recoding the unknown sum.
+3. **Adversarial mathematician:** attack the same rung, repairing its critical
+   step or destroying it with the narrowest correct separator.
+
+The operator audits the shared rung, decomposes a failed rung further, and
+implements a surviving rung locally or in Lean. Empirical computation is only
+a quick falsifier for a concrete proposed rung, not an independent phenomenon
+search. CM, BBP, Machin, Pade, modular, special-function, or other
+representations are relevant only when they feed a named rung of this horizon
+transport.
 
 Keep prompts open enough for real invention. Give each model the exact summit,
 the current atomic target, direct links to only the relevant files, and at most
