@@ -73,6 +73,31 @@ Even a positive, exactly bounded Machin or Padé remainder can therefore move
 the complete nonzero sector either way, depending on the carrier phase.
 Remainder positivity alone supplies no drift.
 
+The obstruction persists for the complete literal fresh block, including all
+primitive rays and every orbit time from `q` through `Q-1`.  Put `Q=10q`,
+`B=A+d*q`, and
+
+```text
+F_(q,A,d)(x) = 10 Re sum_(u in primitiveBoundarySupport Q)
+  primitiveRayCoefficient(Q,B,u) * sum_(n=q)^(Q-1) e(u*10^n*x).
+```
+
+T189 identifies `F_(q,A,d)(pi)=Delta_0+Xi_d`.  The top primitive ray
+`u_*=2Q-1` has singleton fiber and nonzero coefficient `1/(2Q^2)` before
+target rotation.  Hence its top temporal frequency
+
+```text
+m_*=(2Q-1)*10^(Q-1)
+```
+
+occurs uniquely in `F`.  For every `0<epsilon<1/m_*`, the difference
+`F(x+epsilon)-F(x)` therefore remains a nonzero real trigonometric polynomial.
+It has mean zero by translation invariance, so it assumes both strict signs.
+This `proof sketch` closes the phase-uniform escape route for the whole T189
+fresh primitive block, not merely a single time or predecessor sector.  It
+does not determine the distinguished value at the Machin carrier; it shows
+that remainder direction and magnitude alone cannot orient that value.
+
 ## Natural-horizon valuation cost of a scalar phase pulse
 
 There is a narrow asymptotic obstruction even before target centering.  Let
