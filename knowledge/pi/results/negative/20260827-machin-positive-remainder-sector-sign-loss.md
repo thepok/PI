@@ -102,3 +102,48 @@ carrier arithmetic, or find an integral representation of the entire
 target-weighted `F_(Q,C)` with a genuinely signed kernel. Faster approximation,
 tail positivity, scalar Padé nonvanishing, and tighter error constants do not
 cross the boundary.
+
+## Exact numerator-blind decimal-transfer limit
+
+There is a narrower exact separator at the digit-transfer layer. Let `A/B` be
+a nonnegative rational lower carrier, let `eta>0`, and write
+
+```text
+10^H*A = B*Q_H + R_H,   0<=R_H<B,
+C_H = B-R_H.
+```
+
+Then
+
+```text
+floor(10^H*(A/B+eta)) = floor(10^H*A/B)
+  iff B*10^H*eta < C_H.
+```
+
+After removing `g=gcd(B,10^H)`, put `D=B/g` and
+
+```text
+Gamma_H = D - ((10^H/g)*A mod D).
+```
+
+The same criterion is `D*10^H*eta<Gamma_H`. Thus an open one-sided enclosure
+`A/B < pi < A/B+E` transfers the first `H` fractional digits whenever
+`D*10^H*E<=Gamma_H`. The canonical non-9 decimal convention and a common
+nonnegative integer part are understood.
+
+Uniformly over all numerators with `gcd(D,10)=1`, this is possible exactly in
+the numerator-blind regime
+
+```text
+D*10^H*E <= 1.
+```
+
+Necessity follows by choosing `A` with `10^H*A=-1 mod D`, so `Gamma_H=1`,
+and placing the perturbation across the next depth-`H` boundary. Both sides
+of that boundary contain quadratic irrationals of irrationality exponent two.
+
+This sharpens the local hostile-boundary statement but does not improve the
+T189 carrier route: T169 already transfers the complete phase polynomial
+directly with the tiny error above, without requiring digit equality. The
+remaining problem is the signed value of the actual rational carrier, not
+decimal-prefix stability.
