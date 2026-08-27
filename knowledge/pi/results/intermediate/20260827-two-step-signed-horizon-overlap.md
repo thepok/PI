@@ -219,6 +219,18 @@ survives numerically, but it retains the complete target-evaluated non-anchor
 tail.  No independent pi theorem controls its sign, so it is only another
 candidate interface, not a new arithmetic result.
 
+Retaining more signed modes does not produce a credible smaller source.  The
+fixed three-anchor set `{1,3,4}`, with only mode `2` and the Nyquist mode `5`
+bounded absolutely, certifies MR at all four actual root children.  But it
+retains seven of the ten signed real DFT degrees and also uses the magnitudes
+of every omitted degree; only the phase of mode `2` and sign of mode `5` are
+discarded.  The remaining pointwise absolute tail is sharp with that
+information.  Moreover, the same condition passes three of the four
+pi-prefix-plus-`333...` diagonal controls.  Decimal relabelling places modes
+`2` and `4` in the same natural symmetry class, and neither T179, Machin, nor
+BBP supplies a reason to control `4` while discarding `2`.  This is a
+near-reconstruction diagnostic, not a pi-specific rung.
+
 ## First open pi-specific rung
 
 There are three logically different research targets.  The weakest recursive

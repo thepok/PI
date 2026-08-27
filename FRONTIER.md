@@ -324,8 +324,11 @@ cone with absolute non-anchor tails fails there by margins between about
 `-7.5e4` and `-1.74e5`.  All three alternative T176-positive root children
 were also replayed: every one has MR witnesses, but every `rho=1,3` old and
 final cone margin is negative.  No initialization reroute rescues that
-low-mode compression.  The surviving signed residual still contains the complete
-target-evaluated non-anchor tail and has no independent pi source.
+low-mode compression.  A three-anchor variant certifies all four actual
+nodes, but retains seven signed DFT degrees, uses the magnitudes of all
+remaining modes, and passes three of four `333...` controls.  It is
+near-reconstruction, not a pi-specific source.  The surviving signed residual
+likewise contains the complete target-evaluated non-anchor tail.
 
 A sharp replacement control keeps the first 10,000 pi digits, then uses the
 periodic tail `333...`.  It retains a positive root score and exactly the
