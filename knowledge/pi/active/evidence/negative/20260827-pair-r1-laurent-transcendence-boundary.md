@@ -77,6 +77,35 @@ This follows by reducing the left side to the distance of
 binomials only.  It does not prevent cancellation among the `O(q^2)` terms
 of `L_r`, and exponential exponent gaps make it far smaller than `1/q`.
 
+## Literal coefficient no-gos and the parity factor
+
+Two further exact-coefficient observations narrow the live route. Each
+coefficient `b_(r,ell)` repeats across all `9q` fresh horizons, so no single
+formal monomial or single horizon slice can dominate the sum of all remaining
+coefficient magnitudes. Also, with
+
+```text
+s=q/gcd(2A+1,q),
+b_(r,ell+s)/b_(r,ell) < 0
+```
+
+whenever both indices occur. Thus no scalar rotation puts all literal
+coefficients in one open positive half-plane. These are coefficient-level
+no-gos only; evaluated actual-π phases could still compensate them.
+
+The self-paired residue `r=5` has the exact real factorization, for `Q=10q`
+and `alpha_Q=1-cos(pi/Q)`,
+
+```text
+K_(Q,5)(t) = (1/10) F_q(10t)^2 cos(10*pi*t)
+  * ((1+8*alpha_Q) cos(20*pi*t)-1+92*alpha_Q).
+```
+
+Equivalently the final zero is at
+`beta_Q=(1-92*alpha_Q)/(1+8*alpha_Q)`. Both real factors change sign, so this
+identity exposes the literal parity/suffix weight but supplies no π-specific
+sign or Pair-R1 margin.
+
 ## Disposition
 
 A later antipodal Fejér-collapse attempt does not apply to this carrier. It

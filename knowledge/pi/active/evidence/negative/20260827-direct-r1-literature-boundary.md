@@ -3,8 +3,9 @@
 Claim status: `literature-checked` for the cited source hypotheses and the
 bounded PaperSearch comparison below.  No theorem for actual pi is claimed.
 
-Search date: 2026-08-27 UTC.  The local PaperSearch database contained
-`776632` records, including `186764` with substantial extracted text.  The
+Search date: 2026-08-27 UTC.  The local PaperSearch database at
+`/home/Marcel/dev/AllMath/paper-search.sqlite3` contained `776632` records,
+including `187052` with extracted full text.  The
 search targeted the live natural-diagonal fresh contribution
 
 ```text
@@ -58,6 +59,23 @@ mechanisms with ordered real sign, and results stated specifically for pi.
    conjecture supported by numerical experiments.  Even that conjecture does
    not state the same-witness R2 alignment.
 
+6. Lagarias, [On the Normality of Arithmetical
+   Constants](https://arxiv.org/abs/math/0101055), Theorem 3.1a, gives an
+   exact asymptotic bridge between ordinary radix and perturbed BBP remainder
+   orbits. Its distribution conclusion depends on the explicitly unproved
+   Hypothesis A. The proved bridge is only `o(1)` in torus distance and gives
+   neither a one-sided local gauge bound, a `1/q` rate, nor decimal
+   same-digit alignment for DC1.
+
+7. Beukers--Tijdeman, [A one-sided power sum
+   inequality](https://arxiv.org/abs/1107.5495), proves signed pointwise lower
+   excursions for fixed conjugate unit-circle exponential polynomials after
+   selecting an unrestricted exponent. This is the closest inspected
+   deterministic one-sided theorem. DC1 changes both coefficients and
+   inherited deficit with the node and needs the prescribed natural-scale
+   block; the theorem has no effective hitting time, fixed-node selector, or
+   coupling to actual pi.
+
 ## Boundary
 
 The inspected literature splits at the wrong quantifier:
@@ -66,7 +84,9 @@ The inspected literature splits at the wrong quantifier:
 - pointwise avoidance theorems construct some favorable `alpha`;
 - Mahler and natural-boundary identities apply at contracting algebraic or
   rational boundary points;
-- the direct pi stochastic statement is conjectural.
+- the direct pi stochastic statement is conjectural;
+- the strongest one-sided power-sum result selects a free exponent for fixed
+  coefficients, not the moving literal T179 polynomial at the required node.
 
 None of these results proves R1 on an unbounded coherently reached actual-pi
 path, and none couples the same digit to R2.  This is a dated bounded
