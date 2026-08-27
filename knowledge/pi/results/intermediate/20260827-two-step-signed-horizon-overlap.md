@@ -260,6 +260,21 @@ sectors may cancel exactly.  Thus ordinary energy is a known dead end here;
 a useful lower bound would already have to control the target-relevant paired
 real projections.
 
+The analogous exact-mode/absolute-tail compression also stops at two modes.
+Applied correctly to the FMR vectors `D_d=W_d-U_d` and
+`R_d=W_d-B(q,A,q)`, several mode pairs certify individual nodes.  No one-mode
+choice certifies any of the five tested actual-pi nodes, no fixed two-mode
+choice works across them, and the reached node `A=73334` rejects every
+two-mode choice even when the modes and digit are selected after seeing the
+vectors.  Its least-bad pair `{1,3}` at digit `6` has lower margins about
+`(517759,-459590)` for `(D,R)`.  Widths `16` and `22` preserve these signs.
+
+This is an `experiment` obstruction, not a universal theorem.  It closes the
+proposed one/two-mode plus absolute-omitted-tail initialization class on the
+observed two-level FMR tree.  Any reopening must restore signed information
+from at least one more paired real sector or use an independent cross-mode
+constraint; adaptive selection of a locally passing pair is post hoc.
+
 A useful stronger atom fixes `d_*` as a past-only maximizer of `G_d` and asks
 for the displayed inequality at `d_*`.  T176 makes `G_(d_*)>0`, but it does
 not prove the signed-sector inequality.  If that atom is still too large, an
