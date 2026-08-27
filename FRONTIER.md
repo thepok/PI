@@ -307,6 +307,15 @@ capital is negative.  Thus no recursive rung follows from the finite seed,
 T176/T189, decimal recurrence, or old improving set alone.  The open theorem
 must use genuinely new target-signed information about the actual pi tail.
 
+The strongest currently available fixed-pi orbit-spread theorem does not
+supply that information.  A sparse-packet decimal orbit can have full
+omega-limit set in every arithmetic progression while its empirical measures
+converge to `delta_(1/3)` and its literal root `Xi_3` has arbitrarily long
+negative blocks.  This closes topological omega-spread as an MR source unless
+it is strengthened to quantitative return frequency or gap control for a
+jointly predecessor/suffix-signed good set.  The construction does not prove
+MR failure for actual pi or on all scales.
+
 A tight adjacent fixed-point separator now limits the permitted input. On the
 decimal orbit `x_n=1/3`, which stays below and never enters the child cylinder
 `[0.3334,0.3335)`, the exact digit-3 T189 summand has directed enclosure
