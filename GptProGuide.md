@@ -32,9 +32,10 @@ Do not ask Pro to map the repository and do not load
 `knowledge/pi/archive/`. The archive is for a specific novelty/provenance
 check after an idea exists, never default context.
 
-## Shared mathematical target
+## Default signed target
 
-T189 is fixed. At a positive natural-diagonal node,
+The first two slots work against the fixed T189 frontier. At a positive
+natural-diagonal node,
 
 ```text
 G_d = old child gain,
@@ -63,17 +64,24 @@ source by themselves.
 
 ## Three differentiated slots
 
-1. **Ladder designer:** seek the shortest non-tautological ladder from the
-   first actual-π input through R1/R2 to the existing consumer.
-2. **Rung prover:** genuinely try to prove the shared first open π-specific
-   rung, reducing it only when a precise fatal step is found.
-3. **Adversary:** attack that same rung; repair its critical step or close it
-   with the narrowest exact separator.
+1. **Signed ladder/prover:** seek and genuinely prove the shortest
+   non-tautological ladder from a first actual-π input through R1/R2 to the
+   existing consumer.
+2. **Signed adversary:** attack the strongest current rung; repair its critical
+   step or close it with the narrowest exact separator.
+3. **Fundamental alternative:** stay outside T179/T189/FMR and search for a
+   genuinely different mathematical lever with a short verified path to V1.
+   It must identify its own actual-π input and must not merely rename an
+   equivalent hitting, entropy, density, rational-shadow, or generic-dynamics
+   condition. This slot remains methodologically independent when it is
+   refilled; it is not absorbed into the current signed ladder.
 
 Prompts stay open to new arithmetic, special-function, modular, Padé,
-hypergeometric, BBP, Machin, or other mechanisms, but a representation counts
-only when it feeds the named signed rung. Use PaperSearch early as building
-material and distinguish almost-everywhere results from pointwise π theorems.
+hypergeometric, BBP, Machin, or other mechanisms. In the first two slots a
+representation counts only when it feeds the named signed rung; in the third
+it must feed a demonstrably different V1 consumer path. Use PaperSearch early
+as building material and distinguish almost-everywhere results from pointwise
+π theorems.
 
 ## Required memo
 
