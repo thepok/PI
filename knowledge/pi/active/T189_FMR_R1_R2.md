@@ -65,6 +65,14 @@ retains the inherited deficit direction and only one fresh paired sector,
 instead of separating R1 and R2. This is deterministic consumer algebra, not
 π arithmetic: no theorem controls the displayed gauge for actual π.
 
+`experiment` (pinned decimal prefix, floating-point replay): at the literal
+natural-diagonal node `(q,A)=(10000,3334)`, the DC1 right side is approximately
+`68531.49962346>0`, while `max_d Y_d` is approximately `316729.22974`; the
+direct FMR witnesses are `d in {5,6,7,8}`. An independent reconstruction
+reproduced these values. This is a finite falsification/viability check, not a
+numerical certificate, a machine-checked instance, or evidence of an
+unbounded actual-π path.
+
 Finite π replay supplies a positive root and two surviving levels only. The
 inductive theorem needed is along one consistently selected unbounded path;
 assuming such reached nodes in advance is circular. After transport, a

@@ -166,9 +166,60 @@ improving = {digit for digit, _, _, _, _, _, p, _ in rows if p > 0}
 fresh_positive = {digit for digit, _, _, _, _, _, _, m in rows if m > 0}
 overlap = improving & fresh_positive
 
+def dc1_envelope(gains: list[float], fresh: list[float]) -> tuple[float, ...]:
+    """Return the sharp first-sector envelope for Y_d=D_d-(-G_d)_+."""
+    compensated = [d - max(0.0, -g) for g, d in zip(gains, fresh)]
+    mean = math.fsum(compensated) / 10.0
+    hat_re = math.fsum(
+        value * math.cos(2.0 * math.pi * digit / 10.0)
+        for digit, value in enumerate(compensated)
+    ) / 10.0
+    hat_im = math.fsum(
+        value * math.sin(2.0 * math.pi * digit / 10.0)
+        for digit, value in enumerate(compensated)
+    ) / 10.0
+    inradius = math.cos(math.pi / 10.0)
+    gauge_at_neg_hat = max(
+        (
+            -hat_re * math.cos((2 * face + 1) * math.pi / 10.0)
+            -hat_im * math.sin((2 * face + 1) * math.pi / 10.0)
+        )
+        / inradius
+        for face in range(10)
+    )
+    return mean, hat_re, hat_im, gauge_at_neg_hat, mean + gauge_at_neg_hat, max(compensated)
+
+
+# The original replay is the generalized two-step N=10q -> H=100q envelope.
+two_step_dc1 = dc1_envelope(
+    [row[6] for row in rows], [PARENT_Q * row[7] for row in rows]
+)
+
+# Separately evaluate the literal natural-diagonal q -> 10q DC1 node used by
+# the active frontier. This remains a floating-point falsifier, not a theorem.
+natural_n = PARENT_Q
+natural_h = CHILD_Q
+natural_parent_re = re_z(PARENT_Q, PARENT_A, natural_n)
+natural_parent_bellman = bellman_surplus(PARENT_Q, natural_parent_re, natural_n)
+natural_gains: list[float] = []
+natural_fresh: list[float] = []
+for digit in range(10):
+    child_label = PARENT_A + digit * PARENT_Q
+    natural_b_n = bellman_surplus(
+        CHILD_Q, re_z(CHILD_Q, child_label, natural_n), natural_n
+    )
+    natural_b_h = bellman_surplus(
+        CHILD_Q, re_z(CHILD_Q, child_label, natural_h), natural_h
+    )
+    natural_gains.append(natural_b_n - natural_parent_bellman)
+    natural_fresh.append(natural_b_h - natural_b_n)
+natural_dc1 = dc1_envelope(natural_gains, natural_fresh)
+
 assert improving == {0, 4, 5, 6, 7, 8}
 assert fresh_positive == {0, 3, 5, 6}
 assert overlap == {0, 5, 6}
+assert two_step_dc1[4] > 0.0
+assert natural_dc1[4] > 0.0
 
 print("status: PASS (floating-point experiment; not a certificate)")
 print(f"digit_path={DIGIT_PATH}")
@@ -176,7 +227,7 @@ print(f"digit_sha256={actual_hash}")
 print(f"suffix_digits={SUFFIX_DIGITS}")
 print(f"parent_ReZ={parent_re:.15f}")
 print(f"parent_B={parent_bellman:.12f}")
-print("d B ReZ_N ReZ_H B_N B_H P_d M_d")
+print("d child_label ReZ_N ReZ_H B_N B_H G_d M_d")
 for row in rows:
     d, label, re_n, re_h, b_n, b_h, p_value, m_value = row
     print(
@@ -186,3 +237,16 @@ for row in rows:
 print(f"improving={sorted(improving)}")
 print(f"fresh_positive={sorted(fresh_positive)}")
 print(f"overlap={sorted(overlap)}")
+print(f"two_step_dc1_compensated_mean={two_step_dc1[0]:.12f}")
+print(
+    "two_step_dc1_hatY1="
+    f"({two_step_dc1[1]:.12f},{two_step_dc1[2]:.12f})"
+)
+print(f"two_step_dc1_gauge_at_neg_hatY1={two_step_dc1[3]:.12f}")
+print(f"two_step_dc1_lower_bound={two_step_dc1[4]:.12f}")
+print(f"two_step_dc1_literal_max={two_step_dc1[5]:.12f}")
+print(f"natural_dc1_compensated_mean={natural_dc1[0]:.12f}")
+print(f"natural_dc1_hatY1=({natural_dc1[1]:.12f},{natural_dc1[2]:.12f})")
+print(f"natural_dc1_gauge_at_neg_hatY1={natural_dc1[3]:.12f}")
+print(f"natural_dc1_lower_bound={natural_dc1[4]:.12f}")
+print(f"natural_dc1_literal_max={natural_dc1[5]:.12f}")
