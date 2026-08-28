@@ -155,6 +155,32 @@ directed intervals were not reproduced and are rejected; this remains an
 sector-5 direction are recorded in
 [`20260828-sector5-odd-frequency-machin-direction.md`](../intermediate/20260828-sector5-odd-frequency-machin-direction.md).
 
+There is a sharper but still carefully scoped five-block statement. Write the
+ten real child values as `y in R^10`, let `V_j` be the two-dimensional real
+character space belonging to sector pair `j`, and let `W_j` be the simplex of
+convex digit masks annihilating that pair. Finite-dimensional LP duality gives
+
+```text
+max_(w in W_j) w dot y = min_(v in V_j) max_d (y_d+v_d).
+```
+
+Independent vertex enumeration at the same hard node gives the five deletion
+optima
+
+```text
+M_1=M_3=M_5 = -13198.2107701325...,
+M_2           = -29421.8421648713...,
+M_4           = -24014.0645848527...
+```
+
+Thus every convex-mask certificate which annihilates any one complete real
+character block fails at this node (`experiment`). This does **not** show
+that every block is necessary for an arbitrary actual-orbit theorem: the LP
+allows all algebraic completions in the missing conjugate DFT pair, and no
+orbit-admissibility theorem says that all such completions are realizable.
+The durable conclusion is only that a reduced convex-mask proof must add a
+genuine cross-sector admissibility relation rather than delete a block.
+
 A later antipodal Fejér-collapse attempt does not apply to this carrier. It
 replaces the literal frequency-dependent T142 boundary coefficient by a
 triangular surrogate, and its original version also used the wrong center and

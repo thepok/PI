@@ -131,6 +131,40 @@ remainder.  It does not exclude approximate, vector/cone, or pointwise-pi
 transport.  Decimal-periodic rationals merely intersect both open sign
 regions; neither sign class is claimed dense in the whole circle.
 
+## Bounded-degree polynomial closure has exponential degree cost
+
+The same unique-top-frequency mechanism gives a narrow nonlinear extension.
+For the explicitly defined finite old-horizon T189 trigonometric state, the
+largest Laurent exponent is
+
+```text
+E_q = (20*q-1)*10^(10*q-1),
+```
+
+whereas the next natural-horizon state contains the nonzero top exponent
+
+```text
+E_(10q) = (200*q-1)*10^(100*q-1).
+```
+
+T142 supplies the nonzero endpoint coefficient. A theta-independent
+polynomial of total degree `m` in the old Laurent coordinates has no exponent
+larger than `m*E_q`. Therefore any exact polynomial map from that finite old
+state to the complete next state must satisfy
+
+```text
+m >= E_(10q)/E_q
+  = ((200*q-1)/(20*q-1))*10^(90*q).
+```
+
+The argument also covers a real/imaginary presentation through conjugate
+Laurent coordinates; clipped deficit coordinates can be restricted to any
+open sign chamber, with identically zero inherited coordinates treated
+separately. This is a `proof sketch` separator for theta-independent
+polynomial closure of this explicit finite state. It does not exclude
+nonpolynomial, phase-aware, inequality-based, or pi-specific recurrences and
+must not be advertised as a no-go for general algebraic transport.
+
 The result combines two independently audited mathematical memos. The later
 scalar-coboundary argument corrected the earlier zero-sector support claim;
 the incorrect argument and raw model transcripts are not retained.
