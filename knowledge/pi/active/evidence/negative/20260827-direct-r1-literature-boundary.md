@@ -47,9 +47,12 @@ mechanisms with ordered real sign, and results stated specifically for pi.
 4. Zorin, [Algebraic independence and normality of the values of Mahler's
    functions](https://arxiv.org/abs/1309.0105), proves quantitative
    nonvanishing for algebraic-coefficient Mahler systems evaluated along
-   contracting interior orbits.  The actual decimal pi phase is an expanding
-   unit-circle orbit, and algebraic nonvanishing supplies no order on a real
-   part.
+   contracting interior orbits.  The evaluation point may itself be
+   transcendental; algebraicity of the point is not the obstruction here.
+   For `p(z)=z^10` and a single Mahler function, however, the theorem's stated
+   dimension cutoff is empty, and the actual decimal pi phase lies on the
+   noncontracting unit circle.  It supplies neither a boundary value nor an
+   order on a real part.
 
 5. Barral--Loiseau, [Large deviations for the local fluctuations of random
    walks and new insights into the "randomness" of
@@ -104,8 +107,9 @@ The inspected literature splits at the wrong quantifier:
 
 - signed lacunary fluctuation theorems hold almost everywhere in `alpha`;
 - pointwise avoidance theorems construct some favorable `alpha`;
-- Mahler and natural-boundary identities apply at contracting algebraic or
-  rational boundary points;
+- Mahler value estimates apply on contracting interior orbits (sometimes even
+  at transcendental points), while natural-boundary theorems give no value or
+  sign at the distinguished unit-circle phase;
 - the direct pi stochastic statement is conjectural;
 - the strongest one-sided power-sum result selects a free exponent for fixed
   coefficients, not the moving literal T179 polynomial at the required node.
