@@ -152,3 +152,75 @@ quadratic Taylor remainder.  No searched source proves this Bernstein sign;
 without a uniform source it would remain a finite certificate rather than
 horizon transport.  This paragraph is `literature-checked` only for the
 bounded dated comparison, not a claim of exhaustive absence.
+
+## Audited finite and off-orbit boundaries
+
+The infinite moment law does not distinguish π at any finite truncation.
+For every fixed `J`, sufficiently small `epsilon` makes
+
+```text
+delta_n^(K)+10^n*epsilon,  0<=n<=J,
+```
+
+the first `J+1` moments of another measure with positive interior density on
+`[0,5/8]`.  One may choose `J+1` narrow interior bumps whose moment matrix is
+a perturbation of a nonsingular Vandermonde matrix and solve for the desired
+finite perturbation.  Strict complete-monotonicity and ordered Hankel-minor
+tests therefore remain true on a nontrivial interval of replacement
+constants.
+
+More decisively, for the class of measures with positive interior density and
+every real polynomial `P`,
+
+```text
+inf_mu integral P dmu / mu([0,5/8]) = min_[0,5/8] P,
+sup_mu integral P dmu / mu([0,5/8]) = max_[0,5/8] P.
+```
+
+Concentrated smooth bumps plus an arbitrarily small positive background prove
+both equalities.  Hence strict total positivity can orient a universal dual
+functional only after the target-dependent polynomial sign has already been
+supplied.  This is a `proof sketch`, not an absence theorem for the one exact
+BBP density.
+
+There is also an exact orbit incompatibility.  With
+
+```text
+x_n(s)=10^n*bbpRealPartial(n+K)+s*delta_n^(K),
+```
+
+direct calculation gives
+
+```text
+x_(n+1)(s)-10*x_n(s)
+  =(1-s)*10^(n+1)*bbpRealTerm(n+K+1) != 0   for s<1.
+```
+
+The defect lies strictly between zero and one.  Thus the interpolation is not
+a decimal orbit except at `s=1`; T179's literal predecessor/suffix identity
+and T139's primitive-shift compression cannot be used along its interior.
+Only the defining full primitive Fourier polynomial has a legitimate smooth
+off-orbit extension.  In that extension the fresh dual polynomial necessarily
+factors as `P_D(t)=t^q*R_D(t)`, so a strict negative margin on the closed
+support is impossible at `t=0`; any valid bound must be weighted by `t^q`.
+
+The same calculation does give a strong sign-preservation statement.  Put
+`Q=10q`.  The machine-checked T142 coefficient load implies the coordinate
+derivative bound `<10*pi*m^2`.  Since the positive BBP summands satisfy
+`bbpRealTerm(m)<16^(-m)` for `m>=1`, the direct full-primitive scores obey
+
+```text
+|D_d(pi)-D_d(carrier)|
+  < (16*pi/9)*Q^2*16^(-K)*(5/8)^q,
+
+|F_d(pi)-F_d(carrier)|
+  < (16*pi/9)*(Q^2+q^2)*16^(-K).
+```
+
+Here `carrier` is a moving rational coordinate array, not a rational decimal
+orbit, and `D_d,F_d` denote their defining Fourier extensions.  Positive
+carrier margins exceeding these buffers imply actual-π same-child FMR.  The
+fresh buffer is exponentially tiny: this preserves a sign already present at
+the carrier but cannot create the literal fresh positivity or overcome the
+`-21/10` correction at natural scale.  It is analogous to T169 and is not a
+new target-signed source.
