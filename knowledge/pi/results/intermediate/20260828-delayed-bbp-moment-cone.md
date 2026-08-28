@@ -111,3 +111,44 @@ ordinary algebraic Sturm certificate is unavailable without redesign.
 Reopen this route only with a proved target- and child-dependent dual-cone
 inequality for the complete literal block, with enough magnitude to dominate
 the carrier gap.  More moment-cone packaging alone does not advance T189.
+
+## Bounded literature comparison
+
+Search date: 2026-08-28 UTC.  A targeted search of the local PaperSearch
+database compared the exact moment law with the closest positive-measure
+machinery.  Liu--Pego's [Hausdorff generating-function
+characterization](https://arxiv.org/abs/1401.8052) supplies complete
+monotonicity; standard total-positivity and variation-diminishing results as
+used by Wulfsohn ([arXiv:math/0403185](https://arxiv.org/abs/math/0403185))
+and Nowak ([arXiv:1108.3586](https://arxiv.org/abs/1108.3586)) control the
+number of sign changes; Bhaskar--Song's generalized Descartes rule
+([arXiv:1309.5056](https://arxiv.org/abs/1309.5056)) controls zeros after a
+Laplace reparametrization; and Van Assche's Padé remainder formula
+([arXiv:math/0609094](https://arxiv.org/abs/math/0609094)) gives a one-sided
+error for real spectral points outside the measure support.
+
+All four mechanisms stop at the same exact line.  For a fixed target and
+child, first variation has the form
+
+```text
+sum_n c_n(q,A,d)*delta_n^(K)
+  = integral_[0,5/8] P_(q,A,d)(t) dmu_K(t).
+```
+
+The target rotations make the coefficients `c_n(q,A,d)` oscillatory.
+Positivity of `mu_K` signs the integral only after an independent proof that
+the target-dependent polynomial `P_(q,A,d)` has the required sign.  Total
+positivity can propagate or limit sign changes but cannot choose that initial
+sign; the real-outside-support Padé order does not apply to the complex
+unit-circle phases.  Lagarias' BBP orbit comparison
+([arXiv:math/0101055](https://arxiv.org/abs/math/0101055)) likewise does not
+provide uniform predecessor-digit stability.  Thus the searched literature
+validates the scalar cone but supplies no target-signed T179/T189 theorem.
+
+A legitimate fixed-node use would have to certify digit stability, prove a
+one-signed Bernstein expansion for `P_(q,A,d)(5*t/8)`, and show that its
+moment lower bound dominates both the rational-carrier deficit and the
+quadratic Taylor remainder.  No searched source proves this Bernstein sign;
+without a uniform source it would remain a finite certificate rather than
+horizon transport.  This paragraph is `literature-checked` only for the
+bounded dated comparison, not a claim of exhaustive absence.
