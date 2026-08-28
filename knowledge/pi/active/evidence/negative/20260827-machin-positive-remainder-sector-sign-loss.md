@@ -98,6 +98,30 @@ fresh primitive block, not merely a single time or predecessor sector.  It
 does not determine the distinguished value at the Machin carrier; it shows
 that remainder direction and magnitude alone cannot orient that value.
 
+There is a mechanism-specific strengthening for arguments using only
+branch-invariant Machin-logarithm data.  With
+
+```text
+U=(5+i)/(5-i), V=(239+i)/(239-i),
+Lambda=8*Log(U)-2*Log(V)=i*pi,
+```
+
+integer branch changes generate exactly
+
+```text
+Lambda_m=i*pi*(4m+1),
+z_m=exp(-2*i*Lambda_m^2)=exp(2*pi*i*pi*(4m+1)^2).
+```
+
+Weyl's polynomial theorem makes `(z_m)` equidistributed on the unit circle.
+The complete fixed-horizon literal fresh expression is a nonzero zero-mean
+real trigonometric polynomial in `z`: its top temporal frequency is unique.
+It therefore takes both strict signs on infinitely many branch lifts.  Thus
+relations invariant under these logarithm branches cannot orient the literal
+T189 sign.  This does **not** exclude genuinely principal-branch or
+distinguished-embedding information; supplying quantitative angular control
+from precisely such information remains the possible Machin escape route.
+
 ## Natural-horizon valuation cost of a scalar phase pulse
 
 There is a narrow asymptotic obstruction even before target centering.  Let
