@@ -3,7 +3,8 @@
 Date: 2026-08-27 UTC
 
 Claim labels: the Chen--Ye--Zheng source boundary is `literature-checked` by
-the repository's pinned source audit; the sparse-packet construction is a
+the repository's pinned source audit; the Fishman input below is
+`literature-checked`; the sparse-packet and missing-word constructions are
 `proof sketch`; the inherited root MR table is an `experiment`.  No statement
 about the actual pi orbit, unbounded MR failure, V1, density, or normality is
 proved.
@@ -145,6 +146,48 @@ start the first dense packet arbitrarily late.  By continuity this converges
 to the independently replayed pi-prefix-plus-`333...` control, whose strict
 floating-point margins have positive root capital but no surviving child.
 This inherits only an `experiment`, not a directed MR separator.
+
+## Missing-word shifts remain Diophantine-rich
+
+There is also a direct obstruction to replacing signed orbit information by
+generic transcendence or irrationality-measure input.  Let `w` be any
+nonempty decimal word of length `m`, and let `P` be any finite `w`-free
+prefix.  Put `a` equal to the first digit of `w` and choose a digit `b`
+different from both the first and last digits of `w`.  Append the guard
+`b^m`, then restrict every later digit to
+
+```text
+D_a = {0,...,9} \ {a}.
+```
+
+No copy of `w` ends in the guard, because its last digit would be `b`; the
+guard is long enough that no copy can cross both boundaries; and no later copy
+can start because the tail contains no `a`.  Thus every resulting digit string
+begins with `P` and avoids `w`; excluding the countable ambiguous decimal
+endpoints makes these the canonical expansions.
+
+The unrestricted `D_a` tails form the self-similar attractor of the nine maps
+
+```text
+x |-> (d+x)/10,  d in D_a,
+```
+
+with Hausdorff dimension `log(9)/log(10)`.  The maps satisfy the open set
+condition.  [Fishman's theorem](https://arxiv.org/abs/math/0606298) therefore
+gives full attractor dimension after intersection with the badly approximable
+numbers.  Rational affine insertion into the cylinder `P b^m` preserves bad
+approximability.  Removing the countable algebraic numbers and the countable
+ambiguous decimal endpoints leaves a positive-dimensional family of
+transcendental, badly approximable, `w`-avoiding continuations of `P`.
+
+Consequently, even under a hypothetical missing word in pi, every finite pi
+prefix admits hostile continuations with transcendence and irrationality
+exponent exactly `2`, stronger Diophantine approximation control than is known
+for pi.  Lindemann--Weierstrass, a finite irrationality exponent, digit-change
+bounds, and finite-prefix certificates therefore cannot exclude membership in
+a positive-entropy missing-word shift.  A reopening theorem must use a
+genuinely pi-specific constraint on the digit language or directly recover
+target-signed orbit information.
 
 ## Exact boundary and reopening condition
 
