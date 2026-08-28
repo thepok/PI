@@ -140,17 +140,43 @@ L = sum_d (theta-delta-x_d)_+ * (-kappa-v_d)_+,
 <x,v> = ||x||^2 + <x,u>.
 ```
 
-The potential defects cancel exactly in `F`.  This suggests a genuinely
-stronger two-rung arithmetic target: for one fixed `0<gamma<1`, prove
+The potential defects cancel exactly in `F`.  A tempting stronger split would
+ask, for one fixed `0<gamma<1`, for
 
 ```text
 <x,u> >= -(1-gamma)*||x||^2,
 L < 10*(delta-theta)*kappa + gamma*||x||^2.
 ```
 
-Together these imply `E>0`.  Decimal shifting proves the displayed identities
-but gives no sign for either inequality; their source must still be
-distinguished actual-π arithmetic.
+Together these imply `E>0`, but the scale-independent version is false on the
+certified π tree.  Writing `Dbar,Fbar` for digit means and
+
+```text
+Xraw = sum_d (D_d-Dbar)^2,
+Lraw = sum_d D_d^-*F_d^-,
+```
+
+the first inequality is equivalent to `gamma<=a` and the second to `gamma>b`,
+where
+
+```text
+a = <D-Dbar,F-Fbar>/Xraw,
+b = (Lraw-10*Dbar*Fbar)/Xraw.
+```
+
+Independent exact-rational postprocessing of freshly regenerated outward
+intervals gives
+
+```text
+(10000,2334):  gamma > 0.753979359184274,
+(10000,4334):  gamma <= 0.630504533644287.
+```
+
+Thus no fixed `gamma` works at all eight certified nodes; the gap exceeds
+`0.12347`.  Each node separately has a nonempty interval, but allowing an
+arbitrary node-dependent `gamma` supplies no independent π mechanism.  The
+direct pathwise `E>0` inequality or a different arithmetic decomposition
+remains the honest target.
 
 An independently rebuilt 100050-digit Chudnovsky certificate and the existing
 strict outward-interval replay show that `E` loses none of the eight currently
