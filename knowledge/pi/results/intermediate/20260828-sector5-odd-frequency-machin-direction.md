@@ -186,11 +186,27 @@ The exact sector-5 kernel used in this proof also has the closed form
 ```text
 psi_q(t) = sin(qz)^4*cos(z)/(2q^2*sin(z)^4)
            * (100*a_q-(16*a_q+2)*sin(z)^2),
-z=2*pi*t,  a_q=1-cos(pi/(10q)),
+z=pi*t,  a_q=1-cos(pi/(10q)),
 ```
 
-extended through removable singularities by continuity. This makes its sign
-changes explicit; the positive Machin displacement alone cannot orient it.
+extended through removable singularities by continuity.  The normalization
+`z=pi*t` is the literal T179 argument: direct root filtering gives
+`2*Re K_(q,5)(t) = sum_(j<10) (-1)^j B_(10q)((t+j)/10)`.  In particular,
+for every `q>=2`,
+
+```text
+psi_q(t) > 0  for 0<t<=1/(4q),
+psi_q(t) < 0  for 2/(3q)<=t<1/q.
+```
+
+Both chambers lie on the same positive side of the target, and their sizes
+do not vanish: along `t=lambda/q` the limit is
+`sin(pi*lambda)^4*(1-4lambda^2)/(4*pi^2*lambda^4)`.  Thus a one-bit
+target-side orientation, including the tautological zero-lattice sign from
+`sin(10^(n+1)*pi)=0`, cannot orient even the literal sector-5 leaf.  A
+weighted actual-pi chamber-occupancy theorem could still do so.  This makes
+the sign changes explicit; the positive Machin displacement alone cannot
+orient the kernel.
 T169 transfers the carrier sector to actual pi with an exponentially small
 explicit error, but bare cyclotomic nonvanishing gives no lower bound relative
 to that error.
