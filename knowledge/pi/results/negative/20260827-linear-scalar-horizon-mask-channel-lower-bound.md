@@ -118,6 +118,19 @@ digit/vector state, inequalities, approximate coboundaries, or finite-horizon
 pi-specific mechanisms.  It is a narrow method separator, not progress on
 FMR.
 
+There is also an `L1` strengthening for the finite **nonzero-sector** block
+alone (`proof sketch`).  Its one-step real carrier has a nonzero frequency-1
+coefficient and only frequencies prime to 10.  Over horizons `N <= n < H`,
+the coefficient on the ray `10^j` is therefore a fixed nonzero `c` exactly
+for `N <= j < H`.  If the block were `u-u∘T+r` with `u,r in L1` and `r`
+globally nonnegative or globally nonpositive, zero Haar mean would force
+`r=0`; the Fourier recurrence would then force
+`u_hat(10^j)=(H-N)c` for every `j>=H`, contradicting Riemann--Lebesgue.
+This excludes only exact scalar `L1` decompositions with a globally one-signed
+remainder.  It does not exclude approximate, vector/cone, or pointwise-pi
+transport.  Decimal-periodic rationals merely intersect both open sign
+regions; neither sign class is claimed dense in the whole circle.
+
 The result combines two independently audited mathematical memos. The later
 scalar-coboundary argument corrected the earlier zero-sector support claim;
 the incorrect argument and raw model transcripts are not retained.

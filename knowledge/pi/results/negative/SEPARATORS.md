@@ -11,7 +11,7 @@ Use at most three relevant ones per prompt.
 6. [`Xi_3` fixed-point separator](20260827-xi3-all-three-fixed-point-separator.md): recurrence, non-hitting, and transcendence alone do not force the literal signed correlation.
 7. [Finite-cylinder bootstrap separator](20260827-finite-cylinder-horizon-bootstrap-separator.md): the finite π seed and continuity cannot generate fresh-tail signs.
 8. [Fixed-interior regularization instability](20260827-fixed-interior-regularization-instability.md): stable Abel/Mahler/heat decoding loses the boundary-scale target information.
-9. [Scalar mask/coboundary boundary](20260827-linear-scalar-horizon-mask-channel-lower-bound.md): sharp primitive-mask synthesis needs linearly many scalar channels, and the complete T189 drift is not an exact scalar state-only `L2` coboundary.
+9. [Scalar mask/coboundary boundary](20260827-linear-scalar-horizon-mask-channel-lower-bound.md): sharp primitive-mask synthesis needs linearly many scalar channels; the complete T189 drift is not an exact scalar state-only `L2` coboundary, and the finite nonzero block is not an exact scalar `L1` coboundary plus a globally one-signed remainder (`proof sketch`).
 10. [Low-dimensional T189 statistics](20260827-low-dimensional-t189-statistics-empirical-separator.md): simple predictors learn kernel geometry and fail matched controls, not π arithmetic.
 
 Older no-gos remain available through Git history and should not be bulk-loaded.
