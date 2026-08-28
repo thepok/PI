@@ -100,6 +100,68 @@ paired amplitude or first-sector envelope detects the child.  This refutes
 uniform Pair-π and universal actual-π positivity of the DC1 premise, not FMR,
 the deterministic DC1 theorem, or a pathwise arithmetic use of DC1.
 
+## Adjacent-digit-pair reduction
+
+Claim status: `proof sketch`; the numerical check below is an `experiment`.
+
+There is a smaller strict sufficient consumer that survives this hard node.
+Pair the literal digits as `{0,1}`, `{2,3}`, ..., `{8,9}` and put
+
+```text
+Theta_j=(Xi_(2*j)+Xi_(2*j+1))/2,
+M_j=(Y_(2*j)+Y_(2*j+1))/2,                       0<=j<5.
+```
+
+Then exactly
+
+```text
+M_j = q*(Delta_0+Theta_j) - 21/10
+      - (h_(2*j)+h_(2*j+1))/2.
+```
+
+Consequently `M_j>0` implies that the larger of the two literal `Y` values is
+an FMR witness.  Equivalently, the required signed estimate is
+
+```text
+Theta_j > -Delta_0 + 21/(10*q)
+          + (h_(2*j)+h_(2*j+1))/(2*q).
+```
+
+This condition is strictly sufficient, not equivalent to FMR.  In the digit
+DFT, adjacent averaging multiplies sector `r` by
+`(1+zeta^(-r))/2`, so sector `r=5` cancels exactly.  The five fresh values
+`Theta_j` sum to zero and hence carry four real degrees; the full `M` vector
+also contains the inherited deficit data and is not four-dimensional.
+
+An independent floating reconstruction at `(q,A)=(1000,689)` gives
+`M_4 approximately 525.52694622292>0`, so this consumer survives where all
+Pair-π margins and the DC1 right side are negative.  This value is not yet a
+directed-interval certificate: the existing interval replay certifies the
+individual `d=8` FMR margin but does not assert or print `M_4`.
+
+A total recursive selector may choose a maximizing pair and then the larger
+`Y` inside that pair.  The actual-π assertion that the selected `M_j` stays
+positive at every level is still a `conjecture`, stronger than FMR and not a
+source of signed arithmetic.  Even if proved, one ray still needs the separate
+word-coverage step recorded in `VERIFIED_CONSUMER_PATH.md`.
+
+There is also a route-specific Machin transfer `proof sketch`.  With
+`rho=2/125`, `q=10^K`, the primitive-ray analogue of T169's pointwise phase
+bound gives the uniform digitwise buffers
+
+```text
+E_G(q) = 20*pi*q*(1+10*rho)*rho^K/(1-rho),
+E_D(q) = 200*pi*q*rho^(q+K+1)/(1-rho).
+```
+
+The clipping map `x |-> max(0,-x)` is one-Lipschitz, so
+`|Y_d-Ytilde_d|<E_G+E_D`.  Therefore a carrier pair with
+`Mtilde_j>E_G+E_D` transfers pair positivity; choosing a carrier digit whose
+`Ytilde_d` is at least the pair average also transfers that same digit.  T169
+supplies only these approximation buffers, not the required carrier sign.
+The primitive-ray adaptation and the displayed load-`<5` specialization are
+not currently machine-checked.
+
 `experiment` (pinned decimal prefix, floating-point replay): at the literal
 natural-diagonal node `(q,A)=(10000,3334)`, the DC1 right side is approximately
 `68531.49962346>0`, while `max_d Y_d` is approximately `316729.22974`; the
