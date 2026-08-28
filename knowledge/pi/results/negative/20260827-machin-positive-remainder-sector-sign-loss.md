@@ -104,6 +104,39 @@ larger window `0<epsilon<1/(5*10^(H-1))`; no global top-frequency argument is
 needed.  This sharpens the mechanism-specific window but does not add a sign
 at the distinguished carrier.
 
+## Preferred-parity route fails on every legal first child of the seed
+
+For `Y_d=D_d-(-G_d)_+`, let `M_even` and `M_odd` be its two five-digit parity
+means.  An outward-interval replay (`experiment`) gives the exact FMR digit
+set `{0,1,2,3,4,8,9}` at the certified positive seed `(1000,334,1000)`.  At
+all seven legally reached `q=10000` nodes the larger complete parity mean has
+the following rigorous upper bound:
+
+```text
+A= 334: -23409.1820      A=1334: -79591.9433
+A=2334: -61176.5888      A=3334:  -8424.3011
+A=4334: -51209.6093      A=8334: -20813.5090
+A=9334: -39062.4354
+```
+
+The deterministic transfer-shadow lemma is immediate.  If actual and carrier
+arrays obey `|D_d-D_d°|<=E_D` and `|G_d-G_d°|<=E_G`, the one-Lipschitz map
+`x |-> (-x)_+` gives
+
+```text
+|Y_d-Y_d°| <= E_D+E_G,
+max_p M_p° < E_D+E_G-8424.
+```
+
+Thus the stronger p-free preferred-parity premise is impossible at the next
+recursion from this seed; no derivative estimate or sharper T169 constant can
+reverse the actual endpoint's sign.  This closes only the parity average.
+Literal FMR survives uniquely at `d=5` for `A=1334`, so full multi-sector
+same-child transport remains open.  The reduction is a `proof sketch`, the
+finite leaves are an `experiment`, and the primitive-ray digitwise transfer
+adaptation is not a new Lean declaration.  Corrected reproducibility sources
+are in [`audit/computational/t189-pfree-parity`](../../../../audit/computational/t189-pfree-parity/README.md).
+
 There is a mechanism-specific strengthening for arguments using only
 branch-invariant Machin-logarithm data.  With
 

@@ -78,19 +78,22 @@ stronger reproduced `experiment` at the legally reached positive node
 predecessor sector `r=5` is negative. Thus a viable reduction must retain a
 nontrivial, correctly oriented sector-5 component.
 
-The strongest exact surviving rung is an independently audited `proof sketch`:
 T179's sector 5 collapses, by anti-periodicity, to an ordinary odd-frequency
-correlation on the decimal orbit of `5π`. A deterministic private-prime depth
-for the principal Machin carrier makes the two inherited-deficit-corrected
-parity margins provably unequal for every target, so it supplies a noncircular
-tie-free parity selector. It does **not** prove that the larger margin is
-positive or exceeds the T169 transfer error. An ordered distinguished-embedding
-audit further shows that inserting the private terminal term changes the
-complete margin by less than `10^(-82q-7s)` times the fresh T169 budget
-(`proof sketch`); this is a conditional perturbation separator, not absolute
-closure. Essentially all positivity must therefore come from the `p`-free
-carrier. The first quantitative gap is `C+|q*R5-deltaH|>0`, where `C` is the
-common zero-sector-minus-deficit term.
+correlation on the decimal orbit of `5π` (`proof sketch`).  Its correctly
+normalized real kernel has `z=pi*t` and opposite, nonvanishing sign chambers
+on the same side of the target, so one-bit target orientation cannot sign it.
+A deterministic private-prime depth makes the two inherited-deficit-corrected
+parity margins unequal, but supplies essentially no transfer-scale magnitude.
+
+The parity route is now closed from the certified `(1000,334)` seed.  An
+independently reproduced outward-interval `experiment` finds root FMR digits
+`{0,1,2,3,4,8,9}` and, at all seven legally reached `q=10000` nodes,
+`max(M_even,M_odd)<-8424`.  By the one-Lipschitz clipping transfer lemma, no
+p-free carrier inside the digitwise `E_D,E_G` buffers can satisfy the stronger
+preferred-parity premise there.  This does **not** close literal FMR: at
+`(10000,1334)`, `d=5` remains the unique witness.  The live rung must therefore
+retain the complete literal multi-sector vector and explain its same-child
+alignment, rather than proving `C+|q*R5-deltaH|>0` for a parity average.
 Details and claim boundaries are in
 [`20260828-sector5-odd-frequency-machin-direction.md`](knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md).
 

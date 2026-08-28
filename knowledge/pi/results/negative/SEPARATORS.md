@@ -5,7 +5,7 @@ Use at most three relevant ones per prompt.
 
 1. [Direct R1 literature boundary](20260827-direct-r1-literature-boundary.md): known fixed-α lacunary theory does not select the needed actual-π signed event.
 2. [Pair/parity-neutral boundary](20260827-pair-r1-laurent-transcendence-boundary.md): formal nonzero structure gives no evaluated lower bound; actual positive π nodes refute uniform Pair/DC1 and, experimentally, every sector-5-annihilating convex mask while literal FMR survives.
-3. [Machin sign loss](20260827-machin-positive-remainder-sector-sign-loss.md): a positive carrier error does not choose the target-signed sector.
+3. [Machin/parity sign loss](20260827-machin-positive-remainder-sector-sign-loss.md): positive carrier error does not choose the target-signed sector, and all seven legal children of the certified seed experimentally refute the p-free preferred-parity premise at the next step.
 4. [Predecessor-sector finite separators](20260827-predecessor-sector-finite-separators.md): paired amplitude and capital information do not align R2.
 5. [Topological orbit-spread separator](20260827-topological-orbit-spread-signed-sector-separator.md): pointwise spread does not control signed frequency or alignment.
 6. [`Xi_3` fixed-point separator](20260827-xi3-all-three-fixed-point-separator.md): recurrence, non-hitting, and transcendence alone do not force the literal signed correlation.

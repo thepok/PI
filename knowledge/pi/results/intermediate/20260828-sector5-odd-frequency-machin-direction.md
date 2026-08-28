@@ -248,6 +248,38 @@ cannot rescue it. It does not exclude tipping an already
 versions of the DFT/margin algebra are proof-sketch generalizations, not new
 Lean declarations.
 
+## Preferred-parity closure from the certified seed
+
+An independently rebuilt outward-interval `experiment` exhausts the seven
+literal FMR children of `(q,A,N)=(1000,334,1000)`.  The root witness set is
+
+```text
+{0,1,2,3,4,8,9}.
+```
+
+At every reached node `(10000,334+1000*d,10000)`, both complete parity means
+of `Y_d=D_d-(-G_d)_+` are negative, with the uniform strict bound
+
+```text
+max(M_even,M_odd) < -8424.30118897787522947.
+```
+
+For actual and carrier arrays within digitwise buffers `E_D,E_G`, clipping is
+one-Lipschitz, hence `|Y_d-Y_d°|<=E_D+E_G` and the same bound survives parity
+averaging.  Therefore every such carrier satisfies
+
+```text
+max(M_even°,M_odd°) < E_D+E_G-8424,
+```
+
+so the p-free preferred-parity premise is false at the very next recursion
+from this seed.  This deterministic reduction is a `proof sketch`; the finite
+interval leaves remain an `experiment`.  The corrected reproducer and exact
+claim boundary are in
+[`audit/computational/t189-pfree-parity`](../../../../audit/computational/t189-pfree-parity/README.md).
+It does not close literal FMR: at the reached node `A=1334`, `d=5` is still the
+unique literal witness.
+
 ## First fatal line and next rung
 
 The moving Machin correction is exponentially tiny in the fresh block. The
@@ -262,16 +294,13 @@ the needed ordered comparison
 with transfer room to actual pi.
 
 Moreover, the private coordinate contributes less than
-`10^(-82q-7s)*E_D`; essentially the entire positive margin must already come
-from the `p`-free carrier. The remaining live Machin question is therefore a
-target-specific phase-chamber or derivative-sign theorem for that complete
-`p`-free margin, not a stronger norm/nonvanishing estimate for the private
-prime.
-The strongest live question is therefore:
+`10^(-82q-7s)*E_D`; it cannot repair the finite parity failure above.  The
+preferred-parity phase-chamber question is closed from this seed, not merely
+unsigned.  The strongest live question is therefore:
 
-> Can the sector-5 odd-frequency `5*pi` block, on a principal moving Machin
-> carrier and a parity-biased same-child mask, be signed along a noncircular
-> deterministic path while absorbing that child's inherited deficit?
+> Can a π-specific theorem sign and transport the complete literal
+> multi-sector `Y_d`, retaining the unique favorable child and its inherited
+> deficit, without averaging it with the four losing digits of its parity?
 
 The correct consumer order is
 
