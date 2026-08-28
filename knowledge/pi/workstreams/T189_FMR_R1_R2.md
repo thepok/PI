@@ -125,22 +125,56 @@ cross-horizon phases.  The coordinatewise overlap correction also retains
 the literal same-digit signs; replacing it by an unsigned norm bound is not
 equivalent.
 
-At the legally reached actual-π node `(q,A,N)=(10000,1334,10000)`, an
-independently rebuilt 100050-digit Chudnovsky certificate and the existing
-strict outward-interval replay give
+There is an exact horizon-energy normalization.  Let `u` and `v` be the old
+and final zero-mean nonzero-sector digit vectors, `x=v-u`, let `delta` be the
+zero-sector horizon increment, put `theta=21/(10q)`, and
+`kappa=R(q)+delta`.  Then
 
 ```text
-<D,F>              in [89265049882.3045, 89265501752.1400],
-sum_d D_d^-*F_d^-  in [86522047117.5054, 86522239004.5691],
-E(D,F)             in [2743002764.7990, 2743262747.5709].
+G_d = q*(R(q)+u_d) + 21/10,
+D_d = q*(delta+x_d-theta),
+F_d = q*(kappa+v_d),
+
+E/q^2 = 10*(delta-theta)*kappa + <x,v> - L,
+L = sum_d (theta-delta-x_d)_+ * (-kappa-v_d)_+,
+<x,v> = ||x||^2 + <x,u>.
 ```
 
-Here `d=5` is the unique common-positive coordinate and `d=8` the unique
-opposite-sign coordinate.  This proves finite non-vacuity at a node where
-Pair/DC1, adjacent-pair, parity, and one-block-deleting convex certificates
-fail.  It does **not** supply the missing actual-π theorem.  The new arithmetic
-target is a pathwise lower bound `E(D,F)>0` at recursively reached growing
-horizons, sourced by signed cross-sector alignment and control of the
+The potential defects cancel exactly in `F`.  This suggests a genuinely
+stronger two-rung arithmetic target: for one fixed `0<gamma<1`, prove
+
+```text
+<x,u> >= -(1-gamma)*||x||^2,
+L < 10*(delta-theta)*kappa + gamma*||x||^2.
+```
+
+Together these imply `E>0`.  Decimal shifting proves the displayed identities
+but gives no sign for either inequality; their source must still be
+distinguished actual-π arithmetic.
+
+An independently rebuilt 100050-digit Chudnovsky certificate and the existing
+strict outward-interval replay show that `E` loses none of the eight currently
+certified legal nodes:
+
+```text
+(q,A)          rigorous lower bound for E       exact FMR digits
+(1000,334)       5889767251.412295664624         0,1,2,3,4,8,9
+(10000,334)    181247869486.759928253457         1
+(10000,1334)     2743002764.799077303771         5
+(10000,2334)    36670125401.084868195691         2,6
+(10000,3334)   126068418043.357458948261         5,6,7,8
+(10000,4334)    26406342086.320378967932         3
+(10000,8334)   169502027654.068868458087         2,3,5
+(10000,9334)    52767566481.183813189676         1,2,6
+```
+
+At `(10000,1334)`, where the strongest earlier low-dimensional certificates
+fail, `d=5` is the unique common-positive coordinate, `d=8` the unique
+opposite-sign coordinate, and the full interval is
+`E in [2743002764.7990,2743262747.5709]`.  The table is a finite
+`experiment`; it does **not** supply the missing actual-π theorem.  The new
+arithmetic target is a pathwise lower bound `E(D,F)>0` at recursively reached
+growing horizons, sourced by signed cross-sector alignment and control of the
 opposite-sign leakage.
 
 An independently reproduced directed-interval `experiment` separates both

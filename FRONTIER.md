@@ -110,11 +110,13 @@ E(D,F)=sum_d D_d*F_d-sum_d D_d^-*F_d^-
 ```
 
 is strictly positive only if one literal digit has both `D_d>0` and `F_d>0`.
-Its bilinear term has an exact five-block Parseval expansion, and a strict
-outward-interval `experiment` gives `E>2.7430*10^9` at the hard reached node
-`(10000,1334)`.  This is a viable deterministic rung, not new π arithmetic:
-the open input is now a pathwise actual-π lower bound for `E` that controls
-opposite-sign leakage.  Exact scope and normalization are recorded in
+Its bilinear term has an exact five-block Parseval expansion, and strict
+outward-interval `experiments` give `E>0` at the certified root and all seven
+legal first-generation nodes, including `E>2.7430*10^9` at the hard reached
+node `(10000,1334)`.  This is a viable deterministic rung, not new π
+arithmetic: the open input is now a pathwise actual-π lower bound for `E` that
+controls cross-block alignment and opposite-sign leakage.  Exact scope,
+normalization, and finite bounds are recorded in
 [`T189_FMR_R1_R2.md`](knowledge/pi/workstreams/T189_FMR_R1_R2.md).
 
 ## What remains after horizon transport
