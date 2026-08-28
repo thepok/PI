@@ -73,9 +73,23 @@ energy, rational shadows, and finite prefix replay do not supply it.
 Uniform Pair/DC1 positivity is already falsified at the positive π node
 `(q,A)=(1000,689)`: all five Pair margins and the DC1 premise are negative,
 while literal FMR holds strongly and uniquely at `d=8` (`experiment`). The
-remaining route must therefore control the complete multi-sector correlation,
-or a genuinely smaller statistic that preserves its relative phases and the
-same digit. Exact quantifiers and admission tests are in
+stronger reproduced `experiment` at the legally reached positive node
+`(10000,1334)` has unique FMR at `d=5` while every convex mask annihilating
+predecessor sector `r=5` is negative. Thus a viable reduction must retain a
+nontrivial, correctly oriented sector-5 component.
+
+The strongest exact surviving rung is a `proof sketch`: T179's sector 5
+collapses, by anti-periodicity, to an ordinary odd-frequency correlation on
+the decimal orbit of `5π`. Principal Machin approximants also provide a strict
+one-sided displacement and a conditional Taylor lower bound. What remains
+unproved is the sign of the rational carrier's fresh odd-frequency score; the
+Machin correction is exponentially tiny there. Details and claim boundaries
+are in
+[`20260828-sector5-odd-frequency-machin-direction.md`](knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md).
+
+The remaining route must control this or the complete multi-sector
+correlation while preserving relative phases and the same digit. Exact
+quantifiers and admission tests are in
 [`FIRST_OPEN_PI_LEMMA.md`](knowledge/pi/workstreams/FIRST_OPEN_PI_LEMMA.md).
 
 ## What remains after horizon transport

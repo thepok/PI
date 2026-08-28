@@ -131,6 +131,30 @@ universal actual-pi positivity of the DC1 premise.  It does not refute FMR,
 the deterministic DC1 inequality, or a pathwise theorem that constructs
 favorable nodes from independent arithmetic.
 
+### Parity-neutral convex separator
+
+A later independent high-precision `experiment` follows the legal root edge
+`(1000,334) --d=1--> (10000,1334)`. At the reached positive node, `d=5` is
+the unique FMR witness, all ten cyclic adjacent averages of `Y_d` are
+negative, and every convex mask annihilating predecessor sector `r=5` is
+negative. In detail, the reproduced extrema are
+
+```text
+max_(d even) Y_d = -93553.778220620540...
+max_(d odd)  Y_d =  67157.356680355889...
+```
+
+so a parity-balanced mask is at most `-13198.210770132325...`. Any positive
+convex mask at this node must retain sector 5 with
+`mu5=sum_d w_d*(-1)^d < -0.164247620779...`.
+
+The signs were reproduced by independent 60-decimal, double, and extended
+precision implementations. The original Pro memo's claimed sub-`10^-6`
+directed intervals were not reproduced and are rejected; this remains an
+`experiment`, not a certificate. The compact replay and the surviving exact
+sector-5 direction are recorded in
+[`20260828-sector5-odd-frequency-machin-direction.md`](../intermediate/20260828-sector5-odd-frequency-machin-direction.md).
+
 A later antipodal Fejér-collapse attempt does not apply to this carrier. It
 replaces the literal frequency-dependent T142 boundary coefficient by a
 triangular surrogate, and its original version also used the wrong center and
