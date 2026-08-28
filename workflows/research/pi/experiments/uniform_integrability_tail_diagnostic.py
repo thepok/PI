@@ -13,7 +13,7 @@ This program counts those words on a finite consecutive block and reports:
       (1/L) * sum_{a : n(a) > M L / q} n(a).
 
 The tail mass is the finite observable occurring in
-knowledge/pi/results/intermediate/20260824-uniform-integrability-haar-frontier.md.
+knowledge/pi/archive/results/intermediate/20260824-uniform-integrability-haar-frontier.md.
 All threshold comparisons use
 integer arithmetic.  The output is a reproducible finite certificate, not a
 proof of decimal richness or of the asymptotic uniform-integrability premise.

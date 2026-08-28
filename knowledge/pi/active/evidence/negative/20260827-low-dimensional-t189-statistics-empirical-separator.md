@@ -2,8 +2,9 @@
 
 Date: 2026-08-27 UTC
 
-Claim label: `experiment`. This is a bounded empirical separator, not a proof
-about all possible pi-specific statistics and not a fixed-pi sign theorem.
+Claim labels: `experiment` for the finite kernel tests and `proof sketch` for
+the exact marginal-alignment separator below. Neither is a fixed-pi sign
+theorem.
 
 ## Actual source of the finite positive block
 
@@ -134,13 +135,45 @@ The signs and decimal log-overshoots of the first omitted Machin (`1/5` and
 below `0.027`; joint pointwise and 100-step-block models had no held-out
 advantage over controls or the majority baseline.
 
+## Exact marginal-alignment separator
+
+Even complete separate knowledge of the fresh margins `D_d` and old gains
+`G_d` cannot force the shared witness required by FMR. Consider
+
+```text
+D     = ( 2, 2, 2, 2, 2, -1,-1,-1,-1,-1),
+G_bad = (-2,-2,-2,-2,-2,  3, 3, 3, 3, 3).
+```
+
+For the five digits with `D_d>0`, one has `G_d+D_d=0`; the other five have
+`D_d<0`. Thus no FMR witness exists. Now permute the same `G` multiset:
+
+```text
+G_good = (3,3,3,3,3, -2,-2,-2,-2,-2).
+```
+
+The first five digits are then FMR witnesses. The two examples have exactly
+the same full marginal distributions of `D` and `G` (and both marginal means
+are positive), but opposite FMR outcomes. Therefore no premise determined
+only by separate symmetric statistics or moments of `D` and `G` can imply
+FMR. A successful aggregate route must retain joint digit alignment, for
+example through the clipped coordinate
+
+```text
+Y_d = min(D_d, D_d+G_d).
+```
+
+This finite separator is exact; it makes no assertion that arbitrary vectors
+`D,G` arise from the pi orbit.
+
 ## Scope
 
 The bounded evidence rejects the tested **low-dimensional** explanations of
-the finite positive Xi block. It does not reject a full numerator state, a
-high-dimensional carrier coupling, or a genuinely new pi-specific invariant.
-It does show that a candidate based only on counts, a few suffix cells,
-residue clocks, or special-function remainder clocks should not be promoted
-to a lemma ladder. The strongest surviving statistic is the fully weighted
-local `a334` contribution itself, which is already close to evaluation of the
-original kernel and has no independent pi-specific source.
+the finite positive Xi block, while the exact construction rejects every
+separate-marginal alignment argument. Neither rejects a full numerator state,
+a joint high-dimensional carrier coupling, or a genuinely new pi-specific
+invariant. A candidate based only on counts, a few suffix cells, separate
+moments, residue clocks, or special-function remainder clocks should not be
+promoted to a lemma ladder. The strongest surviving statistic is the fully
+weighted local `a334` contribution itself, which is already close to
+evaluation of the original kernel and has no independent pi-specific source.
