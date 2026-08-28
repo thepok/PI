@@ -57,8 +57,12 @@ prefixes as that source without a new exact implication.
 
 ## Operation
 
-- Keep up to three useful Pro calls active: ladder designer, rung prover, and
-  adversary for the same shared rung.
+- Keep up to three useful Pro calls active. Two work on the signed frontier:
+  one designs/proves the shortest ladder and one attacks or repairs its
+  strongest open rung. The third is a methodologically independent
+  fundamental-alternative slot outside T179/T189/FMR. It must seek a genuinely
+  different actual-pi input and short V1 path, not rename hitting, entropy,
+  density, generic dynamics, a rational shadow, or the current signed ladder.
 - Never cancel active Pro. Resume interrupted saved calls without duplicate
   submission. Maximum five follow-ups per conversation, only with audited
   momentum.
