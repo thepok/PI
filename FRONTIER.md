@@ -78,13 +78,15 @@ stronger reproduced `experiment` at the legally reached positive node
 predecessor sector `r=5` is negative. Thus a viable reduction must retain a
 nontrivial, correctly oriented sector-5 component.
 
-The strongest exact surviving rung is a `proof sketch`: T179's sector 5
-collapses, by anti-periodicity, to an ordinary odd-frequency correlation on
-the decimal orbit of `5π`. Principal Machin approximants also provide a strict
-one-sided displacement and a conditional Taylor lower bound. What remains
-unproved is the sign of the rational carrier's fresh odd-frequency score; the
-Machin correction is exponentially tiny there. Details and claim boundaries
-are in
+The strongest exact surviving rung is an independently audited `proof sketch`:
+T179's sector 5 collapses, by anti-periodicity, to an ordinary odd-frequency
+correlation on the decimal orbit of `5π`. A deterministic private-prime depth
+for the principal Machin carrier makes the two inherited-deficit-corrected
+parity margins provably unequal for every target, so it supplies a noncircular
+tie-free parity selector. It does **not** prove that the larger margin is
+positive or exceeds the T169 transfer error. The first quantitative gap is
+`C+|q*R5-deltaH|>0`, where `C` is the common zero-sector-minus-deficit term.
+Details and claim boundaries are in
 [`20260828-sector5-odd-frequency-machin-direction.md`](knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md).
 
 The remaining route must control this or the complete multi-sector

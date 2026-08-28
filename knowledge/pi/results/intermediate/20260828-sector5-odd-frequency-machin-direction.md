@@ -3,9 +3,10 @@
 Date: 2026-08-28 UTC
 
 Claim boundary: the T169/T179/T189 inputs are `machine-checked`. The sector-5
-collapse, sharp Machin bracket, and Taylor implication below are `proof
-sketch`. The node computation is an independently reproduced `experiment`,
-not a directed-interval certificate. No unbounded transport theorem is proved.
+collapse, sharp Machin bracket, Taylor implication, and private-prime parity
+separation below are independently audited `proof sketch`. The node
+computation is an independently reproduced `experiment`, not a
+directed-interval certificate. No unbounded transport theorem is proved.
 
 ## Why sector 5 must remain live
 
@@ -140,10 +141,72 @@ For convex digit weights, lower bounds derived this way imply FMR when
 lower(D_w) - sum_d w_d*(-lower(G_d))_+ > 0.
 ```
 
+## Private-prime parity separation
+
+Uniform averaging over even or odd children annihilates every predecessor
+sector except `r=0,5`. Let `R5` be the real fresh sector-5 block, let
+`h_d=(-G_d)_+`, and let `H_p` average `h_d` over parity `p`. Then the two
+deficit-corrected parity margins satisfy exactly
+
+```text
+M_p = q*(Delta0+(-1)^p*R5) - 21/10 - H_p,
+max(M_0,M_1) = C + |q*R5-deltaH|,
+C = q*Delta0 - 21/10 - (H_0+H_1)/2,
+deltaH = (H_0-H_1)/2.
+```
+
+For the rational moving carrier `10^n*m_(n+s)`, fix `N<H`, put
+`K=H-1+s`, and choose `p=4K+5` prime with `p>max(239,40q)`. The final
+`239`-branch term of `m_K` has the private denominator `p*239^p`; every
+earlier carrier phase and every target/coefficient root of unity has conductor
+coprime to `p`. The terminal sector-5 contribution is therefore
+
+```text
+sum_(h in {5,15,...,20q-5}) b_h*eta^h,
+```
+
+where `eta` is a primitive `p`-th root and the top coefficient is nonzero.
+After adding the conjugate and shifting by `20q-5`, a hypothetical
+`q*R5-deltaH=0` would give a nonzero polynomial over the `p`-free cyclotomic
+field of degree at most `40q-10<p-1` vanishing at `eta`, impossible. Hence
+
+```text
+q*R5-deltaH != 0,
+M_0 != M_1.
+```
+
+The depth can be selected deterministically: if `B` dominates `239`, `40q`,
+and `4H+4k+5`, any least prime divisor of `(2*B!)^2+1` is greater than `B`
+and congruent to `1 mod 4`, so it defines a valid `K` and `s`. This selector
+is target-independent and tie-free, but computational feasibility is
+irrelevant to the theorem.
+
+The exact sector-5 kernel used in this proof also has the closed form
+
+```text
+psi_q(t) = sin(qz)^4*cos(z)/(2q^2*sin(z)^4)
+           * (100*a_q-(16*a_q+2)*sin(z)^2),
+z=2*pi*t,  a_q=1-cos(pi/(10q)),
+```
+
+extended through removable singularities by continuity. This makes its sign
+changes explicit; the positive Machin displacement alone cannot orient it.
+T169 transfers the carrier sector to actual pi with an exponentially small
+explicit error, but bare cyclotomic nonvanishing gives no lower bound relative
+to that error.
+
 ## First fatal line and next rung
 
-The moving Machin correction is exponentially tiny in the fresh block. No
-theorem currently signs the rational carrier's fresh odd-frequency score.
+The moving Machin correction is exponentially tiny in the fresh block. The
+private-prime theorem selects one parity without a tie, but it proves only
+`|q*R5-deltaH|>0`; both parity margins may remain negative. No theorem proves
+the needed ordered comparison
+
+```text
+|q*R5-deltaH| > -C
+```
+
+with transfer room to actual pi.
 The strongest live question is therefore:
 
 > Can the sector-5 odd-frequency `5*pi` block, on a principal moving Machin
