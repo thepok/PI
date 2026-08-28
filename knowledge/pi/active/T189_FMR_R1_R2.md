@@ -65,6 +65,22 @@ retains the inherited deficit direction and only one fresh paired sector,
 instead of separating R1 and R2. This is deterministic consumer algebra, not
 π arithmetic: no theorem controls the displayed gauge for actual π.
 
+The loss from discarding the direction of `hhat_1` is exactly sharp. Writing
+`Dbar=(1/10) sum_d D_d` and `Dhat_1=(q/2)*P_1`, the reverse triangle inequality
+gives the weaker sufficient condition
+
+```text
+Dbar + gamma_10(Dhat_1) > 2*hbar.                 (DC1-unsigned)
+```
+
+The factor `2` cannot be reduced using only `Dbar`, `Dhat_1`, and `hbar`.
+For `H>0`, `t>=H`, concentrate `h_j=10H` on one digit and
+`u_((j+5) mod 10)=10(t-H)` on its antipode, then take `G=-h` and `D=h-u`.  Here
+`Y=D-h=-u<=0`, so FMR fails, while
+`Dbar+gamma_10(Dhat_1)=2H=2*hbar`.  Thus an unsigned Pair-R1 estimate cannot
+be upgraded to same-digit FMR by a better universal triangle inequality; a
+fresh actual-π orientation or independently stronger deficit bound is required.
+
 `experiment` (pinned decimal prefix, floating-point replay): at the literal
 natural-diagonal node `(q,A)=(10000,3334)`, the DC1 right side is approximately
 `68531.49962346>0`, while `max_d Y_d` is approximately `316729.22974`; the
