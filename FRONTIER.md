@@ -118,6 +118,10 @@ arithmetic: the open input is now a pathwise actual-π lower bound for `E` that
 controls cross-block alignment and opposite-sign leakage.  Exact scope,
 normalization, and finite bounds are recorded in
 [`T189_FMR_R1_R2.md`](knowledge/pi/workstreams/T189_FMR_R1_R2.md).
+This premise is genuinely stronger than FMR: a directed-interval periodic
+decimal-orbit separator at `q=1000` has positive parent and unique FMR digit
+but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
+T189 bookkeeping alone.
 
 ## What remains after horizon transport
 

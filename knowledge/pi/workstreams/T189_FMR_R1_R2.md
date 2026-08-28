@@ -177,6 +177,34 @@ arithmetic target is a pathwise lower bound `E(D,F)>0` at recursively reached
 growing horizons, sourced by signed cross-sector alignment and control of the
 opposite-sign leakage.
 
+That source cannot be generic decimal-orbit bookkeeping.  Let `w=uv`, where
+
+```text
+u = first 1000 digits of (6666 0^64)^infinity,
+v = first 9000 digits of (2666 0^48)^infinity,
+alpha = 0.overline(w).
+```
+
+The word has SHA-256
+`8e896b260071cfcde983fe89d509cfbf007ef6a0d25d773bf72d3545c346496c`.
+An independent 100-decimal directed-interval replay of the exact T139 formulas
+at the valid replacement-orbit node `(q,A,N,H)=(1000,666,1000,10000)` gives
+
+```text
+B_alpha(1000,666,1000) > 32281.8468558256,
+exact FMR digits = {6},
+E(D,F) in [-3080140823.433565, -3080140823.433564].
+```
+
+Here `D_0<0<F_0`, `D_2>0>F_2`, and `D_6,F_6>0`; the first two opposite-sign
+products overwhelm the common-positive product.  Thus positive parent,
+decimal recurrence, and even literal FMR do not force `E>0` on a genuine
+decimal orbit.  A smaller actual-π node `(q,A,N,H)=(10,5,10,100)` likewise has
+positive parent, exact FMR set `{2}`, and directed-interval `E<-3392.514`,
+though it lies below the active `k>=3` frontier.  These are finite
+`experiments`, not Lean theorems.  They refute only a universal bookkeeping
+argument; a π-specific `k>=3` path theorem remains open.
+
 An independently reproduced directed-interval `experiment` separates both
 uniform low-sector closures at the actual-π node `(q,A)=(1000,689)`.  It uses
 the machine-checked T173 decimal cylinder and the T128/T139 score identity;
