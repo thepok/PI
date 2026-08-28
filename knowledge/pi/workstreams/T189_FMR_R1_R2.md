@@ -81,6 +81,68 @@ For `H>0`, `t>=H`, concentrate `h_j=10H` on one digit and
 be upgraded to same-digit FMR by a better universal triangle inequality; a
 fresh actual-π orientation or independently stronger deficit bound is required.
 
+## Corrected full-sector cross-energy rung
+
+Claim status: deterministic algebra is a `proof sketch`; the hard-node check
+below is an outward-interval `experiment`.
+
+Put `F_d=G_d+D_d`, write `x^- = max(0,-x)`, and define
+
+```text
+E(D,F) = sum_d D_d*F_d - sum_d D_d^-*F_d^-.
+```
+
+Coordinatewise sign decomposition gives exactly
+
+```text
+E(D,F) = sum_d D_d^+*F_d^+
+       - sum_d (D_d^+*F_d^- + D_d^-*F_d^+).
+```
+
+Therefore `E(D,F)>0` implies literal same-child FMR.  It is strictly
+sufficient, not equivalent: for example, `D=(1,1,0,...)` and
+`F=(1,-2,0,...)` have an FMR digit but `E=-1`.  The coefficient one on the
+common-negative correction is the smallest universally safe coefficient over
+unrestricted real vectors, since `D=F=(-1,0,...)` defeats every smaller one.
+No corresponding sharpness claim is made inside the narrower actual T189
+state space.
+
+The bilinear part has the exact energy-drift identity
+
+```text
+<D,F> = (||D||_2^2 + ||F||_2^2 - ||G||_2^2)/2.
+```
+
+With the unnormalized ten-point digit DFT, Parseval gives
+
+```text
+<D,F> = (1/10) * (Dhat_0*Fhat_0 + Dhat_5*Fhat_5
+          + 2*sum_(r=1)^4 Re(Dhat_r*conj(Fhat_r))).
+```
+
+Thus the scalar retains all five real character blocks and their relative
+cross-horizon phases.  The coordinatewise overlap correction also retains
+the literal same-digit signs; replacing it by an unsigned norm bound is not
+equivalent.
+
+At the legally reached actual-π node `(q,A,N)=(10000,1334,10000)`, an
+independently rebuilt 100050-digit Chudnovsky certificate and the existing
+strict outward-interval replay give
+
+```text
+<D,F>              in [89265049882.3045, 89265501752.1400],
+sum_d D_d^-*F_d^-  in [86522047117.5054, 86522239004.5691],
+E(D,F)             in [2743002764.7990, 2743262747.5709].
+```
+
+Here `d=5` is the unique common-positive coordinate and `d=8` the unique
+opposite-sign coordinate.  This proves finite non-vacuity at a node where
+Pair/DC1, adjacent-pair, parity, and one-block-deleting convex certificates
+fail.  It does **not** supply the missing actual-π theorem.  The new arithmetic
+target is a pathwise lower bound `E(D,F)>0` at recursively reached growing
+horizons, sourced by signed cross-sector alignment and control of the
+opposite-sign leakage.
+
 An independently reproduced directed-interval `experiment` separates both
 uniform low-sector closures at the actual-π node `(q,A)=(1000,689)`.  It uses
 the machine-checked T173 decimal cylinder and the T128/T139 score identity;

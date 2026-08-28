@@ -102,6 +102,21 @@ correlation while preserving relative phases and the same digit. Exact
 quantifiers and admission tests are in
 [`FIRST_OPEN_PI_LEMMA.md`](knowledge/pi/workstreams/FIRST_OPEN_PI_LEMMA.md).
 
+A newly audited full-sector candidate packages the required alignment without
+discarding character blocks.  For `F=G+D`, the corrected cross-energy
+
+```text
+E(D,F)=sum_d D_d*F_d-sum_d D_d^-*F_d^-
+```
+
+is strictly positive only if one literal digit has both `D_d>0` and `F_d>0`.
+Its bilinear term has an exact five-block Parseval expansion, and a strict
+outward-interval `experiment` gives `E>2.7430*10^9` at the hard reached node
+`(10000,1334)`.  This is a viable deterministic rung, not new π arithmetic:
+the open input is now a pathwise actual-π lower bound for `E` that controls
+opposite-sign leakage.  Exact scope and normalization are recorded in
+[`T189_FMR_R1_R2.md`](knowledge/pi/workstreams/T189_FMR_R1_R2.md).
+
 ## What remains after horizon transport
 
 One coherent ray covers only factors of its selector word. V1 still requires
