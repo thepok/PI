@@ -126,3 +126,70 @@ max_(d<10) min(L_p(D_d),L_p(F_d)) > 0
 
 along a recursively constructed path.  More denominator, nonvanishing, or
 carrier-accuracy work alone does not advance T189.
+
+## Recurrence--transfer incompatibility for `R=2`
+
+A later independent audit closes the most natural all-scale prime rule.  For
+`q=10^k`, let
+
+```text
+p(q) = least prime divisor of cyclotomicPolynomial(q,10).
+```
+
+Since this cyclotomic value is `1 mod 10`, `p(q)` does not divide `q`; hence
+`ord_(p(q))(10)=q`, `p(q)=1 mod 4`, and `p(q)<=10^q-1`.  The private phase
+therefore repeats after exactly `q` decimal shifts.  The corrected `p`-free
+factor remains scale dependent and carries the entire unknown real sign.
+
+More strongly, as a `proof sketch`, for every `q>=10`, target `A`, child `d`,
+and every `R=2` endpoint prime satisfying `p<=10^q-1`,
+
+```text
+L_p(D_d) < 0.
+```
+
+The proof is uniform.  The complete fresh packet has coefficient load `<7`
+but contains the unique terminal mode
+
+```text
+frequency m_*=(2*(10q)-1)*10^(10q-1),
+coefficient magnitude 1/(2*(10q)).
+```
+
+Thus `|D_d|<631*q^2` and the first derivative has the corresponding linear
+frequency bound, while the absolute curvature load is
+`>180*q*10^(20q-2)`.  The carrier width obeys
+`u_p>19*10^(-9q)`.  Substitution into the audited Taylor functional leaves a
+negative quadratic term larger than both possible positive terms.  This is a
+failure of the global `R=2` certificate, not a proof that the exact carrier
+scores lack a common-positive child.
+
+There is a useful exact recurrence consumer.  Put
+
+```text
+P=B(q,A,q),
+b_d=B(10q,A+dq,q),
+R_d=B(10q,A+dq,10q)-10*b_d.
+```
+
+Then
+
+```text
+G_d=b_d-P,
+D_d=9*b_d+R_d,
+F_d=10*b_d+R_d-P.
+```
+
+Hence `P>0`, `G_d>=0`, and `R_d>=0` imply `D_d,F_d>=9P>0`.  A decimal
+replacement orbit whose complete period divides `q` has `R_d=0`, so the
+orbit-parametric version of the T172 coefficient argument gives quantitative
+regeneration.  This is only a `proof sketch`: the current Lean T172 theorem is
+specialized to `piOrbit`, and the periodic theorem is replacement-stable, not
+π-specific progress.  The recorded periodic separator also shows that a
+generic retaining child can instead have `R_d<-9P`.
+
+Therefore the recurrence-matched rule and, more generally, all small-prime
+`R=2` Taylor-cone proofs are closed.  Large primes, higher correction order,
+and phase-resolved packet-level integral arguments remain open.  Reopening
+the endpoint route requires a direct distinguished-real sign for the complete
+target-rotated packet, not private recurrence or the global curvature bound.
