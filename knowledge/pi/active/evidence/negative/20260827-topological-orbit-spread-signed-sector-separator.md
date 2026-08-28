@@ -22,6 +22,48 @@ bound, prescribed target, predecessor label, or signed block estimate.  The
 following decimal-orbit construction shows that this distinction is fatal for
 using those conclusions alone as the T189 arithmetic rung.
 
+## Independent-base density does not collapse to the decimal orbit
+
+A 2026-08-28 PaperSearch audit of
+[Haynes--Munday](https://arxiv.org/abs/1303.1661) gives another exact
+pointwise boundary.  Put `T(x)=10*x mod 1`, `S(x)=16*x mod 1`, and
+
+```text
+X = closure {T^n(pi mod 1) : n>=0}.
+```
+
+Since `10` and `16` are multiplicatively independent and `pi` is irrational,
+their theorem makes `{T^a S^b(pi mod 1):a,b>=0}` dense.  Commutation and
+continuity then prove the exact equivalence
+
+```text
+S(pi mod 1) in X
+  <-> S(X) subset X
+  <-> X is the full circle.
+```
+
+Indeed the first condition makes every `S(T^n pi)=T^n(S pi)` lie in `X`,
+hence gives the second by closure.  The second puts the entire dense mixed
+orbit in `X`.  Thus the tempting assertion `16*pi mod 1 in X` is already
+equivalent here to decimal-orbit density, not a weaker transfer lemma.
+
+Mixed density alone does not even transfer one fixed sign.  Choose an
+irrational `alpha` whose decimal digits all lie in `{0,1}`.  Its pure decimal
+orbit closure lies in `[0,1/9]`, so `-cos(2*pi*x)<0` throughout that closure,
+whereas the mixed `(10,16)` orbit is dense and takes both signs.  For a
+specific `L`-Lipschitz carrier, a mixed value of margin `eta-mu>0` transfers
+only if its point lies within `(eta-mu)/L` of `X`.  For a chronological block
+of length `H`, the Lipschitz cost grows by
+
+```text
+(10^H-1)/9,
+```
+
+so the needed pure-orbit shadow is exponentially fine.  Even that transfers
+only the fresh block; T189 still requires the same return and predecessor
+digit to cover the inherited `G_d` deficit.  Independent-base density
+controls neither quantity.
+
 ## Sparse-packet construction
 
 Write `alpha=0.a_1 a_2 ...` and
@@ -115,4 +157,6 @@ negative waits before every rare excursion.
 Reopen this route only with a quantitative actual-pi theorem giving positive
 lower frequency or bounded gaps for a target-signed good set jointly labelled
 by predecessor digit and suffix.  More omega-limit diameter, infinitude, or
-unquantified excursions cannot feed MR.
+unquantified excursions cannot feed MR.  A mixed-to-decimal route additionally
+needs a coefficient-specific quantitative return jointly aligned with `G_d`;
+global `16`-invariance merely assumes decimal density in disguise.
