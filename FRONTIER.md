@@ -84,8 +84,13 @@ correlation on the decimal orbit of `5π`. A deterministic private-prime depth
 for the principal Machin carrier makes the two inherited-deficit-corrected
 parity margins provably unequal for every target, so it supplies a noncircular
 tie-free parity selector. It does **not** prove that the larger margin is
-positive or exceeds the T169 transfer error. The first quantitative gap is
-`C+|q*R5-deltaH|>0`, where `C` is the common zero-sector-minus-deficit term.
+positive or exceeds the T169 transfer error. An ordered distinguished-embedding
+audit further shows that inserting the private terminal term changes the
+complete margin by less than `10^(-82q-7s)` times the fresh T169 budget
+(`proof sketch`); this is a conditional perturbation separator, not absolute
+closure. Essentially all positivity must therefore come from the `p`-free
+carrier. The first quantitative gap is `C+|q*R5-deltaH|>0`, where `C` is the
+common zero-sector-minus-deficit term.
 Details and claim boundaries are in
 [`20260828-sector5-odd-frequency-machin-direction.md`](knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md).
 

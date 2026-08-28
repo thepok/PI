@@ -195,6 +195,43 @@ T169 transfers the carrier sector to actual pi with an exponentially small
 explicit error, but bare cyclotomic nonvanishing gives no lower bound relative
 to that error.
 
+An ordered audit explains why the private coordinate itself is quantitatively
+inert. For the natural block `N=q`, `H=10q`, write
+`p=4*(H-1+s)+5=40q+4s+1` and delete the terminal `239` term:
+
+```text
+tau_p = 4/(p*239^p),
+r_K   = m_K+tau_p.
+```
+
+Equal-length alternating truncations give the actual-pi-specific identity
+
+```text
+m_K < r_K < pi,
+pi-r_K = 16*integral_0^(1/5) t^(p-1)/(1+t^2) dt
+         -4*integral_0^(1/239) t^(p-1)/(1+t^2) dt,
+(pi-r_K)/(r_K-m_K) > (50/13)*(239/5)^p-1.
+```
+
+Thus inserting the private term moves the carrier slightly **away** from pi.
+Although its isolated `p`-coordinate can have a large angle, the complementary
+`239^p` coordinate cancels it in the distinguished real embedding. If
+`M_tilde` is the complete preferred parity margin and `M_circ` its `p`-deleted
+counterpart, the audited coefficient load and T169 normalization give
+
+```text
+|M_tilde-M_circ| < epsilon_priv,
+epsilon_priv/E_D < 10^(-82q-7s),
+E_D = 20*pi*(10q)*rho^(q+s)/(1-rho),  rho=2/125.
+```
+
+This is a **conditional** separator: if `M_circ` lies at least
+`epsilon_priv` below the full transfer threshold `E_D+E_G`, private insertion
+cannot rescue it. It does not exclude tipping an already
+`epsilon_priv`-close comparator, and it does not sign `M_circ`. The carrier
+versions of the DFT/margin algebra are proof-sketch generalizations, not new
+Lean declarations.
+
 ## First fatal line and next rung
 
 The moving Machin correction is exponentially tiny in the fresh block. The
@@ -207,6 +244,13 @@ the needed ordered comparison
 ```
 
 with transfer room to actual pi.
+
+Moreover, the private coordinate contributes less than
+`10^(-82q-7s)*E_D`; essentially the entire positive margin must already come
+from the `p`-free carrier. The remaining live Machin question is therefore a
+target-specific phase-chamber or derivative-sign theorem for that complete
+`p`-free margin, not a stronger norm/nonvanishing estimate for the private
+prime.
 The strongest live question is therefore:
 
 > Can the sector-5 odd-frequency `5*pi` block, on a principal moving Machin
