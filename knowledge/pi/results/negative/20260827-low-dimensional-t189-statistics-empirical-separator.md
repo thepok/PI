@@ -135,6 +135,33 @@ The signs and decimal log-overshoots of the first omitted Machin (`1/5` and
 below `0.027`; joint pointwise and 100-step-block models had no held-out
 advantage over controls or the majority baseline.
 
+## Literal two-cone sector split fails on the next reached level
+
+At `(q,A,d)=(10000,1334,5)`, the exact T177/T189 sector decomposition has
+`G_5<0`, so the literal margin `Y_5=G_5+D_5` is additive across sectors.
+Numerically (`experiment`), sectors `{0,2,6}` and their complement split the
+positive margin almost exactly in half:
+
+```text
+sectors {0,2,6}:  G=-12283.606, D=45876.252, Y=33592.647
+complement:       G=-26198.853, D=59763.563, Y=33564.710
+total:            G=-38482.459, D=105639.816, Y=67157.357
+```
+
+Both pieces independently lie in the strict FMR cone
+`{(G,D): D>0 and G+D>0}` while retaining the literal child `d=5`.  Among
+splits consisting of sector zero and two nonzero sectors, `{0,2,6}` is the
+unique split for which some full-FMR child has both pieces in that cone at
+the selected root and all seven audited `q=10000` parents.
+
+The apparent structure is not a transport rung.  At the subsequently reached
+node `(100000,51334)`, full FMR digits are experimentally `{1,6,8}`.  For
+`d=1,6` the `{0,2,6}` piece remains in the cone but its complement has
+`D<0`; for `d=8` the full signal is FMR but the `{0,2,6}` piece is outside the
+cone.  Cone positivity also creates false-positive digits at the earlier
+parents.  Thus this strong finite two-cone pattern fails at the third tested
+level and cannot replace complete literal multi-sector control.
+
 ## Exact marginal-alignment separator
 
 Even complete separate knowledge of the fresh margins `D_d` and old gains
