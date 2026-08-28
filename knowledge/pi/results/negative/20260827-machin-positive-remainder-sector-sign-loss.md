@@ -97,6 +97,12 @@ This `proof sketch` closes the phase-uniform escape route for the whole T189
 fresh primitive block, not merely a single time or predecessor sector.  It
 does not determine the distinguished value at the Machin carrier; it shows
 that remainder direction and magnitude alone cannot orient that value.
+For the nonzero T179 innovation alone, the sector-relevant coefficient
+`h=5` at its final time is already unique and nonzero (T138 applies for
+`q>=3`).  Consequently the same two-sign conclusion holds throughout the
+larger window `0<epsilon<1/(5*10^(H-1))`; no global top-frequency argument is
+needed.  This sharpens the mechanism-specific window but does not add a sign
+at the distinguished carrier.
 
 There is a mechanism-specific strengthening for arguments using only
 branch-invariant Machin-logarithm data.  With
