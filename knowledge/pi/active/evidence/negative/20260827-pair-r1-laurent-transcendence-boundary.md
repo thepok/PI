@@ -120,6 +120,16 @@ no scalar normalization or Chebyshev sign selector transfers the artificial
 collapse to the literal carrier. The constructed point is free, not an
 actual-pi orbit estimate.
 
+The literal all-residue cubic factorization also does not orient a local
+same-digit term. For any target and compatible common `Q=10q` digit prefix
+ending in a candidate digit, two eventually periodic completions can keep
+every inherited `G_e` (hence every deficit) within
+`(1414*pi/9)*q*10^(-9q)` while the final same-digit paired summand has opposite
+nonvanishing boundary-layer limits (`proof sketch`). This concerns only the
+last summand, not the complete fresh block, so it is a separator for robust
+local-orientation arguments rather than an FMR counterexample. Actual-pi
+control of the ordered fresh suffixes is still missing.
+
 The algebraic encoding is exact and directly attached to Pair-R1, but generic
 nonvanishing or transcendence is not the missing arithmetic input.  Reopening
 this route requires special structure of the literal `L_r`: positivity,
