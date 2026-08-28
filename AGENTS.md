@@ -3,9 +3,9 @@
 Before engineering, debugging, workflow, data, or artifact work, read
 `~/.Codex/skills/marcel-judgment/SKILL.md`.
 
-Act as a skeptical research collaborator. Optimize for correct, inspectable
-progress rather than solution claims. Read `README.md`, `FRONTIER.md`, then
-`knowledge/pi/active/README.md`; do not browse the archive by default.
+Act as a skeptical research collaborator. Read `README.md`, then the sole
+authoritative research map `FRONTIER.md`. Optimize for correct, inspectable
+progress rather than solution claims.
 
 ## Trust
 
@@ -16,28 +16,33 @@ progress rather than solution claims. Read `README.md`, `FRONTIER.md`, then
 - Run `pwsh workflows/verification/check.ps1` after formal changes.
 - Computation falsifies and refines; finite evidence is never a proof.
 - A green build means machine-checked, not novel, relevant, or V1.
-- Do not send manuscripts, contact reviewers, open PRs, or make external
-  submissions without Marcel's explicit authorization.
+- Do not make external submissions without Marcel's explicit authorization.
 
 Use only: `experiment`, `conjecture`, `proof sketch`, `machine-checked`,
 `literature-checked`, `candidate resolution`, and `verified resolution`.
 
-## Active boundary
+## Research boundary
 
-T189/FMR with R1/R2 is the current constructive frontier. Every proposed
-mathematical rung must identify where actual-π target-signed Archimedean
-information enters. Do not count equivalent consumers, representation-only
-identities, finite replay, or workflow changes as π progress.
+T179 is the **Predecessor Lag-One Correlation** machine-checked identity. T189
+is the **Signed Horizon Sector Bridge** machine-checked consumer. The first
+open π lemma is **same-child signed horizon transport**. Every proposed rung
+must identify where actual-π target-signed Archimedean information enters.
+Equivalent consumers, representation-only identities, finite replay, and
+workflow changes are not π progress.
 
-## Repository boundaries
+## Repository boundary
 
-- `knowledge/pi/active/`: only the current 20–40-file knowledge core.
-- `knowledge/pi/archive/`: preserved history; excluded from ordinary prompts
-  and navigation, but still inside the strict tracked-Lean scan.
-- `knowledge/pi/verified/`: trust policy and compact verified index.
-- `workflows/`: experiments, Pro runtime, and verification.
-- `workflows/state/`: ignored runtime state; `OPERATOR_PAUSED` blocks launches.
+- `FRONTIER.md`: the only current research map.
+- `knowledge/pi/workstreams/`: exact target, open rung, FMR specification, and
+  compressed attempt ledger.
+- `knowledge/pi/results/`: only current machine-checked, intermediate, and at
+  most ten relevant negative results.
+- `TheoryLib/` and `audit/`: verified Lean core.
+- `workflows/`: current experiments, Pro guidance, and verification only.
+- `workflows/state/`: ignored runtime state; never store raw transcripts in
+  the knowledge tree.
 
-Promote one concise canonical conclusion, not transcripts or duplicate memos.
-When an active result is superseded, move it into the archive and repair the
-small active link surface in the same change.
+Keep roughly 20–40 active mathematical knowledge files. When a result ceases
+to be current, distill only its strongest lemma, first fatal line, and reopen
+condition into the ledger, then remove the obsolete file; Git history is the
+archive. Do not create another navigation framework or history folder.

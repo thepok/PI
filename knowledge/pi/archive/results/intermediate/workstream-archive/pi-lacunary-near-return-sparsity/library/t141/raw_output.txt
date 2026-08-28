@@ -1,8 +1,0 @@
-All finite calculations below are EXPERIMENT validation, not universal proofs.
-CANONICAL HASH OK cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
-REACHABLE STATES OK 3 <= 100000: ((0, 0, 0, 0), (1, 0, 0, 0), (2, 0, 0, 0))
-TRANSITIONS/TERMINALS OK all 6 transitions and 3 terminal weights
-ACCESSIBLE SIMPLE CYCLE MEANS OK 0, 1/2, 3/2, 2; min=0 max=2
-TROPICAL EXTREMA OK symbolic DP L=0..64; exhaustive digit words L=0..16
-EXACT REPLAY OK valuation=digit-sum=transducer for every 0<=n<1000000
-T141 REPLAY PASS

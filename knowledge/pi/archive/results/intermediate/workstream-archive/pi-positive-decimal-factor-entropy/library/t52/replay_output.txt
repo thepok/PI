@@ -1,7 +1,0 @@
-verified completed instances: 16
-verified positive certificates: 0
-verified negative bad-SCC witnesses: 16
-verified resource-frontier cases without verdict: 1
-verified T38 structural overlaps: 2
-ALL T52 CHECKS PASSED
-artifact-only regeneration matched byte-for-byte

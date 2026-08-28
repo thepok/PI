@@ -1,3 +1,0 @@
-Champernowne, D. G. (1933). The Construction of Decimals Normal in the Scale of Ten. Journal of the London Mathematical Society, s1-8(4), 254-260. Portico. https://doi.org/10.1112/jlms/s1-8.4.254
-
-Retrieved 2026-08-07 through the DOI resolver. The resolver supplied this bibliographic metadata. The publisher abstract page at https://academic.oup.com/jlms/article-abstract/s1-8/4/254/946279 returned HTTP 403 in this sandbox; no PDF was retrieved.

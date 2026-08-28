@@ -1,6 +1,0 @@
-PINS: PASS (canonical, T166 Lean, two PDFs and text derivatives)
-ANCHORS: PASS (complexity, d-bonacci, recurrence, and power theorem)
-CONSTANTS: PASS (ratios; exact core embedding; max supertile M_d; recurrence window r_d; P_d,C_d)
-ENDPOINTS: PASS (overlap, last start, multiplicity, ordered diagonal energy)
-COMPARISON: PASS (T164/T166/T176/T184 clause-complete rows)
-STRUCTURE: PASS (one verdict, explicit constants/range, transfer, no-claim markers)

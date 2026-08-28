@@ -1,9 +1,0 @@
-T99 replay passed
-canonical hash: verified
-primary PDF hashes: 2 verified; source text derivative: verified
-ord_9 residues and order lifting: finite exact sanity checks passed
-triple skeleton and exact prefix count: finite exact sanity checks passed
-tail and endpoint bounds: finite exact sanity checks passed
-smallest base kill: b=2, N=16, C_z/N=5/4<2
-rational-period transfer count: finite exact sanity checks passed
-universal status: proof sketch in REPORT.md; finite checks are not proof

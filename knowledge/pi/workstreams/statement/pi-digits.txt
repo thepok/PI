@@ -1,0 +1,57 @@
+PROBLEM local:pi-digits — canonical statement (2026-07-21, human-authored root)
+
+CANONICAL QUESTION
+Does every finite sequence of decimal digits occur as a contiguous block
+somewhere in the decimal expansion of pi?
+
+Equivalently: is pi disjunctive (rich) in base 10? This is implied by (and
+weaker than) the conjecture that pi is normal in base 10. Status: OPEN.
+Widely believed true; no known proof technique. It is not even proven that
+every single digit occurs infinitely often in the decimal expansion of pi.
+
+PROVENANCE
+Root created from Marcel's request of 2026-07-21: "does any integer sequence
+occur at some point in the extension of PI?" — normalized to the canonical
+question above (an "integer sequence" occurring "in the expansion" is read as
+a finite digit string occurring contiguously; leading zeros are permitted in
+the string, so this covers digit strings rather than integer decimal
+representations, which is the stronger and more natural normalization; an
+integer's decimal representation is a special case).
+
+RECORDED AMBIGUITIES OF THE ORIGINAL PHRASING
+The phrase "any integer sequence" admits three readings. They are distinct
+problems and are recorded here so no later work silently swaps targets:
+
+  V1 (CANONICAL, above): every FINITE digit string occurs contiguously.
+     OPEN. This root.
+  V2: every INFINITE digit sequence occurs contiguously. FALSE, provably:
+     a contiguous infinite occurrence is a tail (suffix) of the expansion;
+     the expansion has only countably many tails, but there are uncountably
+     many infinite digit sequences. (Also elementarily: any two distinct
+     tails of occurrence positions force eventual periodicity — but the
+     cardinality argument alone suffices.) V2 is a sibling variant suitable
+     for complete machine-checked disproof; resolving V2 does NOT resolve V1.
+  V3: every infinite digit sequence occurs as a (not necessarily contiguous)
+     subsequence. Equivalent to: every digit 0..9 occurs infinitely often in
+     the expansion. OPEN (this equivalence is elementary and a good early
+     formalization target; the digit statement itself is open).
+
+KNOWN CONTEXT (to be source-pinned by literature work, not trusted from this
+file): decimal digits of pi are known to be non-repeating (pi irrational,
+Lambert 1761); pi is transcendental (Lindemann 1882); normality of pi is open
+in every base; BBP-type formulas give base-16 digit extraction; the
+Bailey–Crandall research program reduces normality-type statements to a
+conjecture about a specific dynamical iteration; Champernowne's constant is
+provably normal in base 10 (a template for what a resolution artifact can
+look like for artificial constants).
+
+VERIFICATION RULES
+This root is subject to the trust policy in
+`../../results/machine-checked/TRUST.md`. Computational digit searches
+over any finite prefix of pi carry ZERO resolution leverage for V1/V3 and can
+only ever be labeled experiment. No task on this root may weaken, repair, or
+substitute the statements above; work targeting V2 or V3 must say so
+explicitly and cannot claim progress on V1.
+
+THIS FILE IS IMMUTABLE once the theory program exists. Corrections require a
+new root with a new slug.

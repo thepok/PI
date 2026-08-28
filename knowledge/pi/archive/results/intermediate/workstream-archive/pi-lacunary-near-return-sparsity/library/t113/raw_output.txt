@@ -1,9 +1,0 @@
-Command: python3 verify_t113.py
-
-hashes: ok (7 files)
-source anchors: ok
-report contract: ok
-difference ordering/growth: ok (N<=40, k<=5000)
-theorem parameters: ok (88287 tail indices, first=11714)
-threshold schedule: ok (2020 finite cases)
-classification: experiment only; universal deductions remain proof sketch

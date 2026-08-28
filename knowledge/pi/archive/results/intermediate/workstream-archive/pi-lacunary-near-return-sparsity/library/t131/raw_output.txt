@@ -1,7 +1,0 @@
-T131 replay: PASS
-primary source hashes: 7/7
-primary source anchors: 7/7
-candidate cards: 3/3
-finite collision/variance/projection checks: PASS
-scoped verdict markers: 1; successors: 0
-scope: A13 related models only; no fixed-pi, C1, or C2 conclusion

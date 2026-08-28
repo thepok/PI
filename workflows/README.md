@@ -1,45 +1,12 @@
-# Workflow layout
+# Workflows
 
-All research execution machinery lives under this directory.
+Only current PI support remains here:
 
-- `modelbench/`: Ox/OpenCode runner, compiler microloop, tests, and task packs.
-- `modelbench/tasks/pi/current/`: the active Pi task pack.
-- `definitions/`: reusable workflow contracts retained for Pi work.
-- `runtime/`: pod images, isolated Lean gate, image refresh, and numerical runtime tools.
-- `verification/`: repository-wide Lean and axiom gates.
-- `chatgpt-pro/`: persisted web-Pro request prompts; raw browser run state is
-  ignored and only one call may be active at a time.
-- `state/`: ignored runtime state and the durable operator pause marker.
-- `docs/`: architecture and historical design notes.
+- `verification/`: strict all-tracked-Lean scanner and axiom audit;
+- `experiments/`: focused reproducible checks used by current evidence;
+- `research/pi/`: operator prompt and the retained π digit dataset;
+- `chatgpt-pro/`: Pro usage contract;
+- `state/`: ignored runtime state, never mathematical knowledge.
 
-## Current sandboxed run
-
-```bash
-.venv/bin/python workflows/modelbench/runner.py \
-  --sandbox \
-  --sandbox-image localhost/allmath-research:latest \
-  --tasks-dir workflows/modelbench/tasks/pi/current \
-  --models ox,oxzen \
-  --concurrency 20 \
-  --out workflows/state/runs/pi-current
-```
-
-The runner enforces the provider limits independently: up to four concurrent
-OpenRouter `ox` calls and ten concurrent OpenCode `oxzen` calls. It copies only
-declared artifacts back from each pod and independently invokes the trusted
-Lean gate.
-
-Do not launch while `workflows/state/OPERATOR_PAUSED` exists.
-
-## Web ChatGPT Pro creative mathematician
-
-Use the `chatgpt-pro` skill only for a bounded hard creative-mathematics problem
-at the current verified frontier: invent or stress-test a canonical proof
-mechanism. Do not use Pro for workflow design, architecture review, task routing,
-literature triage, computation, formatting, integration, or routine checking.
-Name the repository, branch, exact mathematical gap, deliverable, and claim
-boundary in the prompt; use a unique output directory; and wait for the complete
-four-part success contract: exit code zero, `state.json` status `done`, nonempty
-`answer.md`, and `browser_closed: true`. Never run two web-Pro calls concurrently.
-Authentication, permission, or capacity-break conditions require an immediate
-operator stop and notification to Marcel.
+Ox/OpenRouter and historical pod/modelbench machinery are not part of the
+current program. The research frontier is exclusively [`../FRONTIER.md`](../FRONTIER.md).

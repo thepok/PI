@@ -1,7 +1,0 @@
-canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
-source_count=2 retained_theorem_count=2
-ordered_energy_sample=27 label_edges=9
-digit_hypergraph_N=7 m=2 vertices=80 edges=1500 uniformity=4
-finite_supersaturation_checks=passed
-novelty_ledger=T89-T139; T129_T139_unavailable_no_novelty_claim
-verdict=close; classification=inapplicability_not_falsification

@@ -1,5 +1,0 @@
-T135 replay: PASS
-hashes: 7/7; source page anchors: 11/11; prior members: 8/8
-finite separators: forward and reverse Renyi-2 product claims fail
-caps: 5 primary sources <= 10; 3 candidates <= 3; domains = 3
-scope: one verdict; zero successors; no fixed-pi, C1, or C2 claim

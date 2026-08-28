@@ -1,7 +1,0 @@
-T171 artifact verification: PASS
-canonical_sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
-primary_sources=3 domains=3 retained_candidates=0
-exclusion_rows=82 range=T89-T170 active_T166_reserved=yes
-S2_D_1e10=2.833242430268
-S2_D_1e20=0.010520597142
-scoped_verdicts=1 successors=0 fixed_pi_claims=0

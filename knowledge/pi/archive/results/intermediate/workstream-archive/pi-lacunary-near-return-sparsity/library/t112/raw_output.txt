@@ -1,7 +1,0 @@
-T112 replay: PASS
-classification: experiment (integrity and finite arithmetic only)
-primary sources: 5/12; candidates: 4/4; searched lanes: 4
-uniform boundary defect: 12; literal good-row threshold: 1
-native transfer: explicit sparse operator and dimension-aware half-budgets PASS
-terminal verdict count: 1; successor count: 0
-no fixed-pi, C1, C2, or canonical A1 claim

@@ -4,8 +4,8 @@ Repository: https://github.com/thepok/PI, branch `main` only.
 
 Keep the persistent research goal active until an actual π-specific
 target-signed bridge reaches V1 or a real external blocker requires Marcel.
-Read only `README.md`, `FRONTIER.md`, `GptProGuide.md`, and the small
-`knowledge/pi/active/` packet by default.
+Read `README.md`, then the sole authoritative research map `FRONTIER.md` and
+only the directly linked small knowledge packet by default.
 
 ## Mission
 
@@ -93,9 +93,9 @@ Lean changes must pass the strict all-tracked-source scanner and axiom audit.
 
 ## Cleanliness is part of operation
 
-Maintain `knowledge/pi/active/` as a 20–40-file canonical packet with one
-frontier, one compressed ledger, and at most ten live separators. Superseded
-material moves to `knowledge/pi/archive/`, which is excluded from normal
-navigation and Pro prompts. Repair active links in the same commit. Never
-count cleanup, prompt work, or repository navigation as mathematical π
-progress.
+Maintain `knowledge/pi/workstreams/` and `knowledge/pi/results/` as a
+20–40-file canonical packet with one compressed ledger and at most ten live
+separators. Distill superseded work to strongest lemma, first fatal line, and
+reopen condition, then remove it; Git history is the archive. Repair retained
+links in the same commit. Never count cleanup, prompt work, or repository
+navigation as mathematical π progress.

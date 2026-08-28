@@ -1,5 +1,0 @@
-CANONICAL sha256=cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
-THUE_MORSE formula_checks=55 K=4 r=2 counts={'0110': 2, '1001': 2} E=8 Q=4
-PERIOD_DOUBLING formula_checks=55 K=5 r=2 counts={'0100': 5, '0101': 3} E=34 Q=8
-PAPERFOLDING k=7 |P7|=28 distinct=28 first48_types=28 first48_E=98 collisions=13->5:0110001,17->1:0010011,45->21:0111001
-ALL_CHECKS_PASSED

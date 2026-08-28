@@ -14,7 +14,7 @@ unique recurrent right-special factor.
 
 The represented decimal is a leading-zero shift of the classical Kempner
 number `sum k, 10 ^ (-(2 ^ k))`.  Shallit's bounded-continued-fraction result
-for that number is a literature statement recorded in `ultrapi.md`; it is not
+for that number is an external literature statement; it is not
 used as a Lean premise here.  This module proves only the combinatorial
 sharpness result and makes no digit-distribution claim about pi.
 -/

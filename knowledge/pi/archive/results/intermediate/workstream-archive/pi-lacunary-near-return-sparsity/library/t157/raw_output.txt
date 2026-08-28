@@ -1,9 +1,0 @@
-T157 deterministic replay: PASS
-primary sources: 6 / 8
-retained candidates: 3 / 3
-prior rows: 66 (T89-T154)
-active rows: 2 (T155-T156, fingerprints unavailable)
-collision bridge exhaustive ternary words: m<=5, starts<=5
-candidate substitutions: zero-vector/GAP, LCD nonzero, Halasz support gates PASS
-scoped verdicts: 1 (close); successors: 0
-claim firewall: no fixed-pi, A1, C1, or C2 claim

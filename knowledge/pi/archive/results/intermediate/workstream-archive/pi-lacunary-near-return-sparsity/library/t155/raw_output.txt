@@ -1,9 +1,0 @@
-PASS canonical_sha256 cbf56699b651aeb69301265763e38da44feb59c6fd955d2280887e8c06c6a2f8
-PASS exclusion_rows 66 range T89 T154
-PASS corrected_T153_locators S1=p6 S6_eq2.1=p5
-PASS caps domains=3 sources=3 fingerprints=1 verdicts=1 successors=0
-PASS new_hashes=3 stable_tuples=3 semantic_identifiers_recorded
-PASS duplicate_fixtures T104/T138 T136/T146
-PASS screened_S1_constant_word L=44 E=1600
-PASS F1_iid lambda=0.004995 d2_bound=0.0002002985009 ordered_mean=1000.00999
-PASS labels transfers=1 fixed_pi_claims=0

@@ -15,7 +15,7 @@ three-positive-pair block, and the even/odd six-term regroupings.
 
 At the operator stop point, the final combination proving two-adic order
 `N + 4` for the complete sampled forcing had not yet been formalized.  That
-global statement therefore remains a `proof sketch` in `ultrapi.md`.
+global statement therefore remains an external `proof sketch`.
 
 This statement does not imply recurrence, orbit density, normality, or the
 every-word conjecture.
