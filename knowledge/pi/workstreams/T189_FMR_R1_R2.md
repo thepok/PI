@@ -140,6 +140,51 @@ L = sum_d (theta-delta-x_d)_+ * (-kappa-v_d)_+,
 <x,v> = ||x||^2 + <x,u>.
 ```
 
+There is a sharper exact coordinatewise decomposition.  Put
+
+```text
+P = {d : D_d>0 and F_d>0},
+O = {d : D_d*F_d<0}.
+```
+
+Then, as a `proof sketch`,
+
+```text
+E = sum_(d in P) D_d*F_d
+    - (1/4)*sum_(d in O) G_d^2
+    + (1/4)*sum_(d in O) (|D_d|-|F_d|)^2.
+```
+
+Indeed, on an opposite-sign coordinate
+`4*|D_d*F_d|=G_d^2-(|D_d|-|F_d|)^2`.  Hence the coefficient-sharp
+discarded-imbalance certificate
+
+```text
+J0 = sum_(d in P) D_d*F_d - (1/4)*sum_(d in O) G_d^2 > 0
+```
+
+implies `E>0`; the factor `1/4` cannot be decreased when only `G_d` is
+retained, as equality occurs for `D_d=-a`, `F_d=a`.  Cauchy--Schwarz also
+gives the stronger bound
+
+```text
+J1 = J0 + (sum_(d in O) (|D_d|-|F_d|))^2/(4*|O|) <= E
+```
+
+for nonempty `O`, with `J1=J0` otherwise.  An independent direct replay
+reproduces positive `J0/q^2` at the root and seven certified children:
+
+```text
+(1000,334)    5882.160729997   (10000,334)   1812.493894892
+(10000,1334)    17.272723548   (10000,2334)   356.896831375
+(10000,3334)  1242.158016490   (10000,4334)   222.101066736
+(10000,8334)  1695.095917187   (10000,9334)   526.220731386
+```
+
+These values are floating `experiments`, not outward intervals.  At the hard
+node `(10000,1334)`, `P={5}` and `O={8}`, so the short remaining inequality
+is exactly `D_5*F_5>G_8^2/4`.  This compression does not create its sign.
+
 The potential defects cancel exactly in `F`.  A tempting stronger split would
 ask, for one fixed `0<gamma<1`, for
 
