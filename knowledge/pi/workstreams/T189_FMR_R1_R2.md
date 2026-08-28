@@ -231,6 +231,34 @@ though it lies below the active `k>=3` frontier.  These are finite
 `experiments`, not Lean theorems.  They refute only a universal bookkeeping
 argument; a π-specific `k>=3` path theorem remains open.
 
+A second independently reproduced directed-interval replacement closes a
+broader generic alignment hope.  Take `q=N=1000`, `A=666`, `H=10000`, and let
+`alpha=0.overline(w)`, where `w` starts with the same 1000-digit periodic
+prefix above and continues with 9000 decimal digits from Python
+`Random(191).randrange(10)`.  The exact word pin is
+
+```text
+sha256(w)=26f32ba1398b82fd4c537db654f31d364e83ee90169a2fe553886e7ff68a81d1.
+```
+
+An independent 100-decimal interval replay certifies
+
+```text
+parent B > 32283.1666529341,
+exact FMR digits = {1,3},
+E < -4435509628.4598,
+<x,u> < -7187.1531938592,
+||x||^2 > 2546.0588439973,
+<x,u>+||x||^2 < -4641.0943498618.
+```
+
+Since `||x||^2>0`, this genuine decimal orbit violates
+`<x,u>>=-c*||x||^2` for every `c<=1`, despite positive parent and literal FMR.
+Thus no universal Gram, projection, positive-definite, or nested-kernel
+argument of that alignment form follows from T139/T179 bookkeeping.  The
+claim remains a finite `experiment`; it does not touch an additional
+actual-π/path-specific hypothesis.
+
 An independently reproduced directed-interval `experiment` separates both
 uniform low-sector closures at the actual-π node `(q,A)=(1000,689)`.  It uses
 the machine-checked T173 decimal cylinder and the T128/T139 score identity;
