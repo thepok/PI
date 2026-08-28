@@ -49,10 +49,13 @@ D_d>0 and G_d+D_d>0.
 ```
 
 The honest split is R1 (`some D_d>0`) and R2 (the same digit covers its old
-deficit). Separate witnesses are invalid. The first open arithmetic rung is a
-quantitative actual-π lower bound for a literal paired predecessor sector that
-implies R1, or a strictly shorter aligned theorem implying FMR. It must not
-assume the unbounded reached path it is meant to construct.
+deficit). Separate witnesses are invalid. Uniform Pair-pi and uniform
+actual-pi positivity of the DC1 premise are refuted by an actual positive node
+where full FMR still holds. The first open arithmetic rung is therefore a
+path-constructing theorem for the complete same-child correlation, or a
+genuinely smaller multi-sector statistic that preserves its relative phases
+and digit alignment. It must not assume the unbounded reached path it is meant
+to construct.
 
 Every proposed component must answer:
 
@@ -65,8 +68,8 @@ source by themselves.
 ## Three differentiated slots
 
 1. **Signed ladder/prover:** seek and genuinely prove the shortest
-   non-tautological ladder from a first actual-π input through R1/R2 to the
-   existing consumer.
+   non-tautological path-constructing ladder from a first actual-π input
+   through same-child R1/R2 to the existing consumer.
 2. **Signed adversary:** attack the strongest current rung; repair its critical
    step or close it with the narrowest exact separator.
 3. **Fundamental alternative:** stay outside T179/T189/FMR and search for a

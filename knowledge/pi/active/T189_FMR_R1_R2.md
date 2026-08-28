@@ -81,6 +81,25 @@ For `H>0`, `t>=H`, concentrate `h_j=10H` on one digit and
 be upgraded to same-digit FMR by a better universal triangle inequality; a
 fresh actual-π orientation or independently stronger deficit bound is required.
 
+An independently reproduced directed-interval `experiment` separates both
+uniform low-sector closures at the actual-π node `(q,A)=(1000,689)`.  It uses
+the machine-checked T173 decimal cylinder and the T128/T139 score identity;
+the standalone replay is
+[`t189_pair_dc1_counterexample_interval.py`](../../../workflows/experiments/t189_pair_dc1_counterexample_interval.py).
+The parent has `B(q,A,q)>80.21738`.  All five correctly conjugated Pair-π
+margins lie between `-6.71` and `-6.21`, and the DC1 right side is below
+`-7199.92697`.  Nevertheless
+
+```text
+D_8 > 12295.03615,       G_8+D_8 > 11062.69343,
+```
+
+while every other fresh gain is negative.  Thus literal FMR holds uniquely at
+`d=8`: several character sectors interfere favorably even though no individual
+paired amplitude or first-sector envelope detects the child.  This refutes
+uniform Pair-π and universal actual-π positivity of the DC1 premise, not FMR,
+the deterministic DC1 theorem, or a pathwise arithmetic use of DC1.
+
 `experiment` (pinned decimal prefix, floating-point replay): at the literal
 natural-diagonal node `(q,A)=(10000,3334)`, the DC1 right side is approximately
 `68531.49962346>0`, while `max_d Y_d` is approximately `316729.22974`; the

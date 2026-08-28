@@ -4,8 +4,9 @@ Date: 2026-08-27 UTC
 
 Claim labels: the specialization of the registered T138/T177/T179 formulas
 and the elementary DFT/transcendence deductions are `proof sketch`; the cited
-source statements were checked against primary sources.  No Pair-R1 estimate
-for pi is proved.
+source statements were checked against primary sources.  The actual-pi node
+separator below is an `experiment`.  Uniform Pair-R1 is refuted; no pathwise
+signed transport theorem for pi is proved.
 
 ## Exact finite carrier
 
@@ -108,6 +109,28 @@ sign or Pair-R1 margin.
 
 ## Disposition
 
+### Actual-pi positive-node separator
+
+A standalone directed-interval `experiment`, independently reproduced with a
+second interval engine, evaluates the correctly conjugated pairs
+`P_r=C_r+conj(C_(10-r))` at `(q,A,N,H)=(1000,689,1000,10000)`.  The replay is
+[`t189_pair_dc1_counterexample_interval.py`](../../../../workflows/experiments/t189_pair_dc1_counterexample_interval.py).
+It certifies the positive parent margin `B(q,A,q)>80.21738`, while all five
+Pair-R1 margins are negative (between `-6.71` and `-6.21`) and the DC1 right
+side is below `-7199.92697`.  Yet the full same-child statistic has the unique
+FMR witness
+
+```text
+D_8 > 12295.03615,       G_8+D_8 > 11062.69343.
+```
+
+Thus the complete fresh block can obtain its favorable digit from coherent
+interference among several character sectors even when every individual pair
+and the first-sector decagon envelope fail.  This refutes uniform Pair-pi and
+universal actual-pi positivity of the DC1 premise.  It does not refute FMR,
+the deterministic DC1 inequality, or a pathwise theorem that constructs
+favorable nodes from independent arithmetic.
+
 A later antipodal Fejér-collapse attempt does not apply to this carrier. It
 replaces the literal frequency-dependent T142 boundary coefficient by a
 triangular surrogate, and its original version also used the wrong center and
@@ -130,9 +153,9 @@ last summand, not the complete fresh block, so it is a separator for robust
 local-orientation arguments rather than an FMR counterexample. Actual-pi
 control of the ordered fresh suffixes is still missing.
 
-The algebraic encoding is exact and directly attached to Pair-R1, but generic
-nonvanishing or transcendence is not the missing arithmetic input.  Reopening
-this route requires special structure of the literal `L_r`: positivity,
-dominance, a controlled factorization, or a direct joint estimate with the
-zero sector `Delta_0`.  Even that would prove only R1; the same-digit R2
-alignment remains separate.
+The algebraic encoding is exact, but generic nonvanishing or transcendence is
+not the missing arithmetic input and the uniform Pair-R1 target itself is now
+closed.  Reopening a paired-sector argument requires a genuinely pathwise
+actual-pi mechanism that selects favorable nodes and also supplies same-digit
+R2 alignment.  The active target is instead complete same-child or genuinely
+multi-sector signed transport.

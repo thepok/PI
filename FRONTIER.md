@@ -1,7 +1,7 @@
 # π decimal disjunctivity: active frontier
 
 Status: `conjecture`
-Last audited: 2026-08-27 UTC
+Last audited: 2026-08-28 UTC
 
 No theorem in this repository proves V1, decimal density, or normality of π.
 The proof authority is [`TheoryLib/`](TheoryLib/) and
@@ -67,38 +67,42 @@ Full definitions and quantifiers:
 
 ## First open π-specific lemma
 
-The first unproved arithmetic rung is a non-tautological actual-π lower bound
-for the literal paired predecessor sectors strong enough to make R1 hold. A
-clean non-circular local formulation is:
+Uniform Pair-π and uniform local Aligned-π positivity are false.  A
+directed-interval `experiment`, independently reproduced in two interval
+engines, gives an actual positive node `(q,A)=(1000,689)` where all five Pair
+margins are negative and the DC1 right side is about `-7199.927`, yet literal
+FMR holds strongly and uniquely at `d=8`.  This does not refute FMR, DC1 as a
+deterministic inequality, or pathwise uses of either statistic.  It shows that
+the favorable child can require coherent interference of several character
+sectors.
+
+The first honest arithmetic rung is therefore a non-tautological actual-π
+theorem for the complete same-child correlation, or a genuinely smaller
+multi-sector statistic that preserves its relative phases.  It must jointly
+construct an unbounded selector/path
 
 ```text
-for every q=10^k and every positive node (q,A),
-exists r in {1,...,5}:
-  Delta_0(q,A) + |P_r(q,A)|/2 > 21/(10q),
+q_(k+1)=10*q_k,       A_(k+1)=A_k+d_k*q_k,
+D_(k,d_k)>0,          G_(k,d_k)+D_(k,d_k)>0.
 ```
 
-or a weaker direct theorem implying `max_d Xi_d > 21/(10q)-Delta_0`.
-Here `P_r=C_r+conj(C_(10-r))` uses the complete actual-π fresh block and
-literal target phase. The deterministic inequality
-`max_d Xi_d >= |P_r|/2` is sharp; the missing step is the π-specific lower
-bound, not that inequality. This uniform version is stronger than logically
-necessary; a weaker version is admissible only if it jointly constructs the
-recursive selector/path rather than quantifying over nodes assumed to have
-been reached. R2 then still needs same-digit alignment.
+Quantifying over already reached nodes is circular. Reconstructing all ten
+coordinates is merely FMR in Fourier notation.  A smaller statistic counts
+only when a new actual-π arithmetic source proves its signed bound and retains
+the same child digit.
 
-The preferred aligned alternative clips the inherited deficit
-`h_d=(-G_d)_+`, sets `Y_d=D_d-h_d`, and applies the sharp regular-decagon
-envelope to its mean and first DFT sector. It yields the sufficient premise
+For reference, DC1 clips the inherited deficit `h_d=(-G_d)_+`, sets
+`Y_d=D_d-h_d`, and applies the sharp regular-decagon envelope:
 
 ```text
 q*Delta_0-21/10-hbar
   + gamma_10(hhat_1-(q/2)*P_1) > 0.                (DC1)
 ```
 
-This corrected audited `proof sketch` preserves the same FMR witness and uses
-only one fresh paired sector, but supplies no actual-π lower bound. It is the
-preferred target when an arithmetic source couples past deficits to the fresh
-sector; Pair-π remains the simpler R1-only fallback.
+This corrected audited `proof sketch` preserves the same FMR witness, but its
+uniform actual-π positivity closure is separated by the node above. It remains
+a possible pathwise consumer when independent arithmetic selects favorable
+nodes. Pair-π is no longer an active fallback.
 
 This is a research target, not a proved theorem. See
 [`FIRST_OPEN_PI_LEMMA.md`](knowledge/pi/active/FIRST_OPEN_PI_LEMMA.md).
@@ -109,8 +113,9 @@ This is a research target, not a proved theorem. See
   non-vacuous, but finite data cannot provide unbounded transport.
 - T190 is machine-checked, but no useful complementary actual-π rank premise
   is known on an unbounded reached path.
-- Paired-sector amplitudes alone do not imply R2; exact finite vectors separate
-  amplitude information from same-digit alignment.
+- An actual positive pi node makes all five Pair margins and the DC1 premise
+  negative while full FMR holds uniquely; low-sector uniform closures miss
+  the required coherent multi-sector same-child interference.
 - The paired sector is a formally nonzero Laurent polynomial evaluated at
   `exp(2π²i)`, but current transcendence theory gives neither evaluated
   nonvanishing nor the required quantitative lower bound.
