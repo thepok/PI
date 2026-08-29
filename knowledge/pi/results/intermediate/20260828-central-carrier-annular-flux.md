@@ -93,6 +93,97 @@ N_(m,C)(W)
 Generic occupancy does not sign or sufficiently sharpen this target-specific
 quantity.
 
+## Primitive-endpoint decimation and decimal carry routing
+
+An independent audit of the natural step `q -> 10q` gives two further exact
+reductions (`proof sketch`).  Write `E_(q,A)(N)` for T139's
+`primitiveBoundaryEndpoint`, `c=(2*A+1)/(2*q)`, and `a_q(g)` for its positive
+boundary coefficient.  With
+
+```text
+delta_q(g)=10*a_(10q)(10*g)-a_q(g),
+M_q=sum_(1<=g<2q) delta_q(g),
+```
+
+T172 gives `delta_q(g)>0` and `M_q<21/(10*q^2)` for `q>=1000`.  Only
+frequencies `h=10*g` contribute to the child endpoint, so
+`E_(10q,A+dq)(N)` is exactly independent of `d`.  Moreover,
+
+```text
+10*Re E_(10q,A+dq)(N)-Re E_(q,A)(N)
+ = (kappa_q(x_N-c)-kappa_q(x_0-c))/2 + epsilon_(q,A)(N).
+```
+
+If `V(q)=max_(1<=g<2q) nu_10(g)`, then
+
+```text
+|epsilon_(q,A)(N)| <= 2*(V(q)+1)*M_q.
+```
+
+For `q=10^k`, `V(q)=k`, hence the error is strictly less than
+`21*(k+1)/(5*q^2)`.  Iteration along any finite nested target chain has the
+exact geometric weights `10^(j-k)`; its total defect from a base
+`q_0=10^k` is bounded by
+
+```text
+21/(5*q_0^2) *
+  ((log_10(q_0)+1)/(1-10^-2) + 10^-2/(1-10^-2)^2).
+```
+
+Thus primitive endpoints reduce to a few literal target-kernel samples plus
+a summable defect.  They remain a common scalar channel and cannot rank the
+ten children.
+
+The exterior loss has a complementary exact router.  Put
+
+```text
+B_q(n)=floor(q*x_n),              a_n=floor(10*x_n),
+B_(10q)(n)=q*a_n+B_q(n+1).
+```
+
+For a parent target `A`, let `r_(q,A)(n)` be the representative of
+`B_q(n+1)-A mod q` in `(-q/2,q/2]`, and set
+
+```text
+sigma_(q,A)(n)=(B_q(n+1)-A-r_(q,A)(n))/q in {-1,0,1},
+d_(q,A)(n)=a_n+sigma_(q,A)(n) mod 10.
+```
+
+The routed child has circular label distance `|r_(q,A)(n)|`; every other
+child has distance at least `q-|r_(q,A)(n)|>=q/2`.  Consequently, for any
+time window `W`, each child's non-routed exterior remainder is at most
+
+```text
+|W|*tau_q,        tau_q=pi^2/(2*(q-1)^2),
+```
+
+and the sum over all ten children is at most `9*|W|*tau_q`.  The unresolved
+routed vector is encoded exactly by the five real character blocks paired as
+`r` with `10-r` (and the real `r=5` block):
+
+```text
+sum_(n in W, r_(q,A)(n)!=0)
+  ell_n * e(r*(a_n+sigma_(q,A)(n))/10),       1<=r<=5.
+```
+
+Here `ell_n` is the literal routed negative-kernel weight.  Representation in
+all five blocks does not imply that any block is nonzero or correctly signed.
+The strongest robust direct certificate retains the normalized identities
+
+```text
+D_d/q=U_d-alpha,       F_d/q=V_d-beta,
+J0/q^2=J(U,V;alpha,beta),
+```
+
+where `alpha,beta` are the two common endpoint thresholds and `U,V` retain
+positive mass and the routed old/fresh shell vectors.  This handles changing
+sign sets exactly, but is still a sufficient reformulation rather than a
+source of sign.  The first fatal line is now precise: no theorem signs the
+joint old/fresh carry--predecessor characters together with the ancestor
+kernel samples for the actual π path.  Replacement failure need not reside
+only in those characters; positive-mass alignment and the common thresholds
+can also change the margins.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
