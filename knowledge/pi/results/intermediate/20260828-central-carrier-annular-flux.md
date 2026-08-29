@@ -330,6 +330,71 @@ occurrence from `n` to `n-1`. A diagonal use of infinitely many central
 times produces an unanchored coherent reversed-digit ray with recurrent
 positive atoms, but loses the certified `334` seed and natural horizons.
 
+## Central primitive atom and signed unit-block ladder
+
+An independently audited strengthening repairs the missing total sign and
+the lag mismatch at **unit-block** scale.  For
+
+```text
+p_(q,A)(n) = Re(P_(q,A)(n+1)-P_(q,A)(n)),
+y = q*(x_n-c_(q,A)),
+```
+
+where `P` is `primitiveBoundaryFourierSum`, let `L_s` be the positive
+boundary polynomial restricted to frequencies divisible by `10^s`.  Exact
+valuation shells are differences, not divisibility layers:
+
+```text
+H_s = L_s(x_n-10^s*c_(q,A))
+      -L_(s+1)(10*x_n-10^(s+1)*c_(q,A)),
+p_(q,A)(n) = sum_(0<=s<=k) Re H_s,       q=10^k.
+```
+
+If `A=floor(q*x_n)` and `|y|<=9/22`, the root-grid projector and the central
+kernel lower bound give
+
+```text
+Re H_0 >= (9/20)*Phi_q(y),       Phi_q(y)>4859/10000.
+```
+
+Applying the verified T151 floors to `L_1,L_2`, mass bounds to the remaining
+layers, and the T156 endpoint budget gives
+
+```text
+sum_(1<=s<=k) Re H_s > -108019/1800000,
+p_(q,A)(n) > 7139/45000.
+```
+
+Consequently, for the T176 signed block capital
+
+```text
+S_(q,A)(M,L)
+ = q*Re(primitiveBoundaryFourierBlockSum(q,A,M,L))-7*L/(3q),
+```
+
+one has `S_(q,A)(n,1)>3q/20` for `q>=1000`.  The published
+`mu(pi)<7.11` bound supplies such a central literal root with `q<=n<8q` at
+every sufficiently large decimal scale.  Recursive T176 Bellman choices at
+the unchanged block `(M,L)=(n,1)` then construct a coherent target ray with
+
+```text
+0 < S_(q_0,A_0)(n,1) < S_(q_1,A_1)(n,1) < ...,
+q_(r+1)=10*q_r,       A_(r+1)=A_r+d_r*q_r.
+```
+
+Only the root target is literal; later Bellman children need not contain
+`x_n`.  A diagonal pigeonhole argument further gives one fixed ray for which
+every finite depth recurs at some depth-dependent time `n_R`.  It does not
+give one common time or a positive prefix.
+
+This is material signed intermediate progress but not prescribed-target
+arithmetic or T189 FMR.  The periodic orbit `xi=1/9` satisfies the same
+central atom and unit-block ladder at every time.  The first fatal line is
+therefore exact: no result controls the intervening unit blocks needed to
+deduce `S_(q_r,A_r)(0,q_r)>0`.  Reopen this rung only with a quantitative
+actual-pi accumulation theorem that fails on `1/9` and on sparse
+finite-prefix continuations.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
