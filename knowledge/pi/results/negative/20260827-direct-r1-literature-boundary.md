@@ -1,7 +1,8 @@
 # Direct R1 literature boundary
 
 Claim status: `literature-checked` for the cited source hypotheses and the
-bounded PaperSearch comparison below.  No theorem for actual pi is claimed.
+bounded PaperSearch comparison below.  One pointwise theorem applies to the
+actual π orbit, but it supplies no target location or signed sum.
 
 Search date: 2026-08-27 UTC.  The local PaperSearch database at
 `/home/Marcel/dev/AllMath/paper-search.sqlite3` contained `776632` records,
@@ -15,6 +16,40 @@ D_d = q*(Delta_0+Xi_d)-21/10
 and the same-digit R2 condition `D_d>0` and `G_d+D_d>0`.  It looked for
 pointwise lacunary theorems at explicit constants, Mahler or special-value
 mechanisms with ordered real sign, and results stated specifically for pi.
+
+## Pointwise actual-π input and its sharp boundary
+
+A focused rescan on 2026-08-29 found Dubickas,
+[There are infinitely many limit points of the fractional parts of
+powers](https://arxiv.org/abs/math/0512314).  Its theorem states that for
+algebraic `alpha>1` and real `xi>0`, the sequence `{xi*alpha^n}` has finitely
+many limit points exactly when `alpha` is a PV number and
+`xi in Q(alpha)`.  Taking `alpha=10` and `xi=pi` proves the genuine pointwise
+actual-π statement
+
+```text
+the decimal orbit {fract(10^n*pi): n>=1} has infinitely many limit points.
+```
+
+Here `10` is a PV number, while the transcendence of π gives
+`pi notin Q(10)=Q`.  This is deterministic Archimedean information about the
+distinguished orbit, not an almost-everywhere conclusion.
+
+The source also shows sharply why it does not imply a target hit.  For every
+integer base `b>=2`, the transcendental Liouville number
+`xi=sum_(k>=0)b^(-k!)` has limit set exactly
+
+```text
+{0,b^-1,b^-2,...}.
+```
+
+Thus even a transcendental seed with infinitely many limit points can omit
+essentially every prescribed decimal cylinder.  The theorem provides no
+location, density, return rate, target rotation, or signed partial-sum bound,
+so it cannot imply either the flexible `-122091/200000` barrier or T189 FMR.
+Reopen this input only with a π-specific strengthening that forces the limit
+set quantitatively into literal target cylinders or directly signs the
+target-weighted return sum.
 
 ## Closest source families
 
