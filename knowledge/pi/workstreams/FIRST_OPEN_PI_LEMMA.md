@@ -54,6 +54,68 @@ Research may replace Pair-π with a genuinely shorter aligned theorem that
 directly yields FMR. It may not replace it by an equivalent normalization of
 `Xi_d`, or assume the unbounded reached path that the transport must construct.
 
+## Direct flexible-horizon alternative
+
+There is also a shorter route that bypasses T189, same-child transport, and
+the later branching/coverage stage by proving each target separately.  As an audited `proof sketch`,
+T148 and T156 imply the following strict weakening of the original flexible
+summit.  For `k>=3`, `q=10^k`, `A<q`, and any `N>=q`, put
+
+```text
+P(q,A,N)=Re(primitiveBoundaryFourierSum(q,A,N)).
+```
+
+Then
+
+```text
+P(q,A,N) >= -122091/200000
+```
+
+already forces a visit to the literal `(q,A)` cylinder before `N`.  Indeed,
+T148 is equivalent to
+
+```text
+P(q,A,N)+N*boundaryZeroCoefficient(q)/2
+  >= 2*primitiveBoundaryEndpointBudget(q,A)-7/500,
+```
+
+while T156's scalar closure, nonnegativity of the zero coefficient, and
+`N>=q` give the sufficient uniform right-hand side
+
+```text
+-861/1000 + 52909/200000 - 7/500
+  = -122091/200000.
+```
+
+Thus proving this existential bound for every `(k,A)` would yield V1
+directly.  It is weaker than demanding `P(q,A,N)>=0`, though at the price of a
+stricter constant than T156's fixed natural-horizon `-861/1000` theorem.
+
+Exact ray compression gives a useful stopping identity
+
+```text
+P(q,A,N)+N*c_q/2
+ = (1/2)*sum_(n<N) boundaryKernel_q(x_n-c_(q,A))
+   + V_(q,A)(x_0)-V_(q,A)(x_N).
+```
+
+Before the target cylinder is hit, the kernel sum is nonpositive, so this is
+an upper bound by the terminal-potential drop, whereas T148 needs a lower
+bound.  The missing input is therefore an independently sourced actual-π,
+target-sensitive lower recurrence coupling that negative accumulation to the
+terminal potential.  Merely rewriting the sum as the exact predecessor-digit
+versus future-suffix correlation is circular.
+
+The narrow orbit-universal obstruction is exact.  For every target one of
+the decimal-map fixed points `1/9` or `2/9` lies strictly outside its cylinder
+and has strictly negative compensated increment.  Hence no scalar potential
+on the circle and positive variable block length can give a universal
+Bellman lower certificate on all target-avoiding blocks.  This does not rule
+out a π-specific theorem or arbitrary extended-state schemes.  Reopen the
+direct route only with an input that distinguishes the actual π tail from
+these fixed cycles and from sparse continuations sharing any prescribed
+finite π prefix.
+
 ## Preferred aligned alternative
 
 The audited decagon certificate `DC1` in [`T189_FMR_R1_R2.md`](T189_FMR_R1_R2.md)
