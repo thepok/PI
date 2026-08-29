@@ -155,6 +155,15 @@ decimal-orbit separator at `q=1000` has positive parent and unique FMR digit
 but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
+The separator is now pathwise and Roth-optimal at `proof sketch` level: the
+same preselected child passes two preceding `E>0` nodes before reaching the
+negative-`E`, unique-FMR node, and an explicit stability ball contains a
+transcendental orbit with irrationality exponent `2`. This rules out
+scale-free orbit-generic heredity of `E`; it does not rule out a theorem whose
+heredity hypothesis begins at the active range `q>=1000`, because the last
+positive predecessor lies at `q=100`. See the
+[directed-interval separator](knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
+
 A new actual-π chain gives a stronger but still insufficient signed side
 result. T191 machine-checks its central kernel floor, T192 the exact
 valuation-shell subtraction and positive zero-shell margin, T193 the
