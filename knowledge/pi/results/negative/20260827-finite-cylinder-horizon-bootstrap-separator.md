@@ -77,21 +77,25 @@ T147 imports T146's actual-pi phase dichotomy, ultimately using
 `nearestIntegerDistance (9*pi) > 13/50`.  Therefore a generic T156 cannot be
 invoked without an explicit endpoint-separation premise.
 
-For the concrete `xi` the gap appears repairable with the same constants:
+For the concrete `xi` the gap is repairable with the same constants:
 the shared cylinder already gives `3.14 < xi < 3.15`, hence
 `28.26 < 9*xi < 28.35`, so the nearest integer is 28 and the distance is
-strictly greater than `13/50`.  This arithmetic lemma and the corresponding
-parameterized T146--T156 chain are not yet machine-checked.
+strictly greater than `13/50`.  A later independent proof audit confirmed
+that T146's seed dependence is exactly this torus-distance premise and that
+the remaining T147 Abel, layer-mass and terminal estimates are
+seed-independent.  The parameterized T139--T156 replay is therefore a
+complete `proof sketch`, but not a machine-checked generic declaration.
 
 ## Trust boundary and required audit
 
 The construction, Liouville proof, decimal avoidance, and Lipschitz estimate
-are elementary.  Before upgrading this result, Lean must expose generic orbit
-versions of the T172/T176/T178 transport; parameterize T146--T156 under the
-endpoint-separation premise just identified; prove that premise for `xi`; and
-check the weighted coefficient estimate (2) against the literal T139
-coefficients.  Canonical decimal-expansion uniqueness for the Liouville tail
-must also be stated.  No claim about pi itself follows from the countermodel.
+are elementary.  Before upgrading this result to `machine-checked`, Lean must
+expose generic orbit versions of the T172/T176/T178 transport; parameterize
+T146--T156 under the endpoint-separation premise just identified; prove that
+premise for `xi`; and check the weighted coefficient estimate (2) against the
+literal T139 coefficients.  Canonical decimal-expansion uniqueness for the
+Liouville tail must also be stated.  No claim about pi itself follows from the
+countermodel.
 
 The separator is deliberately narrow: it does not exclude an actual-pi
 horizon theorem.  It proves that such a theorem must import a premise false
@@ -152,8 +156,8 @@ needed.
 The finite root score is not identical throughout the cylinder. It remains
 positive only by the Lipschitz stability estimate (1)--(2) above. Likewise,
 the checked T156 theorem is pi-specific. The natural-horizon conclusion for
-`xi_TM` still requires the unformalized generic T146--T156 chain parameterized
-by
+`xi_TM` uses the unformalized but independently audited generic T146--T156
+chain parameterized by
 
 ```text
 13/50 < nearestIntegerDistance (9*xi_TM).
@@ -161,8 +165,8 @@ by
 
 This premise follows from the shared coarse cylinder
 `3.14 < xi_TM < 3.15`, which puts `9*xi_TM` strictly between `28.26` and
-`28.35`. Conditional on that parameterization, the same missed-cylinder
-contrapositive gives
+`28.35`. The same missed-cylinder contrapositive therefore gives at
+`proof sketch` level
 
 ```text
 Re Z^xi_TM_(q_r,A_r)(q_r) < -861/1000

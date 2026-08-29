@@ -98,6 +98,61 @@ for adjacent-digit Sturmian expansions and is transcendental.  Thin orbit
 closures are therefore compatible with strong Diophantine behavior at the
 optimal geometric confinement scale.
 
+### Phase-preserving two-seed strengthening
+
+Bugeaud--Han--Wen--Yao,
+[Hankel determinants, Padé approximations, and irrationality
+exponents](https://arxiv.org/abs/1503.02797), cover the
+Kmošek--Shallit/Mahler number
+
+```text
+kappa = sum_(m>=0) 10^(-2^m),
+```
+
+which is transcendental with `mu(kappa)=2` (`literature-checked`).  Direct
+tail analysis gives
+
+```text
+omega(kappa) = {0} union {10^-j : j>=1}.            (proof sketch)
+```
+
+Define `eta_0=kappa`, `eta_2=2/9+kappa` and
+
+```text
+xi_0 = 3.14 + 10^-2*eta_0,
+xi_2 = 3.14 + 10^-2*eta_2.
+```
+
+Their tails use the disjoint alphabets `{0,1}` and `{2,3}`.  Accounting for
+the unique shared prefix digit `4` shows that their length-`k` languages are
+disjoint for every `k>=3`.  Thus for every literal `(k,A)` one fixed member
+avoids that target forever.  Both have `mu=2`, infinite sparse omega-limit
+sets, linear factor complexity and logarithmically many digit changes.
+
+Both also lie strictly between `3.14` and `3.15`, so
+
+```text
+nearestIntegerDistance(9*xi_r) > 13/50.
+```
+
+An independent proof audit of T146--T148 found this to be the only
+seed-specific input to the `7/500` endpoint saving: the torus dichotomy uses
+only `theta_2=10*theta_1-9*xi`, while the Abel, layer-mass and terminal bounds
+are seed-independent.  Exposing the orbit argument in T139 therefore gives
+
+```text
+target (k,A) avoided by xi_r
+  -> forall N>=10^k:
+       Re PBFS_(xi_r)(10^k,A,N) < -122091/200000.   (proof sketch)
+```
+
+This audited parametric replay is not a compiled declaration.  It shows that
+finite `mu`, infinite omega, the known complexity/change consequences, the
+actual prefix `3.14`, and even the exact local phase input behind T147 can all
+coexist with the strict wrong sign at every admissible horizon.  A
+target-dependent bridge of `k-1` digits followed by one of the two tails also
+preserves any target-free finite π prefix while avoiding that target forever.
+
 The separator must not be overstated as a literal substitution into the
 repository's flexible primitive-sum threshold.  The current T139 definition
 of `primitiveBoundaryFourierSum` and the T148 consumer are specialized to
@@ -116,6 +171,9 @@ not the active π barrier `-122091/200000`.  The difference is exactly
 rules out `mu` as the missing target-location/sign source, but it does not
 prove a theorem about the π-specialized primitive sum by type-changing its
 orbit.
+The stronger `xi_0,xi_2` construction above repairs exactly this missing
+phase premise, but still only for its explicitly parameterized paper-level
+PBFS.
 
 Reopen the omega-limit/irrationality-exponent route only with a genuinely
 pi-specific input that excludes proper decimal subshifts or directly locates
