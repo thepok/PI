@@ -131,6 +131,33 @@ remainder.  It does not exclude approximate, vector/cone, or pointwise-pi
 transport.  Decimal-periodic rationals merely intersect both open sign
 regions; neither sign class is claimed dense in the whole circle.
 
+## Fixed cyclic pointed cones are trivial on the pure child remainder
+
+There is a narrow finite-dimensional vector extension (`proof sketch`,
+independently audited).  Let
+
+```text
+V0 = {x in R^10 : sum_d x_d = 0}
+```
+
+and let `S` cyclically relabel the ten child coordinates.  If a fixed subset
+`K` of `V0^p` is closed under addition and nonnegative scalar multiplication,
+is pointed (`K intersect -K = {0}`), and satisfies `S K = K`, then `K={0}`.
+Indeed, every `v in V0^p` obeys `sum_(j=0)^9 S^j v=0`; hence `v in K` implies
+`-v=sum_(j=1)^9 S^j v in K`, and pointedness forces `v=0`.
+
+For a fixed closed cone with these properties in the full constant-child plus
+mean-zero decomposition, compactness on its unit sphere therefore bounds the
+mean-zero norm by a cone-dependent multiple of the constant-child norm.  This
+multiple is nonconstructive and need not be uniform if the cone changes with
+the scale or target.  In particular, the lemma excludes only a single
+target-blind cyclically invariant pointed order on the pure T179/T189 child
+remainder.  It does **not** exclude rotating target-covariant families
+`K_d=S^d K_0`, auxiliary-coordinate or noncirculant PSD lifts, indefinite
+readouts, nonadditive orders, or nonlinear and pi-specific mechanisms.  A
+nonzero carrier coefficient also proves only that a sector polynomial is not
+identically zero, not that every finite actual-pi evaluation is nonzero.
+
 ## T179 axis correction and finite-depth rational obstruction
 
 An independently audited correction closes a related false start.  The T139
