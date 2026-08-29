@@ -123,6 +123,20 @@ decimal-orbit separator at `q=1000` has positive parent and unique FMR digit
 but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
+A new actual-π `proof sketch` gives useful but insufficient side
+information. The published finite irrationality exponent forces a central
+decimal-orbit return in every sufficiently large multiplicative time block;
+the exact carrier recurrence then yields some adaptively selected complete
+literal relative gain `C>4859/10000` at a time `q<=n<8q`. It does not retain
+the prescribed target, imply either T189 sign, or stack without a lag-one
+loss. A matching Kempner--Mahler continuation sharing 10015 π digits has
+`mu=2`, infinitely many limit points and a scalar recurrence, yet eventually
+makes every child of every coherent `334` descendant fail fresh positivity.
+The live rung is therefore still prescribed-target complementary leakage and
+old-score control for the same child. Constants and claim boundaries are in
+[`20260828-central-carrier-annular-flux.md`](knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md)
+and the [finite-cylinder separator](knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md).
+
 ## What remains after horizon transport
 
 One coherent ray covers only factors of its selector word. V1 still requires

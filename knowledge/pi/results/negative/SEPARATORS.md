@@ -9,7 +9,7 @@ Use at most three relevant ones per prompt.
 4. [Predecessor-sector finite separators](20260827-predecessor-sector-finite-separators.md): paired amplitude and capital information do not align R2.
 5. [Topological orbit-spread separator](20260827-topological-orbit-spread-signed-sector-separator.md): pointwise spread does not control signed frequency or alignment.
 6. [`Xi_3` fixed-point separator](20260827-xi3-all-three-fixed-point-separator.md): recurrence, non-hitting, and transcendence alone do not force the literal signed correlation.
-7. [Finite-cylinder bootstrap separator](20260827-finite-cylinder-horizon-bootstrap-separator.md): the finite π seed and continuity cannot generate fresh-tail signs.
+7. [Finite-cylinder/Kempner--Mahler bootstrap separator](20260827-finite-cylinder-horizon-bootstrap-separator.md): a `mu=2` scalar-Mahler continuation sharing 10015 π digits preserves the root seed, yet from `q=10^14` every child of every coherent `334` descendant has negative fresh score (`proof sketch`).
 8. [Fixed-interior regularization instability](20260827-fixed-interior-regularization-instability.md): stable Abel/Mahler/heat decoding loses the boundary-scale target information.
 9. [Scalar mask/coboundary boundary](20260827-linear-scalar-horizon-mask-channel-lower-bound.md): sharp primitive-mask synthesis needs linearly many scalar channels; the complete T189 drift is not an exact scalar state-only `L2` coboundary, and the finite nonzero block is not an exact scalar `L1` coboundary plus a globally one-signed remainder (`proof sketch`).
 10. [Low-dimensional T189 statistics](20260827-low-dimensional-t189-statistics-empirical-separator.md): simple predictors learn kernel geometry and fail matched controls, not π arithmetic.

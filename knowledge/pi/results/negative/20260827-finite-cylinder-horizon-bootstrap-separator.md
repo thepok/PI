@@ -178,3 +178,58 @@ This repaired statement remains a `proof sketch`, not `machine-checked`.
 It strengthens the separator by showing that transcendence, non-Liouville
 behavior, an effective finite irrationality measure, and even the optimal
 irrationality exponent `mu=2` do not bootstrap the finite signed seed.
+
+## Kempner--Mahler literal all-child upgrade
+
+An independently audited `proof sketch` strengthens the separator from a
+missed-cylinder score bound to literal failure of T189's R1 condition. Put
+
+```text
+K = sum_(r>=0) 10^(-2^r),
+xi_J = (floor(10^J*pi)+K)/10^J.
+```
+
+The generating function `F(z)=sum_(r>=0) z^(2^r)` satisfies
+`F(z)=z+F(z^2)`. The Mahler-number result of
+[Bugeaud--Han--Wen--Yao](https://arxiv.org/abs/1503.02797) gives
+transcendence and `mu(K)=2`; rational affine invariance gives the same exponent
+for `xi_J`. Directly from the gaps between powers of two,
+
+```text
+omega(K) = {0} union {10^(-r): r>=1}.
+```
+
+Thus `xi_J` has an infinite omega-limit set and an exact scalar Mahler
+recurrence while sharing the first `J` decimal places of pi.
+
+Fix `J=10015`. For `q=10^k`, `Q=10q`, `k>=14`, every coherent descendant
+label `A == 334 (mod 1000)` and every child `d<10` names a word ending in
+`334`; it cannot occur in the post-prefix zero/one tail. Hence every fresh
+spatial kernel term is nonpositive. The power-of-two gaps also give the
+uniform primitive-endpoint estimate
+
+```text
+|Delta E_(k,A,d)| < 10^-6337,
+```
+
+with decreasing right side for larger `k`. The exact T128 zero coefficient
+satisfies
+
+```text
+45*q*alpha_(10q) > pi^2-3.
+```
+
+Substitution into the complete T174 spatial identity, without deleting any
+character or endpoint channel, yields
+
+```text
+D^xi_J_(q,A,d) < -(3/4)*(pi^2-3)*q < 0
+```
+
+for every such `A,d`. Therefore at and beyond `q=10^14`, every possible
+coherent `334` descendant fails R1 in all ten children. This is not a
+counterexample to an actual-pi theorem. It shows that arbitrary finite pi
+prefixes, `mu=2`, infinitely many limit points, scalar Mahler recurrence, and
+the orbit-generic carrier algebra still cannot supply the required
+target-aligned sign. Reopening requires an unbounded exact input special to
+the distinguished pi tail and false for these continuations.

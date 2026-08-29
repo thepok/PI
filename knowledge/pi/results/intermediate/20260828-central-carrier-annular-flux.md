@@ -260,6 +260,76 @@ The remaining robust rung must control the complete routed core **and** the
 retained ancestor/parent suffix kernels with a per-scale same-child margin.
 Summable endpoint and non-routed errors alone cannot supply that margin.
 
+## Actual-pi central-return side lemma
+
+The following strengthening is an independently audited `proof sketch`. It
+is genuine pointwise information about the actual decimal orbit, but its
+child is selected after the return and therefore it is not signed horizon
+transport.
+
+Let `alpha_m` be the exact zero coefficient, put
+
+```text
+mu_q = 10*alpha_(10q)-alpha_q,
+M_q  = sum_(1<=g<2q) (10*gamma_(10q)(10g)-gamma_q(g)),
+Delta_q = 100*(1-cos(pi/(10q)))-(1-cos(pi/q)).
+```
+
+The T128 closed zero coefficient and T172 closed defect mass give exactly
+
+```text
+mu_q + 2*M_q = q^2*Delta_q.                       (ZF)
+```
+
+For `q>=1000`, T172's positivity and bounds imply
+
+```text
+-mu_q/2 + 21/(10q^2) > 1/(20q^2).
+```
+
+Thus the scalar channel in the block carrier recurrence is strictly
+favourable. This identity is universal coefficient algebra, not pi-specific
+arithmetic.
+
+Now let `x_n={10^n*pi}`. If an orbit segment avoids
+`[1/11,10/11]`, it cannot switch between the two complementary chambers; its
+corresponding decimal block consists entirely of zeroes or entirely of
+nines. Avoidance on `[s,s+L)` therefore gives an integer `p` with
+
+```text
+0 < |pi-p/10^s| < 10^(-(s+L)).
+```
+
+Consequently every `nu>mu(pi)` gives, for all sufficiently large `s`, a
+return `x_m in [1/11,10/11]` with `s<=m<ceil(nu*s)`. The
+[Zeilberger--Zudilin bound](https://arxiv.org/abs/1912.06345)
+`mu(pi)<=7.103205334137...` permits `nu=7.11`.
+
+At such a return choose the literal values
+
+```text
+A=floor(q*x_(n+1)),   d=floor(10*x_n),   m=n+k+1,   q=10^k.
+```
+
+The common normalized carrier radius is `x_m-1/2`. The factorization above,
+elementary sinc bounds, (ZF), and the audited endpoint error give
+
+```text
+C_(q,A,d)(n,1) > 607479/1250000 > 4859/10000.
+```
+
+Taking `s=q+k+1` shows that for every sufficiently large `k`, some
+`q<=n<8q` has this complete literal relative gain. All digit-character
+sectors and the parent-suffix kernel remain present.
+
+The first fatal line is exact: the return chooses `A,d` after seeing the
+orbit point, while T189 needs the child of a prescribed recursively reached
+target. Moreover `C>0` is only child-minus-parent gain; it implies neither
+`D_d>0` nor `G_d+D_d>0`, and left-extension stacking shifts the controlled
+occurrence from `n` to `n-1`. A diagonal use of infinitely many central
+times produces an unanchored coherent reversed-digit ray with recurrent
+positive atoms, but loses the certified `334` seed and natural horizons.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
