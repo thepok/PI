@@ -54,9 +54,11 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   [`T194T194CentralPiReturnSeed.lean`](TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean)
   proves from the explicit premise `IrrationalityMeasureBelow pi (36/5)` that
   every decimal scale `10^k`, `k>=3`, has some actual-π orbit point and
-  containing cell with the T193 unit-block surplus `>3*10^k/20`. The premise
-  is not proved in the repository, the target is unprescribed, and no ray or
-  natural-horizon accumulation follows.
+  containing cell with the T193 unit-block surplus `>3*10^k/20`. It now also
+  proves that, after one premise-dependent onset, such a unit can always be
+  chosen with start time `n<8*10^k`, hence inside the next natural horizon.
+  The premise is not proved in the repository, the target is unprescribed,
+  and no coherent ray or signed natural-horizon accumulation follows.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -155,8 +157,9 @@ unprescribed actual-π seed at every decimal scale under the explicit
 `IrrationalityMeasureBelow pi (36/5)` premise. Thus every sufficiently central
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`. A sharper time-localized root at `q<=n<8q` and the
-subsequent infinite-ladder selection remain at `proof sketch` level. Iterating
+`S_(q,A)(n,1)>3q/20`. T194 now localizes one such unit to `n<8q` after a
+premise-dependent onset (without the previously sketched and unjustified
+lower bound `q<=n`). The subsequent infinite-ladder selection remains open. Iterating
 the machine-checked T176 step gives a coherent same-child block ray (`proof
 sketch`) whose capital stays positive and strictly increases on that
 unchanged unit block.  A fixed ray can be chosen with arbitrarily deep finite
