@@ -298,17 +298,17 @@ though it lies below the active `k>=3` frontier.  These are finite
 `experiments`, not Lean theorems.  They refute only a universal bookkeeping
 argument; a π-specific `k>=3` path theorem remains open.
 
-The same pinned periodic word gives a stronger pathwise separation. With
-child `6` fixed in advance, directed intervals certify `E>204311` at `(10,6)`,
-`E>1445101901` at `(100,66)`, and then
-`E<-3080140823.433564` at the legally reached positive node `(1000,666)`,
-where `{6}` is the complete FMR set. Elementary score-Lipschitz bounds make
-all strict signs stable on a radius `10^-10020`; adding a shifted base-ten
-Thue--Morse--Mahler tail therefore realizes the same path on a transcendental
-`mu=2` orbit (`proof sketch` supported by the interval `experiment`). This
-closes scale-free orbit-generic heredity of corrected cross-energy, but not a
-heredity theorem beginning at `q>=1000`, because the immediate positive
-predecessor is `(100,66)`. The exact replay and scope are recorded in the
+An active-scale replacement now gives a stronger separation. It shares the
+T173-certified first 10015 pi digits, has `E>5.889*10^9` at `(1000,334)`, and
+follows the legal FMR edge `d=1` to the positive node `(10000,1334)`. There
+`{5}` is the complete FMR set but `E<-4.380*10^9`; exactly the child-8
+opposite-sign product overwhelms the child-5 common-positive product. A
+shifted base-ten Thue--Morse--Mahler tail preserves every strict sign on a
+transcendental `mu=2` orbit (`proof sketch` supported by the interval
+`experiment`). Thus same-edge orbit-generic heredity fails even when it begins
+at `q=1000`. An adaptive selector among the seven root FMR children and a
+genuinely actual-pi theorem remain open. The exact replay and scope are
+recorded in the
 [pathwise cross-energy separator](../results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
 
 A second independently reproduced directed-interval replacement closes a
