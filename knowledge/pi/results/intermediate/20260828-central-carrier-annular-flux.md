@@ -184,6 +184,64 @@ kernel samples for the actual π path.  Replacement failure need not reside
 only in those characters; positive-mass alignment and the common thresholds
 can also change the margins.
 
+## Exact block carrier recurrence and principal routed obstruction
+
+Endpoint decimation cancels the remaining orbit-window shift exactly.  Define
+the signed block surplus
+
+```text
+S_(q,A)(M,L)
+ = q*Re(primitiveBoundaryFourierBlockSum(q,A,M,L))-7*L/(3*q).
+```
+
+For `Q=10*q`, `C=A+d*q`, `mu_q=10*alpha_Q-alpha_q`, and `q=10^k>=1000`,
+the independently audited block recurrence is
+
+```text
+(S_(Q,C)(M,L)-S_(q,A)(M,L))/q
+ = (1/2)*sum_(M<=n<M+L)
+       (10*kappa_Q(x_n-c_(Q,C))-kappa_q(x_(n+1)-c_(q,A)))
+   -(L/2)*mu_q + 21*L/(10*q^2) - epsilon_(q,A)(M,L),
+```
+
+where `epsilon` is independent of the child `d` and
+
+```text
+|epsilon_(q,A)(M,L)| < 21*(k+1)/(5*q^2).
+```
+
+This `proof sketch` is cleaner than keeping the endpoint coboundary and the
+temporal index shift separate: the fine child is evaluated at the literal
+predecessor point `x_n`, and the parent at its suffix `x_(n+1)`.  It is still
+universal decimal-orbit algebra, not a source of π sign.  Exact reconstruction
+of the routed ten-vector requires its zero mode `R_0` together with the five
+real nonzero character blocks; pairing is an isomorphism, not cancellation.
+
+Two narrow separators locate the remaining failure.
+
+- The total child flux is already negative at normalized radius `y=3/8` for
+  every `q>=1000`; its asymptotic boundary is `1/(2*sqrt(2))`.  Thus the
+  proved `|y|<=0.35` sibling-payment core is close to maximal and cannot be
+  extended through the full cylinder.
+- For the periodic replacement orbit `xi=1/9`, let `q_k=10^k` and
+  `A_k=(q_k-10)/9`.  These form coherent digit-`1` extensions.  The carry
+  router always selects child `1`, the normalized routed radius is `11/18`,
+  and every orbit-generalized primitive endpoint vanishes.  For `m>=3`,
+  `-Phi_m(11/18)>1/26`; hence over the fresh block the routed contribution to
+  `D_1/q_k` is `<-45*q_k/26`, while every DFT magnitude is `>9*q_k/26`.
+  Routed shell mass can therefore remain principal-sized, coherent, and
+  adversely oriented at every scale.  This separator has no positive-parent
+  premise and is not a counterexample to a π-specific transport theorem.
+
+At the hard actual-π node `(10000,1334)`, the two old central suffixes have
+literal predecessors `2` and `8`, while the fresh central occurrence and
+unique FMR witness are in child `5` (`experiment`).  Central zero-mode support
+therefore does not align the same child even where the full score succeeds.
+
+The remaining robust rung must control the complete routed core **and** the
+retained ancestor/parent suffix kernels with a per-scale same-child margin.
+Summable endpoint and non-routed errors alone cannot supply that margin.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
