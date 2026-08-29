@@ -180,6 +180,54 @@ pi-specific input that excludes proper decimal subshifts or directly locates
 target-dependent returns.  No condition stated solely through `mu(pi)` can
 provide the missing sign.
 
+## Controlled finite-level Siegel products collapse to one lifted orbit
+
+An independently audited `proof sketch` closes a narrower modular-unit route.
+Let `L=10^k` and form a finite product of Siegel functions with characteristics
+`(p_j/L,t_j/L)` and total exponent mass `M`. Writing
+
+```text
+rho = (1/2) * sum_j m_j*B_2(p_j/L),
+nu  = 12*L^2*rho in Z,
+```
+
+the product factors exactly as
+
+```text
+U(tau) = C*q^rho*Psi(q^(1/L)),
+|Log Psi(z)| <= 3*M*|z|/(1-|z|)^2.
+```
+
+On `tau_s=10^s*(alpha+i*eta)`, `s>=2k+2`, put
+
+```text
+w_s = exp(2*pi*i*10^(s-2k-2)*alpha/3),
+r_s = exp(-2*pi*eta*10^(s-k)).
+```
+
+Then exactly
+
+```text
+U(tau_s)
+ = C*exp(-2*pi*rho*eta*10^s)
+     *w_s^(25*nu)*Psi(r_s*w_s^(3*10^(k+2))).
+```
+
+Thus a controlled high-cusp finite Siegel package with stable Lipschitz phase
+decoding supplies only a target-dependent integer power of the single lifted
+orbit `{10^m*alpha/3}`, plus an exponentially small tail. The target
+characteristic `p_j` also changes `nu`; it is not confined to `C` and `Psi`,
+but it still creates no independent phase. Streng's generator theorem covers
+the rational modular-unit group modulo constants through constrained products
+of the untwisted generators; arbitrary target-twisted products need not
+themselves be modular units.
+
+This is deliberately not a general modular or automorphic no-go. Escape is
+possible through a level already around `10^s/log q`, growing exponent mass,
+non-Lipschitz or ill-conditioned decoding, varying cusp height, or a genuinely
+dynamic CM coupling. Reopening the controlled class requires an independent
+signed theorem for `{10^m*pi/3}`; modularity alone does not sign that orbit.
+
 ## Closest source families
 
 1. Aistleitner, [Metric number theory, lacunary series and systems of dilated
