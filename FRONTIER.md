@@ -156,8 +156,9 @@ unprescribed actual-π seed at every decimal scale under the explicit
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
 `S_(q,A)(n,1)>3q/20`. A sharper time-localized root at `q<=n<8q` and the
-subsequent infinite-ladder selection remain at `proof sketch` level; T176 constructs a coherent
-same-child ray whose capital stays positive and strictly increases on that
+subsequent infinite-ladder selection remain at `proof sketch` level. Iterating
+the machine-checked T176 step gives a coherent same-child block ray (`proof
+sketch`) whose capital stays positive and strictly increases on that
 unchanged unit block.  A fixed ray can be chosen with arbitrarily deep finite
 ladders at depth-dependent return times (`proof sketch`). This does **not** control a natural
 prefix: the periodic orbit `xi=1/9` has the same ladder, and the intervening

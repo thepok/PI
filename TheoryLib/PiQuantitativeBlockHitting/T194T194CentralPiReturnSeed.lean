@@ -6,8 +6,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggreg
 /-!
 # T194: conditional central pi return seed
 
-An explicit irrationality-measure hypothesis rules out an arbitrarily long
-terminal run in the two decimal chambers adjacent to zero and one.  Applied
+An explicit irrationality-measure hypothesis rules out an infinite forward
+tail trapped in either decimal chamber adjacent to zero or one. Applied
 to the actual decimal orbit of `pi`, this gives one unprescribed central
 return.  Its containing decimal cell then feeds T193's native unit-block
 surplus directly.

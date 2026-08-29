@@ -363,9 +363,9 @@ The `Phi_q` floor, atom identity, shell partition, `H_s=L_s-L_(s+1)` identity,
 displayed `H_0` retention, positive-valuation aggregate, full atom bound and
 unit-block surplus are machine-checked. T194 additionally machine-checks an
 unprescribed actual-pi return at every decimal scale under the explicit
-external premise `IrrationalityMeasureBelow pi (36/5)`. The premise itself,
-the time-localized return and infinite-ray deductions retain the `proof
-sketch` boundary.
+external premise `IrrationalityMeasureBelow pi (36/5)`. The premise remains a
+literature-checked external hypothesis; the sharper time-localized return and
+infinite-ray deductions remain `proof sketch`.
 
 Machine-checked T193 applies the T151 floors to `L_1,L_2`, mass bounds to the
 remaining layers, and the endpoint budget to give
