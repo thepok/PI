@@ -302,13 +302,14 @@ An active-scale replacement now gives a stronger separation. It shares the
 T173-certified first 10015 pi digits, has `E>5.889*10^9` at `(1000,334)`, and
 follows the legal FMR edge `d=1` to the positive node `(10000,1334)`. There
 `{5}` is the complete FMR set but `E<-4.380*10^9`; exactly the child-8
-opposite-sign product overwhelms the child-5 common-positive product. A
-shifted base-ten Thue--Morse--Mahler tail preserves every strict sign on a
-transcendental `mu=2` orbit (`proof sketch` supported by the interval
-`experiment`). Thus same-edge orbit-generic heredity fails even when it begins
-at `q=1000`. An adaptive selector among the seven root FMR children and a
-genuinely actual-pi theorem remain open. The exact replay and scope are
-recorded in the
+opposite-sign product overwhelms the child-5 common-positive product. The
+same replay checks every one of the seven legal root FMR edges: all seven
+reached parents are positive and have negative `E`, while six have no next
+FMR child. A shifted base-ten Thue--Morse--Mahler tail preserves every strict
+sign on a transcendental `mu=2` orbit (`proof sketch` supported by the
+interval `experiment`). Thus even adaptive/existential orbit-generic
+cross-energy heredity fails beginning at `q=1000`. Only a genuinely actual-pi
+theorem can reopen this proxy. The exact replay and scope are recorded in the
 [pathwise cross-energy separator](../results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
 
 A second independently reproduced directed-interval replacement closes a

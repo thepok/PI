@@ -30,6 +30,14 @@ must identify where actual-π target-signed Archimedean information enters.
 Equivalent consumers, representation-only identities, finite replay, and
 workflow changes are not π progress.
 
+Regularly test whether the current mathematical focus is still the best lever
+toward V1. If successive results only refine the same consumer, proxy, or
+separator without producing new actual-π target-signed information, pause
+that direction and shift emphasis. Keep one of three Pro slots on a
+fundamentally different π-specific approach. Record a focus change only as:
+reason, strongest retained lemma, and reopening condition; do not build new
+process infrastructure for focus audits.
+
 ## Repository boundary
 
 - `FRONTIER.md`: the only current research map.

@@ -72,6 +72,13 @@ prefixes as that source without a new exact implication.
   routes.
 - Empirics test concrete proposed lemmas; do not run an open-ended phenomenon
   search.
+- Regularly audit whether the current mathematical focus remains the best V1
+  lever. If multiple results only sharpen the same consumer, proxy, or
+  separator without new actual-pi target-signed information, pause that
+  direction and move the emphasis. Always reserve one of the three Pro slots
+  for a fundamentally different pi-specific approach. Document a focus change
+  only by its reason, strongest retained lemma, and reopening condition; the
+  audit itself must not become workflow work.
 - Do not formalize another representation until it supplies a named signed
   premise.
 - Keep Ox/OpenRouter stopped unless Marcel explicitly re-enables it.

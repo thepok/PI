@@ -74,6 +74,24 @@ F_5 > 2423.7368.
 The final child score is also positive. Thus literal FMR survives uniquely
 while corrected cross-energy becomes strictly negative.
 
+The same outward-interval replay evaluates every legal root FMR edge, not
+only digit `1`:
+
+```text
+root d   reached node       reached score > 0   reached E upper bound    reached FMR
+0        (10000,334)        5866.57             -6070396590.11           {}
+1        (10000,1334)       16170.49            -4380913919.53           {5}
+2        (10000,2334)       46594.75            -17668182064.14          {}
+3        (10000,3334)       30263.22            -13517144114.14          {}
+4        (10000,4334)       49750.97            -12521410359.76          {}
+8        (10000,8334)       12807.31            -12270271146.87          {}
+9        (10000,9334)       35238.10            -17814413662.74          {}
+```
+
+All seven reached parents are positive and all seven corrected energies are
+strictly negative. Six choices have no next FMR child; digit `1` is the only
+choice that retains FMR, uniquely at child `5`.
+
 ## Exact failure mechanism
 
 At the bad node all common-negative coordinates cancel from `E`; the only
@@ -122,29 +140,32 @@ Rational-affine invariance therefore makes `alpha_TM` transcendental with
 
 ## Exact scope
 
-The following orbit-universal implication is false, already at `q=1000`:
+The following orbit-universal adaptive-selector implication is false, already
+at `q=1000`:
 
 ```text
 B_alpha(q,A,q)>0 and E_alpha(q,A)>0
-and D_d>0 and F_d>0
-  -> E_alpha(10q,A+dq)>0.
+  -> exists d, D_d>0 and F_d>0
+       and E_alpha(10q,A+dq)>0.
 ```
 
 It remains false after requiring a genuine decimal orbit, a positive reached
 node, a legal FMR child there, the T173 10015-digit pi prefix,
 transcendence, and irrationality exponent two. This closes same-edge generic
-heredity at the active scale; the previous scale-free-only qualification is
-obsolete.
+heredity at the active scale, even for an omniscient existential choice among
+all current FMR digits. The previous fixed-edge and scale-free qualifications
+are obsolete.
 
-It does **not** refute an existential selector which may choose another of
-the seven root FMR children, and it gives no actual-pi sign. Reopen the
-cross-energy route only with an adaptive selector theorem or an actual-pi
-joint-character estimate controlling the opposite-sign leakage.
+It gives no actual-pi sign and does not refute FMR transport itself. Reopen the
+cross-energy route only with an actual-pi joint-character estimate controlling
+opposite-sign leakage through information unavailable to this pi-prefix
+replacement.
 
 The standalone reproducer is
 [`t189_active_scale_cross_energy_edge_interval.py`](../../../../workflows/experiments/t189_active_scale_cross_energy_edge_interval.py).
-It uses the exact T139/T174 closed kernel and endpoint, asserts both complete
-FMR sets, and exits only after every displayed strict interval is certified.
+It uses the exact T139/T174 closed kernel and endpoint, checks all seven root
+FMR edges with at most four workers, and exits only after every displayed
+strict interval and complete reached FMR set is certified.
 
 An independent 191-periodic construction sharing 10020 pi digits also gives
 the same active edge with reached `E<-3.183*10^9` and unique reached FMR digit

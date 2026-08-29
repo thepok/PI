@@ -20,7 +20,9 @@ Tested with Python 3.13 and mpmath 1.3.0.
 from __future__ import annotations
 
 import hashlib
+from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
+import os
 from pathlib import Path
 import re
 from typing import Iterable
@@ -36,6 +38,7 @@ WORD_LENGTH = 20_007
 PACKET_START = 20_001          # one-based decimal position
 PACKET = "5133428"
 ORBIT_PREFIX_DIGITS = 45
+MAX_WORKERS = min(4, os.cpu_count() or 1)
 
 EXPECTED_PREFIX_SHA256 = (
     "97f28d126aefbf16c98d17737197bf41ca8d32bc3b204aedcde293c338ffc331"
@@ -398,43 +401,72 @@ def print_node(node: dict[str, object]) -> None:
     print(f"FMR={node['FMR']}")
 
 
-root_score = score(1000, 334, 1000)
-root = evaluate_node(1000, 334, root_score)
+def evaluate_reached_edge(root_digit: int) -> dict[str, object]:
+    reached_label = 334 + root_digit * 1000
+    parent_score = score(10_000, reached_label, 10_000)
+    reached = evaluate_node(10_000, reached_label, parent_score)
+    return {
+        "root_digit": root_digit,
+        "A": reached_label,
+        "parent_interval": interval_text(reached["parent_score"]),
+        "energy_interval": interval_text(reached["E"]),
+        "energy_upper": mp.nstr(upper(reached["E"]), 80),
+        "parent_positive": lower(reached["parent_score"]) > 0,
+        "energy_negative": upper(reached["E"]) < 0,
+        "FMR": reached["FMR"],
+        "patterns": reached["patterns"],
+    }
 
-# This explicit edge is the counter-instance to a universal edgewise claim.
-selected_root_digit = 1
-reached_score = root["final_scores"][selected_root_digit]
-reached = evaluate_node(10_000, 1_334, reached_score)
 
-# The reached node has the explicit literal FMR child e=5.
-selected_reached_digit = 5
+def main() -> None:
+    root_score = score(1000, 334, 1000)
+    root = evaluate_node(1000, 334, root_score)
 
-assert lower(root_score) > 0
-assert root["FMR"] == [0, 1, 2, 3, 4, 8, 9]
-assert stable_sign(root["D"][selected_root_digit]) == "+"
-assert stable_sign(root["F"][selected_root_digit]) == "+"
-assert lower(root["E"]) > mp.mpf("5889773540")
+    assert lower(root_score) > 0
+    assert root["FMR"] == [0, 1, 2, 3, 4, 8, 9]
+    assert lower(root["E"]) > mp.mpf("5889773540")
 
-assert lower(reached_score) > 0
-assert reached["FMR"] == [5]
-assert stable_sign(reached["D"][selected_reached_digit]) == "+"
-assert stable_sign(reached["F"][selected_reached_digit]) == "+"
-assert upper(reached["E"]) < mp.mpf("-4380913919")
-assert reached["patterns"] == [
-    "--", "--", "--", "--", "--", "++", "--", "--", "-+", "--"
-]
+    with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        reached_items = list(executor.map(evaluate_reached_edge, root["FMR"]))
+    reached_items.sort(key=lambda item: int(item["root_digit"]))
 
-print("status: PASS (directed-interval experiment; not a formal proof)")
-print(f"python={__import__('sys').version.split()[0]}")
-print(f"mpmath={mpmath.__version__}")
-print(f"iv_dps={iv.dps}")
-print(f"word_length={len(word)}")
-print(f"prefix_length={PREFIX_LENGTH}")
-print(f"prefix_sha256={EXPECTED_PREFIX_SHA256}")
-print(f"word_sha256={EXPECTED_WORD_SHA256}")
-print(f"packet_positions={PACKET_START}..{PACKET_START + len(PACKET) - 1}")
-print(f"packet={PACKET}")
-print("fixed_edge=(1000,334) --d=1--> (10000,1334)")
-print("fixed_reached_child=e=5")
-print_node(root)
-print_node(reached)
+    expected_fmr = {0: [], 1: [5], 2: [], 3: [], 4: [], 8: [], 9: []}
+    for reached in reached_items:
+        root_digit = int(reached["root_digit"])
+        assert reached["parent_positive"]
+        assert reached["energy_negative"]
+        assert reached["FMR"] == expected_fmr[root_digit]
+
+    reached_one = next(item for item in reached_items if item["root_digit"] == 1)
+    assert lower(root["D"][1]) > 0
+    assert lower(root["F"][1]) > 0
+    assert mp.mpf(reached_one["energy_upper"]) < mp.mpf("-4380913919")
+    assert reached_one["patterns"] == [
+        "--", "--", "--", "--", "--", "++", "--", "--", "-+", "--"
+    ]
+
+    print("status: PASS (directed-interval experiment; not a formal proof)")
+    print(f"python={__import__('sys').version.split()[0]}")
+    print(f"mpmath={mpmath.__version__}")
+    print(f"iv_dps={iv.dps}")
+    print(f"max_workers={MAX_WORKERS}")
+    print(f"word_length={len(word)}")
+    print(f"prefix_length={PREFIX_LENGTH}")
+    print(f"prefix_sha256={EXPECTED_PREFIX_SHA256}")
+    print(f"word_sha256={EXPECTED_WORD_SHA256}")
+    print(f"packet_positions={PACKET_START}..{PACKET_START + len(PACKET) - 1}")
+    print(f"packet={PACKET}")
+    print("root=(1000,334)")
+    print("root_fmr_edges=0,1,2,3,4,8,9")
+    print_node(root)
+    print("\nroot_d  reached_A  parent_score  E  reached_FMR")
+    for reached in reached_items:
+        print(
+            f"{reached['root_digit']}  {reached['A']}  "
+            f"{reached['parent_interval']}  {reached['energy_interval']}  "
+            f"{reached['FMR']}"
+        )
+
+
+if __name__ == "__main__":
+    main()

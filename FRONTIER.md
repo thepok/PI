@@ -159,11 +159,20 @@ The separator now reaches the active range and is Roth-optimal at `proof
 sketch` level. An explicit orbit sharing the T173-certified first 10015 pi
 digits has `E>5.889*10^9` at `(1000,334)` and follows the legal FMR edge `d=1`
 to the positive node `(10000,1334)`, where literal FMR survives uniquely at
-`d=5` but `E<-4.380*10^9`. An explicit stability ball contains a
-transcendental orbit with irrationality exponent `2`. Thus even active-scale
-same-edge orbit-generic heredity of `E` is false. This does not rule out an
-adaptive selector among the seven root FMR children or an actual-pi theorem.
+`d=5` but `E<-4.380*10^9`. In fact every one of the seven legal root FMR
+choices reaches a positive node with negative `E`; six have no next FMR child.
+An explicit stability ball contains a transcendental orbit with irrationality
+exponent `2`. Thus even an omniscient adaptive choice among the current FMR
+children cannot make orbit-generic `E` hereditary. This does not rule out an
+actual-pi theorem or FMR transport by a different signed invariant.
 See the [directed-interval separator](knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
+
+Cross-energy is therefore paused as the primary research focus. **Reason:**
+successive results only sharpened a sufficient proxy without producing new
+actual-pi target-signed information. **Strongest retained lemma:** the
+all-seven-child active-scale separator above. **Reopening condition:** an
+actual-pi joint-character leakage bound or selector theorem using information
+false for the pi-prefix transcendental replacement.
 
 A new actual-π chain gives a stronger but still insufficient signed side
 result. T191 machine-checks its central kernel floor, T192 the exact
