@@ -98,6 +98,25 @@ for adjacent-digit Sturmian expansions and is transcendental.  Thin orbit
 closures are therefore compatible with strong Diophantine behavior at the
 optimal geometric confinement scale.
 
+The separator must not be overstated as a literal substitution into the
+repository's flexible primitive-sum threshold.  The current T139 definition
+of `primitiveBoundaryFourierSum` and the T148 consumer are specialized to
+`piOrbit`; moreover, T148's final endpoint improvement uses the genuinely
+actual-π T147 saving `7/500`.  For a target cell with `A/q>1/9`, Wen--Wu
+confinement does feed the orbit-generic machine-checked T128 avoidance
+consumer.  A straightforward but currently unformalized genericization of
+the T139 compression would then give, for `N>=q`, only
+
+```text
+Re P_x(q,A,N) < -119291/200000,                     (proof sketch)
+```
+
+not the active π barrier `-122091/200000`.  The difference is exactly
+`7/500`, the unavailable T147 endpoint saving.  Thus the example decisively
+rules out `mu` as the missing target-location/sign source, but it does not
+prove a theorem about the π-specialized primitive sum by type-changing its
+orbit.
+
 Reopen the omega-limit/irrationality-exponent route only with a genuinely
 pi-specific input that excludes proper decimal subshifts or directly locates
 target-dependent returns.  No condition stated solely through `mu(pi)` can
