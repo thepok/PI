@@ -133,6 +133,14 @@ The remaining route must control this or the complete multi-sector
 correlation while preserving relative phases and the same digit. Exact
 quantifiers and admission tests are in
 [`FIRST_OPEN_PI_LEMMA.md`](knowledge/pi/workstreams/FIRST_OPEN_PI_LEMMA.md).
+An independently audited scalar-cohomology criterion now shows that a finite
+mean-zero trigonometric polynomial is an `L1` state-only decimal coboundary
+exactly when every primitive frequency-ray coefficient sum vanishes. Each of
+T189's nine nonzero child-character sectors has an explicit nonzero top-band
+residue with its literal inverse child character. At `proof sketch` level,
+scalar `L1` endpoint potentials and scalar summation by parts therefore cannot
+eliminate any sector; the needed actual-π theorem must sign their surviving
+joint remainder.
 
 A newly audited full-sector candidate packages the required alignment without
 discarding character blocks.  For `F=G+D`, the corrected cross-energy
@@ -189,7 +197,15 @@ literal orbit point has the machine-checked primitive atom bound
 predecessor digit to a child-scale unit at time `n-1` with surplus `>3q/2`.
 Both units lie in the exact fresh horizon block and preserve the centered
 coordinate. This is same-child transport of one local positive atom, not
-positivity of the whole same-child fresh sum. The subsequent
+positivity of the whole same-child fresh sum. The target loss is exact: for a
+generic radix orbit `x_n`, T194 chooses `A=floor(10^k*x_n)` and its centered
+coordinate is `x_(n+k)-1/2`; imposing a preassigned `A*` is already the
+`A*`-cylinder hit. Fishman's badly-approximable `{1,2}`-digit Cantor points
+show that the generic central-unit and predecessor-lift premises may hold at
+every time and scale while digit `3` never occurs (`literature-checked`
+existence plus `proof sketch` analytic transfer). Thus neither the `36/5`
+Diophantine premise nor arbitrarily abundant central units repair the target
+quantifier. The subsequent
 infinite-ladder selection remains open. Iterating
 the machine-checked T176 step gives a coherent same-child block ray (`proof
 sketch`) whose capital stays positive and strictly increases on that
