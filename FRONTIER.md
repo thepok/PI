@@ -49,6 +49,14 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   proves the complete central atom bound `Re atom>7139/45000` and the native
   T176 unit-block surplus `>3q/20`. It contains no recurrence or
   irrationality input and does not control a natural prefix.
+- **T194 — Conditional Central π Return Seed — machine-checked conditional
+  π rung.**
+  [`T194T194CentralPiReturnSeed.lean`](TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean)
+  proves from the explicit premise `IrrationalityMeasureBelow pi (36/5)` that
+  every decimal scale `10^k`, `k>=3`, has some actual-π orbit point and
+  containing cell with the T193 unit-block surplus `>3*10^k/20`. The premise
+  is not proved in the repository, the target is unprescribed, and no ray or
+  natural-horizon accumulation follows.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -139,14 +147,16 @@ decimal-orbit separator at `q=1000` has positive parent and unique FMR digit
 but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
-A new actual-π `proof sketch` gives a stronger but still insufficient signed
-side result. T191 machine-checks its central kernel floor, T192 the exact
-valuation-shell subtraction and positive zero-shell margin, and T193 the
-positive-shell aggregate. Thus every sufficiently central literal orbit
-point now has the machine-checked primitive atom bound
+A new actual-π chain gives a stronger but still insufficient signed side
+result. T191 machine-checks its central kernel floor, T192 the exact
+valuation-shell subtraction and positive zero-shell margin, T193 the
+positive-shell aggregate, and conditional T194 the existence of an
+unprescribed actual-π seed at every decimal scale under the explicit
+`IrrationalityMeasureBelow pi (36/5)` premise. Thus every sufficiently central
+literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`. The published finite irrationality exponent supplies
-such an adaptively selected root at `q<=n<8q`; T176 then constructs a coherent
+`S_(q,A)(n,1)>3q/20`. A sharper time-localized root at `q<=n<8q` and the
+subsequent infinite-ladder selection remain at `proof sketch` level; T176 constructs a coherent
 same-child ray whose capital stays positive and strictly increases on that
 unchanged unit block.  A fixed ray can be chosen with arbitrarily deep finite
 ladders at depth-dependent return times (`proof sketch`). This does **not** control a natural
