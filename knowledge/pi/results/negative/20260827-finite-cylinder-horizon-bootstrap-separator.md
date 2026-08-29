@@ -234,6 +234,40 @@ the orbit-generic carrier algebra still cannot supply the required
 target-aligned sign. Reopening requires an unbounded exact input special to
 the distinguished pi tail and false for these continuations.
 
+## Infinite same-time ladder still does not control the natural prefix
+
+A later independently audited `proof sketch` sharpens the alignment. For any
+finite number `D` of fractional digits of pi, insert after that prefix a long
+zero gap, a digit `c`, the marker `3345`, and then a zero/one
+Kempner--Mahler tail. The marker gives a literal central root at one fixed time
+`N`. Recursively replaying the phase-generic content of T193 and T176 at that
+same time produces one coherent infinite left-extension ray with
+
+```text
+150 < U_(q_0,A_0)(N) < U_(q_1,A_1)(N) < ... .
+```
+
+Choose `c != d_0`, where `d_0` is the first selected left-extension digit.
+The continuation then contains exactly one post-prefix copy of `334`, but no
+sufficiently deep selected descendant: every descendant ends in `d_0 334`,
+whereas the unique marker is preceded by `c`. Once `q_r>N`, the distinguished
+positive unit lies inside the natural horizon, yet the parameterized
+T146--T156 missed-cylinder argument gives
+
+```text
+Re P_(q_r,A_r)(q_r) < -861/1000,
+S_(q_r,A_r)(0,q_r) < -(861/1000)q_r - 7/3.
+```
+
+Consequently the sum of all other natural-prefix unit blocks is less than
+`-(861/1000)q_r - 457/3`. The continuation can be transcendental with
+irrationality exponent `2`. This isolates the prefix--tail firewall: an entire
+fixed-time Bellman ladder is a function of the single suffix `x_N`, while the
+natural prefix is not. The constants and decimal construction have been
+audited, but the claim remains a `proof sketch` because T193, T176 and
+T146--T156 are currently declared only for `piOrbit`; their phase-generic
+replays have not been machine checked.
+
 ## Prescribed central atoms do not force fresh positivity
 
 An independently audited, normalization-dependent `proof sketch` gives a
