@@ -411,6 +411,43 @@ deduce `S_(q_r,A_r)(0,q_r)>0`.  Reopen this rung only with a quantitative
 actual-pi accumulation theorem that fails on `1/9` and on sparse
 finite-prefix continuations.
 
+## Universal terminal-layer sharpening
+
+An independently audited Pro memo gives a deterministic `proof sketch`, not
+new pi arithmetic. For `q=10^k`, `k>=6`, applying the T151 floor to layers
+`s<=k-2` and the exact mass bound to the last two layers yields, for arbitrary
+terminal phases,
+
+```text
+sum_(1<=s<=k) Re L_(q,s)(t_s) > -R_k,
+R_k < 96222793/8910000000 < 27/2500.
+```
+
+Combining this terminal floor with T143's endpoint split and T147's initial
+contraction improves the direct natural-horizon hit threshold to
+
+```text
+Re primitiveBoundaryFourierSum(q,A,q) >= -87397/100000
+  -> the A-cylinder is hit before q.
+```
+
+The constants and strict hit implication have been checked against
+T139--T156. This is a genuine consumer improvement over `-861/1000`, but it
+does not estimate the actual pi sum and is therefore not promoted to the
+active frontier or formalized during the present signed-arithmetic cycle.
+
+The same memo records the exact shell telescope
+
+```text
+p_n = K_n + V_n - V_(n+1),
+sum_(n<N) p_n + Re endpoint = sum_(n<N) K_n.
+```
+
+Weighted summation by parts is valid, but its proposed strict variation bound
+fails for identically zero weights; the universal form must use `<=`, or add
+positive total variation. The identity isolates rather than solves the
+prefix--tail firewall: the extensive zero-shell sum remains unsigned.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
