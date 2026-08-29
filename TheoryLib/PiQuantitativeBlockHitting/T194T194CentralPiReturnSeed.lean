@@ -11,7 +11,7 @@ finite decimal-orbit window trapped in either chamber adjacent to zero or
 one. Applied to the actual decimal orbit of `pi`, this gives an unprescribed
 central return. Its containing decimal cell then feeds T193's native
 unit-block surplus directly. After an explicit premise-dependent onset, the
-unit begins before `8*q`, inside the next natural horizon `10*q`.
+unit can be chosen in the fresh natural-horizon block `[q, 10*q)`.
 
 The published irrationality-measure estimate is not asserted here: it
 remains the explicit hypothesis of the final theorem.  This module constructs
@@ -39,6 +39,22 @@ private lemma self_le_pow_ten (s : ℕ) : s ≤ 10 ^ s := by
     rw [pow_succ]
     have hp0 : 0 < 10 ^ s := pow_pos (by omega) _
     omega
+
+private lemma self_le_pow_ten_pred (k : ℕ) (hk : 2 ≤ k) :
+    k ≤ 10 ^ (k - 1) := by
+  induction k, hk using Nat.le_induction with
+  | base => norm_num
+  | succ k hk ih =>
+      have hp : 1 ≤ 10 ^ (k - 1) := Nat.one_le_pow (k - 1) 10 (by omega)
+      rw [show k + 1 - 1 = (k - 1) + 1 by omega, pow_succ]
+      omega
+
+private lemma seven_mul_lt_two_mul_pow_ten (k : ℕ) (hk : 3 ≤ k) :
+    7 * k < 2 * 10 ^ k := by
+  have hkp := self_le_pow_ten_pred k (by omega)
+  have hp : 0 < 10 ^ (k - 1) := pow_pos (by omega) _
+  rw [show k = (k - 1) + 1 by omega, pow_succ]
+  omega
 
 private lemma sourceBelow36Fifths_implies_sourceBelowEight
     (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
@@ -365,8 +381,86 @@ theorem eventually_exists_central_pi_unitBlock_surplus_before_eight_scale
   exact ⟨n, A, hn8, hA,
     central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy hyCoord⟩
 
+/-- Fresh-horizon form of the conditional actual-pi seed. After a
+premise-dependent onset, the positive literal unit starts in the exact T189
+fresh block `[q, 10*q)`. This asserts neither positivity of the whole fresh
+block nor a same-child horizon transport. -/
+theorem eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
+    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
+    ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
+      ∃ n A : ℕ, 10 ^ k ≤ n ∧ n < 10 * 10 ^ k ∧ A < 10 ^ k ∧
+        (3 / 20 : ℝ) * (10 ^ k : ℕ) <
+          (10 ^ k : ℕ) *
+              (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
+            signedBlockPotential (10 ^ k) := by
+  obtain ⟨Q0, hIrr⟩ :=
+    irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
+      (sourceBelow36Fifths_implies_sourceBelowEight hSource)
+  refine ⟨Q0, ?_⟩
+  intro k hk
+  have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
+  have hQ0k : Q0 ≤ k := (le_max_right 3 Q0).trans hk
+  have hQ0s : Q0 ≤ 10 ^ k + k := hQ0k.trans (Nat.le_add_left k (10 ^ k))
+  have hQ0pow : Q0 ≤ 10 ^ (10 ^ k + k) :=
+    hQ0s.trans (self_le_pow_ten (10 ^ k + k))
+  obtain ⟨m, hsm, hm8, hmLow, hmHigh⟩ :=
+    exists_piOrbit_mem_central_chamber_Icc Q0 (10 ^ k + k) hIrr
+      ((Nat.one_le_pow k 10 (by omega)).trans (Nat.le_add_right _ _)) hQ0pow
+  let n := m - k
+  have hkm : k ≤ m := (Nat.le_add_left k (10 ^ k)).trans hsm
+  have hqn : 10 ^ k ≤ n := by
+    dsimp [n]
+    omega
+  have hseven : 7 * k < 2 * 10 ^ k :=
+    seven_mul_lt_two_mul_pow_ten k hk3
+  have hn10 : n < 10 * 10 ^ k := by
+    dsimp [n]
+    omega
+  let A := ⌊(10 ^ k : ℕ) * piOrbit n⌋₊
+  let y := (10 ^ k : ℕ) * piOrbit n - A - 1 / 2
+  have hx := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico n
+  have hqPos : (0 : ℝ) < ((10 ^ k : ℕ) : ℝ) := by positivity
+  have hA : A < 10 ^ k := by
+    dsimp [A]
+    rw [Nat.floor_lt (by
+      exact mul_nonneg (by positivity) hx.1 :
+        (0 : ℝ) ≤ ((10 ^ k : ℕ) : ℝ) * piOrbit n)]
+    simpa using (mul_lt_mul_of_pos_left hx.2 hqPos)
+  have hfrac : y = Int.fract ((10 ^ k : ℕ) * piOrbit n) - 1 / 2 := by
+    dsimp [y, A]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (by exact mul_nonneg (by positivity) hx.1 :
+        (0 : ℝ) ≤ ((10 ^ k : ℕ) : ℝ) * piOrbit n)]
+  have horbitShift : Int.fract ((10 ^ k : ℕ) * piOrbit n) = piOrbit (n + k) := by
+    unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+    have hfract := Theory.PiDigits.MachinForcedOrbit.fract_natCast_mul_fract_add
+      ((10 : ℝ) ^ n * Real.pi) 0 (10 ^ k)
+    simp only [add_zero] at hfract
+    exact hfract.trans (by
+      congr 1
+      push_cast
+      rw [← mul_assoc, ← pow_add]
+      congr 2
+      omega)
+  have hy : |y| ≤ 9 / 22 := by
+    rw [hfrac, horbitShift]
+    have hnk : n + k = m := by dsimp [n]; omega
+    rw [hnk]
+    rw [abs_le]
+    constructor <;> nlinarith
+  have hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ) := by
+    dsimp [y, A]
+    unfold decimalCylinderCenter
+    field_simp
+    ring
+  exact ⟨n, A, hqn, hn10, hA,
+    central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy hyCoord⟩
+
 end Theory.PiDigits.T194CentralPiReturnSeed
 
 #print axioms Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_before_eight_scale
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
