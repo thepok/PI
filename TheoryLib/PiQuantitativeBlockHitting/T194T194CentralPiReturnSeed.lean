@@ -57,6 +57,13 @@ private lemma seven_mul_lt_two_mul_pow_ten (k : ℕ) (hk : 3 ≤ k) :
   rw [show k = (k - 1) + 1 by omega, pow_succ]
   omega
 
+private lemma eight_add_seven_mul_lt_two_mul_pow_ten (k : ℕ) (hk : 3 ≤ k) :
+    8 + 7 * k < 2 * 10 ^ k := by
+  have hkp := self_le_pow_ten_pred k (by omega)
+  have hp : 0 < 10 ^ (k - 1) := pow_pos (by omega) _
+  rw [show k = (k - 1) + 1 by omega, pow_succ]
+  omega
+
 private lemma sourceBelow36Fifths_implies_sourceBelowEight
     (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
     IrrationalityMeasureBelow Real.pi 8 := by
@@ -492,6 +499,145 @@ theorem eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
   exact ⟨n, A, hqn, hn10, hA,
     central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy hyCoord⟩
 
+/-- Exact predecessor lift of the fresh-horizon central seed.  The parent
+cell at scale `q = 10^k` and the predecessor cell at scale `10*q` have the
+same centered coordinate.  The new leading child digit is exactly the
+decimal digit exposed by the predecessor orbit point. -/
+theorem eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
+    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
+    ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
+      let q := 10 ^ k
+      ∃ n A d C : ℕ,
+        q + 1 ≤ n ∧ n < 10 * q ∧ A < q ∧ d < 10 ∧ C < 10 * q ∧
+        A = ⌊(q : ℕ) * piOrbit n⌋₊ ∧
+        d = ⌊10 * piOrbit (n - 1)⌋₊ ∧
+        C = A + d * q ∧
+        C = ⌊(10 * q : ℕ) * piOrbit (n - 1)⌋₊ ∧
+        (3 / 20 : ℝ) * q <
+          q * (primitiveBoundaryFourierBlockSum q A n 1).re -
+            signedBlockPotential q ∧
+        (3 / 2 : ℝ) * q <
+          (10 * q) *
+              (primitiveBoundaryFourierBlockSum (10 * q) C (n - 1) 1).re -
+            signedBlockPotential (10 * q) := by
+  obtain ⟨Q0, hIrr⟩ :=
+    irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
+      (sourceBelow36Fifths_implies_sourceBelowEight hSource)
+  refine ⟨Q0, ?_⟩
+  intro k hk
+  dsimp only
+  let q : ℕ := 10 ^ k
+  have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
+  have hQ0k : Q0 ≤ k := (le_max_right 3 Q0).trans hk
+  have hQ0s : Q0 ≤ q + 1 + k := by
+    exact hQ0k.trans (Nat.le_add_left k (q + 1))
+  have hQ0pow : Q0 ≤ 10 ^ (q + 1 + k) :=
+    hQ0s.trans (self_le_pow_ten (q + 1 + k))
+  obtain ⟨m, hsm, hm8, hmLow, hmHigh⟩ :=
+    exists_piOrbit_mem_central_chamber_Icc Q0 (q + 1 + k) hIrr
+      (by
+        simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
+          Nat.succ_le_succ (Nat.zero_le (q + k))) hQ0pow
+  let n := m - k
+  have hkm : k ≤ m := (Nat.le_add_left k (q + 1)).trans hsm
+  have hqn : q + 1 ≤ n := by
+    dsimp [n]
+    omega
+  have hseven : 8 + 7 * k < 2 * q := by
+    dsimp [q]
+    exact eight_add_seven_mul_lt_two_mul_pow_ten k hk3
+  have hn10 : n < 10 * q := by
+    dsimp [n]
+    omega
+  let A := ⌊(q : ℕ) * piOrbit n⌋₊
+  let d := ⌊10 * piOrbit (n - 1)⌋₊
+  let C := ⌊(10 * q : ℕ) * piOrbit (n - 1)⌋₊
+  let y := (q : ℕ) * piOrbit n - A - 1 / 2
+  have hx := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico n
+  have hxp := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico (n - 1)
+  have hqPos : (0 : ℝ) < q := by dsimp [q]; positivity
+  have hA : A < q := by
+    dsimp [A]
+    rw [Nat.floor_lt (mul_nonneg (by positivity) hx.1)]
+    simpa using (mul_lt_mul_of_pos_left hx.2 hqPos)
+  have hd : d < 10 := by
+    dsimp [d]
+    rw [Nat.floor_lt (mul_nonneg (by norm_num) hxp.1)]
+    norm_num
+    linarith [hxp.2]
+  have hnPred : n - 1 + 1 = n := by omega
+  have hstep := Theory.PiDigits.DigitChangeFourierDefect.piOrbit_succ (n - 1)
+  change piOrbit (n - 1 + 1) = Int.fract (10 * piOrbit (n - 1)) at hstep
+  rw [hnPred] at hstep
+  have hdecomp : 10 * piOrbit (n - 1) = d + piOrbit n := by
+    rw [hstep]
+    dsimp [d]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (mul_nonneg (by norm_num) hxp.1)]
+    ring
+  have hCeq : C = A + d * q := by
+    apply (Nat.floor_eq_iff (mul_nonneg (by positivity) hxp.1)).2
+    have hAlo : (A : ℝ) ≤ q * piOrbit n := by
+      exact Nat.floor_le (mul_nonneg (by positivity) hx.1)
+    have hAhi : q * piOrbit n < (A : ℝ) + 1 :=
+      Nat.lt_floor_add_one _
+    constructor <;> push_cast <;> nlinarith
+  have hC : C < 10 * q := by
+    rw [hCeq]
+    calc
+      A + d * q < q + d * q := Nat.add_lt_add_right hA _
+      _ ≤ q + 9 * q := Nat.add_le_add_left (Nat.mul_le_mul_right q (by omega)) q
+      _ = 10 * q := by omega
+  have hfrac : y = Int.fract (q * piOrbit n) - 1 / 2 := by
+    dsimp [y, A]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (mul_nonneg (by positivity) hx.1)]
+  have horbitShift : Int.fract (q * piOrbit n) = piOrbit (n + k) := by
+    dsimp [q]
+    unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+    have hfract := Theory.PiDigits.MachinForcedOrbit.fract_natCast_mul_fract_add
+      ((10 : ℝ) ^ n * Real.pi) 0 (10 ^ k)
+    simp only [add_zero] at hfract
+    exact hfract.trans (by
+      congr 1
+      push_cast
+      rw [← mul_assoc, ← pow_add]
+      congr 2
+      omega)
+  have hy : |y| ≤ 9 / 22 := by
+    rw [hfrac, horbitShift]
+    have hnk : n + k = m := by dsimp [n]; omega
+    rw [hnk, abs_le]
+    constructor <;> nlinarith
+  have hyCoord : piOrbit n - decimalCylinderCenter q A = y / q := by
+    dsimp [y, A]
+    unfold decimalCylinderCenter
+    field_simp
+    ring
+  have hyChildCoord :
+      piOrbit (n - 1) - decimalCylinderCenter (10 * q) C = y / (10 * q) := by
+    rw [hCeq]
+    dsimp [y]
+    unfold decimalCylinderCenter
+    push_cast
+    field_simp
+    nlinarith [hdecomp]
+  have hParent :=
+    central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy (by
+      simpa [q] using hyCoord)
+  have hChild :=
+    central_unitBlock_surplus_gt_three_div_twenty (k + 1) C (n - 1)
+      (by omega) y hy (by
+        simpa [q, pow_succ, mul_comm, mul_left_comm, mul_assoc] using hyChildCoord)
+  refine ⟨n, A, d, C, hqn, hn10, hA, hd, hC, rfl, rfl, hCeq, rfl, ?_, ?_⟩
+  · simpa [q] using hParent
+  · have hthreshold :
+        (3 / 2 : ℝ) * q = (3 / 20 : ℝ) * (10 * q : ℕ) := by
+      push_cast
+      ring
+    rw [hthreshold]
+    simpa [q, pow_succ, Nat.mul_comm] using hChild
+
 end Theory.PiDigits.T194CentralPiReturnSeed
 
 #print axioms Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus
@@ -499,3 +645,5 @@ end Theory.PiDigits.T194CentralPiReturnSeed
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_before_eight_scale
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift

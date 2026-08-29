@@ -56,10 +56,13 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
   bound. Under the additional explicit premise
   `IrrationalityMeasureBelow pi (36/5)`, it proves that after one onset such a
-  unit can always be chosen in the exact fresh T189 block
-  `10^k<=n<10^(k+1)`. The quantitative premise is not proved in the repository,
-  the target is unprescribed, and neither positivity of the entire fresh block
-  nor a same-child transport or coherent ray follows. The qualitative
+  unit can always be chosen with `10^k+1<=n<10^(k+1)`. Its literal predecessor
+  digit then machine-checkably lifts the same centered coordinate to a child
+  unit at scale `10^(k+1)` and time `n-1`, inside the exact T189 fresh block,
+  with surplus `>3*10^k/2`. The quantitative premise is not proved in the
+  repository, the target is unprescribed, and neither positivity of the
+  entire same-child fresh block nor a coherent natural-horizon ray follows.
+  The qualitative
   irrationality mechanism is generic to every irrational constant; it is
   actual-π information after specialization, not yet π-specific arithmetic.
 
@@ -162,8 +165,11 @@ literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
 `S_(q,A)(n,1)>3q/20`. Under the additional explicit
 `IrrationalityMeasureBelow pi (36/5)` premise, T194 localizes one such unit to
-the exact fresh horizon block `q<=n<10q` after a premise-dependent onset. This
-is a local positive atom, not positivity of the whole fresh sum. The subsequent
+`q+1<=n<10q` after a premise-dependent onset and lifts it through its literal
+predecessor digit to a child-scale unit at time `n-1` with surplus `>3q/2`.
+Both units lie in the exact fresh horizon block and preserve the centered
+coordinate. This is same-child transport of one local positive atom, not
+positivity of the whole same-child fresh sum. The subsequent
 infinite-ladder selection remains open. Iterating
 the machine-checked T176 step gives a coherent same-child block ray (`proof
 sketch`) whose capital stays positive and strictly increases on that
