@@ -288,6 +288,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T187T187ReflectedTrigShard9965
 import TheoryLib.PiQuantitativeBlockHitting.T188T188SharedOrbitCylinderBatch
 import TheoryLib.PiQuantitativeBlockHitting.T189T189SignedHorizonSectorBridge
 import TheoryLib.PiQuantitativeBlockHitting.T190T190ComplementaryRankAlignment
+import TheoryLib.PiQuantitativeBlockHitting.T191T191CentralBoundaryKernelFloor
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3544,6 +3545,11 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 -- This is only a finite cardinality bridge and supplies no analytic bounds.
 #print axioms
   Theory.PiDigits.T190ComplementaryRankAlignment.exists_digit_D_pos_and_G_add_D_pos_of_complementary_card
+
+-- Uniform pointwise floor for the boundary-matched kernel on the central
+-- normalized chamber at decimal scales.
+#print axioms
+  Theory.PiDigits.T191CentralBoundaryKernelFloor.boundaryMinorant_re_gt_4859_div_10000
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

@@ -33,6 +33,11 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
 - **T190 — Complementary Rank Alignment — machine-checked deterministic
   alignment.** It applies only after independent π-specific rank information
   is supplied.
+- **T191 — Central Boundary-Kernel Floor — machine-checked analytic rung.**
+  [`T191T191CentralBoundaryKernelFloor.lean`](TheoryLib/PiQuantitativeBlockHitting/T191T191CentralBoundaryKernelFloor.lean)
+  proves the uniform pointwise bound `boundaryMinorant>4859/10000` throughout
+  the normalized chamber `|y|<=9/22` at every decimal scale `10^k`, `k>=3`.
+  It contains no orbit or target-recurrence premise.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -124,8 +129,9 @@ but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
 A new actual-π `proof sketch` gives a stronger but still insufficient signed
-side result.  Exact valuation-shell subtraction and the verified T151/T156
-bounds show that every sufficiently central literal orbit point has primitive
+side result.  T191 now machine-checks its central kernel floor.  Exact
+valuation-shell subtraction and the verified T151/T156 bounds then show, at
+`proof sketch` level, that every sufficiently central literal orbit point has primitive
 atom `p_(q,A)(n)>7139/45000`, hence positive T176 unit-block capital
 `S_(q,A)(n,1)>3q/20`.  The published finite irrationality exponent supplies
 such an adaptively selected root at `q<=n<8q`; T176 then constructs a coherent

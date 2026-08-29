@@ -350,12 +350,15 @@ H_s = L_s(x_n-10^s*c_(q,A))
 p_(q,A)(n) = sum_(0<=s<=k) Re H_s,       q=10^k.
 ```
 
-If `A=floor(q*x_n)` and `|y|<=9/22`, the root-grid projector and the central
-kernel lower bound give
+If `A=floor(q*x_n)` and `|y|<=9/22`, machine-checked T191 supplies the central
+kernel floor, and the root-grid projector gives
 
 ```text
 Re H_0 >= (9/20)*Phi_q(y),       Phi_q(y)>4859/10000.
 ```
+
+Only the `Phi_q` floor is currently machine-checked; the shell identity and
+the remaining deductions in this section retain the `proof sketch` label.
 
 Applying the verified T151 floors to `L_1,L_2`, mass bounds to the remaining
 layers, and the T156 endpoint budget gives
