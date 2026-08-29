@@ -51,6 +51,58 @@ Reopen this input only with a π-specific strengthening that forces the limit
 set quantitatively into literal target cylinders or directly signs the
 target-weighted return sum.
 
+An independent PaperSearch audit on 2026-08-29 closes the tempting repair by
+an irrationality-exponent hypothesis.  Wen--Wu,
+[Hankel determinants of the Cantor
+sequence](https://arxiv.org/abs/1407.3578), define
+
+```text
+c_0=1,  c_(3n)=c_(3n+2)=c_n,  c_(3n+1)=0,
+xi_(c,b)=sum_(k>=0) c_k*b^(-k),
+```
+
+and prove for every integer `b>=2` that the transcendental Cantor number
+`xi_(c,b)` has the optimal irrationality exponent
+
+```text
+mu(xi_(c,b))=2.                                      (WW)
+```
+
+For `b=10`, shifting the base-ten expansion gives the elementary exact bound
+
+```text
+forall n>=0: fract(10^n*xi_(c,10))
+  = sum_(j>=1) c_(n+j)*10^(-j) in [0,1/9].          (C)
+```
+
+Thus transcendence, infinitely many limit points, and even `mu=2` coexist
+with an orbit that permanently omits every cylinder outside `[0,1/9]`.  If
+`phi` is any nonnegative continuous function supported in one such omitted
+cylinder with positive integral, (C) also gives the deterministic signed
+separator
+
+```text
+sum_(n<N) (phi(fract(10^n*xi_(c,10)))-integral phi)
+  = -N*integral phi.
+```
+
+This is stronger than the preceding Liouville separator for the proposed
+repair: no hypothesis depending only on a finite irrationality exponent can
+force target-uniform signed recurrence, even at the smallest possible value
+`mu=2`.  Allouche--Glen,
+[Distribution modulo 1 and the lexicographic
+world](https://arxiv.org/abs/0907.3560), reproduce the sharp
+Bugeaud--Dubickas theorem that an irrational base-`b` orbit cannot fit in an
+interval shorter than `1/b`, while exact `1/b` confinement occurs precisely
+for adjacent-digit Sturmian expansions and is transcendental.  Thin orbit
+closures are therefore compatible with strong Diophantine behavior at the
+optimal geometric confinement scale.
+
+Reopen the omega-limit/irrationality-exponent route only with a genuinely
+pi-specific input that excludes proper decimal subshifts or directly locates
+target-dependent returns.  No condition stated solely through `mu(pi)` can
+provide the missing sign.
+
 ## Closest source families
 
 1. Aistleitner, [Metric number theory, lacunary series and systems of dilated
