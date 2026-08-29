@@ -143,11 +143,11 @@ E(D,F)=sum_d D_d*F_d-sum_d D_d^-*F_d^-
 
 is strictly positive only if one literal digit has both `D_d>0` and `F_d>0`.
 Its bilinear term has an exact five-block Parseval expansion, and strict
-outward-interval `experiments` give `E>0` at the certified root and all seven
-legal first-generation nodes, including `E>2.7430*10^9` at the hard reached
-node `(10000,1334)`.  This is a viable deterministic rung, not new π
-arithmetic: the open input is now a pathwise actual-π lower bound for `E` that
-controls cross-block alignment and opposite-sign leakage.  Exact scope,
+outward-interval `experiments` for the actual π orbit give `E>0` at the
+certified root and all seven legal first-generation nodes, including
+`E>2.7430*10^9` at the hard reached node `(10000,1334)`. Historically this
+made `E>0` a deterministic sufficient proxy, not new π arithmetic; the
+all-child separator below has since paused it as a research target. Exact scope,
 normalization, and finite bounds are recorded in
 [`T189_FMR_R1_R2.md`](knowledge/pi/workstreams/T189_FMR_R1_R2.md).
 This premise is genuinely stronger than FMR: a directed-interval periodic
@@ -160,11 +160,12 @@ sketch` level. An explicit orbit sharing the T173-certified first 10015 pi
 digits has `E>5.889*10^9` at `(1000,334)` and follows the legal FMR edge `d=1`
 to the positive node `(10000,1334)`, where literal FMR survives uniquely at
 `d=5` but `E<-4.380*10^9`. In fact every one of the seven legal root FMR
-choices reaches a positive node with negative `E`; six have no next FMR child.
-An explicit stability ball contains a transcendental orbit with irrationality
-exponent `2`. Thus even an omniscient adaptive choice among the current FMR
-children cannot make orbit-generic `E` hereditary. This does not rule out an
-actual-pi theorem or FMR transport by a different signed invariant.
+choices reaches a positive node with negative `E` and retains exactly one next
+FMR child. An explicit stability ball contains a transcendental orbit with
+irrationality exponent `2`. Thus even an omniscient adaptive choice among the
+current FMR children cannot make orbit-generic `E` hereditary, and the failure
+cannot be blamed on FMR dying. This does not rule out an actual-pi theorem or
+FMR transport by a different signed invariant.
 See the [directed-interval separator](knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
 
 Cross-energy is therefore paused as the primary research focus. **Reason:**

@@ -4,10 +4,12 @@ Directed-interval experiment for an active-scale T139/cross-energy separator.
 
 Candidate decimal orbit:
   alpha_0 = 0.W0000...
-where W is generated from the tracked pi digit source and an explicit packet.
-It has length 20007, consists of the first 10015 certified fractional
-digits of pi, then zeros through position 20000, then the packet 5133428
-at positions 20001..20007.  The expansion terminates after W.
+where W is generated from the tracked pi digit source and seven explicit
+packets. It has length 80007, begins with the first 10015 certified
+fractional digits of pi, and otherwise contains zeros except at the pinned
+packet positions below. The expansion terminates after W. Every legal root
+FMR child reaches a positive node with negative corrected cross-energy while
+retaining a unique literal FMR child.
 
 The computation uses the exact T139 generalized score through the closed
 T128 kernel plus the exact primitive-shift endpoint.  All elementary
@@ -34,9 +36,16 @@ mp.dps = 60
 iv.dps = 30
 
 PREFIX_LENGTH = 10_015
-WORD_LENGTH = 20_007
-PACKET_START = 20_001          # one-based decimal position
-PACKET = "5133428"
+WORD_LENGTH = 80_007
+PACKETS = (
+    (20_001, "0033428"),
+    (30_001, "5133428"),
+    (40_001, "0233432"),
+    (50_001, "3333430"),
+    (60_001, "0433432"),
+    (70_001, "0833428"),
+    (80_001, "0933430"),
+)
 ORBIT_PREFIX_DIGITS = 45
 MAX_WORKERS = min(4, os.cpu_count() or 1)
 
@@ -44,7 +53,7 @@ EXPECTED_PREFIX_SHA256 = (
     "97f28d126aefbf16c98d17737197bf41ca8d32bc3b204aedcde293c338ffc331"
 )
 EXPECTED_WORD_SHA256 = (
-    "7fb44517b3d61021d9ad7edf6257ef5478cbbb9b3d2d9159ab9e4050dde36ee0"
+    "9a6e0e82fa3543a2d08cb6e0dd212404d1701dfb51161e5140f325bbe13b0fa7"
 )
 EXPECTED_DIGIT_FILE_SHA256 = (
     "77eeccb0067283e14c460b33dc230de54ef15c2e825fc2a35c984fb6984bf684"
@@ -77,7 +86,11 @@ def load_certified_prefix() -> str:
 
 
 certified_prefix = load_certified_prefix()
-word = certified_prefix + "0" * (PACKET_START - 1 - PREFIX_LENGTH) + PACKET
+word_chars = list(certified_prefix + "0" * (WORD_LENGTH - PREFIX_LENGTH))
+for packet_start, packet in PACKETS:
+    packet_end = packet_start - 1 + len(packet)
+    word_chars[packet_start - 1 : packet_end] = packet
+word = "".join(word_chars)
 
 assert len(word) == WORD_LENGTH
 assert word.isdigit()
@@ -86,10 +99,9 @@ assert (
     hashlib.sha256(word[:PREFIX_LENGTH].encode("ascii")).hexdigest()
     == EXPECTED_PREFIX_SHA256
 )
-assert word[PREFIX_LENGTH : PACKET_START - 1] == "0" * (
-    PACKET_START - 1 - PREFIX_LENGTH
-)
-assert word[PACKET_START - 1 :] == PACKET
+for packet_start, packet in PACKETS:
+    packet_end = packet_start - 1 + len(packet)
+    assert word[packet_start - 1 : packet_end] == packet
 
 
 def lower(x: iv.mpf) -> mp.mpf:
@@ -430,7 +442,7 @@ def main() -> None:
         reached_items = list(executor.map(evaluate_reached_edge, root["FMR"]))
     reached_items.sort(key=lambda item: int(item["root_digit"]))
 
-    expected_fmr = {0: [], 1: [5], 2: [], 3: [], 4: [], 8: [], 9: []}
+    expected_fmr = {0: [0], 1: [5], 2: [0], 3: [3], 4: [0], 8: [0], 9: [0]}
     for reached in reached_items:
         root_digit = int(reached["root_digit"])
         assert reached["parent_positive"]
@@ -440,7 +452,7 @@ def main() -> None:
     reached_one = next(item for item in reached_items if item["root_digit"] == 1)
     assert lower(root["D"][1]) > 0
     assert lower(root["F"][1]) > 0
-    assert mp.mpf(reached_one["energy_upper"]) < mp.mpf("-4380913919")
+    assert mp.mpf(reached_one["energy_upper"]) < mp.mpf("-4380913000")
     assert reached_one["patterns"] == [
         "--", "--", "--", "--", "--", "++", "--", "--", "-+", "--"
     ]
@@ -454,8 +466,10 @@ def main() -> None:
     print(f"prefix_length={PREFIX_LENGTH}")
     print(f"prefix_sha256={EXPECTED_PREFIX_SHA256}")
     print(f"word_sha256={EXPECTED_WORD_SHA256}")
-    print(f"packet_positions={PACKET_START}..{PACKET_START + len(PACKET) - 1}")
-    print(f"packet={PACKET}")
+    print(
+        "packets="
+        + ",".join(f"{start}:{packet}" for start, packet in PACKETS)
+    )
     print("root=(1000,334)")
     print("root_fmr_edges=0,1,2,3,4,8,9")
     print_node(root)

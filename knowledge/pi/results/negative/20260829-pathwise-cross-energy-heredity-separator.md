@@ -6,25 +6,29 @@ Date: 2026-08-29 UTC
 
 This result is not about the actual pi tail and proves no failure on the
 actual pi tree. It closes one orbit-generic hope: corrected cross-energy
-positivity is not inherited along a fixed legal FMR edge even when the edge
-starts at the active scale `q=1000`, both endpoint nodes have positive score,
-the replacement shares the T173-certified pi prefix, and an arbitrarily small
-continuation is transcendental with irrationality exponent two.
+positivity is not inherited along any adaptive choice from the complete legal
+FMR set even when every reached node has positive score and retains a unique
+literal FMR child, the replacement shares the T173-certified pi prefix, and an
+arbitrarily small continuation is transcendental with irrationality exponent
+two.
 
 ## Reproducible terminating core
 
 Let `p` be the first 10015 fractional decimal digits certified by T173 and put
 
 ```text
-W = p ++ 0^9985 ++ 5133428,
+W = p, padded by zeros to length 80007, with packets
+    20001:0033428, 30001:5133428, 40001:0233432,
+    50001:3333430, 60001:0433432, 70001:0833428,
+    80001:0933430,
 alpha_0 = 0.W0000...
 ```
 
-Thus `W` has length 20007. Its mathematical word hashes are
+Thus `W` has length 80007. Its mathematical word hashes are
 
 ```text
 sha256(p) = 97f28d126aefbf16c98d17737197bf41ca8d32bc3b204aedcde293c338ffc331
-sha256(W) = 7fb44517b3d61021d9ad7edf6257ef5478cbbb9b3d2d9159ab9e4050dde36ee0
+sha256(W) = 9a6e0e82fa3543a2d08cb6e0dd212404d1701dfb51161e5140f325bbe13b0fa7
 ```
 
 The tracked reproducer generates `W` from the pinned pi digit source, checks
@@ -64,11 +68,11 @@ At that reached node,
 
 ```text
 E_alpha(10000,1334)
-  in [-4380913919.534852428946566927,
-      -4380913919.534852428626660839],
+  in [-4380913320.84010044652905,
+      -4380913320.84010044620914],
 FMR digits = {5},
-D_5 > 40906.1957,
-F_5 > 2423.7368.
+D_5 > 40906.1947,
+F_5 > 2423.7358.
 ```
 
 The final child score is also positive. Thus literal FMR survives uniquely
@@ -79,18 +83,18 @@ only digit `1`:
 
 ```text
 root d   reached node       reached score > 0   reached E upper bound    reached FMR
-0        (10000,334)        5866.57             -6070396590.11           {}
-1        (10000,1334)       16170.49            -4380913919.53           {5}
-2        (10000,2334)       46594.75            -17668182064.14          {}
-3        (10000,3334)       30263.22            -13517144114.14          {}
-4        (10000,4334)       49750.97            -12521410359.76          {}
-8        (10000,8334)       12807.31            -12270271146.87          {}
-9        (10000,9334)       35238.10            -17814413662.74          {}
+0        (10000,334)        5866.57             -5585992979.33           {0}
+1        (10000,1334)       16170.49            -4380913320.84           {5}
+2        (10000,2334)       46594.75            -16848272637.89          {0}
+3        (10000,3334)       30263.22            -12745629439.07          {3}
+4        (10000,4334)       49750.97            -11910383437.73          {0}
+8        (10000,8334)       12807.31            -11593317696.82          {0}
+9        (10000,9334)       35238.10            -17319092880.54          {0}
 ```
 
 All seven reached parents are positive and all seven corrected energies are
-strictly negative. Six choices have no next FMR child; digit `1` is the only
-choice that retains FMR, uniquely at child `5`.
+strictly negative. Every choice retains exactly one literal FMR child, so the
+failure of hereditary `E` cannot be attributed to the death of FMR.
 
 ## Exact failure mechanism
 
@@ -99,13 +103,14 @@ remaining coordinates are
 
 ```text
 E = D_5*F_5 + D_8*F_8,
-D_5*F_5 in [99145855.64, 99145855.66],
-D_8*F_8 in [-4480059775.19, -4480059775.17].
+D_5*F_5 approximately 9.9146*10^7,
+D_8*F_8 approximately -4.4801*10^9.
 ```
 
-The packet places the literal child `5` just above its same-child threshold,
-while the inherited child-8 score turns the long zero-tail loss into a much
-larger opposite-sign product. The packet lies at orbit time `20000`, inside
+The digit-`1` packet places the literal child `5` just above its same-child
+threshold, while the inherited child-8 score turns the long zero-tail loss
+into a much larger opposite-sign product. The seven packets lie at orbit
+times `20000`, `30000`, ..., `80000`, inside
 the literal natural fresh horizon `10000<=n<100000`; no translated auxiliary
 block is used.
 
@@ -128,7 +133,7 @@ alpha_TM = alpha_0 + 10^-100050 * tau_10,
 ```
 
 where `tau_10` is the base-ten Thue--Morse--Mahler number. Since `alpha_0`
-is zero after place 20007, there is no carry. Every score above changes by
+is zero after place 80007, there is no carry. Every score above changes by
 less than `9*10^-40`, every `D_d,F_d` by less than `1.8*10^-39`, and `E` by
 less than `10^-32`. All strict signs and complete FMR sets persist.
 
@@ -151,10 +156,10 @@ B_alpha(q,A,q)>0 and E_alpha(q,A)>0
 
 It remains false after requiring a genuine decimal orbit, a positive reached
 node, a legal FMR child there, the T173 10015-digit pi prefix,
-transcendence, and irrationality exponent two. This closes same-edge generic
-heredity at the active scale, even for an omniscient existential choice among
-all current FMR digits. The previous fixed-edge and scale-free qualifications
-are obsolete.
+transcendence, and irrationality exponent two. This closes adaptive/existential
+orbit-generic heredity at the active scale, even for an omniscient choice among
+all current FMR digits, while every selected child still has a next FMR
+witness. The previous empty-child and fixed-edge qualifications are obsolete.
 
 It gives no actual-pi sign and does not refute FMR transport itself. Reopen the
 cross-energy route only with an actual-pi joint-character estimate controlling
@@ -170,4 +175,4 @@ strict interval and complete reached FMR set is certified.
 An independent 191-periodic construction sharing 10020 pi digits also gives
 the same active edge with reached `E<-3.183*10^9` and unique reached FMR digit
 `0` (`experiment`). It is omitted as a second active artifact because the
-terminating one-packet construction above is shorter, faster, and stronger.
+terminating seven-packet construction above is direct and stronger.

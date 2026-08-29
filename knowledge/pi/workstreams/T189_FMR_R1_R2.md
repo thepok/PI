@@ -218,14 +218,14 @@ intervals gives
 ```
 
 Thus no fixed `gamma` works at all eight certified nodes; the gap exceeds
-`0.12347`.  Each node separately has a nonempty interval, but allowing an
-arbitrary node-dependent `gamma` supplies no independent π mechanism.  The
-direct pathwise `E>0` inequality or a different arithmetic decomposition
-remains the honest target.
+`0.12347`. Each node separately has a nonempty interval, but allowing an
+arbitrary node-dependent `gamma` supplies no independent π mechanism. Before
+the all-child separator below, direct pathwise `E>0` was the candidate proxy;
+it is now only a conditional reopening premise, not the active target.
 
-An independently rebuilt 100050-digit Chudnovsky certificate and the existing
-strict outward-interval replay show that `E` loses none of the eight currently
-certified legal nodes:
+For the actual π orbit, an independently rebuilt 100050-digit Chudnovsky
+certificate and the existing strict outward-interval replay show that `E`
+loses none of the eight currently certified legal nodes:
 
 ```text
 (q,A)          rigorous lower bound for E       exact FMR digits
@@ -243,10 +243,10 @@ At `(10000,1334)`, where the strongest earlier low-dimensional certificates
 fail, `d=5` is the unique common-positive coordinate, `d=8` the unique
 opposite-sign coordinate, and the full interval is
 `E in [2743002764.7990,2743262747.5709]`.  The table is a finite
-`experiment`; it does **not** supply the missing actual-π theorem.  The new
-arithmetic target is a pathwise lower bound `E(D,F)>0` at recursively reached
-growing horizons, sourced by signed cross-sector alignment and control of the
-opposite-sign leakage.
+`experiment`; it does **not** supply the missing actual-π theorem. It once
+motivated a pathwise lower bound `E(D,F)>0` at recursively reached growing
+horizons, but the all-child separator below pauses that proxy absent a new
+actual-π joint-character mechanism.
 
 The next reached node has now been independently replayed with directed
 outward intervals (`experiment`). At `(q,A)=(100000,51334)`, the already
@@ -304,12 +304,13 @@ follows the legal FMR edge `d=1` to the positive node `(10000,1334)`. There
 `{5}` is the complete FMR set but `E<-4.380*10^9`; exactly the child-8
 opposite-sign product overwhelms the child-5 common-positive product. The
 same replay checks every one of the seven legal root FMR edges: all seven
-reached parents are positive and have negative `E`, while six have no next
-FMR child. A shifted base-ten Thue--Morse--Mahler tail preserves every strict
-sign on a transcendental `mu=2` orbit (`proof sketch` supported by the
+reached parents are positive and have negative `E`, while each retains exactly
+one next FMR child. A shifted base-ten Thue--Morse--Mahler tail preserves every
+strict sign on a transcendental `mu=2` orbit (`proof sketch` supported by the
 interval `experiment`). Thus even adaptive/existential orbit-generic
-cross-energy heredity fails beginning at `q=1000`. Only a genuinely actual-pi
-theorem can reopen this proxy. The exact replay and scope are recorded in the
+cross-energy heredity fails beginning at `q=1000`, without relying on FMR
+death. Only a genuinely actual-pi theorem can reopen this proxy. The exact
+replay and scope are recorded in the
 [pathwise cross-energy separator](../results/negative/20260829-pathwise-cross-energy-heredity-separator.md).
 
 A second independently reproduced directed-interval replacement closes a
