@@ -161,6 +161,24 @@ and the sum over all ten children is at most `9*|W|*tau_q`.  The unresolved
 routed vector is encoded exactly by the five real character blocks paired as
 `r` with `10-r` (and the real `r=5` block):
 
+A continuous-coordinate version sharpens the aggregate nine-sibling bound.
+Put `y=q*x_(n+1)-A-1/2`, choose the unique half-open representative
+`r=y-q*c in [-q/2,q/2)`, and route to `d=a_n+c mod 10`.  The other coordinates
+have representatives `r+q*j` with absolute multiplicities
+`1,1,2,2,3,3,4,4,5`; at the antipode use `r-5*q` when `r>0` and `r+5*q`
+otherwise.  Therefore, per nonnegative unit occurrence weight,
+
+```text
+sum_(non-routed children) (-Phi_(10q)(Y_d))_+
+ <= 233713*pi^2/(198450*q^2)
+ < 11.631/q^2.
+```
+
+For signed weights, replace the weight by its absolute value.  Geometric
+uniqueness at `|r|=q/2` is only the half-open tie convention; actual π avoids
+the rational tie.  This improves only the already summable sibling error and
+does not shrink the principal routed term.
+
 ```text
 sum_(n in W, r_(q,A)(n)!=0)
   ell_n * e(r*(a_n+sigma_(q,A)(n))/10),       1<=r<=5.
