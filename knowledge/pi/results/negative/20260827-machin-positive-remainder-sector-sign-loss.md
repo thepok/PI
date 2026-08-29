@@ -97,6 +97,26 @@ This `proof sketch` closes the phase-uniform escape route for the whole T189
 fresh primitive block, not merely a single time or predecessor sector.  It
 does not determine the distinguished value at the Machin carrier; it shows
 that remainder direction and magnitude alone cannot orient that value.
+
+The same argument is not specific to Machin.  For any nonempty primitive
+block or complete T156 prefix, write its exact target-rotated trigonometric
+polynomial as `Phi(x)`.  If a Beukers, Dalzell, Pade, hypergeometric, or
+Chudnovsky construction ends only with a scalar decomposition
+`pi = r + epsilon`, `epsilon > 0`, then exactly
+
+```text
+Phi(pi) - Phi(r) = epsilon * integral_(0<=t<=1) Phi'(r+t*epsilon) dt.
+```
+
+The positive integral or remainder density has collapsed to its total mass;
+the remaining arc derivative is the original target-dependent sign problem.
+The unique top temporal frequency makes the translated difference nonzero
+and mean zero for every sufficiently small positive `epsilon`, hence it takes
+both signs as `r` varies.  This general scalar-remainder extension is an
+independently audited `proof sketch`; it does not cover genuinely
+nonseparable time-dependent remainders such as BBP moment weights, whose
+complete target-weighted dual still has to be signed separately.
+
 For the nonzero T179 innovation alone, the sector-relevant coefficient
 `h=5` at its final time is already unique and nonzero (T138 applies for
 `q>=3`).  Consequently the same two-sign conclusion holds throughout the
