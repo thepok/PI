@@ -131,6 +131,72 @@ remainder.  It does not exclude approximate, vector/cone, or pointwise-pi
 transport.  Decimal-periodic rationals merely intersect both open sign
 regions; neither sign class is claimed dense in the whole circle.
 
+## T179 axis correction and finite-depth rational obstruction
+
+An independently audited correction closes a related false start.  The T139
+quantity `primitiveRayCoefficient(q,A,u)` is a frequency-index coefficient,
+independent of the horizon.  After expanding the exponential sum, the native
+time weight is exactly the rectangular window `1_(n<N)`.  T179 likewise has
+the exact unweighted form
+
+```text
+sum_(n<N) zeta_r^(predecessorDigit(n))
+  * H_(q,A,r)(piOrbit(n+1)),       1<=r<=9,
+```
+
+where the target rotation is inside the nonzero trigonometric suffix kernel
+`H`.  Thus the auxiliary scalar identity with temporal weights `100^-n`
+does not describe T148 coefficients; the earlier coefficient-ratio analogy
+was ill-typed.
+
+The corrected `proof sketch` gives two precise narrow separators.  First, for
+the scalar observable
+
+```text
+g_n=(predecessorDigit(n)-9/2)*(piOrbit(n+1)-1/2),
+```
+
+an arbitrary temporal weight `w_n` eliminates every internal quadratic
+potential exactly only when `w_n=w_(n-1)/100`.  The rectangular T179 weight
+leaves the internal square terms with coefficient `99/2`.
+
+Second, fix `q>=5`, `A`, and `1<=r<=9`.  On a predecessor branch,
+
+```text
+F((d+y)/10)=zeta_r^d*H(y),       zeta_r != 1.
+```
+
+T138 gives a nonzero lowest coefficient
+`positiveBoundaryCoefficient(10q,r)>1/(30q)`.  If this literal sector were an
+exact finite-depth branchwise-rational function of a fixed decimal prefix and
+terminal suffix, then on each cylinder it would be rational in `y`.  It is
+instead a nonconstant entire periodic exponential polynomial; analytic
+continuation would make it a periodic polynomial, hence constant, a
+contradiction.  This excludes exact finite-memory rational/Padé
+scalarizations and rational expressions whose branch choices are already
+fixed by those decimal digits.  Arbitrary newly generated floor/carry
+thresholds require a piecewise-rational statement and are not claimed here.
+
+Finally, synthesizing the length-`N` rectangular time window uniformly within
+`epsilon<1` from shifted/truncated `100^-n` Abel blocks forces coefficient
+total variation at least
+
+```text
+99*(1-epsilon)*N.
+```
+
+Consequently, a proof using only a uniform per-block error and worst-case
+absolute triangle accounting needs error `O(1/N)` on the raw `O(1)` T148
+scale.  This is not necessary for the actual accumulated error when sharper
+signed cancellation is proved; that cancellation would itself be new signed
+arithmetic.
+
+These results rule out only the exact finite-depth rational scalarization and
+bounded-variation Abel-synthesis mechanisms.  They do not exclude
+digit-sensitive analytic or multistate potentials, infinite memory,
+degree-growing approximants, or an orbit-specific signed residual theorem.
+They supply no sign for pi.
+
 ## Bounded-degree polynomial closure has exponential degree cost
 
 The same unique-top-frequency mechanism gives a narrow nonlinear extension.
