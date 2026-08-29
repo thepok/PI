@@ -330,6 +330,36 @@ occurrence from `n` to `n-1`. A diagonal use of infinitely many central
 times produces an unanchored coherent reversed-digit ray with recurrent
 positive atoms, but loses the certified `334` seed and natural horizons.
 
+The diagonal statement can be made uniform (`proof sketch`). There are
+coherent labels `A_(k+1)=A_k+d_k*10^k` such that, for every fixed edge `k`
+and every time threshold `T`, an actual-pi central predecessor pair for that
+literal `d_k` occurs after `T`. This follows by taking the `k`-digit suffixes
+of T194's unprescribed central cells at arbitrarily deep scales and applying
+infinite pigeonhole diagonally. It is generic to irrationality, unanchored,
+and gives no occurrence in `[10^k,10^(k+1))`, so it does not feed T189.
+
+There is also a useful deterministic endpoint/annulus interface (`proof
+sketch`). For `Q=10^K`, `K>=3`, T143--T144 and positivity of the signed zero
+coefficient give the uniform block-endpoint bound
+
+```text
+|E_(Q,C)(M+L)-E_(Q,C)(M)| < 5/9.
+```
+
+Let `H` count normalized target coordinates with `|y_n|<1/2` in a block and
+let `R` count those with `3/5<=|y_n|<=5/8`. The exact T128 kernel satisfies
+`0<=Phi_Q<5` in the target cell, `Phi_Q<-1/25` on this adverse annulus, and
+is nonpositive elsewhere. Substitution into T174 therefore yields
+
+```text
+S_(Q,C)(M,L) < (Q/2)*(5*H-R/25)+5*Q/9.
+R >= 125*H+28  ->  S_(Q,C)(M,L) < -Q/225.
+```
+
+Consequently, positive same-child fresh surplus necessarily obeys
+`R<=125*H+27`. This is only a necessary target-relative anti-clustering
+condition; it does not supply the actual-pi sign.
+
 ## Central primitive atom and signed unit-block ladder
 
 An independently audited strengthening repairs the missing total sign and

@@ -317,3 +317,23 @@ but has not been realized as two decimal completions with identical old
 score. Reopen only with an actual-pi theorem controlling the weighted
 central/annular/old-deficit cross-phase, not central recurrence or
 phase-blind annular counts alone.
+
+An independently audited unbounded variant sharpens the same fatal line
+(`proof sketch`). One may prescribe a coherent literal digit-`1` ray
+beginning at `151334` and construct a transcendental decimal `xi` with
+irrationality exponent `mu(xi)=2`, sharing any chosen finite prefix of pi,
+such that every sufficiently large natural fresh block contains two exact
+central predecessor pairs for the selected child, yet
+
+```text
+D_1 < -Q/225.
+```
+
+The construction inserts two central packets and `1000*K^2` packets in the
+fixed adverse annulus `3/5<=|y|<=5/8` at scale `Q=10^(K+1)`. Sparse
+prescription uses only `O((log N)^4)` digits below position `N`; a
+Borel--Cantelli argument controls accidental target hits and preserves
+`mu=2`. Thus two recurrent correctly oriented atoms, finite irrationality
+exponent, transcendence, and arbitrary finite pi-prefix data still do not
+force the full fresh sign. This is a replacement-orbit separator, not an
+assertion about pi.

@@ -181,6 +181,12 @@ unit blocks are unsigned.  Separately, a Kempner--Mahler continuation sharing
 descendant fail fresh positivity.  The live rung is therefore a genuinely
 actual-π block-to-natural-horizon accumulation theorem for the recursively
 reached same child, followed by prescribed-target leakage/old-score control.
+More sharply, an audited T128/T174 annular estimate shows that positive fresh
+surplus requires `R<=125H+27`, where `H` counts selected target-cell hits and
+`R` counts visits to `3/5<=|y|<=5/8`. A transcendental `mu=2` replacement can
+preserve two exact predecessor atoms at every sufficiently large selected
+scale while violating this condition and forcing `D_1<-Q/225` (`proof
+sketch`). Hence bounded central renewal is not the missing transport law.
 Constants and claim boundaries are in
 [`20260828-central-carrier-annular-flux.md`](knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md)
 and the [finite-cylinder separator](knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md).
