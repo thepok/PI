@@ -193,3 +193,57 @@ Therefore the recurrence-matched rule and, more generally, all small-prime
 and phase-resolved packet-level integral arguments remain open.  Reopening
 the endpoint route requires a direct distinguished-real sign for the complete
 target-rotated packet, not private recurrence or the global curvature bound.
+
+## Large-prime phase-resolved boundary
+
+The small-prime curvature obstruction does not extend to an exact large-`p`
+endpoint comparison.  For any real finite Fourier polynomial
+
+```text
+P(x)=P_const+Re sum_m b_m*e(m*x),
+delta_p=pi-c_p,
+mu_p=(pi+c_p)/2,
+```
+
+one has exactly
+
+```text
+P(pi)-P(c_p)
+ = -2*sum_m sin(pi*m*delta_p)*Im(b_m*e(m*mu_p)).
+```
+
+The positive endpoint integral is only a cumulative parametrization of the
+ordinary line integral from `c_p` to `pi`; changing variables recovers
+`integral P'` and supplies no independent stationary-phase contribution.
+
+If the carrier is so large that every active frequency satisfies
+`m*delta_p<=1/2`, all sine multipliers are positive.  On each primitive ray,
+the lacunary temporal layers then obey the audited `proof sketch`
+
+```text
+|sum_(n=N)^(H-1) sin(pi*u*10^n*delta_p)*e(u*10^n*mu_p)
+ -sin(pi*u*10^(H-1)*delta_p)*e(u*10^(H-1)*mu_p)|
+ < (pi/18)*sin(pi*u*10^(H-1)*delta_p).
+```
+
+Thus the last temporal layer controls each ray within relative radius
+`pi/18`.  This is before real projection and each ray has its own terminal
+phase; it gives no common half-plane or cross-ray sign.  The top nine edge
+modes structurally occupy every nonzero residue sector, but their aggregated
+sector values can still cancel.
+
+There is also an exact fixed-node stabilization boundary.  Each literal
+`D_d(x)` and `F_d(x)` is a nonzero trigonometric polynomial with algebraic
+coefficients and exact top frequency `(2Q-1)*10^(Q-1)`.  Hence, for fixed
+`(q,A)`, there is a positive left root radius `rho_(q,A)` such that every
+sufficiently large carrier `c_p=pi-delta_p` with `delta_p<rho_(q,A)` has the
+same coordinate signs as the first nonzero left germs at π.  If all twenty
+actual values are nonzero, the carrier FMR witness set eventually equals the
+actual-π witness set exactly.
+
+Therefore asymptotically large carriers normally preserve rather than create
+a sign.  A genuinely carrier-created witness requires an oriented crossing
+of an explicit packet zero; no all-scale lower bound on the changing root
+radii is known.  Reopen the large-prime route only with cross-ray target-phase
+control or an oriented root crossing along the growing path, not with further
+accuracy or raywise estimates.
