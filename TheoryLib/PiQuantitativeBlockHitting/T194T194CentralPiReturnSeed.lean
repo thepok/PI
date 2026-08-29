@@ -6,16 +6,17 @@ import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggreg
 /-!
 # T194: conditional central pi return seed
 
-An explicit irrationality-measure hypothesis rules out a sufficiently long
-finite decimal-orbit window trapped in either chamber adjacent to zero or
-one. Applied to the actual decimal orbit of `pi`, this gives an unprescribed
-central return. Its containing decimal cell then feeds T193's native
-unit-block surplus directly. After an explicit premise-dependent onset, the
-unit can be chosen in the fresh natural-horizon block `[q, 10*q)`.
+The irrationality of `pi` rules out an eventual decimal-orbit tail trapped in
+either chamber adjacent to zero or one, giving an unconditional unprescribed
+central return at every scale. Its containing decimal cell feeds T193's native
+unit-block surplus directly. An explicit irrationality-measure hypothesis
+additionally bounds a sufficiently long trapped finite window; after a
+premise-dependent onset, the unit can then be chosen in the fresh
+natural-horizon block `[q, 10*q)`.
 
-The published irrationality-measure estimate is not asserted here: it
-remains the explicit hypothesis of the final theorem.  This module constructs
-neither a ray nor a natural-horizon recurrence.
+The published irrationality-measure estimate is not asserted here: it remains
+the explicit hypothesis only of the time-localized theorems. This module
+constructs neither a ray nor a natural-horizon recurrence.
 -/
 
 noncomputable section
@@ -238,34 +239,68 @@ private lemma exists_piOrbit_mem_central_chamber_Icc
     exact (not_lt_of_ge hUpper.le) (hIrr.2.2 d hQ0d hd0 p)
 
 private lemma exists_piOrbit_mem_central_chamber
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5))
     (lower : ℕ) :
     ∃ m : ℕ, lower ≤ m ∧
       1 / 11 ≤ piOrbit m ∧ piOrbit m ≤ 10 / 11 := by
-  obtain ⟨Q0, hIrr⟩ := irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
-    (sourceBelow36Fifths_implies_sourceBelowEight hSource)
-  let s : ℕ := max lower (max 1 Q0)
-  have hlowerS : lower ≤ s := le_max_left _ _
-  have hs : 1 ≤ s := (le_max_left 1 Q0).trans (le_max_right lower (max 1 Q0))
-  have hQ0s : Q0 ≤ s := (le_max_right 1 Q0).trans (le_max_right lower (max 1 Q0))
-  have hQ0pow : Q0 ≤ 10 ^ s := hQ0s.trans (self_le_pow_ten s)
-  obtain ⟨m, hsm, _, hm⟩ :=
-    exists_piOrbit_mem_central_chamber_Icc Q0 s hIrr hs hQ0pow
-  exact ⟨m, hlowerS.trans hsm, hm⟩
+  by_contra hnone
+  push Not at hnone
+  have havoid (L j : ℕ) (hlj : lower ≤ j) (hju : j ≤ lower + L) :
+      ¬ (1 / 11 ≤ piOrbit j ∧ piOrbit j ≤ 10 / 11) := by
+    intro hj
+    exact (not_lt_of_ge hj.2) (hnone j hlj hj.1)
+  have hstart : piOrbit lower < 1 / 11 ∨ 10 / 11 < piOrbit lower := by
+    by_cases hlow : piOrbit lower < 1 / 11
+    · exact Or.inl hlow
+    · exact Or.inr (hnone lower le_rfl (le_of_not_gt hlow))
+  rcases hstart with hlow | hhigh
+  · have hzero : piOrbit lower = 0 := by
+      have hx0 := (Theory.PiDigits.T27.piFractionalOrbit_mem_Ico lower).1
+      apply le_antisymm
+      · by_contra hnot
+        have hxpos : 0 < piOrbit lower := lt_of_not_ge hnot
+        obtain ⟨L, hL⟩ := exists_nat_gt ((1 / 11 : ℝ) / piOrbit lower)
+        have hLPow : (L : ℝ) ≤ (10 : ℝ) ^ L := by
+          exact_mod_cast self_le_pow_ten L
+        have hratio : (1 / 11 : ℝ) / piOrbit lower < (10 : ℝ) ^ L :=
+          hL.trans_le hLPow
+        have hlarge : (1 / 11 : ℝ) < (10 : ℝ) ^ L * piOrbit lower :=
+          (div_lt_iff₀ hxpos).mp hratio
+        obtain ⟨hiterate, hend⟩ := orbit_low_iterate lower L hlow (havoid L)
+        rw [hiterate] at hend
+        exact (not_lt_of_ge hlarge.le) hend
+      · exact hx0
+    have hfract : Int.fract ((10 : ℝ) ^ lower * Real.pi) = 0 := by
+      simpa [piOrbit, Theory.PiDigits.T27.piFractionalOrbit] using hzero
+    rcases Int.fract_eq_zero_iff.mp hfract with ⟨z, hz⟩
+    have hirr : Irrational ((10 : ℝ) ^ lower * Real.pi) := by
+      simpa using irrational_pi.natCast_mul
+        (m := 10 ^ lower) (by positivity)
+    exact hirr.ne_rat (z : ℚ) (by simpa using hz.symm)
+  · have hx1 := (Theory.PiDigits.T27.piFractionalOrbit_mem_Ico lower).2
+    have hdelta : 0 < 1 - piOrbit lower := by linarith
+    obtain ⟨L, hL⟩ := exists_nat_gt ((1 / 11 : ℝ) / (1 - piOrbit lower))
+    have hLPow : (L : ℝ) ≤ (10 : ℝ) ^ L := by
+      exact_mod_cast self_le_pow_ten L
+    have hratio : (1 / 11 : ℝ) / (1 - piOrbit lower) < (10 : ℝ) ^ L :=
+      hL.trans_le hLPow
+    have hlarge : (1 / 11 : ℝ) < (10 : ℝ) ^ L * (1 - piOrbit lower) :=
+      (div_lt_iff₀ hdelta).mp hratio
+    obtain ⟨hiterate, hend⟩ := orbit_high_iterate lower L hhigh (havoid L)
+    have hsmall : 1 - piOrbit (lower + L) < 1 / 11 := by linarith
+    rw [hiterate] at hsmall
+    exact (not_lt_of_ge hlarge.le) hsmall
 
-/-- Conditional actual-pi seed: at every decimal scale at least `10^3`, one
+/-- Unconditional actual-pi seed: at every decimal scale at least `10^3`, one
 unprescribed literal decimal cell has positive native T176 unit-block
-capital.  The irrationality-measure premise is explicit. -/
+capital. This uses only the irrationality of `pi` and gives no timing bound. -/
 theorem exists_central_pi_unitBlock_surplus
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5))
     (k : ℕ) (hk : 3 ≤ k) :
     ∃ n A : ℕ, A < 10 ^ k ∧
       (3 / 20 : ℝ) * (10 ^ k : ℕ) <
         (10 ^ k : ℕ) *
             (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
           signedBlockPotential (10 ^ k) := by
-  obtain ⟨m, hkm, hmLow, hmHigh⟩ :=
-    exists_piOrbit_mem_central_chamber hSource k
+  obtain ⟨m, hkm, hmLow, hmHigh⟩ := exists_piOrbit_mem_central_chamber k
   let n := m - k
   let A := ⌊(10 ^ k : ℕ) * piOrbit n⌋₊
   let y := (10 ^ k : ℕ) * piOrbit n - A - 1 / 2

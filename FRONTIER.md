@@ -49,16 +49,17 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   proves the complete central atom bound `Re atom>7139/45000` and the native
   T176 unit-block surplus `>3q/20`. It contains no recurrence or
   irrationality input and does not control a natural prefix.
-- **T194 — Conditional Central π Return Seed — machine-checked conditional
-  π rung.**
+- **T194 — Central π Return Seed — machine-checked π rung.**
   [`T194T194CentralPiReturnSeed.lean`](TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean)
-  proves from the explicit premise `IrrationalityMeasureBelow pi (36/5)` that
-  every decimal scale `10^k`, `k>=3`, has some actual-π orbit point and
-  containing cell with the T193 unit-block surplus `>3*10^k/20`. It now also
-  proves that, after one premise-dependent onset, such a unit can always be
-  chosen in the exact fresh T189 block `10^k<=n<10^(k+1)`. The premise is not
-  proved in the repository, the target is unprescribed, and neither positivity
-  of the entire fresh block nor a same-child transport or coherent ray follows.
+  proves unconditionally, using `irrational_pi`, that every decimal scale
+  `10^k`, `k>=3`, has some actual-π orbit point and containing cell with the
+  T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
+  bound. Under the additional explicit premise
+  `IrrationalityMeasureBelow pi (36/5)`, it proves that after one onset such a
+  unit can always be chosen in the exact fresh T189 block
+  `10^k<=n<10^(k+1)`. The quantitative premise is not proved in the repository,
+  the target is unprescribed, and neither positivity of the entire fresh block
+  nor a same-child transport or coherent ray follows.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -152,14 +153,15 @@ T189 bookkeeping alone.
 A new actual-π chain gives a stronger but still insufficient signed side
 result. T191 machine-checks its central kernel floor, T192 the exact
 valuation-shell subtraction and positive zero-shell margin, T193 the
-positive-shell aggregate, and conditional T194 the existence of an
-unprescribed actual-π seed at every decimal scale under the explicit
-`IrrationalityMeasureBelow pi (36/5)` premise. Thus every sufficiently central
+positive-shell aggregate, and T194 the unconditional existence of an
+unprescribed actual-π seed at every decimal scale using only `irrational_pi`.
+Thus every sufficiently central
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`. T194 now localizes one such unit to the exact fresh
-horizon block `q<=n<10q` after a premise-dependent onset. This is a local
-positive atom, not positivity of the whole fresh sum. The subsequent
+`S_(q,A)(n,1)>3q/20`. Under the additional explicit
+`IrrationalityMeasureBelow pi (36/5)` premise, T194 localizes one such unit to
+the exact fresh horizon block `q<=n<10q` after a premise-dependent onset. This
+is a local positive atom, not positivity of the whole fresh sum. The subsequent
 infinite-ladder selection remains open. Iterating
 the machine-checked T176 step gives a coherent same-child block ray (`proof
 sketch`) whose capital stays positive and strictly increases on that

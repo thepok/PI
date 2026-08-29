@@ -3578,8 +3578,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty
 
--- Conditional actual-pi central seed.  The published irrationality-measure
--- statement remains an explicit hypothesis; no ray or natural horizon follows.
+-- The unlocalized actual-pi central seed uses only irrationality. The two
+-- finite-window forms retain the explicit irrationality-measure hypothesis;
+-- none supplies a prescribed target or a ray.
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus
 #print axioms

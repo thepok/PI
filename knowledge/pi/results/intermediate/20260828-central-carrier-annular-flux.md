@@ -361,12 +361,13 @@ Re H_0 >= (9/20)*Phi_q(y),       Phi_q(y)>4859/10000.
 
 The `Phi_q` floor, atom identity, shell partition, `H_s=L_s-L_(s+1)` identity,
 displayed `H_0` retention, positive-valuation aggregate, full atom bound and
-unit-block surplus are machine-checked. T194 additionally machine-checks an
-unprescribed actual-pi return at every decimal scale under the explicit
-external premise `IrrationalityMeasureBelow pi (36/5)`. The premise remains a
-literature-checked external hypothesis. After a premise-dependent onset, T194
+unit-block surplus are machine-checked. Using only `irrational_pi`, T194
+additionally machine-checks an unprescribed actual-pi return at every decimal
+scale, without a timing bound. Under the explicit external premise
+`IrrationalityMeasureBelow pi (36/5)`, after a premise-dependent onset T194
 also machine-checks that one such positive unit lies in the exact fresh block
-`q<=n<10q`. Only the infinite-ray and full-block deductions remain `proof
+`q<=n<10q`. The quantitative premise remains a literature-checked external
+hypothesis. Only the infinite-ray and full-block deductions remain `proof
 sketch`.
 
 Machine-checked T193 applies the T151 floors to `L_1,L_2`, mass bounds to the
@@ -384,11 +385,11 @@ S_(q,A)(M,L)
  = q*Re(primitiveBoundaryFourierBlockSum(q,A,M,L))-7*L/(3q),
 ```
 
-machine-checked T193 gives `S_(q,A)(n,1)>3q/20` for `q>=1000`. Conditional
-machine-checked T194 proves that the explicit premise
-`IrrationalityMeasureBelow pi (36/5)` supplies some such literal actual-pi
-root at every decimal scale and, eventually, one with `q<=n<10q`. This does
-not sign the sum over the whole fresh block. Recursive T176 Bellman choices at
+machine-checked T193 gives `S_(q,A)(n,1)>3q/20` for `q>=1000`. T194 proves
+unconditionally that some such literal actual-pi root exists at every scale;
+the explicit premise `IrrationalityMeasureBelow pi (36/5)` strengthens this,
+eventually, to `q<=n<10q`. This does not sign the sum over the whole fresh
+block. Recursive T176 Bellman choices at
 the unchanged block `(M,L)=(n,1)` then construct a coherent target ray with
 
 ```text
