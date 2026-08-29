@@ -233,3 +233,53 @@ prefixes, `mu=2`, infinitely many limit points, scalar Mahler recurrence, and
 the orbit-generic carrier algebra still cannot supply the required
 target-aligned sign. Reopening requires an unbounded exact input special to
 the distinguished pi tail and false for these continuations.
+
+## Prescribed central atoms do not force fresh positivity
+
+An independently audited, normalization-dependent `proof sketch` gives a
+finer finite-cylinder separator at the hard node
+`q=10000`, `Q=100000`, `A=1334`.  After the pinned first 10015 digits of pi,
+concatenate seven-digit blocks
+
+```text
+C   = 5133450                 (100 copies),
+R_d = d133510                 (834 copies for every d != 5),
+R_5 = 5133510                 (5001 copies),
+```
+
+and fill the remaining fresh window with eights. Copy forty endpoint digits
+from the start of the old window and then attach a `mu=2` Mahler tail. At
+every `C` start, child `5` has normalized radius in `[0,1/100)` and boundary
+kernel value `>24/5`. At every `R_d` start, child `d` has radius in
+`[3/5,61/100)` and kernel value `<-3/25`. Only `C` contains a programmed
+digit `4`, so the fresh window has exactly those 100 controlled positive
+target hits and at most twenty uncontrolled boundary starts.
+
+The resulting upper kernel sums are
+
+```text
+d != 5: 20*5 - 834*(3/25)         = -2/25,
+d  = 5: 20*5 + 100*5-5001*(3/25) = -3/25.
+```
+
+Together with the copied-endpoint bound and exact stopping identity, these
+imply `D_d<0` for all ten children. Thus even one hundred prescribed,
+same-child central atoms with a uniform positive kernel margin do not force
+R1: a principal annular predecessor packet can overwhelm them.
+
+Rotating only the excess `4167` adverse starts from predecessor digit `5` to
+digit `6` leaves the unweighted count vector's zero mode and every DFT
+magnitude unchanged, but changes the controlled estimate to
+`D_5>15549997.8`. This isolates target-relative predecessor orientation as
+the missing datum.
+
+The preservation claim is deliberately limited. The completions share the
+pinned prefix, chamber counts, unweighted count-spectrum magnitudes,
+endpoint-copy bound, irrationality exponent and eventual orbit tail. They do
+**not** have exactly equal old scores, exact central kernel weights, or
+kernel-weighted leakage spectra; later digits perturb those quantities. The
+abstract cyclic-vector separator preserves such phase-blind data exactly,
+but has not been realized as two decimal completions with identical old
+score. Reopen only with an actual-pi theorem controlling the weighted
+central/annular/old-deficit cross-phase, not central recurrence or
+phase-blind annular counts alone.
