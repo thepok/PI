@@ -289,6 +289,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T188T188SharedOrbitCylinderBatch
 import TheoryLib.PiQuantitativeBlockHitting.T189T189SignedHorizonSectorBridge
 import TheoryLib.PiQuantitativeBlockHitting.T190T190ComplementaryRankAlignment
 import TheoryLib.PiQuantitativeBlockHitting.T191T191CentralBoundaryKernelFloor
+import TheoryLib.PiQuantitativeBlockHitting.T192T192PrimitiveValuationShells
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3550,6 +3551,19 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 -- normalized chamber at decimal scales.
 #print axioms
   Theory.PiDigits.T191CentralBoundaryKernelFloor.boundaryMinorant_re_gt_4859_div_10000
+
+-- One-time primitive atom, exact decimal-valuation shells, and the retained
+-- valuation-zero central contribution.  Positive shells remain unestimated.
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryFourierSum_succ_sub_eq_atom
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryAtom_eq_sum_valuationShells
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_eq_layerDifference
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.valuationZeroLayerDifference_re_ge
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

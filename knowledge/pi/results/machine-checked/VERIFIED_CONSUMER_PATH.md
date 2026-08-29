@@ -21,6 +21,7 @@ Key Lean modules:
 - [`T189`](../../../../TheoryLib/PiQuantitativeBlockHitting/T189T189SignedHorizonSectorBridge.lean): exact fresh-horizon sector bridge and one-sided child-surplus theorem.
 - [`T190`](../../../../TheoryLib/PiQuantitativeBlockHitting/T190T190ComplementaryRankAlignment.lean): deterministic same-digit alignment from complementary rank information.
 - [`T191`](../../../../TheoryLib/PiQuantitativeBlockHitting/T191T191CentralBoundaryKernelFloor.lean): uniform positive central boundary-kernel floor; this is the first machine-checked analytic rung of the adaptive unit-block seed, not a natural-horizon theorem.
+- [`T192`](../../../../TheoryLib/PiQuantitativeBlockHitting/T192T192PrimitiveValuationShells.lean): exact one-time primitive atom and decimal-valuation shell decomposition, including the retained central zero-shell margin; positive shells and natural-horizon accumulation remain open.
 
 T189 is the fixed consumer for the present research cycle. T190 is optional:
 use it only if independent π arithmetic naturally provides its rank premises.

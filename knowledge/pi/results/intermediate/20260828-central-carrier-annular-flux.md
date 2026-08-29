@@ -333,7 +333,8 @@ positive atoms, but loses the certified `334` seed and natural horizons.
 ## Central primitive atom and signed unit-block ladder
 
 An independently audited strengthening repairs the missing total sign and
-the lag mismatch at **unit-block** scale.  For
+the lag mismatch at **unit-block** scale. T192 now machine-checks the atom and
+shell identities below. For
 
 ```text
 p_(q,A)(n) = Re(P_(q,A)(n+1)-P_(q,A)(n)),
@@ -351,14 +352,16 @@ p_(q,A)(n) = sum_(0<=s<=k) Re H_s,       q=10^k.
 ```
 
 If `A=floor(q*x_n)` and `|y|<=9/22`, machine-checked T191 supplies the central
-kernel floor, and the root-grid projector gives
+kernel floor, and machine-checked T192 combines the root-grid projector with
+the exact zero shell to give
 
 ```text
 Re H_0 >= (9/20)*Phi_q(y),       Phi_q(y)>4859/10000.
 ```
 
-Only the `Phi_q` floor is currently machine-checked; the shell identity and
-the remaining deductions in this section retain the `proof sketch` label.
+The `Phi_q` floor, atom identity, shell partition, `H_s=L_s-L_(s+1)` identity,
+and displayed `H_0` retention are machine-checked. The positive-valuation
+aggregate and remaining deductions retain the `proof sketch` label.
 
 Applying the verified T151 floors to `L_1,L_2`, mass bounds to the remaining
 layers, and the T156 endpoint budget gives

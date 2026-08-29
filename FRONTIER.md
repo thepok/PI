@@ -38,6 +38,12 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   proves the uniform pointwise bound `boundaryMinorant>4859/10000` throughout
   the normalized chamber `|y|<=9/22` at every decimal scale `10^k`, `k>=3`.
   It contains no orbit or target-recurrence premise.
+- **T192 — Primitive Valuation Shells — machine-checked structural rung.**
+  [`T192T192PrimitiveValuationShells.lean`](TheoryLib/PiQuantitativeBlockHitting/T192T192PrimitiveValuationShells.lean)
+  extracts the one-time primitive atom, partitions it into exact `v_10`
+  shells, proves `H_s=L_s-L_(s+1)`, and retains more than
+  `(9/20)*(4859/10000)` in the central zero shell. Positive-valuation shells
+  remain to be aggregated.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -129,9 +135,11 @@ but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
 A new actual-π `proof sketch` gives a stronger but still insufficient signed
-side result.  T191 now machine-checks its central kernel floor.  Exact
-valuation-shell subtraction and the verified T151/T156 bounds then show, at
-`proof sketch` level, that every sufficiently central literal orbit point has primitive
+side result.  T191 machine-checks its central kernel floor, and T192 now
+machine-checks the exact valuation-shell subtraction and positive zero-shell
+margin.  Combining the still-unformalized positive-shell aggregation with
+the verified T151/T156 bounds then shows, at `proof sketch` level, that every
+sufficiently central literal orbit point has primitive
 atom `p_(q,A)(n)>7139/45000`, hence positive T176 unit-block capital
 `S_(q,A)(n,1)>3q/20`.  The published finite irrationality exponent supplies
 such an adaptively selected root at `q<=n<8q`; T176 then constructs a coherent
