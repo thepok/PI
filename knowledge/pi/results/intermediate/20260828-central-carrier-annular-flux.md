@@ -364,8 +364,10 @@ displayed `H_0` retention, positive-valuation aggregate, full atom bound and
 unit-block surplus are machine-checked. T194 additionally machine-checks an
 unprescribed actual-pi return at every decimal scale under the explicit
 external premise `IrrationalityMeasureBelow pi (36/5)`. The premise remains a
-literature-checked external hypothesis; the sharper time-localized return and
-infinite-ray deductions remain `proof sketch`.
+literature-checked external hypothesis. After a premise-dependent onset, T194
+also machine-checks that one such positive unit lies in the exact fresh block
+`q<=n<10q`. Only the infinite-ray and full-block deductions remain `proof
+sketch`.
 
 Machine-checked T193 applies the T151 floors to `L_1,L_2`, mass bounds to the
 remaining layers, and the endpoint budget to give
@@ -385,8 +387,8 @@ S_(q,A)(M,L)
 machine-checked T193 gives `S_(q,A)(n,1)>3q/20` for `q>=1000`. Conditional
 machine-checked T194 proves that the explicit premise
 `IrrationalityMeasureBelow pi (36/5)` supplies some such literal actual-pi
-root at every decimal scale. The sharper location `q<=n<8q` remains a proof
-sketch. Recursive T176 Bellman choices at
+root at every decimal scale and, eventually, one with `q<=n<10q`. This does
+not sign the sum over the whole fresh block. Recursive T176 Bellman choices at
 the unchanged block `(M,L)=(n,1)` then construct a coherent target ray with
 
 ```text
