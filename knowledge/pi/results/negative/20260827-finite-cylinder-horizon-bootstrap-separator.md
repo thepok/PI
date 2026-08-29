@@ -337,3 +337,69 @@ Borel--Cantelli argument controls accidental target hits and preserves
 exponent, transcendence, and arbitrary finite pi-prefix data still do not
 force the full fresh sign. This is a replacement-orbit separator, not an
 assertion about pi.
+
+## Literal sector-5 decimation separator
+
+A simpler independently audited `proof sketch` isolates the failure of
+target-covariant multiplier-10 decimation itself.  Keep the hard parent
+`q=10000`, `A=1334`, its prescribed child `d=5`, and hence
+`Q=100000`, `C=51334`.  If `alpha_(Q,h)` denotes the aggregated positive
+T128 boundary coefficient, the literal T179 residue-5 point contribution is
+
+```text
+S_5(x) = 10 * sum_(ell<2q) alpha_(Q,10*ell+5)
+                    * cos(2*pi*(10*ell+5)*(x-c_(Q,C))).
+```
+
+This includes the target before distinguished-real projection.  For the
+genuine period-four decimal orbit
+
+```text
+rho = 1334/9999,
+rho, T rho, T^2 rho, T^3 rho
+  = 1334/9999, 3341/9999, 3413/9999, 4133/9999,
+```
+
+the closed sector-5 kernel and elementary rational trigonometric bounds give
+
+```text
+(1/4) * sum_(j<4) S_5(T^j rho) < -69/800.
+```
+
+The negative term comes from the last orbit point lying just beyond the
+anti-periodic chamber at target displacement `-1`; the other three terms are
+uniformly smaller than `1/100` in absolute value.  Splice this orbit after
+the first 10015 decimal digits of pi.  In the hard fresh window the complete
+cycles dominate the fifteen transition points, and T142's coefficient bound
+gives the literal prescribed-sector estimate
+
+```text
+sum_(n=q)^(Q-1) S_5({10^n*xi_per}) < -192028/25.
+```
+
+Replacing the tail after position `100020` by a base-ten
+Thue--Morse--Mahler tail produces a transcendental `xi_TM` with
+`mu(xi_TM)=2`, preserves the first 10015 pi digits and all strict inherited
+old-score premises, and changes the displayed sector sum by less than
+`10^-13`.  Consequently
+
+```text
+sum_(n=q)^(Q-1) S_5({10^n*xi_TM}) < -7681.
+```
+
+This is a realizable-orbit, prescribed-target sign separator, not an affine
+vector model.  Its scope is narrow: it does not imply `D_5<0`, does not
+control the other sectors, and does not refute adaptive full-sector FMR.
+It proves only that finite pi-prefix data, decimal recurrence, `mu=2`, and
+positive multiplier-10 coefficient defects cannot by themselves orient the
+literal inherited residue-5 sector.
+
+More precisely, the target-covariant decimation identity has a defect bound
+only for `m>=1000` and frequency sets contained in
+`positiveBoundarySupport m`.  Under those hypotheses it relocates the
+original signed correlation to a deeper valuation shell plus a small
+unsigned error; it does not create a sign.  Reopen this route only with an
+actual-pi distinguished-real terminal-shell inequality for a target fixed
+before projection.  The T177/T179/T142/T172 inputs are `machine-checked`;
+the generic-orbit specialization and displayed separator remain a
+`proof sketch`.
