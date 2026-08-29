@@ -4,7 +4,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T38T38MachinForcedOrbit
 import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggregate
 
 /-!
-# T194: conditional central pi return seed
+# T194: central pi return seed
 
 The irrationality of `pi` rules out an eventual decimal-orbit tail trapped in
 either chamber adjacent to zero or one, giving an unconditional unprescribed

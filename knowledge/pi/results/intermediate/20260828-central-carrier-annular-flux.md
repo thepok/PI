@@ -363,7 +363,8 @@ The `Phi_q` floor, atom identity, shell partition, `H_s=L_s-L_(s+1)` identity,
 displayed `H_0` retention, positive-valuation aggregate, full atom bound and
 unit-block surplus are machine-checked. Using only `irrational_pi`, T194
 additionally machine-checks an unprescribed actual-pi return at every decimal
-scale, without a timing bound. Under the explicit external premise
+scale, without a timing bound. This qualitative mechanism is generic to every
+irrational orbit and does not prescribe the target. Under the explicit external premise
 `IrrationalityMeasureBelow pi (36/5)`, after a premise-dependent onset T194
 also machine-checks that one such positive unit lies in the exact fresh block
 `q<=n<10q`. The quantitative premise remains a literature-checked external

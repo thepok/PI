@@ -59,7 +59,9 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   unit can always be chosen in the exact fresh T189 block
   `10^k<=n<10^(k+1)`. The quantitative premise is not proved in the repository,
   the target is unprescribed, and neither positivity of the entire fresh block
-  nor a same-child transport or coherent ray follows.
+  nor a same-child transport or coherent ray follows. The qualitative
+  irrationality mechanism is generic to every irrational constant; it is
+  actual-π information after specialization, not yet π-specific arithmetic.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
