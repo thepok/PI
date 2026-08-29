@@ -448,6 +448,62 @@ fails for identically zero weights; the universal form must use `<=`, or add
 positive total variation. The identity isolates rather than solves the
 prefix--tail firewall: the extensive zero-shell sum remains unsigned.
 
+## Central self-financing cross-moment
+
+An independently audited `proof sketch` extracts one non-tautological
+same-child sufficient statistic. At a node `(q,A)`, `Q=10q`, let `C_d` be the
+fresh times in `[q,Q)` lying in child `d`'s T191 central chamber. Define
+
+```text
+u_d = sum_(n in C_d) Phi_Q(y_(n,d)),
+p_d = sum_(n in C_d) (10*Phi_Q(y_(n,d))-Phi_q(y_(n,d))),
+h_d = max(0,-G_d).
+```
+
+Central scale monotonicity gives `9u_d<=p_d<=10u_d`, hence `p_d>=0`. With
+`ell_d` the complete fresh negative-lobe mass, `s_d>=0` the remaining positive
+shoulder, and the child-independent endpoint/zero-mode threshold
+
+```text
+tau = 45*q^2*alpha_Q
+      + Q*Re(E_(Q,A+dq)(Q)-E_(Q,A+dq)(q)) + 21/10,
+```
+
+T174 and the exact potential bookkeeping give
+
+```text
+D_d = 5q*(u_d+s_d-ell_d)-tau.
+```
+
+Therefore, for `M=sum_d p_d*(D_d-h_d)` and `P=sum_d p_d`,
+
+```text
+M >= (q/2)*sum_d p_d^2
+     -5q*sum_d p_d*ell_d - tau*P - sum_d p_d*h_d.       (REL)
+```
+
+Using the audited old-block recurrence
+`G_d=gamma+(q/2)R_d^old`, with `gamma>83/2500`, further gives
+
+```text
+M >= (q/2)*||p||_2^2 - tau*P
+     -5q*p·ell - (q/2)*p·(-R^old)_+.                    (CF)
+```
+
+If `M>0`, some literal digit has `p_d>0` and `D_d>h_d`, hence both
+`D_d>0` and `G_d+D_d>0`. This is a genuine sufficient statistic, but it is
+strictly stronger than FMR: it already demands central recurrence in the
+successful child. Existing random-periodic and prescribed-central-atom
+separators show that FMR, many central hits, finite irrationality exponent,
+and a positive unit ladder do not force `M>0`; the weighted annular and old
+routed losses retain the missing target alignment.
+
+Any path theorem must recursively choose the witness digit supplied by
+`p_d*(D_d-h_d)>0`, set `A_next=A+dq`, and prove the next CF inequality at that
+selected node. Merely postulating CF on a separately prelabelled sequence is
+circular. No Lean formalization is justified before an actual-pi invariant
+controls these selected-node cross-terms.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
