@@ -186,7 +186,12 @@ surplus requires `R<=125H+27`, where `H` counts selected target-cell hits and
 `R` counts visits to `3/5<=|y|<=5/8`. A transcendental `mu=2` replacement can
 preserve two exact predecessor atoms at every sufficiently large selected
 scale while violating this condition and forcing `D_1<-Q/225` (`proof
-sketch`). Hence bounded central renewal is not the missing transport law.
+sketch`). The adverse contribution has a universal positive pairing with an
+adjacent cell, in fact `Phi_Q(y)+Phi_Q(y-1)>337/1000` on the right annulus
+(`proof sketch`), but the adjacent parents retain distinct residues modulo the
+root scale forever. They are parallel refinement rays, not a same-child
+transport corridor. Hence bounded central renewal and neighboring-cell
+compensation are not the missing transport law.
 Constants and claim boundaries are in
 [`20260828-central-carrier-annular-flux.md`](knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md)
 and the [finite-cylinder separator](knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md).
