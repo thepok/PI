@@ -42,8 +42,13 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   [`T192T192PrimitiveValuationShells.lean`](TheoryLib/PiQuantitativeBlockHitting/T192T192PrimitiveValuationShells.lean)
   extracts the one-time primitive atom, partitions it into exact `v_10`
   shells, proves `H_s=L_s-L_(s+1)`, and retains more than
-  `(9/20)*(4859/10000)` in the central zero shell. Positive-valuation shells
-  remain to be aggregated.
+  `(9/20)*(4859/10000)` in the central zero shell. T193 aggregates the
+  positive-valuation shells.
+- **T193 — Positive Valuation-Shell Aggregate — machine-checked seed.**
+  [`T193T193PositiveValuationShellAggregate.lean`](TheoryLib/PiQuantitativeBlockHitting/T193T193PositiveValuationShellAggregate.lean)
+  proves the complete central atom bound `Re atom>7139/45000` and the native
+  T176 unit-block surplus `>3q/20`. It contains no recurrence or
+  irrationality input and does not control a natural prefix.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -135,17 +140,16 @@ but `E<-3.08*10^9`.  Hence any proof must use π-specific information, not
 T189 bookkeeping alone.
 
 A new actual-π `proof sketch` gives a stronger but still insufficient signed
-side result.  T191 machine-checks its central kernel floor, and T192 now
-machine-checks the exact valuation-shell subtraction and positive zero-shell
-margin.  Combining the still-unformalized positive-shell aggregation with
-the verified T151/T156 bounds then shows, at `proof sketch` level, that every
-sufficiently central literal orbit point has primitive
-atom `p_(q,A)(n)>7139/45000`, hence positive T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`.  The published finite irrationality exponent supplies
+side result. T191 machine-checks its central kernel floor, T192 the exact
+valuation-shell subtraction and positive zero-shell margin, and T193 the
+positive-shell aggregate. Thus every sufficiently central literal orbit
+point now has the machine-checked primitive atom bound
+`p_(q,A)(n)>7139/45000` and T176 unit-block capital
+`S_(q,A)(n,1)>3q/20`. The published finite irrationality exponent supplies
 such an adaptively selected root at `q<=n<8q`; T176 then constructs a coherent
 same-child ray whose capital stays positive and strictly increases on that
 unchanged unit block.  A fixed ray can be chosen with arbitrarily deep finite
-ladders at depth-dependent return times.  This does **not** control a natural
+ladders at depth-dependent return times (`proof sketch`). This does **not** control a natural
 prefix: the periodic orbit `xi=1/9` has the same ladder, and the intervening
 unit blocks are unsigned.  Separately, a Kempner--Mahler continuation sharing
 10015 π digits eventually makes every child of every coherent `334`

@@ -290,6 +290,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T189T189SignedHorizonSectorBridge
 import TheoryLib.PiQuantitativeBlockHitting.T190T190ComplementaryRankAlignment
 import TheoryLib.PiQuantitativeBlockHitting.T191T191CentralBoundaryKernelFloor
 import TheoryLib.PiQuantitativeBlockHitting.T192T192PrimitiveValuationShells
+import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggregate
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3564,6 +3565,17 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T192PrimitiveValuationShells.valuationZeroLayerDifference_re_ge
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt
+
+-- Positive valuation aggregate, the complete deterministic central atom,
+-- and its native T176 unit-block capital.  No recurrence input is included.
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationLayerMassSum_lt_five_div_eighteen
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationShellSum_re_gt
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.primitiveBoundaryAtom_re_gt_7139_div_45000
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

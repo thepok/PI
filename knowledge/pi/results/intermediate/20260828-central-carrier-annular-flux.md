@@ -360,11 +360,12 @@ Re H_0 >= (9/20)*Phi_q(y),       Phi_q(y)>4859/10000.
 ```
 
 The `Phi_q` floor, atom identity, shell partition, `H_s=L_s-L_(s+1)` identity,
-and displayed `H_0` retention are machine-checked. The positive-valuation
-aggregate and remaining deductions retain the `proof sketch` label.
+displayed `H_0` retention, positive-valuation aggregate, full atom bound and
+unit-block surplus are machine-checked. The actual-pi return and infinite-ray
+deductions retain the `proof sketch` label.
 
-Applying the verified T151 floors to `L_1,L_2`, mass bounds to the remaining
-layers, and the T156 endpoint budget gives
+Machine-checked T193 applies the T151 floors to `L_1,L_2`, mass bounds to the
+remaining layers, and the endpoint budget to give
 
 ```text
 sum_(1<=s<=k) Re H_s > -108019/1800000,
@@ -378,7 +379,7 @@ S_(q,A)(M,L)
  = q*Re(primitiveBoundaryFourierBlockSum(q,A,M,L))-7*L/(3q),
 ```
 
-one has `S_(q,A)(n,1)>3q/20` for `q>=1000`.  The published
+machine-checked T193 gives `S_(q,A)(n,1)>3q/20` for `q>=1000`. The published
 `mu(pi)<7.11` bound supplies such a central literal root with `q<=n<8q` at
 every sufficiently large decimal scale.  Recursive T176 Bellman choices at
 the unchanged block `(M,L)=(n,1)` then construct a coherent target ray with
