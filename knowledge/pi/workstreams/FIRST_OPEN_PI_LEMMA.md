@@ -54,6 +54,48 @@ Research may replace Pair-π with a genuinely shorter aligned theorem that
 directly yields FMR. It may not replace it by an equivalent normalization of
 `Xi_d`, or assume the unbounded reached path that the transport must construct.
 
+## Machine-checked foothold and exact remaining correlation
+
+T194 now supplies one literal same-child foothold, conditional on the explicit
+external premise `IrrationalityMeasureBelow pi (36/5)`. After a
+premise-dependent onset, for each `q=10^k` it chooses
+
+```text
+q+1 <= n < 10q,
+A = floor(q*piOrbit n),
+d = floor(10*piOrbit(n-1)),
+C = A+d*q,
+```
+
+and proves a parent unit surplus `>3q/20` at `n` and a child unit surplus
+`U>3q/2` at `m=n-1`. Both times lie in the exact fresh window and the centered
+coordinate is preserved. The target and digit are adaptive, and the theorem
+does not sign the full child block.
+
+Let `R` be the surplus of the other `9q-1` child units in `[q,10q)`. Exact
+block additivity gives
+
+```text
+D_d = U+R,
+D_d>0 iff R>-U.
+```
+
+After subtracting the singleton T189 identity, `R` is exactly the deleted
+zero-sector increment plus the target-rotated T179 lag-one correlation over
+the other times. All information contained in the lifted central coordinate
+has cancelled. Thus the first positive arithmetic rung is now especially
+concrete: control that deleted actual-π correlation for the same T194-selected
+digit, and simultaneously retain enough inherited capital for `G_d+D_d>0`.
+
+The natural floor-only sufficient bound `R>=-3q/2` is already false on the
+certified actual-π path: at `(q,A,d)=(100000,51334,1)`, the directed-interval
+`experiment` has `R<-629252` while `-3q/2=-150000`. The full fresh block is
+positive only because the actual lifted atom is much larger than its uniform
+floor together with independent favorable complement information. Therefore
+neither another central-chamber estimate nor formalizing the deletion identity
+will advance the frontier; new target-signed π information must enter in the
+remaining multi-time correlation.
+
 ## Direct flexible-horizon alternative
 
 There is also a shorter route that bypasses T189, same-child transport, and
