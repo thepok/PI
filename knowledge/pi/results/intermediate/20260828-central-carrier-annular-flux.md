@@ -360,6 +360,23 @@ Consequently, positive same-child fresh surplus necessarily obeys
 `R<=125*H+27`. This is only a necessary target-relative anti-clustering
 condition; it does not supply the actual-pi sign.
 
+The same geometry has a quantitatively positive but hierarchy-breaking
+compensation (`proof sketch`). For `3/5<=y<=5/8`, the adjacent fine cell has
+coordinate `y-1` in T191's central chamber. Elementary sinc bounds give
+
+```text
+Phi_Q(y) > -199/1000,
+Phi_Q(y-1) > 4859/10000,
+Phi_Q(y)+Phi_Q(y-1) > 2869/10000.
+```
+
+The symmetric statement uses `y+1` on the left annulus. But if
+`C=A+dq`, then `C+1=(A+1)+dq` only away from the endpoint (with analogous
+left and wrap caveats): the compensating fine cell belongs to an adjacent
+parent, never to a literal child of the reached parent `A`. Thus the bound
+suggests a three-parent corridor invariant but cannot feed T189 unless old
+positive capital at adjacent parents is constructed rather than assumed.
+
 ## Central primitive atom and signed unit-block ladder
 
 An independently audited strengthening repairs the missing total sign and
