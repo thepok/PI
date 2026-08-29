@@ -189,6 +189,57 @@ a positive-entropy missing-word shift.  A reopening theorem must use a
 genuinely pi-specific constraint on the digit language or directly recover
 target-signed orbit information.
 
+## Fresh-window nine-label upgrade
+
+An independently audited `proof sketch` strengthens the preceding construction
+from positive entropy to exact eventual label abundance. Let `p` be a finite
+prefix not already containing the nonempty word `w`. Delete one digit `a`
+occurring in `w` and put `B={0,...,9}\{a}`. A bridge of length `|w|-1` over
+`B` can be chosen greedily so that `w` does not cross the prefix boundary;
+every later `B`-tail then avoids `w`.
+
+Choose one fixed interior digit `c in B intersect {1,...,8}`. Under the uniform
+Bernoulli measure on `B^N`, sample disjoint `(k+1)`-blocks starting at
+
+```text
+n_j = 10^k + j*(k+1),
+0 <= j < floor(9*10^k/(k+1)).
+```
+
+For a fixed `u in B^k`, the failure probability for `uc` is at most
+`exp(-M_k/9^(k+1))`. A union bound over all `9^k` labels is summable because
+`M_k>=8*10^k/(k+1)`. Borel--Cantelli therefore gives, for almost every tail
+and all sufficiently large `k`,
+
+```text
+forall u in B^k, exists n in [10^k,10^(k+1)):
+  digits_(n+1 ... n+k+1) = u c.
+```
+
+The same Bernoulli measure is friendly/extremal by Kleinbock--Lindenstrauss--
+Weiss, [*On fractal measures and Diophantine approximation*](https://doi.org/10.1007/s00029-004-0378-2),
+so this full-measure event can be intersected with `mu=2`; removing the
+countable algebraic points makes the continuation transcendental. Rational
+prefix insertion preserves the exponent.
+
+For a literal scale-`10^k` label, the normalized radius is exactly
+
+```text
+y_k(n) = fract(10^k*x_n)-1/2 = x_(n+k)-1/2.
+```
+
+The following interior digit gives `|y_k(n)|<=2/5<9/22`. Hence a paper-level
+orbit-generic replay of T191--T193 gives a central positive primitive unit for
+every encoded label in `B^k` inside the exact fresh window. Eventually the
+set of available central fresh labels is exactly the encoded set `B^k`.
+
+This is a tree of available labels, not a coherent T176/T189 edge tree: the
+witness times for `u` and `du` may be unrelated. It refutes criteria based
+only on uniform proper-alphabet arity or positive-label abundance. It does
+not refute a nine-branch criterion carrying additional transition-sensitive
+or genuinely pi-specific signed information. Only `w` is globally absent;
+other words containing `a` may occur in the finite prefix.
+
 ## Exact boundary and reopening condition
 
 The Gottschalk--Hedlund route fails because the orbit closure is not minimal
