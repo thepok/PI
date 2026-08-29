@@ -248,6 +248,28 @@ arithmetic target is a pathwise lower bound `E(D,F)>0` at recursively reached
 growing horizons, sourced by signed cross-sector alignment and control of the
 opposite-sign leakage.
 
+The next reached node has now been independently replayed with directed
+outward intervals (`experiment`). At `(q,A)=(100000,51334)`, the already
+recorded FMR digit `d=1` reaches `C=151334` and satisfies
+
+```text
+parent P > 83327.50,
+fresh D_1 > 1066287.52,
+G_1 + D_1 > 3071681.30.
+```
+
+An explicit T193-central/T194-type parent atom at time `196299` lifts under
+the literal predecessor digit `1` to a child atom at time `196298`; their
+normalized central coordinate is exactly equal. A second child atom at time
+`487122` has surplus `>225457.32` for the same target `151334` and lies just
+outside the T193 chamber. This is genuine additional finite actual-π sign
+information, but it does not explain the block sign: after removing the
+central child atom the remaining fresh surplus is `<-629252.37`, and after
+removing both displayed atoms it is `<-854709.69`. Thus the full `D_1>0`
+comes from the independent complete-block computation, not from a two-atom
+amplification theorem. The replay reproduced its bundled outputs exactly; it
+remains an `experiment`, not a Lean theorem or an unbounded transport.
+
 That source cannot be generic decimal-orbit bookkeeping.  Let `w=uv`, where
 
 ```text
