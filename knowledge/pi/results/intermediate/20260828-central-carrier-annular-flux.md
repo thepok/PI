@@ -504,6 +504,39 @@ selected node. Merely postulating CF on a separately prelabelled sequence is
 circular. No Lean formalization is justified before an actual-pi invariant
 controls these selected-node cross-terms.
 
+There is nevertheless one exact cross-level gain. Fix the selected child
+`C=A+dq`. Each current central occurrence `n` routes by its literal
+predecessor digit `e=floor(10*x_(n-1))` into one old coordinate of the selected
+child. The normalized centered radius is preserved exactly, so if
+
+```text
+omega_m(y)=10*Phi_(10m)(y)-Phi_m(y),
+T_e=sum_(central n with predecessor e) omega_(10q)(y_n),
+```
+
+then the selected child's old routed vector splits coordinatewise as
+
+```text
+R_child^old = T+rho
+```
+
+and central scale monotonicity gives the rigorous lower bound
+
+```text
+sum_e T_e >= (9/10)*p_d.                              (TR)
+```
+
+The split is exact; `9/10` is a lower bound, not an identity. Since `T>=0`,
+this transported carrier can only reduce the next inherited-deficit penalty.
+It cannot create the next fresh vector `p+`. An audited transcendental
+`mu=2` deleted-digit separator has positive parent CF, a unique endogenous
+selector, concentrated transport satisfying (TR), and an unrelated adaptive
+central unit in the next horizon, while every selected-child fresh coordinate
+`p+_e` is zero (`proof sketch`). Thus old-carrier heredity alone is not the
+missing recursion. Reopening requires actual-π prescribed recurrence for a
+left extension of the selected target together with control of its annular and
+residual routed correlations.
+
 ## Exact carrier/remainder split
 
 T174 splits each normalized signed surplus exactly into positive cylinder
