@@ -19,6 +19,23 @@ preserved here.
 | Pair/DC1, Laurent nonvanishing | The paired carrier is a formally nonzero Laurent polynomial, and DC1 is sharp. Actual-π experiments show Pair/DC1 failure at `(1000,689)` and, on the legal edge to `(10000,1334)`, unique FMR at `d=5` while every parity-balanced convex mask is negative. At that hard node, independently checked LP optima are negative after deleting any one of the five real character blocks (`experiment`). Exact anti-periodicity collapses sector 5 to an odd-frequency correlation on the `5π` orbit (`proof sketch`). | Formal nonzero gives no evaluated sign; uniform Pair/DC1 and block-deleting convex-mask transport are false over the uncoupled completion space. The LP does not exclude an actual-orbit admissibility relation, and the odd-frequency collapse still lacks a sign. | A path-constructing actual-π cross-sector admissibility theorem retaining the complete relative phases and same-child inherited alignment. |
 | Separate marginals and coherent single rays | Exact ten-vectors with identical (D)- and (G)-marginals can have zero or five FMR witnesses solely by permutation; a single coherent selector ray covers only factors of one word. | Separate witnesses lose the joint digit, and an infinite ray alone does not imply V1. | Joint actual-π control of (min(D_d,D_d+G_d)), followed by viable branching or proof that the selector word is disjunctive. |
 
+The `Zero sector, scalar moments, unsigned energy` row also covers pure-gauge
+spectral lifts.  For finite indices `nu_j`, any difference kernel `c`, and a
+target character `chi_A`, the twist
+`T_A(j,l)=c(nu_j-nu_l) * conj(chi_A(nu_j-nu_l))` satisfies
+`T_A=D_A*T_0*D_A^*`, with `D_A=diag(conj(chi_A(nu_j)))`.  Thus every
+unitary-similarity invariant is target-independent at every rank.  For the
+exact full-circulant lift of the T172 support expansion—after grouping the
+raw frequencies modulo `q`, not on the compressed primitive-ray index—the
+minimum Hermitian eigenvalue is precisely the minimum of the simultaneous
+fixed-horizon target real parts (`proof sketch`, independently audited).
+This does not address the repository's weaker quantifier order
+`forall A, exists N`; nor does it exclude target-dependent amplitudes,
+diagonals, non-difference kernels, or edge phases with nontrivial cycle
+holonomy.  Reopen a similarity-invariant spectral route only with such a
+non-gauge target dependence, an exact PBFS/FMR readout, and a named
+actual-pi sign theorem false on suitable word-avoiding replacements.
+
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
