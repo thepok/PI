@@ -37,6 +37,23 @@ Reopen with an independently specified unbounded set and a named actual-pi
 theorem that signs the complete skew and supplies endpoint proximity on that
 same set, or directly proves literal same-child FMR.
 
+The same row also records an anticipatory scalar-carry separator.  Writing the
+exact BBP forcing as `tau_n=Theta_n-452 in (0,1)`, every prescribed future
+carry word `d_n in {8,9}` has the unique bounded trajectory
+`s_n=sum_(j>=0) (d_(n+j)-tau_(n+j))/10^(j+1)`, with
+`7/9<s_n<1` and `s_(n+1)=10*s_n+tau_n-d_n` (`proof sketch`, independently
+audited).  Thus even complete knowledge of the future scalar forcing leaves a
+translated binary Cantor family of word-restricted trajectories.  These are
+counterfactual real initial conditions, not canonical rational BBP residues:
+membership of the actual residue is precisely the shifted deleted-digit
+identity
+`delta_N(d)=10^N*pi-floor(X_N)-452/9`, and rationality alone would not select
+that value or its past-compatible numerator class.  Reopen this scalar-carry
+route only with a theorem about the canonical BBP numerator/gcd or principal
+real embedding that forces a target-directed one-branch bottleneck or
+extinction on an independently chosen unbounded set.  More scalar carry
+chambers or numerical residue hits do not qualify.
+
 The `Zero sector, scalar moments, unsigned energy` row also covers pure-gauge
 spectral lifts.  For finite indices `nu_j`, any difference kernel `c`, and a
 target character `chi_A`, the twist
