@@ -81,6 +81,12 @@ or extinction, unless it uses a genuinely global/non-prefix-local mechanism.
 Forcing the bottleneck solely through `L_(n+1)-10L_n=0` is an exact winding
 detector and does not qualify.
 
+Marginal cross-base normality is also paused: a full-dimensional
+finite-irrationality-exponent decimal word-avoiding family can be simultaneously
+normal in every integer base multiplicatively independent of `10`. Reopen only
+with an actual-pi theorem that synchronizes relative cross-base phases
+absolutely to the literal base-10 target.
+
 ## Operation
 
 - Keep up to three useful Pro calls active. Two work on the signed frontier:
