@@ -54,14 +54,17 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   proves unconditionally, using `irrational_pi`, that every decimal scale
   `10^k`, `k>=3`, has some actual-π orbit point and containing cell with the
   T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
-  bound. Under the additional explicit premise
+  bound. Conditional in Lean on
   `IrrationalityMeasureBelow pi (36/5)`, it proves that after one onset such a
   unit can always be chosen with `10^k+1<=n<10^(k+1)`. Its literal predecessor
   digit then machine-checkably lifts the same centered coordinate to a child
   unit at scale `10^(k+1)` and time `n-1`, inside the exact T189 fresh block,
-  with surplus `>3*10^k/2`. The quantitative premise is not proved in the
-  repository, the target is unprescribed, and neither positivity of the
-  entire same-child fresh block nor a coherent natural-horizon ray follows.
+  with surplus `>3*10^k/2`. [Zeilberger--Zudilin's published
+  bound](https://arxiv.org/abs/1912.06345)
+  `mu(pi)<=7.103205334137...` discharges that premise in ordinary mathematics
+  (`literature-checked`); the source theorem and its bridge are not formalized
+  in Lean. The target is unprescribed, and neither positivity of the entire
+  same-child fresh block nor a coherent natural-horizon ray follows.
   The qualitative
   irrationality mechanism is generic to every irrational constant; it is
   actual-π information after specialization, not yet π-specific arithmetic.
@@ -251,10 +254,12 @@ unprescribed actual-π seed at every decimal scale using only `irrational_pi`.
 Thus every sufficiently central
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`. Under the additional explicit
-`IrrationalityMeasureBelow pi (36/5)` premise, T194 localizes one such unit to
+`S_(q,A)(n,1)>3q/20`. Conditional in Lean on
+`IrrationalityMeasureBelow pi (36/5)`, T194 localizes one such unit to
 `q+1<=n<10q` after a premise-dependent onset and lifts it through its literal
 predecessor digit to a child-scale unit at time `n-1` with surplus `>3q/2`.
+Zeilberger--Zudilin's published irrationality-measure bound supplies this
+premise externally (`literature-checked`), but its Lean bridge is absent.
 Both units lie in the exact fresh horizon block and preserve the centered
 coordinate. This is same-child transport of one local positive atom, not
 positivity of the whole same-child fresh sum. The target loss is exact: for a
@@ -265,14 +270,15 @@ show that the generic central-unit and predecessor-lift premises may hold at
 every time and scale while digit `3` never occurs (`literature-checked`
 existence plus `proof sketch` analytic transfer). Thus neither the `36/5`
 Diophantine premise nor arbitrarily abundant central units repair the target
-quantifier. The subsequent
-infinite-ladder selection remains open. Iterating
-the machine-checked T176 step gives a coherent same-child block ray (`proof
-sketch`) whose capital stays positive and strictly increases on that
-unchanged unit block.  A fixed ray can be chosen with arbitrarily deep finite
-ladders at depth-dependent return times (`proof sketch`). This does **not** control a natural
+quantifier. Exact predecessor-coordinate lifting gives arbitrarily long
+finite positive ladders (`proof sketch`), not one infinite natural-horizon
+ray. If `q_r=10^r*q` and `t_r=n-r`, then the lifted time is fresh exactly on
+the first edge: `t_1 in [q,10q)`, whereas
+`t_(r+1)<10q<=q_r` for every `r>=1`. It therefore has coefficient exactly
+zero in the later fresh increment `D`; T176's same-time fixed-block transport
+is stale after the same first placement. This does **not** control a natural
 prefix: the periodic orbit `xi=1/9` has the same ladder, and the intervening
-unit blocks are unsigned.  Separately, a Kempner--Mahler continuation sharing
+unit blocks are unsigned. Separately, a Kempner--Mahler continuation sharing
 10015 π digits eventually makes every child of every coherent `334`
 descendant fail fresh positivity.  The live rung is therefore a genuinely
 actual-π block-to-natural-horizon accumulation theorem for the recursively
