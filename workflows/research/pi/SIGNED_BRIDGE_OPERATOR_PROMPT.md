@@ -55,6 +55,20 @@ Do not accept symmetry, averaging, almost-everywhere results, denominator or
 period information, congruences, unsigned energy, rational shadows, or finite
 prefixes as that source without a new exact implication.
 
+Treat T189 as a frozen consumer. Admit a new mathematical direction only when
+one precise candidate statement passes all three tests:
+
+1. it fails for a suitable word-avoiding replacement constant;
+2. a named π-specific arithmetic property supplies a plausible proof route;
+3. it directly forces a prescribed target hit or the literal same-child signed
+   horizon bound.
+
+The exact BBP residue `r_n=(10^n-16)P_n mod D_n` is eligible for one focused
+order-principle cycle: seek control of its Archimedean location from a new
+recurrence, symmetry, or analytic representation. Do not spend that cycle on
+more denominator factorization, period data, tail accuracy, or rational-shadow
+exactification. Pause BBP if no candidate survives the three tests.
+
 ## Operation
 
 - Keep up to three useful Pro calls active. Two work on the signed frontier:

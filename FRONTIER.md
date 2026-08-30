@@ -1,7 +1,7 @@
 # π decimal disjunctivity frontier
 
 Status: `conjecture`
-Last audited: 2026-08-29 UTC
+Last audited: 2026-08-30 UTC
 
 This is the only authoritative current research map. No theorem in this
 repository proves V1, decimal density, or normality of π. The normalized
@@ -101,6 +101,29 @@ The new input must explain the target-signed Archimedean sign for the actual
 constant π and preserve the same child. Symmetry, means, almost-everywhere
 lacunary results, denominator or period structure, local congruences, unsigned
 energy, rational shadows, and finite prefix replay do not supply it.
+
+T189 is frozen as the finished consumer. A new candidate enters the active
+frontier only if all three tests hold:
+
+1. it is false for a suitable word-avoiding replacement constant;
+2. a named arithmetic property special to π makes it plausibly true for π;
+3. it directly yields a prescribed target hit or the literal same-child signed
+   horizon inequality.
+
+A further kernel, determinant, cone, Padé, BBP, or equivalent reformulation
+without such an order source does not qualify. The most concrete remaining BBP
+object is the exact residue sequence
+
+```text
+r_n = (10^n-16) P_n mod D_n
+```
+
+for the inclusive rational BBP partial `B_n=P_n/D_n`. One final BBP cycle may
+seek a genuinely non-coboundary recurrence, symmetry, or analytic order law for
+the Archimedean location `r_n/D_n`. Denominator factorization, tail accuracy,
+periodicity, and another rational shadow are already excluded. Reopen or
+continue this direction only when a proposed law passes all three tests above;
+otherwise pause it.
 
 Uniform Pair/DC1 positivity is already falsified at the positive π node
 `(q,A)=(1000,689)`: all five Pair margins and the DC1 premise are negative,
