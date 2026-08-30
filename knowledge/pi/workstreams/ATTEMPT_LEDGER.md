@@ -37,6 +37,15 @@ Reopen with an independently specified unbounded set and a named actual-pi
 theorem that signs the complete skew and supplies endpoint proximity on that
 same set, or directly proves literal same-child FMR.
 
+At a single scale the obvious gcd channel is numerator-blind as well.  For the
+reduced BBP partial `B_n=P_n/D_n`, `m_n=10^n-16`, and
+`r_n=m_n*P_n mod D_n`, one has exactly
+`gcd(r_n,D_n)=gcd(m_n,D_n)`; hence the phase order is
+`D_n/gcd(m_n,D_n)` and is unchanged by residue reflection (`proof sketch`,
+independently audited).  This closes single-time gcd, valuations inside the
+modulus, and cyclotomic-order arguments, but not numerator-sensitive
+cross-level relations or principal-real inequalities.
+
 The same row also records an anticipatory scalar-carry separator.  Writing the
 exact BBP forcing as `tau_n=Theta_n-452 in (0,1)`, every prescribed future
 carry word `d_n in {8,9}` has the unique bounded trajectory
