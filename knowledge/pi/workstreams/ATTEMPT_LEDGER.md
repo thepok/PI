@@ -19,6 +19,24 @@ preserved here.
 | Pair/DC1, Laurent nonvanishing | The paired carrier is a formally nonzero Laurent polynomial, and DC1 is sharp. Actual-π experiments show Pair/DC1 failure at `(1000,689)` and, on the legal edge to `(10000,1334)`, unique FMR at `d=5` while every parity-balanced convex mask is negative. At that hard node, independently checked LP optima are negative after deleting any one of the five real character blocks (`experiment`). Exact anti-periodicity collapses sector 5 to an odd-frequency correlation on the `5π` orbit (`proof sketch`). | Formal nonzero gives no evaluated sign; uniform Pair/DC1 and block-deleting convex-mask transport are false over the uncoupled completion space. The LP does not exclude an actual-orbit admissibility relation, and the odd-frequency collapse still lacks a sign. | A path-constructing actual-π cross-sector admissibility theorem retaining the complete relative phases and same-child inherited alignment. |
 | Separate marginals and coherent single rays | Exact ten-vectors with identical (D)- and (G)-marginals can have zero or five FMR witnesses solely by permutation; a single coherent selector ray covers only factors of one word. | Separate witnesses lose the joint digit, and an infinite ray alone does not imply V1. | Joint actual-π control of (min(D_d,D_d+G_d)), followed by viable branching or proof that the selector word is disjunctive. |
 
+The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
+nonlinear rational phase observables.  The exact BBP recurrence gives, at a
+fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
+`omega_(n,j)`.  Any real rational observable in these phases, with
+reflection-fixed coefficients and both reflected evaluations defined, has a
+unique meromorphic decomposition
+`Phi(t)=A(cos t)+sin(t)*H(cos t)` and hence
+`Phi(t)-Phi(-t)=2*sin(t)*H(cos t)` (`proof sketch`, independently audited).
+At `t=2*pi*r_n/D_n`, a coefficient-level sign for `H` therefore factors out
+rather than supplies the unresolved residue half-order.  This closes only
+reflection-even norms/full resultants and determinant or total-positivity
+templates that sign the cofactor alone.  It does not exclude horizons growing
+with `n`, nonuniform arithmetic information in `H`, a pi-specific theorem
+signing the complete skew, or infinite/nonlocal/canonical-lift mechanisms.
+Reopen with an independently specified unbounded set and a named actual-pi
+theorem that signs the complete skew and supplies endpoint proximity on that
+same set, or directly proves literal same-child FMR.
+
 The `Zero sector, scalar moments, unsigned energy` row also covers pure-gauge
 spectral lifts.  For finite indices `nu_j`, any difference kernel `c`, and a
 target character `chi_A`, the twist
