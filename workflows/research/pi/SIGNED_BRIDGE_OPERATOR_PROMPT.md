@@ -72,6 +72,15 @@ unboundedly many scales, and passes all three tests. Do not spend another cycle
 on denominator factorization, fixed-modulus automata, period data, tail
 accuracy, or rational-shadow exactification.
 
+For any causal prefix-local lift/order candidate, compute its allowed successor
+set `C_R(H)` on every root-reachable target-avoiding history. Uniform branching
+`|C_R(H)|>=3` is counterfeit-compatible for every target word; even
+`|C_R(H)|>=2` is counterfeit-compatible for every constant word of length at
+least two. Such a candidate needs a target-directed `<=1`-successor bottleneck
+or extinction, unless it uses a genuinely global/non-prefix-local mechanism.
+Forcing the bottleneck solely through `L_(n+1)-10L_n=0` is an exact winding
+detector and does not qualify.
+
 ## Operation
 
 - Keep up to three useful Pro calls active. Two work on the signed frontier:

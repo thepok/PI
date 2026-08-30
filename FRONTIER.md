@@ -143,6 +143,25 @@ order modulo `1`. **Reopening condition:** a new quantity from the exact
 numerator structure that breaks `r_n <-> D_n-r_n`, supplies one-sided
 Archimedean control on unboundedly many scales, and passes all three tests.
 
+An independently audited pruning separator now narrows the remaining
+cross-scale opening (`proof sketch`). Let a causal prefix-local lift law assign
+allowed successor defects `C_R(H)` to every root-reachable history satisfying
+the law so far. If `|C_R(H)|>=3` everywhere, then for every nonempty decimal
+word `w` there is an `R`-compatible word-avoiding family of Hausdorff dimension
+`log 2/log 10`; if `|C_R(H)|>=2`, then for every constant word `delta^ell`,
+`ell>=2`, there is such a family of dimension
+`((ell-1)/ell)*(log 2/log 10)`. In both cases the transcendental
+finite-irrationality-exponent subfamily has the same dimension. Thus residual
+nonuniformity, target/history dependence and finite-window multistate coupling
+still cannot force all targets while they retain robust branching. The result
+does not cover one-successor bottlenecks, extinction, genuinely anticipatory or
+global constraints, or nonlocal spectral laws not verifiable from a proposed
+successor. The Euler sine-zero germ destroys branching only by forcing
+`L_(n+1)-10L_n=0`, which reconstructs the exact winding and is not a new order
+source. A viable lift law must therefore create a target-directed
+`<=1`-successor bottleneck or extinction on every target-avoiding continuation,
+without encoding the exact prefix.
+
 Uniform Pair/DC1 positivity is already falsified at the positive π node
 `(q,A)=(1000,689)`: all five Pair margins and the DC1 premise are negative,
 while literal FMR holds strongly and uniquely at `d=8` (`experiment`). The
