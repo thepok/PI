@@ -118,12 +118,30 @@ object is the exact residue sequence
 r_n = (10^n-16) P_n mod D_n
 ```
 
-for the inclusive rational BBP partial `B_n=P_n/D_n`. One final BBP cycle may
-seek a genuinely non-coboundary recurrence, symmetry, or analytic order law for
-the Archimedean location `r_n/D_n`. Denominator factorization, tail accuracy,
-periodicity, and another rational shadow are already excluded. Reopen or
-continue this direction only when a proposed law passes all three tests above;
-otherwise pause it.
+for the inclusive rational BBP partial `B_n=P_n/D_n`. The final focused BBP
+cycle is now paused. **Reason:** its strongest new ordered quantity,
+
+```text
+Theta_n = (10^(n+1)-16) B_(n+1) - 10(10^n-16) B_n,
+```
+
+satisfies `144*pi < Theta_(n+1) < Theta_n` for `n>=2` and converges to
+`144*pi` (`proof sketch`, independently audited), but this orders only the
+positive scalar tail. The exact identity
+`Theta_n-144*pi=10E_n-E_(n+1)` makes it another removable scalar defect and
+does not orient `r_n/D_n`. A targeted PaperSearch audit found only universal
+perturbed-orbit coupling, fixed-modulus automatic congruences, and probabilistic
+π heuristics; none controls the canonical residue in the moving modulus
+([Lagarias](https://arxiv.org/abs/math/0101055),
+[Rowland--Yassawi](https://arxiv.org/abs/1310.8635), and
+[Barral--Loiseau](https://arxiv.org/abs/1004.3713); `literature-checked`,
+2026-08-30). **Strongest retained lemma:** the exact
+coboundary conjugation together with the strict scalar monotonicity above.
+**First fatal line:** the unknown integer lift in
+`(10^n-16)B_n=k_n+r_n/D_n` destroys the passage from order modulo `2*pi` to
+order modulo `1`. **Reopening condition:** a new quantity from the exact
+numerator structure that breaks `r_n <-> D_n-r_n`, supplies one-sided
+Archimedean control on unboundedly many scales, and passes all three tests.
 
 Uniform Pair/DC1 positivity is already falsified at the positive π node
 `(q,A)=(1000,689)`: all five Pair margins and the DC1 premise are negative,

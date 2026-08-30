@@ -63,11 +63,14 @@ one precise candidate statement passes all three tests:
 3. it directly forces a prescribed target hit or the literal same-child signed
    horizon bound.
 
-The exact BBP residue `r_n=(10^n-16)P_n mod D_n` is eligible for one focused
-order-principle cycle: seek control of its Archimedean location from a new
-recurrence, symmetry, or analytic representation. Do not spend that cycle on
-more denominator factorization, period data, tail accuracy, or rational-shadow
-exactification. Pause BBP if no candidate survives the three tests.
+The focused cycle on the exact BBP residue
+`r_n=(10^n-16)P_n mod D_n` is paused: the best ordered quantity is a removable
+scalar tail defect, and PaperSearch supplied no theorem controlling the
+canonical residue in its moving modulus. Reopen only with a numerator-derived
+quantity that breaks `r_n <-> D_n-r_n`, yields one-sided Archimedean control on
+unboundedly many scales, and passes all three tests. Do not spend another cycle
+on denominator factorization, fixed-modulus automata, period data, tail
+accuracy, or rational-shadow exactification.
 
 ## Operation
 
