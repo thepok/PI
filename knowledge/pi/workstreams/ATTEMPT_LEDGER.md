@@ -46,6 +46,19 @@ independently audited).  This closes single-time gcd, valuations inside the
 modulus, and cyclotomic-order arguments, but not numerator-sensitive
 cross-level relations or principal-real inequalities.
 
+The canonical modular inverse gives the sharpest remaining numerator-sensitive
+reduction.  If `s_n=P_n^-1 mod D_n` lies in `[1,D_n)` and
+`P_n/D_n=[a_0;...;a_L]` is canonical, then
+`sign(2*s_n-D_n)=(-1)^L`.  Consequently, for
+`Q_n=(2*r_n-D_n)*(2*s_n-D_n)`,
+`sign(2*r_n-D_n)=sign((-1)^L*Q_n)` (`proof sketch`, independently audited).
+But `Q_n≡4*(10^n-16) mod D_n`, and its real sign contains an uncontrolled
+integer lift.  Modular-hyperbola and inverse-distribution theorems range over
+many units or averaged moduli, not this selected BBP numerator point
+(`literature-checked`, 2026-08-30).  Reopen only with a theorem signing this
+canonical point on an explicit unbounded set and then strengthening half-order
+to endpoint proximity or literal same-child FMR.
+
 The same row also records an anticipatory scalar-carry separator.  Writing the
 exact BBP forcing as `tau_n=Theta_n-452 in (0,1)`, every prescribed future
 carry word `d_n in {8,9}` has the unique bounded trajectory
