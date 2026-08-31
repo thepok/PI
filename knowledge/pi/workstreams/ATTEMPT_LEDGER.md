@@ -32,6 +32,25 @@ independently audited).  This does not exclude a partial resonant-character
 estimate as an intermediate theorem, but that estimate must already carry
 literal diagonal information.
 
+After exact primitive-ray compression, the complete target-weighted PBFS
+observable `F_(q,A)` is annihilated by the decimal Perron operator because
+every surviving frequency is indivisible by ten.  Thus it is a bounded
+reverse-martingale-difference observable, all positive-lag correlations vanish,
+and its exact variance is
+`(1/2)*sum_u |C_(q,A)(u)|^2>0`; the singleton top ray `2q-1` rules out
+degeneracy.  The Dedecker--Gouëzel--Merlevède ASIP therefore gives the
+two-sided signed LIL and infinitely many PBFS threshold crossings,
+simultaneously for all decimal scales and targets, for Lebesgue-almost every
+seed (`proof sketch`; [arXiv:1108.5292](https://arxiv.org/abs/1108.5292)
+`literature-checked`, independently audited).  This retains the full literal
+coefficient profile but gives no information at `x=pi`; periodic and
+exact-`mu=2` word-avoiding exceptional seeds remain.  A pointwise vector
+Strassen law for `pi` is not a smaller rung: in its standard form it implies
+base-ten normality.  Reopen this metric route only with a named deterministic
+π-specific half-space or inverse-branch theorem for the exact literal
+projection, false on those controls—not with another almost-everywhere limit
+law, discrepancy estimate or unsigned covariance.
+
 The complete elliptic CM separator in the CM row uses Bonk's
 [quasiperiod relation](https://arxiv.org/abs/2212.07012) and Maier's
 [degree-ten modular equations](https://arxiv.org/abs/math/0611041)
@@ -255,6 +274,20 @@ Magnus enlargement leaves the missing `Xi_d` as its linear open coefficient
 and adds commutators with no deterministic same-child sign.  Robustly
 branching successor-local matrix rules remain a special case of the existing
 representation-free safe-tree separator, not a new escape.
+
+Two-step KZ data add one narrow boundary (`proof sketch`, independently
+audited).  In the explicit convention whose degree-two term is
+`-zeta(2)*X*Y+zeta(2)*Y*X`, the relations
+`[X,[X,Y]]=[Y,[X,Y]]=0` give formally
+`Phi_KZ(X,Y)=exp(-zeta(2)*[X,Y])`.  A finite-dimensional central commutator is
+nilpotent, so every closed spectral readout is unipotent.  A Weyl
+central-character specialization instead makes the associator scalar and can
+formally reproduce `e(h*10^n*pi)`, but target rotation then returns exactly
+the original unoriented character.  This closes only formal two-step central
+spectra and scalar central-character phase readers; analytic unbounded-operator
+realizations require domain/completion control, and non-two-step noncentral
+representations or independently oriented open coefficients remain outside
+scope.
 
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
