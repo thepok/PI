@@ -165,6 +165,20 @@ source. A viable lift law must therefore create a target-directed
 `<=1`-successor bottleneck or extinction on every target-avoiding continuation,
 without encoding the exact prefix.
 
+A complementary spectral route is now closed at `proof sketch` level using
+[Varju--Yu's U-set classification](https://arxiv.org/abs/2004.09358)
+(`literature-checked`, independently audited). For every nonempty decimal word
+`w`, its compact coding-image avoidance set `X_w` embeds in the aligned
+base-`10^|w|` deleted-digit self-similar set, which has measure zero and is a
+trigonometric set of uniqueness. Hence `X_w` supports neither a nonzero
+pseudofunction nor a Rajchman measure. More sharply, the decimal orbit closure
+of a real number supports a nonzero Rajchman probability measure exactly when
+the number is already decimal-disjunctive: in the positive case the closure is
+the full circle and Haar measure works; in the negative case it lies in some
+`X_w`. Thus orbit-supported Fourier decay is V1 in spectral clothing, not a
+weaker bridge. This special orbit-closure equivalence must not be generalized
+to arbitrary non-U sets, which need not support Rajchman measures.
+
 Uniform Pair/DC1 positivity is already falsified at the positive π node
 `(q,A)=(1000,689)`: all five Pair margins and the DC1 premise are negative,
 while literal FMR holds strongly and uniquely at `d=8` (`experiment`). The
