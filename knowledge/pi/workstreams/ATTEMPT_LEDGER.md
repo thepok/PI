@@ -105,6 +105,23 @@ independently signed multicoordinate amplitude whose elimination does not first
 reconstruct `{10^n*pi}`, which fails on a suitable word avoider and sends the
 same child directly to PBFS or literal FMR.
 
+The CM row also covers canonical Chudnovsky binary splitting (`proof sketch`,
+independently audited).  Its adjacent determinant is exactly
+`Delta_N=ell_N*P_(N+1)*Q_N`, has parity-fixed sign, and in the standard
+unreduced normalization vanishes modulo every fixed `10^k` eventually;
+dividing out `Q_N` removes the decimal center.  The alternating partial sums
+give genuine nested scalar brackets, but their first center-sensitive carry is
+exactly an integer-boundary crossing, and the corrected quadratic norm has
+sign `sign(10^m*pi_N-b)`.  The fully quantified carry-cylinder statement is
+equivalent to V1 (the reverse implication uses arbitrarily late occurrences
+of zero-padded target words), so it is not an intermediate rung.  This closes
+only the natural determinant/remainder/bracket-carry readouts: recentering
+preserves their increments and widths but not the absolute canonical `P,Q,T`
+packet or its CM initial condition.  Reopen with a floor- and lift-free,
+moving-modulus function of that canonical packet whose distinguished-real
+sign fails on finite-exponent word avoiders and directly forces a prescribed
+cylinder or literal FMR.
+
 The positive-period row also covers the normalized Zeilberger--Zudilin
 integer forms `I_n*=a_n*+b_n*pi`.  Their proved normalization implies
 `b_n*>0` and `b_n*=lcm(1,...,4n)*u_n` with `u_n>0`, hence
