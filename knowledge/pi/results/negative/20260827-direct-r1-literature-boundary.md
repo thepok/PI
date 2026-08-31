@@ -266,6 +266,28 @@ signed theorem for `{10^m*pi/3}`; modularity alone does not sign that orbit.
    noncontracting unit circle.  It supplies neither a boundary value nor an
    order on a real part.
 
+   The complete literal nonzero-sector packet sharpens only the continuation
+   boundary (`proof sketch`; Randé's theorem in the
+   [Bell--Coons--Rowland proof](https://arxiv.org/abs/1210.2070)
+   `literature-checked`; independently audited).  For its finite packet
+   polynomial `P`, the completed carrier
+
+   ```text
+   F(z)=sum_(n>=0) P(z^(10^n))
+   ```
+
+   is nonrational and has the unit circle as a natural boundary.  Therefore
+   one cannot order a finite boundary block by separately analytically
+   continuing its two carrier endpoints.  The endpoint difference itself is
+   the original finite polynomial and is entire; radial or simultaneous
+   limits and direct arithmetic boundary identities remain open.  In the
+   corresponding Abel--Mellin representation, the boundary limit has no
+   uniform absolute majorant on the original positive inversion line because
+   the lower-tail Gamma decay is exactly cancelled and the finite Dirichlet
+   polynomial has positive mean square (`proof sketch`, independently
+   audited).  This is not a general contour obstruction: shifting first to
+   `Re(s)<-1/2` restores absolute integrability of the finite remainder.
+
 5. Barral--Loiseau, [Large deviations for the local fluctuations of random
    walks and new insights into the "randomness" of
    Pi](https://arxiv.org/abs/1004.3713), proves large-deviation properties for
