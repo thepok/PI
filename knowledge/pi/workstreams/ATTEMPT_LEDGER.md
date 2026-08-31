@@ -114,6 +114,16 @@ theorem](https://arxiv.org/abs/0909.3602) `literature-checked`; application
 `proof sketch`, independently audited).  This separator covers only
 shear-invariant polynomial closed data, not the canonical open endpoint
 numerator itself.
+The natural fixed-contour pole-coordinate character twist
+`F_n(z) -> zeta^(-r*d)*F_n(zeta^r*z)` also has a sharp first gate.  At `n=0`
+its endpoint unit is a non-root-of-unity algebraic cross-ratio for every
+`1<=r<=9`; Baker's theorem therefore forces an extra logarithmic period
+outside `Q(zeta_10)+pi*Q(zeta_10)` (`proof sketch`; Baker and the untwisted ZZ
+normalization `literature-checked`; independently audited).  This closes only
+that uncancelled simple-residue, fixed-contour two-period twist.  Logarithmic
+cancellations, torsion multipole products, moving contours and genuine open
+digit-coupled packets remain outside scope; moreover its Laurent degree
+modulo ten is not the actual predecessor digit in T179.
 The first fatal line is now the missing sign of the target comparators
 `q*R_n-A_sigma*M_n` and `(A_sigma+1)*M_n-q*R_n` on an independently selected
 unbounded set (`proof sketch`, independently audited;
