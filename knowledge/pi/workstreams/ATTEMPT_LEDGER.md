@@ -114,16 +114,33 @@ theorem](https://arxiv.org/abs/0909.3602) `literature-checked`; application
 `proof sketch`, independently audited).  This separator covers only
 shear-invariant polynomial closed data, not the canonical open endpoint
 numerator itself.
-The natural fixed-contour pole-coordinate character twist
-`F_n(z) -> zeta^(-r*d)*F_n(zeta^r*z)` also has a sharp first gate.  At `n=0`
-its endpoint unit is a non-root-of-unity algebraic cross-ratio for every
-`1<=r<=9`; Baker's theorem therefore forces an extra logarithmic period
-outside `Q(zeta_10)+pi*Q(zeta_10)` (`proof sketch`; Baker and the untwisted ZZ
-normalization `literature-checked`; independently audited).  This closes only
-that uncancelled simple-residue, fixed-contour two-period twist.  Logarithmic
-cancellations, torsion multipole products, moving contours and genuine open
-digit-coupled packets remain outside scope; moreover its Laurent degree
-modulo ten is not the actual predecessor digit in T179.
+The ten canonical `n=0` fixed-endpoint pole-coordinate cross-ratios satisfy
+`U_0=i` and `U_(r+5)=U_r^(-1)`.  Four separating primes above `401` prove that
+`U_1,...,U_4` are multiplicatively independent modulo torsion.  Baker's
+inhomogeneous logarithm theorem therefore forces every algebraically weighted
+fixed-branch combination of these ten logarithms that returns to
+`Qbar + pi*i*Qbar` to pair its coefficients under `r <-> r+5` (`proof
+sketch`; [Baker formulation](https://arxiv.org/abs/2212.00358) and the
+[untwisted ZZ normalization](https://arxiv.org/abs/1912.06345)
+`literature-checked`; independently audited).  Thus odd child characters
+cannot return to the two-period span, while even pairing erases the reflected
+digit distinction.  This closes logarithmic cancellation and torsion products
+only in this explicit ten-member simple-log span.  New cross-ratios, a retained
+enlarged logarithm space, higher or nonlogarithmic endpoint terms, moving
+contours and genuine digit-coupled open packets remain outside scope; moreover
+the formal twist's Laurent degree modulo ten is not the actual T179
+predecessor digit.
+For the untwisted ZZ rational integrand, every finite pole-free subcontour with
+algebraic split points and every algebraic AZ boundary term Hermite-reduces to
+algebraic endpoint data, logarithms of algebraic cross-ratios, and closed
+`a+b*pi` or winding terms.  At the canonical midpoint this is exactly
+`U_n^+=I_n*/2+i(rational-b_n*log(9/8))`, with the displayed logarithmic term
+strictly negative.  Thus linearly extracted reflection-odd open signs are
+independent of the decimal seed, while the explicit `pi` dependence lies in
+the reflection-even closed part (`proof sketch`; independently audited).  This
+closes midpoint, algebraic-split, homotopic and algebraic AZ-forcing attempts
+only; it does not close new cross-ratios, nonlinear open--residue coupling,
+actual-pi- or target-dependent contours, or literal digit-coupled packets.
 The first fatal line is now the missing sign of the target comparators
 `q*R_n-A_sigma*M_n` and `(A_sigma+1)*M_n-q*R_n` on an independently selected
 unbounded set (`proof sketch`, independently audited;
