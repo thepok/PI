@@ -133,6 +133,16 @@ Thus proving this existential bound for every `(k,A)` would yield V1
 directly.  It is weaker than demanding `P(q,A,N)>=0`, though at the price of a
 stricter constant than T156's fixed natural-horizon `-861/1000` theorem.
 
+Do not replace the flexible quantifier `exists N>=q` by one common natural
+horizon and demand the T156 threshold for every target there.  That stronger
+proxy is already false for actual pi.  At `Q=10000`, the T173-certified prefix
+contains the four-digit block `0582` at both zero-based orbit indices `49` and
+`131` (`experiment` read directly from the machine-checked digit literal).
+Hence the first `Q` orbit points do not occupy `Q` distinct `Q`-cells, so at
+least one cell is missed and its T156 sufficient threshold cannot hold.  The
+same pigeonhole obstruction applies to any proposed common horizon of exactly
+one orbit point per target cell after a repeated block.
+
 Exact ray compression gives a useful stopping identity
 
 ```text
