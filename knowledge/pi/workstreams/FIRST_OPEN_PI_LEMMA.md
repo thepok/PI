@@ -143,6 +143,17 @@ least one cell is missed and its T156 sufficient threshold cannot hold.  The
 same pigeonhole obstruction applies to any proposed common horizon of exactly
 one orbit point per target cell after a repeated block.
 
+The timed T194 return also does not seed this flexible target-fixed bound
+(`proof sketch`, independently audited).  For a target `A` fixed before its
+adaptive containing cell `A*` is observed, either `A*=A`, in which case the
+return already is the desired hit, or the T128 boundary minorant centered at
+`A` is strictly negative at that return.  For `A*` itself, T194 controls only
+one increment
+`P_(A*)(n+1)-P_(A*)(n)>7139/45000`; it supplies no lower bound on the preceding
+prefix `P_(A*)(n)`.  Thus its timing and positive singleton yield neither a
+new prescribed-target stopping law nor the flexible PBFS threshold without
+an independent bound on the complete prefix or remainder.
+
 Exact ray compression gives a useful stopping identity
 
 ```text
