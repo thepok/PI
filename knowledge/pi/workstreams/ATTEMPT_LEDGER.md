@@ -240,6 +240,22 @@ underlying-cycle holonomy not inserted externally, together with a proved
 distinguished-real sign, an exact PBFS/FMR readout, and failure on suitable
 word-avoiding replacements.
 
+The same closed-invariant boundary persists for a wider noncommuting class
+(`proof sketch`, independently audited): if simultaneous phase reversal is
+implemented by one involution `J`, every variable factor satisfies
+`R(-theta)=J*R(theta)*J`, and all interleaved fixed factors commute with `J`,
+then the full ordered product is `J`-conjugate under reversal.  Trace,
+spectrum, singular values, conjugacy-invariant norms and corresponding closed
+growth data are therefore reflection-even.  This does not cover a `J`-breaking
+or nonsimultaneous phase law, nor an open coefficient with boundary vectors
+whose orientation is supplied independently by actual-π arithmetic.  The
+literal T179 digit-DFT operator itself is already commuting; its natural
+Heisenberg--Weyl realization closes to the original scalar phase, while a
+Magnus enlargement leaves the missing `Xi_d` as its linear open coefficient
+and adds commutators with no deterministic same-child sign.  Robustly
+branching successor-local matrix rules remain a special case of the existing
+representation-free safe-tree separator, not a new escape.
+
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
