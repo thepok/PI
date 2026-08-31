@@ -334,6 +334,26 @@ realizations require domain/completion control, and non-two-step noncentral
 representations or independently oriented open coefficients remain outside
 scope.
 
+The uniform high-degree integer-polynomial exclusion route has an additional
+quantitative boundary (`proof sketch`; source input `literature-checked`,
+independently audited).  For every nonempty forbidden word `w`, the compact
+symbolic avoidance image `X_w` contains an affine two-digit Cantor copy and
+satisfies
+`cap(X_w) >= (2/225) * 10^(-(abs(w)-1))`.  Hence an integer polynomial `P`
+of degree `m` obeys
+`norm(P, 3+X_w) >= abs(leadingCoefficient(P)) * cap(X_w)^m`.  By contrast,
+the available Nesterenko--Waldschmidt lower bound for `P(pi)`
+([Theorem 2(2)](https://arxiv.org/abs/math/0002047), with coefficient length
+`L(P)`) is only
+`exp(-O(d * (log L + d log d) * (1 + log d)))`.  For fixed `w` this is too
+weak, at sufficiently large degree, to contradict membership in `3+X_w`
+through one uniformly small integer polynomial.  This closes only that
+asymptotic capacity-plus-current-transcendence-measure comparison: bounded
+degree, nonuniform or local analytic families, and stronger signed
+pi-specific estimates remain open.  Reopen the polynomial route only with a
+pi bound at the exponential-in-degree scale, a strictly smaller
+word-sensitive norm, and an actual exclusion or orientation mechanism.
+
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
