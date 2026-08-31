@@ -54,20 +54,31 @@ embedding and expanding directly to PBFS or literal FMR.
 
 The positive-period row also covers the normalized Zeilberger--Zudilin
 integer forms `I_n*=a_n*+b_n*pi`.  Their proved normalization implies
-`lcm(1,...,4n) | b_n*`, hence `10^k_n | b_n*` for
+`b_n*>0` and `b_n*=lcm(1,...,4n)*u_n` with `u_n>0`, hence
+`10^k_n | b_n*` for
 `k_n=floor(log_5(4n))->infinity`.  More generally, if
 `0<C+D*pi<1`, `D=tau*m*10^k`, and `r` is the least residue of `-C`
 modulo `m`, then exactly
 `{tau*10^k*pi}=(r+C+D*pi)/m` and `r=floor(m*{tau*10^k*pi})`.
-Thus these forms do select the inverse branch; the fatal line is that the
-paper proves no sign law or order theorem for the moving residue
-`-sign(I_n*)*a_n* mod (|b_n*|/10^k_n)`, whose normalized location is exactly
-the unknown sparse decimal phase (`proof sketch`, independently audited;
+The full conjugate-root asymptotic has power `n^(-1/2)` and forces both signs
+of `I_n*` in every sufficiently late 70-index window.  Opposite signs give a
+positive integer cross-determinant; in particular, for the sign-corrected
+moving residue `R_n` and modulus `M_n=b_n*/10^k_n`,
+`M_n/gcd(R_n,M_n) >= exp((alpha-o(1))*n)` with
+`alpha=1.90291648559998...`.  Thus these forms do select both inverse branches
+syndetically and exclude collapse to bounded reduced denominators.  However,
+at any common decimal scale every decoded form returns exactly the unknown
+block `W_k=floor(q*{10^k*pi})` or its nine's complement `q-1-W_k`; sign,
+divisibility, primitivity and determinant width do not order either atom.
+The first fatal line is now the missing sign of the target comparators
+`q*R_n-A_sigma*M_n` and `(A_sigma+1)*M_n-q*R_n` on an independently selected
+unbounded set (`proof sketch`, independently audited;
 [source and recurrence](https://arxiv.org/abs/1912.06345)
 `literature-checked`, 2026-08-31).  Reopen only with an independently proved
-orientation and target-directed order theorem for that canonical moving
-residue on an explicit unbounded subsequence; fixed-modulus recurrence or
-additional divisibility is insufficient.
+non-reflection-invariant contour or arithmetic theorem coupling the canonical
+saddle phase to that moving residue cell.  More sign asymptotics, divisibility,
+gcd control, determinant positivity, or coefficient indices per scale are
+insufficient.
 
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
