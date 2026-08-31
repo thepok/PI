@@ -178,6 +178,18 @@ matrix-valued noncommuting cocycles.  Arbitrary larger bounded forcings also
 require a separate invariant-margin hypothesis; rescaling does not preserve
 the common digit decoder.
 
+Exact punctured decimal decimation gives a narrower boundary for the finite
+seed route (`proof sketch`, independently audited).  For `Q=10q`, deleting the
+selected child time and splitting frequencies into `10∤ell` and `ell=10h`
+leaves a nondivisible innovation plus fine-child-weighted parent frequencies
+on the late punctured window `[q+1,Q]` minus `{n}`.  The same deletion removes the
+shifted parent time, so neither inherited `[0,q)` capital nor the T194 central
+atom transfers through this identity.  The existing `3q/2` atom floor is
+experimentally insufficient, but this does not exclude a stronger
+actual-π atom estimate.  Reopen only with a named actual-π sign theorem for
+the complete punctured literal sum that survives the period-four and exact
+`mu=2` continuation separators.
+
 The `Zero sector, scalar moments, unsigned energy` row also covers pure-gauge
 spectral lifts.  For finite indices `nu_j`, any difference kernel `c`, and a
 target character `chi_A`, the twist
