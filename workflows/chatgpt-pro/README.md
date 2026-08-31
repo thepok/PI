@@ -5,6 +5,23 @@ ChatGPT Pro is used only for hard creative mathematics at the current
 run concurrently: a constructive signed-frontier slot, a proof/adversarial
 slot, and a fundamentally different π-specific slot.
 
+The third slot is permanent and asks:
+
+> Which proved property distinguishes the actual constant π from
+> finite-irrationality-exponent transcendental numbers that permanently avoid
+> a fixed decimal word?
+
+It uses PaperSearch early and may explore integrals, special functions,
+Padé/hypergeometric or modular structures, quantitative transcendence,
+lacunary exponential sums, decimal Cantor/automaton sets, and new π-specific
+invariants. Every candidate must state exact quantifiers, name the source of
+directed real orientation, give a plausible translation to
+`e(h*10^n*pi)`, a prescribed cylinder, or a shorter V1 consumer, and fail on
+an appropriate word-avoiding counterfeit. Failed candidates record only the
+first fatal line, strongest surviving lemma, and reopening condition. A broad
+direction receives another cycle only when a realistic path from its special
+structure to target-signed decimal information remains.
+
 Never cancel an active run. Allow slow Pro turns to finish. Use at most five
 follow-ups per conversation and only when a memo has genuine momentum or an
 artifact must be recovered. Only one follow-up may be active in a given

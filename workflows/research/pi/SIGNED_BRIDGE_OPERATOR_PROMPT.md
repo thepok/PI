@@ -95,6 +95,12 @@ absolutely to the literal base-10 target.
   fundamental-alternative slot outside T179/T189/FMR. It must seek a genuinely
   different actual-pi input and short V1 path, not rename hitting, entropy,
   density, generic dynamics, a rational shadow, or the current signed ladder.
+  Its standing discriminator question is: which proved property separates π
+  from finite-irrationality-exponent transcendental numbers avoiding a fixed
+  decimal word? Require exact quantifiers, a named π-specific directed-real
+  source, a plausible translation to `e(h*10^n*pi)` or a prescribed cylinder,
+  and an explicit word-avoider test. Use PaperSearch early. Give the direction
+  another cycle only when a realistic signed translation remains visible.
 - Never cancel active Pro. Resume interrupted saved calls without duplicate
   submission. Maximum five follow-ups per conversation, only with audited
   momentum.

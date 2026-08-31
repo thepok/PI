@@ -33,10 +33,15 @@ workflow changes are not π progress.
 Regularly test whether the current mathematical focus is still the best lever
 toward V1. If successive results only refine the same consumer, proxy, or
 separator without producing new actual-π target-signed information, pause
-that direction and shift emphasis. Keep one of three Pro slots on a
-fundamentally different π-specific approach. Record a focus change only as:
-reason, strongest retained lemma, and reopening condition; do not build new
-process infrastructure for focus audits.
+that direction and shift emphasis. Permanently reserve one of three Pro slots
+for the question: which proved property distinguishes the actual constant π
+from finite-irrationality-exponent transcendental numbers that avoid a fixed
+decimal word? That slot must use PaperSearch early and range outside
+T189/Zudilin/BBP, but a candidate survives only with a named π-specific source
+of directed real information, a plausible short translation to a prescribed
+cylinder or `e(h*10^n*pi)`, and failure on a suitable word avoider. Record a
+focus change only as: reason, strongest retained lemma, and reopening
+condition; do not build new process infrastructure for focus audits.
 
 ## Repository boundary
 
