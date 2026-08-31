@@ -227,7 +227,16 @@ on the late punctured window `[q+1,Q]` minus `{n}`.  The same deletion removes t
 shifted parent time, so neither inherited `[0,q)` capital nor the T194 central
 atom transfers through this identity.  The existing `3q/2` atom floor is
 experimentally insufficient, but this does not exclude a stronger
-actual-π atom estimate.  Reopen only with a named actual-π sign theorem for
+actual-π atom estimate.  More generally, at a fixed tuple write
+`Y_d(x)=D_d(x)-max(0,-G_d(x))`.  For any certified rational shadows
+`|pi-r_j|<=epsilon_j->0` and finite Lipschitz constant `Lambda_q`, existence
+of an index with `Y_d(r_j)>Lambda_q*epsilon_j` is equivalent to
+`Y_d(pi)>0`; it exactifies FMR rather than weakening it.  Factoring the
+rational denominator rewrites the same sign as a distinguished generalized
+Gaussian-period combination in a moving modulus.  Special modulus classes
+can sign individual periods, but no theorem puts a named π-approximant
+sequence in those classes or controls the complete target-weighted
+combination and path alignment.  Reopen only with a named actual-π sign theorem for
 the complete punctured literal sum that survives the period-four and exact
 `mu=2` continuation separators.
 
