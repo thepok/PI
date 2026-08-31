@@ -159,6 +159,25 @@ real embedding that forces a target-directed one-branch bottleneck or
 extinction on an independently chosen unbounded set.  More scalar carry
 chambers or numerical residue hits do not qualify.
 
+The same separator holds coordinatewise for every finite or countable family
+of uniformly small scalar forcings `|tau_n^j|<=1`: the canonical future sums
+`E_n^j=sum_(r>=0) tau_(n+r)^j/10^(r+1)` satisfy
+`E_(n+1)^j=10E_n^j-tau_n^j`, so translation by `E_n^j` conjugates every
+coordinate to one ordinary decimal branch.  For every forbidden word and
+compatible prefix, a two-digit self-similar tail contains a transcendental
+exact-`mu=2` point realizing that same safe digit in all coordinates
+(`proof sketch`; Fishman's badly-approximable fractal input
+`literature-checked`; independently audited).  In particular, after the
+correct normalization
+`U_(c,n)=-(12/c)*log eta(i*c*10^n)=pi*10^n+epsilon_(c,n)`, the positive eta
+errors give forcings of magnitude `<1/3` and are dynamically removable when
+only their signs, bounds and affine scalar recurrences are used.  This does
+not counterfeit canonical cross-coordinate algebraic relations, integrality
+or numerator constraints, nonlinear principal-embedding signs, or
+matrix-valued noncommuting cocycles.  Arbitrary larger bounded forcings also
+require a separate invariant-margin hypothesis; rescaling does not preserve
+the common digit decoder.
+
 The `Zero sector, scalar moments, unsigned energy` row also covers pure-gauge
 spectral lifts.  For finite indices `nu_j`, any difference kernel `c`, and a
 target character `chi_A`, the twist
