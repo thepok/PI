@@ -24,6 +24,23 @@ The complete elliptic CM separator in the CM row uses Bonk's
 [degree-ten modular equations](https://arxiv.org/abs/math/0611041)
 (`literature-checked`, 2026-08-31).
 
+The positive-period row also covers the normalized Zeilberger--Zudilin
+integer forms `I_n*=a_n*+b_n*pi`.  Their proved normalization implies
+`lcm(1,...,4n) | b_n*`, hence `10^k_n | b_n*` for
+`k_n=floor(log_5(4n))->infinity`.  More generally, if
+`0<C+D*pi<1`, `D=tau*m*10^k`, and `r` is the least residue of `-C`
+modulo `m`, then exactly
+`{tau*10^k*pi}=(r+C+D*pi)/m` and `r=floor(m*{tau*10^k*pi})`.
+Thus these forms do select the inverse branch; the fatal line is that the
+paper proves no sign law or order theorem for the moving residue
+`-sign(I_n*)*a_n* mod (|b_n*|/10^k_n)`, whose normalized location is exactly
+the unknown sparse decimal phase (`proof sketch`, independently audited;
+[source and recurrence](https://arxiv.org/abs/1912.06345)
+`literature-checked`, 2026-08-31).  Reopen only with an independently proved
+orientation and target-directed order theorem for that canonical moving
+residue on an explicit unbounded subsequence; fixed-modulus recurrence or
+additional divisibility is insufficient.
+
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
 fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
