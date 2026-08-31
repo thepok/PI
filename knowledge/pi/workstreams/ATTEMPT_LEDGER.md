@@ -186,15 +186,29 @@ denominator `D=10^N`, however, avoidance forces the full norm to satisfy
 by the large factors at every other embedding.  The relative degree-ten norm
 already contains eight unavoidable large branches; uniform local division by
 `D` is unavailable, while cross-ratio normalization is exactly the unknown
-decimal-chamber comparator (`proof sketch`, independently audited; external
+decimal-chamber comparator.  Contraction itself is nevertheless explicit:
+the norm-coherent totally positive unit
+`u_R=(2-zeta_R-zeta_R^(-1))^(-1)` has a unique largest principal value and
+maximum secondary ratio
+`(sin(pi/(2*10^R))/sin(3*pi/(2*10^R)))^2<1/8`.  This does not turn the small
+survivor into a signed integer.  If a nonzero totally real algebraic integer
+`y` of degree `d` has secondary `L1` mass at most `eta` times its principal
+magnitude `A`, the product formula forces
+`A>=|Norm y|^(1/d)*(d-1)^((d-1)/d)*eta^(-(d-1)/d)`.  Thus absolute one-place
+dominance cannot produce a contradiction `0<|Tr y|<1`; reflection-even affine
+traces erase `alpha_R`, while the anti-invariant case leaves the unordered
+integer comparator `D*B-M*A` (`proof sketch`, independently audited; external
 irrationality-measure input `literature-checked`, 2026-08-31).  This closes
 local safe-cell products followed by norms or resultants, their naive relative
-norm variants, and affine or fixed-rank identification of the ten Galois
-branches with decimal children.  It does not exclude nonlinear
-semiconjugacies or a genuinely global nonmultiplicative automaton--cyclotomic
-trace.  Reopen only after an explicit integral trace or packet has proved
-contraction at a positive proportion of embeddings and an independent,
-non-gauge sign in the distinguished real embedding.
+norm variants, affine or fixed-rank identification of the ten Galois branches
+with decimal children, reflection-even affine traces, and localization followed
+by a small-nonzero-integer argument.  It does not exclude exact signed
+cancellation among secondary places, nonlinear semiconjugacies, or a genuinely
+global nonmultiplicative automaton--cyclotomic trace.  Reopen only with an
+independent pre-localization sign or cancellation theorem for the complete
+target-dependent anti-invariant trace, false on a suitable word avoider; the
+trace of a polynomial deliberately encoding the finite hit is only another
+consumer.
 
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
