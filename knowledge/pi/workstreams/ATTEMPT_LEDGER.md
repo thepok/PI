@@ -55,6 +55,15 @@ The complete elliptic CM separator in the CM row uses Bonk's
 [quasiperiod relation](https://arxiv.org/abs/2212.07012) and Maier's
 [degree-ten modular equations](https://arxiv.org/abs/math/0611041)
 (`literature-checked`, 2026-08-31).
+At the parameter level there is an exact narrower boundary: for every fixed
+`gamma in GL_2^+(Q)`, both coordinates of `gamma(i*10^n)` are rational, so
+its nome has a root-of-unity angle (of possibly growing order); if the lower
+left entry is nonzero that angle is `O(10^(-2n))` from the fixed cusp angle.
+Finite fixed rational-isogeny chains and finite nome monomials therefore do
+not natively produce the horizontal character `exp(2*pi^2*i*10^m)`
+(`proof sketch`, independently audited).  This does not cover nonlinear
+modular-function branches, eta/Siegel values, moving correspondences or open
+coefficients.
 
 Varying Siegel characteristics evades only the common-cusp-order cancellation.
 For standard `g_a=g_(a/q,1/q)`, `rho=exp(-2*pi*T/q)` and `1<=r<q`, the
