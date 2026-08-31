@@ -300,14 +300,23 @@ and the [finite-cylinder separator](knowledge/pi/results/negative/20260827-finit
 
 ## What remains after horizon transport
 
-One coherent ray covers only factors of its selector word. V1 still requires
-viable branching or a proof of selector-word coverage. The shortest route is
+At a natural child horizon `Q=10q`, T189 positive surplus already gives a
+positive primitive boundary sum, so T156 supplies the prescribed child hit
+directly.  The shortest one-step route is
 
 ```text
 actual-π same-child signed horizon transport
-  -> T189 surplus
-  -> T178/T176 transport
-  -> T148/T153/T156 prescribed-cylinder hit
+  -> T189 positive natural-horizon child surplus
+  -> T156 prescribed-cylinder hit.
+```
+
+T178/T176 instead package recursive fixed-horizon child selection; they do
+not preserve the natural diagonal or export a composition to V1.  One
+coherent selected ray covers only factors of its selector word, so the longer
+research route still needs
+
+```text
+coherent positive child selection
   -> branching or word coverage
   -> V1.
 ```

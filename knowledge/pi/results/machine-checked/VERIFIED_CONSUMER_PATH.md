@@ -5,12 +5,16 @@ actual-π arithmetic premises are unproved.
 
 ```text
 actual-π target-signed estimate
-  -> T189 fresh child surplus at larger horizon
-  -> T178/T176 signed predecessor transport
-  -> T148/T153/T156 prescribed cylinder hit
-  -> viable branching / word coverage
-  -> V1
+  -> T189 positive child surplus at natural horizon Q=10q
+  -> elementary positivity of the primitive boundary sum
+  -> T156 prescribed child-cylinder hit
 ```
+
+This is the shortest verified one-step consumer.  T178/T176 form a separate
+fixed-horizon recursive-selection package; no current Lean declaration
+composes that package to V1 or preserves the natural diagonal.  Iterating
+selected children still requires viable branching or a proof that the
+selector word contains every finite word.  One coherent ray alone is not V1.
 
 Key Lean modules:
 
@@ -27,5 +31,8 @@ Key Lean modules:
 
 T189 is the fixed consumer for the present research cycle. T190 is optional:
 use it only if independent π arithmetic naturally provides its rank premises.
-Neither theorem estimates the actual-π correlation. A single coherent
-predecessor ray is not yet V1; it only covers factors of one selector word.
+Neither theorem estimates the actual-π correlation.  The first genuine input
+must independently lower-bound the complete target- and digit-preserving
+fresh block in T189; its threshold is an exact rewrite of child surplus, not a
+source of π arithmetic.  T179 likewise supplies only the exact correlation
+identity, not an estimate.
