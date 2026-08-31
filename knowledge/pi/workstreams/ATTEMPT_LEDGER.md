@@ -80,6 +80,28 @@ saddle phase to that moving residue cell.  More sign asymptotics, divisibility,
 gcd control, determinant positivity, or coefficient indices per scale are
 insufficient.
 
+The positive-period row also covers the directed polygon tower
+`alpha_R=10^R*sin(pi/10^R)`.  It is an algebraic integer of degree
+`4*10^(R-1)`, generates the maximal real subfield of the corresponding
+base-ten cyclotomic field, and is its unique conjugate in `(3,4)`.  The
+published bound `mu(pi)<36/5` implies that `alpha_(4N)` and `pi` eventually
+share the same unknown `10^(-N)` cell.  For a fixed-word survivor product at
+denominator `D=10^N`, however, avoidance forces the full norm to satisfy
+`|Norm F_(N,w)(alpha_(4N))| > (1/4)*D^(-62/5)*(4*D^2)^(d-1)`, where
+`d=4*10^(4N-1)`: one polynomially small distinguished factor is overwhelmed
+by the large factors at every other embedding.  The relative degree-ten norm
+already contains eight unavoidable large branches; uniform local division by
+`D` is unavailable, while cross-ratio normalization is exactly the unknown
+decimal-chamber comparator (`proof sketch`, independently audited; external
+irrationality-measure input `literature-checked`, 2026-08-31).  This closes
+local safe-cell products followed by norms or resultants, their naive relative
+norm variants, and affine or fixed-rank identification of the ten Galois
+branches with decimal children.  It does not exclude nonlinear
+semiconjugacies or a genuinely global nonmultiplicative automaton--cyclotomic
+trace.  Reopen only after an explicit integral trace or packet has proved
+contraction at a positive proportion of embeddings and an independent,
+non-gauge sign in the distinguished real embedding.
+
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
 fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
