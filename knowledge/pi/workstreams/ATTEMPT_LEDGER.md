@@ -46,7 +46,12 @@ seed (`proof sketch`; [arXiv:1108.5292](https://arxiv.org/abs/1108.5292)
 coefficient profile but gives no information at `x=pi`; periodic and
 exact-`mu=2` word-avoiding exceptional seeds remain.  A pointwise vector
 Strassen law for `pi` is not a smaller rung: in its standard form it implies
-base-ten normality.  Reopen this metric route only with a named deterministic
+base-ten normality.  More elementarily, every continuous real
+`f in ker(L_10)` admits a coherent backward orbit with `f(10^n*x)<=0` at every
+time (`proof sketch`, independently audited).  Thus branch averaging cannot
+force positive increments on every orbit; this neither prevents the partial
+sums from crossing the sufficient `-122091/200000` threshold nor selects the
+actual pi branch.  Reopen this metric route only with a named deterministic
 π-specific half-space or inverse-branch theorem for the exact literal
 projection, false on those controls—not with another almost-everywhere limit
 law, discrepancy estimate or unsigned covariance.
