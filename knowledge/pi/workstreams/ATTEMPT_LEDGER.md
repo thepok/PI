@@ -169,12 +169,23 @@ exact full-circulant lift of the T172 support expansion—after grouping the
 raw frequencies modulo `q`, not on the compressed primitive-ray index—the
 minimum Hermitian eigenvalue is precisely the minimum of the simultaneous
 fixed-horizon target real parts (`proof sketch`, independently audited).
-This does not address the repository's weaker quantifier order
-`forall A, exists N`; nor does it exclude target-dependent amplitudes,
-diagonals, non-difference kernels, or edge phases with nontrivial cycle
-holonomy.  Reopen a similarity-invariant spectral route only with such a
-non-gauge target dependence, an exact PBFS/FMR readout, and a named
-actual-pi sign theorem false on suitable word-avoiding replacements.
+More generally, on any finite directed graph with arbitrary target-independent
+edge amplitudes, if every literal-character exponent is congruent modulo `q`
+to a vertex-label difference, then the matrices for any two integer targets
+are diagonally unitarily similar.  Integer lifts give only target-independent
+closed holonomy, and a nonprincipal minor retains at most the original
+endpoint character (`proof sketch`, independently audited).  Thus neither
+non-difference amplitudes nor lifted wrapping reopen the closed spectral route
+inside this exact-gradient class.  A target-blind invariant with one uniform
+sufficient implication could only certify all targets at a common horizon; it
+cannot exploit the weaker `forall A, exists N_A` quantifier by itself.  This
+does not exclude target-dependent amplitudes, non-exact target cocycles,
+nonzero literal phases on self-loops, open matrix coefficients, or
+constructions without a common vertex-potential representation.  Reopen only
+after an explicit actual-pi packet already exhibits target-dependent
+underlying-cycle holonomy not inserted externally, together with a proved
+distinguished-real sign, an exact PBFS/FMR readout, and failure on suitable
+word-avoiding replacements.
 
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
