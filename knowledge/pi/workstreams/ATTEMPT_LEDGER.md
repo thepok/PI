@@ -19,10 +19,38 @@ preserved here.
 | Pair/DC1, Laurent nonvanishing | The paired carrier is a formally nonzero Laurent polynomial, and DC1 is sharp. Actual-π experiments show Pair/DC1 failure at `(1000,689)` and, on the legal edge to `(10000,1334)`, unique FMR at `d=5` while every parity-balanced convex mask is negative. At that hard node, independently checked LP optima are negative after deleting any one of the five real character blocks (`experiment`). Exact anti-periodicity collapses sector 5 to an odd-frequency correlation on the `5π` orbit (`proof sketch`). | Formal nonzero gives no evaluated sign; uniform Pair/DC1 and block-deleting convex-mask transport are false over the uncoupled completion space. The LP does not exclude an actual-orbit admissibility relation, and the odd-frequency collapse still lacks a sign. | A path-constructing actual-π cross-sector admissibility theorem retaining the complete relative phases and same-child inherited alignment. |
 | Separate marginals and coherent single rays | Exact ten-vectors with identical (D)- and (G)-marginals can have zero or five FMR witnesses solely by permutation; a single coherent selector ray covers only factors of one word. | Separate witnesses lose the joint digit, and an infinite ray alone does not imply V1. | Joint actual-π control of (min(D_d,D_d+G_d)), followed by viable branching or proof that the selector word is disjunctive. |
 
+The generic-lacunary row's exact bounded-offset boundary is sharper than
+marginal recurrence.  For fixed integer offset `c`, multiplication by the
+complementary factor gives
+`e(h*b_c*a_c*10^n*x)=e(h*10^(n+|c|)*x)`; hence the fixed-offset orbit
+`a_c*10^n*x` is uniformly distributed iff the decimal orbit is.  Jointly,
+`x |-> (2^c*x,5^d*x)` is a conjugacy onto
+`{(u,v):5^d*u=2^c*v}`, with inverse `a*u+b*v` whenever
+`a*2^c+b*5^d=1`.  Thus full bounded-offset joint control already contains
+the resonant diagonal characters; separate marginals do not (`proof sketch`,
+independently audited).  This does not exclude a partial resonant-character
+estimate as an intermediate theorem, but that estimate must already carry
+literal diagonal information.
+
 The complete elliptic CM separator in the CM row uses Bonk's
 [quasiperiod relation](https://arxiv.org/abs/2212.07012) and Maier's
 [degree-ten modular equations](https://arxiv.org/abs/math/0611041)
 (`literature-checked`, 2026-08-31).
+
+Varying Siegel characteristics evades only the common-cusp-order cancellation.
+For standard `g_a=g_(a/q,1/q)`, `rho=exp(-2*pi*T/q)` and `1<=r<q`, the
+characteristic-label transform satisfies
+`|S_(q,r)(T)+pi*T/(2q*sin(pi*r/q)^2)| <=
+2q*rho/((1-rho)*(1-rho^q))` (`proof sketch`, independently audited; the
+[product formula](https://arxiv.org/abs/1007.2317) is `literature-checked`,
+2026-08-31).  This is a generally complex disk estimate; a real sign requires
+the main term to exceed the error.  Its character indexes an auxiliary Siegel
+family, not a decimal target, and the vertical nome `exp(-2*pi*10^n)` has no
+proved coupling to the horizontal phase `exp(2*pi^2*i*10^n)`.  The statement
+therefore remains true alongside every word-avoiding replacement and supplies
+no actual-pi target sign.  Reopen only with a non-gauge identity natively
+containing `e(h*10^n*pi)`, independently ordered in the distinguished real
+embedding and expanding directly to PBFS or literal FMR.
 
 The positive-period row also covers the normalized Zeilberger--Zudilin
 integer forms `I_n*=a_n*+b_n*pi`.  Their proved normalization implies
