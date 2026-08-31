@@ -101,6 +101,10 @@ absolutely to the literal base-10 target.
   source, a plausible translation to `e(h*10^n*pi)` or a prescribed cylinder,
   and an explicit word-avoider test. Use PaperSearch early. Give the direction
   another cycle only when a realistic signed translation remains visible.
+  Do not impose a blanket ban on finite strict continuous discriminators: one
+  qualifies if a π-specific theorem independently supplies its oriented
+  inequality, suitable word avoiders structurally violate it, and it directly
+  forces the target. Continuity alone is not the arithmetic source.
 - Never cancel active Pro. Resume interrupted saved calls without duplicate
   submission. Maximum five follow-ups per conversation, only with audited
   momentum.

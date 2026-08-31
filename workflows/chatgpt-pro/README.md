@@ -22,6 +22,13 @@ first fatal line, strongest surviving lemma, and reopening condition. A broad
 direction receives another cycle only when a realistic path from its special
 structure to target-signed decimal information remains.
 
+Do not reject a candidate merely because its final discriminator is finite,
+strict, or continuous. Such a discriminator is admissible when its oriented
+inequality is independently proved from π-specific arithmetic, is
+structurally false on the relevant word-avoiding counterfeits, and directly
+forces the target. Continuity then transmits the arithmetic separation; it is
+not itself the missing source of direction.
+
 Never cancel an active run. Allow slow Pro turns to finish. Use at most five
 follow-ups per conversation and only when a memo has genuine momentum or an
 artifact must be recovered. Only one follow-up may be active in a given
