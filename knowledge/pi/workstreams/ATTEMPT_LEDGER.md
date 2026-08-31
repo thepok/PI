@@ -80,6 +80,28 @@ saddle phase to that moving residue cell.  More sign asymptotics, divisibility,
 gcd control, determinant positivity, or coefficient indices per scale are
 insufficient.
 
+The same row also covers a `q`-adapted rational Machin--Hausdorff carrier
+(`proof sketch`, independently audited).  For every `q=10^k`, explicit
+rational truncations `M_n` give
+`delta_n=10^n*(pi-M_n)=integral y^n d nu_q(y)` with positive density,
+support `rho_q=1-O(1/q)<1`, and
+`1/(60000q^2)<delta_n<1/(3000q)` for `n<=q`.  Hence every literal primitive
+phase in T139's compressed PBFS is a counterclockwise rotation by less than
+`pi/750`, with an exact target-preserving chord decomposition.  This removes
+the fixed-carrier size obstruction but not scalar rigidity: the rational
+kicks satisfy `d_n=10delta_n-delta_(n+1)>0` and recover `delta` as their future
+decimal coboundary.  Moment positivity controls chord length, while the
+complete chord retains an unoriented target sine.  The all-depth support law
+uniquely characterizes `pi` essentially because its exponential error already
+forces the limit; every finite-horizon cone consequence remains
+counterfeit-stable.  The corresponding moment dual takes both signs when the
+center varies continuously, but this alone does not rule out its values on
+the discrete target grid.  Reopen only with an independent uniform arithmetic
+estimate for the rational carrier residues that signs the complete
+target-weighted sine sum for preassigned targets on unbounded scales and fails
+finite-irrationality-exponent word avoiders; rewriting PBFS as the exact
+moment integral is not such an estimate.
+
 The positive-period row also covers the directed polygon tower
 `alpha_R=10^R*sin(pi/10^R)`.  It is an algebraic integer of degree
 `4*10^(R-1)`, generates the maximal real subfield of the corresponding
