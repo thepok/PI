@@ -85,6 +85,26 @@ no actual-pi target sign.  Reopen only with a non-gauge identity natively
 containing `e(h*10^n*pi)`, independently ordered in the distinguished real
 embedding and expanding directly to PBFS or literal FMR.
 
+The remaining one-coordinate incomplete-period opening also has an exact
+boundary (`proof sketch`; standard real-elliptic and Legendre inputs
+`literature-checked`, independently audited).  On an oriented real elliptic
+identity circle with normalized Abel coordinate `a`, multiplication by ten
+has topological degree ten and satisfies `a([10]P)={10*a(P)}`.  Any child rule
+formed by the half-open ordered thresholds
+`d/10<=a(P)<(d+1)/10` therefore selects exactly `floor(10*a(P))`; iteration is
+the ordinary canonical decimal itinerary of that one scalar coordinate.
+Matched strictly increasing reparameterizations and common positive
+complete-period or Legendre normalizations do not change the selector, so a
+target-filtered extinction occurs exactly when the already selected itinerary
+completes the target.  This closes one-coordinate ordered real-isogeny, AGM
+and abelian-holonomy selectors only.  It does not close arithmetic constraints
+on independently specified algebraic non-torsion points, moving
+`A,d`-dependent points, nonmonotone or nonseparable period couplings, two
+independent incomplete periods, or nonabelian holonomy.  Reopen only with an
+independently signed multicoordinate amplitude whose elimination does not first
+reconstruct `{10^n*pi}`, which fails on a suitable word avoider and sends the
+same child directly to PBFS or literal FMR.
+
 The positive-period row also covers the normalized Zeilberger--Zudilin
 integer forms `I_n*=a_n*+b_n*pi`.  Their proved normalization implies
 `b_n*>0` and `b_n*=lcm(1,...,4n)*u_n` with `u_n>0`, hence
