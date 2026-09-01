@@ -189,6 +189,30 @@ sign asymptotics, divisibility, gcd control, determinant positivity,
 shear-invariant recurrence packaging, or coefficient indices per scale are
 insufficient.
 
+A further audit closes the natural positive-moment deformation of the
+published ZZ contour (`proof sketch`, independently algebra-checked; the
+[integrand and arithmetic normalization](https://arxiv.org/abs/1912.06345)
+are `literature-checked`, 2026-09-01).  With
+`B=25-x^2` and `W=B^3/(x^2*(x^4+6*x^2+25)^2)`, its correct vertical-contour
+density is `10*Re(1/(B*(-W)^n))`, not the reciprocal expression.  Its phase
+crosses both sign chambers for every `n>=1`; polynomial-square localization
+therefore gives a negative direction for the original moment functional at
+every level.  More rigidly, a rational multiplier that preserves the even
+`x -> -x` pi-extraction symmetry and is real on `Re x=-1` obeys, with
+coefficient conjugation retained, two reflection identities and hence is
+period-four and constant.  A genuinely positive finite moment reweighting
+cannot preserve even the literal first two frequency coefficients except as
+point evaluation, while Hermitian sector squares carry relative characters
+`r-s`, not T179's absolute child character `r`.  Loading the exact T179
+generating polynomial into the contour instead inserts the unknown orbit
+phases externally and abandons the fixed-number-field `Z+Z*pi` mechanism.
+This does not exclude a noneven equal-residue deformation with exact
+cancellation of its extra logarithmic periods, an isolated target-specific
+signed integral, or a new non-Hermitian numerator identity.  Reopen only when
+such a native functional has an independently proved distinguished-real sign
+and expands to the literal same-child remainder without externally loading
+the orbit phase.
+
 The same row also covers a `q`-adapted rational Machin--Hausdorff carrier
 (`proof sketch`, independently audited).  For every `q=10^k`, explicit
 rational truncations `M_n` give
