@@ -105,6 +105,32 @@ independently signed multicoordinate amplitude whose elimination does not first
 reconstruct `{10^n*pi}`, which fails on a suitable word avoider and sends the
 same child directly to PBFS or literal FMR.
 
+Finite linear incomplete-Legendre traces on the conductor chain give a sharper
+affine-gauge boundary (`proof sketch`; standard Jacobi/Legendre identities
+`literature-checked`, independently audited).  For
+`K_n'/K_n=10^n`, the incomplete determinant splits exactly as
+
+```text
+L_n(u)=pi*u/(2*K_n)+K_n'*Z_n(u).
+```
+
+Hence every finite linear packet is `pi*a+B`, with
+`a=sum_j c_j*u_j/(2*K_(n_j))` and a Jacobi-zeta remainder `B`.  Affine-balanced
+packets (`a=0`) erase the distinguished Legendre `pi` term exactly.  In a
+complete nonzero-character trace over `u=2*K_n*(x+d/Q)`, its surviving
+contribution is the frequency-labelled, orbit-independent baseline
+`-pi/(1-omega_Q^(-r))` (up to an inserted target character), rather than a
+target detector.  Real-oval concavity and subadditivity also cancel the affine
+term and are universal Jacobi geometry.  This closes Legendre-affine
+orientation in affine-balanced finite linear torsion/chamber-independent
+traces.  It does not show that every affine-unbalanced trace is useless, nor
+exclude independently signed zeta remainders, algebraic non-torsion sections,
+nonlinear products or multicoordinate cross-fiber relations.  Reopen only with
+a concrete independently algebraic non-torsion or cross-fiber observable whose
+affine-gauge quotient retains a native target character, has a proved
+pi-specific real sign before inserting the decimal endpoint, fails the
+word-avoiding controls and maps directly to PBFS or FMR.
+
 The CM row also covers canonical Chudnovsky binary splitting (`proof sketch`,
 independently audited).  Its adjacent determinant is exactly
 `Delta_N=ell_N*P_(N+1)*Q_N`, has parity-fixed sign, and in the standard
