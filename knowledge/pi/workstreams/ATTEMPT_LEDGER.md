@@ -366,6 +366,25 @@ growing/depth-dependent modes, or mixed transcendental coefficient fields.
 Reopen only with both a concrete nonlinear/global automaton auxiliary and a
 new applicable mixed pi--exponential lower-bound theorem.
 
+Primitive cyclotomic absolute-log packets have a separate conductor-descent
+separator (`proof sketch`, independently algebra-checked, 2026-09-01).  For
+every `q=2^a*5^b`, `a,b>=1`, the primitive decimal-character trace descends
+exactly to conductor ten:
+`P_(q,r)=2*log(phi)*(cos(3*pi*r/5)-cos(pi*r/5))`, where
+`phi=(1+sqrt(5))/2`.  It is therefore independent
+of `a,b`, and its parity coordinate `r=5` vanishes.  In the gcd-shell
+decomposition, constant-on-shell parity traces vanish for every mixed 2--5
+quotient; the only nonzero terminal pure-prime contributions are in the span
+of `log 2,log 5`.  Hence these unweighted or unit-orbit-constant real
+absolute-log packets detect prime support and terminal valuations, not the
+balanced decimal diagonal or the literal T179 predecessor/suffix correlation.
+This does not cover nonconstant shell weights, polynomially weighted Barnes
+packets, complex logarithm/Gauss--Jacobi phases, nonlinear cross-shell
+coupling, or an independent orbit-index map.  Reopen only with a concretely
+defined such observable carrying a proved directed real order and an exact or
+one-sided T179 coupling preserving predecessor character, target centre and
+suffix phase.
+
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
 fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
