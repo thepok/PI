@@ -271,6 +271,35 @@ target-dependent anti-invariant trace, false on a suitable word avoider; the
 trace of a polynomial deliberately encoding the finite hit is only another
 consumer.
 
+The Euler/Gamma row also covers the complete quadratic-character
+half-Gamma bridge (`proof sketch`, independently algebra-checked; the
+[Morita/Diamond domains and formulas](https://arxiv.org/abs/1702.04200) and
+[Gross--Koblitz identity](https://doi.org/10.2307/1971226) are
+`literature-checked`, 2026-09-01).  At `p=5`, after fixing
+`varpi_5^4=-5` and the compatible fifth-root branch,
+`Gamma_5(1/2)=-i_5` is torsion; at `p=2`, Morita's half-value is outside its
+domain and Diamond's `LogGamma_D,2(1/2)=0`.  For `k>=1`, `M=2*10^k`, the
+normalized complete chirp satisfies
+`S_M(2b)=(1+i)*e(-b^2/M)` and vanishes for odd integral coefficients.  The
+complex branch `1+i` comes from the chosen complex additive character; the
+Gross--Koblitz formula only identifies its chosen 5-adic realization, and the
+branch cancels from adjacent ratios.  For arbitrary real `t`, exactly
+
+`S_M(t+2)=e(-(t+1)/M)*(S_M(t)+(e(t)-1)/sqrt(M))`.
+
+Thus `t=M*10^n*pi` introduces the unresolved deeper decimal phase
+`e(2*10^(n+k)*pi)-1`; replacing `t` by `2b` supplies the unknown lower cell
+residue `b=floor(10^k*{10^n*pi})`.  Gross--Koblitz depth over `F_(5^k)` does
+not repair this: its fifth-root trace character is not the ramified conductor
+character on `Z/5^k Z`, and the 2-power factor is likewise a ramified ring
+Gauss sum.  This closes only complete integer-character CRT/Gross--Koblitz
+evaluation as the source of the moving carry.  It does not close
+irrational-parameter incomplete chirps, higher characters, or a new
+Archimedean--ramified coupling.  Reopen only with an independently proved
+one-sided theorem for the irrational-parameter object which avoids inserting
+the nearest/lower residue, fails on the exact-`mu=2` Thue--Morse word avoider,
+and directly signs a prescribed cylinder or literal FMR.
+
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
 fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
