@@ -340,6 +340,28 @@ many units or averaged moduli, not this selected BBP numerator point
 canonical point on an explicit unbounded set and then strengthening half-order
 to endpoint proximity or literal same-child FMR.
 
+There is one exact nonlinear boundary-reset separator (`proof sketch`,
+independently audited).  Let `a_(n+1)` be the first omitted positive BBP term,
+`x_n=r_n/D_n` and `delta_n=(10^n-16)*a_(n+1)`.  For every `n>=3`,
+
+```text
+min(x_n,1-x_n) < delta_n
+  -> 3/10 + gamma < x_(n+1) < 4/10 - gamma,
+gamma = 76831/13885440.
+```
+
+Indeed the exact update and
+`20/53 < {144*pi} < 44/113` send both boundary branches into the same
+oriented child `3`.  Hence first-omitted-term boundary events cannot be
+consecutive, closing boundary sticking, consecutive-wrap cascades and
+reflection-persistent boundary induction.  This supplies no unconditional
+target order: `delta_n` is summable and exponentially shrinking, no boundary
+event occurs in the exact scan through `n=2000` (`experiment`), and the
+2-syndetic complement merely avoids a vanishing boundary layer.  Reopen only
+with an independent BBP numerator or principal-embedding theorem forcing
+infinitely many canonical shrinking-boundary hits (or a weaker fixed-margin
+target event) together with a direct T69 or FMR transfer.
+
 The same row also records an anticipatory scalar-carry separator.  Writing the
 exact BBP forcing as `tau_n=Theta_n-452 in (0,1)`, every prescribed future
 carry word `d_n in {8,9}` has the unique bounded trajectory
