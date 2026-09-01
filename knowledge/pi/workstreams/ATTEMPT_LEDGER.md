@@ -283,6 +283,23 @@ target-weighted sine sum for preassigned targets on unbounded scales and fails
 finite-irrationality-exponent word avoiders; rewriting PBFS as the exact
 moment integral is not such an estimate.
 
+The denominator-sensitive G-function route is also quantitatively unavailable
+at the actual decimal specialization (`literature-checked`, Fischler--Rivoal
+2018; independently audited, 2026-09-01).  For
+`F_M(z)=16*atan(2z)-4*atan(10z/239)`, `F_M(1/10)=pi`, a valid coefficient
+denominator bound is `d_N<=956^N`, the Taylor radius is `1/2`, and the minimal
+inhomogeneous differential order is one.  Fischler--Rivoal's theorem has
+`c_2=9` here and always `c_1>=4`, so its required
+`b>(c_1*|a|)^c_2` already demands `10>4^9` at `(a,b)=(1,10)`; honest constants
+are far worse.  The large-depth variant cannot repair this because keeping the
+value `pi` forces the numerator `a=10^(s-1)` to grow with `s`.  Moreover even a
+hypothetical `v_10(pi)=0` or bounded-power conclusion would be target-blind:
+two-digit Thue--Morse decimals can avoid a prescribed word, have exact
+irrationality exponent two, satisfy `v_10=0`, and have bounded block powers.
+Reopen only with a numerator-language-sensitive G-function theorem excluding
+an entire prescribed-word survivor language, not another restricted-denominator
+or repetition estimate.
+
 The positive-period row also covers the directed polygon tower
 `alpha_R=10^R*sin(pi/10^R)`.  It is an algebraic integer of degree
 `4*10^(R-1)`, generates the maximal real subfield of the corresponding
