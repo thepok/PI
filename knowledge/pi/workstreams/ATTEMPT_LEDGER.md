@@ -348,6 +348,24 @@ one-sided theorem for the irrational-parameter object which avoids inserting
 the nearest/lower residue, fails on the exact-`mu=2` Thue--Morse word avoider,
 and directly signs a prescribed cylinder or literal FMR.
 
+Integral/rational-frequency regular-language auxiliaries have a further exact
+arithmetic-transfer obstruction (`proof sketch`, independently audited;
+Nesterenko--Waldschmidt and Lindemann--Weierstrass inputs
+`literature-checked`, 2026-09-01).  For nonzero
+`R in Z[X,Y,Y^(-1)]`,
+`ord_(z=pi) R(z,e^(i*z)) = ord_(Y=-1) R`: every exact finite-order
+integral-frequency zero is the visible Euler factor `e^(i*z)+1`.  Rational
+frequencies specialize algebraically at pi, but a decimal inverse branch sends
+`r` to `r/10` and multiplies the natural mode by
+`exp(i*r*(3*10^N+p-3)/10^N)`, which is transcendental for `r != 0`;
+distinct-prefix algebraic linear combinations remain transcendental, and no
+finite nonzero rational-frequency set is stable under division by ten.  This
+closes fixed finite-state linear algebraic-coefficient transfer in the natural
+rational-frequency basis, not nonlinear cancellation, gauge changes,
+growing/depth-dependent modes, or mixed transcendental coefficient fields.
+Reopen only with both a concrete nonlinear/global automaton auxiliary and a
+new applicable mixed pi--exponential lower-bound theorem.
+
 The `BBP, p-adic fibres, residues, rational shadows` row also covers finite
 nonlinear rational phase observables.  The exact BBP recurrence gives, at a
 fixed finite horizon, `z_(n+j)=omega_(n,j)*z_n^(10^j)` with root-of-unity
