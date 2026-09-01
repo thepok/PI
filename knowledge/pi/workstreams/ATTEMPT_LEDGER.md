@@ -206,6 +206,28 @@ point evaluation, while Hermitian sector squares carry relative characters
 `r-s`, not T179's absolute child character `r`.  Loading the exact T179
 generating polynomial into the contour instead inserts the unknown orbit
 phases externally and abandons the fixed-number-field `Z+Z*pi` mechanism.
+
+The literal boundary profile has an exact positive-radial-cone obstruction
+(`proof sketch`, independently audited; coefficient identities machine-checked
+in T130/T142).  Every positive Hausdorff profile
+`m_h=integral_[0,1] r^h dnu(r)` satisfies `m_2<=m_1` and cannot have a positive
+terminal moment followed by zero.  In contrast, for every integer `Q>=10`,
+
+```text
+alpha_(Q,2)-alpha_(Q,1) > 3/(20*Q^2),
+alpha_(Q,2*Q-1)=1/(2*Q^2),
+alpha_(Q,h)=0 for h>=2*Q.
+```
+
+Thus no positive scalar radial Poisson/Abel/Laplace mixture, nor any positive
+Lerch/Stieltjes or Beta--Gamma weight that is a Hausdorff moment sequence, can
+realize even the first two literal coefficients.  Completing the target
+character through frequency `2*Q` restores a positive finite Abel kernel only
+by restoring the missing endpoint; deleting it gives
+`K_(2*Q-1)(1,theta_(Q,A))=-1`.  This excludes only the positive radial cone
+and endpoint completion, not signed, nonradial, non-Hermitian, matrix-valued,
+frequency-dependent, nonlinear or pi-dependent kernels.
+
 This does not exclude a noneven equal-residue deformation with exact
 cancellation of its extra logarithmic periods, an isolated target-specific
 signed integral, or a new non-Hermitian numerator identity.  Reopen only when
