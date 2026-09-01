@@ -56,6 +56,27 @@ actual pi branch.  Reopen this metric route only with a named deterministic
 projection, false on those controls—not with another almost-everywhere limit
 law, discrepancy estimate or unsigned covariance.
 
+A single-cylinder localization theorem closes the corresponding positive-mass
+escape (`proof sketch`, independently audited, 2026-09-01).  Let a pruned
+decimal tree have between `kappa^L` and `B^L` descendants at every node and
+horizon, let `L_n=o(n)`, and give those descendants nonnegative weights whose
+total mass is uniformly comparable to their number.  For every fixed
+Lipschitz `h`, the packet over one length-`n` cylinder satisfies
+`S_(u,L_n)=M_(u,L_n)*h(x_u)+O(M_(u,L_n)*10^(-n))`.  Consequently a uniform
+lower bound `|S_(u,L_n)|>=C*kappa^(L_n)*q_n^(-1+eta)`,
+`q_n=10^(n+L_n)`, for every safe node and all large `n` holds for some
+`C,eta>0` iff the infinite path set avoids `h^(-1)(0)`.  For
+`h(x)=1+e^(i*x)` this is exactly occurrence of the prescribed word, not an
+intermediate bridge.  Odd-frequency amplification does not repair this
+mass-scale argument: `|k_n|*10^(-n)` simultaneously controls descendant
+resolution and loss of the small prefix upper bound.  Transcendental
+exact-`mu=2` word avoiders lie in every word-safe cylinder (`proof sketch`;
+Thue--Morse inputs `literature-checked`).  This does not cover signed or
+adaptive weights, scale-dependent high-frequency kernels, nonlinear packets,
+or genuine cross-cylinder/cross-scale coupling.  Reopen only when a proposed
+construction explicitly breaks one of these hypotheses and carries an
+independent one-sided actual-pi sign through the resulting coupling.
+
 The complete elliptic CM separator in the CM row uses Bonk's
 [quasiperiod relation](https://arxiv.org/abs/2212.07012) and Maier's
 [degree-ten modular equations](https://arxiv.org/abs/math/0611041)
