@@ -616,6 +616,20 @@ realizations require domain/completion control, and non-two-step noncentral
 representations or independently oriented open coefficients remain outside
 scope.
 
+A proposed positive cyclotomic-fibre compression has a sharper conditional
+separator (`proof sketch`, independently audited).  For nonnegative weights
+`a_d`, `S=sum_d a_d`, `lambda_r=sum_d a_d*omega^(r*d)`, one has
+`S^2-|lambda_r|^2=4*sum_(d<e) a_d*a_e*sin^2(pi*r*(d-e)/10)`.  Thus two
+phase-distinct branches of mass at least `eta*S` contract the normalized
+character by at most `sqrt(1-4*eta^2*sin^2(pi/10))`, multiplicatively across
+adaptive scales.  Equality means support in one coset modulo
+`10/gcd(r,10)`, hence a single preselected digit for primitive `r`.  This
+closes only scalar nonnegative translation-covariant fibre descents: the
+cyclotomic KZ distribution maps themselves supply neither such weights nor a
+decimal-child identification.  Reopen with an explicit signed or
+noncirculant conductor coefficient whose actual-pi distinguished-real sign is
+proved before inserting the target and directly signs a nonzero child mode.
+
 The uniform high-degree integer-polynomial exclusion route has an additional
 quantitative boundary (`proof sketch`; source input `literature-checked`,
 independently audited).  For every nonempty forbidden word `w`, the compact
