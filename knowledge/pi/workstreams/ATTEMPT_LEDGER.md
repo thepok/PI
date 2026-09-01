@@ -463,6 +463,22 @@ many units or averaged moduli, not this selected BBP numerator point
 canonical point on an explicit unbounded set and then strengthening half-order
 to endpoint proximity or literal same-child FMR.
 
+The delayed reduced BBP carrier makes the complementary-coordinate obstruction
+fully explicit (`proof sketch`, independently audited, 2026-09-01).  Write it
+as `U/(M*X)`, with `M=2^J`, `X` odd, `R=U mod (M*X)`, and CRT coordinates
+`v=[R*X^(-1)]_M`, `w=[R*M^(-1)]_X`.  Its rational Archimedean `M`-cell is
+`[v+floor(M*w/X)]_M`; after the positive BBP tail `epsilon`, the actual cell is
+`[v+floor(M*(w/X+epsilon))]_M`.  Thus the top bit of the dyadic primary
+coordinate is not half-order: the odd coordinate can change every bit (already
+`M=8,X=3,U=5` has `v=7` but phase `5/24<1/2`).  The checked delayed-tail bound
+is only `M*epsilon<2*5^(n-1)`, so it proves neither zero carry nor clearance
+from `0` or `1/2`.  Retaining all carries makes the actual top bit exactly
+`floor(2*{10^n*pi})=floor(a_n/5)`, the original unknown predecessor-digit bit.
+Reopen only with a noncircular block theorem jointly controlling `U`, the odd
+CRT coordinate and tail crossings, then correlating the resulting signs with
+all five complete target-rotated odd T179 sectors strongly enough for literal
+same-child T189.
+
 There is one exact nonlinear boundary-reset separator (`proof sketch`,
 independently audited).  Let `a_(n+1)` be the first omitted positive BBP term,
 `x_n=r_n/D_n` and `delta_n=(10^n-16)*a_(n+1)`.  For every `n>=3`,
