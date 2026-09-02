@@ -116,12 +116,16 @@ is known and what does not by itself resolve each proposition.
   extracts the one-time primitive atom, partitions it into exact `v_10`
   shells, proves `H_s=L_s-L_(s+1)`, and retains more than
   `(9/20)*(4859/10000)` in the central zero shell. T193 aggregates the
-  positive-valuation shells.
+  positive-valuation shells. A phase-generic variant
+  (`primitiveValuationShell_zero_re_gt_generic`) with the central-coordinate
+  hypothesis in place of `piOrbit n` is machine-checked.
 - **T193 — Positive Valuation-Shell Aggregate — machine-checked seed.**
   [`T193T193PositiveValuationShellAggregate.lean`](TheoryLib/PiQuantitativeBlockHitting/T193T193PositiveValuationShellAggregate.lean)
   proves the complete central atom bound `Re atom>7139/45000` and the native
   T176 unit-block surplus `>3q/20`. It contains no recurrence or
-  irrationality input and does not control a natural prefix.
+  irrationality input and does not control a natural prefix. A phase-generic
+  variant (`central_unitBlock_surplus_gt_three_div_twenty_generic`) with the
+  central-coordinate hypothesis in place of `piOrbit n` is machine-checked.
 - **T194 — Central π Return Seed — machine-checked π rung.**
   [`T194T194CentralPiReturnSeed.lean`](TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean)
   proves unconditionally, using `irrational_pi`, that every decimal scale
