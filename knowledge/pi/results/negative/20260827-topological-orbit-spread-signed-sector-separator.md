@@ -3,7 +3,7 @@
 Date: 2026-08-27 UTC
 
 Claim labels: the Chen--Ye--Zheng source boundary is `literature-checked` by
-the repository's pinned source audit; the Fishman input below is
+the repository's pinned source audit; the fractal Diophantine inputs below are
 `literature-checked`; the sparse-packet and missing-word constructions are
 `proof sketch`; the inherited root MR table is an `experiment`.  No statement
 about the actual pi orbit, unbounded MR failure, V1, density, or normality is
@@ -173,17 +173,22 @@ x |-> (d+x)/10,  d in D_a,
 ```
 
 with Hausdorff dimension `log(9)/log(10)`.  The maps satisfy the open set
-condition.  [Fishman's theorem](https://arxiv.org/abs/math/0606298) therefore
-gives full attractor dimension after intersection with the badly approximable
-numbers.  Rational affine insertion into the cylinder `P b^m` preserves bad
-approximability.  Removing the countable algebraic numbers and the countable
-ambiguous decimal endpoints leaves a positive-dimensional family of
-transcendental, badly approximable, `w`-avoiding continuations of `P`.
+condition.  The full-dimension theorems of
+[Kleinbock--Weiss](https://doi.org/10.1007/BF02772538) and
+[Kristensen--Thorn--Velani](https://arxiv.org/abs/math/0405433) therefore give
+full attractor dimension after intersection with the badly approximable
+numbers.  [Fishman's later Schmidt-game formulation](https://arxiv.org/abs/math/0606298)
+supplies the winning/countable-intersection strengthening.  Rational affine
+insertion into the cylinder `P b^m` preserves bad approximability.  Removing
+the countable algebraic numbers and
+the countable ambiguous decimal endpoints leaves a positive-dimensional family
+of transcendental, badly approximable, `w`-avoiding continuations of `P`.
 
 Consequently, even under a hypothetical missing word in pi, every finite pi
-prefix admits hostile continuations with transcendence and irrationality
-exponent exactly `2`, stronger Diophantine approximation control than is known
-for pi.  Lindemann--Weierstrass, a finite irrationality exponent, digit-change
+prefix admits hostile continuations that are transcendental and badly
+approximable, hence have irrationality exponent exactly `2`, stronger
+Diophantine approximation control than is known for pi.  Lindemann--Weierstrass,
+a finite irrationality exponent, digit-change
 bounds, and finite-prefix certificates therefore cannot exclude membership in
 a positive-entropy missing-word shift.  A reopening theorem must use a
 genuinely pi-specific constraint on the digit language or directly recover

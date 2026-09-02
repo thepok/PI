@@ -310,10 +310,14 @@ coordinate. This is same-child transport of one local positive atom, not
 positivity of the whole same-child fresh sum. The target loss is exact: for a
 generic radix orbit `x_n`, T194 chooses `A=floor(10^k*x_n)` and its centered
 coordinate is `x_(n+k)-1/2`; imposing a preassigned `A*` is already the
-`A*`-cylinder hit. Fishman's badly-approximable `{1,2}`-digit Cantor points
-show that the generic central-unit and predecessor-lift premises may hold at
-every time and scale while digit `3` never occurs (`literature-checked`
-existence plus `proof sketch` analytic transfer). Thus neither the exponent-`8`
+`A*`-cylinder hit. The full-dimension results of
+[Kleinbock--Weiss](https://doi.org/10.1007/BF02772538) and
+[Kristensen--Thorn--Velani](https://arxiv.org/abs/math/0405433) supply
+`{1,2}`-digit Cantor points that are badly approximable, hence of irrationality
+exponent `2`, and show that the generic central-unit and predecessor-lift
+premises may hold at every time and scale while digit `3` never occurs
+(`literature-checked` existence plus `proof sketch` analytic transfer). Thus
+neither the exponent-`8`
 Diophantine premise nor arbitrarily abundant central units repair the target
 quantifier. Exact predecessor-coordinate lifting gives arbitrarily long
 finite positive ladders (`proof sketch`), not one infinite natural-horizon
