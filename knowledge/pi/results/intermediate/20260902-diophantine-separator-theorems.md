@@ -1,5 +1,4 @@
-Status: `proof sketch`; independently audited at proof level for Theorem A on
-2026-09-02; Theorems B and C not yet independently audited.
+Status: `proof sketch`; Theorem A independently audited at proof level on 2026-09-02; Theorems B and C independently audited on 2026-09-02 (B correct with fixes; C's original proof had a gap at (5.2), replaced by the auditor's support-level proof); all fixes applied.
 Date: 2026-09-02.
 Provenance: Produced by a ChatGPT Pro run from the repository's separator
 sketches, corrected after an adversarial audit, and reviewed by Claude.
@@ -30,7 +29,7 @@ $$
 
 has full dimension in \(C_w\cap[P]\); almost every point for a natural Perron–Frobenius measure is transcendental and has irrationality exponent \(2\).
 
-These results cannot presently be intersected by the standard friendly-measure argument. We prove a precise obstruction: the all-label set contains no positive-dimensional Ahlfors-regular subset. Thus the forced de Bruijn Moran construction fails the power-law and absolute-decay hypotheses of Kleinbock–Weiss, Kristensen–Thorn–Velani, and Fishman. Simultaneous bad approximability and all-label abundance remains unproved here.
+These results cannot presently be intersected by the standard friendly-measure argument. We prove a precise obstruction: both the central all-label set and the weaker all-\(A\)-word abundance set contain no positive-dimensional Ahlfors-regular support. Thus the forced de Bruijn Moran construction fails the power-law and absolute-decay hypotheses of Kleinbock–Weiss, Kristensen–Thorn–Velani, and Fishman. Simultaneous bad approximability and all-label abundance remains unproved here.
 
 The decimal-orbit consequences used by T191–T194 are then recorded with the corrections required by the audit: the predecessor coordinate is properly quantified, omega-limit dynamics are formulated on the circle, canonical endpoint discrepancies are separated, and the free-phase T192–T193 statement is identified as an ordinary-mathematics generalization rather than a current generic Lean theorem.
 
@@ -79,6 +78,21 @@ $$
 
 This is slightly stronger than merely requiring \(u\), and matches the repository’s central-positive-unit formulation.
 
+Define the central all-label set
+
+$$
+E_{w,P,A,c}
+=\{x\in C_w\cap[P]:x\text{ satisfies }\mathrm{ALA}_{A,c}\}.
+$$
+
+Also let \(E^{\mathrm{weak}}_{w,P,A}\) be the weaker all-\(A\)-word abundance set obtained by dropping the final digit \(c\) in (1.1), so that each \(u\in A^k\) itself is required in the same fresh window. For either set \(E\), use the support-based convention of Badziahin–Harrap–Nesharim–Simmons [8]:
+
+$$
+\dim_R E
+=\sup\{\delta>0:\text{there is a }\delta\text{-Ahlfors regular }\mu
+\text{ with }\operatorname{supp}\mu\subset E\}.
+$$
+
 ### Theorem A — the corrected Diophantine separator
 
 For every nonempty \(w\) and every finite \(w\)-free prefix \(P\),
@@ -112,17 +126,10 @@ Here \(\mu(x)\) denotes the classical irrationality exponent.
 
 ### Theorem C — regularity obstruction
 
-Let
+Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set \(E^{\mathrm{weak}}_{w,P,A}\). Then no positive-dimensional Ahlfors regular measure has support contained in \(E\); in particular
 
 $$
-E_{w,P,A}=
-\{x\in C_w\cap[P]:x\text{ has all-label abundance over }A\}.
-$$
-
-Then \(E_{w,P,A}\) contains no nonempty Ahlfors-regular subset of positive dimension. Equivalently, its Ahlfors-regularity dimension is zero:
-
-$$
-\dim_R E_{w,P,A}=0.                                    \tag{1.4}
+\dim_R E=0.                                            \tag{1.4}
 $$
 
 Consequently the friendly-measure, self-similar, and ordinary Ahlfors-regular Schmidt-game theorems cannot be applied to a compact Moran set on which all-label abundance is imposed pointwise.
@@ -356,112 +363,39 @@ Letting \(L\to\infty\) and using (2.8) proves Theorem A.
 
 We use the prefix automaton of Section 2. It is primitive. A guard \(b^m\), with \(b\ne w_1,w_m\), is admissible after every \(w\)-free prefix and returns the automaton to state \(0\). State \(0\) also has a one-step loop using any digit different from \(w_1\), so the period is one.
 
-Let \(r=(r_i)\) be a positive right Perron–Frobenius eigenvector:
+Let \(i_P\) be the prefix-automaton state after reading \(P\), and let \(r>0\) be a right Perron–Frobenius eigenvector of \(M_w\). For each digit-labelled edge \(e:i\to j\), set
 
 $$
-M_wr=\rho_wr.
+p(e)=\frac{r_j}{\rho_wr_i}.
 $$
 
-Starting after the prefix \(P\), define the Markov measure \(\nu_P\) by assigning an admissible labeled path
+Since \(\sum_jM_{ij}r_j=\rho_wr_i\), these probabilities sum to one over all outgoing labelled edges. The resulting Markov measure, started at \(i_P\), assigns a labelled path of length \(\ell\) from \(i_P\) to \(j\) the mass
 
 $$
-i_0\longrightarrow i_1\longrightarrow\cdots\longrightarrow i_\ell
+\rho_w^{-\ell}\frac{r_j}{r_{i_P}}.
 $$
 
-probability
+Hence every admissible tail cylinder of length \(\ell\) has mass between \(C^{-1}\rho_w^{-\ell}\) and \(C\rho_w^{-\ell}\). Bounded overlap of decimal cylinders and the inclusion of a sufficiently deep cylinder containing \(x\) in \(B(x,r)\) imply that its push-forward is \(s_w\)-Ahlfors regular, where \(s_w=\log\rho_w/\log10\). The countable eventually-\(9\) endpoint discrepancy is null and is discarded from now on, so all subsequent digit statements use canonical expansions.
+
+Fix \(u\in A^k\) and put \(g=b^m\). The word \(gucg\) is admissible after every state and ends in state \(0\). Its length is \(\ell_k=k+1+2m\), and conditional on any past its probability is at least \(p_k=C_0\rho_w^{-k}\). For a candidate integer \(n\), place \(gucg\) on positions \(n-m+1,\ldots,n+k+m+1\); then \(uc\) occupies positions \(n+1,\ldots,n+k+1\). Choosing candidate \(n\)'s in \([10^k+1,10^{k+1})\) separated by \(\ell_k\) gives \(M_k\ge C_1 10^k/(k+2m+1)\) disjoint blocks. Sequential conditioning, not independence, yields
 
 $$
-\rho_w^{-\ell}\frac{r_{i_\ell}}{r_{i_0}}.             \tag{4.1}
-$$
-
-Since there are finitely many states,
-
-$$
-C^{-1}\rho_w^{-\ell}
-\le\nu_P([v])
-\le C\rho_w^{-\ell}                                   \tag{4.2}
-$$
-
-for every admissible cylinder \(v\) extending \(P\).
-
-Consequently the push-forward decimal measure is
-
-$$
-s_w\text{-Ahlfors regular},
-\qquad
-s_w=\frac{\log\rho_w}{\log10}.                         \tag{4.3}
-$$
-
-The countable eventually-\(9\) endpoint discrepancy has measure zero.
-
-Fix \(u\in A^k\). Since \(uc\) uses only digits of \(A\), it avoids \(w\). The word
-
-$$
-gucg,\qquad g=b^m,                                     \tag{4.4}
-$$
-
-is admissible after every automaton state. Its length is
-
-$$
-\ell_k=k+1+2m.
-$$
-
-By (4.1), conditional on any preceding admissible digits, the probability of seeing this exact word is at least
-
-$$
-p_k\ge C_0\rho_w^{-k}.                                \tag{4.5}
-$$
-
-Inside
-
-$$
-[10^k+1,10^{k+1})
-$$
-
-place
-
-$$
-M_k\ge C_1\frac{10^k}{k+2m+1}
-$$
-
-disjoint candidate blocks of length \(\ell_k\). Successive conditioning and (4.5) give
-
-$$
-\nu_P(u\text{ is absent from all candidates})
+\nu_P(u\text{ has no guarded candidate})
 \le(1-p_k)^{M_k}
-\le
-\exp\left(
--C_2\frac{(10/\rho_w)^k}{k+2m+1}
-\right).                                               \tag{4.6}
+\le\exp\!\left[-C_2\frac{(10/\rho_w)^k}{k+2m+1}\right].
 $$
 
-There are \(9^k\) choices of \(u\). Hence the probability that at least one label fails at level \(k\) is at most
+A union bound over \(9^k\) words and the fact \(10/\rho_w>1\) make the level-failure probabilities summable. The first Borel–Cantelli lemma gives \(\mathrm{ALA}_{A,c}\) almost surely.
+
+The Ahlfors regular measure is Federer and absolutely decaying on \(\mathbb R\); hence it is friendly. By Kleinbock–Lindenstrauss–Weiss Theorem 1.1 it is extremal, so almost every irrational point has classical irrationality exponent \(2\). Removing the countable algebraic set gives transcendence. The resulting set has full measure, and the upper Frostman estimate gives Hausdorff dimension \(s_w\).
+
+More explicitly, extremality says that for every \(\varepsilon>0\), the inequality
 
 $$
-\delta_k
-\le
-9^k
-\exp\left(
--C_2\frac{(10/\rho_w)^k}{k+2m+1}
-\right).                                               \tag{4.7}
+\left|x-\frac pq\right|<q^{-(2+\varepsilon)}
 $$
 
-Because \(\rho_w<10\),
-
-$$
-\sum_k\delta_k<\infty.                                 \tag{4.8}
-$$
-
-Borel–Cantelli proves that \(\nu_P\)-almost every point satisfies \(\mathrm{ALA}_{A,c}\).
-
-Since \(\nu_P\) is \(s_w\)-Ahlfors regular, every set of full \(\nu_P\)-measure has Hausdorff dimension \(s_w\). Therefore
-
-$$
-\dim_H(C_w\cap[P]\cap\mathrm{ALA}_{A,c})
-=s_w=\dim_HC_w.                                        \tag{4.9}
-$$
-
-An Ahlfors-regular measure on the real line is Federer and absolutely decaying by the argument in (3.2). Kleinbock–Lindenstrauss–Weiss, Theorem 1.1, therefore implies that \(\nu_P\)-almost every point is not very well approximable. After removing the countable rational set, its irrationality exponent is exactly \(2\). Removing the countable algebraic set also leaves full measure. This proves Theorem B.
+has only finitely many rational solutions for almost every \(x\), so the irrationality exponent is at most \(2\); Dirichlet's theorem [9] gives the reverse inequality for every irrational. Jarník–Besicovitch [10, 11] is only an ambient Hausdorff-dimension theorem and cannot prove this singular-measure almost-everywhere statement: indeed \(\dim_H\{x:\mu(x)>2\}=1\). Thus KLW, rather than Jarník–Besicovitch, is the required exponent-\(2\) source. This proves Theorem B.
 
 For comparison, Hochman–Shmerkin prove that natural measures on finite continued-fraction Cantor sets—hence measures supported entirely on badly approximable numbers—are pointwise normal in every integer base; see their Theorem 1.12. That nearby theorem demonstrates compatibility of bad approximability with strong digit randomness in the ambient interval, but it does not preserve a prescribed decimal avoidance subshift \(C_w\). ([arXiv][3])
 
@@ -469,97 +403,65 @@ For comparison, Hochman–Shmerkin prove that natural measures on finite continu
 
 ## 5. Why the friendly-measure route cannot prove the simultaneous theorem
 
-We now prove Theorem C.
+**Theorem C.** Let `E` denote either the central all-label set `E_{w,P,A,c}` or the weaker all-`A`-word abundance set. Then no positive-dimensional Ahlfors regular measure has support contained in `E`; in particular `\dim_R E=0`.
 
-Choose
+**Proof.** Suppose `\mu` is `\delta`-Ahlfors regular, `\delta>0`, with compact support `K\subset E`. No point of `E` is rational: a rational decimal expansion is eventually periodic and therefore has only boundedly many distinct long blocks in sufficiently late windows, whereas all-label abundance requires `9^k` distinct labels at level `k`. Hence `K` contains no decimal-cylinder endpoint.
 
-$$
-a\in A\cap\{1,\ldots ,8\}.
-$$
+Fix `a\in A\cap\{1,\ldots,8\}`. Starting with `P`, construct a branch through the decimal tree as follows. At a prefix `v`, choose a child digit different from `a` whenever some point of `K\cap[v]` has such a digit; otherwise choose `a`. The nested intersections with `K` are nonempty compact sets, so they determine a point `x\in K`.
 
-For \(j\ge1\), let \(E_j\) be the set of points satisfying all-label abundance at every level \(k\ge j\). Then
+For every sufficiently large `k`, abundance for `u=a^k` supplies `n\in[10^k+1,10^{k+1})` for which digits `n+1,\ldots,n+k` of `x` are all `a`. Whenever the greedy branch selected `a`, every point of `K` in the current prefix cylinder had to select `a`. Induction through this run therefore gives
 
 $$
-E_{w,P,A}=\bigcup_{j\ge1}E_j.                          \tag{5.1}
+K\cap I_n(x)\subset I_{n+k}(x).
 $$
 
-Suppose, for contradiction, that a compact
+Since the next digit at level `n` is `a\in\{1,\ldots,8\}`, the ball
 
 $$
-K\subset E_{w,P,A}
+B\!\left(x,\frac12 10^{-(n+1)}\right)
 $$
 
-supports a \(\delta\)-Ahlfors regular measure \(\mu\), with \(\delta>0\).
-
-By (5.1), some \(E_j\) has positive \(\mu\)-measure inside \(K\). Remove the countable terminating rationals and choose a compact
+lies in `I_n(x)`. Also `I_{n+k}(x)` lies in `B(x,2\cdot10^{-(n+k)})`. Writing these radii as `r_k` and `R_k`, respectively, gives `R_k/r_k=40\cdot10^{-k}` and
 
 $$
-F\subset K\cap E_j
+K\cap B(x,r_k)\subset B(x,R_k).
 $$
 
-with \(\mu(F)>0\).
-
-Since \(\mu\) is doubling, the differentiation theorem applies. By Egorov’s theorem we may choose a compact \(D\subset F\), \(\mu(D)>0\), and \(r_0>0\), such that
+Since `\mu` is supported on `K`,
 
 $$
-\mu(D\cap B(x,r))\ge\frac12\mu(B(x,r))
-\quad
-(x\in D,\ 0<r<r_0).                                   \tag{5.2}
+\mu(B(x,r_k))\le\mu(B(x,R_k)).
 $$
 
-Construct \(x\in D\) greedily. Having chosen a decimal prefix \(v\), choose a next digit different from \(a\) whenever some point of \(D\cap[v]\) has such a next digit. Choose \(a\) only when every point of \(D\cap[v]\) has next digit \(a\). Compactness supplies an infinite resulting branch \(x\in D\).
-
-For every sufficiently large \(k\), all-label abundance supplies an occurrence
+Ahlfors regularity now gives
 
 $$
-a_{n+1}(x)\cdots a_{n+k}(x)=a^k
+c r_k^\delta\le C R_k^\delta,
 $$
 
-with
+which is impossible because `R_k/r_k\to0`. `\square`
+
+### Absolute-decay corollary
+
+The same support-level proof also gives the precise result needed for friendly measures.
+
+Suppose a finite measure `\mu` has support `K\subset E` and is uniformly absolutely decaying on the relevant region. At the bottleneck inclusion above, take the affine hyperplane in `\mathbb R` to be the point `L=\{x\}`. Since all of the mass of `B(x,r_k)` lies in `B(x,R_k)`,
 
 $$
-10^k\le n<10^{k+1}.
+\mu(B(x,r_k)\cap L^{(R_k)})=\mu(B(x,r_k)).
 $$
 
-At each of these \(k\) positions the greedy construction chose \(a\). Therefore, at each corresponding prefix, no point of \(D\) has a different next digit. If \(I_n(x)\) denotes the level-\(n\) decimal cylinder containing \(x\), then
+Absolute decay would give
 
 $$
-D\cap I_n(x)\subset I_{n+k}(x).                       \tag{5.3}
+1\le C\left(\frac{R_k}{r_k}\right)^\alpha,
 $$
 
-Because \(a\in\{1,\ldots ,8\}\), the point \(x\) lies a fixed proportion away from both endpoints of \(I_n(x)\). Thus there is
+which is impossible as `k\to\infty`.
 
-$$
-r_n\asymp10^{-n},\qquad B(x,r_n)\subset I_n(x).
-$$
+Kleinbock–Weiss formulate decay locally. That does not evade the obstruction. Choose a point and a neighborhood `U` on which the decay constants are uniform, then choose a sufficiently deep decimal cylinder whose closure lies in `U` and meets the support. Run the greedy construction on the compact support portion inside that cylinder. All later bottleneck balls lie in `U`, so the same contradiction applies.
 
-From (5.3),
-
-$$
-D\cap B(x,r_n)
-\subset B(x,C10^{-k}r_n).                              \tag{5.4}
-$$
-
-For large \(k\), \(r_n<r_0\), and (5.2) gives
-
-$$
-\mu(B(x,C10^{-k}r_n))
-\ge\frac12\mu(B(x,r_n)).                               \tag{5.5}
-$$
-
-Ahlfors regularity would instead give
-
-$$
-\frac{\mu(B(x,C10^{-k}r_n))}
-{\mu(B(x,r_n))}
-\le C'10^{-k\delta}\longrightarrow0,                  \tag{5.6}
-$$
-
-contradicting (5.5).
-
-Therefore no positive-dimensional Ahlfors-regular subset of \(E_{w,P,A}\) exists.
-
-The same argument directly contradicts uniform absolute decay: at arbitrarily small relative radii \(\varepsilon_k\asymp10^{-k}\), a ball of radius \(\varepsilon_kr_n\) contains a fixed proportion of the mass of \(B(x,r_n)\).
+Accordingly, no measure satisfying the KW absolute-decay hypothesis can have its support contained in `E`.
 
 ### Consequences for the proposed construction
 
@@ -639,7 +541,7 @@ $$
 1-T^{L+r}x=10^r(1-T^Lx)<1/11,
 $$
 
-which is impossible unless \(T^Lx=1\), again corresponding to a rational endpoint. This proves the claim.
+which forces the upper trapping limit to be the circle endpoint \(1=0\), hence rational; \(1\) is not literally a point of \([0,1)\). This proves the claim.
 
 ### Timed return from `IrrationalityMeasureBelow x 8`
 
@@ -776,7 +678,15 @@ $$
 \overline{\{T^nx:n\ge N\}}^{\,\mathbb T}.
 $$
 
-If \(\omega_T(x)\) were finite, \(T\) would permute it. For some \(p\ge1\), \(T^p\) would fix every point of \(\omega_T(x)\). Since the orbit approaches its omega-limit set,
+For a continuous map on a compact metric space,
+
+$$
+T(\omega_T(x))=\omega_T(x).
+$$
+
+For the nontrivial surjectivity inclusion, take any sequence \(T^{n_j}x\to z\in\omega_T(x)\) with \(n_j\to\infty\). Compactness gives a convergent subsequence of the predecessors \(T^{n_j-1}x\to y\in\omega_T(x)\), and continuity gives \(T(y)=z\).
+
+If \(\omega_T(x)\) were finite, \(T\) would therefore permute it. For some \(p\ge1\), \(T^p\) would fix every point of \(\omega_T(x)\). Since the orbit approaches its omega-limit set,
 
 $$
 d_{\mathbb T}(T^{n+p}x,T^nx)\to0.                     \tag{6.10}
@@ -852,6 +762,14 @@ $$
 \frac7{3q}<\frac{389}{45000}q.
 $$
 
+The surrounding repository application inherits \(q\ge1000\) from \(q=10^k\) with \(k\ge3\). For this isolated inequality alone,
+
+$$
+q^2>\frac{105000}{389}\approx269.92,
+$$
+
+so integer \(q\ge17\) already suffices.
+
 At the predecessor, (6.9) supplies the same \(y\) at scale \(10q\), yielding
 
 $$
@@ -914,3 +832,11 @@ Nothing here proves or disproves decimal disjunctivity of \(\pi\). The result on
 6. M. Hochman and P. Shmerkin, *Equidistribution from fractal measures*, Invent. Math. **202** (2015), 427–479. In particular Theorem 1.12.
 
 7. J. Angelevska, A. Käenmäki and S. Troscheit, *Self-conformal sets with positive Hausdorff measure*, Bull. Lond. Math. Soc. **52** (2020), 200–223. Theorem 3.1 and the sub-self-conformal extension in Remark 6.2.
+
+8. D. Badziahin, S. Harrap, E. Nesharim and D. Simmons, *Schmidt games and Cantor winning sets*, Ergodic Theory Dynam. Systems **45** (2025), 71–110. Definition 2.17 and Proposition 2.18.
+
+9. P. G. L. Dirichlet, *Verallgemeinerung eines Satzes aus der Lehre von den Kettenbrüchen nebst einigen Anwendungen auf die Theorie der Zahlen*, Bericht der Königlich Preußischen Akademie der Wissenschaften zu Berlin (1842), 93–95.
+
+10. V. Jarník, *Diophantische Approximationen und Hausdorffsches Mass*, Mat. Sb. **36** (1929), 371–382.
+
+11. A. S. Besicovitch, *Sets of fractional dimensions (IV): On rational approximation to real numbers*, J. Lond. Math. Soc. **s1-9** (1934), 126–131.
