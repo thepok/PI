@@ -1,11 +1,10 @@
 # Pi Lab agent guidance
 
-Before engineering, debugging, workflow, data, or artifact work, read
-`~/.Codex/skills/marcel-judgment/SKILL.md`.
-
 Act as a skeptical research collaborator. Read `README.md`, then the sole
 authoritative research map `FRONTIER.md`. Optimize for correct, inspectable
-progress rather than solution claims.
+progress rather than solution claims. If a local judgment skill exists at
+`~/.Codex/skills/marcel-judgment/SKILL.md` or
+`~/.claude/skills/marcel-judgment/SKILL.md`, read it before engineering work.
 
 ## Trust
 
@@ -20,44 +19,36 @@ progress rather than solution claims.
 
 Use only: `experiment`, `conjecture`, `proof sketch`, `machine-checked`,
 `literature-checked`, `candidate resolution`, and `verified resolution`.
+Never silently upgrade a label.
 
-## Research boundary
+## Research rules
 
-T179 is the **Predecessor Lag-One Correlation** machine-checked identity. T189
-is the **Signed Horizon Sector Bridge** machine-checked consumer. The first
-open π lemma is **same-child signed horizon transport**. Every proposed rung
-must identify where actual-π target-signed Archimedean information enters.
-Equivalent consumers, representation-only identities, finite replay, and
-workflow changes are not π progress.
-
-Regularly test whether the current mathematical focus is still the best lever
-toward V1. If successive results only refine the same consumer, proxy, or
-separator without producing new actual-π target-signed information, pause
-that direction and shift emphasis. Permanently reserve one of three Pro slots
-for the question: which proved property distinguishes the actual constant π
-from finite-irrationality-exponent transcendental numbers that avoid a fixed
-decimal word? That slot must use PaperSearch early and range outside
-T189/Zudilin/BBP, but a candidate survives only with a named π-specific source
-of directed real information, a plausible short translation to a prescribed
-cylinder or `e(h*10^n*pi)`, and failure on a suitable word avoider. Record a
-focus change only as: reason, strongest retained lemma, and reopening
-condition; do not build new process infrastructure for focus audits.
+- `FRONTIER.md` states the target, the target ladder, the first open π lemma,
+  and the three admission tests for a new candidate. Every proposed rung must
+  identify where actual-π target-signed information enters.
+- **Separator first.** Before building a Lean rung, run the numerical
+  word-avoider check on its premise. A premise shared by a digit-avoiding
+  replacement constant cannot prove V1.
+- **Find before prove.** A named, testable, surprising conjecture about π with
+  a falsification experiment and an explicit avoider on which it fails is
+  worth more than another closed route.
+- Route closures are not progress. Record them in the attempt ledger as
+  reason, strongest retained lemma, and reopening condition, and move on.
+- Equivalent consumers, representation-only identities, finite replay, and
+  workflow changes are not π progress.
 
 ## Repository boundary
 
 - `FRONTIER.md`: the only current research map.
-- `knowledge/pi/workstreams/`: exact target, open rung, FMR specification, and
-  compressed attempt ledger.
-- `knowledge/pi/results/`: only current machine-checked, intermediate, and at
-  most ten relevant negative results.
+- `knowledge/pi/workstreams/`: exact target, open rung, FMR specification,
+  attempt ledger, and property admission audit.
+- `knowledge/pi/results/`: current machine-checked, intermediate, and
+  relevant negative results. Keep it small; Git history is the archive.
 - `TheoryLib/` and `audit/`: verified Lean core.
-- `workflows/`: current reproducible experiments and verification only.
+- `workflows/`: reproducible experiments and verification only, with all
+  their inputs tracked here.
 - `workflows/state/`: ignored runtime state; never store raw transcripts in
   the knowledge tree.
-- [`AllMath`](https://github.com/thepok/MathMyth): project orchestration, model
-  runners, prompts, and runtime tools.
-
-Keep roughly 20–40 active mathematical knowledge files. When a result ceases
-to be current, distill only its strongest lemma, first fatal line, and reopen
-condition into the ledger, then remove the obsolete file; Git history is the
-archive. Do not create another navigation framework or history folder.
+- [`AllMath`](https://github.com/thepok/MathMyth): project roadmap,
+  orchestration, model runners, prompts, and runtime tools. Nothing in this
+  repository depends on it.
