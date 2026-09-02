@@ -1,4 +1,4 @@
-Status: named open problems of the program, `conjecture`/`open`.
+Status: `conjecture` (named unresolved propositions of the program).
 Audit: independently audited three times on 2026-09-02 for well-posedness and correctness of the "known" claims.
 Date: 2026-09-02.
 Provenance: paper Section 5, produced by ChatGPT Pro runs and revised after adversarial audits, reviewed by Claude.
@@ -126,6 +126,8 @@ $$
 $$
 
 Each \(\widetilde E_j\) is closed in the compact SFT \(\Sigma_w\). Games are played on this symbolic splitting, or on \(K_w\) through (5.1); the corresponding canonical real-coded tails are not called closed.
+
+The following uses of Theorems A–D retain the source status `proof sketch`, independently audited; they are not machine-checked results.
 
 For every admissible cylinder \(I(P)\), Theorems A and B of this paper give, respectively,
 
@@ -474,7 +476,7 @@ $$
 \frac\pi4 = \sum_{n\ge0}\rho_n256^{-n} = 1+\sum_{n\ge1} (\rho_n5^{8n})(10^8)^{-n}. \tag{5.10}
 $$
 
-Theorem B\(^{\prime}\) (Proposition on the Ramanujan reciprocal coefficients, Section 2)—not Ramanujan's identity—gives
+The `proof sketch` designated Theorem B' (the proposition on the Ramanujan reciprocal coefficients in Section 2), with its finite check recorded as an `experiment`, gives
 
 $$
 \nu_2(\rho_n) = 3s_2(n), \qquad \nu_{10}(\rho_n5^{8n}) = 3s_2(n) = O(\log n). \tag{5.11}

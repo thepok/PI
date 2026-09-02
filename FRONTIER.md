@@ -1,11 +1,20 @@
 # π decimal disjunctivity frontier
 
-Status: `conjecture`
+Target status (V1): `conjecture`
 Last audited: 2026-09-02 UTC
 
-This is the only authoritative current research map. No theorem in this
-repository proves V1, decimal density, or normality of π. The normalized
-statement and quantifier audit are in
+This is the sole current map of the program. The Lean core contains
+`machine-checked` downstream Fourier/sector consumers and the T191–T194
+central-return chain: T194 gives an untimed adaptive actual-π seed
+unconditionally from `irrational_pi`, and timed fresh-horizon and
+predecessor-lift variants conditionally under an external
+irrationality-measure bound `<8` or, in the newer variants, `<9`. The
+repository also contains finite `experiment`s, `literature-checked` source
+audits, and independently audited `proof sketch` separators, but it proves
+none of V1, CW0, CW9, density of `{10^n*pi}` modulo one, base-2/base-16
+disjunctivity, or normality of π; the published irrationality-measure bounds
+and their Lean bridges are not formalized. The normalized target and
+quantifier audit are in
 [`TARGET.md`](knowledge/pi/workstreams/TARGET.md).
 
 ## Exact target
@@ -36,22 +45,33 @@ the multi-child consumer while retaining the missing directed actual-pi
 recurrence; they are honesty checks, not replacements for V1 and not new
 mathematical progress.
 
-Literature status of the constant-word targets (`literature-checked`,
-2026-09-02): no proof of CW0 or CW9, or of `liminf ||b^n xi||=0`, is known
-for pi, e, sqrt 2, log 2 or zeta(3) in any fixed base;
-[Lagarias](https://arxiv.org/abs/math/0101055) records the binary sqrt 2 case
-as open. The best run-length bound for pi is linear,
-`Z(n),N(n)<=(6.1033+eps)n` eventually, from the Zeilberger--Zudilin
-irrationality measure; for algebraic irrationals Ridout gives `o(n)`. A
+Literature status (`literature-checked`, cutoff 2026-09-02): the dated search
+recorded in [`OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md)
+found no proof or disproof of the eight decimal claims `CW_delta(alpha)` for
+`alpha in {pi, sqrt 2, e, log 2}` and `delta in {0,9}`. Lagarias separately
+records the binary zero-block problem for `sqrt 2` as open; that source does
+not certify the other decimal claims, any claim for `zeta(3)`, or a statement
+uniform over all fixed bases. A conservative consequence of the published
+Zeilberger--Zudilin bound is that, for every `eps>0`,
+`max(ell_0^pi(n),ell_9^pi(n)) <= (6.103205334138+eps)n` for all sufficiently
+large `n`. This bounds a run that begins after position `n`; it does not prove
+that arbitrarily long zero or nine runs exist. For algebraic irrationals,
+Ridout gives the separate `o(n)` bound. A
 classical-looking family with proved arbitrarily long zero runs is the
 Lambert series `E_t=sum_r 1/(t^r-1)=sum_m d(m) t^(-m)` in base `t` (Erdős
 1948, J. Indian Math. Soc. 12, 63--66), by a Chinese-remainder construction
 forcing a block of divisor values `d(m)` to be divisible by high powers of
 `t` together with tail averaging; Liouville-weighted and squarefree-indicator
 Lambert series give further examples. This is an arithmetic mechanism on an
-integer-coefficient base-`t` series, not a digit-concatenation definition;
-its exact criterion, and why Ramanujan's integer series for `pi/4` fails it,
-are recorded in the attempt ledger.
+integer-coefficient base-`t` series, not a digit-concatenation definition.
+[`OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md) freezes the
+exact weighted-block-plus-positive-tail certificate and shows at `proof
+sketch` level that its unrestricted proposition P3 is equivalent to CW0. The
+Ramanujan reciprocal construction has not been shown to satisfy that
+certificate: its signed coefficients remove automatic tail positivity, and a
+usable tail-length estimate first requires an independently proved
+exponential bound for the reciprocal coefficients. No impossibility theorem
+for selected blocks or cancellations is claimed.
 
 The finite admission audit of currently named pi-specific inputs is in
 [`PI_PROPERTY_ADMISSION_AUDIT.md`](knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md).
@@ -62,7 +82,15 @@ witnesses, and resolution criteria are in the draft
 [`TARGET_SPECIFICATION_v1.md`](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md)
 (audited 2026-09-02, fixes applied, not yet frozen).
 
-The program's named open problems (P1 the BA–ALA intersection problem with its milestones, P1' sparse forced blocks in finite-type subshifts, P2 the one-sided residue problem for the Machin and BBP shadows, P3 the Erdős transfer problem, P4 the constant-word problems, P5 base-16 density of the Bailey–Crandall orbit), each as a single well-posed proposition with what is known and what would not by itself resolve it, are in [`OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md).
+The program's named unresolved propositions are frozen in
+[`OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md): P1 contains
+the BA–ALA full-dimension, positive-dimension, and non-emptiness milestones;
+P1' concerns sparse forced blocks in finite-type subshifts; P2 contains the
+oriented Machin and decimal-BBP residue propositions, with BBP–V1 listed
+separately; P3 is a carry-certificate proposition shown there at `proof
+sketch` level equivalent to CW0; P4 names eight constant-word components; and
+P5 is tail density of the Bailey–Crandall base-16 orbit. The file records what
+is known and what does not by itself resolve each proposition.
 
 ## Verified consumer and current modules
 
@@ -99,30 +127,29 @@ The program's named open problems (P1 the BA–ALA intersection problem with its
   proves unconditionally, using `irrational_pi`, that every decimal scale
   `10^k`, `k>=3`, has some actual-π orbit point and containing cell with the
   T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
-  bound. Conditional in its public Lean interface on
-  `IrrationalityMeasureBelow pi 8`, it proves that after one onset such a
-  unit can always be chosen with `10^k+1<=n<10^(k+1)`. Its literal predecessor
+  bound. The timed T194 results have two `machine-checked` interfaces. The
+  original three variants assume `IrrationalityMeasureBelow pi 8`; the
+  corresponding `..._ofBelowNine` variants assume
+  `IrrationalityMeasureBelow pi 9`, including the fresh-horizon and
+  predecessor-lift conclusions. Its literal predecessor
   digit then machine-checkably lifts the same centered coordinate to a child
   unit at scale `10^(k+1)` and time `n-1`, inside the exact T189 fresh block,
-  with surplus `>3*10^k/2`. The exponent `8` is not fundamental: replacing
-  the `7s`-step avoidance run by `ceil((alpha-1)s)` steps, the same argument
-  closes for every irrationality exponent `alpha<10` inside the
-  `n<10^(k+1)` window (`proof sketch`, independently audited 2026-09-02);
-  hence [Hata's 1993 bound](https://doi.org/10.1515/crll.1993.442.19)
-  `mu(pi)<=8.0161` would also suffice after that generalization, while
-  Salikhov's `7.6063` or Zeilberger--Zudilin's `7.1032` discharge the current
-  interface as it stands. The exponent-`9` variants (`..._ofBelowNine`) are now machine-checked, so Hata's bound discharges the timed interface directly.
-  [Zeilberger--Zudilin's published
-  bound](https://arxiv.org/abs/1912.06345)
-  `mu(pi)<=7.103205334138` (safely rounded upward) discharges that premise in ordinary mathematics
-  (`literature-checked`); the source theorem and its bridge are not formalized
-  in Lean. The target is unprescribed, and neither positivity of the entire
+  with surplus `>3*10^k/2`. In ordinary mathematics,
+  Zeilberger--Zudilin's bound `mu(pi)<=7.103205334138<8` discharges either
+  interface, while Hata's bound `mu(pi)≈8.016045<9` discharges the
+  `_ofBelowNine` interface directly (`literature-checked`); the cited source
+  theorems and their Lean bridges are not formalized here. A stronger
+  `alpha<10` formulation remains only an independently audited `proof sketch`
+  and is not needed for the Hata application. The target is unprescribed, and
+  neither positivity of the entire
   same-child fresh block nor a coherent natural-horizon ray follows.
   The qualitative
   irrationality mechanism is generic to every irrational constant; it is
   actual-π information after specialization, not yet π-specific arithmetic.
-  Formalizing the published bound would make this interface unconditional,
-  but requires the deep source theorem rather than a local T194 repair. It
+  Formalizing one of the cited irrationality-measure bounds and its bridge
+  would yield unconditional corollaries of the corresponding timed T194
+  theorems; it would not change their adaptive target or supply the missing
+  complete fresh-block sign. It
   would be a genuine standalone formalization milestone, but would not supply
   the missing target sign.
 
@@ -171,15 +198,22 @@ frontier only if all three tests hold:
    horizon inequality.
 
 A further kernel, determinant, cone, Padé, BBP, or equivalent reformulation
-without such an order source does not qualify. The most concrete remaining BBP
-object is the exact residue sequence
+without such an order source does not qualify. For the paused decimal
+moving-modulus BBP exactifier, the retained object is the exact residue
+sequence
 
 ```text
 r_n = (10^n-16) P_n mod D_n
 ```
 
-for the inclusive rational BBP partial `B_n=P_n/D_n`. The final focused BBP
-cycle is now paused. **Reason:** its strongest new ordered quantity,
+for the inclusive rational BBP partial `B_n=P_n/D_n`. That decimal
+signed-exactifier cycle is paused; this does not close P2's oriented
+Machin/decimal-BBP residue propositions, the separate BBP–V1 condition, or
+P5's Bailey–Crandall base-16 density problem. P2's frozen Machin and
+decimal-BBP endpoint conditions are exact reformulations of CW0 rather than
+progress on CW0. For P5, π's finite-attractor branch is excluded and the orbit
+has infinitely many limit points, but tail density and equidistribution remain
+open. **Reason:** its strongest new ordered quantity,
 
 ```text
 Theta_n = (10^(n+1)-16) B_(n+1) - 10(10^n-16) B_n,
@@ -325,28 +359,47 @@ unprescribed actual-π seed at every decimal scale using only `irrational_pi`.
 Thus every sufficiently central
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
-`S_(q,A)(n,1)>3q/20`. Conditional in Lean on
-`IrrationalityMeasureBelow pi 8`, T194 localizes one such unit to
-`q+1<=n<10q` after a premise-dependent onset and lifts it through its literal
-predecessor digit to a child-scale unit at time `n-1` with surplus `>3q/2`.
-Zeilberger--Zudilin's published irrationality-measure bound supplies this
-premise externally (`literature-checked`), but its Lean bridge is absent.
+`S_(q,A)(n,1)>3q/20`. Under either `machine-checked` timed interface—the
+original theorems under `IrrationalityMeasureBelow pi 8` or the
+`_ofBelowNine` variants under `IrrationalityMeasureBelow pi 9`—T194 localizes
+one such unit to `q+1<=n<10q` after a premise-dependent onset and lifts it
+through its literal predecessor digit to a child-scale unit at time `n-1`
+with surplus `>3q/2`. Zeilberger--Zudilin discharges the `<8` premise and Hata
+discharges the `<9` premise in ordinary mathematics (`literature-checked`);
+the source theorems and Lean bridges are absent.
 Both units lie in the exact fresh horizon block and preserve the centered
 coordinate. This is same-child transport of one local positive atom, not
 positivity of the whole same-child fresh sum. The target loss is exact: for a
 generic radix orbit `x_n`, T194 chooses `A=floor(10^k*x_n)` and its centered
 coordinate is `x_(n+k)-1/2`; imposing a preassigned `A*` is already the
-`A*`-cylinder hit. The full-dimension results of
-[Kleinbock--Weiss](https://doi.org/10.1007/BF02772538) and
-[Kristensen--Thorn--Velani](https://arxiv.org/abs/math/0405433) supply
-`{1,2}`-digit Cantor points that are badly approximable, hence of irrationality
-exponent `2`, and show that the generic central-unit and predecessor-lift
-premises may hold at every time and scale while digit `3` never occurs
-(`literature-checked` existence plus `proof sketch` analytic transfer).
-This is now a theorem at ordinary-proof level: for every nonempty word `w` and every `w`-free prefix `P`, the badly approximable transcendental points of `C_w ∩ [P]` that satisfy every T191--T194 premise form a set of full Hausdorff dimension `log rho_w / log 10` (Theorem A in [`20260902-diophantine-separator-theorems.md`](knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md), `proof sketch`, independently audited); the all-label abundance property is likewise full-dimensional with exponent `2` (Theorem B), but it has Ahlfors-regularity dimension `0` (Theorem C), so its simultaneous realization with bad approximability is open and lies outside the Kleinbock--Weiss/Fishman mechanism. The sharp form is recorded in [`20260902-ba-ala-intersection-problem.md`](knowledge/pi/results/intermediate/20260902-ba-ala-intersection-problem.md): the all-label set and every closed tail fail `c`-potential winning for every `c<dim C_w` (BHNS), full-dimensional liminf subsets of it are disjoint from BA, packet insertion protects only denominators up to about `10^(N/2)`, every finite feasible set of label obligations is compatible with full-dimensional BA, and a sharp law `limsup log a_(n+1)/log log q_n = 1` holds on a full-dimensional all-label subset; the BA–ALA intersection problem (full dimension, positive dimension, non-emptiness) is open.
-Thus neither the exponent-`8`
-Diophantine premise nor arbitrarily abundant central units repair the target
-quantifier. Exact predecessor-coordinate lifting gives arbitrarily long
+`A*`-cylinder hit. The independently audited `proof sketch` in
+[`20260902-diophantine-separator-theorems.md`](knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md)
+states three separator theorems. Theorem A gives full relative dimension
+`log rho_w/log 10` for `C_w ∩ [P] ∩ BA ∩ Trans` and records the
+ordinary-mathematics return and predecessor consequences corresponding to
+T191–T194; it does not turn the π-specific Lean declarations into generic
+theorems. Theorem B separately gives full relative dimension for all-label
+abundance among transcendental points of irrationality exponent exactly `2`;
+it does not assert bad approximability. Theorem C gives Ahlfors-regularity
+dimension `0` for the all-label set. Hence the BA–ALA intersection remains
+open. The standard stationary-support routes represented by Kleinbock–Weiss,
+Kristensen–Thorn–Velani, and Fishman do not supply the missing intersection;
+Fishman is a Schmidt-game/winning refinement, while Theorem B's exponent-`2`
+input is Kleinbock–Lindenstrauss–Weiss extremality. The independently audited
+`proof sketch` in
+[`20260902-ba-ala-intersection-problem.md`](knowledge/pi/results/intermediate/20260902-ba-ala-intersection-problem.md)
+sharpens the route obstruction: using the BHNS potential/Cantor-winning
+comparison, the symbolic all-label target and each symbolic closed tail
+`\widetilde E_j` fail `c_pot`-potential winning for every
+`0<c_pot<dim C_w`. It also constructs full-dimensional liminf subsets
+disjoint from BA, identifies the square-root packet scale, proves finite-stage
+compatibility with full-dimensional BA, and obtains
+`limsup log a_(n+1)/log log q_n = 1` on a full-dimensional all-label subset.
+The BA–ALA full-dimension, positive-dimension, and non-emptiness propositions
+remain open.
+Thus neither checked timed interface—`<8` or `<9`—nor arbitrarily abundant
+central units repairs the target quantifier. Exact predecessor-coordinate
+lifting gives arbitrarily long
 finite positive ladders (`proof sketch`), not one infinite natural-horizon
 ray. If `q_r=10^r*q` and `t_r=n-r`, then the lifted time is fresh exactly on
 the first edge: `t_1 in [q,10q)`, whereas

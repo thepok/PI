@@ -56,8 +56,10 @@ directly yields FMR. It may not replace it by an equivalent normalization of
 
 ## Machine-checked foothold and exact remaining correlation
 
-T194 now supplies one literal same-child foothold, conditional on the explicit
-external premise `IrrationalityMeasureBelow pi 8`. After a
+T194 now supplies one literal same-child foothold under either of two
+`machine-checked` external-premise interfaces: the original theorems assume
+`IrrationalityMeasureBelow pi 8`, and the `_ofBelowNine` variants assume
+`IrrationalityMeasureBelow pi 9`. After a
 premise-dependent onset, for each `q=10^k` it chooses
 
 ```text

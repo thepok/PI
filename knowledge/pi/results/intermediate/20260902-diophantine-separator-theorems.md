@@ -8,7 +8,7 @@ sketches, corrected after an adversarial audit, and reviewed by Claude.
 
 ## Abstract
 
-Let \(w\) be a nonempty decimal word, \(P\) a finite \(w\)-free prefix, and \(C_w\) the set of reals in \([0,1)\) whose canonical decimal expansion avoids \(w\). We prove two full-relative-dimension theorems.
+Let \(w\) be a nonempty decimal word, \(P\) a finite \(w\)-free prefix, and \(C_w\) the set of reals in \([0,1)\) whose canonical decimal expansion avoids \(w\). This independently audited `proof sketch` gives two full-relative-dimension theorem statements.
 
 First,
 
@@ -30,7 +30,7 @@ $$
 
 has full dimension in \(C_w\cap[P]\); almost every point for a natural Perron–Frobenius measure is transcendental and has irrationality exponent \(2\).
 
-These results cannot presently be intersected by the standard friendly-measure argument. We prove a precise obstruction: both the central all-label set and the weaker all-\(A\)-word abundance set contain no positive-dimensional Ahlfors-regular support. Thus the forced de Bruijn Moran construction fails the power-law and absolute-decay hypotheses of Kleinbock–Weiss, Kristensen–Thorn–Velani, and Fishman. Simultaneous bad approximability and all-label abundance remains unproved here.
+These results cannot presently be intersected by the standard friendly-measure argument. The same independently audited `proof sketch` gives a precise obstruction: both the central all-label set and the weaker all-\(A\)-word abundance set contain no positive-dimensional Ahlfors-regular support. Thus the forced de Bruijn Moran construction fails the power-law and absolute-decay hypotheses of Kleinbock–Weiss, Kristensen–Thorn–Velani, and Fishman. Simultaneous bad approximability and all-label abundance remains unproved here.
 
 The decimal-orbit consequences used by T191–T194 are then recorded with the corrections required by the audit: the predecessor coordinate is properly quantified, omega-limit dynamics are formulated on the circle, canonical endpoint discrepancies are separated, and the free-phase T192–T193 statement is identified as an ordinary-mathematics generalization rather than a current generic Lean theorem.
 
