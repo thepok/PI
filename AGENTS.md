@@ -51,9 +51,11 @@ condition; do not build new process infrastructure for focus audits.
 - `knowledge/pi/results/`: only current machine-checked, intermediate, and at
   most ten relevant negative results.
 - `TheoryLib/` and `audit/`: verified Lean core.
-- `workflows/`: current experiments, Pro guidance, and verification only.
+- `workflows/`: current reproducible experiments and verification only.
 - `workflows/state/`: ignored runtime state; never store raw transcripts in
   the knowledge tree.
+- [`AllMath`](https://github.com/thepok/MathMyth): project orchestration, model
+  runners, prompts, and runtime tools.
 
 Keep roughly 20–40 active mathematical knowledge files. When a result ceases
 to be current, distill only its strongest lemma, first fatal line, and reopen

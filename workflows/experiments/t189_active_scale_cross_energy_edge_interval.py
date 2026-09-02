@@ -60,7 +60,8 @@ EXPECTED_DIGIT_FILE_SHA256 = (
 )
 
 REPO = Path(__file__).resolve().parents[2]
-DIGIT_PATH = REPO / "workflows/research/pi/data/pi_digits_1048596.txt"
+PROJECT_REPO = REPO.parent / "AllMath"
+DIGIT_PATH = PROJECT_REPO / "workflows/research/pi/data/pi_digits_1048596.txt"
 T173_PATH = (
     REPO
     / "TheoryLib/PiQuantitativeBlockHitting/"

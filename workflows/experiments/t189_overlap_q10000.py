@@ -14,7 +14,8 @@ from pathlib import Path
 
 
 DIGIT_PATH = (
-    Path(__file__).resolve().parents[2]
+    Path(__file__).resolve().parents[2].parent
+    / "AllMath"
     / "workflows/research/pi/data/pi_digits_1048596.txt"
 )
 EXPECTED_SHA256 = (

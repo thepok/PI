@@ -11,8 +11,6 @@ __pycache__/
 # Re-creatable workflow runtime state and model outputs.
 /workflows/state/*
 !/workflows/state/OPERATOR_PAUSED
-/workflows/modelbench/results*/
-/workflows/chatgpt-pro/runs/
 
 # Compiled numerical-workflow cache.
 /workflows/state/fastmath-cache/
