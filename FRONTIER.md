@@ -1,7 +1,7 @@
 # π decimal disjunctivity frontier
 
 Status: `conjecture`
-Last audited: 2026-08-30 UTC
+Last audited: 2026-09-02 UTC
 
 This is the only authoritative current research map. No theorem in this
 repository proves V1, decimal density, or normality of π. The normalized
@@ -18,6 +18,26 @@ statement and quantifier audit are in
 ```
 
 Leading-zero words and overlaps are included; the empty word is vacuous.
+
+### Minimal target ladder
+
+For `x_n = {10^n*pi}`, the two constant-word families are distinct benchmark
+targets (`proof sketch`, directly from decimal cylinders):
+
+```text
+CW0: every word 0^k occurs  <->  liminf x_n = 0,
+CW9: every word 9^k occurs  <->  limsup x_n = 1.
+```
+
+Consequently `liminf ||10^n*pi|| = 0` gives only `CW0 or CW9`, not both and
+not a prescribed side. The conjunction `CW0 and CW9` is the actual
+constant-word rung below V1. Neither side is proved here. These targets remove
+the multi-child consumer while retaining the missing directed actual-pi
+recurrence; they are honesty checks, not replacements for V1 and not new
+mathematical progress.
+
+The finite admission audit of currently named pi-specific inputs is in
+[`PI_PROPERTY_ADMISSION_AUDIT.md`](knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md).
 
 ## Verified consumer and current modules
 
@@ -54,12 +74,14 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   proves unconditionally, using `irrational_pi`, that every decimal scale
   `10^k`, `k>=3`, has some actual-π orbit point and containing cell with the
   T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
-  bound. Conditional in Lean on
+  bound. Conditional in its public Lean interface on
   `IrrationalityMeasureBelow pi (36/5)`, it proves that after one onset such a
   unit can always be chosen with `10^k+1<=n<10^(k+1)`. Its literal predecessor
   digit then machine-checkably lifts the same centered coordinate to a child
   unit at scale `10^(k+1)` and time `n-1`, inside the exact T189 fresh block,
-  with surplus `>3*10^k/2`. [Zeilberger--Zudilin's published
+  with surplus `>3*10^k/2`. The timed proof itself uses only exponent `<8`;
+  the stronger `36/5` enters through a one-line adapter at the module
+  boundary. [Zeilberger--Zudilin's published
   bound](https://arxiv.org/abs/1912.06345)
   `mu(pi)<=7.103205334137...` discharges that premise in ordinary mathematics
   (`literature-checked`); the source theorem and its bridge are not formalized
@@ -68,6 +90,10 @@ Leading-zero words and overlaps are included; the empty word is vacuous.
   The qualitative
   irrationality mechanism is generic to every irrational constant; it is
   actual-π information after specialization, not yet π-specific arithmetic.
+  Formalizing the published bound would make this interface unconditional,
+  but requires the deep source theorem rather than a local T194 repair. It
+  would be a genuine standalone formalization milestone, but would not supply
+  the missing target sign.
 
 The exact declarations and downstream T148/T153/T156 path are indexed in
 [`VERIFIED_CONSUMER_PATH.md`](knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md).
@@ -311,6 +337,27 @@ compensation are not the missing transport law.
 Constants and claim boundaries are in
 [`20260828-central-carrier-annular-flux.md`](knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md)
 and the [finite-cylinder separator](knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md).
+
+## Focus checkpoint — signed exactifier cycle paused
+
+The current signed-exactifier cycle is paused as of 2026-09-02. **Reason:** a
+sequence of independently audited BBP, CM, Euler/Gamma, Padé, Chudnovsky,
+kernel and scalar-order attempts all preserve exact values or approximation
+size but lose the same target-oriented real sign. The latest three Pro memos
+again reduce respectively to off-diagonal scale freedom, scale erasure, and
+target-rotated scalar-order loss; they add no separator stronger than the
+ledger and are intentionally not retained.
+
+**Strongest retained lemma:** T194 gives an actual-pi, timed, adaptive positive
+predecessor atom (under the published irrationality-measure input in ordinary
+mathematics), while T189 remains the complete same-child consumer.
+
+**Reopening condition:** an exact statement that is false for a suitable
+exact-irrationality-exponent word avoider, has a named pi-specific source, and
+directly forces `CW0`, `CW9`, a preassigned cylinder, or the complete literal
+same-child signed horizon expression. Another exact representation, scalar
+bracket, unsigned energy, equivalent consumer, or reconstruction of the
+unknown winding does not reopen the direction.
 
 ## What remains after horizon transport
 
