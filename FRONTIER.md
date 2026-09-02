@@ -62,6 +62,8 @@ witnesses, and resolution criteria are in the draft
 [`TARGET_SPECIFICATION_v1.md`](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md)
 (audited 2026-09-02, fixes applied, not yet frozen).
 
+The program's named open problems (P1 the BA–ALA intersection problem with its milestones, P1' sparse forced blocks in finite-type subshifts, P2 the one-sided residue problem for the Machin and BBP shadows, P3 the Erdős transfer problem, P4 the constant-word problems, P5 base-16 density of the Bailey–Crandall orbit), each as a single well-posed proposition with what is known and what would not by itself resolve it, are in [`OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md).
+
 ## Verified consumer and current modules
 
 - **T179 — Predecessor Lag-One Correlation — machine-checked identity.**
