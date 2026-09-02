@@ -19,10 +19,10 @@ class LeanCandidateGateTest(unittest.TestCase):
         path = directory / "PinnedTemplate.lean"
         path.write_text(
             "import Mathlib\n\n"
-            "namespace AllMathGateTest\n\n"
+            "namespace PiGateTest\n\n"
             f"theorem target : {statement} := by\n"
             "  -- ALLMATH_PROOF_HOLE\n\n"
-            "end AllMathGateTest\n",
+            "end PiGateTest\n",
             encoding="utf-8",
         )
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -45,7 +45,7 @@ class LeanCandidateGateTest(unittest.TestCase):
             template_path=template,
             expected_template_sha256=digest,
             proof=proof,
-            theorem_name="AllMathGateTest.target",
+            theorem_name="PiGateTest.target",
             candidate_path=directory / "Candidate.lean",
             timeout_seconds=120,
             **kwargs,
@@ -136,7 +136,7 @@ class LeanCandidateGateTest(unittest.TestCase):
                     template_path=template,
                     expected_template_sha256=digest,
                     proof="exact True.intro",
-                    theorem_name="AllMathGateTest.target",
+                    theorem_name="PiGateTest.target",
                     candidate_path=directory / "Candidate.lean",
                     timeout_seconds=1,
                     command_builder=lambda _command: ["lean-gate"],

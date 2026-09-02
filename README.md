@@ -15,7 +15,6 @@ pwsh workflows/verification/check.ps1
 
 `workflows/` is limited to reproducible mathematical experiments and
 verification. Project orchestration, model runners, prompts, and runtime tools
-live in the sibling
-[`AllMath` project repository](https://github.com/thepok/MathMyth). A few
-retained experiments read its versioned digit input from
-`../AllMath/workflows/research/pi/data/`.
+live in the
+[`AllMath` project repository](https://github.com/thepok/MathMyth). PI tracks
+all inputs required by its experiments in this repository.

@@ -25,7 +25,7 @@ import time
 import unicodedata
 from pathlib import Path
 
-UA = "Mozilla/5.0 (X11; Linux x86_64) AllMath-evidence-checker/1.0"
+UA = "Mozilla/5.0 (X11; Linux x86_64) PI-evidence-checker/1.0"
 
 
 _BLOCK_MARKERS = ("Just a moment...", "Performing security verification",

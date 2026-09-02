@@ -4,8 +4,8 @@ Claim status: `literature-checked` for the cited source hypotheses and the
 bounded PaperSearch comparison below.  One pointwise theorem applies to the
 actual π orbit, but it supplies no target location or signed sum.
 
-Search date: 2026-08-27 UTC.  The local PaperSearch database at
-`/home/Marcel/dev/AllMath/paper-search.sqlite3` contained `776632` records,
+Search date: 2026-08-27 UTC.  The local project-repository PaperSearch database
+contained `776632` records,
 including `187052` with extracted full text.  The
 search targeted the live natural-diagonal fresh contribution
 

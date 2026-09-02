@@ -15,7 +15,8 @@ import mpmath as mp
 
 
 mp.mp.dps = 60
-DIGITS = (Path(__file__).resolve().parents[1] / "research/pi/data/pi_digits_1048596.txt").read_text().strip()
+DIGIT_PATH = Path(__file__).resolve().parent / "data" / "pi_digits_1048596.txt"
+DIGITS = DIGIT_PATH.read_text().strip()
 SUFFIX_DIGITS = 72
 ORBIT = [mp.mpf("0." + DIGITS[n : n + SUFFIX_DIGITS]) for n in range(100_006)]
 
