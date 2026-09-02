@@ -339,8 +339,9 @@ coordinate is `x_(n+k)-1/2`; imposing a preassigned `A*` is already the
 `{1,2}`-digit Cantor points that are badly approximable, hence of irrationality
 exponent `2`, and show that the generic central-unit and predecessor-lift
 premises may hold at every time and scale while digit `3` never occurs
-(`literature-checked` existence plus `proof sketch` analytic transfer). Thus
-neither the exponent-`8`
+(`literature-checked` existence plus `proof sketch` analytic transfer).
+This is now a theorem at ordinary-proof level: for every nonempty word `w` and every `w`-free prefix `P`, the badly approximable transcendental points of `C_w ∩ [P]` that satisfy every T191--T194 premise form a set of full Hausdorff dimension `log rho_w / log 10` (Theorem A in [`20260902-diophantine-separator-theorems.md`](knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md), `proof sketch`, independently audited); the all-label abundance property is likewise full-dimensional with exponent `2` (Theorem B), but it has Ahlfors-regularity dimension `0` (Theorem C), so its simultaneous realization with bad approximability is open and lies outside the Kleinbock--Weiss/Fishman mechanism.
+Thus neither the exponent-`8`
 Diophantine premise nor arbitrarily abundant central units repair the target
 quantifier. Exact predecessor-coordinate lifting gives arbitrarily long
 finite positive ladders (`proof sketch`), not one infinite natural-horizon

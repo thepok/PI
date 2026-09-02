@@ -13,5 +13,8 @@ Use at most three relevant ones per prompt.
 8. [Fixed-interior regularization instability](20260827-fixed-interior-regularization-instability.md): stable Abel/Mahler/heat decoding loses the boundary-scale target information.
 9. [Scalar mask/coboundary boundary](20260827-linear-scalar-horizon-mask-channel-lower-bound.md): sharp primitive-mask synthesis needs linearly many scalar channels; the complete drift is not an exact scalar state-only coboundary; and a nonzero T179 sector has no exact finite-depth branchwise-rational realization, while shifted `1/100` Abel synthesis of its rectangular time window has linear coefficient variation (`proof sketch`).
 10. [Active-scale cross-energy heredity](20260829-pathwise-cross-energy-heredity-separator.md): a `mu=2` replacement sharing the T173-certified 10015-digit pi prefix starts with `E>5.889*10^9`, yet all seven legal root FMR choices reach positive nodes with negative `E` and exactly one next FMR child; even persistent-FMR adaptive/existential heredity fails (`experiment` plus `proof sketch`).
+11. [Diophantine separator theorems](../intermediate/20260902-diophantine-separator-theorems.md): full-dimensional badly approximable transcendental `w`-avoiding families satisfying every T191--T194 premise (Theorem A, audited); all-label abundance with exponent 2 (Theorem B); Ahlfors-regularity dimension 0 of the all-label set blocks the friendly-measure intersection with BA (Theorem C).
+
+Note: the cap of ten is exceeded by one.
 
 Older no-gos remain available through Git history and should not be bulk-loaded.
