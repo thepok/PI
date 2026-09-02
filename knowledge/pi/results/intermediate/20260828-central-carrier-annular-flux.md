@@ -416,7 +416,7 @@ unit-block surplus are machine-checked. Using only `irrational_pi`, T194
 additionally machine-checks an unprescribed actual-pi return at every decimal
 scale, without a timing bound. This qualitative mechanism is generic to every
 irrational orbit and does not prescribe the target. Under the explicit external premise
-`IrrationalityMeasureBelow pi (36/5)`, after a premise-dependent onset T194
+`IrrationalityMeasureBelow pi 8`, after a premise-dependent onset T194
 also machine-checks that one such positive unit lies in the exact fresh block
 `q<=n<10q`. The quantitative premise remains a literature-checked external
 hypothesis. Only the infinite-ray and full-block deductions remain `proof
@@ -439,7 +439,7 @@ S_(q,A)(M,L)
 
 machine-checked T193 gives `S_(q,A)(n,1)>3q/20` for `q>=1000`. T194 proves
 unconditionally that some such literal actual-pi root exists at every scale;
-the explicit premise `IrrationalityMeasureBelow pi (36/5)` strengthens this,
+the explicit premise `IrrationalityMeasureBelow pi 8` strengthens this,
 eventually, to `q<=n<10q`. This does not sign the sum over the whole fresh
 block. Recursive T176 Bellman choices at
 the unchanged block `(M,L)=(n,1)` then construct a coherent target ray with

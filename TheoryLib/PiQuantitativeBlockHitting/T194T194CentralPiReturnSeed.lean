@@ -9,7 +9,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggreg
 The irrationality of `pi` rules out an eventual decimal-orbit tail trapped in
 either chamber adjacent to zero or one, giving an unconditional unprescribed
 central return at every scale. Its containing decimal cell feeds T193's native
-unit-block surplus directly. An explicit irrationality-measure hypothesis
+unit-block surplus directly. The exponent-`8` irrationality-measure hypothesis
 additionally bounds a sufficiently long trapped finite window; after a
 premise-dependent onset, the unit can then be chosen in the fresh
 natural-horizon block `[q, 10*q)`.
@@ -63,12 +63,6 @@ private lemma eight_add_seven_mul_lt_two_mul_pow_ten (k : ℕ) (hk : 3 ≤ k) :
   have hp : 0 < 10 ^ (k - 1) := pow_pos (by omega) _
   rw [show k = (k - 1) + 1 by omega, pow_succ]
   omega
-
-private lemma sourceBelow36Fifths_implies_sourceBelowEight
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
-    IrrationalityMeasureBelow Real.pi 8 := by
-  rcases hSource with ⟨mu, hmu, hSource⟩
-  exact ⟨mu, by linarith, hSource⟩
 
 private lemma orbit_low_step
     (j : ℕ) (hlow : piOrbit j < 1 / 11)
@@ -356,7 +350,7 @@ scale `q = 10^k` has an unprescribed central literal unit beginning before
 time `8*q`.  In particular, this unit lies inside the next natural horizon
 `10*q`; no coherent choice between scales is asserted. -/
 theorem eventually_exists_central_pi_unitBlock_surplus_before_eight_scale
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
+    (hSource : IrrationalityMeasureBelow Real.pi 8) :
     ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
       ∃ n A : ℕ, n < 8 * 10 ^ k ∧ A < 10 ^ k ∧
         (3 / 20 : ℝ) * (10 ^ k : ℕ) <
@@ -365,7 +359,7 @@ theorem eventually_exists_central_pi_unitBlock_surplus_before_eight_scale
             signedBlockPotential (10 ^ k) := by
   obtain ⟨Q0, hIrr⟩ :=
     irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
-      (sourceBelow36Fifths_implies_sourceBelowEight hSource)
+      hSource
   refine ⟨Q0, ?_⟩
   intro k hk
   have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
@@ -428,7 +422,7 @@ premise-dependent onset, the positive literal unit starts in the exact T189
 fresh block `[q, 10*q)`. This asserts neither positivity of the whole fresh
 block nor a same-child horizon transport. -/
 theorem eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
+    (hSource : IrrationalityMeasureBelow Real.pi 8) :
     ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
       ∃ n A : ℕ, 10 ^ k ≤ n ∧ n < 10 * 10 ^ k ∧ A < 10 ^ k ∧
         (3 / 20 : ℝ) * (10 ^ k : ℕ) <
@@ -437,7 +431,7 @@ theorem eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
             signedBlockPotential (10 ^ k) := by
   obtain ⟨Q0, hIrr⟩ :=
     irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
-      (sourceBelow36Fifths_implies_sourceBelowEight hSource)
+      hSource
   refine ⟨Q0, ?_⟩
   intro k hk
   have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
@@ -504,7 +498,7 @@ cell at scale `q = 10^k` and the predecessor cell at scale `10*q` have the
 same centered coordinate.  The new leading child digit is exactly the
 decimal digit exposed by the predecessor orbit point. -/
 theorem eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
-    (hSource : IrrationalityMeasureBelow Real.pi ((36 : ℝ) / 5)) :
+    (hSource : IrrationalityMeasureBelow Real.pi 8) :
     ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
       let q := 10 ^ k
       ∃ n A d C : ℕ,
@@ -522,7 +516,7 @@ theorem eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
             signedBlockPotential (10 * q) := by
   obtain ⟨Q0, hIrr⟩ :=
     irrationalityMeasureBelow_eight_implies_exists_effectiveIrrationality
-      (sourceBelow36Fifths_implies_sourceBelowEight hSource)
+      hSource
   refine ⟨Q0, ?_⟩
   intro k hk
   dsimp only

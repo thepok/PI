@@ -75,13 +75,18 @@ The finite admission audit of currently named pi-specific inputs is in
   `10^k`, `k>=3`, has some actual-π orbit point and containing cell with the
   T193 unit-block surplus `>3*10^k/20`; this qualitative theorem has no timing
   bound. Conditional in its public Lean interface on
-  `IrrationalityMeasureBelow pi (36/5)`, it proves that after one onset such a
+  `IrrationalityMeasureBelow pi 8`, it proves that after one onset such a
   unit can always be chosen with `10^k+1<=n<10^(k+1)`. Its literal predecessor
   digit then machine-checkably lifts the same centered coordinate to a child
   unit at scale `10^(k+1)` and time `n-1`, inside the exact T189 fresh block,
-  with surplus `>3*10^k/2`. The timed proof itself uses only exponent `<8`;
-  the stronger `36/5` enters through a one-line adapter at the module
-  boundary. [Zeilberger--Zudilin's published
+  with surplus `>3*10^k/2`. The exponent `8` is not fundamental: replacing
+  the `7s`-step avoidance run by `ceil((alpha-1)s)` steps, the same argument
+  closes for every irrationality exponent `alpha<10` inside the
+  `n<10^(k+1)` window (`proof sketch`, independently audited 2026-09-02);
+  hence [Hata's 1993 bound](https://doi.org/10.1515/crll.1993.442.19)
+  `mu(pi)<=8.0161` would also suffice after that generalization, while
+  Salikhov's `7.6063` or Zeilberger--Zudilin's `7.1032` discharge the current
+  interface as it stands. [Zeilberger--Zudilin's published
   bound](https://arxiv.org/abs/1912.06345)
   `mu(pi)<=7.103205334137...` discharges that premise in ordinary mathematics
   (`literature-checked`); the source theorem and its bridge are not formalized
@@ -295,7 +300,7 @@ Thus every sufficiently central
 literal orbit point has the machine-checked primitive atom bound
 `p_(q,A)(n)>7139/45000` and T176 unit-block capital
 `S_(q,A)(n,1)>3q/20`. Conditional in Lean on
-`IrrationalityMeasureBelow pi (36/5)`, T194 localizes one such unit to
+`IrrationalityMeasureBelow pi 8`, T194 localizes one such unit to
 `q+1<=n<10q` after a premise-dependent onset and lifts it through its literal
 predecessor digit to a child-scale unit at time `n-1` with surplus `>3q/2`.
 Zeilberger--Zudilin's published irrationality-measure bound supplies this
@@ -308,7 +313,7 @@ coordinate is `x_(n+k)-1/2`; imposing a preassigned `A*` is already the
 `A*`-cylinder hit. Fishman's badly-approximable `{1,2}`-digit Cantor points
 show that the generic central-unit and predecessor-lift premises may hold at
 every time and scale while digit `3` never occurs (`literature-checked`
-existence plus `proof sketch` analytic transfer). Thus neither the `36/5`
+existence plus `proof sketch` analytic transfer). Thus neither the exponent-`8`
 Diophantine premise nor arbitrarily abundant central units repair the target
 quantifier. Exact predecessor-coordinate lifting gives arbitrarily long
 finite positive ladders (`proof sketch`), not one infinite natural-horizon
