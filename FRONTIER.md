@@ -36,6 +36,20 @@ the multi-child consumer while retaining the missing directed actual-pi
 recurrence; they are honesty checks, not replacements for V1 and not new
 mathematical progress.
 
+Literature status of the constant-word targets (`literature-checked`,
+2026-09-02): no proof of CW0 or CW9, or of `liminf ||b^n xi||=0`, is known
+for pi, e, sqrt 2, log 2 or zeta(3) in any fixed base;
+[Lagarias](https://arxiv.org/abs/math/0101055) records the binary sqrt 2 case
+as open. The best run-length bound for pi is linear,
+`Z(n),N(n)<=(6.1033+eps)n` eventually, from the Zeilberger--Zudilin
+irrationality measure; for algebraic irrationals Ridout gives `o(n)`. The one
+classical-looking constant with proved arbitrarily long zero runs is the
+Lambert series `E_t=sum_r 1/(t^r-1)=sum_m d(m) t^(-m)` in base `t` (Erdős
+1948, J. Indian Math. Soc. 12, 63--66), by a Chinese-remainder construction
+forcing a block of divisor values `d(m)` to be divisible by high powers of
+`t`; this is an arithmetic mechanism on an integer-coefficient base-`t`
+series, not a digit-concatenation definition.
+
 The finite admission audit of currently named pi-specific inputs is in
 [`PI_PROPERTY_ADMISSION_AUDIT.md`](knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md).
 
