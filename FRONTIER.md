@@ -60,7 +60,7 @@ Exact node definitions (CW0, CW9, CW, V1, N10, D2, N2, D16, N16, AN, HA, E),
 conventions, the complete implication matrix with proofs and counterexample
 witnesses, and resolution criteria are in the draft
 [`TARGET_SPECIFICATION_v1.md`](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md)
-(pending independent audit).
+(audited 2026-09-02, fixes applied, not yet frozen).
 
 ## Verified consumer and current modules
 
@@ -111,7 +111,7 @@ witnesses, and resolution criteria are in the draft
   Salikhov's `7.6063` or Zeilberger--Zudilin's `7.1032` discharge the current
   interface as it stands. [Zeilberger--Zudilin's published
   bound](https://arxiv.org/abs/1912.06345)
-  `mu(pi)<=7.103205334137...` discharges that premise in ordinary mathematics
+  `mu(pi)<=7.103205334138` (safely rounded upward) discharges that premise in ordinary mathematics
   (`literature-checked`); the source theorem and its bridge are not formalized
   in Lean. The target is unprescribed, and neither positivity of the entire
   same-child fresh block nor a coherent natural-horizon ray follows.

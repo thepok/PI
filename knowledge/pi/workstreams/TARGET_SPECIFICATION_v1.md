@@ -1,16 +1,17 @@
-<!-- Draft produced 2026-09-02 by a ChatGPT Pro run against snapshot ff342e0 and reviewed by Claude; status: draft pending independent audit (Pro job target-specification-audit). Once audited this file is the normative Target Specification the bounty and the paper refer to. -->
+<!-- Draft v1.0-rc2. Produced 2026-09-02 (ChatGPT Pro against snapshot ff342e0), independently audited the same day (verdict: correct with fixes; all fixes applied). Not yet frozen; freezing requires Marcel's sign-off. -->
 
 ---
-title: "Target Specification v1.0"
+title: "Target Specification v1.0-rc2"
 subtitle: 'Decimal disjunctivity and adjacent digit-distribution nodes for π'
-version: "1.0"
+version: "1.0-rc2"
 status_cutoff: "2026-09-02"
 repository: "thepok/PI"
 repository_snapshot: "ff342e0fbedec5f37decdaeea88ca2f6853320c9"
 normative_lean_node: "Theory.PiDigits.V1"
+audit: "independent adversarial audit 2026-09-02, verdict CORRECT WITH FIXES; all listed fixes applied"
 ---
 
-# Target Specification v1.0
+# Target Specification v1.0-rc2
 
 **Status cutoff:** 2026-09-02.  
 **Normative repository snapshot:** [`thepok/PI@ff342e0`](https://github.com/thepok/PI/tree/ff342e0fbedec5f37decdaeea88ca2f6853320c9).  
@@ -121,6 +122,15 @@ d_n\cdots d_{n+k-1}=9^k
 \]
 
 These are the decimal cylinder identities used below.
+
+### 1.5 Normative precedence
+
+If representations diverge, authority descends in this order:
+
+1. the pinned Lean source controls V1 and `piDigit`;
+2. the boxed formulas in §2 control every other node;
+3. formally stated equivalence lemmas control alternative formulations;
+4. prose and diagrams are explanatory only.
 
 ---
 
@@ -293,11 +303,17 @@ For a sequence \(z=(z_n)_{n\ge0}\subset[0,1)\), define
 :\Longleftrightarrow
 (\exists P\in\mathbb N_+)(\exists w_0,\ldots,w_{P-1}\in[0,1))
 (\forall\varepsilon>0)(\exists K\in\mathbb N_0)
-(\forall k\in\mathbb N_0)(\exists j<P)\quad
-\|z_{K+k}-w_j\|_{\mathbb R/\mathbb Z}<\varepsilon.
+(\exists t:\mathbb N_0\to\{0,\ldots,P-1\})
+(\forall k\in\mathbb N_0)\quad
+\|z_{K+k}-w_{t(k)}\|_{\mathbb R/\mathbb Z}<\varepsilon.
 \]
 
-This is Bailey–Crandall’s exact finite-attractor quantifier pattern [BC01, Def. 2.5]. The selected index \(j\) may depend arbitrarily on \(k\); no cyclic order, period, or minimality is part of the definition.
+This is an equivalent formulation of Bailey–Crandall’s finite-attractor
+definition [BC01, Def. 2.5, finite-attractor definition]. The selector
+\(t(k)\) may vary arbitrarily with \(k\); no cyclic order, period, or
+minimality is part of the definition. Equivalently, the distance from
+\(z_{K+k}\) to the finite set \(\{w_0,\ldots,w_{P-1}\}\) is less than
+\(\varepsilon\).
 
 Define equidistribution by
 
@@ -320,7 +336,7 @@ Define equidistribution by
 \mathrm{HA}:\Longleftrightarrow\
 (\forall b\in\mathbb N_+)(\forall p,q\in\mathbb Z[X])\ 
 &\Bigl[
-b\ge2\ \land\ 0\le\deg p<\deg q\
+b\ge2\ \land\ p\ne0\ \land\ \deg p<\deg q\
 \land\ (\forall n\in\mathbb N_+)\ q(n)\ne0
 \Bigr]\\[-1mm]
 &\Rightarrow
@@ -336,7 +352,7 @@ z^{b,p,q}_n=
 \end{aligned}}
 \]
 
-The exact concluding clause in [BC01, Hypothesis A] is: “either has a finite attractor or is equidistributed in \([0,1)\).” The degree condition excludes the zero polynomial \(p\), exactly as the printed condition \(0\le\deg p<\deg q\) does. No coprimality condition on \(p,q\) is added.
+The exact concluding clause in [BC01, Hypothesis A, finite-attractor-or-equidistribution dichotomy] is: “either has a finite attractor or is equidistributed in \([0,1)\).” Here \(\deg\) is the ordinary degree of a nonzero polynomial; the explicit condition \(p\ne0\) means that \(\deg0\) need not be defined. This is the convention \(p\ne0\land\deg p<\deg q\); equivalently, one could use the extended convention \(\deg0=-\infty\) and retain \(0\le\deg p<\deg q\). No coprimality condition on \(p,q\) is added.
 
 HA is a global assertion about every recurrence in this class; it is not itself a digit property of \(\pi\).
 
@@ -348,16 +364,20 @@ HA is a global assertion about every recurrence in this class; it is not itself 
 \boxed{\displaystyle
 \mathrm{E}
 :\Longleftrightarrow
-\liminf_{n\to\infty}\|10^n\pi\|_{\mathbb R/\mathbb Z}=0
-\quad\Longleftrightarrow\quad
+\liminf_{n\to\infty}\|10^n\pi\|_{\mathbb R/\mathbb Z}=0.}
+\]
+
+Equivalently,
+
+\[
 (\forall\varepsilon>0)(\forall N\in\mathbb N_0)
 (\exists n\in\mathbb N_0)\,
-\bigl(n\ge N\land\|10^n\pi\|_{\mathbb R/\mathbb Z}<\varepsilon\bigr).}
+\bigl(n\ge N\land\|10^n\pi\|_{\mathbb R/\mathbb Z}<\varepsilon\bigr).
 \]
 
 ### 2.8 Exact base-power equivalences
 
-Schmidt’s Theorem 1A [Sch60] states that if integer bases \(r,s\ge2\) are multiplicatively dependent,
+Schmidt’s Theorem 1A [Sch60, multiplicatively-dependent-base normality] states that if integer bases \(r,s\ge2\) are multiplicatively dependent,
 
 \[
 r\sim s
@@ -476,16 +496,16 @@ The denominator is positive for every \(n\ge1\), because after putting \(m=n-1\)
 
 The exact implication chain is:
 
-1. [BC01, Thm. 3.1] proves that the recurrence has a finite attractor if and only if \(\alpha\) is rational. Its proof also gives
+1. [BC01, Thm. 3.1, rationality–finite-attractor equivalence] proves that the recurrence has a finite attractor if and only if \(\alpha\) is rational. Its proof also gives
    \[
    \{16^n\alpha\}=\{z_n+t_n\},\qquad t_n\to0.
    \]
 2. \(\pi\) is irrational [Niv47], hence \(\alpha=\pi/16\) is irrational. The finite-attractor branch is therefore excluded unconditionally.
 3. HA forces the remaining branch: \((z_n)\) is equidistributed.
-4. [BC01, Thm. 2.1] transfers equidistribution across the vanishing perturbation \(t_n\).
-5. [BC01, Thm. 2.2] identifies equidistribution of \((\{16^n\alpha\})\) with base-16 normality of \(\alpha\).
-6. [BC01, Thm. 2.4] preserves base-16 normality under multiplication by the nonzero rational \(16\), so \(\pi\) is base-16 normal.
-7. [Sch60, Thm. 1A] gives base-16 normality if and only if base-2 normality.
+4. [BC01, Thm. 2.1, vanishing-perturbation transfer] transfers equidistribution across the vanishing perturbation \(t_n\).
+5. [BC01, Thm. 2.2, orbit criterion for normality] identifies equidistribution of \((\{16^n\alpha\})\) with base-16 normality of \(\alpha\).
+6. [BC01, Thm. 2.4, rational-scaling invariance] preserves base-16 normality under multiplication by the nonzero rational \(16\), so \(\pi\) is base-16 normal.
+7. [Sch60, Thm. 1A, multiplicatively-dependent-base normality] gives base-16 normality if and only if base-2 normality.
 
 Thus
 
@@ -494,9 +514,9 @@ Thus
 \Longleftrightarrow\mathrm{N2}.}
 \]
 
-Bailey–Crandall record the final conditional conclusion directly as [BC01, Thm. 1.1].
+Bailey–Crandall record the final conditional conclusion directly as [BC01, Thm. 1.1, conditional base-2 normality of \(\pi\)].
 
-Lagarias [Lag01, Thm. 3.3] strengthens the unconditional exclusion: for the associated perturbed orbit, having only finitely many limit points is equivalent to rationality of the represented number. Hence the \(\pi/16\) recurrence has infinitely many limit points. This does not imply density or equidistribution.
+Lagarias [Lag01, Thm. 3.3, rationality/finite-limit-set/periodic-orbit equivalence] independently characterizes the same excluded branch and gives a broader orbit-theoretic equivalence: for the associated perturbed orbit, having only finitely many limit points is equivalent to rationality of the represented number. Hence the \(\pi/16\) recurrence has infinitely many limit points. This does not imply density or equidistribution.
 
 ---
 
@@ -507,6 +527,10 @@ Lagarias [Lag01, Thm. 3.3] strengthens the unconditional exclusion: for the asso
 For the numerical nodes, an arrow \(P\to Q\) means a theorem valid for the corresponding properties of every real number, then specialized to \(\pi\). A counterexample number refutes such a structural implication.
 
 HA is different in type: it is a single global recurrence hypothesis. An HA-related question mark below means that no substantive theorem deriving the target from the source is known. It is not a claim about the truth value of a material implication between two currently undecided propositions.
+
+The DAG and matrix freeze inter-node implications only. They do not exclude
+external derivations, auxiliary nodes, or formally verified equivalent
+formulations.
 
 ### 3.2 Quotient DAG
 
@@ -579,7 +603,7 @@ All `?` cells are now exhausted: no theorem is known from any one \(\pi\)-digit 
 
 ### 3.5 Counterexample witnesses for every `×`
 
-All displayed digit strings below are canonical and non-eventually periodic, hence irrational.
+The digit-defined witnesses are canonical; X10 and X2 are existential deleted-digit constructions. The digit-defined strings Z0, Z9, Z09, DV, and DB are non-eventually periodic, hence irrational.
 
 #### Z0 — CW0 without CW9
 
@@ -620,16 +644,50 @@ Enumerate all nonempty decimal words as \(u_1,u_2,\ldots\). Choose zero-block le
 DV:=0.u_1\,0^{L_1}u_2\,0^{L_2}u_3\,0^{L_3}\cdots
 \]
 
-so that after stage \(m\), both the proportion of nonzero digits and the ratio
-\(|u_{m+1}|/\text{(current length)}\) are below \(1/m\). Such an \(L_m\) always exists. Every finite word occurs as some \(u_m\), so DV is decimal-disjunctive. At every sufficiently long prefix the nonzero proportion tends to \(0\), hence the zero frequency tends to \(1\), not \(1/10\). DV is not even simply normal, so it fails N10 and AN.
+Let
+
+\[
+S_m:=u_1 0^{L_1}\cdots u_m0^{L_m}
+\]
+
+be the prefix after the \(m\)-th zero block, and choose \(L_m\) so that
+
+\[
+\frac{\#\{\text{nonzero digits in }S_m\}}{|S_m|}<\frac1m,
+\qquad
+\frac{|u_{m+1}|}{|S_m|}<\frac1m.
+\]
+
+Such an \(L_m\) always exists. During insertion of \(u_{m+1}\), the nonzero
+proportion is \(O(1/m)\); during the following zero block it decreases. Every
+finite word occurs as some \(u_m\), so DV is decimal-disjunctive, while its
+zero frequency tends to \(1\), not \(1/10\). DV is not even simply normal, so
+it fails N10 and AN.
 
 #### DB — disjunctive but not normal in base 2
 
-Repeat the DV construction over the binary alphabet. Every binary word occurs, while the zero frequency tends to \(1\). Hence DB satisfies D2 and, by §2.8, D16, but fails N2, N16, and AN.
+Repeat the staged DV construction over the binary alphabet, enumerating its
+nonempty words as \(v_1,v_2,\ldots\). If \(S_m^{(2)}\) is the prefix after the
+\(m\)-th binary zero block, choose that block so that
 
-#### X10 — decimal-normal but not binary-disjunctive
+\[
+\frac{\#\{\text{ones in }S_m^{(2)}\}}{|S_m^{(2)}|}<\frac1m,
+\qquad
+\frac{|v_{m+1}|}{|S_m^{(2)}|}<\frac1m.
+\]
 
-For \(1<t<s\), Schmidt [Sch60, Thm. 2] defines \(T_{s,t}\) by taking a canonical base-\(t\) digit stream \((\varepsilon_j)\) and interpreting the same digits in base \(s\):
+The same \(O(1/m)\) all-prefix argument shows that every binary word occurs
+while the zero frequency tends to \(1\). Hence DB satisfies D2 and, by §2.8,
+D16, but fails N2, N16, and AN.
+
+For each of X10 and X2 below, choose the source in the intersection of
+Schmidt’s full-measure good set, the set with a unique canonical source
+expansion, and any other null-set exclusions needed for digit interpretation.
+This intersection still has full measure and is nonempty.
+
+#### X10 — existence witness: decimal-normal but not binary-disjunctive
+
+For \(1<t<s\), Schmidt [Sch60, Thm. 2, deleted-digit construction] defines \(T_{s,t}\) by taking a canonical base-\(t\) digit stream \((\varepsilon_j)\) and interpreting the same digits in base \(s\):
 
 \[
 T_{s,t}\!\left(\sum_{j\ge1}\varepsilon_jt^{-j}\right)
@@ -640,7 +698,7 @@ If \(r\not\sim s\), then for Lebesgue-almost every source number,
 \(T_{s,t}\) is normal to base \(r\), while its base-\(s\) digits lie in
 \(\{0,\ldots,t-1\}\), so it is not even simply normal to base \(s\).
 
-Take \(r=10,s=4,t=2\). Choose a source in the full-measure set and put
+Take \(r=10,s=4,t=2\). Choose a source from the intersection specified above and put
 
 \[
 X10:=T_{4,2}(\xi).
@@ -648,16 +706,17 @@ X10:=T_{4,2}(\xi).
 
 Then X10 is base-10 normal. Its base-4 digits are only \(0,1\); unpacked in base 2, every aligned pair is \(00\) or \(01\). The binary word \(11\) never occurs, even across pair boundaries. Therefore X10 fails D2, N2, D16, N16, and AN, while N10 gives V1, CW, CW0, CW9, and E.
 
-#### X2 — binary-normal with no decimal endpoint recurrence
+#### X2 — existence witness: binary-normal with no decimal endpoint recurrence
 
-Schmidt’s theorem with \(r=2,s=10,t=2\) gives, for almost every source \(\xi\),
+Schmidt’s theorem with \(r=2,s=10,t=2\) gives, for every source \(\xi\) in its
+full-measure good set,
 
 \[
 y:=T_{10,2}(\xi)=\sum_{j\ge1}\varepsilon_j10^{-j}
 \]
 
 normal to base \(2\), with every decimal digit \(\varepsilon_j\in\{0,1\}\).
-Set
+Choose \(\xi\) from the intersection specified above and set
 
 \[
 X2:=y+\frac19
@@ -672,7 +731,7 @@ There is no carry, so every decimal digit of X2 is \(1\) or \(2\). Hence, for ev
 
 and X2 fails CW0, CW9, CW, V1, N10, and E.
 
-It remains base-2 normal. More generally, if \(\alpha\) is normal in base \(b\) and \(q\in\mathbb Q\), then \(\alpha+q\) is normal in base \(b\): the sequence \(\{b^nq\}\) is eventually periodic, say with period \(P\); Schmidt’s base-power theorem gives normality of \(\alpha\) in base \(b^P\); multiplying by \(b^r\) preserves that normality [BC01, Thm. 2.4], so each residue-class subsequence \(\{b^{Pm+r}\alpha\}\) is equidistributed; adding its fixed periodic phase preserves equidistribution, and interleaving the \(P\) residue classes preserves it. Thus X2 satisfies N2, N16, D2, and D16, but not AN.
+It remains base-2 normal. More generally, if \(\alpha\) is normal in base \(b\) and \(q\in\mathbb Q\), then \(\alpha+q\) is normal in base \(b\): the sequence \(\{b^nq\}\) is eventually periodic, say with period \(P\); Schmidt’s base-power theorem gives normality of \(\alpha\) in base \(b^P\); multiplying by \(b^r\) preserves that normality [BC01, Thm. 2.4, rational-scaling invariance], so each residue-class subsequence \(\{b^{Pm+r}\alpha\}\) is equidistributed; adding its fixed periodic phase preserves equidistribution, and interleaving the \(P\) residue classes preserves it. Thus X2 satisfies N2, N16, D2, and D16, but not AN.
 
 The unshifted number \(y\) already supplies the requested direct class **D2 without V1**.
 
@@ -680,11 +739,11 @@ The unshifted number \(y\) already supplies the requested direct class **D2 with
 
 These results are recorded to prevent incorrect cross-base arrows.
 
-1. **Cassels 1959.** Let \(U\) be the ternary Cantor set whose ternary digits are restricted to \(0,1\), with its natural Bernoulli measure. Cassels proves that for every integer \(b\ge2\) that is not a power of \(3\), almost every \(\xi\in U\) is normal to base \(b\) [Cas59, Theorem; Lemma 1]. His opening gloss of “normal” mentions one-digit frequencies, but the proof establishes uniform distribution of \((b^n\xi)\) modulo \(1\), which is full modern normality by the orbit criterion [BC01, Thm. 2.2]. Such numbers are normal to bases \(2\) and \(10\), but not to base \(3\). Cassels alone does **not** give N2 without N10.
+1. **Cassels 1959.** Let \(U\) be the ternary Cantor set whose ternary digits are restricted to \(0,1\), with its natural Bernoulli measure. Cassels proves that for every integer \(b\ge2\) that is not a power of \(3\), almost every \(\xi\in U\) is normal to base \(b\) [Cas59, main theorem and Lemma 1, deleted-digit normality]. His opening gloss of “normal” mentions one-digit frequencies, but the proof establishes uniform distribution of \((b^n\xi)\) modulo \(1\), which is full modern normality by the orbit criterion [BC01, Thm. 2.2, orbit criterion for normality]. Such numbers are normal to bases \(2\) and \(10\), but not to base \(3\). Cassels alone does **not** give N2 without N10.
 
-2. **Schmidt 1960.** [Sch60, Thm. 1A] proves equivalence of normality for multiplicatively dependent bases. [Sch60, Thm. 1B] proves that if \(r\not\sim s\), there are continuum many numbers normal to base \(r\) but not even simply normal to base \(s\), and conversely. Taking \(r=2,s=10\) gives numbers N2 but not N10. [Sch60, Thm. 2] gives the explicit \(T_{s,t}\) full-measure construction used above.
+2. **Schmidt 1960.** [Sch60, Thm. 1A, multiplicatively-dependent-base normality] proves equivalence of normality for multiplicatively dependent bases. [Sch60, Thm. 1B, independent-base separation] proves that if \(r\not\sim s\), there are continuum many numbers normal to base \(r\) but not even simply normal to base \(s\), and conversely. Taking \(r=2,s=10\) gives numbers N2 but not N10. [Sch60, Thm. 2, deleted-digit construction] gives the existential \(T_{s,t}\) full-measure construction used above.
 
-3. **Schmidt 1962.** In modern notation, the main theorem of [Sch62] says: if \(\mathcal B\subseteq\{2,3,\ldots\}\) is closed under multiplicative dependence, then there exists a real number normal to every base in \(\mathcal B\) and nonnormal to every integer base outside \(\mathcal B\). Choosing \(\mathcal B\) as the multiplicative-dependence class of \(2\) again gives N2 without N10.
+3. **Schmidt 1961/62.** In modern notation, the normal-base classification theorem of [Sch61/62, *Acta Arithmetica* **7** (1961/62), 299–309] says: if \(\mathcal B\subseteq\{2,3,\ldots\}\) is closed under multiplicative dependence, then there exists a real number normal to every base in \(\mathcal B\) and nonnormal to every integer base outside \(\mathcal B\). Choosing \(\mathcal B\) as the multiplicative-dependence class of \(2\) again gives N2 without N10.
 
 Bases \(2\) and \(10\) are multiplicatively independent because \(2^m=10^n\) has no solution \(m,n\in\mathbb N_+\).
 
@@ -694,21 +753,57 @@ Bases \(2\) and \(10\) are multiplicatively independent because \(2^m=10^n\) has
 
 ### 4.1 What resolves a node
 
-A node is resolved only by an unconditional proof or an unconditional disproof of the exact displayed proposition in §2, in an accepted foundational system.
+A node is mathematically resolved only by an unconditional proof or an
+unconditional disproof of the exact displayed proposition in §2. The proof
+or disproof may be constructive or nonconstructive.
+
+A proof counts if it proves the exact node directly, or proves a proposition
+connected to the exact node by a formally verified implication sufficient for
+the claimed polarity. Definitional equality is sufficient but not necessary.
+For a positive resolution, an equivalence or an implication to the node is
+enough. For a negative resolution, an implication from the node to the
+disproved formulation, or a direct proof of the node’s negation, is enough.
 
 - **Proof:** establishes every displayed universal quantifier.
-- **Disproof of CW0 or CW9:** proves that some explicit length \(k\ge1\) never occurs on the specified side.
+- **Disproof of CW0 or CW9:** proves that some length \(k\ge1\) never occurs on the specified side.
 - **Disproof of CW:** disproves at least one of CW0 or CW9.
-- **Disproof of a disjunctivity node:** gives a finite word and proves that it has no occurrence.
-- **Disproof of a normality node:** gives a base and finite word, as applicable, and proves that the limiting frequency either does not exist or is not the required \(b^{-k}\).
+- **Disproof of a disjunctivity node:** proves that there exists a finite word with no occurrence.
+- **Disproof of a normality node:** proves that there exists a base and finite word, as applicable, whose limiting frequency either does not exist or is not the required \(b^{-k}\).
 - **Disproof of E:** proves
   \[
   (\exists\delta>0)(\exists N)(\forall n\ge N)\quad
   \|10^n\pi\|_{\mathbb R/\mathbb Z}\ge\delta.
   \]
-- **Disproof of HA:** gives an admissible explicit tuple \((b,p,q)\) whose recurrence has neither a finite attractor nor an equidistributed orbit. Proving failure of only one branch does not disprove HA.
+- **Disproof of HA:** proves that there exists an admissible tuple \((b,p,q)\) whose recurrence has neither a finite attractor nor an equidistributed orbit. Proving failure of only one branch does not disprove HA.
 
-A machine-checked proof counts if its formal definitions reduce exactly to the node stated here. A computation counts only when embedded in a proof that certifies the required infinite assertion.
+Any accepted unconditional proof of the exact negation resolves the node. An
+explicit witness is encouraged but not logically required.
+
+**Foundations and verification policy.** “Unconditional” means provable in
+classical ZFC, including the Axiom of Choice; a proof in a weaker foundation
+also counts. Any additional axiom, including a named large-cardinal axiom,
+must be stated and does not yield an unconditional resolution under this
+specification unless the result is reduced to ZFC or a versioned amendment
+adopts that axiom. A theorem conditional on a consistency assertion, including
+\(\operatorname{Con}(\mathrm{ZFC})\) or the consistency of a stronger system,
+does not count as unconditional.
+
+Ordinary written proofs are eligible for independent mathematical checking.
+For machine-checked submissions, Lean 4 is the repository-native accepted
+proof assistant and must obey the repository trust policy; another assistant
+requires a versioned amendment naming its kernel and accepted version. Every
+computer-assisted proof must archive its source, exact inputs, dependencies,
+and a deterministic verifier or replay procedure. An opaque binary, unchecked
+external computation, or unverifiable certificate does not count.
+
+**Bounty-certificate policy.** Mathematical resolution is distinct from prize
+eligibility. This specification imposes no additional extractable-witness
+requirement. An associated bounty may separately require a machine-extractable
+witness or another submission format, even though a nonconstructive proof
+settles the mathematical proposition; such a requirement affects the bounty
+certificate only, not the node’s mathematical status.
+
+A computation counts only when embedded in a proof that certifies the required infinite assertion.
 
 ### 4.2 What does not resolve a node
 
@@ -719,10 +814,14 @@ The following do not resolve any node unless their missing assumptions are indep
 - a finite digit computation, regardless of length;
 - observed frequencies with error bars;
 - a result for another constant;
-- a result in another base without a proved implication in this DAG;
 - density or equidistribution of a surrogate sequence not proved to transfer to the exact orbit;
 - a lower bound on digit complexity, number of changes, or number of distinct blocks that does not establish the node’s full quantifiers;
-- a theorem assuming the desired recurrence, density, disjunctivity, or normality in disguised form.
+- an argument with an unproved premise that formally implies the target node under already accepted lemmas; by this criterion the argument is circular.
+
+A result in another base does not resolve a node unless accompanied by a proved
+derivation to the exact node. The displayed DAG records the currently frozen
+inter-node implications; it does not exhaust admissible external lemmas or
+equivalent formulations.
 
 ### 4.3 Stacking and contrapositive propagation
 
@@ -737,7 +836,7 @@ A proof of a node automatically resolves every downstream node in the DAG:
 - HA resolves HA itself and, through the BBP chain, N2, N16, D2, and D16 only.
 - E resolves no stronger or directed endpoint node.
 
-Disproof propagates contrapositively against proved arrows. For example, \(\neg\mathrm{V1}\) disproves N10 and AN; \(\neg\mathrm{D2}\) disproves N2, N16, D16, and AN. No conclusion may be propagated across a `×` or `?` cell.
+Disproof propagates contrapositively against proved arrows. For example, \(\neg\mathrm{V1}\) disproves N10 and AN; \(\neg\mathrm{D2}\) disproves N2, N16, D16, and AN. Because HA implies D2 and N2, either \(\neg\mathrm{D2}\) or \(\neg\mathrm{N2}\) also disproves HA. No conclusion may be propagated across a `×` or `?` cell.
 
 ---
 
@@ -762,10 +861,16 @@ Disproof propagates contrapositively against proved arrows. For example, \(\neg\
 
 ### 5.1 Irrationality measure and the constant-run consequence
 
-Zeilberger–Zudilin prove [ZZ20]
+Any decimal used in a rigorous one-sided inequality must be exact,
+interval-certified, or rounded in the safe direction and labelled as such. A
+paper title’s decimal truncation is not automatically a rigorous upper bound.
+
+Zeilberger–Zudilin’s irrationality-measure theorem [ZZ20,
+irrationality-measure upper bound] gives the following safely upward-rounded
+bound:
 
 \[
-\mu(\pi)\le M:=7.103205334137.
+\mu(\pi)\le M:=7.103205334138.
 \]
 
 For \(a\in\{0,9\}\), define the run length beginning at decimal position \(n\) by
@@ -788,7 +893,7 @@ that is,
 \[
 R_0(n),R_9(n)
 <
-(6.103205334137+\varepsilon)n
+(6.103205334138+\varepsilon)n
 \quad\text{eventually}.
 \]
 
@@ -816,14 +921,44 @@ This is an upper bound on runs that occur. It supplies no lower bound and does n
 
 For the exact base-16 recurrence in §2.10:
 
-- [BC01, Thm. 3.1] excludes a finite attractor unconditionally because \(\pi/16\) is irrational.
-- [Lag01, Thm. 3.3] implies that the orbit has infinitely many limit points.
+- [BC01, Thm. 3.1, rationality–finite-attractor equivalence] excludes a finite attractor unconditionally because \(\pi/16\) is irrational.
+- [Lag01, Thm. 3.3, rationality/finite-limit-set/periodic-orbit equivalence] independently characterizes the same excluded branch and implies that the orbit has infinitely many limit points.
+
+For every sequence in the compact circle, finite attraction is equivalent to
+having a finite set of subsequential limit points. Finite attraction confines
+all limit points to the finite attracting set. Conversely, if the finite limit
+set were not eventually approached, compactness would give a subsequence
+bounded away from it and a new limit point, a contradiction. Lagarias thus
+gives a broader orbit-theoretic equivalence, not a logically stronger
+exclusion.
 
 Neither statement proves that the limit points are dense, that the orbit is equidistributed, or that any listed digit node holds. HA would select equidistribution conditionally.
 
 ### 5.3 Boundary of the recorded knowledge
 
 Apart from the irrationality-measure consequence and the finite-attractor/finite-limit-point exclusion above, this specification records no theorem as moving any node. No additional theorem located in the audit establishes any node’s quantified conclusion; finite computations do not do so. This is the precise sense of “nothing else” in this status section.
+
+### 5.4 Status-search and acceptance protocol
+
+The search cutoff and last search date are 2026-09-02. The databases and
+source indexes recorded as searched are the pinned PI repository, arXiv,
+Project Euclid, and the publisher/journal and DOI records linked in the
+primary references. The query families covered \(\pi\) normality and
+disjunctivity in bases 2, 10, and 16;
+constant zero/nine runs and endpoint recurrence; absolute normality; and
+Bailey–Crandall Hypothesis A, finite attractors, and perturbed-orbit limit
+sets.
+
+For a preprint, the exact version and date available by the cutoff must be
+pinned; a journal version controls when the texts agree. Later corrections
+supersede the affected claim, and a retracted or withdrawn result is not
+accepted absent an independently verified replacement proof. “Accepted” for
+status purposes means that a complete, publicly inspectable proof or
+certificate satisfies §4 and has no unresolved correction or retraction;
+publication or peer review alone is neither sufficient nor necessary. Every
+future status update must record the same fields: databases searched, search
+date and query families, version policy, correction/retraction check, and
+acceptance rule.
 
 ---
 
@@ -844,10 +979,10 @@ Apart from the irrationality-measure consequence and the finite-attractor/finite
 13. **Limit direction:** all liminf/limsup statements are along \(n\to\infty\), not an infimum or supremum over the whole orbit.
 14. **Base-16 alignment:** hexadecimal digit \(j\) is the block of binary digits at positions \(4j,4j+1,4j+2,4j+3\).
 15. **Disjunctivity under powers:** regrouping alone is insufficient; §2.8 supplies the required residue-alignment argument.
-16. **Normality under powers:** the equivalence is justified by multiplicative dependence [Sch60, Thm. 1A].
+16. **Normality under powers:** the equivalence is justified by multiplicative dependence [Sch60, Thm. 1A, multiplicatively-dependent-base normality].
 17. **Base 2 versus base 10:** they are multiplicatively independent; no normality or disjunctivity implication is available.
-18. **Finite attractor:** Bailey–Crandall’s selector may vary arbitrarily with time; periodicity is not built into the definition.
-19. **Lagarias distinction:** “finitely many limit points” is a stronger orbit description than merely naming the HA alternative; it is kept separate.
+18. **Finite attractor:** the selector formulation in §2.6 is equivalent to Bailey–Crandall’s condition; the selector may vary arbitrarily with time, and periodicity is not built into the definition.
+19. **Lagarias reformulation:** finite attraction and a finite subsequential limit set are equivalent on the compact circle; Lagarias independently characterizes the same excluded branch in a broader framework.
 20. **HA type:** HA is a global hypothesis over a recurrence class, not a predicate of one number.
 21. **BBP normalization:** the recurrence represents \(\alpha=\pi/16\), not \(\pi\) directly; rational scaling is an explicit step.
 22. **Implication semantics:** numeric counterexamples refute universal structural arrows; they do not decide accidental material implications between unknown propositions about \(\pi\).
@@ -855,6 +990,21 @@ Apart from the irrationality-measure consequence and the finite-attractor/finite
 24. **Resolution polarity:** both proof and disproof count; conditional or empirical evidence does not.
 25. **Status date:** every “known/open” statement is cut off at 2026-09-02.
 26. **Repository authority:** V1 indexing and quantifiers are pinned to commit `ff342e0fbedec5f37decdaeea88ca2f6853320c9`.
+27. **Normative precedence:** pinned Lean controls V1 and `piDigit`; boxed §2 formulas control other nodes; proved equivalences control alternatives; prose and diagrams are explanatory.
+28. **Polynomial degree at zero:** HA requires \(p\ne0\) and \(\deg p<\deg q\), so ordinary degree is never applied to the zero polynomial.
+29. **Literal finite-attractor syntax:** FA uses a time-dependent selector, equivalently distance to a finite set.
+30. **E syntax:** E is defined by one liminf formula; its quantified form and \(E\iff(\mathrm{CW0}\lor\mathrm{CW9})\) are separately proved equivalences.
+31. **Equivalent-proof admission:** definitional equality is unnecessary when a verified implication or equivalence has the polarity required to prove or disprove the exact node.
+32. **External lemmas:** the DAG freezes inter-node implications only and does not exclude independently verified external derivations or auxiliary formulations.
+33. **Resolution versus certificate:** an unconditional constructive or nonconstructive proof settles mathematical status; separate bounty-format or extractability rules affect eligibility only.
+34. **Foundations and proof assistants:** §4.1 fixes ZFC, additional-axiom and consistency rules, the accepted proof-assistant route, and replayable certificate requirements.
+35. **Existential witnesses:** X10 and X2 are existence witnesses selected from full-measure classes, not explicitly evaluated constants.
+36. **Full-measure source selection:** each X10/X2 source lies in the intersection of Schmidt’s good set, unique-canonical-expansion sources, and all required null-set complements; the intersection remains full measure and nonempty.
+37. **Finite attractor versus finite limit set:** the two conditions are equivalent for sequences in the compact circle, so neither is a strictly stronger exclusion.
+38. **Numerical rounding:** a rigorous one-sided decimal is exact, interval-certified, or safely rounded and labelled; §5.1 uses the safe upper bound \(7.103205334138\).
+39. **Status-search protocol:** §5.4 fixes search surfaces, date and query families, preprint/version handling, correction/retraction handling, and the acceptance test.
+40. **Stable theorem identifiers:** numbered citations include a short theorem description and the bibliography fixes stable journal or version data.
+41. **Circularity:** an argument is circular exactly when an unproved premise formally implies the target node under already accepted lemmas.
 
 ---
 
@@ -900,14 +1050,15 @@ and [`TARGET.md`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88c
 [Primary PDF](https://msp.org/pjm/1960/10-2/pjm-v10-n2-p22-s.pdf);
 [DOI](https://doi.org/10.2140/pjm.1960.10.661).
 
-**[Sch62]** W. M. Schmidt,
+**[Sch61/62]** W. M. Schmidt,
 “Über die Normalität von Zahlen zu verschiedenen Basen,”
-*Acta Arithmetica* **7** (1962), 299–309.
+*Acta Arithmetica* **7** (1961/62), 299–309.
 [Primary PDF](https://matwbn.icm.edu.pl/ksiazki/aa/aa7/aa7311.pdf);
 [DOI](https://doi.org/10.4064/aa-7-3-299-309).
 
 **[ZZ20]** D. Zeilberger and W. Zudilin,
-“The irrationality measure of \(\pi\) is at most \(7.103205334137\),”
+article establishing the irrationality-measure upper bound for \(\pi\),
 *Moscow Journal of Combinatorics and Number Theory* **9** (2020), no. 4, 407–419.
 [Primary preprint](https://arxiv.org/abs/1912.06345);
-[DOI](https://doi.org/10.2140/moscow.2020.9.407).
+[DOI](https://doi.org/10.2140/moscow.2020.9.407). The official title uses a
+shorter decimal truncation; §5.1 supplies the safely rounded rigorous bound.
