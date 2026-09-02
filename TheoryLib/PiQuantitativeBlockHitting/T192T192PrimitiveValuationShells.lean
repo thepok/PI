@@ -29,16 +29,27 @@ open Theory.PiDigits.T191CentralBoundaryKernelFloor
 abbrev phase := Theory.PiDigits.T27.phase
 abbrev piOrbit := Theory.PiDigits.T27.piFractionalOrbit
 
-/-- The single time atom whose prefix sum is the primitive boundary Fourier
-sum.  It is deliberately written over the uncompressed positive support. -/
-def primitiveBoundaryAtom (q A n : ℕ) : ℂ :=
+/-- The primitive boundary atom at an arbitrary real phase.  It is deliberately
+written over the uncompressed positive support. -/
+def primitiveBoundaryAtomAt (q A : ℕ) (x : ℝ) : ℂ :=
   ∑ h ∈ positiveBoundarySupport q,
-    centeredBoundaryTerm q A h * phase (tenPrimitivePart h : ℤ) (piOrbit n)
+    centeredBoundaryTerm q A h * phase (tenPrimitivePart h : ℤ) x
 
-/-- Exact shell of frequencies having decimal valuation `s`. -/
-def primitiveValuationShell (q A n s : ℕ) : ℂ :=
+/-- The single time atom whose prefix sum is the primitive boundary Fourier
+sum. -/
+def primitiveBoundaryAtom (q A n : ℕ) : ℂ :=
+  primitiveBoundaryAtomAt q A (piOrbit n)
+
+/-- Exact shell of frequencies having decimal valuation `s`, at an arbitrary
+real phase. -/
+def primitiveValuationShellAt (q A : ℕ) (x : ℝ) (s : ℕ) : ℂ :=
   ∑ h ∈ positiveBoundarySupport q with tenValuation h = s,
-    centeredBoundaryTerm q A h * phase (tenPrimitivePart h : ℤ) (piOrbit n)
+    centeredBoundaryTerm q A h * phase (tenPrimitivePart h : ℤ) x
+
+/-- Exact shell of frequencies having decimal valuation `s` at orbit time
+`n`. -/
+def primitiveValuationShell (q A n s : ℕ) : ℂ :=
+  primitiveValuationShellAt q A (piOrbit n) s
 
 /-- A one-time primitive atom is exactly the difference of consecutive
 primitive prefix sums. -/
@@ -47,7 +58,7 @@ theorem primitiveBoundaryFourierSum_succ_sub_eq_atom (q A n : ℕ) :
         primitiveBoundaryFourierSum q A n = primitiveBoundaryAtom q A n := by
   rw [primitiveBoundaryFourierSum_eq_support_sum,
     primitiveBoundaryFourierSum_eq_support_sum]
-  unfold primitiveBoundaryAtom
+  unfold primitiveBoundaryAtom primitiveBoundaryAtomAt
   simp only [Theory.PiDigits.T27.exponentialSum]
   rw [← Finset.sum_sub_distrib]
   apply Finset.sum_congr rfl
@@ -68,13 +79,14 @@ private lemma tenValuation_le_decimal_scale
   have hkpow : 0 < 10 ^ k := pow_pos (by omega) _
   omega
 
-/-- At decimal scale `10^k`, the atom is the disjoint sum of shells
+/-- At decimal scale `10^k`, a free-phase atom is the disjoint sum of shells
 `s = 0, ..., k`. -/
-theorem primitiveBoundaryAtom_eq_sum_valuationShells (k A n : ℕ) :
-    primitiveBoundaryAtom (10 ^ k) A n =
-      ∑ s ∈ range (k + 1), primitiveValuationShell (10 ^ k) A n s := by
+theorem primitiveBoundaryAtom_eq_sum_valuationShells_generic
+    (k A : ℕ) (x : ℝ) :
+    primitiveBoundaryAtomAt (10 ^ k) A x =
+      ∑ s ∈ range (k + 1), primitiveValuationShellAt (10 ^ k) A x s := by
   classical
-  unfold primitiveBoundaryAtom primitiveValuationShell
+  unfold primitiveBoundaryAtomAt primitiveValuationShellAt
   simp only [Finset.sum_filter]
   rw [Finset.sum_comm]
   apply Finset.sum_congr rfl
@@ -83,25 +95,37 @@ theorem primitiveBoundaryAtom_eq_sum_valuationShells (k A n : ℕ) :
   have hv := tenValuation_le_decimal_scale k h hh'.1 hh'.2
   simp [hv]
 
+/-- At decimal scale `10^k`, the atom is the disjoint sum of shells
+`s = 0, ..., k`. -/
+theorem primitiveBoundaryAtom_eq_sum_valuationShells (k A n : ℕ) :
+    primitiveBoundaryAtom (10 ^ k) A n =
+      ∑ s ∈ range (k + 1), primitiveValuationShell (10 ^ k) A n s := by
+  simpa [primitiveBoundaryAtom, primitiveValuationShell] using
+    primitiveBoundaryAtom_eq_sum_valuationShells_generic k A (piOrbit n)
+
 /-- The layer-difference expression which deletes all frequencies divisible
-by one additional power of ten. -/
-def boundaryValuationLayerDifference (q A n s : ℕ) : ℂ :=
+by one additional power of ten, at an arbitrary real phase. -/
+def boundaryValuationLayerDifferenceAt (q A : ℕ) (x : ℝ) (s : ℕ) : ℂ :=
   divisibleBoundaryPolynomial q (10 ^ s)
-      (piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A) -
+      (x - (10 ^ s : ℕ) * decimalCylinderCenter q A) -
     divisibleBoundaryPolynomial q (10 ^ (s + 1))
-      (10 * piOrbit n - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A)
+      (10 * x - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A)
+
+/-- The layer-difference expression at orbit time `n`. -/
+def boundaryValuationLayerDifference (q A n s : ℕ) : ℂ :=
+  boundaryValuationLayerDifferenceAt q A (piOrbit n) s
 
 private lemma pow_ten_dvd_iff_le_tenValuation {h s : ℕ} (hh : h ≠ 0) :
     10 ^ s ∣ h ↔ s ≤ tenValuation h := by
   exact Nat.pow_dvd_iff_le_padicValNat (by norm_num) hh
 
 private lemma layerTerm_eq_primitiveTerm
-    (q A n s h : ℕ) (hval : tenValuation h = s) :
+    (q A s h : ℕ) (x : ℝ) (hval : tenValuation h = s) :
     (positiveBoundaryCoefficient q h : ℂ) *
         phase ((h / 10 ^ s : ℕ) : ℤ)
-          (piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A) =
+          (x - (10 ^ s : ℕ) * decimalCylinderCenter q A) =
       centeredBoundaryTerm q A h *
-        phase (tenPrimitivePart h : ℤ) (piOrbit n) := by
+        phase (tenPrimitivePart h : ℤ) x := by
   have hred := ten_reduction h
   rw [hval] at hred
   have hquot : h / 10 ^ s = tenPrimitivePart h := by
@@ -114,10 +138,10 @@ private lemma layerTerm_eq_primitiveTerm
   unfold centeredBoundaryTerm
   rw [mul_assoc]
   congr 1
-  rw [show piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A =
-      (-(10 ^ s : ℕ) * decimalCylinderCenter q A) + piOrbit n by ring]
+  rw [show x - (10 ^ s : ℕ) * decimalCylinderCenter q A =
+      (-(10 ^ s : ℕ) * decimalCylinderCenter q A) + x by ring]
   change Theory.PiDigits.T27.phase (tenPrimitivePart h : ℤ)
-      (-((10 ^ s : ℕ) : ℝ) * decimalCylinderCenter q A + piOrbit n) = _
+      (-((10 ^ s : ℕ) : ℝ) * decimalCylinderCenter q A + x) = _
   rw [Theory.PiDigits.T27.phase_add_real]
   congr 1
   unfold Theory.PiDigits.T27.phase
@@ -135,13 +159,13 @@ private lemma layerTerm_eq_primitiveTerm
           (decimalCylinderCenter q A : ℂ) := by rw [hredC]; ring
 
 private lemma nextLayerTerm_eq_currentLayerTerm
-    (q A n s h : ℕ) (hdiv : 10 ^ (s + 1) ∣ h) :
+    (q A s h : ℕ) (x : ℝ) (hdiv : 10 ^ (s + 1) ∣ h) :
     (positiveBoundaryCoefficient q h : ℂ) *
         phase ((h / 10 ^ (s + 1) : ℕ) : ℤ)
-          (10 * piOrbit n - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A) =
+          (10 * x - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A) =
       (positiveBoundaryCoefficient q h : ℂ) *
         phase ((h / 10 ^ s : ℕ) : ℤ)
-          (piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A) := by
+          (x - (10 ^ s : ℕ) * decimalCylinderCenter q A) := by
   obtain ⟨m, rfl⟩ := hdiv
   rw [Nat.mul_div_cancel_left m (pow_pos (by norm_num) (s + 1))]
   rw [show 10 ^ (s + 1) * m / 10 ^ s = 10 * m by
@@ -153,26 +177,27 @@ private lemma nextLayerTerm_eq_currentLayerTerm
   push_cast
   ring
 
-/-- Exact valuation shells are differences of consecutive divisibility
-layers; in particular they are not the divisibility layers themselves. -/
-theorem primitiveValuationShell_eq_layerDifference
-    (q A n s : ℕ) :
-    primitiveValuationShell q A n s =
-      boundaryValuationLayerDifference q A n s := by
+/-- Free-phase exact valuation shells are differences of consecutive
+divisibility layers; in particular they are not the divisibility layers
+themselves. -/
+theorem primitiveValuationShell_eq_layerDifference_generic
+    (q A s : ℕ) (x : ℝ) :
+    primitiveValuationShellAt q A x s =
+      boundaryValuationLayerDifferenceAt q A x s := by
   classical
   let F : ℕ → ℂ := fun h =>
     (positiveBoundaryCoefficient q h : ℂ) *
       phase ((h / 10 ^ s : ℕ) : ℤ)
-        (piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A)
-  have hshell : primitiveValuationShell q A n s =
+        (x - (10 ^ s : ℕ) * decimalCylinderCenter q A)
+  have hshell : primitiveValuationShellAt q A x s =
       ∑ h ∈ positiveBoundarySupport q with tenValuation h = s, F h := by
-    unfold primitiveValuationShell
+    unfold primitiveValuationShellAt
     apply Finset.sum_congr rfl
     intro h hh
-    exact (layerTerm_eq_primitiveTerm q A n s h
+    exact (layerTerm_eq_primitiveTerm q A s h x
       (Finset.mem_filter.mp hh).2).symm
   have hcurrent : divisibleBoundaryPolynomial q (10 ^ s)
-        (piOrbit n - (10 ^ s : ℕ) * decimalCylinderCenter q A) =
+        (x - (10 ^ s : ℕ) * decimalCylinderCenter q A) =
       ∑ h ∈ positiveBoundarySupport q with s ≤ tenValuation h, F h := by
     unfold divisibleBoundaryPolynomial positiveBoundarySupport
     simp only [Finset.sum_filter]
@@ -188,7 +213,7 @@ theorem primitiveValuationShell_eq_layerDifference
     · have hnle : ¬s ≤ tenValuation h := by simpa [hiff] using hdvd
       simp [hdvd, hnle]
   have hnext : divisibleBoundaryPolynomial q (10 ^ (s + 1))
-        (10 * piOrbit n - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A) =
+        (10 * x - (10 ^ (s + 1) : ℕ) * decimalCylinderCenter q A) =
       ∑ h ∈ positiveBoundarySupport q with s + 1 ≤ tenValuation h, F h := by
     unfold divisibleBoundaryPolynomial positiveBoundarySupport
     simp only [Finset.sum_filter]
@@ -201,11 +226,11 @@ theorem primitiveValuationShell_eq_layerDifference
     by_cases hdvd : 10 ^ (s + 1) ∣ h
     · have hle := hiff.mp hdvd
       simp only [if_pos hdvd, if_pos hle]
-      exact nextLayerTerm_eq_currentLayerTerm q A n s h hdvd
+      exact nextLayerTerm_eq_currentLayerTerm q A s h x hdvd
     · have hnle : ¬s + 1 ≤ tenValuation h := by simpa [hiff] using hdvd
       simp [hdvd, hnle]
   rw [hshell]
-  unfold boundaryValuationLayerDifference
+  unfold boundaryValuationLayerDifferenceAt
   rw [hcurrent, hnext]
   simp only [Finset.sum_filter, ← Finset.sum_sub_distrib]
   apply Finset.sum_congr rfl
@@ -219,6 +244,15 @@ theorem primitiveValuationShell_eq_layerDifference
       simp [heq, hle, hnextle]
     · have hnnext : ¬s + 1 ≤ tenValuation h := by omega
       simp [heq, hle, hnnext]
+
+/-- Exact valuation shells are differences of consecutive divisibility
+layers; in particular they are not the divisibility layers themselves. -/
+theorem primitiveValuationShell_eq_layerDifference
+    (q A n s : ℕ) :
+    primitiveValuationShell q A n s =
+      boundaryValuationLayerDifference q A n s := by
+  simpa [primitiveValuationShell, boundaryValuationLayerDifference] using
+    primitiveValuationShell_eq_layerDifference_generic q A s (piOrbit n)
 
 /-- The valuation-zero shell retains nine tenths of the positive-frequency
 half, equivalently `9/20` of the full boundary minorant. -/
@@ -315,16 +349,16 @@ theorem valuationZeroLayerDifference_re_ge
   norm_num [Complex.sub_re]
   nlinarith
 
-/-- Coordinate form of the valuation-zero estimate for the actual primitive
-atom.  The hypothesis names the normalized displacement `y` explicitly. -/
-theorem primitiveValuationShell_zero_re_ge
-    (k A n : ℕ) (hk : 3 ≤ k) (y : ℝ)
+/-- Coordinate form of the valuation-zero estimate at an arbitrary real
+phase.  The hypothesis names the normalized displacement `y` explicitly. -/
+theorem primitiveValuationShell_zero_re_ge_generic
+    (k A : ℕ) (x : ℝ) (hk : 3 ≤ k) (y : ℝ)
     (hy : |y| ≤ 9 / 22)
-    (hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+    (hyCoord : x - decimalCylinderCenter (10 ^ k) A =
       y / (10 ^ k : ℕ)) :
     (9 / 20 : ℝ) *
         (boundaryMinorant (10 ^ k) (y / (10 ^ k : ℕ))).re ≤
-      (primitiveValuationShell (10 ^ k) A n 0).re := by
+      (primitiveValuationShellAt (10 ^ k) A x 0).re := by
   let q : ℕ := 10 ^ k
   have hq : 1000 ≤ q := by
     calc
@@ -338,21 +372,49 @@ theorem primitiveValuationShell_zero_re_ge
         div_le_div_of_nonneg_right hy hqR.le
       _ = 9 / (22 * (q : ℝ)) := by ring
   have hzero := valuationZeroLayerDifference_re_ge q hq (y / q) hz
-  rw [primitiveValuationShell_eq_layerDifference]
-  dsimp [boundaryValuationLayerDifference]
+  rw [primitiveValuationShell_eq_layerDifference_generic]
+  dsimp [boundaryValuationLayerDifferenceAt]
   norm_num
   change _ ≤ (divisibleBoundaryPolynomial q 1
-      (piOrbit n - decimalCylinderCenter q A) -
+      (x - decimalCylinderCenter q A) -
     divisibleBoundaryPolynomial q 10
-      (10 * piOrbit n - 10 * decimalCylinderCenter q A)).re
-  rw [show piOrbit n - decimalCylinderCenter q A = y / q by
+      (10 * x - 10 * decimalCylinderCenter q A)).re
+  rw [show x - decimalCylinderCenter q A = y / q by
     simpa [q] using hyCoord]
-  rw [show 10 * piOrbit n - 10 * decimalCylinderCenter q A =
+  rw [show 10 * x - 10 * decimalCylinderCenter q A =
       10 * (y / q) by
-    rw [← show piOrbit n - decimalCylinderCenter q A = y / q by
+    rw [← show x - decimalCylinderCenter q A = y / q by
       simpa [q] using hyCoord]
     ring]
   simpa [q] using hzero
+
+/-- Coordinate form of the valuation-zero estimate for the actual primitive
+atom.  The hypothesis names the normalized displacement `y` explicitly. -/
+theorem primitiveValuationShell_zero_re_ge
+    (k A n : ℕ) (hk : 3 ≤ k) (y : ℝ)
+    (hy : |y| ≤ 9 / 22)
+    (hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ)) :
+    (9 / 20 : ℝ) *
+        (boundaryMinorant (10 ^ k) (y / (10 ^ k : ℕ))).re ≤
+      (primitiveValuationShell (10 ^ k) A n 0).re := by
+  simpa [primitiveValuationShell] using
+    primitiveValuationShell_zero_re_ge_generic
+      k A (piOrbit n) hk y hy hyCoord
+
+/-- T191 turns the structural `9/20` retention into an explicit strict
+valuation-zero floor throughout the central chamber, at any real phase. -/
+theorem primitiveValuationShell_zero_re_gt_generic
+    (k A : ℕ) (x : ℝ) (hk : 3 ≤ k) (y : ℝ)
+    (hy : |y| ≤ 9 / 22)
+    (hyCoord : x - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ)) :
+    (9 / 20 : ℝ) * (4859 / 10000 : ℝ) <
+      (primitiveValuationShellAt (10 ^ k) A x 0).re := by
+  have hfloor := boundaryMinorant_re_gt_4859_div_10000 k hk y hy
+  have hretained := primitiveValuationShell_zero_re_ge_generic
+    k A x hk y hy hyCoord
+  exact (mul_lt_mul_of_pos_left hfloor (by norm_num)).trans_le hretained
 
 /-- T191 turns the structural `9/20` retention into an explicit strict
 valuation-zero floor throughout the central chamber. -/
@@ -363,21 +425,29 @@ theorem primitiveValuationShell_zero_re_gt
       y / (10 ^ k : ℕ)) :
     (9 / 20 : ℝ) * (4859 / 10000 : ℝ) <
       (primitiveValuationShell (10 ^ k) A n 0).re := by
-  have hfloor := boundaryMinorant_re_gt_4859_div_10000 k hk y hy
-  have hretained := primitiveValuationShell_zero_re_ge k A n hk y hy hyCoord
-  exact (mul_lt_mul_of_pos_left hfloor (by norm_num)).trans_le hretained
+  simpa [primitiveValuationShell] using
+    primitiveValuationShell_zero_re_gt_generic
+      k A (piOrbit n) hk y hy hyCoord
 
 end Theory.PiDigits.T192PrimitiveValuationShells
 
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryFourierSum_succ_sub_eq_atom
 #print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryAtom_eq_sum_valuationShells_generic
+#print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryAtom_eq_sum_valuationShells
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_eq_layerDifference_generic
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_eq_layerDifference
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.valuationZeroLayerDifference_re_ge
 #print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_ge_generic
+#print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_ge
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt_generic
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt

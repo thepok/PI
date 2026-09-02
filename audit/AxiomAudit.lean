@@ -3559,11 +3559,19 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryFourierSum_succ_sub_eq_atom
 #print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryAtom_eq_sum_valuationShells_generic
+#print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveBoundaryAtom_eq_sum_valuationShells
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_eq_layerDifference_generic
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_eq_layerDifference
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.valuationZeroLayerDifference_re_ge
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_ge_generic
+#print axioms
+  Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt_generic
 #print axioms
   Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt
 
@@ -3572,9 +3580,15 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationLayerMassSum_lt_five_div_eighteen
 #print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationShellSum_re_gt_generic
+#print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationShellSum_re_gt
 #print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.primitiveBoundaryAtom_re_gt_7139_div_45000_generic
+#print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.primitiveBoundaryAtom_re_gt_7139_div_45000
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty_generic
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty
 

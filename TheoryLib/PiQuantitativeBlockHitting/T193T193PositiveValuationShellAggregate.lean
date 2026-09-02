@@ -38,9 +38,14 @@ available at scale `10^k`. -/
 def positiveValuationLayerMassSum (k : ℕ) : ℝ :=
   ∑ s ∈ Icc 1 k, boundaryLayerMass (10 ^ k) (10 ^ s)
 
+/-- Sum of the exact positive-valuation primitive shells at an arbitrary real
+phase. -/
+def positiveValuationShellSumAt (k A : ℕ) (x : ℝ) : ℂ :=
+  ∑ s ∈ Icc 1 k, primitiveValuationShellAt (10 ^ k) A x s
+
 /-- Sum of the exact positive-valuation primitive shells at one orbit time. -/
 def positiveValuationShellSum (k A n : ℕ) : ℂ :=
-  ∑ s ∈ Icc 1 k, primitiveValuationShell (10 ^ k) A n s
+  positiveValuationShellSumAt k A (piOrbit n)
 
 private lemma inverse_pow_ten_sum_le_one_ninth (k : ℕ) :
     (∑ s ∈ Icc 1 k, (1 : ℝ) / (10 ^ s : ℕ)) ≤ 1 / 9 := by
@@ -236,15 +241,16 @@ private lemma first_layer_sum_gt
   rw [hsumL, hsumM]
   linarith
 
-/-- All strictly positive valuation shells have a uniform aggregate floor. -/
-theorem positiveValuationShellSum_re_gt
-    (k A n : ℕ) (hk : 3 ≤ k) :
-    -(108019 / 1800000 : ℝ) < (positiveValuationShellSum k A n).re := by
+/-- At any real phase, all strictly positive valuation shells have a uniform
+aggregate floor. -/
+theorem positiveValuationShellSum_re_gt_generic
+    (k A : ℕ) (x : ℝ) (hk : 3 ≤ k) :
+    -(108019 / 1800000 : ℝ) < (positiveValuationShellSumAt k A x).re := by
   let q : ℕ := 10 ^ k
   let c : ℝ := decimalCylinderCenter q A
-  let t₁ : ℕ → ℝ := fun s => piOrbit n - (10 ^ s : ℕ) * c
+  let t₁ : ℕ → ℝ := fun s => x - (10 ^ s : ℕ) * c
   let t₂ : ℕ → ℝ := fun s =>
-    10 * piOrbit n - (10 ^ (s + 1) : ℕ) * c
+    10 * x - (10 ^ (s + 1) : ℕ) * c
   have hq : 1000 ≤ q := by
     calc
       1000 = 10 ^ 3 := by norm_num
@@ -262,14 +268,14 @@ theorem positiveValuationShellSum_re_gt
   have hshift := shifted_layer_mass_sum_eq_tail k (by omega)
   have hmass := positiveValuationLayerMassSum_lt_five_div_eighteen k hk
   have hm1 := boundaryLayerMass_ten_gt k hk
-  have hshell : (positiveValuationShellSum k A n).re =
+  have hshell : (positiveValuationShellSumAt k A x).re =
       (∑ s ∈ Icc 1 k,
         (divisibleBoundaryPolynomial q (10 ^ s) (t₁ s)).re) -
       ∑ s ∈ Icc 1 k,
         (divisibleBoundaryPolynomial q (10 ^ (s + 1)) (t₂ s)).re := by
-    unfold positiveValuationShellSum
-    simp_rw [primitiveValuationShell_eq_layerDifference]
-    unfold boundaryValuationLayerDifference
+    unfold positiveValuationShellSumAt
+    simp_rw [primitiveValuationShell_eq_layerDifference_generic]
+    unfold boundaryValuationLayerDifferenceAt
     rw [Complex.re_sum]
     simp_rw [Complex.sub_re]
     rw [sum_sub_distrib]
@@ -277,6 +283,44 @@ theorem positiveValuationShellSum_re_gt
   dsimp [q] at hfirst hsecond hshift hmass hm1 ⊢
   rw [hshift] at hsecond
   nlinarith
+
+/-- All strictly positive valuation shells have a uniform aggregate floor. -/
+theorem positiveValuationShellSum_re_gt
+    (k A n : ℕ) (hk : 3 ≤ k) :
+    -(108019 / 1800000 : ℝ) < (positiveValuationShellSum k A n).re := by
+  simpa [positiveValuationShellSum] using
+    positiveValuationShellSum_re_gt_generic k A (piOrbit n) hk
+
+/-- At an arbitrary real phase, a central normalized coordinate gives a
+strictly positive full primitive atom. -/
+theorem primitiveBoundaryAtom_re_gt_7139_div_45000_generic
+    (k A : ℕ) (x : ℝ) (hk : 3 ≤ k) (y : ℝ)
+    (hy : |y| ≤ 9 / 22)
+    (hyCoord : x - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ)) :
+    (7139 / 45000 : ℝ) < (primitiveBoundaryAtomAt (10 ^ k) A x).re := by
+  have hzero := primitiveValuationShell_zero_re_gt_generic
+    k A x hk y hy hyCoord
+  have hpositive := positiveValuationShellSum_re_gt_generic k A x hk
+  have hdecomp := primitiveBoundaryAtom_eq_sum_valuationShells_generic k A x
+  have h0mem : 0 ∈ range (k + 1) := by simp
+  have hset : range (k + 1) \ {0} = Finset.Icc 1 k := by
+    ext s
+    simp only [mem_sdiff, Finset.mem_range, Finset.mem_singleton, Finset.mem_Icc]
+    omega
+  have hsplit : primitiveBoundaryAtomAt (10 ^ k) A x =
+      primitiveValuationShellAt (10 ^ k) A x 0 +
+        positiveValuationShellSumAt k A x := by
+    rw [hdecomp]
+    rw [sum_eq_add_sum_diff_singleton (s := range (k + 1))
+      (f := fun s => primitiveValuationShellAt (10 ^ k) A x s) (i := 0)
+      (fun h => (h h0mem).elim)]
+    rw [hset]
+    rfl
+  rw [hsplit]
+  simp only [Complex.add_re]
+  norm_num at hzero hpositive ⊢
+  linarith
 
 /-- A central normalized coordinate gives a strictly positive full one-time
 primitive atom. -/
@@ -286,47 +330,23 @@ theorem primitiveBoundaryAtom_re_gt_7139_div_45000
     (hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
       y / (10 ^ k : ℕ)) :
     (7139 / 45000 : ℝ) < (primitiveBoundaryAtom (10 ^ k) A n).re := by
-  have hzero := primitiveValuationShell_zero_re_gt k A n hk y hy hyCoord
-  have hpositive := positiveValuationShellSum_re_gt k A n hk
-  have hdecomp := primitiveBoundaryAtom_eq_sum_valuationShells k A n
-  have h0mem : 0 ∈ range (k + 1) := by simp
-  have hset : range (k + 1) \ {0} = Finset.Icc 1 k := by
-    ext s
-    simp only [mem_sdiff, Finset.mem_range, Finset.mem_singleton, Finset.mem_Icc]
-    omega
-  have hsplit : primitiveBoundaryAtom (10 ^ k) A n =
-      primitiveValuationShell (10 ^ k) A n 0 +
-        positiveValuationShellSum k A n := by
-    rw [hdecomp]
-    rw [sum_eq_add_sum_diff_singleton (s := range (k + 1))
-      (f := fun s => primitiveValuationShell (10 ^ k) A n s) (i := 0)
-      (fun h => (h h0mem).elim)]
-    rw [hset]
-    rfl
-  rw [hsplit]
-  simp only [Complex.add_re]
-  norm_num at hzero hpositive ⊢
-  linarith
+  simpa [primitiveBoundaryAtom] using
+    primitiveBoundaryAtom_re_gt_7139_div_45000_generic
+      k A (piOrbit n) hk y hy hyCoord
 
-/-- Native T176 unit-block capital produced by the deterministic central
-one-time seed. -/
-theorem central_unitBlock_surplus_gt_three_div_twenty
-    (k A n : ℕ) (hk : 3 ≤ k) (y : ℝ)
+/-- Native T176 unit-block capital produced at an arbitrary real phase by the
+deterministic central seed. -/
+theorem central_unitBlock_surplus_gt_three_div_twenty_generic
+    (k A : ℕ) (x : ℝ) (hk : 3 ≤ k) (y : ℝ)
     (hy : |y| ≤ 9 / 22)
-    (hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+    (hyCoord : x - decimalCylinderCenter (10 ^ k) A =
       y / (10 ^ k : ℕ)) :
     (3 / 20 : ℝ) * (10 ^ k : ℕ) <
       (10 ^ k : ℕ) *
-          (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
+          (primitiveBoundaryAtomAt (10 ^ k) A x).re -
         signedBlockPotential (10 ^ k) := by
-  have hatom := primitiveBoundaryAtom_re_gt_7139_div_45000
-    k A n hk y hy hyCoord
-  have hblock : primitiveBoundaryFourierBlockSum (10 ^ k) A n 1 =
-      primitiveBoundaryAtom (10 ^ k) A n := by
-    unfold primitiveBoundaryFourierBlockSum
-    norm_num
-    exact primitiveBoundaryFourierSum_succ_sub_eq_atom (10 ^ k) A n
-  rw [hblock]
+  have hatom := primitiveBoundaryAtom_re_gt_7139_div_45000_generic
+    k A x hk y hy hyCoord
   have hq : 1000 ≤ 10 ^ k := by
     calc
       1000 = 10 ^ 3 := by norm_num
@@ -348,19 +368,45 @@ theorem central_unitBlock_surplus_gt_three_div_twenty
         (10 : ℝ) ^ k * (7139 / 45000) -
           (389 / 45000) * (10 : ℝ) ^ k := by ring
     _ < (10 : ℝ) ^ k *
-          (primitiveBoundaryAtom (10 ^ k) A n).re -
+          (primitiveBoundaryAtomAt (10 ^ k) A x).re -
           (389 / 45000) * (10 : ℝ) ^ k := sub_lt_sub_right hmul _
     _ < (10 : ℝ) ^ k *
-          (primitiveBoundaryAtom (10 ^ k) A n).re -
+          (primitiveBoundaryAtomAt (10 ^ k) A x).re -
           7 / (3 * (10 : ℝ) ^ k) := sub_lt_sub_left hgap _
+
+/-- Native T176 unit-block capital produced by the deterministic central
+one-time seed. -/
+theorem central_unitBlock_surplus_gt_three_div_twenty
+    (k A n : ℕ) (hk : 3 ≤ k) (y : ℝ)
+    (hy : |y| ≤ 9 / 22)
+    (hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ)) :
+    (3 / 20 : ℝ) * (10 ^ k : ℕ) <
+      (10 ^ k : ℕ) *
+          (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
+        signedBlockPotential (10 ^ k) := by
+  have hgeneric := central_unitBlock_surplus_gt_three_div_twenty_generic
+    k A (piOrbit n) hk y hy hyCoord
+  have hblock : primitiveBoundaryFourierBlockSum (10 ^ k) A n 1 =
+      primitiveBoundaryAtom (10 ^ k) A n := by
+    unfold primitiveBoundaryFourierBlockSum
+    exact primitiveBoundaryFourierSum_succ_sub_eq_atom (10 ^ k) A n
+  rw [hblock]
+  simpa [primitiveBoundaryAtom] using hgeneric
 
 end Theory.PiDigits.T193PositiveValuationShellAggregate
 
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationLayerMassSum_lt_five_div_eighteen
 #print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationShellSum_re_gt_generic
+#print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.positiveValuationShellSum_re_gt
 #print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.primitiveBoundaryAtom_re_gt_7139_div_45000_generic
+#print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.primitiveBoundaryAtom_re_gt_7139_div_45000
+#print axioms
+  Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty_generic
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty
