@@ -3578,9 +3578,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms
   Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty
 
--- The unlocalized actual-pi central seed uses only irrationality. The three
--- finite-window forms retain the explicit exponent-8 irrationality-measure hypothesis;
--- none supplies a prescribed target or a ray.
+-- The unlocalized actual-pi central seed uses only irrationality. The timed
+-- forms retain explicit exponent-8 or exponent-9 irrationality-measure
+-- hypotheses; none supplies a prescribed target or a ray.
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus
 #print axioms
@@ -3589,6 +3589,12 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_before_eight_scale_ofBelowNine
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon_ofBelowNine
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift_ofBelowNine
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

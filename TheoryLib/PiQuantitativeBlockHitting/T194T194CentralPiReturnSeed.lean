@@ -9,10 +9,10 @@ import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggreg
 The irrationality of `pi` rules out an eventual decimal-orbit tail trapped in
 either chamber adjacent to zero or one, giving an unconditional unprescribed
 central return at every scale. Its containing decimal cell feeds T193's native
-unit-block surplus directly. The exponent-`8` irrationality-measure hypothesis
-additionally bounds a sufficiently long trapped finite window; after a
-premise-dependent onset, the unit can then be chosen in the fresh
-natural-horizon block `[q, 10*q)`.
+unit-block surplus directly. The exponent-`8` and exponent-`9`
+irrationality-measure hypotheses additionally bound sufficiently long trapped
+finite windows; after a premise-dependent onset, the unit can then be chosen
+in the fresh natural-horizon block `[q, 10*q)`.
 
 The published irrationality-measure estimate is not asserted here: it remains
 the explicit hypothesis only of the time-localized theorems. This module
@@ -63,6 +63,31 @@ private lemma eight_add_seven_mul_lt_two_mul_pow_ten (k : ℕ) (hk : 3 ≤ k) :
   have hp : 0 < 10 ^ (k - 1) := pow_pos (by omega) _
   rw [show k = (k - 1) + 1 by omega, pow_succ]
   omega
+
+private lemma nine_add_eight_mul_lt_pow_ten (k : ℕ) (hk : 3 ≤ k) :
+    9 + 8 * k < 10 ^ k := by
+  have hkp := self_le_pow_ten_pred k (by omega)
+  have hp100 : 100 ≤ 10 ^ (k - 1) := by
+    calc
+      100 = 10 ^ 2 := by norm_num
+      _ ≤ 10 ^ (k - 1) :=
+        pow_le_pow_right' (by norm_num : 1 ≤ (10 : ℕ)) (by omega)
+  rw [show k = (k - 1) + 1 by omega, pow_succ]
+  omega
+
+private lemma
+    irrationalityMeasureBelow_nine_implies_exists_effectiveIrrationality
+    (hSource : IrrationalityMeasureBelow Real.pi 9) :
+    ∃ Q0 : ℕ, EffectiveIrrationality Real.pi 9 1 Q0 := by
+  rcases hSource with ⟨μ, hμ, hSource⟩
+  have hε : 0 < (9 : ℝ) - μ := sub_pos.mpr hμ
+  obtain ⟨Q0, hQ0⟩ := hSource (9 - μ) hε
+  refine ⟨Q0, ?_⟩
+  refine ⟨by norm_num, by norm_num, ?_⟩
+  intro q hQ hq p
+  have hbound := hQ0 q hQ hq p
+  have hexponent : μ + (9 - μ) = (9 : ℝ) := by ring
+  simpa only [hexponent] using hbound
 
 private lemma orbit_low_step
     (j : ℕ) (hlow : piOrbit j < 1 / 11)
@@ -235,6 +260,90 @@ private lemma exists_piOrbit_mem_central_chamber_Icc
       rw [show (d : ℝ) ^ (8 : ℝ) = (d : ℝ) ^ (8 : ℕ) by
         exact Real.rpow_natCast d 8]
       apply (div_lt_div_iff₀ hdR (by positivity : (0 : ℝ) < (d : ℝ) ^ 8)).2
+      field_simp
+      nlinarith
+    exact (not_lt_of_ge hUpper.le) (hIrr.2.2 d hQ0d hd0 p)
+
+private lemma exists_piOrbit_mem_central_chamber_Icc_nine
+    (Q0 s : ℕ) (hIrr : EffectiveIrrationality Real.pi 9 1 Q0)
+    (hs : 1 ≤ s) (hQ0 : Q0 ≤ 10 ^ s) :
+    ∃ m : ℕ, s ≤ m ∧ m ≤ 9 * s ∧
+      1 / 11 ≤ piOrbit m ∧ piOrbit m ≤ 10 / 11 := by
+  by_contra hnone
+  push Not at hnone
+  let d : ℕ := 10 ^ s
+  have hQ0d : Q0 ≤ d := by simpa [d] using hQ0
+  have hd0 : 0 < d := by positivity
+  have hdR : (0 : ℝ) < d := by positivity
+  have hd1 : (1 : ℝ) ≤ d := by exact_mod_cast (show 1 ≤ d by omega)
+  have havoid (j : ℕ) :
+      s ≤ j → j ≤ s + 8 * s →
+        ¬ (1 / 11 ≤ piOrbit j ∧ piOrbit j ≤ 10 / 11) := by
+    intro hsj hjs
+    intro hj
+    exact (not_lt_of_ge hj.2) (hnone j hsj (by omega) hj.1)
+  have hstart : piOrbit s < 1 / 11 ∨ 10 / 11 < piOrbit s := by
+    have hx := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico s
+    by_cases hlow : piOrbit s < 1 / 11
+    · exact Or.inl hlow
+    · exact Or.inr (hnone s le_rfl (by omega) (le_of_not_gt hlow))
+  rcases hstart with hlow | hhigh
+  · obtain ⟨hiterate, hend⟩ := orbit_low_iterate s (8 * s) hlow havoid
+    let p : ℤ := ⌊(10 : ℝ) ^ s * Real.pi⌋
+    have horbit : piOrbit s = (10 : ℝ) ^ s * Real.pi - p := by
+      unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+      rw [Int.fract]
+    have hdCast : (d : ℝ) = (10 : ℝ) ^ s := by simp [d]
+    have hsmall : piOrbit s * (d : ℝ) ^ 8 < 1 := by
+      calc
+        piOrbit s * (d : ℝ) ^ 8 =
+            (10 : ℝ) ^ (8 * s) * piOrbit s := by
+          rw [hdCast, ← pow_mul]
+          ring
+        _ = piOrbit (s + 8 * s) := hiterate.symm
+        _ < 1 / 11 := hend
+        _ < 1 := by norm_num
+    have hUpper : |Real.pi - (p : ℝ) / (d : ℝ)| < 1 / (d : ℝ) ^ (9 : ℝ) := by
+      have hx0 := (Theory.PiDigits.T27.piFractionalOrbit_mem_Ico s).1
+      have heq : Real.pi - (p : ℝ) / (d : ℝ) = piOrbit s / d := by
+        rw [hdCast]
+        field_simp
+        nlinarith [horbit]
+      rw [heq, abs_of_nonneg (by positivity)]
+      rw [show (d : ℝ) ^ (9 : ℝ) = (d : ℝ) ^ (9 : ℕ) by
+        exact Real.rpow_natCast d 9]
+      apply (div_lt_div_iff₀ hdR (by positivity : (0 : ℝ) < (d : ℝ) ^ 9)).2
+      field_simp
+      nlinarith
+    exact (not_lt_of_ge hUpper.le) (hIrr.2.2 d hQ0d hd0 p)
+  · obtain ⟨hiterate, hend⟩ := orbit_high_iterate s (8 * s) hhigh havoid
+    let p : ℤ := ⌊(10 : ℝ) ^ s * Real.pi⌋ + 1
+    have horbit : piOrbit s = (10 : ℝ) ^ s * Real.pi - (⌊(10 : ℝ) ^ s * Real.pi⌋ : ℝ) := by
+      unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+      rw [Int.fract]
+    have hdCast : (d : ℝ) = (10 : ℝ) ^ s := by simp [d]
+    have hsmall : (1 - piOrbit s) * (d : ℝ) ^ 8 < 1 := by
+      calc
+        (1 - piOrbit s) * (d : ℝ) ^ 8 =
+            (10 : ℝ) ^ (8 * s) * (1 - piOrbit s) := by
+          rw [hdCast, ← pow_mul]
+          ring
+        _ = 1 - piOrbit (s + 8 * s) := hiterate.symm
+        _ < 1 / 11 := by nlinarith
+        _ < 1 := by norm_num
+    have hUpper : |Real.pi - (p : ℝ) / (d : ℝ)| < 1 / (d : ℝ) ^ (9 : ℝ) := by
+      have hx1 := (Theory.PiDigits.T27.piFractionalOrbit_mem_Ico s).2
+      have heq : Real.pi - (p : ℝ) / (d : ℝ) = -(1 - piOrbit s) / d := by
+        dsimp [p]
+        push_cast
+        rw [hdCast]
+        field_simp
+        ring_nf at horbit ⊢
+        linarith
+      rw [heq, abs_div, abs_neg, abs_of_nonneg (by linarith), abs_of_pos hdR]
+      rw [show (d : ℝ) ^ (9 : ℝ) = (d : ℝ) ^ (9 : ℕ) by
+        exact Real.rpow_natCast d 9]
+      apply (div_lt_div_iff₀ hdR (by positivity : (0 : ℝ) < (d : ℝ) ^ 9)).2
       field_simp
       nlinarith
     exact (not_lt_of_ge hUpper.le) (hIrr.2.2 d hQ0d hd0 p)
@@ -632,6 +741,246 @@ theorem eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
     rw [hthreshold]
     simpa [q, pow_succ, Nat.mul_comm] using hChild
 
+/-- Exponent-`9` finite-window strengthening with the same public bound as
+`eventually_exists_central_pi_unitBlock_surplus_before_eight_scale`.  The
+shorter starting scale `8 * 10^(k-1)` compensates for the `9s` chamber window. -/
+theorem eventually_exists_central_pi_unitBlock_surplus_before_eight_scale_ofBelowNine
+    (hSource : IrrationalityMeasureBelow Real.pi 9) :
+    ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
+      ∃ n A : ℕ, n < 8 * 10 ^ k ∧ A < 10 ^ k ∧
+        (3 / 20 : ℝ) * (10 ^ k : ℕ) <
+          (10 ^ k : ℕ) *
+              (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
+            signedBlockPotential (10 ^ k) := by
+  obtain ⟨Q0, hIrr⟩ :=
+    irrationalityMeasureBelow_nine_implies_exists_effectiveIrrationality
+      hSource
+  refine ⟨Q0, ?_⟩
+  intro k hk
+  have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
+  have hQ0k : Q0 ≤ k := (le_max_right 3 Q0).trans hk
+  have hkp := self_le_pow_ten_pred k (by omega)
+  have hp : 0 < 10 ^ (k - 1) := pow_pos (by omega) _
+  let s : ℕ := 8 * 10 ^ (k - 1)
+  have hks : k ≤ s := by
+    dsimp [s]
+    omega
+  have hs1 : 1 ≤ s := by
+    dsimp [s]
+    omega
+  have hQ0pow : Q0 ≤ 10 ^ s :=
+    (hQ0k.trans hks).trans (self_le_pow_ten s)
+  obtain ⟨m, hsm, hm9, hmLow, hmHigh⟩ :=
+    exists_piOrbit_mem_central_chamber_Icc_nine Q0 s hIrr hs1 hQ0pow
+  let n := m - k
+  have hkm : k ≤ m := hks.trans hsm
+  have hqEq : 10 ^ k = 10 ^ (k - 1) * 10 := by
+    calc
+      10 ^ k = 10 ^ ((k - 1) + 1) := by congr 1; omega
+      _ = 10 ^ (k - 1) * 10 := by rw [pow_succ]
+  have hmBound : m ≤ 9 * (8 * 10 ^ (k - 1)) := by
+    simpa [s] using hm9
+  have hn8 : n < 8 * 10 ^ k := by
+    dsimp [n]
+    rw [hqEq]
+    omega
+  let A := ⌊(10 ^ k : ℕ) * piOrbit n⌋₊
+  let y := (10 ^ k : ℕ) * piOrbit n - A - 1 / 2
+  have hx := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico n
+  have hqPos : (0 : ℝ) < ((10 ^ k : ℕ) : ℝ) := by positivity
+  have hA : A < 10 ^ k := by
+    dsimp [A]
+    rw [Nat.floor_lt (by
+      exact mul_nonneg (by positivity) hx.1 :
+        (0 : ℝ) ≤ ((10 ^ k : ℕ) : ℝ) * piOrbit n)]
+    simpa using (mul_lt_mul_of_pos_left hx.2 hqPos)
+  have hfrac : y = Int.fract ((10 ^ k : ℕ) * piOrbit n) - 1 / 2 := by
+    dsimp [y, A]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (by exact mul_nonneg (by positivity) hx.1 :
+        (0 : ℝ) ≤ ((10 ^ k : ℕ) : ℝ) * piOrbit n)]
+  have horbitShift : Int.fract ((10 ^ k : ℕ) * piOrbit n) = piOrbit (n + k) := by
+    unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+    have hfract := Theory.PiDigits.MachinForcedOrbit.fract_natCast_mul_fract_add
+      ((10 : ℝ) ^ n * Real.pi) 0 (10 ^ k)
+    simp only [add_zero] at hfract
+    exact hfract.trans (by
+      congr 1
+      push_cast
+      rw [← mul_assoc, ← pow_add]
+      congr 2
+      omega)
+  have hy : |y| ≤ 9 / 22 := by
+    rw [hfrac, horbitShift]
+    have hnk : n + k = m := by dsimp [n]; omega
+    rw [hnk]
+    rw [abs_le]
+    constructor <;> nlinarith
+  have hyCoord : piOrbit n - decimalCylinderCenter (10 ^ k) A =
+      y / (10 ^ k : ℕ) := by
+    dsimp [y, A]
+    unfold decimalCylinderCenter
+    field_simp
+    ring
+  exact ⟨n, A, hn8, hA,
+    central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy hyCoord⟩
+
+/-- Exponent-`9` predecessor lift of the fresh-horizon central seed.  The
+`8s` avoidance run keeps the parent unit and its literal predecessor child in
+the same timing window as the exponent-`8` interface. -/
+theorem eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift_ofBelowNine
+    (hSource : IrrationalityMeasureBelow Real.pi 9) :
+    ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
+      let q := 10 ^ k
+      ∃ n A d C : ℕ,
+        q + 1 ≤ n ∧ n < 10 * q ∧ A < q ∧ d < 10 ∧ C < 10 * q ∧
+        A = ⌊(q : ℕ) * piOrbit n⌋₊ ∧
+        d = ⌊10 * piOrbit (n - 1)⌋₊ ∧
+        C = A + d * q ∧
+        C = ⌊(10 * q : ℕ) * piOrbit (n - 1)⌋₊ ∧
+        (3 / 20 : ℝ) * q <
+          q * (primitiveBoundaryFourierBlockSum q A n 1).re -
+            signedBlockPotential q ∧
+        (3 / 2 : ℝ) * q <
+          (10 * q) *
+              (primitiveBoundaryFourierBlockSum (10 * q) C (n - 1) 1).re -
+            signedBlockPotential (10 * q) := by
+  obtain ⟨Q0, hIrr⟩ :=
+    irrationalityMeasureBelow_nine_implies_exists_effectiveIrrationality
+      hSource
+  refine ⟨Q0, ?_⟩
+  intro k hk
+  dsimp only
+  let q : ℕ := 10 ^ k
+  have hk3 : 3 ≤ k := (le_max_left 3 Q0).trans hk
+  have hQ0k : Q0 ≤ k := (le_max_right 3 Q0).trans hk
+  have hQ0s : Q0 ≤ q + 1 + k := by
+    exact hQ0k.trans (Nat.le_add_left k (q + 1))
+  have hQ0pow : Q0 ≤ 10 ^ (q + 1 + k) :=
+    hQ0s.trans (self_le_pow_ten (q + 1 + k))
+  obtain ⟨m, hsm, hm9, hmLow, hmHigh⟩ :=
+    exists_piOrbit_mem_central_chamber_Icc_nine Q0 (q + 1 + k) hIrr
+      (by
+        simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
+          Nat.succ_le_succ (Nat.zero_le (q + k))) hQ0pow
+  let n := m - k
+  have hkm : k ≤ m := (Nat.le_add_left k (q + 1)).trans hsm
+  have hqn : q + 1 ≤ n := by
+    dsimp [n]
+    omega
+  have hnine : 9 + 8 * k < q := by
+    dsimp [q]
+    exact nine_add_eight_mul_lt_pow_ten k hk3
+  have hn10 : n < 10 * q := by
+    dsimp [n]
+    omega
+  let A := ⌊(q : ℕ) * piOrbit n⌋₊
+  let d := ⌊10 * piOrbit (n - 1)⌋₊
+  let C := ⌊(10 * q : ℕ) * piOrbit (n - 1)⌋₊
+  let y := (q : ℕ) * piOrbit n - A - 1 / 2
+  have hx := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico n
+  have hxp := Theory.PiDigits.T27.piFractionalOrbit_mem_Ico (n - 1)
+  have hqPos : (0 : ℝ) < q := by dsimp [q]; positivity
+  have hA : A < q := by
+    dsimp [A]
+    rw [Nat.floor_lt (mul_nonneg (by positivity) hx.1)]
+    simpa using (mul_lt_mul_of_pos_left hx.2 hqPos)
+  have hd : d < 10 := by
+    dsimp [d]
+    rw [Nat.floor_lt (mul_nonneg (by norm_num) hxp.1)]
+    norm_num
+    linarith [hxp.2]
+  have hnPred : n - 1 + 1 = n := by omega
+  have hstep := Theory.PiDigits.DigitChangeFourierDefect.piOrbit_succ (n - 1)
+  change piOrbit (n - 1 + 1) = Int.fract (10 * piOrbit (n - 1)) at hstep
+  rw [hnPred] at hstep
+  have hdecomp : 10 * piOrbit (n - 1) = d + piOrbit n := by
+    rw [hstep]
+    dsimp [d]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (mul_nonneg (by norm_num) hxp.1)]
+    ring
+  have hCeq : C = A + d * q := by
+    apply (Nat.floor_eq_iff (mul_nonneg (by positivity) hxp.1)).2
+    have hAlo : (A : ℝ) ≤ q * piOrbit n := by
+      exact Nat.floor_le (mul_nonneg (by positivity) hx.1)
+    have hAhi : q * piOrbit n < (A : ℝ) + 1 :=
+      Nat.lt_floor_add_one _
+    constructor <;> push_cast <;> nlinarith
+  have hC : C < 10 * q := by
+    rw [hCeq]
+    calc
+      A + d * q < q + d * q := Nat.add_lt_add_right hA _
+      _ ≤ q + 9 * q := Nat.add_le_add_left (Nat.mul_le_mul_right q (by omega)) q
+      _ = 10 * q := by omega
+  have hfrac : y = Int.fract (q * piOrbit n) - 1 / 2 := by
+    dsimp [y, A]
+    rw [Int.fract, ← natCast_floor_eq_intCast_floor
+      (mul_nonneg (by positivity) hx.1)]
+  have horbitShift : Int.fract (q * piOrbit n) = piOrbit (n + k) := by
+    dsimp [q]
+    unfold piOrbit Theory.PiDigits.T27.piFractionalOrbit
+    have hfract := Theory.PiDigits.MachinForcedOrbit.fract_natCast_mul_fract_add
+      ((10 : ℝ) ^ n * Real.pi) 0 (10 ^ k)
+    simp only [add_zero] at hfract
+    exact hfract.trans (by
+      congr 1
+      push_cast
+      rw [← mul_assoc, ← pow_add]
+      congr 2
+      omega)
+  have hy : |y| ≤ 9 / 22 := by
+    rw [hfrac, horbitShift]
+    have hnk : n + k = m := by dsimp [n]; omega
+    rw [hnk, abs_le]
+    constructor <;> nlinarith
+  have hyCoord : piOrbit n - decimalCylinderCenter q A = y / q := by
+    dsimp [y, A]
+    unfold decimalCylinderCenter
+    field_simp
+    ring
+  have hyChildCoord :
+      piOrbit (n - 1) - decimalCylinderCenter (10 * q) C = y / (10 * q) := by
+    rw [hCeq]
+    dsimp [y]
+    unfold decimalCylinderCenter
+    push_cast
+    field_simp
+    nlinarith [hdecomp]
+  have hParent :=
+    central_unitBlock_surplus_gt_three_div_twenty k A n hk3 y hy (by
+      simpa [q] using hyCoord)
+  have hChild :=
+    central_unitBlock_surplus_gt_three_div_twenty (k + 1) C (n - 1)
+      (by omega) y hy (by
+        simpa [q, pow_succ, mul_comm, mul_left_comm, mul_assoc] using hyChildCoord)
+  refine ⟨n, A, d, C, hqn, hn10, hA, hd, hC, rfl, rfl, hCeq, rfl, ?_, ?_⟩
+  · simpa [q] using hParent
+  · have hthreshold :
+        (3 / 2 : ℝ) * q = (3 / 20 : ℝ) * (10 * q : ℕ) := by
+      push_cast
+      ring
+    rw [hthreshold]
+    simpa [q, pow_succ, Nat.mul_comm] using hChild
+
+/-- Exponent-`9` fresh-horizon form of the conditional actual-pi seed. -/
+theorem eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon_ofBelowNine
+    (hSource : IrrationalityMeasureBelow Real.pi 9) :
+    ∃ k0 : ℕ, ∀ k : ℕ, max 3 k0 ≤ k →
+      ∃ n A : ℕ, 10 ^ k ≤ n ∧ n < 10 * 10 ^ k ∧ A < 10 ^ k ∧
+        (3 / 20 : ℝ) * (10 ^ k : ℕ) <
+          (10 ^ k : ℕ) *
+              (primitiveBoundaryFourierBlockSum (10 ^ k) A n 1).re -
+            signedBlockPotential (10 ^ k) := by
+  obtain ⟨k0, hLift⟩ :=
+    eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift_ofBelowNine
+      hSource
+  refine ⟨k0, ?_⟩
+  intro k hk
+  obtain ⟨n, A, d, C, hqn, hn10, hA, hd, hC, hAeq, hdeq, hCeq,
+      hCfloor, hParent, hChild⟩ := hLift k hk
+  exact ⟨n, A, by omega, hn10, hA, hParent⟩
+
 end Theory.PiDigits.T194CentralPiReturnSeed
 
 #print axioms Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus
@@ -641,3 +990,9 @@ end Theory.PiDigits.T194CentralPiReturnSeed
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_before_eight_scale_ofBelowNine
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon_ofBelowNine
+#print axioms
+  Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift_ofBelowNine
