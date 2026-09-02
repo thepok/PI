@@ -1,4 +1,5 @@
 Status: `proof sketch`; Theorem A independently audited at proof level on 2026-09-02; Theorems B and C independently audited on 2026-09-02 (B correct with fixes; C's original proof had a gap at (5.2), replaced by the auditor's support-level proof); all fixes applied.
+second-opinion check of the replacement proofs 2026-09-02: correct with fixes, 9 fixes applied
 Date: 2026-09-02.
 Provenance: Produced by a ChatGPT Pro run from the repository's separator
 sketches, corrected after an adversarial audit, and reviewed by Claude.
@@ -126,11 +127,13 @@ Here \(\mu(x)\) denotes the classical irrationality exponent.
 
 ### Theorem C — regularity obstruction
 
-Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set \(E^{\mathrm{weak}}_{w,P,A}\). Then no positive-dimensional Ahlfors regular measure has support contained in \(E\); in particular
+Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set \(E^{\mathrm{weak}}_{w,P,A}\). Then no positive-dimensional Ahlfors regular measure \(\mu\) satisfies \(\operatorname{supp}\mu\subset E\); in particular
 
 $$
 \dim_R E=0.                                            \tag{1.4}
 $$
+
+The weaker reading \(\mu(E)=1\) would be false: the Ahlfors-regular measure constructed in Theorem B has \(\mu(E)=1\) for the central set, and hence also for the weaker set.
 
 Consequently the friendly-measure, self-similar, and ordinary Ahlfors-regular Schmidt-game theorems cannot be applied to a compact Moran set on which all-label abundance is imposed pointwise.
 
@@ -175,7 +178,7 @@ h_w=\lim_{L\to\infty}\frac{\log N_w(L)}{L}.
                                                                \tag{2.2}
 $$
 
-The prefix-suffix automaton for \(w\) has states \(0,\ldots ,m-1\), with state \(r\) recording the longest suffix equal to a prefix of \(w\). The transition completing \(w\) is deleted. If \(M_w\) is its adjacency matrix and \(\rho_w\) its Perron–Frobenius eigenvalue, then
+The prefix-suffix automaton for \(w\) has states \(0,\ldots ,m-1\). State \(r\) means that the longest suffix of the digits read so far which is also a prefix of \(w\) has length \(r\); in particular, state \(0\) means that no nonempty suffix is a prefix of \(w\). The transition completing \(w\) is deleted. If \(M_w\) is its adjacency matrix and \(\rho_w\) its Perron–Frobenius eigenvalue, then
 
 $$
 h_w=\log\rho_w.                                        \tag{2.3}
@@ -187,13 +190,15 @@ $$
 9\le\rho_w<10.                                         \tag{2.4}
 $$
 
-The lower bound follows by omitting \(w_1\). For the strict upper bound, every \(w\)-free word of length \(jm\), partitioned into aligned blocks of length \(m\), has at most \(10^m-1\) possibilities per block. Thus
+The lower bound follows by omitting \(w_1\). For the strict upper bound, use the irreducibility proved by the reset and reachability paths below, and let \(\ell>0\) be a left Perron–Frobenius eigenvector. Every row sum of \(M_w\) is at most \(10\), while the row for state \(m-1\) has sum \(9\), since the digit \(w_m\) completing \(w\) is forbidden. Hence \(M_w\mathbf 1\le10\mathbf 1\), with strict inequality in one coordinate, and positivity of \(\ell\) gives
 
 $$
-N_w(jm)\le(10^m-1)^j,
-\qquad
-\rho_w\le(10^m-1)^{1/m}<10.
+\rho_w\ell^{\mathsf T}\mathbf 1
+=\ell^{\mathsf T}M_w\mathbf 1
+<10\ell^{\mathsf T}\mathbf 1.
 $$
+
+Therefore \(\rho_w<10\).
 
 ### Guarded systems
 
@@ -361,7 +366,7 @@ Letting \(L\to\infty\) and using (2.8) proves Theorem A.
 
 ## 4. Full-dimensional all-label abundance: proof of Theorem B
 
-We use the prefix automaton of Section 2. It is primitive. A guard \(b^m\), with \(b\ne w_1,w_m\), is admissible after every \(w\)-free prefix and returns the automaton to state \(0\). State \(0\) also has a one-step loop using any digit different from \(w_1\), so the period is one.
+We use the prefix automaton of Section 2. A guard \(g=b^m\), with \(b\ne w_1,w_m\), is admissible after every \(w\)-free prefix: an occurrence crossing into and ending inside the guard would end in \(b\ne w_m\), one beginning inside the guard would begin with \(b\ne w_1\), and an \(m\)-letter occurrence cannot cross the entire \(m\)-letter guard. After all \(m\) copies of \(b\) have been read, every suffix of length \(1\le r<m\) is \(b^r\), and \(b^r\ne w_1\cdots w_r\) because \(b\ne w_1\); hence the guard returns the automaton to state \(0\). A single \(b\) need not erase a longer prefix-suffix match, whereas \(b^m\) rules out every nonzero state. Conversely, state \(0\) reaches state \(r<m\) by reading \(w_1\cdots w_r\), so the automaton is irreducible. State \(0\) has a one-step loop using any digit different from \(w_1\), so it is primitive.
 
 Let \(i_P\) be the prefix-automaton state after reading \(P\), and let \(r>0\) be a right Perron–Frobenius eigenvector of \(M_w\). For each digit-labelled edge \(e:i\to j\), set
 
@@ -375,9 +380,16 @@ $$
 \rho_w^{-\ell}\frac{r_j}{r_{i_P}}.
 $$
 
-Hence every admissible tail cylinder of length \(\ell\) has mass between \(C^{-1}\rho_w^{-\ell}\) and \(C\rho_w^{-\ell}\). Bounded overlap of decimal cylinders and the inclusion of a sufficiently deep cylinder containing \(x\) in \(B(x,r)\) imply that its push-forward is \(s_w\)-Ahlfors regular, where \(s_w=\log\rho_w/\log10\). The countable eventually-\(9\) endpoint discrepancy is null and is discarded from now on, so all subsequent digit statements use canonical expansions.
+Hence every admissible tail cylinder of length \(\ell\) has mass between \(C^{-1}\rho_w^{-\ell}\) and \(C\rho_w^{-\ell}\). Let \(\nu_P\) be the push-forward. If \(10^{-N}\le r<10^{-(N-1)}\), bounded overlap of level-\(N\) decimal intervals gives \(\nu_P(B(x,r))\ll\rho_w^{-(N-|P|)}\asymp r^{s_w}\). For the lower bound at any \(x\in\operatorname{supp}\nu_P\), including a decimal endpoint, choose a symbolic preimage \(\omega\), which exists by compactness of the symbolic support and continuity of the coding map. Choose \(N\) with \(10^{-N}<r\le10^{-(N-1)}\). The image of the level-\(N\) symbolic cylinder determined by \(\omega\) contains \(x\), has diameter at most \(10^{-N}<r\), and therefore lies in \(B(x,r)\). Its mass is \(\gg\rho_w^{-(N-|P|)}\asymp r^{s_w}\). Thus \(\nu_P\) is \(s_w\)-Ahlfors regular at every support point. The countable eventually-\(9\) endpoint discrepancy is null and is discarded only for subsequent canonical digit statements; deleting it does not remove its points from the topological support.
 
-Fix \(u\in A^k\) and put \(g=b^m\). The word \(gucg\) is admissible after every state and ends in state \(0\). Its length is \(\ell_k=k+1+2m\), and conditional on any past its probability is at least \(p_k=C_0\rho_w^{-k}\). For a candidate integer \(n\), place \(gucg\) on positions \(n-m+1,\ldots,n+k+m+1\); then \(uc\) occupies positions \(n+1,\ldots,n+k+1\). Choosing candidate \(n\)'s in \([10^k+1,10^{k+1})\) separated by \(\ell_k\) gives \(M_k\ge C_1 10^k/(k+2m+1)\) disjoint blocks. Sequential conditioning, not independence, yields
+The standing hypothesis needed for every guarded block is
+
+$$
+\tag{H}
+\text{for every }u\in A^k,\qquad uc\text{ is }w\text{-free}.
+$$
+
+It holds because \(u\in A^k\) and \(c\in A\), so \(uc\in A^{k+1}\), while the setup takes \(A\) to be a proper nine-digit alphabet every word over which avoids \(w\). Fix \(u\in A^k\). By (H) and the guard facts above, \(gucg\) is admissible after every state and ends in state \(0\). The inequalities \(b\ne w_1,w_m\) protect the crossings and reset the automaton, but alone would not exclude an occurrence of \(w\) wholly inside \(uc\). The block length is \(\ell_k=k+1+2m\), and conditional on any past its probability is at least \(p_k=C_0\rho_w^{-k}\). For a candidate integer \(n\), place \(gucg\) on positions \(n-m+1,\ldots,n+k+m+1\); then \(uc\) occupies positions \(n+1,\ldots,n+k+1\). Choosing candidate \(n\)'s in \([10^k+1,10^{k+1})\) separated by \(\ell_k\) gives \(M_k\ge C_1 10^k/(k+2m+1)\) disjoint blocks. Sequential conditioning, not independence, yields
 
 $$
 \nu_P(u\text{ has no guarded candidate})
@@ -385,9 +397,15 @@ $$
 \le\exp\!\left[-C_2\frac{(10/\rho_w)^k}{k+2m+1}\right].
 $$
 
-A union bound over \(9^k\) words and the fact \(10/\rho_w>1\) make the level-failure probabilities summable. The first Borel–Cantelli lemma gives \(\mathrm{ALA}_{A,c}\) almost surely.
+A union bound over \(9^k\) words gives level-failure probability at most
 
-The Ahlfors regular measure is Federer and absolutely decaying on \(\mathbb R\); hence it is friendly. By Kleinbock–Lindenstrauss–Weiss Theorem 1.1 it is extremal, so almost every irrational point has classical irrationality exponent \(2\). Removing the countable algebraic set gives transcendence. The resulting set has full measure, and the upper Frostman estimate gives Hausdorff dimension \(s_w\).
+$$
+9^k\exp\!\left[-C_2\frac{(10/\rho_w)^k}{k+2m+1}\right].
+$$
+
+The proof of \(\rho_w<10\) in Section 2 makes \(10/\rho_w>1\); its exponential-in-\(k\) power eventually dominates the linear exponent \(k\log9\), so these probabilities are summable. The first Borel–Cantelli lemma gives \(\mathrm{ALA}_{A,c}\) almost surely.
+
+The Ahlfors regular measure is Federer and absolutely decaying on \(\mathbb R\); hence it is friendly. By Kleinbock–Lindenstrauss–Weiss Theorem 1.1 it is extremal, so almost every irrational point has classical irrationality exponent \(2\). Removing the countable algebraic set gives transcendence. The resulting set has full measure. In the Frostman covering step, a covering ball need not be centered on the support: discard any ball missing the support, and for each remaining \(B(y,r)\) choose \(z\in B(y,r)\cap\operatorname{supp}\nu_P\), so \(B(y,r)\subset B(z,2r)\) and \(\nu_P(B(y,r))\le C(2r)^{s_w}\). The usual mass-distribution argument then gives Hausdorff dimension \(s_w\).
 
 More explicitly, extremality says that for every \(\varepsilon>0\), the inequality
 
@@ -403,7 +421,7 @@ For comparison, Hochman–Shmerkin prove that natural measures on finite continu
 
 ## 5. Why the friendly-measure route cannot prove the simultaneous theorem
 
-**Theorem C.** Let `E` denote either the central all-label set `E_{w,P,A,c}` or the weaker all-`A`-word abundance set. Then no positive-dimensional Ahlfors regular measure has support contained in `E`; in particular `\dim_R E=0`.
+**Theorem C.** Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set. Then no positive-dimensional Ahlfors regular measure \(\mu\) satisfies \(\operatorname{supp}\mu\subset E\); in particular \(\dim_R E=0\).
 
 **Proof.** Suppose `\mu` is `\delta`-Ahlfors regular, `\delta>0`, with compact support `K\subset E`. No point of `E` is rational: a rational decimal expansion is eventually periodic and therefore has only boundedly many distinct long blocks in sufficiently late windows, whereas all-label abundance requires `9^k` distinct labels at level `k`. Hence `K` contains no decimal-cylinder endpoint.
 
@@ -427,13 +445,15 @@ $$
 K\cap B(x,r_k)\subset B(x,R_k).
 $$
 
+Since `n\ge10^k+1`, both radii tend to zero and, for all sufficiently large `k`, lie in the validity range of the Ahlfors estimates.
+
 Since `\mu` is supported on `K`,
 
 $$
 \mu(B(x,r_k))\le\mu(B(x,R_k)).
 $$
 
-Ahlfors regularity now gives
+Ahlfors regularity now gives, for all sufficiently large `k`,
 
 $$
 c r_k^\delta\le C R_k^\delta,
@@ -459,9 +479,9 @@ $$
 
 which is impossible as `k\to\infty`.
 
-Kleinbock–Weiss formulate decay locally. That does not evade the obstruction. Choose a point and a neighborhood `U` on which the decay constants are uniform, then choose a sufficiently deep decimal cylinder whose closure lies in `U` and meets the support. Run the greedy construction on the compact support portion inside that cylinder. All later bottleneck balls lie in `U`, so the same contradiction applies.
+Kleinbock–Weiss formulate decay locally. That does not evade the obstruction. Choose a support point `y_0` and a neighborhood `U` on which the decay constants are uniform. Since `y_0` is irrational, choose a sufficiently deep decimal cylinder `J` with `y_0\in\operatorname{int}J` and `\overline J\subset U`, and run the greedy construction on `K'=K\cap\overline J`. The resulting branch point `x\in K'` is not a decimal endpoint and hence lies in `\operatorname{int}J`. For all sufficiently large `k`, `B(x,r_k)\subset\operatorname{int}J`, so `K\cap B(x,r_k)=K'\cap B(x,r_k)`: the bottleneck for `K'` is a bottleneck for the full measure, and its ball lies inside `U`.
 
-Accordingly, no measure satisfying the KW absolute-decay hypothesis can have its support contained in `E`.
+Accordingly, no measure satisfying the KW absolute-decay hypothesis can have its support contained in `E`. Moreover, Kleinbock–Lindenstrauss–Weiss [5] note that in dimension one every non-atomic decaying measure is absolutely decaying. A friendly measure on \(\mathbb R\) is nonplanar and therefore non-atomic, so the same contradiction rules out friendly measures whose support is contained in \(E\).
 
 ### Consequences for the proposed construction
 
