@@ -56,6 +56,12 @@ are recorded in the attempt ledger.
 The finite admission audit of currently named pi-specific inputs is in
 [`PI_PROPERTY_ADMISSION_AUDIT.md`](knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md).
 
+Exact node definitions (CW0, CW9, CW, V1, N10, D2, N2, D16, N16, AN, HA, E),
+conventions, the complete implication matrix with proofs and counterexample
+witnesses, and resolution criteria are in the draft
+[`TARGET_SPECIFICATION_v1.md`](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md)
+(pending independent audit).
+
 ## Verified consumer and current modules
 
 - **T179 — Predecessor Lag-One Correlation — machine-checked identity.**
