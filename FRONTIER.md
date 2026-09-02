@@ -109,7 +109,8 @@ witnesses, and resolution criteria are in the draft
   hence [Hata's 1993 bound](https://doi.org/10.1515/crll.1993.442.19)
   `mu(pi)<=8.0161` would also suffice after that generalization, while
   Salikhov's `7.6063` or Zeilberger--Zudilin's `7.1032` discharge the current
-  interface as it stands. [Zeilberger--Zudilin's published
+  interface as it stands. The exponent-`9` variants (`..._ofBelowNine`) are now machine-checked, so Hata's bound discharges the timed interface directly.
+  [Zeilberger--Zudilin's published
   bound](https://arxiv.org/abs/1912.06345)
   `mu(pi)<=7.103205334138` (safely rounded upward) discharges that premise in ordinary mathematics
   (`literature-checked`); the source theorem and its bridge are not formalized
