@@ -6,13 +6,13 @@ lean: []
 file: knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md
 statement: A-μ=2-prefix-sharing-continuation defeats heredity along all seven tested legal choices.
 does_not_show: Not-proved:actual-π-paths.
-source: knowledge/pi/results/negative/SEPARATORS.md
+source: knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md
 ---
-> # Ten live separators
+> # Active-scale cross-energy heredity separator
 >
-> These are the only negative results that should normally enter new prompts.
-> Use at most three relevant ones per prompt.
+> Status: `proof sketch` supported by a directed-interval `experiment`
 >
-> 1. [Direct R1 literature boundary](20260827-direct-r1-literature-boundary.md): two fixed transcendental `mu=2` seeds sharing `3.14` preserve the T146 phase gap yet have disjoint target languages, so one forces strict flexible-sign failure for every literal target (`proof sketch`).
-> 2. [Pair/parity-neutral boundary](20260827-pair-r1-laurent-transcendence-boundary.md): formal nonzero structure gives no evaluated lower bound; actual positive π nodes refute uniform Pair/DC1 and, experimentally, every sector-5-annihilating convex mask while literal FMR survives.
-> 3. [Machin/parity sign loss](20260827-machin-positive-remainder-sector-sign-loss.md): positive carrier error does not choose the target-signed sector, and all seven legal children of the certified seed experimentally refute the p-free preferred-parity premise at the next step.
+> Date: 2026-08-29 UTC
+>
+> This result is not about the actual pi tail and proves no failure on the
+> actual pi tree. It closes one orbit-generic hope: corrected cross-energy

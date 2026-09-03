@@ -6,13 +6,13 @@ lean: []
 file: knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md
 statement: Two-μ=2-seeds sharing 3.14/T146-data have disjoint target-languages;one fails flexible-sign.
 does_not_show: Not-proved:anything-about-π.
-source: knowledge/pi/results/negative/SEPARATORS.md
+source: knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md
 ---
-> # Ten live separators
+> # Direct R1 literature boundary
 >
-> These are the only negative results that should normally enter new prompts.
-> Use at most three relevant ones per prompt.
+> Claim status: `literature-checked` for the cited source hypotheses and the
+> bounded PaperSearch comparison below.  One pointwise theorem applies to the
+> actual π orbit, but it supplies no target location or signed sum.
 >
-> 1. [Direct R1 literature boundary](20260827-direct-r1-literature-boundary.md): two fixed transcendental `mu=2` seeds sharing `3.14` preserve the T146 phase gap yet have disjoint target languages, so one forces strict flexible-sign failure for every literal target (`proof sketch`).
-> 2. [Pair/parity-neutral boundary](20260827-pair-r1-laurent-transcendence-boundary.md): formal nonzero structure gives no evaluated lower bound; actual positive π nodes refute uniform Pair/DC1 and, experimentally, every sector-5-annihilating convex mask while literal FMR survives.
-> 3. [Machin/parity sign loss](20260827-machin-positive-remainder-sector-sign-loss.md): positive carrier error does not choose the target-signed sector, and all seven legal children of the certified seed experimentally refute the p-free preferred-parity premise at the next step.
+> Search date: 2026-08-27 UTC.  The local project-repository PaperSearch database
+> contained `776632` records,

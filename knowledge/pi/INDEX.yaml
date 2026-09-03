@@ -518,7 +518,7 @@ results:
     file: knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md
     statement: Two-μ=2-seeds sharing 3.14/T146-data have disjoint target-languages;one fails flexible-sign.
     does_not_show: Not-proved:anything-about-π.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md
   - id: SEP-PAIR-R1
     title: Pair-R1 separator
     label: unlabelled
@@ -526,7 +526,7 @@ results:
     file: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md
     statement: Proof-sketch algebra plus node-experiments refute uniform Pair-R1.
     does_not_show: Not-proved:pathwise-π-transport.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md
   - id: SEP-MACHIN-SIGN
     title: Machin-sign separator
     label: proof sketch
@@ -542,7 +542,7 @@ results:
     file: knowledge/pi/results/negative/20260827-predecessor-sector-finite-separators.md
     statement: At-the-tested-nodes,paired amplitude/capital does not align R2.
     does_not_show: Not-excluded:other-π-inputs.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-predecessor-sector-finite-separators.md
   - id: SEP-XI3
     title: Xi3 separator
     label: unlabelled
@@ -550,7 +550,7 @@ results:
     file: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md
     statement: The-source's experiment/continuations preserve premises while defeating literal-correlation.
     does_not_show: Not-proved:anything-about-π/V1.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md
   - id: SEP-FINITE-BOOTSTRAP
     title: Bootstrap separator
     label: proof sketch
@@ -558,7 +558,7 @@ results:
     file: knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md
     statement: A-μ=2-continuation shares 10015 π-digits yet eventually makes every coherent-334-child fail R1.
     does_not_show: Not-proved:actual-π-continuation.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md
   - id: SEP-REGULARIZATION
     title: Regularization separator
     label: proof sketch
@@ -574,7 +574,7 @@ results:
     file: knowledge/pi/results/negative/20260827-linear-scalar-horizon-mask-channel-lower-bound.md
     statement: The-displayed channel,coboundary,rational-realization,and Abel-variation separators hold.
     does_not_show: Not-excluded:nonlinear-relations.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260827-linear-scalar-horizon-mask-channel-lower-bound.md
   - id: SEP-CROSS-ENERGY
     title: Cross-energy separator
     label: proof sketch
@@ -582,7 +582,7 @@ results:
     file: knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md
     statement: A-μ=2-prefix-sharing-continuation defeats heredity along all seven tested legal choices.
     does_not_show: Not-proved:actual-π-paths.
-    source: knowledge/pi/results/negative/SEPARATORS.md
+    source: knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -837,6 +837,9 @@ documents:
   - id: spec
     path: knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md
     role: Definitions,implications,conventions,resolution criteria.
+  - id: target
+    path: knowledge/pi/workstreams/TARGET.md
+    role: Pointer to the frozen specification and archived target note.
   - id: ledger
     path: knowledge/pi/workstreams/ATTEMPT_LEDGER.md
     role: Routes,fatal lines,separators,reopening conditions.
@@ -848,7 +851,10 @@ documents:
     role: Checked consumer/theorem boundaries.
   - id: admission
     path: knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md
-    role: Audit of proposed π-inputs.
+    role: Pointer to Document B and the archived property-admission audit.
+  - id: separators
+    path: knowledge/pi/results/negative/SEPARATORS.md
+    role: Pointer to the separator entries, Document A, and archived prompt list.
   - id: bounty
     path: BOUNTY.md
     role: Bounty and submission boundary.
@@ -859,6 +865,15 @@ archive:
   - path: knowledge/pi/archive/FRONTIER_2026-09-03_pre-condensation.md
     contains: The complete pre-condensation FRONTIER.md verbatim.
     moved_from: FRONTIER.md
+  - path: knowledge/pi/archive/TARGET_2026-09-03_pre-condensation.md
+    contains: The complete pre-condensation TARGET.md verbatim.
+    moved_from: knowledge/pi/workstreams/TARGET.md
+  - path: knowledge/pi/archive/PI_PROPERTY_ADMISSION_AUDIT_2026-09-03_pre-condensation.md
+    contains: The complete pre-condensation PI_PROPERTY_ADMISSION_AUDIT.md verbatim.
+    moved_from: knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md
+  - path: knowledge/pi/archive/SEPARATORS_2026-09-03_pre-condensation.md
+    contains: The complete pre-condensation SEPARATORS.md verbatim.
+    moved_from: knowledge/pi/results/negative/SEPARATORS.md
 _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03

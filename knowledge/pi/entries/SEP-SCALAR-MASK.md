@@ -6,13 +6,13 @@ lean: []
 file: knowledge/pi/results/negative/20260827-linear-scalar-horizon-mask-channel-lower-bound.md
 statement: The-displayed channel,coboundary,rational-realization,and Abel-variation separators hold.
 does_not_show: Not-excluded:nonlinear-relations.
-source: knowledge/pi/results/negative/SEPARATORS.md
+source: knowledge/pi/results/negative/20260827-linear-scalar-horizon-mask-channel-lower-bound.md
 ---
-> # Ten live separators
+> # Scalar horizon masks and exact state-only coboundaries fail
 >
-> These are the only negative results that should normally enter new prompts.
-> Use at most three relevant ones per prompt.
+> Date: 2026-08-27 UTC; scalar-coboundary extension audited 2026-08-28 UTC
 >
-> 1. [Direct R1 literature boundary](20260827-direct-r1-literature-boundary.md): two fixed transcendental `mu=2` seeds sharing `3.14` preserve the T146 phase gap yet have disjoint target languages, so one forces strict flexible-sign failure for every literal target (`proof sketch`).
-> 2. [Pair/parity-neutral boundary](20260827-pair-r1-laurent-transcendence-boundary.md): formal nonzero structure gives no evaluated lower bound; actual positive π nodes refute uniform Pair/DC1 and, experimentally, every sector-5-annihilating convex mask while literal FMR survives.
-> 3. [Machin/parity sign loss](20260827-machin-positive-remainder-sector-sign-loss.md): positive carrier error does not choose the target-signed sector, and all seven legal children of the certified seed experimentally refute the p-free preferred-parity premise at the next step.
+> Claim label: `proof sketch` (independently audited). This is a narrow method
+> separator, not progress on the missing fixed-pi sign estimate and not a claim
+> about arbitrary nonlinear decoders.
+>
