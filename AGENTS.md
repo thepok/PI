@@ -23,6 +23,8 @@ Never silently upgrade a label.
 
 ## Research rules
 
+Before any attempt, read `knowledge/pi/INDEX.yaml`: a route listed under `closed_routes` is not retried without meeting its `reopening_condition`.
+
 - `FRONTIER.md` states the target, the target ladder, the first open π lemma,
   and the three admission tests for a new candidate. Every proposed rung must
   identify where actual-π target-signed information enters.
