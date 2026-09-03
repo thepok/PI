@@ -294,6 +294,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggreg
 import TheoryLib.PiQuantitativeBlockHitting.T194T194CentralPiReturnSeed
 import TheoryLib.PiQuantitativeBlockHitting.T198T198MachinBracketPack
 import TheoryLib.PiQuantitativeBlockHitting.T199T199BBPShadowPack
+import TheoryLib.PiQuantitativeBlockHitting.T200T200BaileyCrandallCoboundary
+import TheoryLib.PiQuantitativeBlockHitting.T202T202RamanujanTwoAdicRamp
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3640,6 +3642,51 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T199BBPShadowPack.bbp10_leftApproach_iff_piCW9
 #print axioms
   Theory.PiDigits.T199BBPShadowPack.bbp10_soh0_iff_piCW0
+
+-- Exact Document B Bailey--Crandall coefficient integral, analytic
+-- coboundary, decay, and corrected real-orbit identity. The hypothesis-form
+-- declarations preserve the independently gate-checked task contracts.
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.R_eq_intervalIntegral
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.R_div_pow_eq_bbpRealTerm
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.tau_pos_and_le
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.HypothesisForms.R_eq_sixteen_mul_tau_sub_tau_succ
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.R_eq_sixteen_mul_tau_sub_tau_succ
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.HypothesisForms.tendsto_tau_zero
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.tendsto_tau_zero
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.HypothesisForms.Y_add_tau_eq_pow_mul_pi
+#print axioms
+  Theory.PiDigits.T200BaileyCrandallCoboundary.Y_add_tau_eq_pow_mul_pi
+
+-- Exact Document B Ramanujan central-binomial/cube two-adic valuations and
+-- denominator-exponent ramp. These remain representation-level facts.
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.centralBinomial_twoAdic
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.centralCube_twoAdic
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.centralCube_twoAdic
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.binaryDigitSum_succ
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.lambda_succ
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.lambda_succ
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.lambda_strictMono
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.lambda_strictMono
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.lambda_prefix_ramp
+#print axioms
+  Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

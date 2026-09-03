@@ -32,6 +32,10 @@ Key Lean modules:
   This is a representation-level equivalence and proves neither side; the Archimedean-lift obstruction remains unchanged.
 - [`T199`](../../../../TheoryLib/PiQuantitativeBlockHitting/T199T199BBPShadowPack.lean): exact base-10 BBP defect/shadow bounds, scalar monotonicity and convergence, affine fixed-point conjugation, the two one-sided approach equivalences, and `bbp10_soh0_iff_piCW0` (`SOH⁰_{BBP,10} ↔ CW0`) are machine-checked.
   These are representation-level results and prove neither CW0 nor CW9; the Archimedean-lift obstruction remains unchanged.
+- [`T200`](../../../../TheoryLib/PiQuantitativeBlockHitting/T200T200BaileyCrandallCoboundary.lean): the Bailey--Crandall coefficient integral and BBP-term bridge, positive decaying analytic correction, exact coboundary, and `Y n + tau n = 16^(n-1) * pi` for `n≥1` are machine-checked.
+  These are representation-level identities and prove no base-16 density or digit occurrence; the moving-modulus Archimedean-lift obstruction remains unchanged.
+- [`T202`](../../../../TheoryLib/PiQuantitativeBlockHitting/T202T202RamanujanTwoAdicRamp.lean): the central-binomial and central-cube two-adic valuations, binary digit-sum carry law, exact denominator-exponent increment, strict monotonicity, and prefix ramp are machine-checked.
+  These are representation-level denominator facts and supply neither the required positive small tail nor a target hit; the Ramanujan/Erdős carry-killing obstruction remains unchanged.
 
 T189 is the fixed consumer for the present research cycle. T190 is optional:
 use it only if independent π arithmetic naturally provides its rank premises.
