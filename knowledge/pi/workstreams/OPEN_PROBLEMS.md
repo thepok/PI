@@ -1,79 +1,55 @@
-Status: `conjecture` (named unresolved propositions of the program), revised to revision 5 on 2026-09-02 after a cross-document consistency audit (frozen ALA definition, notation).
+Status: `conjecture` (named unresolved propositions of the program), revised to revision 6 on 2026-09-03 after a cross-document consistency audit (frozen ALA definition, notation), flow-audit edits 2026-09-03.
 Audit: independently audited three times on 2026-09-02 for well-posedness and correctness of the "known" claims.
 Date: 2026-09-02.
 Provenance: paper Section 5, produced by ChatGPT Pro runs and revised after adversarial audits, reviewed by Claude.
 
-## 5. Open problems and reopening conditions
+# 5. Open problems and reopening conditions
 
-Decimal expansions are canonical, i.e. not eventually $9$. Write $\mathbb N_0=\{0,1,\ldots\}$, $\mathbb N_+=\{1,2,\ldots\}$, $\mathcal D_b=\{0,\ldots,b-1\}$, and use the continuous evaluation map
+All decimal expansions remain canonical, i.e. not eventually $9$. Retain from Section 4 the notation
 $$
-\pi_b((a_j)_{j\ge1})=\sum_{j\ge1}a_jb^{-j}.
+\mathbb N_0,\ \mathbb N_+,\ \pi_{10},\ \Sigma_w,\ K_w,\ C_w,\ d_w,\
+[P]_\Sigma,\ X_P,\ J_k,\ \mathrm{ALA}^{\Sigma}_{A,c},\
+\mathrm{ALA}_{A,c},\ \mathrm{BA}(\kappa),\ \mathrm{BA}.
 $$
-For decimal expansions, the paper digits are one-based:
+
+For $b\in\mathbb N_+$, $b\ge2$, put
 $$
-a_j(x)=d^{(10)}_{j-1}(x)\qquad(j\ge1),
+\mathcal D_b=\{0,\ldots,b-1\},\qquad
+\pi_b((a_j)_{j\ge1})=\sum_{j\ge1}a_jb^{-j},
 $$
-and, for $\pi$,
+so that this extends the notation $\pi_{10}$. The map $\pi_b$ is non-injective only at the countable set of base-$b$ endpoints.
+
+For $v=v_1\cdots v_\ell\in\mathcal D_{10}^{\ell}$, set
 $$
-a_j(\pi)=\operatorname{Nat}(\operatorname{piDigit}(j-1)).
-$$
-The map $\pi_b$ is non-injective only at the countable set of base-$b$ endpoints. For $v=v_1\cdots v_\ell\in\mathcal D_{10}^{\ell}$, set
-$$
-I(v)=\left[\frac{[v]_{10}}{10^\ell},\frac{[v]_{10}+1}{10^\ell}\right),
+I(v)=
+\left[\frac{[v]_{10}}{10^\ell},
+\frac{[v]_{10}+1}{10^\ell}\right),
 \qquad
 [v]_{10}=\sum_{i=1}^{\ell}v_i10^{\ell-i}.
 $$
-For integers $z$ and $M\ge1$, $[z]_M\in\{0,\ldots,M-1\}$ is the least nonnegative residue, and $d_{\mathbb T}(x,y)=\|x-y\|_{\mathbb R/\mathbb Z}$.
-
-For nonempty $w\in\mathcal D_{10}^m$, define
+Thus $I(v)$ is the half-open real decimal cylinder denoted $[v]$ in Section 3; it must not be confused with the symbolic cylinder $[v]_\Sigma$. For every admissible prefix $P$, the symmetric difference
 $$
-\Sigma_w=\{\mathbf a=(a_j)_{j\ge1}\in\mathcal D_{10}^{\mathbb N_+}:\mathbf a\text{ contains no occurrence of }w\},
-\qquad
-K_w:=\pi_{10}(\Sigma_w).
+X_P\mathbin{\triangle}\bigl(C_w\cap I(P)\bigr)
 $$
-Then $\Sigma_w$ and $K_w$ are compact. Let
-$$
-C_w:=\{x\in[0,1):\text{the canonical decimal expansion of $x$ avoids $w$}\}
-$$
-and put $d_w=\dim_HC_w$. Since
-$$
-C_w\mathbin{\triangle}(K_w\cap[0,1))
-$$
-is countable, $\dim_HK_w=d_w$. If $\rho_w$ is the Perron root of the prefix automaton for avoiding $w$, then
-$$
-d_w=\frac{\log\rho_w}{\log10};
-$$
-see [the separator theorem note, §2, equation (2.9)](../results/intermediate/20260902-diophantine-separator-theorems.md).
+is contained in the countable set of decimal endpoints.
 
 For a finite word $u$, write
 $$
-[u]_{\Sigma,r}=\{\mathbf a:a_r\cdots a_{r+|u|-1}=u\},
+[u]_{\Sigma,r}
+=\{\mathbf a:a_r\cdots a_{r+|u|-1}=u\},
 \qquad
 [u]_\Sigma=[u]_{\Sigma,1}.
 $$
-For nonempty $A\subseteq\mathcal D_{10}$ and $c\in A\cap\{1,\ldots,8\}$, define
+
+For integers $z$ and $M\ge1$, let $[z]_M\in\{0,\ldots,M-1\}$ be the least nonnegative residue, and put
 $$
-\begin{aligned}
-\mathbf a\in\mathrm{ALA}^{\Sigma}_{A,c}\Longleftrightarrow{}&
-(\exists k_0\in\mathbb N_+)(\forall k\ge k_0)(\forall u\in A^k)(\exists n\in\mathbb N_0)\\[-1mm]
-&10^k+1\le n<10^{k+1}
-\ \land\
- a_{n+1}\cdots a_{n+k+1}=uc.
-\end{aligned}
+d_{\mathbb T}(x,y)=\|x-y\|_{\mathbb R/\mathbb Z}.
 $$
-The real set $\mathrm{ALA}_{A,c}$ uses the canonical expansion. Every sequence in $\mathrm{ALA}^{\Sigma}_{A,c}$ contains $c$ at arbitrarily large positions and is therefore neither eventually $0$ nor eventually $9$. Hence
+
+The marker-$c$ uniqueness argument from §4.1 also gives
 $$
-\pi_{10}(\Sigma_w\cap\mathrm{ALA}^{\Sigma}_{A,c})
-=C_w\cap\mathrm{ALA}_{A,c}.
-\tag{5.1}
-$$
-Finally,
-$$
-\mathrm{BA}(\kappa)=
-\left\{x:\left|x-\frac pq\right|\ge\frac{\kappa}{q^2}
-\ \forall p\in\mathbb Z,\ q\in\mathbb N_+\right\},
-\qquad
-\mathrm{BA}=\bigcup_{\kappa>0}\mathrm{BA}(\kappa).
+\pi_{10}\bigl(\Sigma_w\cap\mathrm{ALA}^{\Sigma}_{A,c}\bigr)
+=C_w\cap\mathrm{ALA}_{A,c}. \tag{5.1}
 $$
 
 Any unconditional proof or unconditional disproof of a displayed proposition, in the sense of [`TARGET_SPECIFICATION_v1.md`, version 1.0-rc2, §4.1](TARGET_SPECIFICATION_v1.md), counts as a mathematical resolution. The “does not by itself imply” paragraphs identify missing logical implications and do not prohibit proof methods.
@@ -95,6 +71,8 @@ m\in\mathbb N_+,\ w\in\mathcal D_{10}^m,\ A\subseteq\mathcal D_{10},\ c\in\mathc
 \right\}.
 \tag{5.2}
 $$
+Because $|A|=9$, the condition $w\notin A^m$ is equivalent to saying that the unique digit omitted from $A$ occurs in $w$, exactly as in the standing assumptions of §4.1. These parameter conditions also guarantee the choices of the safe guard $\beta$ and the digit $a$ in (4.3)–(4.4).
+
 The three distinct propositions are
 $$
 \tag{P1-FD}
@@ -140,64 +118,46 @@ $$
 \dim_H\bigl(X(w,A,c)\cap I(P)\bigr)=d_w.
 \end{aligned}
 $$
-The condition is cylinder admissibility, not merely internal avoidance by $P$, since an occurrence of $w$ may cross a boundary.
+For this one-word avoidance shift, $C_w\cap I(P)\ne\varnothing$ is equivalent to internal avoidance by $P$, since such a prefix can be followed by the reset guard $g$. The admissibility formulation is retained because it extends unchanged to the general SFT setting of P1′.
 
 The all-label packets occupy zero-density digit intervals, which preserves entropy but not a uniform Diophantine constant. The missing step is, for example, either a fixed-Markov-constant extension theorem—given $s<d_w$, choose $\kappa(s)>0$ before branching and retain dimension at least $s$—or a sparse-blackout theorem for Schmidt or potential games. Constants tending to zero along every branch do not establish bad approximability.
 
-The relevant tails are first defined as symbolic coding objects:
-$$
-\widetilde E_j(w,A,c)
-=
-\Sigma_w\cap
-\bigcap_{k\ge j}\bigcap_{u\in A^k}
-\bigcup_{n=10^k+1}^{10^{k+1}-1}[uc]_{\Sigma,n+1},
-\qquad
-\Sigma_w\cap\mathrm{ALA}^{\Sigma}_{A,c}
-=
-\bigcup_{j\ge1}\widetilde E_j(w,A,c).
-\tag{5.3}
-$$
-Each $\widetilde E_j$ is closed in the compact SFT $\Sigma_w$. For every admissible symbolic prefix $P$, put
-$$
-X_P:=\pi_{10}(\Sigma_w\cap[P]_\Sigma),
-\qquad
-E_{j,P}:=\pi_{10}(\widetilde E_j(w,A,c)\cap[P]_\Sigma),
-$$
-and
+For every admissible prefix $P$, let $E_{j,P}$ denote the set $E_j$ from (4.5) formed with that prefix, and put
 $$
 \mathrm{ALA}_P
-:=\pi_{10}(\Sigma_w\cap[P]_\Sigma\cap\mathrm{ALA}^{\Sigma}_{A,c})
-=X_P\cap\mathrm{ALA}_{A,c}.
+:=X_P\cap\mathrm{ALA}_{A,c}
+=\bigcup_{j\ge1}E_{j,P}. \tag{5.3}
 $$
-The sets $X_P$ and $E_{j,P}$ are compact in the Euclidean metric. The equality defining $\mathrm{ALA}_P$ is exact because the interior marker $c$ excludes both eventually-$0$ and eventually-$9$ codings.
+The sets $X_P$ and $E_{j,P}$ are compact in the Euclidean metric. The displayed equality is exact by the marker-$c$ uniqueness argument in §4.1.
 
-For every admissible cylinder $I(P)$, [Theorems A and B in the separator theorem note](../results/intermediate/20260902-diophantine-separator-theorems.md) give, respectively,
+For every $(m,w,A,c)\in\mathfrak P_1$ and every $P$ with $C_w\cap I(P)\ne\varnothing$, Theorem A gives
 $$
 \dim_H\bigl(C_w\cap I(P)\cap\mathrm{BA}\cap\mathrm{Trans}\bigr)=d_w,
 $$
-and
+
+Theorem B gives
 $$
 \dim_H\!\left(
-C_w\cap I(P)\cap\mathrm{ALA}_{A,c}\cap\mathrm{Trans}
+C_w\cap I(P)\cap\mathrm{ALA}_{A,c}
 \cap\{x:\mu(x)=2\}
 \right)=d_w.
 $$
-Define
+
+Since the algebraic numbers are countable, the second equality remains true after intersecting the displayed set with $\mathrm{Trans}$.
+
+With $\dim_R$ as defined in §4.2, Theorem C gives
 $$
-\dim_{\mathrm{reg}}E
-:=
-\sup\left\{
-\delta>0:
-\exists F\subseteq E
-\text{ supporting a }\delta\text{-Ahlfors-regular probability measure}
-\right\},
-$$
-with value $0$ if the class is empty. [Theorem C in the separator theorem note](../results/intermediate/20260902-diophantine-separator-theorems.md) gives
-$$
-\dim_{\mathrm{reg}}\bigl(C_w\cap\mathrm{ALA}_{A,c}\bigr)=0.
+\dim_R\bigl(C_w\cap\mathrm{ALA}_{A,c}\bigr)=0.
 $$
 
-[Theorem D, §4.2, in the BA--ALA intersection note](../results/intermediate/20260902-ba-ala-intersection-problem.md) gives, for every admissible $P$ and every $0\le c_{\mathrm{pot}}<d_w$, that neither $\mathrm{ALA}_P$ nor any projected compact tail $E_{j,P}$ is $c_{\mathrm{pot}}$-potential-winning in the compact Euclidean ambient $X_P$. [Corollary 4.1 in the same file](../results/intermediate/20260902-ba-ala-intersection-problem.md) gives the canonical-real-line relative conclusion: interpret a target $E\subset X_P$ as $E\cup(\mathbb R\setminus X_P)$ in the canonical splitting of $\mathbb R$. Then
+By monotonicity, $\dim_R E=0$ for every $E\subset C_w\cap\mathrm{ALA}_{A,c}$.
+
+For the same parameters and every admissible prefix $P$, Theorem D applies by the observation following (5.2). More precisely, for every $0\le c_{\mathrm{pot}}<d_w$, it constructs a closed $d$-Ahlfors-regular set
+$$
+K_{L,P}\subset X_P\setminus\mathrm{ALA}_P,
+\qquad d>c_{\mathrm{pot}},
+$$
+and therefore
 $$
 \tag{5.4}
 \begin{aligned}
@@ -212,9 +172,11 @@ $$
 &\hspace{29mm}\text{are not }\varepsilon\text{-Cantor-winning in the canonical splitting of }\mathbb R.
 \end{aligned}
 $$
-No BHNS splitting theorem for a “canonical symbolic splitting of $\Sigma_w$” is claimed. In particular, no conclusion for $\varepsilon\le1-d_w$ is obtained from Corollary 4.1. The game comparison is from \cite{BadziahinHarrap2017,BHNS2025}; the all-label obstruction is the file-qualified Theorem D above. The retained construction in [the BA--ALA intersection note, §4.7](../results/intermediate/20260902-ba-ala-intersection-problem.md) also has full-relative-dimension subfamilies with unbounded continued-fraction partial quotients and hence disjoint from $\mathrm{BA}$.
+The second implication is Corollary 4.1. No conclusion for $\varepsilon\le1-d_w$ is asserted without a suitable BHNS splitting structure on $X_P$. The game comparison is from \cite{BadziahinHarrap2017,BHNS2025}.
 
-**What does not by itself imply P1-FD, P1-PD, or P1-NE.** Separate largeness theorems, almost-everywhere or residual statements, and conditional results do not by themselves imply a simultaneous intersection; that is the missing step. Constants tending to zero do not by themselves imply membership in $\mathrm{BA}$, although branch-dependent constants can count if the resulting BA union has the required dimension. One admissible counterexample completely disproves the corresponding universal proposition.
+Theorems C and D are not an implication chain: C is target-side, whereas D is complement-side. Neither theorem resolves any of P1-FD, P1-PD, or P1-NE. Theorem E gives $d_w$-dimensional $F_\sigma$ and liminf subsets of $\mathrm{ALA}_P$ disjoint from $\mathrm{BA}$, while Theorem B′ gives a $d_w$-dimensional subset satisfying (4.46), and hence also disjoint from $\mathrm{BA}$. These are obstructions to largeness-only arguments, not counterexamples to P1.
+
+**What does not by itself imply P1-FD, P1-PD, or P1-NE.** Theorems A, B, C, D, E, and B′ give separate largeness, thinness, or method-obstruction statements, not a simultaneous BA--ALA point. One admissible counterexample, however, disproves the corresponding universal proposition.
 
 ### P1$^{\prime}$. Sparse forced blocks in finite-type subshifts
 
@@ -545,7 +507,7 @@ $$
 =1+\sum_{n\ge1}(\rho_n5^{8n})(10^8)^{-n}.
 \tag{5.10}
 $$
-**Proposition (Ramanujan reciprocal coefficients), Section 1** *(cross-reference to be resolved at assembly)*—not Ramanujan's identity—gives
+The Ramanujan reciprocal-coefficient proposition in Section 1—not Ramanujan's identity—gives
 $$
 \nu_2(\rho_n)=3s_2(n),
 \qquad
@@ -650,7 +612,7 @@ $$
 \quad\text{for all sufficiently large }n
 \tag{5.16}
 $$
-\cite{ZeilbergerZudilin2020}. This bounds an existing run; it does not prove one exists. [Theorem A in the separator theorem note](../results/intermediate/20260902-diophantine-separator-theorems.md) gives full relative dimension $d_{0^k}$ in $C_{0^k}$, and $d_{9^k}$ in $C_{9^k}$, for transcendental badly approximable numbers of irrationality exponent $2$; these are not dimension-one claims.
+\cite{ZeilbergerZudilin2020}. This bounds an existing run; it does not prove one exists. Theorem A gives full relative dimension $d_{0^k}$ in $C_{0^k}$, and $d_{9^k}$ in $C_{9^k}$, for transcendental badly approximable numbers. Since every badly approximable irrational has irrationality exponent $2$, these sets also lie in $\{x:\mu(x)=2\}$; they are not dimension-one claims.
 
 **What does not by itself imply a P4 component.** Proving $\mathrm E$ yields only the disjunction and does not select a direction, whereas disproving $\mathrm E$ resolves both $\pi$ components negatively. A result in a multiplicatively independent base does not by itself settle a decimal component. Bases $10^r$ do transfer: zero digits give decimal zero blocks, the digit $10^r-1$ gives decimal nine blocks, and the converse loses only a bounded alignment offset. Finite records, almost-everywhere results, and conditional theorems still lack the quantified assertion for the named constant unless their hypotheses are proved.
 

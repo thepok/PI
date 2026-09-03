@@ -1,6 +1,6 @@
 Status: `proof sketch`, independently audited three times at proof level on
 2026-09-02 (BHNS Thm 4.1 and 3.4 and Bénard–He–Zhang Thm A′
-applications verified), revised to revision 5 on 2026-09-02 after a cross-document consistency audit (frozen ALA definition, notation), geometry re-audit fixes applied 2026-09-03.
+applications verified), revised to revision 7 on 2026-09-03 after a cross-document consistency audit (frozen ALA definition, notation), geometry re-audit fixes applied 2026-09-03, flow-audit edits 2026-09-03.
 Date: 2026-09-02.
 Provenance: produced by ChatGPT Pro runs from the repository's separator
 theorems, revised after adversarial audits, reviewed by Claude.
@@ -18,7 +18,7 @@ hold in general. They remain open, including the non-emptiness assertion. We pro
 
 ## 4.1. Standing assumptions
 
-Write $\mathbb N_0=\{0,1,\ldots\}$ and $\mathbb N_+=\{1,2,\ldots\}$. Let $w=w_1\cdots w_m$ be a fixed finite decimal word. Let
+Write $\mathbb N_0=\{0,1,\ldots\}$ and $\mathbb N_+=\{1,2,\ldots\}$. Let $m\in\mathbb N_+$ and let $w=w_1\cdots w_m\in\{0,\ldots,9\}^m$ be fixed. Let
 $$
 \Sigma_w\subset\{0,\ldots,9\}^{\mathbb N_+}
 $$
@@ -53,17 +53,18 @@ C_w\mathbin{\triangle}(K_w\cap[0,1))\quad\text{countable}.
 $$
 If $\rho_w$ is the Perron root of the prefix automaton for avoiding $w$, then
 $$
-s=\dim_HX=\dim_HK_w=\dim_HC_w=\frac{\log\rho_w}{\log10}.
+d_w:=\dim_HC_w=\frac{\log\rho_w}{\log10},\qquad
+\dim_HX=\dim_HK_w=d_w,\qquad s:=d_w.
 \tag{4.2}
 $$
 The set $X$ is compact in the Euclidean metric, hence complete. All game and regularity assertions made relative to $X$ in this section use this compact Euclidean ambient; the canonical-real-line comparison in Corollary 4.1 is explicitly localized to a standard Euclidean splitting ball. Here $X\subset K_w$, while $(X\cap[0,1))\mathbin{\triangle}(X\cap C_w)$ is countable. The equality of dimensions in (4.2) follows because $X\subset K_w$, while appending the reset word introduced below after $P$ embeds an affine copy of $K_w$ into $X$; the equality with $\dim_HC_w$ then follows from the countable endpoint bridge. We write $\mathrm{Trans}$ for the set of transcendental real numbers.
 
-Choose a digit $b$ such that
+Choose a digit $\beta$ such that
 $$
-b\in\{1,\ldots,8\}\setminus\{w_1,w_m\},
+\beta\in\{1,\ldots,8\}\setminus\{w_1,w_m\},
 \tag{4.3}
 $$
-and write $g=b^m$. Then $g$ is a safe reset and guard. It contains no copy of $w$; an occurrence of $w$ cannot cross from a legal word into the right guard, because it would end in $b$, and cannot cross from the left guard into a legal word, because it would begin in $b$. Reading $g$ also returns every state of the prefix automaton to the reset state. In the repeatedly guarded attractors $K_{L,P}$ used in Theorem D, the digit $b$ occurs infinitely often. Consequently, these attractors contain no sequence that is eventually $0$ or eventually $9$, and their points have unique decimal codings. No corresponding uniqueness assertion is made for the full follower cylinders or for the induced countable-IFS attractor used later.
+and write $g=\beta^m$. Then $g$ is a safe reset and guard. It contains no copy of $w$; an occurrence of $w$ cannot cross from a legal word into the right guard, because it would end in $\beta$, and cannot cross from the left guard into a legal word, because it would begin in $\beta$. Reading $g$ also returns every state of the prefix automaton to the reset state. Uniqueness for the repeatedly guarded attractors will be verified when $K_{L,P}$ is defined in Theorem D. No corresponding uniqueness assertion is made for full follower cylinders or for the induced countable-IFS attractor used later.
 
 The label alphabet $A\subset\{0,\ldots,9\}$ has cardinality $9$ and omits a digit occurring in $w$. Consequently every word over $A$ avoids $w$. Fix
 $$
@@ -71,10 +72,10 @@ c\in A\cap\{1,\ldots,8\},
 $$
 and choose
 $$
-a\in A\cap\bigl(\{1,\ldots,8\}\setminus\{b\}\bigr).
+a\in A\cap\bigl(\{1,\ldots,8\}\setminus\{\beta\}\bigr).
 \tag{4.4}
 $$
-For the run argument only $a\neq b$ is needed; the interior-digit restriction removes endpoint distractions.
+For the run argument only $a\neq\beta$ is needed; the interior-digit restriction removes endpoint distractions.
 
 For $k\ge1$, let
 $$
@@ -111,11 +112,12 @@ $$
 $$
 Each $O_k^\Sigma$ is clopen, each $E_j^\Sigma$ is compact, and therefore each projected tail $E_j$ is compact and $\mathrm{ALA}\subset X$ is $F_\sigma$. Finally,
 $$
-\operatorname{Bad}(\kappa)
-=\left\{x:\left|x-\frac pq\right|\ge \frac{\kappa}{q^2}
+\mathrm{BA}(\kappa)
+:=\left\{x:\left|x-\frac pq\right|\ge \frac{\kappa}{q^2}
 \text{ for all }p\in\mathbb Z,\ q\ge1\right\},
 \qquad
-\mathrm{BA}=\bigcup_{M\ge1}\operatorname{Bad}(1/M).
+\mathrm{BA}=\bigcup_{M\ge1}\mathrm{BA}(1/M),
+\quad \kappa>0.
 \tag{4.6}
 $$
 
@@ -123,7 +125,7 @@ $$
 
 Badziahin and Harrap prove in their Section 7.1 that $\mathrm{BA}\subset\mathbb R$ is $1$-Cantor-winning for the canonical splitting structure of $\mathbb R$; their Theorems 8 and 9 give, respectively, the full-dimension and countable-intersection properties of Cantor-winning sets \cite[Section 7.1 and Theorems 8--9]{BadziahinHarrap2017}. The missing premise in the naive intersection argument is that $\mathrm{ALA}$ is winning in a compatible structure. In fact it fails every potential-winning parameter below the ambient dimension.
 
-**Theorem D (sharp potential-winning obstruction).** \label{thm:D} Let $w$ be a finite decimal word, let $X=X_P$ be a nonempty admissible projected prefix cylinder, and put $s=\dim_H C_w$. Assume the label alphabet contains a digit $a$ distinct from the safe guard digit. Then, for every $0\le c_0<s$, neither $\mathrm{ALA}$ nor any compact tail $E_j\subset X$ is $c_0$-potential-winning in $X$. More precisely, for every $c_0<s$ there exists a closed $d$-Ahlfors-regular set
+**Theorem D (sharp potential-winning obstruction).** \label{thm:D} Under the standing assumptions of §4.1, let $X=X_P\ne\varnothing$, put $s=d_w$, and let $a$ be chosen as in (4.4). Then, for every $0\le c_0<s$, neither $\mathrm{ALA}$ nor any compact tail $E_j\subset X$ is $c_0$-potential-winning in $X$. More precisely, for every $c_0<s$ there exists a closed $d$-Ahlfors-regular set
 $$
 K\subset X\setminus\mathrm{ALA},
 \qquad d>c_0.
@@ -133,7 +135,7 @@ The same $K$ is disjoint from every $E_j$.
 
 *Proof.* Let $N_w(L)$ be the number of length-$L$ decimal words avoiding $w$. For every such word $u$, form
 $$
-B_u=gug=b^mub^m.
+B_u=gug=\beta^m u\beta^m.
 \tag{4.8}
 $$
 Writing $T_R(t)=([R]_{10}+t)/10^{|R|}$, let $K_L$ be the attractor of the similarities
@@ -153,7 +155,7 @@ s_L\longrightarrow s.
 $$
 No monotonicity in $L$ is asserted or needed.
 
-Because $a\neq b$, every run of $a$'s in a point of $K_{L,P}$ is contained in one middle word $u$, apart from the fixed finite prefix. Thus there is a uniform finite bound $R_L$ on all $a$-run lengths in $K_{L,P}$. For every $k>R_L$, the level-$k$ obligation corresponding to the label $u=a^k$ fails, independently of the permitted start set $J_k$. Unique decimal coding then gives
+Because $a\neq\beta$, every run of $a$'s in a point of $K_{L,P}$ is contained in one middle word $u$, apart from the fixed finite prefix. Thus there is a uniform finite bound $R_L$ on all $a$-run lengths in $K_{L,P}$. For every $k>R_L$, the level-$k$ obligation corresponding to the label $u=a^k$ fails, independently of the permitted start set $J_k$. Unique decimal coding then gives
 $$
 K_{L,P}\cap\mathrm{ALA}=\varnothing,
 \qquad
@@ -161,7 +163,17 @@ K_{L,P}\cap E_j=\varnothing\quad(j\ge1).
 \tag{4.11}
 $$
 
-Badziahin--Harrap--Nesharim--Simmons define $\dim_R K$ as the supremum of the dimensions of Ahlfors-regular measures supported on $K$. Their Theorem 4.1 states, in the direction used here, that every $c_0$-potential-winning set meets every closed set $K$ with $\dim_RK>c_0$; the Borel assumption is required only for the converse \cite[Theorem 4.1]{BHNS2025}. This forward implication uses the complete ambient required by the standing setup of their games and requires neither doubling nor Ahlfors regularity of that ambient. Here $X$ is compact and hence complete. Given $c_0<s$, choose $L$ with $s_L>c_0$. Since $K_{L,P}$ is $s_L$-Ahlfors regular, $\dim_RK_{L,P}=s_L$, and (4.11) gives disjointness. Therefore neither $\mathrm{ALA}$ nor any $E_j$ can be $c_0$-potential-winning. Taking $K=K_{L,P}$ proves the strengthened assertion. $\square$
+We use the BHNS notation
+$$
+\dim_R E
+:=\sup\left\{\delta>0:
+\begin{array}{l}
+\text{there exists a $\delta$-Ahlfors-regular probability measure $\mu$}\\[-1mm]
+\text{with $\operatorname{supp}\mu\subset E$}
+\end{array}\right\},
+\qquad \sup\varnothing:=0.
+$$
+Their Theorem 4.1 states, in the direction used here, that every $c_0$-potential-winning set meets every closed set $K$ with $\dim_RK>c_0$; the Borel assumption is required only for the converse \cite[Theorem 4.1]{BHNS2025}. This forward implication uses the complete ambient required by the standing setup of their games and requires neither doubling nor Ahlfors regularity of that ambient. Here $X$ is compact and hence complete. Given $c_0<s$, choose $L$ with $s_L>c_0$. Since $K_{L,P}$ is $s_L$-Ahlfors regular, $\dim_RK_{L,P}=s_L$, and (4.11) gives disjointness. Therefore neither $\mathrm{ALA}$ nor any $E_j$ can be $c_0$-potential-winning. Taking $K=K_{L,P}$ proves the strengthened assertion. $\square$
 
 **Corollary 4.1 (the proved Cantor-winning consequence).** \label{cor:canonical-cantor} Interpret winning relative to $X$ in the canonical splitting of $\mathbb R$ by replacing a target $E\subset X$ with $E\cup(\mathbb R\setminus X)$. Then $\mathrm{ALA}$ and every $E_j$ fail to be $\varepsilon$-Cantor-winning for every
 $$
@@ -177,7 +189,7 @@ where $E$ is either $\mathrm{ALA}$ or $E_j$. If the ambient-relative target were
 
 The unrestricted relative assertion is **not proved**. To rule out every $\varepsilon>0$ by BHNS Theorem 3.4 one would first have to construct a BHNS splitting structure whose limit set is exactly $X$ and whose splitting dimension is $s$. The state-dependent branching of the graph-directed coding does not by itself provide the required splitting axioms. BHNS Remark 4.8 warns more generally that even a complete doubling metric space need not admit a splitting structure with $A_\infty(B)=B$ for every ball; it does not itself analyse this decimal graph-directed system \cite[Remark 4.8]{BHNS2025}. Accordingly, no claim is made here for $0<\varepsilon\le1-s$, nor for every positive parameter in an unspecified ``natural'' splitting of $X$.
 
-Theorem D is also logically distinct from the target-side statement $\dim_RY=0$ for $Y\subset\mathrm{ALA}$ proved in [Theorem C of the separator note](20260902-diophantine-separator-theorems.md). BHNS Theorem 4.1 is complement-facing: the decisive witnesses are the closed regular sets in $X\setminus\mathrm{ALA}$, not the absence of regular subsets inside the target. That Theorem C and BHNS Proposition 2.18, together with the ensuing identification of point-diffuseness and uniform perfectness, imply that $\mathrm{ALA}$ contains no nonempty compact diffuse or uniformly perfect subset \cite[Proposition 2.18]{BHNS2025}. This blocks the usual strategy of extracting a friendly, Ahlfors-regular, or diffuse support inside $\mathrm{ALA}$; it does not rule out a different arithmetic construction or a new game adapted to sparse unbounded symbolic blackouts.
+Theorem D is logically distinct from Theorem C. Theorem C is target-side: it gives $\dim_RY=0$ for every $Y\subset\mathrm{ALA}$, with the decisive requirement $\operatorname{supp}\mu\subset Y$. Proposition 4.2 asserts only $\nu(\mathrm{ALA})=1$, not $\operatorname{supp}\nu\subset\mathrm{ALA}$, so there is no conflict. BHNS Theorem 4.1 is instead complement-facing: the witnesses used in Theorem D are closed regular sets in $X\setminus\mathrm{ALA}$. Theorem C and BHNS Proposition 2.18, together with the ensuing identification of point-diffuseness and uniform perfectness, imply that $\mathrm{ALA}$ contains no nonempty compact diffuse or uniformly perfect subset \cite[Proposition 2.18]{BHNS2025}. This blocks the usual strategy of extracting a friendly, Ahlfors-regular, or diffuse support inside $\mathrm{ALA}$; it does not rule out a different arithmetic construction or a new game adapted to sparse unbounded symbolic blackouts.
 
 ## 4.3. The edge-Parry measure and the induced countable IFS
 
@@ -287,7 +299,7 @@ $$
 \end{aligned}
 \tag{4.23}
 $$
-The endpoint margins reduce only the implicit comparison constant in $T_k\asymp10^k/k$. Accordingly, the only estimate constant that changes in (4.23) is $C_1$, which may be replaced by a smaller positive constant; the lower bound $C_0\rho_w^{-k}$ and all exponential rates are unchanged.
+The endpoint margins affect only the implicit constant in $T_k\asymp10^k/k$. Hence, after choosing $C_1>0$ sufficiently small, (4.23) holds uniformly in $u$ for all sufficiently large $k$.
 
 Taking a union over the $9^k$ labels yields, for all sufficiently large $k$,
 $$
@@ -325,7 +337,7 @@ F\cap\mathrm{BA}=L\cap\mathrm{BA}=\varnothing,
 \dim_HF=\dim_HL=s.
 \tag{4.27}
 $$
-By [Theorem C of the separator note](20260902-diophantine-separator-theorems.md), both also have Ahlfors-regularity dimension zero.
+By Theorem C, both also have Ahlfors-regularity dimension zero.
 
 *Proof.* Let $\nu$ be the measure from Proposition 4.2 and put $G=\mathrm{ALA}\setminus\mathrm{BA}$. Then $G$ is Borel and $\nu(G)=1$. Inner regularity gives compact sets $F_n\subset G$ with $\nu(F_n)>1-2^{-n}$. The union
 $$
@@ -366,13 +378,13 @@ L=\liminf_{k\to\infty}U_k.
 $$
 The set $\widehat O_k$ is relatively open, $\widehat O_k\subset O_k$, and $O_k\setminus\widehat O_k\subset D_k$. Since $\nu$ is non-atomic, $\nu(D_k)=0$, so all estimates for $O_k$ survive unchanged after replacement by $\widehat O_k$. Thus the complements in (4.31) have summable measures, and Borel--Cantelli gives $\nu(L)=1$.
 
-If $x$ belongs to $\widehat O_k$ for all sufficiently large $k$, then it avoids $D_k$ for all sufficiently large $k$. Every double-coded decimal endpoint belongs to all $D_k$ once $N_k$ exceeds its terminating level, so such an $x$ has a unique decimal expansion. Membership in $O_k=\pi_{10}(O_k^\Sigma)$ then forces that unique expansion to lie in $O_k^\Sigma$. Hence eventual membership in $\widehat O_k$ puts $L$ in $\mathrm{ALA}$. Eventual membership in $V_k$ supplies $q_k\to\infty$ with $q_k\lVert q_kx\rVert<1/k$; hence $L\cap\mathrm{BA}=\varnothing$. Again $\dim_HL=s$. The regularity-dimension conclusion follows from [Theorem C of the separator note](20260902-diophantine-separator-theorems.md) because $F,L\subset\mathrm{ALA}$. $\square$
+If $x$ belongs to $\widehat O_k$ for all sufficiently large $k$, then it avoids $D_k$ for all sufficiently large $k$. Every double-coded decimal endpoint belongs to all $D_k$ once $N_k$ exceeds its terminating level, so such an $x$ has a unique decimal expansion. Membership in $O_k=\pi_{10}(O_k^\Sigma)$ then forces that unique expansion to lie in $O_k^\Sigma$. Hence eventual membership in $\widehat O_k$ puts $L$ in $\mathrm{ALA}$. Eventual membership in $V_k$ supplies $q_k\to\infty$ with $q_k\lVert q_kx\rVert<1/k$; hence $L\cap\mathrm{BA}=\varnothing$. Again $\dim_HL=s$. The regularity-dimension conclusion follows from Theorem C because $F,L\subset\mathrm{ALA}$. $\square$
 
 Thus no theorem depending only on full Hausdorff dimension, $F_\sigma$ or liminf form, and regularity dimension zero can force intersection with $\mathrm{BA}$. Any positive result must use more of the specific combinatorics of $\mathrm{ALA}$.
 
 ## 4.5. Perturbation stability and the square-root scale
 
-**Proposition 4.3 (two perturbation guarantees).** \label{prop:perturbation} Let $x\in\operatorname{Bad}(\kappa)$, let $\delta>0$, and suppose that $|x-y|\le\delta$. The case $\delta=0$ is immediate.
+**Proposition 4.3 (two perturbation guarantees).** \label{prop:perturbation} Let $x\in\mathrm{BA}(\kappa)$, let $\delta>0$, and suppose that $|x-y|\le\delta$. The case $\delta=0$ is immediate.
 
 1. For every rational $p/q$ with
    $$
@@ -409,7 +421,7 @@ $$
 \frac{p_n+p_{n-1}}{q_n+q_{n-1}},
 \tag{4.36}
 $$
-up to parity. Their denominators are at most $2q_n$. Since $x\in\operatorname{Bad}(\kappa)$,
+up to parity. Their denominators are at most $2q_n$. Since $x\in\mathrm{BA}(\kappa)$,
 $$
 \operatorname{dist}(x,\partial I_n(x))
 \ge \frac{\kappa}{(q_n+q_{n-1})^2}
@@ -464,30 +476,34 @@ $$
 $$
 For all sufficiently large $k$, every one of these indices lies in $J_k$, and the right guard ends before paper position $10^{k+1}$. Thus both guards fit away from the two ends, not merely the target words. The exact denominator in (4.41) changes from the old occupied-position length $9\cdot10^k$ to the start-set cardinality $|J_k|=9\cdot10^k-1$; the asymptotic ratio and every entropy or dimension estimate are unchanged.
 
-Increase $k_0$ so that these packet intervals also lie beyond $P$. The chosen coordinate intervals are pairwise disjoint. For finite $S$ we append a reset, fill unused positions with $b$'s, place one guarded packet at the stated interior location for each required level, and finish with another reset. This produces $Q$, and every continuation satisfies the chosen finite obligations.
+Increase $k_0$ so that these packet intervals also lie beyond $P$. The chosen coordinate intervals are pairwise disjoint. For finite $S$ we append a reset, fill unused positions with $\beta$'s, place one guarded packet at the stated interior location for each required level, and finish with another reset. This produces $Q$, and every continuation satisfies the chosen finite obligations.
 
-After the final reset, the follower set $X_Q$ is an affine copy of the full word-avoidance shift and supports the $s$-Ahlfors-regular edge-Parry measure from Proposition 4.2. In one dimension an $s$-Ahlfors-regular measure is Federer and absolutely decaying. Kleinbock--Weiss Theorem 1.1 therefore gives full support dimension for the badly approximable points \cite[Theorem 1.1]{KleinbockWeiss2005}, proving $\dim_H(X_Q\cap\mathrm{BA})=s$. Removing the countable set of algebraic numbers does not change the dimension, which proves (4.39).
+After the final reset, $Q$ is an admissible decimal prefix. Theorem A, applied to the real decimal cylinder $[Q]$ of Section 3, gives
+$$
+\dim_H\bigl(C_w\cap[Q]\cap\mathrm{BA}\cap\mathrm{Trans}\bigr)=s.
+$$
+This set is contained in $X_Q\cap\mathrm{BA}\cap\mathrm{Trans}$, while $\dim_HX_Q=s$; hence (4.39).
 
 For a general feasible family, take a witnessing legal extension $R$ of $P$ satisfying all of its finite-coordinate requirements and append $g$ after the last constrained coordinate. Every continuation in $X_{Rg}$ still satisfies those requirements, while the reset restores the full follower language. The preceding dimension argument applies with $Q=Rg$. $\square$
 
 The theorem has no infinite-stage diagonal consequence. To avoid confusion with the decimal digits $a_j$, write $\alpha_n(x)$ for the continued-fraction partial quotients of an irrational $x\in[0,1]$. Then
 $$
-\mathrm{BA}_M=\{x:\alpha_n(x)\le M\text{ for all }n\},
+\mathrm{BA}^{\mathrm{cf}}_M=\{x:\alpha_n(x)\le M\text{ for all }n\},
 \qquad
-\mathrm{BA}=\bigcup_{M\ge1}\mathrm{BA}_M.
+\mathrm{BA}=\bigcup_{M\ge1}\mathrm{BA}^{\mathrm{cf}}_M.
 \tag{4.42}
 $$
-Each $\mathrm{BA}_M$ is compact, and fixing $M$ is quantitatively equivalent to fixing a positive lower bound for $\inf_q q\lVert qx\rVert$. If nested projected decimal cylinders $X_{Q_r}$ force the first $r$ abundance stages, Theorem 4.4 gives $X_{Q_r}\cap\mathrm{BA}\neq\varnothing$ at every $r$, but it gives no single $M$ for which
+Each $\mathrm{BA}^{\mathrm{cf}}_M$ is compact, and fixing $M$ is quantitatively equivalent to fixing a positive lower bound for $\inf_q q\lVert qx\rVert$. If nested projected decimal cylinders $X_{Q_r}$ force the first $r$ abundance stages, Theorem 4.4 gives $X_{Q_r}\cap\mathrm{BA}\neq\varnothing$ at every $r$, but it gives no single $M$ for which
 $$
-X_{Q_r}\cap\mathrm{BA}_M\neq\varnothing
+X_{Q_r}\cap\mathrm{BA}^{\mathrm{cf}}_M\neq\varnothing
 \quad\text{for every }r.
 \tag{4.43}
 $$
-The required bounds $M_r$ may tend to infinity, equivalently the available Markov constants may tend to zero. Compactness would apply to the nested compact sets $X_{Q_r}\cap\mathrm{BA}_M$ only after one $M$ had been fixed; it does not apply to $X_{Q_r}\cap\mathrm{BA}$, because $\mathrm{BA}$ is not closed. Indeed, if $x$ has unbounded partial quotients and $x_r$ agrees with $x$ through its first $r$ partial quotients and then has only $1$'s, then $x_r\in\mathrm{BA}$ while $x_r\to x\notin\mathrm{BA}$.
+The required bounds $M_r$ may tend to infinity, equivalently the available Markov constants may tend to zero. Compactness would apply to the nested compact sets $X_{Q_r}\cap\mathrm{BA}^{\mathrm{cf}}_M$ only after one $M$ had been fixed; it does not apply to $X_{Q_r}\cap\mathrm{BA}$, because $\mathrm{BA}$ is not closed. Indeed, if $x$ has unbounded partial quotients and $x_r$ agrees with $x$ through its first $r$ partial quotients and then has only $1$'s, then $x_r\in\mathrm{BA}$ while $x_r\to x\notin\mathrm{BA}$.
 
 There is also no hidden fixed-$M$ dimension conclusion: from (4.39) and (4.42) one gets only
 $$
-\sup_M\dim_H(X_Q\cap\mathrm{BA}_M)=s.
+\sup_M\dim_H(X_Q\cap\mathrm{BA}^{\mathrm{cf}}_M)=s.
 \tag{4.44}
 $$
 Thus for every $\eta>0$ some $M$ gives dimension greater than $s-\eta$, but a single $M$ need not attain dimension exactly $s$, still less work uniformly through all packet stages.
@@ -569,4 +585,4 @@ so the reverse limsup inequality follows. Thus the limsup equals $1$ for $\nu$-a
 
 ## 4.8. Conclusion
 
-The simultaneous BA--ALA problem remains open, including non-emptiness in full generality. The potential-winning strategy fails sharply: for every $c<s$, $\mathrm{ALA}$ and every compact tail $E_j$ are not $c$-potential-winning, as witnessed by closed guarded Ahlfors-regular subsets of the complement with dimensions tending to $s$. This yields only the canonical-$\mathbb R$ Cantor-winning exclusion $\varepsilon>1-s$; failure of every positive relative parameter is unproved without a BHNS splitting structure having limit set $X$ and splitting dimension $s$. Every finite feasible family of abundance obligations is compatible with a full-dimensional BA set, but the construction does not retain one fixed positive Markov constant through infinitely many stages. On the metric side, $\mathrm{ALA}$ does contain a full-dimensional set satisfying the sharp law (4.46), but those typical points are not badly approximable. For the finite-stage packet/compactness route developed here, the missing ingredient is a uniform fixed-Markov-constant extension theorem through the prescribed zero-density decimal packets—at minimum, a one-surviving-extension lemma, and for full dimension an entropy-scale counting version. A different proof of (4.1) need not take this form.
+The simultaneous BA--ALA problem remains open, including non-emptiness in full generality. The potential-winning strategy fails sharply: for every $c<s$, $\mathrm{ALA}$ and every compact tail $E_j$ are not $c$-potential-winning, as witnessed by closed guarded Ahlfors-regular subsets of the complement with dimensions tending to $s$. This yields only the canonical-$\mathbb R$ Cantor-winning exclusion $\varepsilon>1-s$; failure of every positive relative parameter is unproved without a BHNS splitting structure having limit set $X$ and splitting dimension $s$. Every finite feasible family of abundance obligations is compatible with a full-dimensional BA set, but the construction does not retain one fixed positive Markov constant through infinitely many stages. On the metric side, $\mathrm{ALA}$ does contain a full-dimensional set satisfying the sharp law (4.46), but those typical points are not badly approximable. The corresponding fixed-$\kappa$ reopening conditions are stated in P1 and P1′ below; a proof of (4.1) need not follow that route.
