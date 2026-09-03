@@ -29,53 +29,53 @@ For `x_n={10^n*pi}`, the constant-word benchmarks are `proof sketch`, directly f
 
 | ID | Label | Lean name | What it does not show |
 |---|---|---|---|
-| T16 | machine-checked | `Theory.PiDigits.DecimalBoundaryWordObstruction.not_C1_implies_unbounded_adjacent_word_or_aggregated_resonance` | C1 remains undecided. |
-| T17 | machine-checked | `Theory.PiDigits.PowerTenDiophantineReduction.not_C1_implies_unbounded_aggregated_resonance_of_powerTenDiophantine` | The premise and C1 remain open. |
-| T69 | machine-checked | `Theory.PiDigits.T69FixedSixteenReturn.v1_iff_fixedSixteenReturn` | Density and return remain open. |
-| T102 | machine-checked | `Theory.PiDigits.T102BBPKernelIntegral.intervalIntegral_bbpKernel` | No series interchange follows. |
-| T104 | machine-checked | `Theory.PiDigits.T104BBPSeriesIdentity.bbpRealTerm_hasSum_pi` | No digit distribution follows. |
-| T128 | machine-checked | `Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_explicit_smallness` | No π cancellation follows. |
-| T130 | machine-checked | `Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_boundary_lt_jackson` | No π cancellation follows. |
-| T138 | machine-checked | `Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_pow_ten_lt_positiveBoundaryLoad_sub_gap` | No π cancellation follows. |
-| T139 | machine-checked | `Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_uniform_primitiveCancellation_pow_ten` | Its hypotheses remain open. |
-| T142 | machine-checked | `Theory.PiDigits.BoundaryCoefficientAbel.sampled_positiveBoundaryCoefficient_abel_lt` | No endpoint theorem follows. |
-| T143 | machine-checked | `Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial` | No endpoint bound follows. |
-| T144 | machine-checked | `Theory.PiDigits.BoundaryLayerMass.boundaryLayerMass_pow_ten_eq` | No orbit estimate follows. |
-| T146 | machine-checked | `Theory.PiDigits.BoundaryPhaseTorusBounds.decimal_phase_distance_dichotomy` | No endpoint consumer follows. |
-| T147 | machine-checked | `Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub` | No primitive-sum bound follows. |
-| T148 | machine-checked | `Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten` | Its threshold remains open. |
-| T150 | machine-checked | `Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_eight_mul_sq_div` | No orbit cancellation follows. |
-| T151 | machine-checked | `Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt` | No recurrence follows. |
-| T153 | machine-checked | `Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge` | Its lower bound remains open. |
-| T156 | machine-checked | `Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861` | Its primitive bound remains open. |
-| T157 | machine-checked | `Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_five_val_eq` | No occurrence follows. |
-| T159 | machine-checked | `Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrime_val_eq_neg_one` | No cancellation follows. |
-| T169 | machine-checked | `Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le` | No carrier cancellation follows. |
-| T170 | machine-checked | `Theory.PiDigits.T170MachinFixedPointIntervals.pi_mem_decimalCylinder_100` | No recurrence follows. |
-| T172 | machine-checked | `Theory.PiDigits.PositiveLeftExtensionTransport.primitiveBoundaryFourierSum_leftExtension` | No prescribed child follows. |
-| T173 | machine-checked | `Theory.PiDigits.T173MachinIntegerCertificate10015.pi_mem_decimalCylinder_10015` | No distribution follows. |
-| T174 | machine-checked | `Theory.PiDigits.FinitePrimitiveScoreIdentity.two_mul_primitiveBoundaryFourierSum_re_eq_finite_score` | No positive π-score follows. |
-| T175 | machine-checked | `Theory.PiDigits.T175DecimalSuffixCylinder.piOrbit_mem_certified_suffixCylinder` | Only finite replay follows. |
-| T176 | machine-checked | `Theory.PiDigits.SignedBlockBellmanTransport.exists_leftExtension_prefix_bellman_gt` | Neither digit nor root positivity is prescribed. |
-| T177 | machine-checked | `Theory.PiDigits.PredecessorDigitDFT.ten_mul_child_re_eq_zeroSector_add_nonzero` | No favorable sign follows. |
-| T178 | machine-checked | `Theory.PiDigits.SignedPredecessorRay.exists_infinite_signed_predecessor_ray` | No root positivity,natural horizon,or V1 follows. |
-| T179 | machine-checked | `Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_lagOneCorrelation` | No cancellation estimate follows. |
-| T180 | machine-checked | `Theory.PiDigits.T180ReflectedTrigIntervalCore.checked_trig_bounds` | No production payload follows. |
-| T181 | machine-checked | `Theory.PiDigits.T181ReflectedIntervalArithmetic.checkDiv_sound` | No π-score follows. |
-| T185 | machine-checked | `Theory.PiDigits.T185BoundaryMinorantSineBridge.two_mul_primitiveBoundaryFourierSum_re_eq_closed_sine_score` | No payload or sign follows. |
-| T187 | machine-checked | `Theory.PiDigits.T187ReflectedTrigShard9965.shard_sound` | The full score is absent. |
-| T189 | machine-checked | `Theory.PiDigits.SignedHorizonSectorBridge.signedPrefixSurplus_child_pos_of_horizon_sector_gt` | Its π-sector premise remains open. |
-| T190 | machine-checked | `Theory.PiDigits.T190ComplementaryRankAlignment.exists_digit_D_pos_and_G_add_D_pos_of_complementary_card` | Both rank premises remain open. |
-| T191 | machine-checked | `Theory.PiDigits.T191CentralBoundaryKernelFloor.boundaryMinorant_re_gt_4859_div_10000` | No orbit premise follows. |
-| T192 | machine-checked | `Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt` | Positive shells remain open. |
-| T193 | machine-checked | `Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty` | Recurrence/timing remain open. |
-| T194 | machine-checked | `Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus` | Target,timing,and ray remain open. |
-| T198 | machine-checked | `Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piCW0` | Neither MC0 nor CW0 follows. |
-| T199 | machine-checked | `Theory.PiDigits.T199BBPShadowPack.bbp10_soh0_iff_piCW0` | Neither CW0 nor CW9 follows. |
-| T200 | machine-checked | `Theory.PiDigits.T200BaileyCrandallCoboundary.Y_add_tau_eq_pow_mul_pi` | No base-16 density follows. |
-| T202 | machine-checked | `Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp` | No positive tail/target follows. |
-| T204 | machine-checked | `Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost`<br>`Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded` | Zero-run bounds and run existence remain open. |
-| T206 | machine-checked | `Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10` | No occurrence,density,or prefix analogue follows. |
+| T16 | machine-checked | `Theory.PiDigits.DecimalBoundaryWordObstruction.not_C1_implies_unbounded_adjacent_word_or_aggregated_resonance` | Not-proved:C1-or-¬C1. |
+| T17 | machine-checked | `Theory.PiDigits.PowerTenDiophantineReduction.not_C1_implies_unbounded_aggregated_resonance_of_powerTenDiophantine` | Not-proved:Diophantine-premise-or-C1. |
+| T69 | machine-checked | `Theory.PiDigits.T69FixedSixteenReturn.v1_iff_fixedSixteenReturn` | Not-proved:density-or-return. |
+| T102 | machine-checked | `Theory.PiDigits.T102BBPKernelIntegral.intervalIntegral_bbpKernel` | Not-proved:series-interchange. |
+| T104 | machine-checked | `Theory.PiDigits.T104BBPSeriesIdentity.bbpRealTerm_hasSum_pi` | Not-proved:digit-distribution. |
+| T128 | machine-checked | `Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_explicit_smallness` | Not-proved:π-cancellation. |
+| T130 | machine-checked | `Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_boundary_lt_jackson` | Not-proved:π-cancellation. |
+| T138 | machine-checked | `Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_pow_ten_lt_positiveBoundaryLoad_sub_gap` | Not-proved:π-cancellation. |
+| T139 | machine-checked | `Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_uniform_primitiveCancellation_pow_ten` | Not-proved:its-hypotheses. |
+| T142 | machine-checked | `Theory.PiDigits.BoundaryCoefficientAbel.sampled_positiveBoundaryCoefficient_abel_lt` | Not-proved:endpoint-theorem. |
+| T143 | machine-checked | `Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial` | Not-proved:endpoint-bound. |
+| T144 | machine-checked | `Theory.PiDigits.BoundaryLayerMass.boundaryLayerMass_pow_ten_eq` | Not-proved:orbit-estimate. |
+| T146 | machine-checked | `Theory.PiDigits.BoundaryPhaseTorusBounds.decimal_phase_distance_dichotomy` | Not-proved:endpoint-consumer. |
+| T147 | machine-checked | `Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub` | Not-proved:primitive-sum-bound. |
+| T148 | machine-checked | `Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten` | Not-proved:threshold. |
+| T150 | machine-checked | `Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_eight_mul_sq_div` | Not-proved:orbit-cancellation. |
+| T151 | machine-checked | `Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt` | Not-proved:recurrence. |
+| T153 | machine-checked | `Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge` | Not-proved:lower-bound. |
+| T156 | machine-checked | `Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861` | Not-proved:primitive-bound. |
+| T157 | machine-checked | `Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_five_val_eq` | Not-proved:occurrence. |
+| T159 | machine-checked | `Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrime_val_eq_neg_one` | Not-proved:cancellation. |
+| T169 | machine-checked | `Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le` | Not-proved:carrier-cancellation. |
+| T170 | machine-checked | `Theory.PiDigits.T170MachinFixedPointIntervals.pi_mem_decimalCylinder_100` | Not-proved:recurrence. |
+| T172 | machine-checked | `Theory.PiDigits.PositiveLeftExtensionTransport.primitiveBoundaryFourierSum_leftExtension` | Not-proved:prescribed-child. |
+| T173 | machine-checked | `Theory.PiDigits.T173MachinIntegerCertificate10015.pi_mem_decimalCylinder_10015` | Not-proved:distribution. |
+| T174 | machine-checked | `Theory.PiDigits.FinitePrimitiveScoreIdentity.two_mul_primitiveBoundaryFourierSum_re_eq_finite_score` | Not-proved:positive-π-score. |
+| T175 | machine-checked | `Theory.PiDigits.T175DecimalSuffixCylinder.piOrbit_mem_certified_suffixCylinder` | Only-proved:finite-replay. |
+| T176 | machine-checked | `Theory.PiDigits.SignedBlockBellmanTransport.exists_leftExtension_prefix_bellman_gt` | Not-prescribed:digit-or-root-positivity. |
+| T177 | machine-checked | `Theory.PiDigits.PredecessorDigitDFT.ten_mul_child_re_eq_zeroSector_add_nonzero` | Not-proved:favorable-sign. |
+| T178 | machine-checked | `Theory.PiDigits.SignedPredecessorRay.exists_infinite_signed_predecessor_ray` | Not-proved:root-positivity/natural-horizon/V1. |
+| T179 | machine-checked | `Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_lagOneCorrelation` | Not-proved:cancellation. |
+| T180 | machine-checked | `Theory.PiDigits.T180ReflectedTrigIntervalCore.checked_trig_bounds` | Not-provided:production-payload. |
+| T181 | machine-checked | `Theory.PiDigits.T181ReflectedIntervalArithmetic.checkDiv_sound` | Not-proved:π-score. |
+| T185 | machine-checked | `Theory.PiDigits.T185BoundaryMinorantSineBridge.two_mul_primitiveBoundaryFourierSum_re_eq_closed_sine_score` | Not-provided:payload-or-sign. |
+| T187 | machine-checked | `Theory.PiDigits.T187ReflectedTrigShard9965.shard_sound` | Not-provided:full-score. |
+| T189 | machine-checked | `Theory.PiDigits.SignedHorizonSectorBridge.signedPrefixSurplus_child_pos_of_horizon_sector_gt` | Not-proved:π-sector-premise. |
+| T190 | machine-checked | `Theory.PiDigits.T190ComplementaryRankAlignment.exists_digit_D_pos_and_G_add_D_pos_of_complementary_card` | Not-proved:rank-premises. |
+| T191 | machine-checked | `Theory.PiDigits.T191CentralBoundaryKernelFloor.boundaryMinorant_re_gt_4859_div_10000` | Not-proved:orbit-premise. |
+| T192 | machine-checked | `Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt` | Not-proved:positive-shells. |
+| T193 | machine-checked | `Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty` | Not-proved:recurrence/timing. |
+| T194 | machine-checked | `Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus` | Not-proved:target/timing/ray. |
+| T198 | machine-checked | `Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piCW0` | Not-proved:MC0-or-CW0. |
+| T199 | machine-checked | `Theory.PiDigits.T199BBPShadowPack.bbp10_soh0_iff_piCW0` | Not-proved:CW0-or-CW9. |
+| T200 | machine-checked | `Theory.PiDigits.T200BaileyCrandallCoboundary.Y_add_tau_eq_pow_mul_pi` | Not-proved:base-16-density. |
+| T202 | machine-checked | `Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp` | Not-proved:positive-tail/target. |
+| T204 | machine-checked | `Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost`<br>`Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded` | Not-proved:zero-run-bound/run-existence. |
+| T206 | machine-checked | `Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10` | Not-proved:occurrence/density/prefix-analogue. |
 
 ## [Open problems](knowledge/pi/workstreams/OPEN_PROBLEMS.md)
 
@@ -94,23 +94,23 @@ For `x_n={10^n*pi}`, the constant-word benchmarks are `proof sketch`, directly f
 
 ## [Closed routes](knowledge/pi/workstreams/ATTEMPT_LEDGER.md)
 
-- **route-generic-lacunary** — Generic premises select no fixed decimal target/diagonal.
-- **route-bbp-rational-shadows** — The moving-modulus lift/oriented residue remains unknown.
-- **route-bbp-base16** — The changing-modulus carry is the unknown digit.
-- **route-machin-pade-carriers** — Positivity/approximation does not choose orientation or lift.
-- **route-cm-modular** — Modular order is target-blind and restores the unresolved phase.
-- **route-gamma-e-functions** — Multiplication retains zero-character data; reflection loses orientation.
-- **route-theta-automorphic** — Reindexing degenerates/becomes unsigned; modular maps miss ×10.
-- **route-new-kernels** — Cross-energy/equivalent consumers are not child-hereditary.
-- **route-finite-prefix** — Finite signs are computed,not implied; continuations avoid targets.
-- **route-coarse-statistics** — Coarse statistics lose phase and same-digit alignment.
-- **route-zero-sector** — Scalar summaries retain all nine inverse-character remainders.
-- **route-pair-dc1** — Nonzero gives no sign; uniform Pair/DC1 is false.
-- **route-separate-marginals** — Separate witnesses lose the digit; one ray need not be disjunctive.
-- **route-machin-37** — Long residue orbits give close pairs,not endpoint hits.
-- **route-erdos-carry** — No Λ<256 reciprocal bound; signed tails lose positivity.
-- **route-run-bounds** — Irrationality exponents bound existing runs,not occurrence/direction.
-- **route-endpoint-coding** — Endpoint localization supplies no recurrence/sign/occurrence/dimension.
+- **route-generic-lacunary** — Missing:fixed-target/diagonal-selection.
+- **route-bbp-rational-shadows** — Missing:oriented-moving-modulus-lift.
+- **route-bbp-base16** — Missing:canonical-carry-digit-control.
+- **route-machin-pade-carriers** — Missing:orientation/integer-lift-selection.
+- **route-cm-modular** — Missing:target-character-orientation.
+- **route-gamma-e-functions** — Missing:reflected-character-orientation.
+- **route-theta-automorphic** — Missing:oriented-decimal-modular-branch.
+- **route-new-kernels** — Missing:child-heredity.
+- **route-finite-prefix** — Missing:fresh-unbounded-π-information.
+- **route-coarse-statistics** — Missing:phase/same-digit-alignment.
+- **route-zero-sector** — Missing:joint-inverse-character-control.
+- **route-pair-dc1** — Missing:evaluated-sign/pathwise-admissibility.
+- **route-separate-marginals** — Missing:joint-digit/word-coverage.
+- **route-machin-37** — Missing:one-sided-endpoint-hit.
+- **route-erdos-carry** — Missing:Λ<256-bound/positive-tail.
+- **route-run-bounds** — Missing:run-occurrence/direction.
+- **route-endpoint-coding** — Missing:recurrence/sign/occurrence/dimension.
 
 ## Rules for new candidates
 
