@@ -292,6 +292,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T191T191CentralBoundaryKernelFloor
 import TheoryLib.PiQuantitativeBlockHitting.T192T192PrimitiveValuationShells
 import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggregate
 import TheoryLib.PiQuantitativeBlockHitting.T194T194CentralPiReturnSeed
+import TheoryLib.PiQuantitativeBlockHitting.T198T198MachinBracketPack
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3609,6 +3610,19 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_in_fresh_horizon_ofBelowNine
 #print axioms
   Theory.PiDigits.T194CentralPiReturnSeed.eventually_exists_central_pi_unitBlock_surplus_with_predecessor_lift_ofBelowNine
+
+-- Exact Document B Machin 3/7 brackets and representation-level MC0/CW0
+-- equivalences. These prove neither MC0 nor CW0.
+#print axioms
+  Theory.PiDigits.T198MachinBracketPack.machin37_strict_bracket_and_width
+#print axioms
+  Theory.PiDigits.T198MachinBracketPack.tendsto_machin37_endpoints
+#print axioms
+  Theory.PiDigits.T198MachinBracketPack.piZeroBlock_iff_decimalCylinder
+#print axioms
+  Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piZeroCylinder
+#print axioms
+  Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piCW0
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
