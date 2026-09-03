@@ -76,11 +76,12 @@ persons; the prize is not paid to organisations.
 
 - Sponsor: Marcel Richter (GitHub `thepok`), Dipl.-Informatiker, Callenberg,
   Germany, owner of this repository, acting as a private individual.
-- This is a public promise of a reward. It is binding on the sponsor under
-  German law (§ 657 BGB) from the date it was first published in this
-  repository, and it remains open for ten years from that date unless
-  revoked earlier by a notice in this file, which cannot affect a pull
-  request already submitted.
+- This is a public promise of a reward under German law (§ 657 BGB). It has
+  no fixed term and **may be revoked at any time** (§ 658 BGB) by replacing
+  this file with a revocation notice on the `main` branch. A revocation does
+  not affect a qualifying pull request that was already submitted before the
+  revocation commit. If you are working on a proof, check this file now and
+  then: the bounty exists exactly as long as this text is in the repository.
 - The prize is a fixed gross amount in US dollars. Taxes, if any, are the
   recipient's responsibility.
 - Smaller named problems on the way to V1 are listed in
