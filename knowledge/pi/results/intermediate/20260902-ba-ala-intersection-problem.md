@@ -1,6 +1,6 @@
 Status: `proof sketch`, independently audited three times at proof level on
 2026-09-02 (BHNS Thm 4.1 and 3.4 and Bénard–He–Zhang Thm A′
-applications verified), revised to revision 5 on 2026-09-02 after a cross-document consistency audit (frozen ALA definition, notation).
+applications verified), revised to revision 5 on 2026-09-02 after a cross-document consistency audit (frozen ALA definition, notation), geometry re-audit fixes applied 2026-09-03.
 Date: 2026-09-02.
 Provenance: produced by ChatGPT Pro runs from the repository's separator
 theorems, revised after adversarial audits, reviewed by Claude.
