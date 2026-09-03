@@ -296,6 +296,8 @@ import TheoryLib.PiQuantitativeBlockHitting.T198T198MachinBracketPack
 import TheoryLib.PiQuantitativeBlockHitting.T199T199BBPShadowPack
 import TheoryLib.PiQuantitativeBlockHitting.T200T200BaileyCrandallCoboundary
 import TheoryLib.PiQuantitativeBlockHitting.T202T202RamanujanTwoAdicRamp
+import TheoryLib.PiQuantitativeBlockHitting.T204T204ConstantRunBound
+import TheoryLib.PiQuantitativeBlockHitting.T206T206EndpointBridge
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3687,6 +3689,48 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.lambda_prefix_ramp
 #print axioms
   Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp
+
+-- Exact Document B irrationality-exponent bridge and nine-run bound. The
+-- zero-run mirror remains open, so both downstream consumers retain their
+-- missing contracts as explicit hypotheses and are not discharged.
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.geom_nine
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.neg_digits_zero
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.nine_fract_lower
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.nine_approx_upper
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.nat_le_pow10
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.HypothesisForms.constantRun_eventually_bounded
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.HypothesisForms.pi_constantRun_published_bound
+
+-- Exact Document B greedy/existential endpoint bridge. Hypothesis-form
+-- declarations preserve the independently gate-checked task contracts; the
+-- corresponding top-level corollaries discharge all internal dependencies.
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.circleValue_greedyStream
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.nonGreedy_avoiding_expansion_implies_E10
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.HypothesisForms.CWord_subset_KWordReal
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.HypothesisForms.KWordReal_diff_CWord_subset_E10
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.HypothesisForms.CWord_symmDiff_KWordReal_subset_E10
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.CWord_subset_KWordReal
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.KWordReal_diff_CWord_subset_E10
+#print axioms
+  Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

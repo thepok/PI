@@ -36,6 +36,10 @@ Key Lean modules:
   These are representation-level identities and prove no base-16 density or digit occurrence; the moving-modulus Archimedean-lift obstruction remains unchanged.
 - [`T202`](../../../../TheoryLib/PiQuantitativeBlockHitting/T202T202RamanujanTwoAdicRamp.lean): the central-binomial and central-cube two-adic valuations, binary digit-sum carry law, exact denominator-exponent increment, strict monotonicity, and prefix ramp are machine-checked.
   These are representation-level denominator facts and supply neither the required positive small tail nor a target hit; the Ramanujan/Erdős carry-killing obstruction remains unchanged.
+- [`T204`](../../../../TheoryLib/PiQuantitativeBlockHitting/T204T204ConstantRunBound.lean): the bridge from `IrrationalityMeasureBelow` to the fixed-exponent interface and the eventual nine-run bound are machine-checked. The zero-run eventual bound is still open in Lean; the combined zero-or-nine and published-π consumers are machine-checked only in `HypothesisForms`, with the missing zero-run contract (and, for the numerical specialization, its upstream contract and the published exponent input) left explicit and undischarged.
+  These bounds constrain a run if it occurs and prove no zero run, nine run, constant-word target, or nonconstant word occurrence.
+- [`T206`](../../../../TheoryLib/PiQuantitativeBlockHitting/T206T206EndpointBridge.lean): the greedy stream evaluates to its representative, any distinct equal-value avoiding expansion is localized to a power-of-ten rational endpoint, and the discharged corollary `CWord_symmDiff_KWordReal_subset_E10` places the full greedy/existential avoidance-set symmetric difference inside that endpoint set.
+  This resolves the first endpoint bridge only; the prefix-cylinder analogue is outside T206, and endpoint localization proves no word occurrence or density statement.
 
 T189 is the fixed consumer for the present research cycle. T190 is optional:
 use it only if independent π arithmetic naturally provides its rank premises.
