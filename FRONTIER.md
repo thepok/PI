@@ -17,7 +17,7 @@ For `x_n={10^n*pi}`, the constant-word benchmarks are `proof sketch`, directly f
 1. No known proved Diophantine or analytic property of π supplies a prescribed decimal target sign.
 2. Index entry `docA` records the separator article and its currently available repository stub.
 3. Index entry `docB` records the technical companion's exact reformulations and route audits.
-4. Theorem A gives badly approximable transcendental word-avoiders with irrationality exponent 2.
+4. Theorem A of the separator article (`proof sketch`, not Lean) gives badly approximable transcendental word-avoiders with irrationality exponent 2.
 5. Such avoiders share the finite-exponent and central-return premises used by T191–T194.
 6. Exact identities, rational shadows, positive errors, valuations, and unsigned energies can also retain the missing orientation.
 7. Finite computation can falsify or refine a route but cannot prove an unbounded word-occurrence claim.
