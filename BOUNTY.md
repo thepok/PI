@@ -17,6 +17,8 @@ someday, will have the idea that the digit-avoiding numbers do not share, and
 I want that person to have a reason to write it down in Lean and to send it
 here first.
 
+*Marcel Richter, Dipl.-Informatiker, Callenberg, Germany*
+
 ## The statement
 
 The prize is for a proof of the proposition `Theory.PiDigits.V1` exactly as
@@ -72,7 +74,8 @@ persons; the prize is not paid to organisations.
 
 ## Fine print
 
-- Sponsor: the owner of this repository, a private individual in Germany.
+- Sponsor: Marcel Richter (GitHub `thepok`), Dipl.-Informatiker, Callenberg,
+  Germany, owner of this repository, acting as a private individual.
 - This is a public promise of a reward. It is binding on the sponsor under
   German law (§ 657 BGB) from the date it was first published in this
   repository, and it remains open for ten years from that date unless
@@ -84,6 +87,8 @@ persons; the prize is not paid to organisations.
   [`knowledge/pi/workstreams/OPEN_PROBLEMS.md`](knowledge/pi/workstreams/OPEN_PROBLEMS.md).
   They carry no prize; a solution earns a named entry in the ledger and the
   maintainer's gratitude.
-- Questions go into a GitHub issue, not e-mail.
+- Questions go into a GitHub issue, not e-mail. Opening a `claim` issue
+  neither reserves priority nor establishes a claim; only the pull request
+  timestamp counts.
 
 Published: *(date to be set when the repository goes public)*.

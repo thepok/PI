@@ -13,8 +13,9 @@ every result machine-checked in Lean 4, and it carries a standing prize:
 > [`TheoryLib/PiDigits/T7Statements.lean`](TheoryLib/PiDigits/T7Statements.lean),
 > that builds with the pinned toolchain and uses no axioms beyond
 > `propext`, `Classical.choice`, and `Quot.sound`.
-> Full rules, and why a hobbyist who already spends a few hundred dollars a
-> month on this question considers that a bargain: [`BOUNTY.md`](BOUNTY.md).
+> Offered by Marcel Richter, who already spends a few hundred dollars a month
+> on this question and considers that a bargain. Full rules:
+> [`BOUNTY.md`](BOUNTY.md).
 
 ```lean
 /-- V1 (canonical): every finite decimal digit string occurs contiguously in pi. -/
@@ -72,6 +73,19 @@ experiments, and corrections to the ledger. A named, testable, surprising
 conjecture about π, with an experiment that could kill it, is worth more here
 than another closed route. Read [`AGENTS.md`](AGENTS.md) first; it applies to
 humans and agents alike.
+
+## License and citation
+
+Lean sources, scripts, and build configuration are under the
+[Apache License 2.0](LICENSE). `FRONTIER.md`, everything under `knowledge/`,
+and the target specification are under [CC BY 4.0](LICENSE-docs). The π-digit
+data file carries its own provenance note in
+[`workflows/experiments/data/README.md`](workflows/experiments/data/README.md).
+Contributions are accepted under the license of the path they touch.
+
+Cite the repository with GitHub's **Cite this repository** button, generated
+from [`CITATION.cff`](CITATION.cff); a Zenodo DOI is added there at the first
+release.
 
 ## Papers
 

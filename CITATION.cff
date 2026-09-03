@@ -1,0 +1,42 @@
+cff-version: "1.2.0"
+message: >-
+  Please cite the archived software release and, once available, the
+  preferred-citation below.
+title: "Pi Lab: Lean 4 formalization and reproducible research on decimal disjunctivity of pi"
+type: software
+version: "1.0.0"
+# date-released: "YYYY-MM-DD"
+license: Apache-2.0
+authors:
+  - family-names: "Richter"
+    given-names: "Marcel"
+    # orcid: "https://orcid.org/REPLACE-WITH-ORCID"
+repository-code: "https://github.com/thepok/PI"
+url: "https://github.com/thepok/PI"
+abstract: >-
+  A Lean 4/Mathlib library and reproducible research repository studying
+  decimal disjunctivity of pi, with an axiom audit, verification tooling,
+  research maps, a frozen target specification, and Python/C++ experiments.
+  No theorem in this release proves V1.
+keywords:
+  - "pi"
+  - "decimal disjunctivity"
+  - "Lean 4"
+  - "Mathlib"
+  - "formal verification"
+  - "normal numbers"
+  - "reproducible research"
+
+# The license field describes the software object. Documents use the path-scoped
+# CC BY 4.0 terms in LICENSE-docs; see README.md.
+# Zenodo concept DOI placeholder; uncomment only after Zenodo assigns it:
+# doi: "10.5281/zenodo.REPLACE-WITH-CONCEPT-RECORD-NUMBER"
+
+preferred-citation:
+  type: article
+  title: "Obstructions to proving decimal disjunctivity of pi"
+  authors:
+    - family-names: "Richter"
+      given-names: "Marcel"
+  # year: 2026
+  # url: "https://arxiv.org/abs/YYMM.NNNNN"

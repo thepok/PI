@@ -1,0 +1,39 @@
+name: Claim (intake only)
+description: Announce a pull request that claims a result. Acceptance happens only through the Lean-gated pull request.
+title: "[claim] "
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Opening this issue neither reserves priority nor establishes a claim. Only the pull request timestamp counts. See BOUNTY.md.
+  - type: input
+    id: pr
+    attributes:
+      label: Pull request
+      description: Link to the pull request containing the Lean proof.
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Statement proved
+      options:
+        - Theory.PiDigits.V1 (bounty)
+        - a named open problem from OPEN_PROBLEMS.md
+        - other machine-checked result
+    validations:
+      required: true
+  - type: textarea
+    id: axioms
+    attributes:
+      label: Output of `#print axioms` for the main theorem
+    validations:
+      required: true
+  - type: textarea
+    id: ai
+    attributes:
+      label: AI assistance used (required disclosure)
+      description: Which models or tools, and for what.
+    validations:
+      required: true

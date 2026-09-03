@@ -1,0 +1,35 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright © 2026 Marcel Richter
+
+SCOPE
+
+This license applies to:
+
+- FRONTIER.md;
+- every file under knowledge/; and
+- every document whose filename begins with TARGET_SPECIFICATION, wherever located.
+
+This license does not apply to software source code, executable scripts,
+third-party material, or numerical data unless a file expressly says otherwise.
+
+LICENSE
+
+The material in scope is licensed under the Creative Commons Attribution 4.0
+International Public License (SPDX-License-Identifier: CC-BY-4.0).
+
+Canonical license page:
+https://creativecommons.org/licenses/by/4.0/
+
+Unmodified legal code, plain text:
+https://creativecommons.org/licenses/by/4.0/legalcode.txt
+
+ATTRIBUTION
+
+A reasonable attribution is:
+
+  Marcel Richter, “PI research repository”,
+  https://github.com/thepok/PI, CC BY 4.0.
+
+When sharing modified material, identify the changes and retain the creator,
+copyright, source, and license notices required by CC BY 4.0.

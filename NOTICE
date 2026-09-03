@@ -1,0 +1,7 @@
+Pi Lab
+Copyright 2026 Marcel Richter
+https://github.com/thepok/PI
+
+Lean 4 formalization and reproducible research on the decimal digits of pi.
+This product includes software developed as part of Pi Lab. Redistributions
+must retain this notice (Apache License 2.0, Section 4(d)).
