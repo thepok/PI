@@ -293,6 +293,7 @@ import TheoryLib.PiQuantitativeBlockHitting.T192T192PrimitiveValuationShells
 import TheoryLib.PiQuantitativeBlockHitting.T193T193PositiveValuationShellAggregate
 import TheoryLib.PiQuantitativeBlockHitting.T194T194CentralPiReturnSeed
 import TheoryLib.PiQuantitativeBlockHitting.T198T198MachinBracketPack
+import TheoryLib.PiQuantitativeBlockHitting.T199T199BBPShadowPack
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3623,6 +3624,22 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piZeroCylinder
 #print axioms
   Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piCW0
+
+-- Exact Document B base-10 BBP shadow, affine conjugation, and
+-- representation-level SOH0/CW0 and one-sided approach equivalences.
+-- These prove neither CW0 nor CW9.
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_defect_bounds_and_exact_shadow
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_theta_formula_strictAnti_tendsto
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_affine_fixedPoint
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_rightApproach_iff_piCW0
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_leftApproach_iff_piCW9
+#print axioms
+  Theory.PiDigits.T199BBPShadowPack.bbp10_soh0_iff_piCW0
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero

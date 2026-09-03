@@ -30,6 +30,8 @@ Key Lean modules:
 - [`T194`](../../../../TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean): using only the machine-checked theorem `irrational_pi`, an unprescribed actual-π central return feeds the T193 unit-block surplus at every decimal scale, without a timing bound. Under the additional explicit external premise `IrrationalityMeasureBelow pi 8`, after a premise-dependent onset one can choose `q+1<=n<10q`; the literal predecessor digit then lifts the same centered coordinate to a child-scale unit at time `n-1`, with surplus `>3q/2`, inside the exact T189 fresh block. Discharge of the quantitative premise remains external. This is same-child transport of one atom, not a prescribed target, a sign for the whole fresh block, or a coherent natural-horizon ray.
 - [`T198`](../../../../TheoryLib/PiQuantitativeBlockHitting/T198T198MachinBracketPack.lean): exact Machin 3/7 strict brackets, endpoint convergence, the decimal-cylinder bridge, and `machinMC0_iff_piCW0` (`MC0 ↔ CW0`) are machine-checked.
   This is a representation-level equivalence and proves neither side; the Archimedean-lift obstruction remains unchanged.
+- [`T199`](../../../../TheoryLib/PiQuantitativeBlockHitting/T199T199BBPShadowPack.lean): exact base-10 BBP defect/shadow bounds, scalar monotonicity and convergence, affine fixed-point conjugation, the two one-sided approach equivalences, and `bbp10_soh0_iff_piCW0` (`SOH⁰_{BBP,10} ↔ CW0`) are machine-checked.
+  These are representation-level results and prove neither CW0 nor CW9; the Archimedean-lift obstruction remains unchanged.
 
 T189 is the fixed consumer for the present research cycle. T190 is optional:
 use it only if independent π arithmetic naturally provides its rank premises.
