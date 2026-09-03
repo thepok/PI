@@ -1,4 +1,4 @@
-Status: `proof sketch`; Theorem A independently audited at proof level on 2026-09-02; Theorems B and C independently audited on 2026-09-02 (B correct with fixes; C's original proof had a gap at (5.2), replaced by the auditor's support-level proof); all fixes applied.
+Status: `proof sketch`; Theorem A independently audited at proof level on 2026-09-02; Theorems B and C independently audited on 2026-09-02 (B correct with fixes; C's original proof had a gap at (5.2), replaced by the auditor's support-level proof); all fixes applied, flow-audit 3–4 edits 2026-09-03.
 second-opinion check of the replacement proofs 2026-09-02: correct with fixes, 9 fixes applied
 Date: 2026-09-02.
 Provenance: Produced by a ChatGPT Pro run from the repository's separator
@@ -24,7 +24,7 @@ This is obtained from guarded self-similar subsystems and the established fracta
 Second, if \(A\) is a nine-digit alphabet such that every word over \(A\) avoids \(w\), and \(c\in A\cap\{1,\ldots ,8\}\), then the set satisfying the repository-strength all-label property
 
 $$
-\forall k\ge k_0\;\forall u\in A^k\;\exists n\in[10^k+1,10^{k+1})
+\forall k\ge k_0\;\forall u\in A^k\;\exists n\in J_k
 :\quad a_{n+1}\cdots a_{n+k+1}=uc
 $$
 
@@ -36,7 +36,7 @@ The decimal-orbit consequences used by T191–T194 are then recorded with the co
 
 ---
 
-## 1. Definitions and statements
+## 3.1. Definitions and statements
 
 Use the canonical decimal expansion, the one not eventually equal to \(9\):
 
@@ -53,7 +53,22 @@ C_w=\{x\in[0,1):a_j(x)\cdots a_{j+m-1}(x)\ne w
 \text{ for every }j\ge1\}.
 $$
 
-For a finite word \(P\), let \([P]\) be its canonical decimal cylinder.
+For a finite word \(P\), let \([P]\) be its canonical real decimal cylinder. Put
+
+$$
+\mathbb N_0=\{0,1,\ldots\},\qquad
+J_k=\{n\in\mathbb N_0:10^k+1\le n<10^{k+1}\}\quad(k\ge1).
+$$
+
+For \(\kappa>0\), define
+
+$$
+\operatorname{Bad}(\kappa)
+=\left\{x:\left|x-\frac pq\right|\ge\frac{\kappa}{q^2}
+\text{ for all }p\in\mathbb Z,\ q\ge1\right\},
+\qquad
+\mathrm{BA}=\bigcup_{M\ge1}\operatorname{Bad}(1/M).
+$$
 
 A **proper alphabet for \(w\)** is a set
 
@@ -67,14 +82,21 @@ $$
 A\cap\{1,\ldots ,8\}\ne\varnothing.
 $$
 
-Fix \(c\in A\cap\{1,\ldots ,8\}\). We say that \(x\) has **central all-label abundance**, denoted \(\mathrm{ALA}_{A,c}\), if
+Fix \(c\in A\cap\{1,\ldots ,8\}\). The standing hypothesis is
+
+$$
+\tag{H}
+\forall k\ge1\;\forall u\in A^k,\qquad uc\text{ is }w\text{-free}.
+$$
+
+This is automatic because \(uc\in A^{k+1}\) and every word over the proper alphabet \(A\) is \(w\)-free.
+
+We say that \(x\) has **central all-label abundance**, denoted \(\mathrm{ALA}_{A,c}\), if
 
 $$
 \exists k_0\;\forall k\ge k_0\;\forall u\in A^k\;
-\exists n,\qquad
-10^k+1\le n<10^{k+1},
-\quad
-a_{n+1}(x)\cdots a_{n+k+1}(x)=uc.                 \tag{1.1}
+\exists n\in J_k,\qquad
+a_{n+1}(x)\cdots a_{n+k+1}(x)=uc.                 \tag{3.1}
 $$
 
 This is slightly stronger than merely requiring \(u\), and matches the repository’s central-positive-unit formulation.
@@ -86,12 +108,13 @@ E_{w,P,A,c}
 =\{x\in C_w\cap[P]:x\text{ satisfies }\mathrm{ALA}_{A,c}\}.
 $$
 
-Also let \(E^{\mathrm{weak}}_{w,P,A}\) be the weaker all-\(A\)-word abundance set obtained by dropping the final digit \(c\) in (1.1), so that each \(u\in A^k\) itself is required in the same fresh window. For either set \(E\), use the support-based convention of Badziahin–Harrap–Nesharim–Simmons [8]:
+Also let \(E^{\mathrm{weak}}_{w,P,A}\) be the weaker all-\(A\)-word abundance set obtained by dropping the final digit \(c\) in (3.1), so that each \(u\in A^k\) itself is required in the same fresh window. For either set \(E\), use the support-based convention of Badziahin–Harrap–Nesharim–Simmons [8]:
 
 $$
 \dim_R E
-=\sup\{\delta>0:\text{there is a }\delta\text{-Ahlfors regular }\mu
-\text{ with }\operatorname{supp}\mu\subset E\}.
+=\sup\Bigl(\{0\}\cup
+\{\delta>0:\text{there is a \(\delta\)-Ahlfors regular \(\mu\) with }
+\operatorname{supp}\mu\subset E\}\Bigr).
 $$
 
 ### Theorem A — the corrected Diophantine separator
@@ -104,7 +127,7 @@ $$
 =\dim_H C_w
 =\frac{h_w}{\log 10}
 =\frac{\log\rho_w}{\log 10}.
-}                                                       \tag{1.2}
+}                                                       \tag{3.2}
 $$
 
 Every point in this set is irrational, has irrationality exponent \(2\), satisfies `IrrationalityMeasureBelow x 8`, has the untimed and timed central returns used in the ordinary generic reconstruction of T194, and has the exact predecessor floor and coordinate identities.
@@ -120,7 +143,7 @@ C_w\cap[P]\cap\mathrm{ALA}_{A,c}
 \cap\mathrm{Trans}\cap\{x:\mu(x)=2\}
 \right)
 =\dim_H C_w.
-}                                                       \tag{1.3}
+}                                                       \tag{3.3}
 $$
 
 Here \(\mu(x)\) denotes the classical irrationality exponent.
@@ -130,7 +153,7 @@ Here \(\mu(x)\) denotes the classical irrationality exponent.
 Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set \(E^{\mathrm{weak}}_{w,P,A}\). Then no positive-dimensional Ahlfors regular measure \(\mu\) satisfies \(\operatorname{supp}\mu\subset E\); in particular
 
 $$
-\dim_R E=0.                                            \tag{1.4}
+\dim_R E=0.                                            \tag{3.4}
 $$
 
 The weaker reading \(\mu(E)=1\) would be false: the Ahlfors-regular measure constructed in Theorem B has \(\mu(E)=1\) for the central set, and hence also for the weaker set.
@@ -143,14 +166,14 @@ $$
 \dim_H\bigl(
 C_w\cap[P]\cap\mathrm{BA}\cap\mathrm{Trans}
 \cap\mathrm{ALA}_{A,c}
-\bigr)=\dim_H C_w                                      \tag{1.5}
+\bigr)=\dim_H C_w                                      \tag{3.5}
 $$
 
-is therefore **not proved here**. Theorem C invalidates the suggested direct proof but does not disprove (1.5).
+is therefore **not proved here**. Theorem C invalidates the suggested direct proof but does not disprove (3.5).
 
 ---
 
-## 2. Entropy and guarded self-similar subsystems
+## 3.2. Entropy and guarded self-similar subsystems
 
 Let \(\mathcal A_w(L)\) be the set of \(w\)-free words of length \(L\), and set
 
@@ -168,26 +191,26 @@ $$
 hence
 
 $$
-N_w(L+R)\le N_w(L)N_w(R).                              \tag{2.1}
+N_w(L+R)\le N_w(L)N_w(R).                              \tag{3.6}
 $$
 
 Fekete’s lemma gives
 
 $$
 h_w=\lim_{L\to\infty}\frac{\log N_w(L)}{L}.
-                                                               \tag{2.2}
+                                                               \tag{3.7}
 $$
 
 The prefix-suffix automaton for \(w\) has states \(0,\ldots ,m-1\). State \(r\) means that the longest suffix of the digits read so far which is also a prefix of \(w\) has length \(r\); in particular, state \(0\) means that no nonempty suffix is a prefix of \(w\). The transition completing \(w\) is deleted. If \(M_w\) is its adjacency matrix and \(\rho_w\) its Perron–Frobenius eigenvalue, then
 
 $$
-h_w=\log\rho_w.                                        \tag{2.3}
+h_w=\log\rho_w.                                        \tag{3.8}
 $$
 
 Moreover,
 
 $$
-9\le\rho_w<10.                                         \tag{2.4}
+9\le\rho_w<10.                                         \tag{3.9}
 $$
 
 The lower bound follows by omitting \(w_1\). For the strict upper bound, use the irreducibility proved by the reset and reachability paths below, and let \(\ell>0\) be a left Perron–Frobenius eigenvector. Every row sum of \(M_w\) is at most \(10\), while the row for state \(m-1\) has sum \(9\), since the digit \(w_m\) completing \(w\) is forbidden. Hence \(M_w\mathbf 1\le10\mathbf 1\), with strict inequality in one coordinate, and positivity of \(\ell\) gives
@@ -206,6 +229,12 @@ Choose
 
 $$
 b\in\{1,\ldots ,8\}\setminus\{w_1,w_m\}.
+$$
+
+Put \(g=b^m\). For a finite decimal word \(R\), define the prefix map
+
+$$
+\psi_R(t):=\frac{[R]_{10}+t}{10^{|R|}}.
 $$
 
 For \(L\ge1\), define
@@ -229,9 +258,7 @@ Every concatenation of words in \(\mathcal V_L\) avoids \(w\). An occurrence lyi
 If \(P\) is \(w\)-free, then
 
 $$
-K_{L,P}:=\psi_{P,b}(K_L)\subset C_w\cap[P],
-\qquad
-\psi_{P,b}(z)=\frac{[Pb^m]_{10}+z}{10^{|P|+m}}.         \tag{2.5}
+K_{L,P}:=\psi_{Pg}(K_L)\subset C_w\cap[P].             \tag{3.10}
 $$
 
 For \(u\ne u'\),
@@ -245,7 +272,7 @@ $$
 Since the images have diameter at most \(10^{-R_L}\), the first-level gap is at least
 
 $$
-\frac{10^m-1}{10^{L+2m}}>0.                            \tag{2.6}
+\frac{10^m-1}{10^{L+2m}}>0.                            \tag{3.11}
 $$
 
 Thus the system satisfies strong separation.
@@ -255,13 +282,13 @@ Hutchinson’s Theorem 5.3 gives
 $$
 \dim_HK_L
 =s_L
-=\frac{\log N_w(L)}{(L+2m)\log10}.                     \tag{2.7}
+=\frac{\log N_w(L)}{(L+2m)\log10}.                     \tag{3.12}
 $$
 
 Therefore
 
 $$
-s_L\longrightarrow\frac{h_w}{\log10}.                 \tag{2.8}
+s_L\longrightarrow\frac{h_w}{\log10}.                 \tag{3.13}
 $$
 
 Conversely, \(C_w\) is covered by \(N_w(L)\) level-\(L\) decimal cylinders. This gives
@@ -270,18 +297,26 @@ $$
 \dim_HC_w\le\frac{h_w}{\log10}.
 $$
 
-The inclusion \(K_L\subset C_w\) and (2.8) give the reverse inequality, proving
+The inclusion \(K_L\subset C_w\) and (3.13) give the reverse inequality, proving
 
 $$
 \dim_HC_w=\frac{h_w}{\log10}
-=\frac{\log\rho_w}{\log10}.                            \tag{2.9}
+=\frac{\log\rho_w}{\log10}.                            \tag{3.14}
+$$
+
+Put
+
+$$
+s_w:=\dim_HC_w
+=\frac{h_w}{\log10}
+=\frac{\log\rho_w}{\log10}.
 $$
 
 For \(m=1\), the symbolic nine-map deleted-digit attractor and the canonical set \(C_w\) can differ at terminating rationals represented by eventually-\(9\) expansions. Their symmetric difference is countable. The dimension and badly approximable conclusions are unchanged. The guarded systems themselves have infinitely many digits \(b\le8\), so their coding is canonical.
 
 ---
 
-## 3. Badly approximable points: proof of Theorem A
+## 3.3. Badly approximable points: proof of Theorem A
 
 We use the following cited result.
 
@@ -301,7 +336,7 @@ $$
 Strong separation implies
 
 $$
-c_1r^{s_L}\le\nu_L(B(x,r))\le c_2r^{s_L}.              \tag{3.1}
+c_1r^{s_L}\le\nu_L(B(x,r))\le c_2r^{s_L}.              \tag{3.15}
 $$
 
 Hence \(\nu_L\) is \(s_L\)-Ahlfors regular and Federer.
@@ -323,18 +358,18 @@ Using the upper Ahlfors estimate for the numerator and the lower estimate for \(
 
 $$
 \nu_L(B(x,r)\cap B(y,\varepsilon r))
-\le C\varepsilon^{s_L}\nu_L(B(x,r)).                  \tag{3.2}
+\le C\varepsilon^{s_L}\nu_L(B(x,r)).                  \tag{3.16}
 $$
 
 Thus \(\nu_L\) is absolutely friendly. Kleinbock–Weiss Corollary 1.2 yields
 
 $$
-\dim_H(K_L\cap\mathrm{BA})=s_L,                        \tag{3.3}
+\dim_H(K_L\cap\mathrm{BA})=s_L,                        \tag{3.17}
 $$
 
 locally in every nonempty relative ball.
 
-The map \(\psi_{P,b}\) preserves bad approximability. Indeed, if
+The map \(\psi_{Pg}\) preserves bad approximability. Indeed, if
 
 $$
 x=\frac{M+z}{10^R},
@@ -360,13 +395,13 @@ $$
 \dim_H(K_{L,P}\cap\mathrm{BA}\cap\mathrm{Trans})=s_L.
 $$
 
-Letting \(L\to\infty\) and using (2.8) proves Theorem A.
+Letting \(L\to\infty\) and using (3.13) proves Theorem A.
 
 ---
 
-## 4. Full-dimensional all-label abundance: proof of Theorem B
+## 3.4. Full-dimensional all-label abundance: proof of Theorem B
 
-We use the prefix automaton of Section 2. A guard \(g=b^m\), with \(b\ne w_1,w_m\), is admissible after every \(w\)-free prefix: an occurrence crossing into and ending inside the guard would end in \(b\ne w_m\), one beginning inside the guard would begin with \(b\ne w_1\), and an \(m\)-letter occurrence cannot cross the entire \(m\)-letter guard. After all \(m\) copies of \(b\) have been read, every suffix of length \(1\le r<m\) is \(b^r\), and \(b^r\ne w_1\cdots w_r\) because \(b\ne w_1\); hence the guard returns the automaton to state \(0\). A single \(b\) need not erase a longer prefix-suffix match, whereas \(b^m\) rules out every nonzero state. Conversely, state \(0\) reaches state \(r<m\) by reading \(w_1\cdots w_r\), so the automaton is irreducible. State \(0\) has a one-step loop using any digit different from \(w_1\), so it is primitive.
+We use the prefix automaton of Section 3.2. A guard \(g=b^m\), with \(b\ne w_1,w_m\), is admissible after every \(w\)-free prefix: an occurrence crossing into and ending inside the guard would end in \(b\ne w_m\), one beginning inside the guard would begin with \(b\ne w_1\), and an \(m\)-letter occurrence cannot cross the entire \(m\)-letter guard. After all \(m\) copies of \(b\) have been read, every suffix of length \(1\le r<m\) is \(b^r\), and \(b^r\ne w_1\cdots w_r\) because \(b\ne w_1\); hence the guard returns the automaton to state \(0\). A single \(b\) need not erase a longer prefix-suffix match, whereas \(b^m\) rules out every nonzero state. Conversely, state \(0\) reaches state \(r<m\) by reading \(w_1\cdots w_r\), so the automaton is irreducible. State \(0\) has a one-step loop using any digit different from \(w_1\), so it is primitive.
 
 Let \(i_P\) be the prefix-automaton state after reading \(P\), and let \(r>0\) be a right Perron–Frobenius eigenvector of \(M_w\). For each digit-labelled edge \(e:i\to j\), set
 
@@ -382,14 +417,7 @@ $$
 
 Hence every admissible tail cylinder of length \(\ell\) has mass between \(C^{-1}\rho_w^{-\ell}\) and \(C\rho_w^{-\ell}\). Let \(\nu_P\) be the push-forward. If \(10^{-N}\le r<10^{-(N-1)}\), bounded overlap of level-\(N\) decimal intervals gives \(\nu_P(B(x,r))\ll\rho_w^{-(N-|P|)}\asymp r^{s_w}\). For the lower bound at any \(x\in\operatorname{supp}\nu_P\), including a decimal endpoint, choose a symbolic preimage \(\omega\), which exists by compactness of the symbolic support and continuity of the coding map. Choose \(N\) with \(10^{-N}<r\le10^{-(N-1)}\). The image of the level-\(N\) symbolic cylinder determined by \(\omega\) contains \(x\), has diameter at most \(10^{-N}<r\), and therefore lies in \(B(x,r)\). Its mass is \(\gg\rho_w^{-(N-|P|)}\asymp r^{s_w}\). Thus \(\nu_P\) is \(s_w\)-Ahlfors regular at every support point. The countable eventually-\(9\) endpoint discrepancy is null and is discarded only for subsequent canonical digit statements; deleting it does not remove its points from the topological support.
 
-The standing hypothesis needed for every guarded block is
-
-$$
-\tag{H}
-\text{for every }u\in A^k,\qquad uc\text{ is }w\text{-free}.
-$$
-
-It holds because \(u\in A^k\) and \(c\in A\), so \(uc\in A^{k+1}\), while the setup takes \(A\) to be a proper nine-digit alphabet every word over which avoids \(w\). Fix \(u\in A^k\). By (H) and the guard facts above, \(gucg\) is admissible after every state and ends in state \(0\). The inequalities \(b\ne w_1,w_m\) protect the crossings and reset the automaton, but alone would not exclude an occurrence of \(w\) wholly inside \(uc\). The block length is \(\ell_k=k+1+2m\), and conditional on any past its probability is at least \(p_k=C_0\rho_w^{-k}\). For a candidate integer \(n\), place \(gucg\) on positions \(n-m+1,\ldots,n+k+m+1\); then \(uc\) occupies positions \(n+1,\ldots,n+k+1\). Choosing candidate \(n\)'s in \([10^k+1,10^{k+1})\) separated by \(\ell_k\) gives \(M_k\ge C_1 10^k/(k+2m+1)\) disjoint blocks. Sequential conditioning, not independence, yields
+Fix \(u\in A^k\). By (H) and the guard facts above, \(gucg\) is admissible after every state and ends in state \(0\). The inequalities \(b\ne w_1,w_m\) protect the crossings and reset the automaton, but alone would not exclude an occurrence of \(w\) wholly inside \(uc\). The block length is \(\ell_k=k+1+2m\), and conditional on any past its probability is at least \(p_k=C_0\rho_w^{-k}\). For a candidate integer \(n\), place \(gucg\) on positions \(n-m+1,\ldots,n+k+m+1\); then \(uc\) occupies positions \(n+1,\ldots,n+k+1\). Choosing candidate \(n\)'s in \(J_k\) separated by \(\ell_k\) gives \(M_k\ge C_1 10^k/(k+2m+1)\) disjoint blocks. Sequential conditioning, not independence, yields
 
 $$
 \nu_P(u\text{ has no guarded candidate})
@@ -403,7 +431,7 @@ $$
 9^k\exp\!\left[-C_2\frac{(10/\rho_w)^k}{k+2m+1}\right].
 $$
 
-The proof of \(\rho_w<10\) in Section 2 makes \(10/\rho_w>1\); its exponential-in-\(k\) power eventually dominates the linear exponent \(k\log9\), so these probabilities are summable. The first Borel–Cantelli lemma gives \(\mathrm{ALA}_{A,c}\) almost surely.
+The proof of \(\rho_w<10\) in Section 3.2 makes \(10/\rho_w>1\); its exponential-in-\(k\) power eventually dominates the linear exponent \(k\log9\), so these probabilities are summable. The first Borel–Cantelli lemma gives \(\mathrm{ALA}_{A,c}\) almost surely.
 
 The Ahlfors regular measure is Federer and absolutely decaying on \(\mathbb R\); hence it is friendly. By Kleinbock–Lindenstrauss–Weiss Theorem 1.1 it is extremal, so almost every irrational point has classical irrationality exponent \(2\). Removing the countable algebraic set gives transcendence. The resulting set has full measure. In the Frostman covering step, a covering ball need not be centered on the support: discard any ball missing the support, and for each remaining \(B(y,r)\) choose \(z\in B(y,r)\cap\operatorname{supp}\nu_P\), so \(B(y,r)\subset B(z,2r)\) and \(\nu_P(B(y,r))\le C(2r)^{s_w}\). The usual mass-distribution argument then gives Hausdorff dimension \(s_w\).
 
@@ -419,18 +447,16 @@ For comparison, Hochman–Shmerkin prove that natural measures on finite continu
 
 ---
 
-## 5. Why the friendly-measure route cannot prove the simultaneous theorem
+## 3.5. Why the friendly-measure route cannot prove the simultaneous theorem
 
-**Theorem C.** Let \(E\) denote either the central all-label set \(E_{w,P,A,c}\) or the weaker all-\(A\)-word abundance set. Then no positive-dimensional Ahlfors regular measure \(\mu\) satisfies \(\operatorname{supp}\mu\subset E\); in particular \(\dim_R E=0\).
-
-**Proof.** Suppose `\mu` is `\delta`-Ahlfors regular, `\delta>0`, with compact support `K\subset E`. No point of `E` is rational: a rational decimal expansion is eventually periodic and therefore has only boundedly many distinct long blocks in sufficiently late windows, whereas all-label abundance requires `9^k` distinct labels at level `k`. Hence `K` contains no decimal-cylinder endpoint.
+**Proof of Theorem C.** Suppose `\mu` is `\delta`-Ahlfors regular, `\delta>0`, with compact support `K\subset E`. No point of `E` is rational: a rational decimal expansion is eventually periodic and therefore has only boundedly many distinct long blocks in sufficiently late windows, whereas all-label abundance requires `9^k` distinct labels at level `k`. Hence `K` contains no decimal-cylinder endpoint.
 
 Fix `a\in A\cap\{1,\ldots,8\}`. Starting with `P`, construct a branch through the decimal tree as follows. At a prefix `v`, choose a child digit different from `a` whenever some point of `K\cap[v]` has such a digit; otherwise choose `a`. The nested intersections with `K` are nonempty compact sets, so they determine a point `x\in K`.
 
-For every sufficiently large `k`, abundance for `u=a^k` supplies `n\in[10^k+1,10^{k+1})` for which digits `n+1,\ldots,n+k` of `x` are all `a`. Whenever the greedy branch selected `a`, every point of `K` in the current prefix cylinder had to select `a`. Induction through this run therefore gives
+Let \(D_n(x)\) denote the canonical decimal cylinder determined by \(a_1(x),\ldots,a_n(x)\). For every sufficiently large `k`, abundance for `u=a^k` supplies `n\in J_k` for which digits `n+1,\ldots,n+k` of `x` are all `a`. Whenever the greedy branch selected `a`, every point of `K` in the current prefix cylinder had to select `a`. Induction through this run therefore gives
 
 $$
-K\cap I_n(x)\subset I_{n+k}(x).
+K\cap D_n(x)\subset D_{n+k}(x).
 $$
 
 Since the next digit at level `n` is `a\in\{1,\ldots,8\}`, the ball
@@ -439,7 +465,7 @@ $$
 B\!\left(x,\frac12 10^{-(n+1)}\right)
 $$
 
-lies in `I_n(x)`. Also `I_{n+k}(x)` lies in `B(x,2\cdot10^{-(n+k)})`. Writing these radii as `r_k` and `R_k`, respectively, gives `R_k/r_k=40\cdot10^{-k}` and
+lies in `D_n(x)`. Also `D_{n+k}(x)` lies in `B(x,2\cdot10^{-(n+k)})`. Writing these radii as `r_k` and `R_k`, respectively, gives `R_k/r_k=40\cdot10^{-k}` and
 
 $$
 K\cap B(x,r_k)\subset B(x,R_k).
@@ -501,7 +527,7 @@ Thus the simultaneous BA assertion requires a method which genuinely works beyon
 
 ---
 
-## 6. Decimal-orbit consequences and the corrected T191–T194 interface
+## 3.6. Decimal-orbit consequences and the corrected T191–T194 interface
 
 Put
 
@@ -515,7 +541,7 @@ $$
 Then exactly
 
 $$
-y_k(n,x)=T^{n+k}x-\frac12.                             \tag{6.1}
+y_k(n,x)=T^{n+k}x-\frac12.                             \tag{3.18}
 $$
 
 Thus
@@ -524,14 +550,14 @@ $$
 |y_k(n,x)|\le\frac9{22}
 \iff
 T^{n+k}x\in
-J:=\left[\frac1{11},\frac{10}{11}\right].              \tag{6.2}
+J:=\left[\frac1{11},\frac{10}{11}\right].              \tag{3.19}
 $$
 
 A next digit in \(\{1,\ldots ,8\}\) places the orbit in
 
 $$
 \left[\frac1{10},\frac9{10}\right)
-\subset J.                                             \tag{6.3}
+\subset J.                                             \tag{3.20}
 $$
 
 The interval is half-open, as required by the canonical decimal convention.
@@ -575,7 +601,7 @@ Choose a witnessing \(\mu<8\) and take \(\varepsilon=8-\mu\). Then for all suffi
 
 $$
 Q^{-8}<\left|x-\frac pQ\right|
-\quad(p\in\mathbb Z).                                  \tag{6.4}
+\quad(p\in\mathbb Z).                                  \tag{3.21}
 $$
 
 If the orbit avoids \(J\) for every \(m\in[s,8s]\), the trapping argument gives, with \(Q=10^s\), either
@@ -585,7 +611,7 @@ $$
 <\frac1{11}10^{-8s}<Q^{-8}
 $$
 
-or the analogous inequality with numerator \(\lfloor Qx\rfloor+1\), contradicting (6.4).
+or the analogous inequality with numerator \(\lfloor Qx\rfloor+1\), contradicting (3.21).
 
 Hence for all large \(s\) there is \(m\in[s,8s]\) with \(T^mx\in J\). Take
 
@@ -596,7 +622,7 @@ $$
 Then, for \(k\ge3\),
 
 $$
-10^k+1\le n<10^{k+1}.                                 \tag{6.5}
+10^k+1\le n<10^{k+1}.                                 \tag{3.22}
 $$
 
 Bad approximability implies the exact Lean-style exponent premise by taking \(\mu=2\): if
@@ -609,7 +635,7 @@ then for every \(\varepsilon>0\), sufficiently large \(q\) satisfy
 
 $$
 q^{-(2+\varepsilon)}<cq^{-2}
-\le\left|x-\frac pq\right|.                            \tag{6.6}
+\le\left|x-\frac pq\right|.                            \tag{3.23}
 $$
 
 ### Corrected predecessor predicate
@@ -625,7 +651,7 @@ $$
 $$
 y=qT^nx-A-\frac12,
 \qquad
-|y|\le\frac9{22}.                                      \tag{6.7}
+|y|\le\frac9{22}.                                      \tag{3.24}
 $$
 
 The corrected predecessor predicate quantifies \(y\):
@@ -644,7 +670,7 @@ q+1\le n<10q,\\
 &T^nx-\frac{A+1/2}{q}=\frac yq,\\
 &T^{n-1}x-\frac{C+1/2}{10q}=\frac y{10q},\\
 &|y|\le\frac9{22}.
-\end{aligned}                                          \tag{6.8}
+\end{aligned}                                          \tag{3.25}
 $$
 
 This is a closed proposition; the free-variable error is removed.
@@ -677,7 +703,7 @@ and subtracting \(C+\tfrac12\) gives
 
 $$
 10qT^{n-1}x-C-\frac12
-=qT^nx-A-\frac12=y.                                   \tag{6.9}
+=qT^nx-A-\frac12=y.                                   \tag{3.26}
 $$
 
 Thus predecessor lifting is an identity once a timed central witness has been chosen.
@@ -709,7 +735,7 @@ For the nontrivial surjectivity inclusion, take any sequence \(T^{n_j}x\to z\in\
 If \(\omega_T(x)\) were finite, \(T\) would therefore permute it. For some \(p\ge1\), \(T^p\) would fix every point of \(\omega_T(x)\). Since the orbit approaches its omega-limit set,
 
 $$
-d_{\mathbb T}(T^{n+p}x,T^nx)\to0.                     \tag{6.10}
+d_{\mathbb T}(T^{n+p}x,T^nx)\to0.                     \tag{3.27}
 $$
 
 For
@@ -746,19 +772,19 @@ implies
 
 $$
 \Re\operatorname{boundaryMinorant}(q,y/q)
->\frac{4859}{10000},                                  \tag{6.11}
+>\frac{4859}{10000},                                  \tag{3.28}
 $$
 
 $$
 \Re\mathfrak p_{q,A}(z)
->\frac{7139}{45000},                                   \tag{6.12}
+>\frac{7139}{45000},                                   \tag{3.29}
 $$
 
 and
 
 $$
 q\Re\mathfrak p_{q,A}(z)-\frac7{3q}
->\frac{3q}{20}.                                        \tag{6.13}
+>\frac{3q}{20}.                                        \tag{3.30}
 $$
 
 The numerical combination is
@@ -790,17 +816,17 @@ $$
 
 so integer \(q\ge17\) already suffices.
 
-At the predecessor, (6.9) supplies the same \(y\) at scale \(10q\), yielding
+At the predecessor, (3.26) supplies the same \(y\) at scale \(10q\), yielding
 
 $$
-U^x_{10q,C}(n-1)>\frac{3(10q)}{20}=\frac{3q}{2}.       \tag{6.14}
+U^x_{10q,C}(n-1)>\frac{3(10q)}{20}=\frac{3q}{2}.       \tag{3.31}
 $$
 
 These free-phase statements are proved here as ordinary mathematical generalizations of the displayed repository estimates. They are **not** claimed to be existing generic Lean declarations. A Lean refactor must parameterize the atom and shells by a free phase and separately package the internal T194 coordinate witnesses.
 
 ---
 
-## 7. Correct logical conclusion
+## 3.7. Correct logical conclusion
 
 Let \(\mathcal P_{\mathrm{core}}(x)\) denote bad approximability, transcendence, the derived exponent-below-\(8\) property, untimed and timed central returns, the corrected predecessor identities, infinite circle omega-limit set, and the ordinary free-phase parent/child estimates.
 
@@ -808,7 +834,7 @@ Then, for every nonempty word \(w\) and every \(w\)-free prefix \(P\),
 
 $$
 \dim_H\{x\in C_w\cap[P]:\mathcal P_{\mathrm{core}}(x)\}
-=\dim_HC_w.                                            \tag{7.1}
+=\dim_HC_w.                                            \tag{3.32}
 $$
 
 If finitely many additional predicates \(F_1,\ldots ,F_r\) are proved uniformly throughout the cylinder \([P]\), adjoining them changes nothing:
@@ -818,7 +844,7 @@ $$
 \quad\Longrightarrow\quad
 \dim_H\{x\in C_w\cap[P]:
 \mathcal P_{\mathrm{core}}(x)\land\bigwedge_iF_i(x)\}
-=\dim_HC_w.                                            \tag{7.2}
+=\dim_HC_w.                                            \tag{3.33}
 $$
 
 This applies to the endpoint-separation or finite signed-root premises only after the required uniform cylinder implication has actually been proved. It is not automatic from strictness alone.
@@ -831,7 +857,7 @@ w\text{ occurs in }\Pi_D
 C_w\cap[\Pi_D]=\varnothing.
 $$
 
-When \(w\) does not occur in \(\Pi_D\), (7.1) applies.
+When \(w\) does not occur in \(\Pi_D\), (3.32) applies.
 
 Nothing here proves or disproves decimal disjunctivity of \(\pi\). The result only shows that the generic T191–T194-style package and any finite compatible cylinder-local package do not logically imply disjunctivity.
 
