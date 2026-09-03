@@ -1,0 +1,2 @@
+- **Exact reformulations and route audits for decimal digit questions about $\pi$: a technical companion** — Marcel Richter, 3 September 2026; technical companion note; arXiv submission in preparation; cite the commit-pinned URL until then.
+- **Decimal word avoidance, badly approximable separators, and the BA–ALA intersection problem** — Marcel Richter, 3 September 2026; research article to be added later; arXiv submission in preparation; cite its commit-pinned URL until then.

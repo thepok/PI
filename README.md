@@ -89,7 +89,5 @@ release.
 
 ## Papers
 
-Two companion manuscripts (a research article on the separator theorems and
-the open intersection problem, and a technical note with the exact
-reformulations and route audits) are in preparation. Citation details will be
-added here when they are posted.
+Drafts and citation guidance for the research article and technical companion
+note are available under [`papers/`](papers/).
