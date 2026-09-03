@@ -195,6 +195,15 @@ def build_index(
     return built
 
 
+def render_index(index: dict[str, Any]) -> str:
+    """Serialize the index with a current, self-consistent token estimate."""
+    metadata = index["_meta"]
+    metadata["token_estimate_method"] = "word count multiplied by 1.4"
+    metadata["index_estimated_tokens"] = 0
+    metadata["index_estimated_tokens"] = round(len(dump_yaml(index).split()) * 1.4)
+    return dump_yaml(index)
+
+
 def table_cell(value: Any) -> str:
     if isinstance(value, list):
         value = ", ".join(str(item) for item in value)
@@ -383,7 +392,7 @@ def main() -> int:
 
     records = load_records()
     built_index = build_index(current_index, records)
-    expected_index = dump_yaml(built_index)
+    expected_index = render_index(built_index)
     expected_frontier = render_frontier(
         FRONTIER_PATH.read_text(encoding="utf-8"), built_index
     )

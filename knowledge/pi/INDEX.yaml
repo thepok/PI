@@ -915,5 +915,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 2919
+  index_estimated_tokens: 3296
   generated_by: workflows/verification/build_knowledge.py
