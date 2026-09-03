@@ -3,6 +3,20 @@
 **USD 10,000** for a machine-checked proof that every finite decimal digit
 string occurs in the decimal expansion of π.
 
+## Why I am doing this
+
+I am not a professional mathematician. Pi Lab is a hobby, and it is not a
+cheap one: every month a few hundred dollars go into compute and AI models
+that grind through Lean proofs, falsification experiments, and route audits
+for this one question. Measured against that, USD 10,000 for the actual
+answer is a bargain, and I would pay it with a smile.
+
+I do not expect a claim next week. Every road that has been tried ends at the
+same wall, and this repository documents that wall in detail. But somebody,
+someday, will have the idea that the digit-avoiding numbers do not share, and
+I want that person to have a reason to write it down in Lean and to send it
+here first.
+
 ## The statement
 
 The prize is for a proof of the proposition `Theory.PiDigits.V1` exactly as

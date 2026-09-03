@@ -13,7 +13,8 @@ every result machine-checked in Lean 4, and it carries a standing prize:
 > [`TheoryLib/PiDigits/T7Statements.lean`](TheoryLib/PiDigits/T7Statements.lean),
 > that builds with the pinned toolchain and uses no axioms beyond
 > `propext`, `Classical.choice`, and `Quot.sound`.
-> Full rules: [`BOUNTY.md`](BOUNTY.md).
+> Full rules, and why a hobbyist who already spends a few hundred dollars a
+> month on this question considers that a bargain: [`BOUNTY.md`](BOUNTY.md).
 
 ```lean
 /-- V1 (canonical): every finite decimal digit string occurs contiguously in pi. -/
