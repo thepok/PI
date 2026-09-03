@@ -49,6 +49,6 @@ Never silently upgrade a label.
   their inputs tracked here.
 - `workflows/state/`: ignored runtime state; never store raw transcripts in
   the knowledge tree.
-- [`AllMath`](https://github.com/thepok/MathMyth): project roadmap,
-  orchestration, model runners, prompts, and runtime tools. Nothing in this
-  repository depends on it.
+- Project roadmap, orchestration, model runners, prompts, and runtime tools
+  live in a separate private project repository. Nothing in this repository
+  depends on it.

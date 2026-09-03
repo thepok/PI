@@ -8,6 +8,6 @@ Only current PI support remains here:
 - `state/`: ignored runtime state, never mathematical knowledge.
 
 Project orchestration, prompts, modelbench, and runtime tooling live in the
-[`AllMath` repository](https://github.com/thepok/MathMyth). This repository is
+separate private project repository. This repository is
 self-contained for PI experiments.
 The research frontier is exclusively [`../FRONTIER.md`](../FRONTIER.md).
