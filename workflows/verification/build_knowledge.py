@@ -204,17 +204,16 @@ def table_cell(value: Any) -> str:
 def render_frontier(current: str, index: dict[str, Any]) -> str:
     heading = "## Machine-checked status (generated from INDEX.yaml)"
     rows = [
-        "| ID | Label | Lean name | What it does not show |",
-        "|---|---|---|---|",
+        "| ID | Lean name | What it does not show |",
+        "|---|---|---|",
     ]
     for record in index["results"]:
         if record["label"] != "machine-checked":
             continue
         lean_names = "<br>".join(f"`{name}`" for name in record["lean"])
         rows.append(
-            "| {id} | {label} | {lean} | {does_not_show} |".format(
+            "| {id} | {lean} | {does_not_show} |".format(
                 id=table_cell(record["id"]),
-                label=table_cell(record["label"]),
                 lean=lean_names,
                 does_not_show=table_cell(record["does_not_show"]),
             )

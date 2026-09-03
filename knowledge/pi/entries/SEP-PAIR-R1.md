@@ -1,18 +1,18 @@
 ---
 id: SEP-PAIR-R1
-title: Pair-R1 separator
-label: unlabelled
+title: Pair-R1 numerical separator
+label: experiment
 lean: []
 file: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md
-statement: Proof-sketch algebra plus node-experiments refute uniform Pair-R1.
+statement: The-directed replay refutes uniform Pair-pi and universal actual-pi positivity of the DC1 premise.
 does_not_show: Not-proved:pathwise-π-transport.
-source: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md
+source: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md#actual-pi-positive-node-separator
 ---
-> # Pair-R1 Laurent-polynomial transcendence boundary
+> ### Actual-pi positive-node separator
 >
-> Date: 2026-08-27 UTC
->
-> Claim labels: the specialization of the registered T138/T177/T179 formulas
-> and the elementary DFT/transcendence deductions are `proof sketch`; the cited
-> source statements were checked against primary sources.  The actual-pi node
-> separator below is an `experiment`.  Uniform Pair-R1 is refuted; no pathwise
+> A standalone directed-interval `experiment`, independently reproduced with a
+> second interval engine, evaluates the correctly conjugated pairs
+> `P_r=C_r+conj(C_(10-r))` at `(q,A,N,H)=(1000,689,1000,10000)`.  The replay is
+> [`t189_pair_dc1_counterexample_interval.py`](../../../../workflows/experiments/t189_pair_dc1_counterexample_interval.py).
+> It certifies the positive parent margin `B(q,A,q)>80.21738`, while all five
+> Pair-R1 margins are negative (between `-6.71` and `-6.21`) and the DC1 right

@@ -41,6 +41,12 @@ try {
         throw "The tracked-Lean shortcut scan failed with exit code $LASTEXITCODE"
     }
 
+    $knowledgeCheck = 'workflows/verification/check_knowledge.py'
+    & $python $knowledgeCheck
+    if ($LASTEXITCODE -ne 0) {
+        throw "The knowledge consistency check failed with exit code $LASTEXITCODE"
+    }
+
     $auditOutput = (& $lake env lean $AuditFile 2>&1 | Out-String)
     if ($LASTEXITCODE -ne 0) {
         Write-Host $auditOutput
@@ -69,7 +75,7 @@ try {
     }
 
     Write-Host $auditOutput
-    Write-Host 'PASS: kernel build, all-tracked-Lean exploit scan, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
+    Write-Host 'PASS: kernel build, tracked-Lean scan, knowledge consistency, and exact-allowlist axiom audit succeeded.' -ForegroundColor Green
 } finally {
     Pop-Location
 }

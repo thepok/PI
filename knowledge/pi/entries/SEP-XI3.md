@@ -1,18 +1,18 @@
 ---
 id: SEP-XI3
-title: Xi3 separator
-label: unlabelled
+title: Xi3 numerical separator
+label: experiment
 lean: []
 file: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md
-statement: The-source's experiment/continuations preserve premises while defeating literal-correlation.
+statement: On-the-fixed-1/3-orbit,49K is below the robust sufficient threshold.
 does_not_show: Not-proved:anything-about-π/V1.
-source: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md
+source: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md#exact-specialization
 ---
-> # All-three fixed-point separator for the T189 correlation
+> The directed replay
+> [`t189_xi3_fixed_point_separator.py`](../../../../workflows/experiments/t189_xi3_fixed_point_separator.py)
+> gives
 >
-> Date: 2026-08-27 UTC
->
-> Claim labels: the T179/T189 identities are `machine-checked`; the directed
-> numerical enclosure is an `experiment`; the finite-prefix and transcendental
-> continuation arguments are `proof sketch`. Nothing here is a negative result
-> about pi or V1.
+> ```text
+> K in
+> [-0.03418163774658197014864546356039472414214449153916396039749097911026918958686490527474194766099698658,
+>  -0.03418163774658197014864546356039472414214449153916396039749097911026918958686490527474194576235609259].
