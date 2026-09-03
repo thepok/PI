@@ -1,22 +1,22 @@
-<!-- Draft v1.0-rc2. Produced 2026-09-02 (ChatGPT Pro against snapshot ff342e0), independently audited the same day (verdict: correct with fixes; all fixes applied). Not yet frozen; freezing requires Marcel's sign-off. -->
+<!-- Frozen as v1.0 on 2026-09-03 at the public opening, signed off by Marcel Richter. Produced 2026-09-02 (ChatGPT Pro against the then snapshot), independently audited the same day (verdict: correct with fixes; all fixes applied). Normative snapshot: tag v1.0.0 of thepok/PI. -->
 
 ---
-title: "Target Specification v1.0-rc2"
+title: "Target Specification v1.0"
 subtitle: 'Decimal disjunctivity and adjacent digit-distribution nodes for π'
-version: "1.0-rc2"
-status_cutoff: "2026-09-02"
+version: "1.0"
+status_cutoff: "2026-09-03"
 repository: "thepok/PI"
-repository_snapshot: "ff342e0fbedec5f37decdaeea88ca2f6853320c9"
+repository_snapshot: "tag v1.0.0"
 normative_lean_node: "Theory.PiDigits.V1"
 audit: "independent adversarial audit 2026-09-02, verdict CORRECT WITH FIXES; all listed fixes applied"
 ---
 
-# Target Specification v1.0-rc2
+# Target Specification v1.0
 
-**Status cutoff:** 2026-09-02.  
-**Normative repository snapshot:** [`thepok/PI@ff342e0`](https://github.com/thepok/PI/tree/ff342e0fbedec5f37decdaeea88ca2f6853320c9).  
-**Normative V1 source:** [`TheoryLib/PiDigits/T7Statements.lean`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/TheoryLib/PiDigits/T7Statements.lean).  
-**Research-map source:** [`FRONTIER.md`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/FRONTIER.md) and [`TARGET.md`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/knowledge/pi/workstreams/TARGET.md).
+**Status cutoff:** 2026-09-03 (frozen at the public opening; signed off by Marcel Richter).  
+**Normative repository snapshot:** [`thepok/PI` tag `v1.0.0`](https://github.com/thepok/PI/tree/v1.0.0).  
+**Normative V1 source:** [`TheoryLib/PiDigits/T7Statements.lean`](https://github.com/thepok/PI/blob/v1.0.0/TheoryLib/PiDigits/T7Statements.lean).  
+**Research-map source:** [`FRONTIER.md`](https://github.com/thepok/PI/blob/v1.0.0/FRONTIER.md) and [`TARGET.md`](https://github.com/thepok/PI/blob/v1.0.0/knowledge/pi/workstreams/TARGET.md).
 
 This document fixes the propositions to be adjudicated. Except for **HA**, every node is a proposition about \(\pi\). The cited mathematical theorems are sourced to original papers.
 
@@ -989,7 +989,7 @@ acceptance rule.
 23. **Cassels terminology:** the printed introductory gloss is weaker than modern normality, but the proof’s uniform-distribution conclusion is the full modern property.
 24. **Resolution polarity:** both proof and disproof count; conditional or empirical evidence does not.
 25. **Status date:** every “known/open” statement is cut off at 2026-09-02.
-26. **Repository authority:** V1 indexing and quantifiers are pinned to commit `ff342e0fbedec5f37decdaeea88ca2f6853320c9`.
+26. **Repository authority:** V1 indexing and quantifiers are pinned to tag `v1.0.0`.
 27. **Normative precedence:** pinned Lean controls V1 and `piDigit`; boxed §2 formulas control other nodes; proved equivalences control alternatives; prose and diagrams are explanatory.
 28. **Polynomial degree at zero:** HA requires \(p\ne0\) and \(\deg p<\deg q\), so ordinary degree is never applied to the zero polynomial.
 29. **Literal finite-attractor syntax:** FA uses a time-dependent selector, equivalently distance to a finite set.
@@ -1011,10 +1011,10 @@ acceptance rule.
 ## Primary references
 
 **[Repo]** M. Richter, *PI repository*, snapshot
-[`ff342e0fbedec5f37decdaeea88ca2f6853320c9`](https://github.com/thepok/PI/tree/ff342e0fbedec5f37decdaeea88ca2f6853320c9):
-[`FRONTIER.md`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/FRONTIER.md),
-[`T7Statements.lean`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/TheoryLib/PiDigits/T7Statements.lean),
-and [`TARGET.md`](https://github.com/thepok/PI/blob/ff342e0fbedec5f37decdaeea88ca2f6853320c9/knowledge/pi/workstreams/TARGET.md).
+[`v1.0.0`](https://github.com/thepok/PI/tree/v1.0.0):
+[`FRONTIER.md`](https://github.com/thepok/PI/blob/v1.0.0/FRONTIER.md),
+[`T7Statements.lean`](https://github.com/thepok/PI/blob/v1.0.0/TheoryLib/PiDigits/T7Statements.lean),
+and [`TARGET.md`](https://github.com/thepok/PI/blob/v1.0.0/knowledge/pi/workstreams/TARGET.md).
 
 **[Niv47]** I. Niven, “A simple proof that \(\pi\) is irrational,”
 *Bulletin of the American Mathematical Society* **53** (1947), no. 6, 509.

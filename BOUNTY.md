@@ -92,4 +92,4 @@ persons; the prize is not paid to organisations.
   neither reserves priority nor establishes a claim; only the pull request
   timestamp counts.
 
-Published: *(date to be set when the repository goes public)*.
+Published: 2026-09-03.
