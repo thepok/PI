@@ -1,0 +1,766 @@
+results:
+  - id: T16
+    title: Decimal boundary-word obstruction
+    label: machine-checked
+    lean: [Theory.PiDigits.DecimalBoundaryWordObstruction.not_C1_implies_unbounded_adjacent_word_or_aggregated_resonance]
+    file: TheoryLib/PiQuantitativeBlockHitting/T16T16DecimalBoundaryWordObstruction.lean
+    statement: "If C1 fails, then for every C,K,r ≥ 1 some k ≥ K has a missing length-k word and the stated adjacent-word or aggregated resonance."
+    does_not_show: "It proves neither C1 nor its failure."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T16T16DecimalBoundaryWordObstruction.lean#t16-deterministic-decimal-boundary-word-obstruction"
+  - id: T17
+    title: Power-ten Diophantine reduction
+    label: machine-checked
+    lean: [Theory.PiDigits.PowerTenDiophantineReduction.not_C1_implies_unbounded_aggregated_resonance_of_powerTenDiophantine]
+    file: TheoryLib/PiQuantitativeBlockHitting/T17T17PowerTenDiophantineReduction.lean
+    statement: "For μ,A with μ ≥ 1, PowerTenDiophantine π μ A and failure of C1 imply the stated resonance for every C,K ≥ 1."
+    does_not_show: "It does not prove the Diophantine premise or C1."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T17T17PowerTenDiophantineReduction.lean#t17-power-of-ten-diophantine-reduction"
+  - id: T69
+    title: Fixed-sixteen return equivalence
+    label: machine-checked
+    lean: [Theory.PiDigits.T69FixedSixteenReturn.v1_iff_fixedSixteenReturn]
+    file: TheoryLib/PiQuantitativeBlockHitting/T69T69FixedSixteenReturn.lean
+    statement: "If the joint times-ten/times-sixteen orbit of π is dense, then V1 is equivalent to FixedSixteenReturn."
+    does_not_show: "It proves neither the density premise nor the return."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T69T69FixedSixteenReturn.lean#t69-a-fixed-times-sixteen-return-is-exactly-the-furstenberg-bottleneck"
+  - id: T102
+    title: BBP kernel integral
+    label: machine-checked
+    lean: [Theory.PiDigits.T102BBPKernelIntegral.intervalIntegral_bbpKernel]
+    file: TheoryLib/PiQuantitativeBlockHitting/T102T102BBPKernelIntegral.lean
+    statement: "The interval integral of bbpKernel from 0 to √2/2 equals π."
+    does_not_show: "It does not justify the BBP series interchange."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T102T102BBPKernelIntegral.lean#t102-evaluation-of-the-elementary-bbp-kernel-integral"
+  - id: T104
+    title: BBP series identity
+    label: machine-checked
+    lean: [Theory.PiDigits.T104BBPSeriesIdentity.bbpRealTerm_hasSum_pi]
+    file: TheoryLib/PiQuantitativeBlockHitting/T104T104BBPSeriesIdentity.lean
+    statement: "The canonical real BBP term sequence has sum π."
+    does_not_show: "It gives no decimal-orbit distribution."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T104T104BBPSeriesIdentity.lean#t104-the-classical-bbp-series-identity"
+  - id: T128
+    title: Boundary-matched kernel consumer
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryMatchedKernel.finite_decimalInterval_hit_of_boundary_explicit_smallness]
+    file: TheoryLib/PiQuantitativeBlockHitting/T128T128BoundaryMatchedKernel.lean
+    statement: "For N,q > 0 and an interval [a,a+1/q)⊆[0,1], directional defect below 1/(3q)+2/(3q³) forces one of the first N points into it."
+    does_not_show: "It proves no π-orbit cancellation."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T128T128BoundaryMatchedKernel.lean#t128-boundary-matched-finite-fourier-kernel"
+  - id: T130
+    title: Boundary coefficient comparison
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryNonzeroCoefficientAlgebra.normalized_boundary_lt_jackson]
+    file: TheoryLib/PiQuantitativeBlockHitting/T130T130BoundaryNonzeroCoefficientAlgebra.lean
+    statement: "For q>1 and 0<h≤2q−1, the normalized boundary coefficient is strictly below the normalized Jackson coefficient."
+    does_not_show: "It supplies no decimal-orbit cancellation."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T130T130BoundaryNonzeroCoefficientAlgebra.lean#t130-nonzero-boundary-coefficient-algebra"
+  - id: T138
+    title: Primitive-ray coefficient gap
+    label: machine-checked
+    lean: [Theory.PiDigits.PrimitiveRayCoefficientGap.primitiveBoundaryLoad_pow_ten_lt_positiveBoundaryLoad_sub_gap]
+    file: TheoryLib/PiQuantitativeBlockHitting/T138T138PrimitiveRayCoefficientGap.lean
+    statement: "For every k≥1 and A, the primitive boundary load at 10^k is below the positive load minus 1/3000000."
+    does_not_show: "It proves no π cancellation."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T138T138PrimitiveRayCoefficientGap.lean#t138-primitive-ray-coefficient-gap-for-the-boundary-kernel"
+  - id: T139
+    title: Primitive-ray boundary consumer
+    label: machine-checked
+    lean: [Theory.PiDigits.PrimitiveRayBoundaryConsumer.piOrbit_hit_of_uniform_primitiveCancellation_pow_ten]
+    file: TheoryLib/PiQuantitativeBlockHitting/T139T139PrimitiveRayBoundaryConsumer.lean
+    statement: "For k≥1, A<10^k, N>0 and ε≥0, the theorem's uniform primitive-cancellation and threshold hypotheses force a π-orbit hit before N."
+    does_not_show: "It does not prove either hypothesis."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T139T139PrimitiveRayBoundaryConsumer.lean#t139-exact-primitive-ray-boundary-consumer"
+  - id: T142
+    title: Boundary coefficient Abel bound
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryCoefficientAbel.sampled_positiveBoundaryCoefficient_abel_lt]
+    file: TheoryLib/PiQuantitativeBlockHitting/T142T142BoundaryCoefficientAbel.lean
+    statement: "For q≥1000, d>0 and sin(πt)≠0, the sampled coefficient sum norm is below 5/(2q|sin(πt)|)."
+    does_not_show: "It contains no endpoint theorem."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T142T142BoundaryCoefficientAbel.lean#t142-boundary-coefficient-abel-bounds"
+  - id: T143
+    title: Endpoint valuation layers
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryEndpointLayers.primitiveBoundaryEndpoint_eq_layer_terminal_sub_initial]
+    file: TheoryLib/PiQuantitativeBlockHitting/T143T143BoundaryEndpointLayers.lean
+    statement: "For all k,A,N, the primitive boundary endpoint equals its terminal decimal-layer sum minus its initial decimal-layer sum."
+    does_not_show: "It gives no endpoint estimate."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T143T143BoundaryEndpointLayers.lean#t143-exact-valuation-layer-decomposition-of-the-t139-endpoint"
+  - id: T144
+    title: Boundary layer mass
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryLayerMass.boundaryLayerMass_pow_ten_eq]
+    file: TheoryLib/PiQuantitativeBlockHitting/T144T144BoundaryLayerMass.lean
+    statement: "For 1≤s≤k, boundaryLayerMass(10^k,10^s) equals the displayed cosine and zero-coefficient formula."
+    does_not_show: "It gives no orbit estimate."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T144T144BoundaryLayerMass.lean#t144-exact-masses-of-the-decimal-boundary-layers"
+  - id: T146
+    title: Decimal phase dichotomy
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryPhaseTorusBounds.decimal_phase_distance_dichotomy]
+    file: TheoryLib/PiQuantitativeBlockHitting/T146T146BoundaryPhaseTorusBounds.lean
+    statement: "For θ₂=10θ₁−9π, either dist(θ₁,ℤ)≥7/1000 or dist(θ₂,ℤ)≥19/100."
+    does_not_show: "It contains no endpoint consumer."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T146T146BoundaryPhaseTorusBounds.lean#t146-torus-distance-and-sine-bounds-for-decimal-endpoint-phases"
+  - id: T147
+    title: Pi endpoint contraction
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryEndpointContraction.primitiveBoundaryEndpoint_norm_lt_two_budget_sub]
+    file: TheoryLib/PiQuantitativeBlockHitting/T147T147BoundaryEndpointContraction.lean
+    statement: "For k≥3 and all A,N, the primitive endpoint norm is below twice its budget minus 7/500."
+    does_not_show: "It does not control the primitive sum."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T147T147BoundaryEndpointContraction.lean#t147-strict-contraction-of-the-actual-pi-endpoint"
+  - id: T148
+    title: Improved primitive consumer
+    label: machine-checked
+    lean: [Theory.PiDigits.ImprovedPrimitiveBoundaryConsumer.piOrbit_hit_of_improved_primitiveBoundary_smallness_pow_ten]
+    file: TheoryLib/PiQuantitativeBlockHitting/T148T148ImprovedPrimitiveBoundaryConsumer.lean
+    statement: "For k≥3, A<10^k and N>0, the displayed improved primitive-score threshold forces a π-orbit hit before N."
+    does_not_show: "It does not prove the threshold."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T150
+    title: Boundary kernel floors
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryKernelFloors.boundaryMinorant_re_gt_neg_eight_mul_sq_div]
+    file: TheoryLib/PiQuantitativeBlockHitting/T150T150BoundaryKernelFloors.lean
+    statement: "For q>0,d≥10 and 1/(2d)≤t≤1−1/(2d), Re boundaryMinorant(q,t)>−8d²/(9q²)."
+    does_not_show: "It gives no orbit cancellation."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T150T150BoundaryKernelFloors.lean#t150-explicit-lower-floors-for-the-boundary-kernel"
+  - id: T151
+    title: Projected boundary-layer floor
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryProjectedLayerFloor.divisibleBoundaryPolynomial_re_gt]
+    file: TheoryLib/PiQuantitativeBlockHitting/T151T151BoundaryProjectedLayerFloor.lean
+    statement: "For q≥1000,d≥10 and real t, the divisible boundary polynomial exceeds the theorem's explicit negative floor."
+    does_not_show: "It supplies no recurrence."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T151T151BoundaryProjectedLayerFloor.lean#t151-root-grid-projected-boundary-layer-floor"
+  - id: T153
+    title: Root-grid natural consumer
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryRootGridNaturalConsumer.piOrbit_hit_of_rootGrid_primitiveBoundary_ge]
+    file: TheoryLib/PiQuantitativeBlockHitting/T153T153BoundaryRootGridNaturalConsumer.lean
+    statement: "For k≥3 and A<10^k, the displayed root-grid lower bound on the natural-horizon primitive sum forces a hit before 10^k."
+    does_not_show: "It does not prove that lower bound."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T156
+    title: Natural threshold closure
+    label: machine-checked
+    lean: [Theory.PiDigits.BoundaryNaturalThresholdClosure.piOrbit_hit_of_primitiveBoundary_ge_neg_861]
+    file: TheoryLib/PiQuantitativeBlockHitting/T156T156BoundaryNaturalThresholdClosure.lean
+    statement: "For k≥3 and A<10^k, Re primitiveBoundaryFourierSum(10^k,A,10^k)≥−861/1000 forces a hit before 10^k."
+    does_not_show: "It does not prove the primitive lower bound."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T157
+    title: Exact BBP five-adic shell
+    label: machine-checked
+    lean: [Theory.PiDigits.T157ExactBBPFiveAdicShell.scaledBBPRat_five_val_eq]
+    file: TheoryLib/PiQuantitativeBlockHitting/T157T157ExactBBPFiveAdicShell.lean
+    statement: "For every m, v₅(scaledBBPRat m)=m−fiveShellLog m."
+    does_not_show: "It gives no digit hit or distribution."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T157T157ExactBBPFiveAdicShell.lean#t157-exact-five-adic-shell-of-the-sampled-bbp-rational"
+  - id: T159
+    title: BBP top-prime projection
+    label: machine-checked
+    lean: [Theory.PiDigits.T159ExactBBPTopPrimeProjection.scaledBBPRat_topPrime_val_eq_neg_one]
+    file: TheoryLib/PiQuantitativeBlockHitting/T159T159ExactBBPTopPrimeProjection.lean
+    statement: "For prime p=8i+1 with p>5 and 56m+6<2p≤112m+2, vₚ(scaledBBPRat m)=−1."
+    does_not_show: "It gives no cancellation or occurrence."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T159T159ExactBBPTopPrimeProjection.lean#t159-exact-top-band-prime-projection-of-the-sampled-bbp-rational"
+  - id: T169
+    title: Single-rate Machin transfer
+    label: machine-checked
+    lean: [Theory.PiDigits.T169SingleRateMachinPhaseTransfer.norm_shiftedPositiveBoundaryPiScore_sub_machin_le]
+    file: TheoryLib/PiQuantitativeBlockHitting/T169T169SingleRateMachinPhaseTransfer.lean
+    statement: "For all k,A,n and N≥1, the π/Machin boundary-score difference obeys the displayed geometric-error bound."
+    does_not_show: "It supplies no carrier cancellation."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T169T169SingleRateMachinPhaseTransfer.lean#t169-natural-window-transfer-to-a-single-rate-rational-machin-carrier"
+  - id: T170
+    title: Machin 100-place certificate
+    label: machine-checked
+    lean: [Theory.PiDigits.T170MachinFixedPointIntervals.pi_mem_decimalCylinder_100]
+    file: TheoryLib/PiQuantitativeBlockHitting/T170T170MachinFixedPointIntervals.lean
+    statement: "π lies strictly in the decimal cylinder determined by the certified 100-place prefix."
+    does_not_show: "It proves no digit recurrence."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T170T170MachinFixedPointIntervals.lean#t170-fixed-point-interval-certificates-for-machin-sums"
+  - id: T172
+    title: Positive left-extension transport
+    label: machine-checked
+    lean: [Theory.PiDigits.PositiveLeftExtensionTransport.primitiveBoundaryFourierSum_leftExtension]
+    file: TheoryLib/PiQuantitativeBlockHitting/T172T172PositiveLeftExtensionTransport.lean
+    statement: "For all q,A,N, the sum of the ten child primitive sums equals the parent primitive sum plus the left-extension remainder."
+    does_not_show: "It does not select a prescribed child."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T173
+    title: Machin 10015-place certificate
+    label: machine-checked
+    lean: [Theory.PiDigits.T173MachinIntegerCertificate10015.pi_mem_decimalCylinder_10015]
+    file: TheoryLib/PiQuantitativeBlockHitting/T173T173MachinIntegerCertificate10015.lean
+    statement: "π lies strictly in the decimal cylinder determined by the certified 10015-place prefix."
+    does_not_show: "It is finite and proves no distribution."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T173T173MachinIntegerCertificate10015.lean#t173-a-10015-place-compact-integer-machin-certificate"
+  - id: T174
+    title: Finite primitive score identity
+    label: machine-checked
+    lean: [Theory.PiDigits.FinitePrimitiveScoreIdentity.two_mul_primitiveBoundaryFourierSum_re_eq_finite_score]
+    file: TheoryLib/PiQuantitativeBlockHitting/T174T174FinitePrimitiveScoreIdentity.lean
+    statement: "For q,N>0 and all A, twice the primitive real sum equals the finite kernel score minus zero mode and endpoint."
+    does_not_show: "It asserts no positive π score."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T174T174FinitePrimitiveScoreIdentity.lean#t174-exact-finite-primitive-score-identity"
+  - id: T175
+    title: Decimal suffix cylinders
+    label: machine-checked
+    lean: [Theory.PiDigits.T175DecimalSuffixCylinder.piOrbit_mem_certified_suffixCylinder]
+    file: TheoryLib/PiQuantitativeBlockHitting/T175T175DecimalSuffixCylinder.lean
+    statement: "For every n≤10015, {10^nπ} lies strictly in the suffix cylinder of the certified prefix."
+    does_not_show: "It only replays a finite prefix."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T175T175DecimalSuffixCylinder.lean#t175-decimal-cylinders-transport-to-orbit-suffix-cylinders"
+  - id: T176
+    title: Signed block Bellman transport
+    label: machine-checked
+    lean: [Theory.PiDigits.SignedBlockBellmanTransport.exists_leftExtension_prefix_bellman_gt]
+    file: TheoryLib/PiQuantitativeBlockHitting/T176T176SignedBlockBellmanTransport.lean
+    statement: "For q≥1000, A and L>0, some digit d<10 has strictly larger child than parent prefix Bellman surplus."
+    does_not_show: "It does not prescribe d or give root positivity."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T177
+    title: Predecessor digit DFT
+    label: machine-checked
+    lean: [Theory.PiDigits.PredecessorDigitDFT.ten_mul_child_re_eq_zeroSector_add_nonzero]
+    file: TheoryLib/PiQuantitativeBlockHitting/T177T177PredecessorDigitDFT.lean
+    statement: "For all q,A,N and d<10, ten times the child primitive real sum equals its zero-sector plus nonzero-sector contribution."
+    does_not_show: "It supplies no favorable digit sign."
+    source: "knowledge/pi/results/machine-checked/T179-predecessor-lag-one-correlation.md#exact-decomposition"
+  - id: T178
+    title: Signed predecessor ray
+    label: machine-checked
+    lean: [Theory.PiDigits.SignedPredecessorRay.exists_infinite_signed_predecessor_ray]
+    file: TheoryLib/PiQuantitativeBlockHitting/T178T178SignedPredecessorRay.lean
+    statement: "For q₀≥1000, A₀<q₀ and L>0, there is a coherent decimal predecessor ray with strictly increasing fixed-L surplus."
+    does_not_show: "It does not give root positivity, natural horizons, or V1."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T179
+    title: Predecessor lag-one correlation
+    label: machine-checked
+    lean: [Theory.PiDigits.PredecessorLagOneCorrelation.predecessorDigitSector_eq_lagOneCorrelation]
+    file: TheoryLib/PiQuantitativeBlockHitting/T179T179PredecessorLagOneCorrelation.lean
+    statement: "For q>0, all A,N and 0<r<10, the predecessor digit sector equals the stated lag-one digit/suffix correlation."
+    does_not_show: "It is an identity, not a cancellation estimate."
+    source: "knowledge/pi/results/machine-checked/T179-predecessor-lag-one-correlation.md#exact-decomposition"
+  - id: T180
+    title: Reflected trigonometric interval core
+    label: machine-checked
+    lean: [Theory.PiDigits.T180ReflectedTrigIntervalCore.checked_trig_bounds]
+    file: TheoryLib/PiQuantitativeBlockHitting/T180T180ReflectedTrigIntervalCore.lean
+    statement: "For n≥8, |center|≤4 and a checked rational certificate, the theorem encloses sin and cos at every x within the supplied input width."
+    does_not_show: "It contains no production payload."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T180T180ReflectedTrigIntervalCore.lean#t180-reflected-rational-intervals-for-certified-trigonometry"
+  - id: T181
+    title: Reflected interval arithmetic
+    label: machine-checked
+    lean: [Theory.PiDigits.T181ReflectedIntervalArithmetic.checkDiv_sound]
+    file: TheoryLib/PiQuantitativeBlockHitting/T181T181ReflectedIntervalArithmetic.lean
+    statement: "For positive scale, input enclosures, and checkDiv=true, the output interval encloses the real quotient."
+    does_not_show: "It supplies no π-specific score."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T181T181ReflectedIntervalArithmetic.lean#t181-reflected-common-scale-interval-arithmetic"
+  - id: T185
+    title: Boundary minorant sine bridge
+    label: machine-checked
+    lean: [Theory.PiDigits.T185BoundaryMinorantSineBridge.two_mul_primitiveBoundaryFourierSum_re_eq_closed_sine_score]
+    file: TheoryLib/PiQuantitativeBlockHitting/T185T185BoundaryMinorantSineBridge.lean
+    statement: "For q,N>0 and nonzero denominator sines at n<N, twice the primitive real sum equals the displayed closed-sine score."
+    does_not_show: "It has no numerical payload or sign."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T185T185BoundaryMinorantSineBridge.lean#t185-closed-sine-bridge-for-the-finite-primitive-score"
+  - id: T187
+    title: Reflected trig shard 9965
+    label: machine-checked
+    lean: [Theory.PiDigits.T187ReflectedTrigShard9965.shard_sound]
+    file: TheoryLib/PiQuantitativeBlockHitting/T187T187ReflectedTrigShard9965.lean
+    statement: "The fixed 30-leaf, ten-orbit-point shard satisfies its reflected stack semantics."
+    does_not_show: "It is one finite shard, not the full score."
+    source: "TheoryLib/PiQuantitativeBlockHitting/T187T187ReflectedTrigShard9965.lean#t187-first-production-precision-actual-pi-trigonometric-shard"
+  - id: T189
+    title: Signed horizon-sector bridge
+    label: machine-checked
+    lean: [Theory.PiDigits.SignedHorizonSectorBridge.signedPrefixSurplus_child_pos_of_horizon_sector_gt]
+    file: TheoryLib/PiQuantitativeBlockHitting/T189T189SignedHorizonSectorBridge.lean
+    statement: "For q>0, N≤H and d<10, the stated full horizon-sector inequality implies positive child prefix surplus at H."
+    does_not_show: "It proves no π-specific sector inequality."
+    source: "knowledge/pi/results/machine-checked/T189-signed-horizon-sector-bridge.md#exact-checked-bridge"
+  - id: T190
+    title: Complementary rank alignment
+    label: machine-checked
+    lean: [Theory.PiDigits.T190ComplementaryRankAlignment.exists_digit_D_pos_and_G_add_D_pos_of_complementary_card]
+    file: TheoryLib/PiQuantitativeBlockHitting/T190T190ComplementaryRankAlignment.lean
+    statement: "For 1≤k≤10 and positive compatible thresholds, digit sets of sizes at least k and 11−k share d with D(d)>0 and G(d)+D(d)>0."
+    does_not_show: "It supplies neither rank premise."
+    source: "knowledge/pi/results/machine-checked/T190-complementary-rank-alignment.md"
+  - id: T191
+    title: Central boundary-kernel floor
+    label: machine-checked
+    lean: [Theory.PiDigits.T191CentralBoundaryKernelFloor.boundaryMinorant_re_gt_4859_div_10000]
+    file: TheoryLib/PiQuantitativeBlockHitting/T191T191CentralBoundaryKernelFloor.lean
+    statement: "For k≥3 and |y|≤9/22, Re boundaryMinorant(10^k,y/10^k)>4859/10000."
+    does_not_show: "It contains no orbit or cancellation premise."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T192
+    title: Primitive valuation shells
+    label: machine-checked
+    lean: [Theory.PiDigits.T192PrimitiveValuationShells.primitiveValuationShell_zero_re_gt]
+    file: TheoryLib/PiQuantitativeBlockHitting/T192T192PrimitiveValuationShells.lean
+    statement: "For k≥3 and a π-orbit point with central coordinate |y|≤9/22, the valuation-zero shell exceeds (9/20)(4859/10000)."
+    does_not_show: "It does not estimate positive shells."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T193
+    title: Positive shell aggregate
+    label: machine-checked
+    lean: [Theory.PiDigits.T193PositiveValuationShellAggregate.central_unitBlock_surplus_gt_three_div_twenty]
+    file: TheoryLib/PiQuantitativeBlockHitting/T193T193PositiveValuationShellAggregate.lean
+    statement: "For k≥3 and a π-orbit point with central coordinate |y|≤9/22, its unit-block surplus exceeds 3·10^k/20."
+    does_not_show: "It contains no recurrence or timing input."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T194
+    title: Central π return seed
+    label: machine-checked
+    lean: [Theory.PiDigits.T194CentralPiReturnSeed.exists_central_pi_unitBlock_surplus]
+    file: TheoryLib/PiQuantitativeBlockHitting/T194T194CentralPiReturnSeed.lean
+    statement: "For every k≥3, some n,A with A<10^k has actual-π unit-block surplus greater than 3·10^k/20."
+    does_not_show: "The target is unprescribed and no timing or ray follows."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T198
+    title: Machin 3/7 bracket pack
+    label: machine-checked
+    lean: [Theory.PiDigits.T198MachinBracketPack.machinMC0_iff_piCW0]
+    file: TheoryLib/PiQuantitativeBlockHitting/T198T198MachinBracketPack.lean
+    statement: "For every length ℓ≥1, existence of a Machin bracket inside a decimal zero cylinder is equivalent to a length-ℓ zero block of π."
+    does_not_show: "It proves neither MC0 nor CW0."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T199
+    title: Base-10 BBP shadow pack
+    label: machine-checked
+    lean: [Theory.PiDigits.T199BBPShadowPack.bbp10_soh0_iff_piCW0]
+    file: TheoryLib/PiQuantitativeBlockHitting/T199T199BBPShadowPack.lean
+    statement: "The fully quantified one-sided base-10 BBP shadow condition is equivalent to occurrence of every finite zero block in π."
+    does_not_show: "It proves neither CW0 nor CW9."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T200
+    title: Bailey-Crandall coboundary
+    label: machine-checked
+    lean: [Theory.PiDigits.T200BaileyCrandallCoboundary.Y_add_tau_eq_pow_mul_pi]
+    file: TheoryLib/PiQuantitativeBlockHitting/T200T200BaileyCrandallCoboundary.lean
+    statement: "For every n≥1, Y(n)+τ(n)=16^(n−1)π."
+    does_not_show: "It proves no base-16 density or occurrence."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T202
+    title: Ramanujan dyadic ramp
+    label: machine-checked
+    lean: [Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp]
+    file: TheoryLib/PiQuantitativeBlockHitting/T202T202RamanujanTwoAdicRamp.lean
+    statement: "For all natural m≤n, λ(m)≤λ(n), with λ(n)=12n+4−3s₂(n)."
+    does_not_show: "It supplies neither a positive tail nor a target hit."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T204
+    title: Constant-run bound
+    label: machine-checked
+    lean: [Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost, Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded]
+    file: TheoryLib/PiQuantitativeBlockHitting/T204T204ConstantRunBound.lean
+    statement: "IrrationalityMeasureBelow x M implies IrrationalityExponentAtMost x M; for irrational x, M≥2 and ε>0, all sufficiently late nine-runs satisfy L≤(M−1+ε)n."
+    does_not_show: "The zero-run mirror and every run-existence claim remain open."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: T206
+    title: Greedy/existential endpoint bridge
+    label: machine-checked
+    lean: [Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10]
+    file: TheoryLib/PiQuantitativeBlockHitting/T206T206EndpointBridge.lean
+    statement: "For every decimal word w, the symmetric difference between greedy and existential real avoidance sets is contained in the power-of-ten rational endpoints."
+    does_not_show: "It proves no occurrence, density, or prefix-cylinder analogue."
+    source: "knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules"
+  - id: EXP-334
+    title: Finite signed parent 334
+    label: experiment
+    lean: []
+    file: knowledge/pi/results/intermediate/20260827-finite-signed-parent-334-certificate.md
+    statement: "The directed replay encloses Re Zπ(1000,334,10000)>47539/2500."
+    does_not_show: "It is finite and supplies no all-scale mechanism."
+    source: "knowledge/pi/results/intermediate/20260827-finite-signed-parent-334-certificate.md#exact-finite-claim"
+  - id: FIXED-HORIZON-RAY
+    title: Fixed-horizon predecessor ray
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260827-fixed-horizon-signed-predecessor-ray.md
+    statement: "For every r≥0, some coherent digit extension at qᵣ=1000·10^r has the displayed positive score at fixed horizon 10000."
+    does_not_show: "It is not a natural-horizon theorem or V1."
+    source: "knowledge/pi/results/intermediate/20260827-fixed-horizon-signed-predecessor-ray.md#statement"
+  - id: CENTRAL-CARRIER
+    title: Central carrier and annular flux
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md
+    statement: "The document derives the stated central-carrier identities and inequalities for its quantified q,A,N variables."
+    does_not_show: "It proves no unbounded actual-π shell or endpoint estimate."
+    source: "knowledge/pi/results/intermediate/20260828-central-carrier-annular-flux.md#exact-literal-refinement-carrier"
+  - id: DELAYED-BBP-MOMENTS
+    title: Delayed BBP moment cone
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260828-delayed-bbp-moment-cone.md
+    statement: "For every K≥0 and n≥0, 10^n(π−B_(n+K)) is the nth moment of the stated positive measure on [0,5/8]."
+    does_not_show: "It gives no target- or child-signed T189 bound."
+    source: "knowledge/pi/results/intermediate/20260828-delayed-bbp-moment-cone.md#corrected-repository-indexed-statement"
+  - id: LEIBNIZ-CARRIER
+    title: Endpoint-corrected Leibniz carrier
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260828-endpoint-corrected-leibniz-carrier.md
+    statement: "For every prime p≥17 with p≡1 mod 4, the displayed rational carrier has π−c_p equal to its positive integral remainder."
+    does_not_show: "It does not prove the target-signed same-child inequality."
+    source: "knowledge/pi/results/intermediate/20260828-endpoint-corrected-leibniz-carrier.md#fixed-order-carrier"
+  - id: SECTOR5-MACHIN
+    title: Sector-5 Machin direction
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md
+    statement: "The sector-5 collapse, Machin bracket, Taylor implication, and private-prime parity separation hold under their displayed hypotheses."
+    does_not_show: "It proves no unbounded transport theorem."
+    source: "knowledge/pi/results/intermediate/20260828-sector5-odd-frequency-machin-direction.md"
+  - id: BA-ALA-AUDIT
+    title: BA-ALA intersection audit
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260902-ba-ala-intersection-problem.md
+    statement: "The document proves its stated route obstructions and subsets but neither BA∩ALA nonemptiness nor full dimension."
+    does_not_show: "It does not resolve P1-FD, P1-PD, or P1-NE."
+    source: "knowledge/pi/results/intermediate/20260902-ba-ala-intersection-problem.md"
+  - id: SEPARATOR-THEOREMS-A-C
+    title: Diophantine separator theorems A-C
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md
+    statement: "For every admissible w,P the three displayed theorems give the full-dimensional BA set, full-dimensional all-label μ=2 set, and zero regularity dimension."
+    does_not_show: "They do not prove a simultaneous BA and all-label point."
+    source: "knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md#31-definitions-and-statements"
+  - id: DYADIC-SIGNED-CUT
+    title: Dyadic signed cut law
+    label: conjecture
+    lean: []
+    file: knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md
+    statement: "For every j≥12, [2^j,2^(j+1)) contains n⁺ and n⁻ satisfying the two displayed margin inequalities."
+    does_not_show: "Only blocks j=12 through 19 were tested."
+    source: "knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md#retained-statements"
+  - id: AFFINE-FIXED-POINT
+    title: Affine fixed-point form
+    label: unlabelled
+    lean: []
+    file: knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md
+    statement: "For n≥0, v_(n+1)={10v_n+β}, 10a+β=a+7, and x_n={v_n+c} with the displayed definitions."
+    does_not_show: "It carries no information beyond the decimal orbit."
+    source: "knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md#retained-statements"
+  - id: EXP-MINING-CYCLE1
+    title: Mining-cycle reconnaissance
+    label: experiment
+    lean: []
+    file: knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md
+    statement: "The first 1048595 decimal digits reproduce the reported tests, including dyadic blocks j=12 through 19."
+    does_not_show: "Finite reconnaissance proves none of the conjectures."
+    source: "knowledge/pi/results/intermediate/20260902-pro-conjecture-mining-cycle1.md"
+  - id: SEP-DIRECT-R1
+    title: Direct R1 boundary
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260827-direct-r1-literature-boundary.md
+    statement: "Two fixed transcendental μ=2 seeds sharing 3.14 and T146 phase data have disjoint target languages, forcing flexible-sign failure for one."
+    does_not_show: "It is not a negative result about π."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+  - id: SEP-PAIR-R1
+    title: Pair-R1 boundary
+    label: unlabelled
+    lean: []
+    file: knowledge/pi/results/negative/20260827-pair-r1-laurent-transcendence-boundary.md
+    statement: "The source reports proof-sketch algebra and experimental π-node separators that refute uniform Pair-R1."
+    does_not_show: "It proves no pathwise π transport theorem."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+  - id: SEP-MACHIN-SIGN
+    title: Machin sector sign loss
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260827-machin-positive-remainder-sector-sign-loss.md
+    statement: "Positive Machin carrier error does not determine the complete target-signed sector under the source's displayed construction."
+    does_not_show: "It is not a universal impossibility theorem."
+    source: "knowledge/pi/results/negative/20260827-machin-positive-remainder-sector-sign-loss.md"
+  - id: SEP-PREDECESSOR
+    title: Predecessor finite separators
+    label: experiment
+    lean: []
+    file: knowledge/pi/results/negative/20260827-predecessor-sector-finite-separators.md
+    statement: "The finite replays show that paired amplitude and capital information need not align R2 at the tested nodes."
+    does_not_show: "They do not rule out other π-specific inputs."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+  - id: SEP-XI3
+    title: Xi3 fixed-point separator
+    label: unlabelled
+    lean: []
+    file: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md
+    statement: "The source combines a fixed-point numerical experiment with proof-sketch continuations that preserve premises while defeating the literal correlation."
+    does_not_show: "It is not a negative result about π or V1."
+    source: "knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md"
+  - id: SEP-FINITE-BOOTSTRAP
+    title: Finite-cylinder bootstrap separator
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260827-finite-cylinder-horizon-bootstrap-separator.md
+    statement: "A μ=2 scalar-Mahler continuation can share 10015 π digits yet eventually make every coherent 334 child fail R1."
+    does_not_show: "It does not settle the actual π continuation."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+  - id: SEP-REGULARIZATION
+    title: Fixed-interior regularization instability
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260827-fixed-interior-regularization-instability.md
+    statement: "For all displayed N,H,t and neighboring fresh digits, stable fixed-interior decoders obey the exponential Lipschitz lower bound."
+    does_not_show: "It does not exclude boundary-scale or discontinuous invariants."
+    source: "knowledge/pi/results/negative/20260827-fixed-interior-regularization-instability.md#result"
+  - id: SEP-SCALAR-MASK
+    title: Scalar mask and coboundary boundary
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260827-linear-scalar-horizon-mask-channel-lower-bound.md
+    statement: "The source proves its displayed linear-channel, state-coboundary, branchwise-rational, and Abel-variation separators."
+    does_not_show: "It does not exclude nonlinear target-sensitive relations."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+  - id: SEP-CROSS-ENERGY
+    title: Cross-energy heredity separator
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/negative/20260829-pathwise-cross-energy-heredity-separator.md
+    statement: "A μ=2 continuation sharing the certified prefix defeats persistent-FMR cross-energy heredity along all seven tested legal root choices."
+    does_not_show: "It does not determine the actual π path."
+    source: "knowledge/pi/results/negative/SEPARATORS.md"
+
+open_problems:
+  - id: P1-FD
+    statement: "For every (m,w,A,c)∈𝔓₁, dim_H(C_w∩BA∩ALA_(A,c))=d_w."
+    strength_order: [P1-FD, P1-PD, P1-NE]
+    would_resolve: "It gives the full-dimension BA-ALA separator intersection."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p1-the-ba--ala-intersection-problems"
+  - id: P1-PD
+    statement: "For every (m,w,A,c)∈𝔓₁, dim_H(C_w∩BA∩ALA_(A,c))>0."
+    strength_order: [P1-FD, P1-PD, P1-NE]
+    would_resolve: "It gives positive-dimensional BA-ALA intersections."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p1-the-ba--ala-intersection-problems"
+  - id: P1-NE
+    statement: "For every (m,w,A,c)∈𝔓₁, C_w∩BA∩ALA_(A,c) is nonempty."
+    strength_order: [P1-FD, P1-PD, P1-NE]
+    would_resolve: "It gives a BA word-avoider with all-label abundance."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p1-the-ba--ala-intersection-problems"
+  - id: P1-FD-loc
+    statement: "For every (m,w,A,c)∈𝔓₁ and finite P with C_w∩I(P) nonempty, dim_H(X(w,A,c)∩I(P))=d_w."
+    strength_order: [P1-FD-loc, P1-FD, P1-PD, P1-NE]
+    would_resolve: "It strengthens P1-FD locally."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p1-the-ba--ala-intersection-problems"
+  - id: "P1′"
+    statement: "For every nonempty one-sided base-b SFT, every sparse entropy-neutral forced-block datum, and 0<s<d_Σ, some κ>0 gives dim_H(K_(Σ,F)∩BA(κ))≥s."
+    would_resolve: "It supplies fixed-level BA dimension in every sparse forced corridor."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p1-sparse-forced-blocks-in-finite-type-subshifts"
+  - id: MC0
+    statement: "For every k≥1, some m,n≥0 satisfy 10^k R^M_(m,n)+10^(n+k)Δ_m<D^M_m."
+    strength_order: [SOH-3/7, MC0]
+    would_resolve: "It is equivalent to CW0."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p2-the-one-sided-residue-problems"
+  - id: SOH-3/7
+    statement: "For every k,M≥1, some m≥M and n≥0 satisfy 10^k R^M_(m,n)+10^(n+k)Δ_m<D^M_m."
+    strength_order: [SOH-3/7, MC0]
+    would_resolve: "It is equivalent to MC0 and CW0."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p2-the-one-sided-residue-problems"
+  - id: SOH-BBP-10-0
+    statement: "For every k,N≥1, some n≥max(N,2) satisfies 0<r_n/D^B_n+E_n−a<10^(−k)."
+    would_resolve: "It is equivalent to CW0."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p2-the-one-sided-residue-problems"
+  - id: BBP-V1
+    statement: "For every length ℓ≥1, word v, and N≥1, some n≥max(N,2) has 2η_n<10^(−ℓ) and r_n/D^B_n in the η_n-shrunken arc J(v)."
+    would_resolve: "It implies V1."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p2-the-one-sided-residue-problems"
+  - id: P3
+    statement: "There exist q,s,B>0, Z∈ℤ, absolutely summable integer coefficients, and increasing blocks with B=10^s, π/q=Z+Σa_mB^(−m), h_j→∞, block divisibility, and tail in (0,B^(−h_j))."
+    would_resolve: "It is equivalent to CW0."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p3-the-carry-certificate-reformulation"
+  - id: P4
+    statement: "For every α∈{π,√2,e,log 2} and δ∈{0,9}, every k≥1 occurs as a length-k decimal δ-run in α."
+    would_resolve: "Its π components give CW0 and CW9; all eight components prove P4."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p4-the-constant-word-problems"
+  - id: P5
+    statement: "For every N≥0, the closure of {y_n:n≥N} for y_(n+1)={16y_n+R(n)} is [0,1]."
+    would_resolve: "It is equivalent to D16 and hence to D2."
+    label: conjecture
+    source: "knowledge/pi/workstreams/OPEN_PROBLEMS.md#p5-the-base-16-density-problem"
+
+closed_routes:
+  - id: route-generic-lacunary
+    title: Generic lacunary, metric, topological, complexity
+    dies_at: "Generic central capital, mixed recurrence, finite irrationality exponent, and escaping-offset equidistribution do not select a fixed decimal target or diagonal branch."
+    separator: "Badly approximable {1,2}-digit or other deleted-word transcendental continuations share these premises while avoiding a word."
+    strongest_retained: [T191, T192, T193, T194]
+    reopening_condition: "Supply selected-node actual-π target-weighted transition control, false on the recorded word-avoiders."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-bbp-rational-shadows
+    title: BBP residues and rational shadows
+    dies_at: "Valuations, positive tails, filters, and rational shadows leave the moving-modulus integer lift and oriented residue unknown."
+    separator: "Nearby digit-avoiding replacement constants shadow every fixed moment truncation."
+    strongest_retained: [T69, T102, T104, T157, T159, T199, T200]
+    reopening_condition: "Prove a wrap-aware numerator quantity with a distinguished-real sign and one-sided residue control."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-bbp-base16
+    title: BBP base-16 dynamical orbit
+    dies_at: "The changing-modulus carry is exactly the unknown digit, with one canonical numerator and no averaging variable."
+    separator: "none recorded"
+    strongest_retained: [T200, P5]
+    reopening_condition: "Prove a numerator-sensitive moving-modulus shrinking-target theorem for the canonical BBP residues."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-machin-pade-carriers
+    title: Machin, Pade, Leibniz, and positive-period carriers
+    dies_at: "Approximation and coefficient positivity do not sign the target-rotated distinguished embedding or choose the integer lift."
+    separator: "The period-one twins 4/9 and 5/9 have equal positive scores and opposite target-sensitive derivatives."
+    strongest_retained: [T169, T198, MC0]
+    reopening_condition: "Prove a complete target-weighted half-plane inequality or deterministic endpoint alignment from a π-specific numerator."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-cm-modular
+    title: CM, singular moduli, modular traces
+    dies_at: "Root order and modular identities retain a target-blind dominant real direction; correction restores the original unresolved decimal phase."
+    separator: "none recorded"
+    strongest_retained: []
+    reopening_condition: "Supply native nonzero-target-character orbit-scale oscillation with signed transfer to the complete child expression."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-gamma-e-functions
+    title: Euler zero, Gamma/Laplace, nonperiodic E-function frames
+    dies_at: "Multiplication controls only the zero character; reflection restores target characters as recodings with unresolved orientation."
+    separator: "none recorded"
+    strongest_retained: []
+    reopening_condition: "Prove an actual-π half-plane inequality for the complete coefficient-weighted character block."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-theta-automorphic
+    title: Theta, automorphic, and lattice renormalization
+    dies_at: "Reindexing degenerates or becomes unsigned, and no rational modular map realizes decimal multiplication with target orientation."
+    separator: "none recorded"
+    strongest_retained: []
+    reopening_condition: "Orient the actual determinant-10 branch, complete lag-two sum, or target-sensitive decimal shell."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-new-kernels
+    title: New kernels or equivalent consumers
+    dies_at: "Cross-energy and equivalent consumers are not hereditary along legal children."
+    separator: "A μ=2 continuation sharing the T173 prefix reaches positive nodes with negative cross-energy and one FMR child."
+    strongest_retained: [T189, SEP-CROSS-ENERGY]
+    reopening_condition: "Give actual-π selected-target control of weighted opposite-sign leakage, false for the recorded separator."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-finite-prefix
+    title: Finite π prefix and certificate replay
+    dies_at: "The full fresh sign is computed rather than implied, and any finite prefix admits target-avoiding transcendental continuations."
+    separator: "A μ=2 target-avoiding continuation shares the T173-certified 10015-digit prefix."
+    strongest_retained: [T170, T173, T175, T187]
+    reopening_condition: "Use genuinely fresh actual-π information at unbounded horizons to control the negative complement."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-coarse-statistics
+    title: Counts and low-dimensional empirical statistics
+    dies_at: "Coarse statistics lose relative multi-sector phase and same-digit alignment."
+    separator: "none recorded"
+    strongest_retained: [T190]
+    reopening_condition: "Prove an order-sensitive complete multi-sector theorem special to π."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-zero-sector
+    title: Zero sector, scalar moments, unsigned energy
+    dies_at: "All nine inverse characters survive scalar endpoint potentials, and scalar summaries cannot eliminate their joint remainder."
+    separator: "The exact-μ=2 safe-tree word-avoiding counterfamily shares the scalar premises."
+    strongest_retained: [T172, T177, T179, T191, T193, T194]
+    reopening_condition: "Provide a target-preassigned actual-π relation with correct orientation and a one-successor bottleneck."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-pair-dc1
+    title: Pair/DC1 and Laurent nonvanishing
+    dies_at: "Formal nonzero gives no sign; uniform Pair/DC1 and convex-mask transport fail on the tested completion space."
+    separator: "none recorded"
+    strongest_retained: [T138, T177, T179, SEP-PAIR-R1]
+    reopening_condition: "Give a path-constructing actual-π cross-sector admissibility theorem preserving phases and child alignment."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-separate-marginals
+    title: Separate marginals and coherent single rays
+    dies_at: "Separate witnesses lose the common digit, and one coherent ray need not be disjunctive."
+    separator: "none recorded"
+    strongest_retained: [T190]
+    reopening_condition: "Control min(D_d,D_d+G_d) jointly, then prove branching or selector-word disjunctivity."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-machin-37
+    title: Machin 3/7 bracket residues for CW0
+    dies_at: "A long invertible residue orbit gives close pairs, not a one-sided endpoint hit."
+    separator: "The decimal orbit of 1/9 is constant modulo the D=9 counterexample and avoids zero."
+    strongest_retained: [T198, MC0]
+    reopening_condition: "Use exact Machin numerators to prove the oriented inequality on unbounded scales, failing on endpoint avoiders."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-erdos-carry
+    title: Erdos carry-killing and Ramanujan reciprocal
+    dies_at: "No bound |ρ_n|≤CΛ^n with Λ<256 is proved, and signed reciprocal coefficients remove automatic positive tails."
+    separator: "none recorded"
+    strongest_retained: [T202, P3]
+    reopening_condition: "Produce an exact integer-coefficient base-10^s series with unbounded divisible blocks and a positive small tail."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-run-bounds
+    title: Constant-run bounds from irrationality exponent
+    dies_at: "An irrationality exponent bounds a run only if it exists and does not select zero or nine."
+    separator: "Theorem A's badly approximable word-avoiders have irrationality exponent 2 and omit a prescribed word."
+    strongest_retained: [T204]
+    reopening_condition: "Prove target-directed unbounded zero or nine runs; a sharper exponent alone is insufficient."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+  - id: route-endpoint-coding
+    title: Greedy/existential decimal endpoint bridge
+    dies_at: "Endpoint localization removes coding ambiguity but supplies no recurrence, sign, occurrence, or dimension mechanism."
+    separator: "none recorded"
+    strongest_retained: [T206]
+    reopening_condition: "Add a π-specific directed cylinder hit or same-child sign."
+    source: "knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary"
+
+documents:
+  - id: docA
+    path: papers/README.md
+    role: "Bibliographic stub for Decimal word avoidance, badly approximable separators, and the BA-ALA intersection problem; the article file is not yet present."
+  - id: docB
+    path: papers/companion-exact-reformulations-route-audits-2026-09-03.pdf
+    role: "Technical companion on exact reformulations and route audits."
+  - id: spec
+    path: knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md
+    role: "Target definitions, implication matrix, conventions, and resolution criteria."
+  - id: ledger
+    path: knowledge/pi/workstreams/ATTEMPT_LEDGER.md
+    role: "Route closures, retained results, fatal lines, and reopening conditions."
+  - id: open-problems
+    path: knowledge/pi/workstreams/OPEN_PROBLEMS.md
+    role: "Frozen quantified statements and resolution rules for named open problems."
+  - id: consumer
+    path: knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md
+    role: "Shortest checked downstream consumer and theorem-role boundaries."
+  - id: admission
+    path: knowledge/pi/workstreams/PI_PROPERTY_ADMISSION_AUDIT.md
+    role: "Finite audit of proposed π-specific inputs."
+  - id: bounty
+    path: BOUNTY.md
+    role: "External bounty statement and submission boundary."
+
+archive:
+  - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
+    contains: "The four former horizon-transport sections, verbatim after a three-line archive header."
+    moved_from: "FRONTIER.md#verified-consumer-and-current-modules"
+  - path: knowledge/pi/archive/FRONTIER_2026-09-03_pre-condensation.md
+    contains: "The complete pre-condensation FRONTIER.md verbatim."
+    moved_from: "FRONTIER.md"
+
+_meta:
+  generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
+  date: 2026-09-03
+  token_estimate_method: "word count multiplied by 1.4"
+  index_estimated_tokens: 5683
