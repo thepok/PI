@@ -634,6 +634,55 @@ results:
     statement: ∀e≥4,∃m∈S_e with the mirrored nine-cylinder inequality and the same width margins (exact statement in the source).
     does_not_show: Not-proved:CW9;survival-on-8-complete-shells-(e≤11),null-consistent,onset-mined.
     source: knowledge/pi/results/intermediate/20260904-pro-conjecture-mining-cycle2.md#4-conjecture-m5cs9-machin-five-adic-critical-shell-nine-law
+  - id: T211
+    title: Power-base disjunctivity and discrepancy
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T211PowerBaseDiscrepancy.power_to_coarse_disc
+      - Theory.PiDigits.T211PowerBaseDiscrepancy.disjunctive_power_iff
+    file: TheoryLib/PiQuantitativeBlockHitting/T211T211PowerBaseDiscrepancy.lean
+    statement: ∀b,r,x,N:2≤b∧1≤r⇒starDisc(fracOrbit(b^r,x),N)≤1+b·starDisc(fracOrbit(b,x),r·N); and given the T205 power equivalence ∀{b,k}:2≤b∧0<k⇒∀x(Disj(b^k,x)↔Disj(b,x)), ∀{b,r}:2≤b∧1≤r⇒∀x(Disj(b,x)↔Disj(b^r,x)).
+    does_not_show: Not-proved:T205-power-equivalence/sharp-discrepancy/π-disjunctivity.
+    source: TheoryLib/PiQuantitativeBlockHitting/T211T211PowerBaseDiscrepancy.lean
+  - id: T212
+    title: Avoidance-dimension paper alignment
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T212AvoidanceDimensionAlignment.canonical_eq_intrinsic_away_endpoints
+      - Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_avoidance
+      - Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_admissible_prefix
+      - Theory.PiDigits.T212AvoidanceDimensionAlignment.BaseLayer.dimH_countable_prefix_union
+    file: TheoryLib/PiQuantitativeBlockHitting/T212T212AvoidanceDimensionAlignment.lean
+    statement: '∀w:CanonicalAvoids(w)∖E10=IntrinsicAvoids(w)∖E10; ∀ell>0,∀w:DecimalWord ell,∀ρ: dimH(IntrinsicAvoids(w))=ofReal(forbiddenEntropy(w)/log10)∧forbiddenEntropy(w)=log ρ⇒dimH(CanonicalAvoids(w))=ofReal(log ρ/log10); ∀w,P:w≠[]∧FullDimensionPrefixCopy(w,P)⇒dimH(CanonicalAvoids(w)∩PrefixCylinder(P))=dimH(CanonicalAvoids(w)); ∀A:ℕ→Set ℝ each a base-b prefix section, dimH(⋃ₙA n)=⨆ₙdimH(A n).'
+    does_not_show: Not-proved:IFS/Perron-input/full-dimensional-prefix-copy/π-avoidance.
+    source: TheoryLib/PiQuantitativeBlockHitting/T212T212AvoidanceDimensionAlignment.lean
+  - id: T213
+    title: Quantified Machin SOH classification
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T213MachinSOHClassification.sohAt_implies_bracketCylinder
+      - Theory.PiDigits.T213MachinSOHClassification.interior_bracket_implies_eventual_sohAt
+      - Theory.PiDigits.T213MachinSOHClassification.soh37_iff_mc0
+      - Theory.PiDigits.T213MachinSOHClassification.soh37_iff_mc0_machin
+      - Theory.PiDigits.T213MachinSOHClassification.soh37_iff_piCW0
+    file: TheoryLib/PiQuantitativeBlockHitting/T213T213MachinSOHClassification.lean
+    statement: '∀k,m,n:0<D m∧R m n/D m=frac(10ⁿ·L m)∧Δ m/D m=U m−L m∧SOHAt k m n⇒∃z:ℤ,z/10ⁿ≤L m∧U m<z/10ⁿ+1/10^(n+k); and ∀L,U,D,R,Δ with DataCorrect: MC0(L,U)⇒SOH37(D,R,Δ), with SOH37(D,R,Δ)↔MC0(L,U) whenever ∀m:L m<U m, hence ∀D,R,Δ with MachinDataCorrect: SOH37(D,R,Δ)↔MC0(machinL,machinU)↔PiCW0.'
+    does_not_show: Not-proved:integer-data-correctness/SOH37/CW0-for-π.
+    source: TheoryLib/PiQuantitativeBlockHitting/T213T213MachinSOHClassification.lean
+  - id: T214
+    title: Exact five-adic denominator law
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.valuation_lower_bound
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.maximal_five_power_indices
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.surviving_residue_nonzero
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.machinLower_padicVal
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.denominator_five_adic
+      - Theory.PiDigits.T214MachinFiveAdicDenominator.denominator_five_adic_discharged
+    file: TheoryLib/PiQuantitativeBlockHitting/T214T214MachinFiveAdicDenominator.lean
+    statement: 'With e=Nat.log 5 (4m+3), ∀m,∀d∈[1,4m+3] odd: −e≤padicValRat 5 (oddMachinTerm d); the odd d in that range with padicValNat 5 d=e lie in {5^e,3·5^e}; 5∤fiveMinimumLayerNumerator e; ∀m:padicValRat 5 (huttonLowerRat m)=−e; and hence unconditionally ∀m:padicValNat 5 (huttonLowerRat m).den=e.'
+    does_not_show: Not-proved:decimal-digit-consequence/CW0/π-normality.
+    source: TheoryLib/PiQuantitativeBlockHitting/T214T214MachinFiveAdicDenominator.lean
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -952,5 +1001,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 3459
+  index_estimated_tokens: 3737
   generated_by: workflows/verification/build_knowledge.py

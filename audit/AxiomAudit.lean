@@ -300,6 +300,10 @@ import TheoryLib.PiQuantitativeBlockHitting.T202T202RamanujanTwoAdicRamp
 import TheoryLib.PiQuantitativeBlockHitting.T203T203RamanujanCarryFailure
 import TheoryLib.PiQuantitativeBlockHitting.T204T204ConstantRunBound
 import TheoryLib.PiQuantitativeBlockHitting.T206T206EndpointBridge
+import TheoryLib.PiQuantitativeBlockHitting.T211T211PowerBaseDiscrepancy
+import TheoryLib.PiQuantitativeBlockHitting.T212T212AvoidanceDimensionAlignment
+import TheoryLib.PiQuantitativeBlockHitting.T213T213MachinSOHClassification
+import TheoryLib.PiQuantitativeBlockHitting.T214T214MachinFiveAdicDenominator
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -3811,6 +3815,97 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T206EndpointBridge.KWordReal_diff_CWord_subset_E10
 #print axioms
   Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10
+
+-- Power-base disjunctivity and star discrepancy.  `power_to_coarse_disc` is
+-- unconditional; `disjunctive_power_iff` keeps the T205 power-equivalence
+-- input as an explicit hypothesis, which no promoted PI theorem discharges.
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.empiricalCDF_nonneg
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.empiricalCDF_le_one
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.mem_starDisc_set_bounds
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.starDisc_le_one
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.starDisc_nonneg
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.power_to_coarse_disc
+#print axioms
+  Theory.PiDigits.T211PowerBaseDiscrepancy.disjunctive_power_iff
+
+-- Paper alignment for avoidance dimension.  The endpoint identification is
+-- unconditional through T206; the dimension transfers keep their companion
+-- IFS/Perron and full-dimensional-copy inputs as explicit hypotheses.
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.canonical_eq_intrinsic_away_endpoints
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.radixEndpoints_countable
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_radixEndpoints
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_canonical_eq_intrinsic
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_avoidance
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.dimH_admissible_prefix
+#print axioms
+  Theory.PiDigits.T212AvoidanceDimensionAlignment.BaseLayer.dimH_countable_prefix_union
+
+-- Quantified Machin SOH classification.  Hypothesis-form declarations keep
+-- the integer data-correctness contracts; `soh37_iff_mc0_machin` and
+-- `soh37_iff_piCW0` discharge bracket positivity through `machin_interior`.
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.one_div_pow_ten_anti
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.exists_one_div_pow_ten_lt
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.exists_late_ell
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.cylinder_to_sohAt
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.mc0_to_soh37
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.sohAt_to_cylinder
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.sohAt_implies_bracketCylinder
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.interior_bracket_implies_eventual_sohAt
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.soh37_iff_mc0
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.machin_interior
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.machinMC0_iff_piCW0_local
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.soh37_iff_mc0_machin
+#print axioms
+  Theory.PiDigits.T213MachinSOHClassification.soh37_iff_piCW0
+
+-- Exact five-adic denominator law for the Hutton lower approximant.
+-- `denominator_five_adic` keeps the valuation input as an explicit
+-- hypothesis; `denominator_five_adic_discharged` closes it with
+-- `machinLower_padicVal`.
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.five_not_dvd_pairNumerator
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.five_not_dvd_pairDenominator
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.oddMachinTerm_padicVal
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.valuation_lower_bound
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.maximal_five_power_indices
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.surviving_residue_nonzero
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.log_five_window
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.machinLower_padicVal
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.denominator_five_adic
+#print axioms
+  Theory.PiDigits.T214MachinFiveAdicDenominator.denominator_five_adic_discharged
 
 -- Center-dependent signed Jackson defect before taking a modulus.  The pi premise remains open.
 #print axioms Theory.PiDigits.DirectionalJacksonFrontier.sum_aggregatedCoefficient_mul_ne_zero
