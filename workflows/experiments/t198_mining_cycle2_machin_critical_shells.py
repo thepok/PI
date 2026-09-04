@@ -32,6 +32,10 @@ EXPECTED_DIGITS = 1_048_596
 # 1,048,596 digits are byte-identical to the verified 1,048,596-digit file.
 KNOWN_DIGIT_FILES = {
     "pi_digits_1048596.txt": (EXPECTED_SHA256, EXPECTED_DIGITS),
+    "pi_digits_120000000.txt": (
+        "f4ab163bc7562217a3f32bc48a2d88ff958bae1c4c986a3d6eedc73a2d1d45cf",
+        120_000_000,
+    ),
     "pi_digits_24000000.txt": (
         "7f97a5a03dc2745cae1c1b3f9c889ee4bc068fdbb93e28baa82512e93b528482",
         24_000_000,

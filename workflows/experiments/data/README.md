@@ -33,3 +33,10 @@
   script checks it by file name).
 - Not tracked because it exceeds the repository's 20 MB blob rule; the output
   `t198_mining_cycle2_machin_critical_shells.24000000.out.md` is tracked.
+
+## `pi_digits_120000000.txt` (not tracked; regenerate)
+
+- 120,000,000 digits after the point, generated 2026-09-04 with `mpmath` (`mp.dps = 120000050`,
+  `nstr(mp.pi, 120000040)`, 181 s); prefix byte-identical to the 24,000,000-digit file.
+- SHA-256: `f4ab163bc7562217a3f32bc48a2d88ff958bae1c4c986a3d6eedc73a2d1d45cf`.
+- Output tracked: `t198_mining_cycle2_machin_critical_shells.120000000.out.md` (shell e = 11).
