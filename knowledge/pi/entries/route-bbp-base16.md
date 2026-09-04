@@ -5,6 +5,7 @@ dies_at: Missing:canonical-carry-digit-control.
 separator: none recorded
 strongest_retained:
   - T200
+  - T201
   - P5
 reopening_condition: Needs:moving-modulus-shrinking-target-theorem.
 source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary

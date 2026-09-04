@@ -599,6 +599,25 @@ results:
     statement: Finite-prefix-and-Liouville-continuations-defeat-the-tested-T189-fresh-block-bound.
     does_not_show: Not-proved:anything-about-π/V1.
     source: knowledge/pi/results/negative/20260827-xi3-all-three-fixed-point-separator.md#what-this-rules-out
+  - id: T201
+    title: Corrected Bailey-Crandall circle shadow
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T201BaileyCrandallShadow.tendsto_circleDist_bc_hex_zero
+      - Theory.PiDigits.T201BaileyCrandallShadow.circleDenseLate_bc_iff_hex
+    file: TheoryLib/PiQuantitativeBlockHitting/T201T201BaileyCrandallShadow.lean
+    statement: dist(bcOrbit(n),hexPiOrbit(n))≤τ(n+1)→0; late circle density of bcOrbit↔late circle density of hexPiOrbit.
+    does_not_show: Not-proved:either-density/base-16-disjunctivity.
+    source: knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules
+  - id: T203
+    title: Ramanujan positive-tail carry-criterion failure
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T203RamanujanCarryFailure.cleared_positive_tail_not_small
+    file: TheoryLib/PiQuantitativeBlockHitting/T203T203RamanujanCarryFailure.lean
+    statement: N≥10∧M>0∧(∀n≤N:M·u_n∈ℤ)⇒1<M·Σ_(j≥0)u_(N+1+j).
+    does_not_show: Not-proved:other-cancellation/P3/CW0.
+    source: knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -715,6 +734,7 @@ closed_routes:
     separator: none recorded
     strongest_retained:
       - T200
+      - T201
       - P5
     reopening_condition: Needs:moving-modulus-shrinking-target-theorem.
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
@@ -824,6 +844,7 @@ closed_routes:
     separator: none recorded
     strongest_retained:
       - T202
+      - T203
       - P3
     reopening_condition: Needs:divisible-block-positive-tail-series.
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
@@ -915,5 +936,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 3296
+  index_estimated_tokens: 3375
   generated_by: workflows/verification/build_knowledge.py

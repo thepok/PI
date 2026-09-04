@@ -5,6 +5,7 @@ dies_at: Missing:Λ<256-bound/positive-tail.
 separator: none recorded
 strongest_retained:
   - T202
+  - T203
   - P3
 reopening_condition: Needs:divisible-block-positive-tail-series.
 source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary

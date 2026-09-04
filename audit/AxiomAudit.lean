@@ -295,7 +295,9 @@ import TheoryLib.PiQuantitativeBlockHitting.T194T194CentralPiReturnSeed
 import TheoryLib.PiQuantitativeBlockHitting.T198T198MachinBracketPack
 import TheoryLib.PiQuantitativeBlockHitting.T199T199BBPShadowPack
 import TheoryLib.PiQuantitativeBlockHitting.T200T200BaileyCrandallCoboundary
+import TheoryLib.PiQuantitativeBlockHitting.T201T201BaileyCrandallShadow
 import TheoryLib.PiQuantitativeBlockHitting.T202T202RamanujanTwoAdicRamp
+import TheoryLib.PiQuantitativeBlockHitting.T203T203RamanujanCarryFailure
 import TheoryLib.PiQuantitativeBlockHitting.T204T204ConstantRunBound
 import TheoryLib.PiQuantitativeBlockHitting.T206T206EndpointBridge
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
@@ -3667,6 +3669,30 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms
   Theory.PiDigits.T200BaileyCrandallCoboundary.Y_add_tau_eq_pow_mul_pi
 
+-- Exact corrected Bailey--Crandall real/fractional recurrences, circle
+-- conjugacy, endpoint-safe shadow, and late-density equivalence. These
+-- statements prove neither density nor base-16 digit occurrence.
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.Y_succ
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.corrected_circle_identity
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.HypothesisForms.y_succ
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.HypothesisForms.circleDist_bcOrbit_hexPiOrbit_le
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.HypothesisForms.tendsto_circleDist_bc_hex_zero
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.HypothesisForms.circleDenseLate_bc_iff_hex
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.y_succ
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.circleDist_bcOrbit_hexPiOrbit_le
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.tendsto_circleDist_bc_hex_zero
+#print axioms
+  Theory.PiDigits.T201BaileyCrandallShadow.circleDenseLate_bc_iff_hex
+
 -- Exact Document B Ramanujan central-binomial/cube two-adic valuations and
 -- denominator-exponent ramp. These remain representation-level facts.
 #print axioms
@@ -3689,6 +3715,60 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T202RamanujanDyadicRamp.HypothesisForms.lambda_prefix_ramp
 #print axioms
   Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp
+
+-- Exact direct Ramanujan-series size, positivity, summability, prefix
+-- divisibility, and positive-tail obstruction. The hypothesis-form
+-- declarations preserve the independently gate-checked task contracts.
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.sum_range_choose_aux
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.pow_four_le_card_mul_centralBinom
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.ramanujanTerm_nonneg
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.centralCube_le
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.centralCube_real_le
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.linear_le
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.term_nonneg
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.term_le_major
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.half_sum_eq
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.half_le
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.summable_half
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.summable_major
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.summable_ramanujanTerm
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.digitSum_le
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.three_digitSum_le'
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.lambda_add_three
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.lambda_add_split
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.lin_le_pow_of_ge
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.lin_le_pow
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.HypothesisForms.cleared_first_omitted_gt_one
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.cleared_first_omitted_gt_one
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.dvd_of_mul_odd
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.prefix_integral_implies_dyadic_divisibility
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.HypothesisForms.cleared_positive_tail_not_small
+#print axioms
+  Theory.PiDigits.T203RamanujanCarryFailure.cleared_positive_tail_not_small
 
 -- Exact Document B irrationality-exponent bridge and nine-run bound. The
 -- zero-run mirror remains open, so both downstream consumers retain their

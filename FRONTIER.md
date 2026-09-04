@@ -1,7 +1,7 @@
 # π decimal disjunctivity frontier
 
 Target status (V1): `conjecture`
-Last audited: 2026-09-03 UTC
+Last audited: 2026-09-04 UTC
 
 ## Target and ladder
 
@@ -76,6 +76,8 @@ For `x_n={10^n*pi}`, the constant-word benchmarks are `proof sketch`, directly f
 | T202 | `Theory.PiDigits.T202RamanujanDyadicRamp.lambda_prefix_ramp` | Not-proved:positive-tail/target. |
 | T204 | `Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost`<br>`Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded` | Not-proved:zero-run-bound/run-existence. |
 | T206 | `Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10` | Not-proved:occurrence/density/prefix-analogue. |
+| T201 | `Theory.PiDigits.T201BaileyCrandallShadow.tendsto_circleDist_bc_hex_zero`<br>`Theory.PiDigits.T201BaileyCrandallShadow.circleDenseLate_bc_iff_hex` | Not-proved:either-density/base-16-disjunctivity. |
+| T203 | `Theory.PiDigits.T203RamanujanCarryFailure.cleared_positive_tail_not_small` | Not-proved:other-cancellation/P3/CW0. |
 
 ## [Open problems](knowledge/pi/workstreams/OPEN_PROBLEMS.md)
 
