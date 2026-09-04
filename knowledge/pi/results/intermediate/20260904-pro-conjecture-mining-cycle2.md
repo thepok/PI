@@ -1,7 +1,7 @@
 # Machin critical-shell conjectures from mining cycle 2
 
 Status: `experiment` (reconnaissance on 1,048,596 digits, script `workflows/experiments/t198_mining_cycle2_machin_critical_shells.py`), statements are `conjecture`.
-Date: 2026-09-04. Produced by a ChatGPT Pro mining run against PI `ca85d26`; not independently reproduced yet (rerun queued with a 4.7-million-digit file for the complete shell e = 9).
+Date: 2026-09-04. Produced by a ChatGPT Pro mining run against PI `ca85d26`; Independently reproduced 2026-09-04 on the 1,048,596-digit file (all shell rows identical) and extended to the complete shell e = 9 on `data/pi_digits_4700000.txt` (`t198_mining_cycle2_machin_critical_shells.4700000.out.md`): shell 9 expected 1.800445 per side, observed 2 (zero side) and 6 (nine side); both laws survive; first incomplete shell is now e = 10 (needs ~24 M digits).
 
 # Track B conjecture-mining cycle 2: Machin critical shells
 

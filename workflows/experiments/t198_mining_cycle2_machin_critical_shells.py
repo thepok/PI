@@ -27,6 +27,16 @@ from typing import Iterable
 
 EXPECTED_SHA256 = "77eeccb0067283e14c460b33dc230de54ef15c2e825fc2a35c984fb6984bf684"
 EXPECTED_DIGITS = 1_048_596
+# Known tracked digit files: name -> (sha256, digit count). The 4,700,000-digit
+# file was generated with mpmath (Chudnovsky) on 2026-09-04; its first
+# 1,048,596 digits are byte-identical to the verified 1,048,596-digit file.
+KNOWN_DIGIT_FILES = {
+    "pi_digits_1048596.txt": (EXPECTED_SHA256, EXPECTED_DIGITS),
+    "pi_digits_4700000.txt": (
+        "0a14c71c5e0f093b25707c907bf416edc553153ff7c57c89bff31513889c0a93",
+        4_700_000,
+    ),
+}
 SAFETY_DIGITS = 18
 NUMERIC_PAD = 5.0e-10
 
@@ -142,14 +152,15 @@ def machin_scale(e: int, m: int) -> tuple[int, int, int, float, float]:
 def load_digits(path: Path) -> str:
     raw = path.read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
-    if digest != EXPECTED_SHA256:
-        raise ValueError(f"unexpected digit-file SHA-256: {digest}")
-    if raw.count(b"\n") != 1 or not raw.endswith(b"\n"):
-        raise ValueError("digit input must be one newline-terminated line")
-    line = raw[:-1]
-    if len(line) != EXPECTED_DIGITS or not line.isdigit():
-        raise ValueError(f"expected exactly {EXPECTED_DIGITS:,} decimal digits")
-    return line.decode("ascii")
+    expected_sha, expected_digits = KNOWN_DIGIT_FILES.get(
+        path.name, (EXPECTED_SHA256, EXPECTED_DIGITS)
+    )
+    if digest != expected_sha:
+        raise ValueError(f"unexpected SHA-256 for {path}: {digest}")
+    line = raw.decode("ascii").strip()
+    if len(line) != expected_digits or not line.isdigit():
+        raise ValueError(f"expected exactly {expected_digits:,} decimal digits")
+    return line
 
 
 def classify_tail(digits: str, start: int, k: int, c: float) -> tuple[str, str, str]:
