@@ -618,6 +618,22 @@ results:
     statement: N≥10∧M>0∧(∀n≤N:M·u_n∈ℤ)⇒1<M·Σ_(j≥0)u_(N+1+j).
     does_not_show: Not-proved:other-cancellation/P3/CW0.
     source: knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules
+  - id: M5CS0
+    title: Machin five-adic critical-shell zero law
+    label: conjecture
+    lean: []
+    file: knowledge/pi/results/intermediate/20260904-pro-conjecture-mining-cycle2.md
+    statement: ∀e≥4,∃m:5^e≤4m+3<5^(e+1)∧10^n W_m<{10^n π}<10^(−k_e)−10^n W_m,n=⌊log_10(1/W_m)⌋−k_e−1.
+    does_not_show: Not-proved:CW0;survival-on-5-complete-shells-only,onset-mined.
+    source: knowledge/pi/results/intermediate/20260904-pro-conjecture-mining-cycle2.md#3-conjecture-m5cs0-machin-five-adic-critical-shell-zero-law
+  - id: M5CS9
+    title: Machin five-adic critical-shell nine law
+    label: conjecture
+    lean: []
+    file: knowledge/pi/results/intermediate/20260904-pro-conjecture-mining-cycle2.md
+    statement: ∀e≥4,∃m∈S_e with the mirrored nine-cylinder inequality and the same width margins (exact statement in the source).
+    does_not_show: Not-proved:CW9;survival-on-5-complete-shells-only,onset-mined.
+    source: knowledge/pi/results/intermediate/20260904-pro-conjecture-mining-cycle2.md#4-conjecture-m5cs9-machin-five-adic-critical-shell-nine-law
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -936,5 +952,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 3375
+  index_estimated_tokens: 3459
   generated_by: workflows/verification/build_knowledge.py
