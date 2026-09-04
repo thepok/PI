@@ -299,7 +299,12 @@ import TheoryLib.PiQuantitativeBlockHitting.T201T201BaileyCrandallShadow
 import TheoryLib.PiQuantitativeBlockHitting.T202T202RamanujanTwoAdicRamp
 import TheoryLib.PiQuantitativeBlockHitting.T203T203RamanujanCarryFailure
 import TheoryLib.PiQuantitativeBlockHitting.T204T204ConstantRunBound
+import TheoryLib.PiQuantitativeBlockHitting.T205T205PowerBaseDisjunctivity
 import TheoryLib.PiQuantitativeBlockHitting.T206T206EndpointBridge
+import TheoryLib.PiQuantitativeBlockHitting.T207T207EndpointRecurrence
+import TheoryLib.PiQuantitativeBlockHitting.T208T208GenericEndpointRecurrence
+import TheoryLib.PiQuantitativeBlockHitting.T209T209EndpointCylinderBridge
+import TheoryLib.PiQuantitativeBlockHitting.T210T210WordHierarchy
 import TheoryLib.PiQuantitativeBlockHitting.T211T211PowerBaseDiscrepancy
 import TheoryLib.PiQuantitativeBlockHitting.T212T212AvoidanceDimensionAlignment
 import TheoryLib.PiQuantitativeBlockHitting.T213T213MachinSOHClassification
@@ -3815,6 +3820,120 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T206EndpointBridge.KWordReal_diff_CWord_subset_E10
 #print axioms
   Theory.PiDigits.T206EndpointBridge.CWord_symmDiff_KWordReal_subset_E10
+
+-- Power-base disjunctivity and the P5 dictionary.  The digit bounds and the
+-- exact grouping identity are unconditional; tasks 03--06 keep their exact
+-- prerequisite contracts as explicit hypotheses, and every one of those is
+-- discharged below by a sibling or by promoted T201.
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.baseDigit_bounds
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.telescope_aux
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.baseDigit_power_group
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.digitDisjunctive_power_iff
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.digitDisjunctive_sixteen_iff_two
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.HexLayer.P5_iff_digitDisjunctive_sixteen
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.P5_iff_digitDisjunctive_two
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.digitDisjunctive_power_iff_discharged
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.digitDisjunctive_sixteen_iff_two_discharged
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.P5_iff_digitDisjunctive_sixteen_discharged
+#print axioms
+  Theory.PiDigits.T205PowerBaseDisjunctivity.P5_iff_digitDisjunctive_two_discharged
+
+-- Decimal zero/nine cylinders, endpoint recurrence, and the P3 offset bridge.
+-- The two cylinder identities and the one-based offset bridge are
+-- unconditional; tasks 03--05 keep their exact prerequisite contracts as
+-- explicit hypotheses, all discharged below by their siblings.
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.piOrbit_ne_invPow
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.zeroBlock_iff_piOrbit_lt
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.nine_prefix_lower
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.nineBlock_iff_piOrbit_ge
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.exists_invPow_lt
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiCW0_iff_recurrent_at_zero
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiCW9_iff_recurrent_at_one
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiEND_iff_endpoint_recurrence
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiP3OneBased_iff_PiCW0
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiCW0_iff_recurrent_at_zero_discharged
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiCW9_iff_recurrent_at_one_discharged
+#print axioms
+  Theory.PiDigits.T207EndpointRecurrence.PiEND_iff_endpoint_recurrence_discharged
+
+-- Generic base-`b` endpoint recurrence.  The two run/cylinder identities are
+-- unconditional; tasks 03--05 keep their exact prerequisite contracts as
+-- explicit hypotheses, all discharged below by their siblings.
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.digit_eq_zero_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.zeroRun_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.digit_eq_max_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.maxRun_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.arbitrarily_long_zero_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.arbitrarily_long_max_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.endpoint_recurrence_iff
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.arbitrarily_long_zero_iff_discharged
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.arbitrarily_long_max_iff_discharged
+#print axioms
+  Theory.PiDigits.T208GenericEndpointRecurrence.endpoint_recurrence_iff_discharged
+
+-- Canonical cylinders, endpoint deletion, and finite-prefix invariance.  Every
+-- T209 statement is unconditional.
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.cylinder_subset_closed
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.closed_diff_cylinder_subset
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.radixEndpoints_countable
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.wordValue_lt
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.occurrence_aux
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.occurrence_iff_orbit_mem
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.occurrence_transfer
+#print axioms
+  Theory.PiDigits.T209EndpointCylinderBridge.finite_prefix_preserves_infinite_occurrence
+
+-- Word hierarchy and separator witnesses.  `normal_implies_disjunctive` keeps
+-- the displayed limiting-frequency premise as an explicit hypothesis, which no
+-- promoted PI theorem discharges for π; the remaining statements, including
+-- both separators, are unconditional.
+#print axioms
+  Theory.PiDigits.T210WordHierarchy.normal_implies_disjunctive
+#print axioms
+  Theory.PiDigits.T210WordHierarchy.disjunctive_implies_everyDigitOccurs
+#print axioms
+  Theory.PiDigits.T210WordHierarchy.exists_everyDigitOccurs_not_disjunctive
+#print axioms
+  Theory.PiDigits.T210WordHierarchy.digit_ten_zero
+#print axioms
+  Theory.PiDigits.T210WordHierarchy.exists_endpoint_recurrent_not_disjunctive
 
 -- Power-base disjunctivity and star discrepancy.  `power_to_coarse_disc` is
 -- unconditional; `disjunctive_power_iff` keeps the T205 power-equivalence

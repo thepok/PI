@@ -7,6 +7,8 @@ import TheoryLib.PiPositiveLowerBlockDensity.T16T16MatrixPowerEntropy
 import TheoryLib.PiPositiveLowerBlockDensity.T21T21FinitePrefixFrostman
 import TheoryLib.PiPositiveLowerBlockDensity.T22T22DecimalBoundaryAmbiguity
 import TheoryLib.PiQuantitativeBlockHitting.T206T206EndpointBridge
+import TheoryLib.PiQuantitativeBlockHitting.T208T208GenericEndpointRecurrence
+import TheoryLib.PiQuantitativeBlockHitting.T209T209EndpointCylinderBridge
 import Mathlib.Topology.MetricSpace.HausdorffDimension
 
 /-!
@@ -15,42 +17,12 @@ import Mathlib.Topology.MetricSpace.HausdorffDimension
 produced by Claude Opus 5 as a Pi Lab subagent on 2026-09-04 against the
 contracted signatures of AllMath task pack t212; each task compiled and
 axiom-checked; assembled by Claude Opus 5
+
+The task artifacts embedded T208's and T209's starter definitions verbatim
+because neither pack was promoted at the time.  Those embedded copies are
+byte-identical to the now-promoted T208 and T209 modules, so they are dropped
+here in favour of the imports.
 -/
-
-namespace Theory.PiDigits.T208GenericEndpointRecurrence
-
-noncomputable section
-def frac (x : ℝ) : ℝ := x - ⌊x⌋
-def digit (b n : ℕ) (x : ℝ) : ℕ :=
-  ⌊(b : ℝ) * frac ((b : ℝ) ^ n * x)⌋₊
-def ZeroRun (b n ℓ : ℕ) (x : ℝ) : Prop :=
-  ∀ i < ℓ, digit b (n + i) x = 0
-def MaxRun (b n ℓ : ℕ) (x : ℝ) : Prop :=
-  ∀ i < ℓ, digit b (n + i) x = b - 1
-def ApproachesZero (b : ℕ) (x : ℝ) : Prop :=
-  ∀ ε > 0, ∀ N, ∃ n ≥ N, frac ((b : ℝ) ^ n * x) < ε
-def ApproachesOne (b : ℕ) (x : ℝ) : Prop :=
-  ∀ ε > 0, ∀ N, ∃ n ≥ N, 1 - ε < frac ((b : ℝ) ^ n * x)
-
-end
-end Theory.PiDigits.T208GenericEndpointRecurrence
-
-namespace Theory.PiDigits.T209EndpointCylinderBridge
-
-noncomputable section
-def wordValue (b : ℕ) (w : List ℕ) : ℕ :=
-  w.foldl (fun z d => b * z + d) 0
-def cylinder (b : ℕ) (w : List ℕ) : Set ℝ :=
-  Set.Ico ((wordValue b w : ℝ) / b ^ w.length)
-    (((wordValue b w : ℝ) + 1) / b ^ w.length)
-def closedCylinder (b : ℕ) (w : List ℕ) : Set ℝ :=
-  Set.Icc ((wordValue b w : ℝ) / b ^ w.length)
-    (((wordValue b w : ℝ) + 1) / b ^ w.length)
-def radixEndpoints (b : ℕ) : Set ℝ :=
-  {x | ∃ k : ℤ, ∃ n : ℕ, x = (k : ℝ) / b ^ n}
-
-end
-end Theory.PiDigits.T209EndpointCylinderBridge
 
 noncomputable section
 
