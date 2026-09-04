@@ -309,6 +309,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T211T211PowerBaseDiscrepancy
 import TheoryLib.PiQuantitativeBlockHitting.T212T212AvoidanceDimensionAlignment
 import TheoryLib.PiQuantitativeBlockHitting.T213T213MachinSOHClassification
 import TheoryLib.PiQuantitativeBlockHitting.T214T214MachinFiveAdicDenominator
+import TheoryLib.PiQuantitativeBlockHitting.T223T223T189SectorResidueApplication
+import TheoryLib.PiQuantitativeBlockHitting.T224T224AdmissionTableSeparators
+import TheoryLib.PiQuantitativeBlockHitting.T225T225ClosenessSquareRoot
+import TheoryLib.PiQuantitativeBlockHitting.T226T226ContinuedFractionCylinderDistance
+import TheoryLib.PiQuantitativeBlockHitting.T227T227FiniteStageCompatibility
+import TheoryLib.PiQuantitativeBlockHitting.T228T228CentralReturnAppendix
+import TheoryLib.PiQuantitativeBlockHitting.T229T229PredecessorAppendix
 import TheoryLib.PiQuantitativeBlockHitting.T142T142BoundaryCoefficientAbel
 import TheoryLib.PiQuantitativeBlockHitting.T143T143BoundaryEndpointLayers
 import TheoryLib.PiQuantitativeBlockHitting.T144T144BoundaryLayerMass
@@ -4049,3 +4056,157 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
 #print axioms Theory.PiDigits.BoundaryRobustFejerDichotomy.not_C1_implies_unbounded_explicit_boundary_or_aggregated_resonance
 #print axioms Theory.PiDigits.DecimalBoundaryWordObstruction.not_C1_implies_unbounded_adjacent_word_or_aggregated_resonance
 #print axioms Theory.PiDigits.PowerTenDiophantineReduction.not_C1_implies_unbounded_aggregated_resonance_of_powerTenDiophantine
+
+-- T223: T189 sector-residue application (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.sector_coeff_supported
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.sector_mean_zero
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.sector_eq_trigPolynomial
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.sector_has_nonzero_primitive_residue
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.no_scalar_L1_coboundary_of_sectorResidue
+#print axioms
+  Theory.PiDigits.T223T189SectorResidueApplication.child_surplus_of_signed_horizon_sector
+
+-- T224: Admission-table separators (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.deletedDigitSet_subset_CWord
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.transcendental_is_irrational
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.exactExponentTwo_finite
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.irrational_separator_exists
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.transcendental_separator_exists
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.finiteExponent_separator_exists
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.badlyApproximable_separator_exists
+#print axioms
+  Theory.PiDigits.T224AdmissionTableSeparators.exactExponentTwo_separator_exists
+
+-- T225: Closeness square-root perturbation (Proposition 7.5(1)) (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T225ClosenessSquareRoot.perturbation_lower_bound
+#print axioms
+  Theory.PiDigits.T225ClosenessSquareRoot.squareRoot_cutoff_implies_half_error
+#print axioms
+  Theory.PiDigits.T225ClosenessSquareRoot.closeness_squareRoot_guarantee
+#print axioms
+  Theory.PiDigits.T225ClosenessSquareRoot.sameDecimalCylinder_distance
+#print axioms
+  Theory.PiDigits.T225ClosenessSquareRoot.decimalPrefix_squareRoot_guarantee
+
+-- T226: Continued-fraction cylinder distance (Proposition 7.5(2)) (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.secondary_denominator_le_two_mul
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.primary_endpoint_distance
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.secondary_endpoint_distance
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.cfCylinderMargin_lower
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.perturbation_preserves_cfCylinder
+#print axioms
+  Theory.PiDigits.T226ContinuedFractionCylinderDistance.perturbation_preserves_cfPrefix
+
+-- T227: Finite-stage compatibility (Theorem 7.6, conditional) (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.extends_refl
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.extends_trans
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.admissibleExtension_is_admissible
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.docA_edgeParry_dimension
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.finite_packet_exists
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.finite_stage_compatibility
+#print axioms
+  Theory.PiDigits.T227FiniteStageCompatibility.future_finite_coordinate_compatibility
+
+-- T228: Central-return appendix statements (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_nonneg
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_lt_one
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_add
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_succ
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.centralOffset_eq_shiftedOrbit
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.abs_centralOffset_le_iff
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.nextDecimalDigit_interior_gives_central
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.orbit_low_step
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.orbit_high_step
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.orbit_low_iterate
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.orbit_high_iterate
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.self_le_pow_ten
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.irrational_arbitrarily_late_central_returns
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.measureBelow_eight_timed_central_returns
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_implies_measureBelow_eight
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.self_le_pow_ten_pred
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.eight_add_seven_mul_lt_two_mul_pow_ten
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.measureBelow_eight_eventually_centralWitness
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_timed_central_returns
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_eventually_centralWitness
+#print axioms
+  Theory.PiDigits.T228CentralReturnAppendix.centralWitness_boundaryFloor
+
+-- T229: Predecessor appendix statements (Opus wave E6, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.decimalOrbit_step_digit
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.centralWitness_predecessor_lift
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.measureBelow_eight_implies_predecessorPredicate
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.badlyApproximable_implies_predecessorPredicate
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.decimalCylinderCenter_eq
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.parent_zeroShell_lower
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.parent_atom_lower
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.parent_unitBlock_surplus
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.predecessor_atom_lower
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.predecessor_unitBlock_surplus
+#print axioms
+  Theory.PiDigits.T229PredecessorAppendix.predecessor_child_surplus_of_horizon_sector
+
+-- T204 zero-run split (repaired contract: hypothesis 0 ≤ x), Opus 2026-09-04.
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.zeroRun_fract_lt_of_nonneg
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.zeroRun_truncation_approx_lt
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.floor_approx_lower_eventually
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.powTen_bounds_force_length_lt
+#print axioms
+  Theory.PiDigits.T204ConstantRunBound.zeroRun_eventually_bounded_of_nonneg

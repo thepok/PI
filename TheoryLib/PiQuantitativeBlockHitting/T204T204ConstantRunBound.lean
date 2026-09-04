@@ -8,10 +8,19 @@ produced by the free model Muse Spark 1.3 through the modelbench pipeline on
 2026-09-03 (wave E2, one task per lemma), against the contracted signatures of
 AllMath task pack t204; gate-checked per task; assembled by Codex
 
-Four of the five tasks passed. The zero-run eventual bound is still open in
-Lean; its nine-run mirror, lemma 03, is proved. Consumers of the missing
-zero-run contract remain in their explicit hypothesis form and are not
-discharged.
+The five repaired zero-run lemmas were produced by Claude Opus 5 as a Pi Lab
+subagent on 2026-09-04 against the contracted signatures of AllMath task pack
+t204b; each task compiled and axiom-checked; assembled by Claude Opus 5.
+
+The original t204 zero-run contract is false as stated: the floor-based digit
+stream of a negative real is identically zero (`neg_digits_zero`), so no
+eventual bound on zero-run lengths can hold for arbitrary irrational `x`.  The
+t204b split repairs it by adding the premise `0 <= x`, giving
+`zeroRun_eventually_bounded_of_nonneg`; `Real.pi` satisfies that premise by
+`Real.pi_pos.le`.  The `HypothesisForms` consumers below still quantify over
+all irrational `x` and therefore remain in their explicit hypothesis form: the
+repaired zero-run theorem does not have the shape they demand and does not
+discharge them.
 -/
 
 namespace Theory.PiDigits.T204ConstantRunBound
@@ -240,6 +249,175 @@ theorem nineRun_eventually_bounded
         apply mul_le_mul_of_nonneg_right _ hnR_nonneg
         linarith
       exact le_trans hL_le hε2
+
+/-- Task `pi-t204b-zero-run-01-fract-lt-of-nonneg` — zero digits give the
+strict zero cylinder. -/
+theorem zeroRun_fract_lt_of_nonneg
+    {x : ℝ} (hx0 : 0 ≤ x) (n L : ℕ)
+    (h0 :
+      Theory.PiDigits.T204ConstantRunBound.ZeroRunAt x n L) :
+    Int.fract ((10 : ℝ) ^ n * x) < ((10 : ℝ) ^ L)⁻¹ := by
+  haveI : NeZero (10 : ℕ) := ⟨by norm_num⟩
+  let f : ℝ := Int.fract ((10 : ℝ) ^ n * x)
+  have hfmem : f ∈ Set.Ico (0 : ℝ) 1 :=
+    ⟨Int.fract_nonneg _, Int.fract_lt_one _⟩
+  have horb : Theory.PiDigits.T20.baseTenOrbit x n = f := rfl
+  have hdig : ∀ i : ℕ, i < L →
+      Real.digits f (10 : ℕ) i = (⟨0, by norm_num⟩ : Fin 10) := by
+    intro i hi
+    have hshift := Theory.PiDigits.T20.decimalDigit_baseTenOrbit x hx0 n i
+    have hdigit_eq : Theory.PiDigits.T20.decimalDigit f i
+        = Theory.PiDigits.T20.decimalDigit x (n + i) := by
+      rw [← horb]
+      exact hshift
+    have hval : (Theory.PiDigits.T20.decimalDigit x (n + i)).val = 0 := by
+      have htmp := h0 ⟨i, hi⟩
+      simpa using htmp
+    have hvalf : (Real.digits f (10 : ℕ) i).val = 0 := by
+      have htmp : (Theory.PiDigits.T20.decimalDigit f i).val = 0 := by
+        rw [hdigit_eq]
+        exact hval
+      simpa [Theory.PiDigits.T20.decimalDigit] using htmp
+    apply Fin.ext
+    simpa using hvalf
+  have hterm : ∀ i ∈ Finset.range L,
+      Real.ofDigitsTerm (Real.digits f (10 : ℕ)) i = 0 := by
+    intro i hi
+    have hiL : i < L := Finset.mem_range.mp hi
+    have hdi := hdig i hiL
+    simp only [Real.ofDigitsTerm, hdi]
+    simp
+  have hsum : ∑ i ∈ Finset.range L,
+      Real.ofDigitsTerm (Real.digits f (10 : ℕ)) i = 0 := by
+    rw [Finset.sum_congr rfl (fun i hi => hterm i hi)]
+    simp
+  have hfloor_eq := Real.ofDigits_digits_sum_eq (b := (10 : ℕ)) hfmem (n := L)
+  rw [hsum, mul_zero] at hfloor_eq
+  have hfloor_nat : ⌊((10 : ℕ) : ℝ) ^ L * f⌋₊ = 0 := by
+    exact_mod_cast hfloor_eq.symm
+  have hlt := Nat.lt_floor_add_one (((10 : ℕ) : ℝ) ^ L * f)
+  rw [hfloor_nat] at hlt
+  have hcast : ((10 : ℕ) : ℝ) = (10 : ℝ) := by norm_num
+  rw [hcast] at hlt
+  have hlt1 : (10 : ℝ) ^ L * f < 1 := by
+    simpa using hlt
+  have hpow_pos : (0 : ℝ) < (10 : ℝ) ^ L := by positivity
+  have hinv_pos : (0 : ℝ) < ((10 : ℝ) ^ L)⁻¹ := inv_pos.mpr hpow_pos
+  have hmul := mul_lt_mul_of_pos_left hlt1 hinv_pos
+  rw [← mul_assoc, inv_mul_cancel₀ (ne_of_gt hpow_pos), one_mul, mul_one] at hmul
+  exact hmul
+
+/-- Task `pi-t204b-zero-run-02-truncation-approx-lt` — explicit truncation
+approximant. -/
+theorem zeroRun_truncation_approx_lt
+    {x : ℝ} (hx0 : 0 ≤ x) (n L : ℕ)
+    (h0 :
+      Theory.PiDigits.T204ConstantRunBound.ZeroRunAt x n L) :
+    |x -
+        ((⌊(10 : ℝ) ^ n * x⌋ : ℤ) : ℝ) /
+          ((10 ^ n : ℕ) : ℝ)|
+      < ((10 : ℝ) ^ (n + L))⁻¹ := by
+  have hqR : ((10 ^ n : ℕ) : ℝ) = (10 : ℝ) ^ n := by push_cast; ring
+  have hpow_pos : (0 : ℝ) < (10 : ℝ) ^ n := by positivity
+  have hfr := zeroRun_fract_lt_of_nonneg hx0 n L h0
+  set y : ℝ := (10 : ℝ) ^ n * x with hy
+  have hfract_eq : Int.fract y = y - (⌊y⌋ : ℝ) := rfl
+  have hdiff : x - ((⌊y⌋ : ℤ) : ℝ) / ((10 ^ n : ℕ) : ℝ)
+      = Int.fract y / (10 : ℝ) ^ n := by
+    rw [hfract_eq, hqR, hy]
+    field_simp
+  have hnonneg : 0 ≤ x - ((⌊y⌋ : ℤ) : ℝ) / ((10 ^ n : ℕ) : ℝ) := by
+    rw [hdiff]
+    exact div_nonneg (Int.fract_nonneg _) (le_of_lt hpow_pos)
+  rw [abs_of_nonneg hnonneg, hdiff]
+  have hinv_pos : (0 : ℝ) < ((10 : ℝ) ^ n)⁻¹ := inv_pos.mpr hpow_pos
+  have hstep : Int.fract y * ((10 : ℝ) ^ n)⁻¹
+      < ((10 : ℝ) ^ L)⁻¹ * ((10 : ℝ) ^ n)⁻¹ :=
+    mul_lt_mul_of_pos_right hfr hinv_pos
+  have hL : Int.fract y / (10 : ℝ) ^ n
+      = Int.fract y * ((10 : ℝ) ^ n)⁻¹ := by
+    rw [div_eq_mul_inv]
+  have hR : ((10 : ℝ) ^ L)⁻¹ * ((10 : ℝ) ^ n)⁻¹
+      = ((10 : ℝ) ^ (n + L))⁻¹ := by
+    rw [pow_add, mul_inv]
+    ring
+  rw [hL, ← hR]
+  exact hstep
+
+/-- Task `pi-t204b-zero-run-03-floor-approx-lower-eventually` — apply the
+exponent hypothesis to the truncation numerator. -/
+theorem floor_approx_lower_eventually
+    {x M : ℝ}
+    (hmu :
+      Theory.PiDigits.T204ConstantRunBound.IrrationalityExponentAtMost x M)
+    {δ : ℝ} (hδ : 0 < δ) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      1 / (((10 ^ n : ℕ) : ℝ) ^ (M + δ)) ≤
+        |x -
+          ((⌊(10 : ℝ) ^ n * x⌋ : ℤ) : ℝ) /
+            ((10 ^ n : ℕ) : ℝ)| := by
+  obtain ⟨Q, hQ⟩ := hmu δ hδ
+  refine ⟨Q, fun n hn => ?_⟩
+  have hq_pos : 0 < 10 ^ n := Nat.pow_pos (by norm_num)
+  have hQq : Q ≤ 10 ^ n := le_trans hn (nat_le_pow10 n)
+  exact hQ (10 ^ n) hQq hq_pos ⌊(10 : ℝ) ^ n * x⌋
+
+/-- Task `pi-t204b-zero-run-04-powTen-bounds-force-length-lt` — isolate
+strictness and exponent direction. -/
+theorem powTen_bounds_force_length_lt
+    {M δ a : ℝ} {n L : ℕ}
+    (hlower :
+      1 / (((10 ^ n : ℕ) : ℝ) ^ (M + δ)) ≤ a)
+    (hupper :
+      a < ((10 : ℝ) ^ (n + L))⁻¹) :
+    (L : ℝ) < (M - 1 + δ) * n := by
+  have hcomb : 1 / (((10 ^ n : ℕ) : ℝ) ^ (M + δ))
+      < ((10 : ℝ) ^ (n + L))⁻¹ := lt_of_le_of_lt hlower hupper
+  have h10base : (1 : ℝ) < 10 := by norm_num
+  have hqR : ((10 ^ n : ℕ) : ℝ) = (10 : ℝ) ^ n := by push_cast; ring
+  have hqR_eq : ((10 ^ n : ℕ) : ℝ) = (10 : ℝ) ^ ((n : ℝ)) := by
+    rw [hqR, Real.rpow_natCast]
+  have hlow_rw : ((10 ^ n : ℕ) : ℝ) ^ (M + δ)
+      = (10 : ℝ) ^ ((n : ℝ) * (M + δ)) := by
+    rw [hqR_eq, ← Real.rpow_mul (by norm_num)]
+  have hlow_inv : (1 : ℝ) / ((10 ^ n : ℕ) : ℝ) ^ (M + δ)
+      = (10 : ℝ) ^ (-((n : ℝ) * (M + δ))) := by
+    rw [hlow_rw, one_div, ← Real.rpow_neg (by norm_num : (0 : ℝ) ≤ 10)]
+  have hup_rw : ((10 : ℝ) ^ (n + L))⁻¹
+      = (10 : ℝ) ^ (-(((n : ℝ) + (L : ℝ)))) := by
+    have hcast : ((n : ℝ) + (L : ℝ)) = (((n + L : ℕ)) : ℝ) := by
+      push_cast
+      ring
+    rw [hcast, ← Real.rpow_natCast, Real.rpow_neg (by norm_num : (0 : ℝ) ≤ 10)]
+  rw [hlow_inv, hup_rw] at hcomb
+  have hexp : -((n : ℝ) * (M + δ)) < -(((n : ℝ) + (L : ℝ))) :=
+    (Real.rpow_lt_rpow_left_iff h10base).mp hcomb
+  have hring : (M - 1 + δ) * (n : ℝ) = (n : ℝ) * (M + δ) - (n : ℝ) := by ring
+  rw [hring]
+  linarith
+
+/-- Task `pi-t204b-zero-run-05-eventual-bound-of-nonneg` — the valid eventual
+zero-run bound for nonnegative reals. -/
+theorem zeroRun_eventually_bounded_of_nonneg
+    {x M : ℝ} (hx : Irrational x) (hx0 : 0 ≤ x) (hM : 2 ≤ M)
+    (hmu :
+      Theory.PiDigits.T204ConstantRunBound.IrrationalityExponentAtMost x M)
+    {ε : ℝ} (hε : 0 < ε) :
+    ∃ N : ℕ, ∀ n : ℕ, N ≤ n → ∀ L : ℕ,
+      Theory.PiDigits.T204ConstantRunBound.ZeroRunAt x n L →
+        (L : ℝ) ≤ (M - 1 + ε) * n := by
+  have _irr : Irrational x := hx
+  have _hM : (2 : ℝ) ≤ M := hM
+  have hδ : (0 : ℝ) < ε / 2 := by linarith
+  obtain ⟨N, hN⟩ := floor_approx_lower_eventually hmu hδ
+  refine ⟨N, fun n hn L h0 => ?_⟩
+  have hlow := hN n hn
+  have hup := zeroRun_truncation_approx_lt hx0 n L h0
+  have hlt := powTen_bounds_force_length_lt hlow hup
+  have hn_nonneg : (0 : ℝ) ≤ (n : ℝ) := by positivity
+  have hwiden : (M - 1 + ε / 2) * (n : ℝ) ≤ (M - 1 + ε) * (n : ℝ) :=
+    mul_le_mul_of_nonneg_right (by linarith) hn_nonneg
+  linarith
 
 namespace HypothesisForms
 

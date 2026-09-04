@@ -410,9 +410,14 @@ results:
     lean:
       - Theory.PiDigits.T204ConstantRunBound.measureBelow_implies_exponentAtMost
       - Theory.PiDigits.T204ConstantRunBound.nineRun_eventually_bounded
+      - Theory.PiDigits.T204ConstantRunBound.zeroRun_fract_lt_of_nonneg
+      - Theory.PiDigits.T204ConstantRunBound.zeroRun_truncation_approx_lt
+      - Theory.PiDigits.T204ConstantRunBound.floor_approx_lower_eventually
+      - Theory.PiDigits.T204ConstantRunBound.powTen_bounds_force_length_lt
+      - Theory.PiDigits.T204ConstantRunBound.zeroRun_eventually_bounded_of_nonneg
     file: TheoryLib/PiQuantitativeBlockHitting/T204T204ConstantRunBound.lean
     statement: IrrationalityMeasureBelow(x,M)⇒ExponentAtMost(x,M); irrational(x)∧M≥2∧ε>0⇒eventually(NineRunAt(x,n,L)⇒L≤(M−1+ε)n).
-    does_not_show: Not-proved:zero-run-bound/run-existence.
+    does_not_show: Not-proved:zero-run-bound/run-existence. Zero-run bound now proved under 0 ≤ x (the unconditional contract was false for negative x).
     source: knowledge/pi/results/machine-checked/VERIFIED_CONSUMER_PATH.md#verified-modules
   - id: T206
     title: Greedy/existential endpoint bridge
@@ -759,6 +764,126 @@ results:
     statement: '∀b,∀a:ℕ→Fin b: if every nonempty w:List(Fin b) has empirical frequency along a tending to 1/b^|w| then a is disjunctive; ∀b,∀a:ℕ→Fin b: disjunctive a⇒every digit occurs in a; ∃a:ℕ→Fin 10 in which every digit occurs and which is not disjunctive; and ∃x:ℝ,∃a:ℕ→Fin 10 with ApproachesZero(10,x), (∀n:(a n).val=digit(10,n,x)), and a not disjunctive.'
     does_not_show: Not-proved:π-normality/π-disjunctivity/converse-implications. The endpoint_recurrent_separator (`exists_endpoint_recurrent_not_disjunctive`) is witnessed by the degenerate x=0 in the T208 coding, so it separates endpoint recurrence from disjunctivity without exhibiting a nondegenerate endpoint-recurrent nondisjunctive real, and the normality implication keeps its limiting-frequency premise as an explicit hypothesis.
     source: TheoryLib/PiQuantitativeBlockHitting/T210T210WordHierarchy.lean
+  - id: T223
+    title: T189 sector-residue application
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T223T189SectorResidueApplication.sector_coeff_supported
+      - Theory.PiDigits.T223T189SectorResidueApplication.sector_mean_zero
+      - Theory.PiDigits.T223T189SectorResidueApplication.sector_eq_trigPolynomial
+      - Theory.PiDigits.T223T189SectorResidueApplication.sector_has_nonzero_primitive_residue
+      - Theory.PiDigits.T223T189SectorResidueApplication.no_scalar_L1_coboundary_of_sectorResidue
+      - Theory.PiDigits.T223T189SectorResidueApplication.child_surplus_of_signed_horizon_sector
+    file: TheoryLib/PiQuantitativeBlockHitting/T223T223T189SectorResidueApplication.lean
+    statement: Projections of the sector Fourier data and the T189 sector-residue premise; the no-scalar-L1-coboundary consequence conditional on the T222 primitive-ray criterion input; the child-surplus statement via the promoted T189 horizon-sector bridge.
+    does_not_show: Not-proved:sector-premise-for-π;T222-criterion-and-sector-data-remain-hypotheses.
+    source: TheoryLib/PiQuantitativeBlockHitting/T223T223T189SectorResidueApplication.lean
+  - id: T224
+    title: Admission-table separators
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T224AdmissionTableSeparators.deletedDigitSet_subset_CWord
+      - Theory.PiDigits.T224AdmissionTableSeparators.transcendental_is_irrational
+      - Theory.PiDigits.T224AdmissionTableSeparators.exactExponentTwo_finite
+      - Theory.PiDigits.T224AdmissionTableSeparators.irrational_separator_exists
+      - Theory.PiDigits.T224AdmissionTableSeparators.transcendental_separator_exists
+      - Theory.PiDigits.T224AdmissionTableSeparators.finiteExponent_separator_exists
+      - Theory.PiDigits.T224AdmissionTableSeparators.badlyApproximable_separator_exists
+      - Theory.PiDigits.T224AdmissionTableSeparators.exactExponentTwo_separator_exists
+    file: TheoryLib/PiQuantitativeBlockHitting/T224T224AdmissionTableSeparators.lean
+    statement: Deleted-digit sets lie in the word-avoider; transcendental implies irrational; exact exponent 2 gives a finite irrationality measure; the remaining admission rows follow from the named literature inputs DeletedDigitTranscendentalBAInput and BadlyApproximableImpliesExactTwoInput.
+    does_not_show: Not-proved:the-literature-inputs(deleted-digit-BA-transcendental,BA⇒exponent-2)remain-named-hypotheses.
+    source: TheoryLib/PiQuantitativeBlockHitting/T224T224AdmissionTableSeparators.lean
+  - id: T225
+    title: Closeness square-root perturbation (Proposition 7.5(1))
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T225ClosenessSquareRoot.perturbation_lower_bound
+      - Theory.PiDigits.T225ClosenessSquareRoot.squareRoot_cutoff_implies_half_error
+      - Theory.PiDigits.T225ClosenessSquareRoot.closeness_squareRoot_guarantee
+      - Theory.PiDigits.T225ClosenessSquareRoot.sameDecimalCylinder_distance
+      - Theory.PiDigits.T225ClosenessSquareRoot.decimalPrefix_squareRoot_guarantee
+    file: TheoryLib/PiQuantitativeBlockHitting/T225T225ClosenessSquareRoot.lean
+    statement: Reverse-triangle perturbation lower bound; the square-root cutoff q ≤ √(κ/(2δ)) gives the half-error guarantee; same-decimal-cylinder distance; the decimal-prefix square-root guarantee with δ = 10^(−N).
+    does_not_show: Not-proved:P1;elementary-perturbation-only.
+    source: TheoryLib/PiQuantitativeBlockHitting/T225T225ClosenessSquareRoot.lean
+  - id: T226
+    title: Continued-fraction cylinder distance (Proposition 7.5(2))
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.secondary_denominator_le_two_mul
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.primary_endpoint_distance
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.secondary_endpoint_distance
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.cfCylinderMargin_lower
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.perturbation_preserves_cfCylinder
+      - Theory.PiDigits.T226ContinuedFractionCylinderDistance.perturbation_preserves_cfPrefix
+    file: TheoryLib/PiQuantitativeBlockHitting/T226T226ContinuedFractionCylinderDistance.lean
+    statement: Secondary denominator ≤ 2q; primary and secondary endpoint distances from BA(κ); the CF-cylinder margin lower bound; perturbation preserves the CF cylinder and, via the CFPrefixCodingInput hypothesis, the CF prefix.
+    does_not_show: Not-proved:CF-prefix-coding(hypothesis);P1.
+    source: TheoryLib/PiQuantitativeBlockHitting/T226T226ContinuedFractionCylinderDistance.lean
+  - id: T227
+    title: Finite-stage compatibility (Theorem 7.6, conditional)
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T227FiniteStageCompatibility.extends_refl
+      - Theory.PiDigits.T227FiniteStageCompatibility.extends_trans
+      - Theory.PiDigits.T227FiniteStageCompatibility.admissibleExtension_is_admissible
+      - Theory.PiDigits.T227FiniteStageCompatibility.docA_edgeParry_dimension
+      - Theory.PiDigits.T227FiniteStageCompatibility.finite_packet_exists
+      - Theory.PiDigits.T227FiniteStageCompatibility.finite_stage_compatibility
+      - Theory.PiDigits.T227FiniteStageCompatibility.future_finite_coordinate_compatibility
+    file: TheoryLib/PiQuantitativeBlockHitting/T227T227FiniteStageCompatibility.lean
+    statement: 'Finite-stage compatibility (Document B Theorem 7.6) derived from the named hypothesis Props DocumentATheoremAInput, EdgeParryPrefixDimensionInput, FinitePacketConstructionInput, FeasibleGuardExtensionInput: extension reflexivity/transitivity, admissible extensions, finite packets, finite-stage and future-finite-coordinate compatibility.'
+    does_not_show: Not-proved:any-of-its-four-hypothesis-Props(Document-A-Theorem-A-instance,edge-Parry-dimension,packet-construction,guard-extension);no-uniform-Markov-constant;P1-open.
+    source: TheoryLib/PiQuantitativeBlockHitting/T227T227FiniteStageCompatibility.lean
+  - id: T228
+    title: Central-return appendix statements
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_nonneg
+      - Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_lt_one
+      - Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_add
+      - Theory.PiDigits.T228CentralReturnAppendix.decimalOrbit_succ
+      - Theory.PiDigits.T228CentralReturnAppendix.centralOffset_eq_shiftedOrbit
+      - Theory.PiDigits.T228CentralReturnAppendix.abs_centralOffset_le_iff
+      - Theory.PiDigits.T228CentralReturnAppendix.nextDecimalDigit_interior_gives_central
+      - Theory.PiDigits.T228CentralReturnAppendix.orbit_low_step
+      - Theory.PiDigits.T228CentralReturnAppendix.orbit_high_step
+      - Theory.PiDigits.T228CentralReturnAppendix.orbit_low_iterate
+      - Theory.PiDigits.T228CentralReturnAppendix.orbit_high_iterate
+      - Theory.PiDigits.T228CentralReturnAppendix.self_le_pow_ten
+      - Theory.PiDigits.T228CentralReturnAppendix.irrational_arbitrarily_late_central_returns
+      - Theory.PiDigits.T228CentralReturnAppendix.measureBelow_eight_timed_central_returns
+      - Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_implies_measureBelow_eight
+      - Theory.PiDigits.T228CentralReturnAppendix.self_le_pow_ten_pred
+      - Theory.PiDigits.T228CentralReturnAppendix.eight_add_seven_mul_lt_two_mul_pow_ten
+      - Theory.PiDigits.T228CentralReturnAppendix.measureBelow_eight_eventually_centralWitness
+      - Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_timed_central_returns
+      - Theory.PiDigits.T228CentralReturnAppendix.badlyApproximable_eventually_centralWitness
+      - Theory.PiDigits.T228CentralReturnAppendix.centralWitness_boundaryFloor
+    file: TheoryLib/PiQuantitativeBlockHitting/T228T228CentralReturnAppendix.lean
+    statement: Central-offset and shifted-orbit identities; interior next digit gives a central return; irrational x has arbitrarily late central returns; IrrationalityMeasureBelow x 8 gives timed central returns and an eventual central witness with its boundary floor; badly approximable implies measure below 8.
+    does_not_show: Not-proved:IrrationalityMeasureBelow-π-8(external);occurrence-or-density.
+    source: TheoryLib/PiQuantitativeBlockHitting/T228T228CentralReturnAppendix.lean
+  - id: T229
+    title: Predecessor appendix statements
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T229PredecessorAppendix.decimalOrbit_step_digit
+      - Theory.PiDigits.T229PredecessorAppendix.centralWitness_predecessor_lift
+      - Theory.PiDigits.T229PredecessorAppendix.measureBelow_eight_implies_predecessorPredicate
+      - Theory.PiDigits.T229PredecessorAppendix.badlyApproximable_implies_predecessorPredicate
+      - Theory.PiDigits.T229PredecessorAppendix.decimalCylinderCenter_eq
+      - Theory.PiDigits.T229PredecessorAppendix.parent_zeroShell_lower
+      - Theory.PiDigits.T229PredecessorAppendix.parent_atom_lower
+      - Theory.PiDigits.T229PredecessorAppendix.parent_unitBlock_surplus
+      - Theory.PiDigits.T229PredecessorAppendix.predecessor_atom_lower
+      - Theory.PiDigits.T229PredecessorAppendix.predecessor_unitBlock_surplus
+      - Theory.PiDigits.T229PredecessorAppendix.predecessor_child_surplus_of_horizon_sector
+    file: TheoryLib/PiQuantitativeBlockHitting/T229T229PredecessorAppendix.lean
+    statement: Predecessor lift of a central witness with the explicit child coordinate; measure below 8 implies the predecessor predicate; parent/predecessor zero-shell, atom and unit-block surplus bounds via the promoted generic T192/T193 theorems; child surplus from the T189 horizon-sector bridge.
+    does_not_show: Not-proved:root-positivity/natural-horizon;π-sector-premise;V1.
+    source: TheoryLib/PiQuantitativeBlockHitting/T229T229PredecessorAppendix.lean
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -1077,5 +1202,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 4238
+  index_estimated_tokens: 4931
   generated_by: workflows/verification/build_knowledge.py
