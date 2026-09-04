@@ -884,6 +884,122 @@ results:
     statement: Predecessor lift of a central witness with the explicit child coordinate; measure below 8 implies the predecessor predicate; parent/predecessor zero-shell, atom and unit-block surplus bounds via the promoted generic T192/T193 theorems; child surplus from the T189 horizon-sector bridge.
     does_not_show: Not-proved:root-positivity/natural-horizon;π-sector-premise;V1.
     source: TheoryLib/PiQuantitativeBlockHitting/T229T229PredecessorAppendix.lean
+  - id: T215
+    title: Positive tail obstruction
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T215PositiveTailObstruction.positive_tail
+      - Theory.PiDigits.T215PositiveTailObstruction.prefix_strictly_below_sum
+      - Theory.PiDigits.T215PositiveTailObstruction.cleared_positive_tail_not_zero
+      - Theory.PiDigits.T215PositiveTailObstruction.ramanujanTerm_nonneg
+      - Theory.PiDigits.T215PositiveTailObstruction.canonicalMultiplier_pos
+      - Theory.PiDigits.T215PositiveTailObstruction.shifted_summable
+      - Theory.PiDigits.T215PositiveTailObstruction.first_le_tail
+      - Theory.PiDigits.T215PositiveTailObstruction.ramanujan_canonical_direct_small_tail_fails
+    file: TheoryLib/PiQuantitativeBlockHitting/T215T215PositiveTailObstruction.lean
+    statement: For a strictly positive summable sequence every shifted tail sum is positive, every finite prefix sum is strictly below the total, the cleared tail Q*(sum - prefix) is positive for Q>0, and, given RamanujanDirectGrowthInput (summability of the Ramanujan terms plus divergence of the canonically scaled first omitted term), the canonical multiplier cannot make the omitted tail smaller than 1 for all large N, so CanonicalDirectSmallTail fails.
+    does_not_show: Not-proved:RamanujanDirectGrowthInput(hypothesis,undischarged);CarryKillingWitness-for-pi;any-irrationality-or-digit-claim.
+    source: TheoryLib/PiQuantitativeBlockHitting/T215T215PositiveTailObstruction.lean
+  - id: T216
+    title: Reciprocal coefficient valuation
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.reciprocalCoeff_composition_sum
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.two_pow_v_dvd
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.two_pow_weight_dvd_compTerm
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.valuation_ge_minCompWeight
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.minimum_layer_odd_no_cancel
+      - Theory.PiDigits.T216ReciprocalCoefficientValuation.reciprocal_coefficients_cauchy_bound
+    file: TheoryLib/PiQuantitativeBlockHitting/T216T216ReciprocalCoefficientValuation.lean
+    statement: The reciprocal coefficients satisfy the composition sum identity, 2^(min composition weight) divides each composition term and hence bounds the 2-adic valuation of the reciprocal coefficient from below, a unique odd minimum layer forbids cancellation, and a Cauchy-type growth bound holds for the coefficients.
+    does_not_show: Not-proved:tasks-04-and-05-of-pack-t216(decimal-valuation-log-bound,cauchy-growth-of-the-decimal-valuation)omitted-as-unproved;IsMinCompWeight-for-the-actual-Ramanujan-data;any-irrationality-claim.
+    source: TheoryLib/PiQuantitativeBlockHitting/T216T216ReciprocalCoefficientValuation.lean
+  - id: T218
+    title: Rajchman orbit closure and the R1 interface
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T218RajchmanOrbitClosure.haar_fourierCoeff_eq_zero
+      - Theory.PiDigits.T218RajchmanOrbitClosure.haar_rajchman
+      - Theory.PiDigits.T218RajchmanOrbitClosure.disjunctive_supports_haar
+      - Theory.PiDigits.T218RajchmanOrbitClosure.R1_conditional
+    file: TheoryLib/PiQuantitativeBlockHitting/T218T218RajchmanOrbitClosure.lean
+    statement: Nonzero Fourier coefficients of normalized Haar measure on the unit circle vanish, so Haar is Rajchman and the orbit closure of any base-b disjunctive point supports a Rajchman probability measure; conversely, given the two hypothesis inputs NondisjunctiveUSetCoverInput and USetExcludesRajchman, for every base b >= 2 and every x the orbit closure supports a Rajchman measure if and only if x is base-b disjunctive.
+    does_not_show: Not-proved:NondisjunctiveUSetCoverInput(hypothesis,undischarged);USetExcludesRajchman(hypothesis,undischarged);disjunctivity-of-pi-in-any-base.
+    source: TheoryLib/PiQuantitativeBlockHitting/T218T218RajchmanOrbitClosure.lean
+  - id: T219
+    title: Uniform pruning tree level counts
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T219UniformPruningTree.dangerous_shape
+      - Theory.PiDigits.T219UniformPruningTree.atMostOneDangerousDigit
+      - Theory.PiDigits.T219UniformPruningTree.safeChildren_card
+      - Theory.PiDigits.T219UniformPruningTree.chooseTwoSafe
+      - Theory.PiDigits.T219UniformPruningTree.compatible_iff
+      - Theory.PiDigits.T219UniformPruningTree.compatible_nil
+      - Theory.PiDigits.T219UniformPruningTree.compatible_append
+      - Theory.PiDigits.T219UniformPruningTree.avoids_nil
+      - Theory.PiDigits.T219UniformPruningTree.selectedLevel_mem
+      - Theory.PiDigits.T219UniformPruningTree.binaryLevel_card
+      - Theory.PiDigits.T219UniformPruningTree.guardedLevel_mem
+      - Theory.PiDigits.T219UniformPruningTree.periodicGuardLevel_card
+    file: TheoryLib/PiQuantitativeBlockHitting/T219T219UniformPruningTree.lean
+    statement: For a nonempty forbidden word w, an avoiding word has at most one dangerous continuation digit, so a causal rule with at least three admissible digits at every compatible word admits a binary safe selector; the level sets of a binary selector have cardinality 2^n, and a periodic selector that drops to one child exactly on multiples of ell has level cardinality 2^(n - n/ell).
+    does_not_show: Not-proved:existence-of-such-a-causal-rule-for-pi;any-digit-occurrence-or-normality-claim.
+    source: TheoryLib/PiQuantitativeBlockHitting/T219T219UniformPruningTree.lean
+  - id: T220
+    title: Uniform pruning dimension (R3)
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T220UniformPruningDimension.compatible_iff
+      - Theory.PiDigits.T220UniformPruningDimension.compatible_nil
+      - Theory.PiDigits.T220UniformPruningDimension.compatible_append
+      - Theory.PiDigits.T220UniformPruningDimension.avoids_nil
+      - Theory.PiDigits.T220UniformPruningDimension.selectedLevel_mem
+      - Theory.PiDigits.T220UniformPruningDimension.R3_word_dimension
+      - Theory.PiDigits.T220UniformPruningDimension.streamPrefix_length
+      - Theory.PiDigits.T220UniformPruningDimension.streamPrefix_succ
+      - Theory.PiDigits.T220UniformPruningDimension.guardedLevel_mem
+      - Theory.PiDigits.T220UniformPruningDimension.guard_digit_ne
+      - Theory.PiDigits.T220UniformPruningDimension.extract_streamPrefix
+      - Theory.PiDigits.T220UniformPruningDimension.streamAvoids_replicate
+      - Theory.PiDigits.T220UniformPruningDimension.R3_constantRun_dimension
+      - Theory.PiDigits.T220UniformPruningDimension.R3_trans_finiteExponent
+    file: TheoryLib/PiQuantitativeBlockHitting/T220T220UniformPruningDimension.lean
+    statement: Given BinaryDimensionInput the set of reals carried by a binary selected branch has Hausdorff dimension at least log 2 / log 10, given PeriodicDimensionInput the guarded set avoiding a constant run of length ell has dimension at least (1 - 1/ell) log 2 / log 10, and, given JarnikLiouvilleZero, a positive-dimension selected set meets the transcendentals of finite irrationality exponent.
+    does_not_show: Not-proved:BinaryDimensionInput(hypothesis,undischarged);PeriodicDimensionInput(hypothesis,undischarged);JarnikLiouvilleZero(hypothesis,undischarged);any-claim-about-pi-itself.
+    source: TheoryLib/PiQuantitativeBlockHitting/T220T220UniformPruningDimension.lean
+  - id: T221
+    title: Fourier composition coefficients
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T221FourierComposition.coeff_eq_interval
+      - Theory.PiDigits.T221FourierComposition.intervalIntegrable_of_Ico
+      - Theory.PiDigits.T221FourierComposition.floor_on_piece
+      - Theory.PiDigits.T221FourierComposition.base_intervalIntegrable
+      - Theory.PiDigits.T221FourierComposition.nice_eq
+      - Theory.PiDigits.T221FourierComposition.nice_integrable
+      - Theory.PiDigits.T221FourierComposition.nice_value
+      - Theory.PiDigits.T221FourierComposition.piece_transfer
+      - Theory.PiDigits.T221FourierComposition.coeff_comp_Tb
+      - Theory.PiDigits.T221FourierComposition.integrableOn_char
+      - Theory.PiDigits.T221FourierComposition.coboundary_coeff
+      - Theory.PiDigits.T221FourierComposition.ray_telescope
+    file: TheoryLib/PiQuantitativeBlockHitting/T221T221FourierComposition.lean
+    statement: The Fourier coefficient of a composition f (T_b x) with the base-b multiplication map equals the coefficient of f at the scaled frequency, the coefficient of an L1 coboundary g - g (T_b) is the corresponding difference, and the ray telescoping identity holds along the frequency ray m b^k.
+    does_not_show: Not-proved:any-Riemann-Lebesgue-or-decay-input-for-the-pi-orbit;occurrence-or-density.
+    source: TheoryLib/PiQuantitativeBlockHitting/T221T221FourierComposition.lean
+  - id: T222
+    title: Primitive ray finite-support decomposition
+    label: machine-checked
+    lean:
+      - Theory.PiDigits.T222PrimitiveRayCriterion.exists_ray_decomp
+      - Theory.PiDigits.T222PrimitiveRayCriterion.ray_pow_eq
+      - Theory.PiDigits.T222PrimitiveRayCriterion.ray_decomp_unique
+      - Theory.PiDigits.T222PrimitiveRayCriterion.finiteSupport_rayDecomposition
+    file: TheoryLib/PiQuantitativeBlockHitting/T222T222PrimitiveRayCriterion.lean
+    statement: Every nonzero integer frequency decomposes uniquely as a primitive frequency times a power of the base, and a trigonometric polynomial therefore has finite support meeting only finitely many rays, each ray contributing finitely many frequencies.
+    does_not_show: Not-proved:tasks-02-and-03-of-pack-t222(polynomial-transfer,R4-conditional)omitted-as-unproved;FourierCompositionInput;RiemannLebesgueInput;the-R4-criterion-itself.
+    source: TheoryLib/PiQuantitativeBlockHitting/T222T222PrimitiveRayCriterion.lean
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -1202,5 +1318,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 4931
+  index_estimated_tokens: 5810
   generated_by: workflows/verification/build_knowledge.py

@@ -328,6 +328,13 @@ import TheoryLib.PiQuantitativeBlockHitting.T150T150BoundaryKernelFloors
 import TheoryLib.PiQuantitativeBlockHitting.T151T151BoundaryProjectedLayerFloor
 import TheoryLib.PiQuantitativeBlockHitting.T152T152BoundaryRootGridEndpoint
 import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsumer
+import TheoryLib.PiQuantitativeBlockHitting.T215T215PositiveTailObstruction
+import TheoryLib.PiQuantitativeBlockHitting.T216T216ReciprocalCoefficientValuation
+import TheoryLib.PiQuantitativeBlockHitting.T218T218RajchmanOrbitClosure
+import TheoryLib.PiQuantitativeBlockHitting.T219T219UniformPruningTree
+import TheoryLib.PiQuantitativeBlockHitting.T220T220UniformPruningDimension
+import TheoryLib.PiQuantitativeBlockHitting.T221T221FourierComposition
+import TheoryLib.PiQuantitativeBlockHitting.T222T222PrimitiveRayCriterion
 -- Register every theorem that supports a claimed result here.
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.equal_factors_start_separation
 #print axioms Theory.PiLacunaryNearReturnSparsity.T166.maximumOccurrence_le_packing
@@ -4210,3 +4217,137 @@ import TheoryLib.PiQuantitativeBlockHitting.T153T153BoundaryRootGridNaturalConsu
   Theory.PiDigits.T204ConstantRunBound.powTen_bounds_force_length_lt
 #print axioms
   Theory.PiDigits.T204ConstantRunBound.zeroRun_eventually_bounded_of_nonneg
+
+-- T215: Positive tail obstruction (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.positive_tail
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.prefix_strictly_below_sum
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.cleared_positive_tail_not_zero
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.ramanujanTerm_nonneg
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.canonicalMultiplier_pos
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.shifted_summable
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.first_le_tail
+#print axioms
+  Theory.PiDigits.T215PositiveTailObstruction.ramanujan_canonical_direct_small_tail_fails
+
+-- T216: Reciprocal coefficient valuation (tasks 01-03, 06) (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.reciprocalCoeff_composition_sum
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.two_pow_v_dvd
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.two_pow_weight_dvd_compTerm
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.valuation_ge_minCompWeight
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.minimum_layer_odd_no_cancel
+#print axioms
+  Theory.PiDigits.T216ReciprocalCoefficientValuation.reciprocal_coefficients_cauchy_bound
+
+-- T218: Rajchman orbit closure and the R1 interface (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T218RajchmanOrbitClosure.haar_fourierCoeff_eq_zero
+#print axioms
+  Theory.PiDigits.T218RajchmanOrbitClosure.haar_rajchman
+#print axioms
+  Theory.PiDigits.T218RajchmanOrbitClosure.disjunctive_supports_haar
+#print axioms
+  Theory.PiDigits.T218RajchmanOrbitClosure.R1_conditional
+
+-- T219: Uniform pruning tree level counts (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.dangerous_shape
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.atMostOneDangerousDigit
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.safeChildren_card
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.chooseTwoSafe
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.compatible_iff
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.compatible_nil
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.compatible_append
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.avoids_nil
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.selectedLevel_mem
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.binaryLevel_card
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.guardedLevel_mem
+#print axioms
+  Theory.PiDigits.T219UniformPruningTree.periodicGuardLevel_card
+
+-- T220: Uniform pruning dimension (R3) (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.compatible_iff
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.compatible_nil
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.compatible_append
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.avoids_nil
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.selectedLevel_mem
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.R3_word_dimension
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.streamPrefix_length
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.streamPrefix_succ
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.guardedLevel_mem
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.guard_digit_ne
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.extract_streamPrefix
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.streamAvoids_replicate
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.R3_constantRun_dimension
+#print axioms
+  Theory.PiDigits.T220UniformPruningDimension.R3_trans_finiteExponent
+
+-- T221: Fourier composition coefficients (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T221FourierComposition.coeff_eq_interval
+#print axioms
+  Theory.PiDigits.T221FourierComposition.intervalIntegrable_of_Ico
+#print axioms
+  Theory.PiDigits.T221FourierComposition.floor_on_piece
+#print axioms
+  Theory.PiDigits.T221FourierComposition.base_intervalIntegrable
+#print axioms
+  Theory.PiDigits.T221FourierComposition.nice_eq
+#print axioms
+  Theory.PiDigits.T221FourierComposition.nice_integrable
+#print axioms
+  Theory.PiDigits.T221FourierComposition.nice_value
+#print axioms
+  Theory.PiDigits.T221FourierComposition.piece_transfer
+#print axioms
+  Theory.PiDigits.T221FourierComposition.coeff_comp_Tb
+#print axioms
+  Theory.PiDigits.T221FourierComposition.integrableOn_char
+#print axioms
+  Theory.PiDigits.T221FourierComposition.coboundary_coeff
+#print axioms
+  Theory.PiDigits.T221FourierComposition.ray_telescope
+
+-- T222: Primitive ray finite-support decomposition (task 01) (Opus wave E5, assembled 2026-09-04).
+#print axioms
+  Theory.PiDigits.T222PrimitiveRayCriterion.exists_ray_decomp
+#print axioms
+  Theory.PiDigits.T222PrimitiveRayCriterion.ray_pow_eq
+#print axioms
+  Theory.PiDigits.T222PrimitiveRayCriterion.ray_decomp_unique
+#print axioms
+  Theory.PiDigits.T222PrimitiveRayCriterion.finiteSupport_rayDecomposition
