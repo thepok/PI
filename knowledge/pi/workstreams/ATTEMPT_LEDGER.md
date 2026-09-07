@@ -829,6 +829,92 @@ For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
 
+2026-09-07 joint Machin--Hermite--Pade trial (`proof sketch`; finite checks `experiment`): the tested shared denominator supplies signed simultaneous approximants, but no decimal numerator estimate. This is a classical Jacobi--Angelesco construction, not a new family; see [Van Assche--Coussement, section 3.5, equations (3.48)--(3.50)](https://arxiv.org/pdf/math/0103131) and [Van Assche, sections 2.3 and 3.2](https://arxiv.org/pdf/math/0609094). The separate scalar-denominator estimates are not a substitute for its common lift.
+
+Strongest retained: put A=25, B=57121, M=AB, sqrt(M)=1195. For even n>=2 define f(s)=(s-A)^n(s-B)^n, h(s)=s^(n-1/2)f(s)/2, c=int_0^A s h(s)ds/int_0^A h(s)ds=u/v in lowest terms, and
+
+    T[g](s)=sqrt(s)/n! * D_s^n[s^(n-1/2)g(s)],
+    Q=T[(s-c)f],   Y=4^n v Q,   ell=lcm(1,3,...,4n+1).
+
+Here Y has integer coefficients: on each monomial the operator 4^n T multiplies its coefficient by the integer 4^n binom(n+k-1/2,n). Integration by parts gives n orthogonality conditions on [0,B] and n+1 on [0,A] for ds/(2sqrt(s)); the extra condition is exactly the definition of c. Splitting into [0,A] and [A,B], the sign-change argument gives all 2n+1 roots in those intervals and Y(-M)<0. Define
+
+    P_C(z)=int_0^C [Y(-z)-Y(s)]/(z+s) ds/(2sqrt(s)),
+    q=-ell Y(-M)>0,  b_C=-ell P_C(M),
+    a=1195 b_B, d=1195 b_A, p=16a-4d, epsilon=p/q-pi.
+
+All these numerator lifts are integers; ell clears the odd moment denominators and sqrt(A),sqrt(B) are integers. Keeping the full residuals, I_C=int_0^C h(s)(s-c)/(M+s)^(n+1)ds gives
+
+    q atan(1/5)-a=-1195 ell 4^n v I_B,
+    q atan(1/239)-d=-1195 ell 4^n v I_A.
+
+For even n, I_A<0 by the covariance of s with the decreasing function (M+s)^(-n-1), while I_o=I_B-I_A>0. Explicitly,
+
+    |I_A| <= V_n=A^(n+1/2)/[(2n+1)B],
+    I_o >= J_n=sqrt(B)/[24(A+1)] * [B^2/(36(A+1))]^n,
+    V_n/J_n<1/2.
+
+The outer bound follows by restricting to [B/3,2B/3]. Thus epsilon>0 and the *constructed* common lift obeys
+
+    q epsilon=1195 ell 4^n v (16I_o+12I_A)
+      >= (285605/78) ell v (3262808641/234)^n.
+
+The lift still has log q=O(n), not a generic determinant's O(n^2) clearing cost. For example, with kappa=binom(3n+1/2,n), its roots give q<=ell 4^n v kappa (M+A)^(n+1)(M+B)^n; the reduced weighted-mean denominator satisfies v<=lcm(1,3,...,6n+3)(B/4)^n. The coordinator's independently derived balanced Rodrigues formula also has linear logarithmic height, but does not improve this order and is not a reason for another variant.
+
+Crucial reduction boundary: G=gcd(q,p), D=q/G, so only D epsilon>=(285605/78)ell v(3262808641/234)^n/G follows. No sufficient all-n bound on G was obtained. At n=2,4,6,8,10,12, the [exact arithmetic reproduction](../../../workflows/experiments/20260907_joint_pade_check.py) gives respective certified lower bounds D epsilon>=10^k with k=24,50,77,100,131,159; these are finite diagnostics, not an asymptotic primitive-denominator law. Removing decimal factors cannot lower the cleared error: D_t=D/gcd(D,10^t) gives D_t 10^t epsilon>=D epsilon. This concerns cleared error, not unscaled real tracking or impossibility of a digit hit.
+
+The complete phase is {10^t pi}={r/q-10^t epsilon}, r=10^t p mod q. Separate marginal signs and precision do not locate r or choose its integer wrap. Take a finite-exponent 4/5-digit avoider gamma, put x=251gamma/4000, y=gamma/1000, so 16x-4y=gamma, and write e_5=a/q-atan(1/5)>0, e_239=atan(1/239)-d/q>0. Replace a by 1195 ceil(q(x+e_5)/1195) and d by 1195 floor(q(y-e_239)/1195). This retains the same q, numerator factor and asymptotic signed marginal errors; it does not retain the fixed moments, canonical numerators or their exact gcds. In detail, the covariance restricted to [A/4,A/3] and [2A/3,3A/4] gives q e_239 tending to infinity with exponential base 9A(B-A)^2/[16B(B+1)]>14, and the outer integral gives q e_5 tending to infinity, so bounded rounding errors are negligible. Thus neither this control nor the raw-lift bound closes every use of the exact construction. Reopen with an independently proved signed decimal numerator estimate in a valid transfer window. A proposed primitive-smallness repair must additionally prove its cancellation saving through G; a direct oriented estimate need not make D epsilon small. Neither input was supplied by this bounded trial.
+
+2026-09-07 growing carry--Hankel trial (`proof sketch`, independently audited): the all-rank global determinant is nonzero and positive at pi, but its candidate-value dependence is exactly rank one. This extends beyond a fixed finite moment packet; it does not exclude all global carry laws.
+
+Use the exact 5/239 Machin partial sums S_m defined in the head--tail entry above, S_0=0. Their forcing b_m=(2m+1)(S_(m+1)-S_m) obeys 1428025 b_(m+2)+57146 b_(m+1)+b_m=0. The full signed remainder is
+
+    T_m=(-1)^m(pi-S_m)=int_0^(1/25) u^m dmu(u),
+    dmu(u)=[8-2*1_(0,1/57121](u)]/[sqrt(u)(1+u)] du.
+
+The density is positive. For integers n>=0, h>=1, r>=1 and m_ij=n+h(i+j), 0<=i,j<r, the matrix H(theta)=[(-1)^m_ij(theta-S_m_ij)] is a Gram matrix at pi and
+
+    H(theta)=H(pi)+(-1)^n(theta-pi)vv^t,  v_i=(-1)^(hi).
+
+Consequently det H(theta)=(-1)^n C(theta-rho), where C>0 and rho are rational, rho=pi-(-1)^n eta, and eta=(v^t H(pi)^(-1)v)^(-1)>0. Positive semidefiniteness is exactly theta>=rho for even n, theta<=rho for odd n. The rationality follows from the affine determinant with rational coefficients, not by treating pi as rational. The variational formula
+
+    eta=min_(deg P<r, P((-1)^h)=1) int u^n P(u^h)^2 dmu
+
+and a rescaled Chebyshev test give eta<=64/[5(2n+1)] *25^(-n)*Lambda_h^(-2(r-1)), with xi_h=2(-1)^h25^h-1 and Lambda_h=|xi_h|+sqrt(xi_h^2-1). The n=0,1, h=1 cuts therefore converge monotonically from opposite sides to pi. The complete infinite positive packet identifies pi, but adds no demonstrated digit constraint.
+
+Coordinator's resampling check: for arbitrary decimal depths d_m, set x_d(theta)={10^d theta}, p_d(theta)=floor(10^d theta), r_(m,d)=10^d S_m-p_d. Then (-1)^m 10^(-d_m)(x_(d_m)-r_(m,d_m))=(-1)^m(theta-S_m). Thus changing decimal observation depths leaves this normalized matrix EXACTLY unchanged; changing Taylor indices is a different construction. At any terminal depth L, a lower cut gives
+
+    det H(p_L(pi)/10^L)/C=eta-10^(-L)x_L(pi).
+
+For the particular schedule L=2(r-1), n=0,h=1, avoidance of 0^k makes the boundary/signal ratio at least (5/64)10^(-k)((51+10sqrt(26))/10)^L, which grows exponentially. This scale mismatch is not universal in L. Deeper observation can transfer the sign, but the resulting bound x_L<10^L eta is vacuous when 10^L eta>=1; neither Gram positivity nor resampling independently establishes that sign together with a small prescribed right-hand side.
+
+With rho=u/q reduced, the exact primitive relation is q p_L-10^L u+q x_L=(-1)^n q10^L eta; gcd(q,10^L) divides the integer term. Clearing det H(pi) gives an element of Z+Z pi, not a nonzero integer of absolute value >=1. A supplementary scalar check gives v_239(S_m)=-(2m-1+k) when 2m-1=239^k: the final 239-term uniquely has smallest valuation. This does not imply any determinant-primitive valuation bound. Every finite strict packet has an open neighborhood of pi containing a finite decimal prefix followed by a two-digit Thue--Morse tail, with exponent 2 by [Bugeaud](https://aif.centre-mersenne.org/item/AIF_2011__61_5_2065_0/). Such controls eventually avoid a chosen word; they need not avoid it in their fixed prefix, and do not satisfy the complete infinite packet. Reopen only with a genuinely different, independently proved signed global constraint beyond these rational cuts, not higher rank or decimal resampling of this matrix.
+
+2026-09-07 coherent logarithmic interpolation trial (`proof sketch`, coordinator-derived all-profile extension independently audited): exact adjacency-dependent interpolation and one Newton normalization supply no exclusion. The following failure concerns the displayed upper/norm bounds, not every nonuniform language-sensitive construction.
+
+For a nonempty forbidden word w, let rho_s(h) be the largest allowed length-h continuation from automaton state s divided by 10^h, and tau_s its maximal infinite continuation. At most one next digit is forbidden, so rho_s(h)>=4/5 for h>=1 and tau_s>=8/9. Select distinct increasing truncations r_j=a_(n_j)/10^(n_j) of one irrational x in (3,4) whose fractional expansion avoids w, with 1<=n_1<...<n_R=N, R>=2; remove duplicate rational nodes. Put u_j=a_(n_j)10^(N-n_j), g=gcd(a_N,u_1,...,u_R), M=2a_N/g, D=phi(M), c=pi/r_R and z_j=exp(i pi u_j/a_N). The z_j generate Q(zeta_M). The determinant Delta=det(z_j^k)_(j,0<=k<R)=product_(i<j)(z_j-z_i) is nonzero; its sine factorization gives
+
+    |Delta| <= c^B_R 10^(-A) product_(i<j) rho_(s_i)(n_j-n_i),
+    B_R=R(R-1)/2,  A=sum_(i<R)(R-i)n_i.
+
+Keep the full block integers b_ij=a_(n_j)-10^(n_j-n_i)a_(n_i)>0. For E=sum_(j>=2)(j-1)n_j and S=product b_ij, the rational Vandermonde V=product(r_j-r_i)=S/10^E=P/Q in lowest terms. On unit-digit paths, Q=10^E and 10^(E-A-B_R)<=P=S<10^(E-A); this is collective, not per-generator, denominator cost.
+
+Multiplying Delta by the explicit root of unity eta_0=i^(-B_R)exp(-i pi(R-1)sum u_j/(2a_N)) removes its phase. The product eta_0 Delta=|Delta| is an algebraic integer in Q(zeta_(2M))^+, whose degree is D since M is even. Set F=Q eta_0 Delta/P-1. It cannot vanish: otherwise the integral eta_0 Delta would equal the nonintegral rational V in (0,1). Hadamard on the conjugate matrices gives
+
+    log|F| >= L_F=-log P-(D-1)log(Q R^(R/2)+P).
+
+Under x=pi and avoidance of w, the sine-product estimate -z^2/5<=log(sin z/z)<=0 for 0<=z<=2/3 gives |F|<=exp(epsilon_w)-1, where
+
+    epsilon_w=(B_R/3)10^(-N)tau_(s_R)
+      +(4/45)sum_(i<j)10^(-2n_i)rho_(s_i)(n_j-n_i)^2.
+
+Coordinator's all-profile comparison: g divides the positive final block b_(R-1,R)<10^(N-n_(R-1)), so a_N/g>3*10^(n_(R-1))>=30. The elementary bound phi(M)>=sqrt(M/2) gives D>=6 for EVERY permitted profile, without adjacent last depths or a nonzero last digit. Also Q>=10^A>=10^n_1. Hence L_F<=-5n_1 log 10. The pair (1,2) alone gives epsilon_w>=(64/1125)10^(-2n_1), and therefore
+
+    log(exp(epsilon_w)-1)
+      >= -2n_1 log 10+log(64/1125)
+      > -5n_1 log 10 >= L_F.
+
+Thus these two estimates cannot contradict each other for ANY allowed choice of nodes. This is not a lower bound on actual |F| or an optimality theorem for the norm bound. The shared-premise control 3+sum_(k>=0)(11+80 t_k)100^(-k-1), with Thue--Morse bits t_k, has exponent 2, avoids 99, visits both automaton states, and retains the exact collective denominator and field construction. It does NOT retain the pi-specific speed-1 normalization: its limiting dilation is pi/x, not 1. Reopen only with a genuinely stronger language-dependent arithmetic or analytic estimate, not another node schedule in this upper/norm comparison. No novelty, Lean verification, E or word-occurrence claim is made.
+
 2026-09-07 AGM all-embedding trial (`proof sketch`, coordinator-inspected and independently audited): the three complementary investigations supply no digit bridge. All nonprincipal sign factors can be controlled, but the resulting norm remains a grid comparator. The low-height countercontrol below defeats the tested structural package, not every inequality using the exact AGM denominator update. Pause this mountain; no concrete repair supplying the missing signed estimate was found. Below c_(j+1)=(a_j-b_j)/2; all claims about c_j use j>=1. The dual-minimum bound in the control proof is a lower bound.
 Strongest retained: start a_0=1,b_0=1/sqrt(2),t_0=1/4, a_(j+1)=(a_j+b_j)/2, b_(j+1)=sqrt(a_j*b_j)>0, t_(j+1)=t_j-2^j((a_j-b_j)/2)^2, alpha_j=a_(j+1)^2/t_j. With K_(-1)=Q and K_j=K_(j-1)(b_j), every step is quadratic and K_j has exactly two real embeddings. Inductively a_j*b_j has opposite signs at the two real embeddings, so is not a square; only its positive image extends to real square roots at the next level. The two images of alpha_j are alpha_j>2 and gamma_j=(a_j-b_j)^2/(4t_j) in (0,1). If [K_j:Q(alpha_j)] were even, each of these two distinct real image fibers would have at least two real extensions, since nonreal extensions pair up. This contradicts the signature, proving Q(alpha_j)=K_j and d_j=2^(j+1).
 Set A_j=2^(j+1)a_j, B_j=2^(j+1)b_j, T_j=2^(j+3)t_j, U_j=(A_j+B_j)^2, V_j=2^(j+1)T_j. These are integral coordinates: A'=A+B, (B')^2=4AB, T'=2T-(A-B)^2. Both real embeddings fix V_j>0. For q>0, x=k/q>1, F_j(k,q)=Norm_(K_j/Q)(kV_j-qU_j) therefore factors as F_j=G_j(k-q*alpha_j), with G_j=q^(d_j-1)Norm(V_j)(x-gamma_j) product_sigma |x-sigma(alpha_j)|^2>0, taking one sigma from each nonreal pair. Thus sign(F_j) is exactly the unknown distinguished comparison. Integrality gives |F_j|>=1, not the upper bound |F_j|<=eta*G_j/2 needed for an endpoint hit.
