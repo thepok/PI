@@ -30,6 +30,49 @@ def atan_bracket(q, terms=100):
     return min(head, other), max(head, other)
 
 
+def mobius(n):
+    result, prime = 1, 2
+    while prime * prime <= n:
+        if n % prime == 0:
+            n //= prime
+            result = -result
+            if n % prime == 0:
+                return 0
+        prime += 1
+    return -result if n > 1 else result
+
+
+def chi4(n):
+    return 0 if n % 2 == 0 else (-1) ** ((n - 1) // 2)
+
+
+def check_twisted_transform(coefficients, pi_lo, pi_hi):
+    transformed = [0]
+    for n in range(1, len(coefficients)):
+        divisors = [d for d in range(1, n + 1) if n % d == 0]
+        numerator = sum(mobius(d) * chi4(d) * coefficients[n // d]
+                        for d in divisors)
+        assert numerator % n == 0
+        transformed.append(numerator // n)
+        assert coefficients[n] == sum(chi4(d) * (n // d) * transformed[n // d]
+                                      for d in divisors)
+        assert abs(transformed[n]) <= 8 * 5 ** n
+    assert F(coefficients[3] - coefficients[1], 3).denominator == 3
+    # Analytic offset bound from the d=3 term and the whole d>=5 tail.
+    t = F(1, 1000)
+    head_error = 100 * t * t / (1 - 5 * t)
+    tail_error = F(41, 450000)
+    assert F(9, 1000) < (28 * t - head_error) / 3 - tail_error
+    assert (28 * t + head_error) / 3 + tail_error < F(1, 100)
+    # Independent finite enclosure; the universal bound is |C_n|<=8*5^n.
+    cutoff = len(coefficients) - 1
+    g_head = sum((F(transformed[n], 10 ** n) for n in range(1, cutoff + 1)), F(0))
+    g_tail = F(8, 2 ** cutoff)
+    assert F(9, 1000) < g_head - g_tail - pi_hi
+    assert g_head + g_tail - pi_lo < F(1, 100)
+    print(f"Twisted transform: exact integrality/inversion checks through {cutoff}; offset bounds pass")
+
+
 def main():
     lo5, hi5 = atan_bracket(5)
     lo239, hi239 = atan_bracket(239)
@@ -37,7 +80,7 @@ def main():
     ratio = F(90, 11) * F(27, 26) * F(9, 10) ** 25
     assert ratio < 1
     p, q, coefficients, head = (1, 0), (1, 0), [0], F(0)
-    for n in range(1, 126):
+    for n in range(1, 301):
         p, q = mul(p, (0, -5)), mul(q, (4, -2))
         a = -4 * (p[1] + q[1])
         coefficients.append(a)
@@ -59,6 +102,7 @@ def main():
                 assert reduced_shift_denominator * 10 ** t >= d
         print(f"N={n}: v5(reduced denominator)={valuation(d, 5)}; exact checks pass")
     assert pi_lo < pi_hi
+    check_twisted_transform(coefficients, pi_lo, pi_hi)
     print("Finite checks only; the infinite proof is the ledger's proof sketch.")
 
 
