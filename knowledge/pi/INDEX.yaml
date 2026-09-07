@@ -1000,6 +1000,78 @@ results:
     statement: Every nonzero integer frequency decomposes uniquely as a primitive frequency times a power of the base, and a trigonometric polynomial therefore has finite support meeting only finitely many rays, each ray contributing finitely many frequencies.
     does_not_show: Not-proved:tasks-02-and-03-of-pack-t222(polynomial-transfer,R4-conditional)omitted-as-unproved;FourierCompositionInput;RiemannLebesgueInput;the-R4-criterion-itself.
     source: TheoryLib/PiQuantitativeBlockHitting/T222T222PrimitiveRayCriterion.lean
+  - id: CRITICAL-SHELL-NULL
+    title: Critical-shell iid failures and normal separator
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-critical-shell-null-and-normality.md
+    statement: For iid decimal digits each critical-shell orientation has infinitely many empty and successful shells almost surely; a decimal-normal number can fail both tests in every shell.
+    does_not_show: Not-proved:M5CS0/M5CS9-for-pi-or-their-negations;CW0;CW9;V1;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-critical-shell-null-and-normality.md
+  - id: MACHIN-NUMERATOR-SEPARATOR
+    title: Machin numerator information and real-carry separator
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-machin-numerator-separator.md
+    statement: Exact joint numerator recurrence, refined one-sided enclosure and sparse 3-adic numerator congruence; rational 1/9 brackets retain the enclosure and valuation/congruence consequences without a decimal target hit.
+    does_not_show: Not-proved:actual-Machin-carry-control;CW0;CW9;V1;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-machin-numerator-separator.md
+  - id: RAMANUJAN-RECIPROCAL-ANALYSIS
+    title: Ramanujan reciprocal sharp growth and signed tails
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-ramanujan-reciprocal-analysis.md
+    statement: Full-disk zero exclusion, sharp coefficient growth and exact signs; positive pi/8 tail for 1-128z; fixed-polynomial singularity asymptotics; exact weighted-block valuations for 1-128z and the genuinely cancelling 1-200z, incompatible with small tails at unbounded scales.
+    does_not_show: Not-proved:compatible-weighted-divisibility;P3;CW0;V1;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-ramanujan-reciprocal-analysis.md
+  - id: P1PRIME-FULL-SHIFT
+    title: Sparse forced digits in the full shift with a uniform Markov constant
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-sparse-forcing-full-shift.md
+    statement: For every base b>=2, zero-density forced-position set F and 0<s<1, there is kappa(b,F,s)>0 uniform over all forced digit assignments, with dim_H(K_F intersect BA(kappa))>=s; arbitrary SFT scope reduces to proper positive-entropy mixing SFTs.
+    does_not_show: Not-proved:P1-prime-for-proper-mixing-SFTs;P1-FD;P1-PD;P1-NE;CW0/CW9/V1-for-pi;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-sparse-forcing-full-shift.md
+  - id: P1-LONG-ZERO-WORD
+    title: Localized positive-dimensional BA-ALA instances for long zero words
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-sparse-forcing-full-shift.md
+    statement: For every 0<s<1 there is L0(s) such that for every L>=L0(s), c in {1,...,8}, and finite prefix P avoiding 0^L, some fixed kappa>0 gives dim_H(C_(0^L) intersect I(P) intersect ALA_({1,...,9},c) intersect BA(kappa))>=s.
+    does_not_show: Not-proved:universal-P1-PD/NE;P1-FD;P1-prime;full-dimension-for-fixed-L;pi-CW0/CW9/V1;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-sparse-forcing-full-shift.md
+  - id: P1-LONG-ARBITRARY-WORD
+    title: Localized BA-ALA positive dimension uniformly for sufficiently long words
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-sparse-forcing-arbitrary-word.md
+    statement: For every 0<s<1 there is m0(s) such that every decimal word w of length m>=m0(s), every omitted digit d occurring in w, A=D10 except d, every c in A intersect {1,...,8}, and every finite prefix P avoiding w admit a fixed kappa>0 with dim_H(C_w intersect I(P) intersect ALA_(A,c) intersect BA(kappa))>=s. Explicitly, positive dimension holds for every m>=81, and dimension >1/2 for every m>=187.
+    does_not_show: Not-proved:universal-P1-PD/NE;P1-FD;P1-prime;full-dimension-for-fixed-w;pi-CW0/CW9/V1;no-Lean-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-sparse-forcing-arbitrary-word.md
+  - id: P1-LONG-WORD-FD
+    title: Localized full BA-ALA dimension for every fixed word of length at least 49
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260905-fixed-word-full-dimension.md
+    statement: Every fixed decimal word w of length m>=49, every omitted digit d occurring in w, A=D10 except d, every c in A intersect {1,...,8}, and every finite w-avoiding prefix P satisfy dim_H(C_w intersect I(P) intersect ALA_(A,c) intersect BA)=d_w. More precisely, for each 0<s<d_w some scale-uniform kappa>0 gives dimension >s. The word stays fixed as s approaches d_w.
+    does_not_show: Not-proved:universal-P1-FD/FD-loc/PD/NE;P1-prime;word-lengths-below-49;one-kappa-attaining-full-dimension;pi-CW0/CW9/V1;no-Lean-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260905-fixed-word-full-dimension.md
+  - id: RAMANUJAN-FIVEADIC-DEFECT
+    title: Ramanujan fivefold defect regularity
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260906-ramanujan-fiveadic-defect.md
+    statement: 'Reviewed proof sketch: the normalized Ramanujan fivefold defect satisfies U_N=P(N) for every positive N, with P in12+25Z_5<x>; hence v5(U_M-U_N)>=2+v5(M-N), and v5(D_N)=3+3v5(N)+3v5(binom(2N,N)). The linked exact proof uses an overconvergent block-transfer/Frobenius comparison, determinant normalization and an explicit CM eigenvector, not extrapolation from precision20. Rational identities independently reproduced; global proof reviewed with explicit completions and primary-source checks. Sun2019Conj22(2.15) already conjectures the weaker modulo5 normalization.'
+    does_not_show: Not-proved:ordered-decimal-residues;E;CW0;CW9;V1;not-an-admitted-digit-candidate;not-a-verified-resolution;no-Lean-formalization-or-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260906-ramanujan-fiveadic-defect.md
+  - id: SALIKHOV-MOD5-SUPPORT
+    title: Modified Salikhov local signs and surviving linear two-adic depth
+    label: proof sketch
+    lean: []
+    file: knowledge/pi/results/intermediate/20260906-salikhov-mod5-support.md
+    statement: 'Proof sketch: a 145-state modulo5 local-pair system and a signed actual-pi asymptotic give relative sign proportions one half in all17 allowed classes, including sparse classes. A convergent two-adic primitive gives v2(c_n)>=2n+1-floor(log2(4n+1)). For n=2^k*m with k>=2 and m odd, q_n=binom(n,n/4) mod2^(k+1); hence v2(q_n)=s2(3m) when s2(3m)<=k. On the explicit family m<2^(k-1), containing >>sqrt(N) indices belowN, the reduced numerator P_n has v2(P_n)>=2n-1-2floor(log2 n) and its denominator is odd. Exact certificates independently reproduced; no claim that sign balance survives restriction to this family.'
+    does_not_show: Not-proved:relative-sign-balance-on-the-twoadic-family;growing-compatible-fiveadic-precision;ordered-decimal-residues;E;CW0;CW9;V1;not-an-admitted-digit-candidate;no-Lean-verification;no-novelty-claim.
+    source: knowledge/pi/results/intermediate/20260906-salikhov-mod5-support.md
 open_problems:
   - id: P1-FD
     statement: ∀(m,w,A,c)∈𝔓₁:dim_H(C_w∩BA∩ALA_(A,c))=d_w.
@@ -1222,11 +1294,12 @@ closed_routes:
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
   - id: route-erdos-carry
     title: Erdos carry-killing and Ramanujan reciprocal
-    dies_at: Missing:Λ<256-bound/positive-tail.
+    dies_at: Missing:compatible-unbounded-divisibility-and-positive-small-tail.
     separator: none recorded
     strongest_retained:
       - T202
       - T203
+      - RAMANUJAN-RECIPROCAL-ANALYSIS
       - P3
     reopening_condition: Needs:divisible-block-positive-tail-series.
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
@@ -1247,6 +1320,9 @@ closed_routes:
     reopening_condition: Needs:π-specific-hit-or-same-child-sign.
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
 documents:
+  - id: ramanujan-frobenius-review
+    path: knowledge/pi/results/intermediate/20260906-ramanujan-frobenius-proof-sketch.md
+    role: Reviewed exact-comparison proof sketch with global-comparison completions; no formal or digit conclusion.
   - id: docA
     path: papers/README.md
     role: Separator-article stub; article file pending.
@@ -1318,5 +1394,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 5810
+  index_estimated_tokens: 6716
   generated_by: workflows/verification/build_knowledge.py

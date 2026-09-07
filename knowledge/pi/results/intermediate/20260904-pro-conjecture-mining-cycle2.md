@@ -7,6 +7,13 @@ Date: 2026-09-04. Produced by a ChatGPT Pro mining run against PI `ca85d26`; Ind
 
 Status: `experiment` for the reconnaissance and `conjecture` for the two laws below. Nothing here is a theorem, a proof of `MC0`, or a proof of `CW0`, `CW9`, `E`, or `V1`.
 
+**2026-09-05 mathematical audit:** the
+[critical-shell null and normality note](20260905-critical-shell-null-and-normality.md)
+records `proof sketch` arguments for infinitely many empty and successful
+shells under iid digits and a normal number failing every shell. These do not
+disprove the pi conjectures, whose labels remain `conjecture`; normality alone
+would not establish them either.
+
 ## 1. Audit boundary and novelty check
 
 I read the public PI repository in the required order at main commit `ca85d264161d5713b32c34dcd5019b188b968cc5`: `AGENTS.md`, `FRONTIER.md`, `knowledge/pi/INDEX.yaml`, then the cycle-1 report and experiments `t195`, `t196`, and `t197`. I also read `ROADMAP.md` and every `paper/docB/*.tex` file exposed by the private MathMyth connector. The numerical input was the tracked file `workflows/experiments/data/pi_digits_1048596.txt`: 1,048,596 digits after the point, zero-based, with newline-inclusive SHA-256

@@ -133,7 +133,7 @@ For `x_n={10^n*pi}`, the constant-word benchmarks are `proof sketch`, directly f
 - **route-pair-dc1** — Missing:evaluated-sign/pathwise-admissibility.
 - **route-separate-marginals** — Missing:joint-digit/word-coverage.
 - **route-machin-37** — Missing:one-sided-endpoint-hit.
-- **route-erdos-carry** — Missing:Λ<256-bound/positive-tail.
+- **route-erdos-carry** — Missing:compatible-unbounded-divisibility-and-positive-small-tail.
 - **route-run-bounds** — Missing:run-occurrence/direction.
 - **route-endpoint-coding** — Missing:recurrence/sign/occurrence/dimension.
 

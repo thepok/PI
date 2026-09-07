@@ -142,6 +142,40 @@ For this one-word avoidance shift, $C_w\cap I(P)\ne\varnothing$ is equivalent to
 
 The all-label packets occupy zero-density digit intervals, which preserves entropy but not a uniform Diophantine constant. The missing step is, for example, either a fixed-Markov-constant extension theorem—given $s<d_w$, choose $\kappa(s)>0$ before branching and retain dimension at least $s$—or a sparse-blackout theorem for Schmidt or potential games. Constants tending to zero along every branch do not establish bad approximability.
 
+**2026-09-05 partial update (`proof sketch`, not Lean):**
+[P1PRIME-FULL-SHIFT](../results/intermediate/20260905-sparse-forcing-full-shift.md)
+gives the full-shift sparse-forcing statement with one positive constant
+uniform over all assigned words on a fixed zero-density set. A component
+argument reduces the remaining universal scope to proper positive-entropy
+mixing SFTs. That scope includes the avoidance languages needed here;
+P1′ and the P1-FD/PD/NE propositions are not upgraded.
+The subsequently audited [P1-LONG-ZERO-WORD](../entries/P1-LONG-ZERO-WORD.md)
+does give restricted localized P1-PD/NE instances: for every s<1, all
+sufficiently long forbidden words 0^L, A={1,...,9}, every interior marker
+and admissible prefix admit a fixed-kappa BA–ALA intersection of dimension
+at least s (`proof sketch`). The corrected conditioned kernel includes
+the current block's constraint indicator. This is not full dimension for
+a fixed L and does not establish the universally quantified propositions.
+The extension [P1-LONG-ARBITRARY-WORD](../entries/P1-LONG-ARBITRARY-WORD.md)
+is an independently audited proof sketch after the row-norm repair:
+the threshold can be uniform over every forbidden word of a given
+sufficiently large length, and over the admissible omitted digits and markers.
+It uses a two-block conditioning comparison and a row-norm Fourier induction.
+Using Queffélec–Ramaré's explicit decay theorem makes the range concrete:
+all word lengths m>=81 have positive-dimensional localized instances, and
+m>=187 permits dimension greater than 1/2. This older estimate alone does
+not give full dimension for a fixed word.
+The further [P1-LONG-WORD-FD](../entries/P1-LONG-WORD-FD.md) proof sketch
+does give full localized dimension d_w for every fixed w of length m>=49.
+Separate reviews upheld its guarded Parry construction and complete-cylinder
+Fourier slicing. For each s<d_w it produces one positive kappa uniform at
+all scales, while keeping w and P fixed. The September 6 refinement adapts
+Lequen--Sahlsten's argument to complete cylinders with constants uniform
+in depth; its independent audit and the coordinator's checks make 49 an
+explicit sufficient FD threshold. It remains a proof sketch, not Lean.
+Universal P1 labels remain unchanged; lengths below 49,
+general P1′, and the pi digit targets are not resolved.
+
 For every admissible prefix $P$, let $E_{j,P}$ denote the set $E_j$ from (4.5) formed with that prefix, and put
 $$
 \mathrm{ALA}_P
@@ -556,12 +590,21 @@ N\log(5^8\Lambda)+h\log(10^8)+O(1)
 }.
 \tag{5.13}
 $$
-For the benchmark $\Lambda=64$, which requires a separate proof, this is
+For the benchmark $\Lambda=64$, now supplied at `proof sketch` level by the
+[full-disk reciprocal analysis](../results/intermediate/20260905-ramanujan-reciprocal-analysis.md), this is
 $$
 L>12.2877\ldots N+13.2877\ldots h+O(1),
 \tag{5.14}
 $$
 not $3N+O(\log N)$. The signed reciprocal coefficients remove the automatic positive-tail mechanism; they do not prove that selected blocks or cancellations can never meet P3.
+
+**2026-09-05 arithmetic update (`proof sketch`, not a Lean upgrade):** the same
+note gives exact negative signs for the original reciprocal tail and a positive
+tail for the multiplier $1-128z$, representing $\pi/8$. Its aggregate
+divisibility is equivalent to $8L\le3s_2(n+L)$, incompatible with the linear
+small-tail scale above at unbounded starts. The genuinely cancelling multiplier
+$1-200z$ also permits only logarithmic block lengths. These exclusions are
+restricted to the stated constructions and classes, not arbitrary P3.
 
 **What does not by itself imply P3.** Coefficientwise divisibility does not imply divisibility of the weighted aggregate; a small absolute tail lacks the required sign; bounded $h_j$ cannot yield unbounded runs; and a base-$256$ identity needs a valid power-of-ten transfer. These are gaps in a proposed arithmetic construction, not restrictions on other proofs. A proof of nonexistence disproves P3 and CW0, while any proof of CW0 proves P3. P3 does not yield CW9 without a separately formulated reflected certificate.
 

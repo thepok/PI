@@ -1,11 +1,12 @@
 ---
 id: route-erdos-carry
 title: Erdos carry-killing and Ramanujan reciprocal
-dies_at: Missing:Λ<256-bound/positive-tail.
+dies_at: Missing:compatible-unbounded-divisibility-and-positive-small-tail.
 separator: none recorded
 strongest_retained:
   - T202
   - T203
+  - RAMANUJAN-RECIPROCAL-ANALYSIS
   - P3
 reopening_condition: Needs:divisible-block-positive-tail-series.
 source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
