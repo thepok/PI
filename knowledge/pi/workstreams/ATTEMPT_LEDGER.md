@@ -874,6 +874,116 @@ Reopen only with an independent carry-sensitive arithmetic estimate beyond this 
 Strongest retained: for odd a≥1, p=239, T=(p^a+1)/4, M=2T, the reduced denominator Q of p_M has v_p(Q)=K=4T−1+a and unit numerator P. In the odd-LCM common numerator, only the final arctan(1/239) term is a p-unit, proving noncancellation. Since ord_p(10)=7 and v_p(10^7−1)=1, every h≤T/4 removes at most a+v_p(k) powers from the fixed nonzero-frequency phase k(10^h−1)P10^n/Q. Its remaining q=p^kappa has kappa≥4T−1−v_p(k), while N=T/4=Theta(log q). For Q after this cancellation equal to qC, retain both CRT inverse cofactors. If C=2^u5^v C_0 and v_p(ord_(C_0)(10))≤kappa−2, a full period Lambda=lcm(7p^(kappa−1),ord_(C_0)(10)) cancels by partition into p translates by Lambda/p; this holds only after max(u,v), and Lambda≥exp(Theta(T)). Fixed-truncation absolute-error tracking lasts only O(T). [Vandehey, Corollary 1.2](https://arxiv.org/pdf/1606.07911) requires N≥q^epsilon for fixed epsilon; [Bourgain, Theorem 2](https://www.numdam.org/item/10.1016/j.crma.2007.01.019.pdf) requires divisor-fiber nonconcentration that already forces more than q^gamma points at the full modulus. Neither applies to these logarithmic-length sets.
 Reopen only with a pi-specific signed short-prefix estimate retaining the cofactor, not a conjecture restating the missing sum. The explicit irrational beta=4/9+sum_(j≥3)10^(-j!−2) avoids both endpoints by ≥4/9. Its rational heads b_m=4/9+sum_(j!+2≤2m)10^(-j!−2)+239^(-K_m), K_m=2m−1+floor(log_239(2m−1)), have the same primitive 239 conductor at m=2T and vanishing transfer error. Their post-transient complete periods cancel, while direct digit-tail counting gives distinct-time correlations N+O((log T)^2) for fixed frequency uniformly over h≤T/4. This short-interval estimate does not assume the interval is post-transient. The control has infinite irrationality exponent and does not test hypotheses requiring a finite one. No new conjecture or further revision is retained from this round.
 
+2026-09-07 bounded mixed-period round (`proof sketch`, independently audited;
+finite checks `experiment`): coupling canonical representations can cancel
+first-order scalar errors, but none of the following three tested objects
+supplies a decimal-target estimate. These are scoped calculations, not new
+frontier rungs, a universal impossibility theorem, or a novelty claim.
+Use `M_n=16 sum_(k<n)(-1)^k/[(2k+1)5^(2k+1)]-4 sum_(k<n)(-1)^k/[(2k+1)239^(2k+1)]`.
+Its integral remainder is `e_n=pi-M_n=(-1)^n alpha_n`, where
+`alpha_n=16 int_0^(1/5)t^(2n)/(1+t^2)dt-4 int_0^(1/239)t^(2n)/(1+t^2)dt`
+is positive and `alpha_n asymp 25^(-n)/n` for `n>=1`.
+
+Direct/reciprocal secant. Put `t_j=(6j+1)choose(2j,j)^3/256^j`,
+`R_m=sum_(j<m)t_j`, and `tau_m=4/pi-R_m`; this is the classical independent
+reciprocal series in [Ramanujan, section 13, equation (28)](https://ramanujan.sirinudi.org/Volumes/published/ram06.html).
+For `n=4r+2`, `r>=0`, and `m>=2`, set `L=M_n`, `U=M_(n+1)` and
+`H=L+U-LU R_m/4`. Then, with `epsilon=pi-L`, `delta=U-pi`,
+`H-pi=epsilon*delta/pi+LU*tau_m/4>0`. Expanding the last term retains
+`pi^2*tau_m/4+pi*(delta-epsilon)*tau_m/4-epsilon*delta*tau_m/4`.
+Strongest retained: write the reduced fractions as `L=8u/B`, `U=4v/B'`,
+`R_m=C/2^d`, with `u,v,B,B',C` odd and `d=8(m-1)-3s_2(m-1)`.
+For `J=2^(d-1)(2uB'+vB)-uvC` and `g=gcd(J,BB')`, the fully reduced
+fraction is `H=(J/g)/(2^(d-3)BB'/g)`, so `v_2(den H)=d-3` exactly.
+Indeed each arctangent summand is `a^(-1) mod 4` for its odd base `a`,
+giving the indicated Machin valuations; `v_2(t_j)=3s_2(j)-8j` strictly
+decreases, so the last reciprocal summand fixes `d`, and `J` is odd.
+The exact ratio `t_(j+1)/t_j<1/4` gives `t_m<tau_m<(4/3)t_m`, with
+`t_m asymp 4^(-m)/sqrt(m)`. Thus `H-pi asymp 25^(-2n)/n^2+4^(-m)/sqrt(m)`.
+If `10^h H` is integral, even granting all odd-prime cancellation,
+`h>=d-3` and `10^h(H-pi)>(9/4)10^(d-3)t_m`, whose logarithm is
+`m(8 log 10-log 4)+O(log m)`: it diverges as `m->infinity`.
+Bounded `m` instead leaves a positive fixed reciprocal-tail lower bound.
+The control `x=4/3`, `L*=x-4/[(2n+1)5^(2n+1)]`,
+`U*=x+8/[(2n+3)5^(2n+3)]`, `R_m*=3-t_(m-1)` preserves the bracketing,
+tail orders, valuations and positive secant identity, while every decimal
+shift of `x` has distance `1/3` from the integers. Its `L*U*/4>1/3`,
+not the actual-pi constant `9/4`. It does not preserve the canonical seeds.
+Reopen only with independently controlled nonintegral numerator residues or
+another genuine arithmetic saving; a better scalar upper bound alone is
+not such input. The existing Frobenius proof sketch is neither used nor upgraded.
+
+Linear/quadratic tangent. Let `A_0=1,A_1=3,B_0=0,B_1=5` and
+`(n+1)^2 V_(n+1)=(11n^2+11n+3)V_n+n^2 V_(n-1)` for `n>=1`.
+The normalization `B_n/A_n->zeta(2)`, binomial formula for `A_n`, and
+error asymptotics follow from [Zagier, sections 4 and 6, equations (9)-(10)](https://people.mpim-bonn.mpg.de/zagier/files/tex/AperylikeRecEqs/fulltext.pdf).
+Write `M_r=a/b` and `6B_n/A_n=P/Q` both reduced. With
+`g=gcd(2abQ,Qa^2+Pb^2)`, `D=2abQ/g`, `N=(Qa^2+Pb^2)/g`,
+`C=b^2Q/g=D/(2M_r)`, one has the primitive identity
+`D*pi-N=C(f_n-e_r^2)`, `f_n=pi^2-P/Q`. It is the scalar Newton correction
+`N/D=(M_r^2+P/Q)/(2M_r)`, not by itself a mixed numerator theorem.
+Strongest retained: for `r=239^j`, `j>=1`, and `1<=n<=2r`,
+`v_239(b)=v_239(D)=2r-1` after the full gcd. To prove it, the last odd
+Machin index `2r-1` uniquely maximizes `k+v_239(k)`: if `v_239(k)=ell>=1`,
+then `k+ell<=2r-239^ell+ell<2r-1`; the other arctangent has valuation at least
+`-j`. Further, `(n!)^2 B_n` is integral, `0<A_n<=12^n`, and therefore
+`s=v_239(Q)<=n/119+n log_239(12)<n/2<=r`. Since `s<2(2r-1)`,
+the two summands in `Qa^2+Pb^2` have distinct valuations with minimum `s`,
+so `v_239(g)=s` and the claim follows. The positive integer `D` satisfies
+`D>=239^(2r-1)`; hence `C>D/8` and
+`C(|f_n|+e_r^2)>=C e_r^2 >> r^(-2)(239/25)^(2r)->infinity`.
+This uses the integer `D`, not an archimedean inference from the valuation
+of rational `C`. For odd `n` the two errors have the same sign and the
+actual cleared error diverges. For even `n`, a primitive error below one
+would require `|f_n/e_r^2-1| << r^2(25/239)^(2r)` on this family.
+Writing `alpha=(11+5sqrt(5))/2`, marginal matching occurs at
+`n=(log25/log alpha)r+(log r/log alpha)+O(1)`, eventually within `n<=2r`;
+matching those rates does not establish this exponential cross-error precision.
+Also `v_239(D/gcd(D,10^h))=2r-1` for every `h`, preventing literal
+rescaling of this primitive pair to coefficient `10^h`. This does not
+exclude nonzero small residues, other index families, or other combinations.
+The universal Newton identity and alternating marginal error orders also
+hold for rational enclosures of the avoiding
+`x=3+4/9+sum_(j>=0)10^(-2^j)` and its square; using grid points one extra
+mesh beyond floor/ceiling ensures two-sided comparable error sizes.
+Every tail of this `x` lies in `[4/9,5/9]`. This control does not reproduce
+the canonical recurrence or the primitive 239 law. Reopen this object only
+with an actual-pi cross-error/residue estimate, not leading-rate balancing.
+
+Additive/multiplicative relative defect, with `n,N>=1`. For the classical
+[Wallis product](https://www.diva-portal.org/smash/get/diva2%3A375184/FULLTEXT01.pdf)
+`W_N=2 product_(j=1)^N 4j^2/(4j^2-1)`, put
+`a_N=4N+1-2s_2(N)` and `D_N=(2N+1)(choose(2N,N)/2^s_2(N))^2`.
+Then `W_N=2^a_N/D_N` is reduced; in particular `W_1=8/3`.
+Strongest retained: for reduced `M_n=P_n/Q_n`, `sigma_n=2+v_2(n)`,
+and `a_N>sigma_n`, the numerator `K=P_n D_N-2^a_N Q_n` has
+`v_2(K)=sigma_n`, and
+`den(M_n/W_N-1)=2^(a_N-sigma_n) Q_n/gcd(Q_n,D_N)`.
+For completeness, the all-index Machin law follows from
+`u_b(k)=(-1)^k/[(2k+1)b^(2k+1)]`: for odd `b`, `u_b(k)=b^(-1) mod 4`
+and `u_b(k+2^r)-u_b(k)=2^(r+1) mod 2^(r+2)` for `r>=1`.
+Doubling blocks proves every block of length `2^r` is `2^r mod 2^(r+1)`;
+oddly many such blocks (single odd terms for `r=0`) give valuation `v_2(n)`.
+The two Machin contributions then have distinct valuations `4+v_2(n)` and
+`2+v_2(n)`. The gcd with odd `Q_n` is exactly `gcd(D_N,Q_n)`.
+The raw tail satisfies `1/(4N+4)<pi/W_N-1<1/(4N+1)`, so economical
+tracking at depth `h` requires `N=Theta(10^h)` and `n=Theta(h)`.
+The unavoidable dyadic denominator exponent is then `Theta(10^h)`,
+whereas `10^s|K` implies only `s<=2+v_2(n)=O(log h)`.
+The mixed update compatibility is an identity, and at any candidate `p/q`,
+`D_N(qP_n-pQ_n)-Q_n(q2^a_N-pD_N)=qK`: this elimination cancels `p`
+entirely. Retaining a comparison restores the missing sign problem.
+This neither constructs an avoider with the unchanged seeds nor rules out
+exceptional even-index error cancellation. No accelerated replacement was
+tested. Reopen only with a target-sensitive input beyond this raw defect.
+
+The [self-contained exact checker](../../../workflows/experiments/20260907_mixed_period_check.py)
+reproduces secant cross terms and full reductions, a matched control,
+original-product Wallis normalization and finite tail brackets, and primitive
+Newton identities including `r=239`. These finite checks are not proofs of
+the unbounded-index claims. All three bounded trials are paused; none proves
+E, CW0, CW9 or V1, and none justifies further local valuation refinements.
+
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
