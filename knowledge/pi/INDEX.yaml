@@ -1320,6 +1320,24 @@ closed_routes:
     reopening_condition: Needs:π-specific-hit-or-same-child-sign.
     source: knowledge/pi/workstreams/ATTEMPT_LEDGER.md#route-family-summary
 documents:
+  - id: square-digitsum-tail-translations
+    path: knowledge/pi/results/intermediate/20260907-square-digitsum-tail-translations.md
+    role: Independently reviewed proof sketch for all binary words via continuing integer-update full-tail translations; rational avoiding control and quantitative direct-pi-transfer failure; no Lean verification, pi or novelty claim.
+  - id: polynomial-feedback-digits
+    path: knowledge/pi/results/intermediate/20260907-polynomial-feedback-digits.md
+    role: Independently reviewed polynomial-feedback digit proof sketches and exact finite experiments; no Lean verification, pi or novelty claim.
+  - id: cfinite-digit-criterion
+    path: knowledge/pi/results/intermediate/20260907-cfinite-digit-criterion.md
+    role: Independently reviewed finite-recurrence digit criterion proof sketch; signed coefficients and cancellation allowed, no pi or novelty claim.
+  - id: filtered-pi-growing-cofactors
+    path: knowledge/pi/results/intermediate/20260907-filtered-pi-growing-cofactors.md
+    role: Independently reviewed growing-cofactor application to filtered pi/4 series; proof sketch, no transfer of digit occurrences to pi.
+  - id: full-pi-tail-correction
+    path: knowledge/pi/results/intermediate/20260907-full-pi-tail-correction.md
+    role: Reviewed proof sketch for actual-pi rational tail correction, denominator costs and avoiding control; no digit-distribution theorem.
+  - id: continuing-update-joint-control
+    path: knowledge/pi/results/intermediate/20260907-continuing-update-joint-control.md
+    role: Reviewed proof sketch of an irrational avoiding control with uniformly distributed head and tail; no positive digit criterion.
   - id: ramanujan-frobenius-review
     path: knowledge/pi/results/intermediate/20260906-ramanujan-frobenius-proof-sketch.md
     role: Reviewed exact-comparison proof sketch with global-comparison completions; no formal or digit conclusion.
@@ -1394,5 +1412,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6716
+  index_estimated_tokens: 6923
   generated_by: workflows/verification/build_knowledge.py
