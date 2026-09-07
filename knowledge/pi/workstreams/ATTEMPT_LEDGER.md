@@ -691,6 +691,58 @@ pi-specific estimates remain open.  Reopen the polynomial route only with a
 pi bound at the exponential-in-degree scale, a strictly smaller
 word-sensitive norm, and an actual exclusion or orientation mechanism.
 
+2026-09-07 simultaneous countercontrol strengthens only the preceding boundary
+(`proof sketch`, independently audited; no novelty or formal-verification claim).
+There is one transcendental `gamma` with all decimal digits after the point in
+`{4,5}`, irrationality exponent at most 7, and, simultaneously for every
+nonconstant integer polynomial of degree `D` and coefficient length `L(P)`,
+`abs(P(gamma)) >= exp(-200*D*(log(16*L(P))+D*log(2*D)))`.
+Thus every tail lies in `[4/9,5/9]`, despite satisfying the cited
+Nesterenko--Waldschmidt polynomial lower bounds for all degrees, including
+adaptively selected polynomials. This is not merely a fixed-degree comparison.
+
+Proof details retained for inspection: on
+`K=3+{sum_(r>=1)(4+epsilon_r)*10^(-r):epsilon_r in {0,1}}`, the equal-weight
+measure has `nu(B(z,r))<=8*r^s`, `s=log(2)/log(10)>0.3`.
+For `r<=1/2`, choose `10^(-m-1)<2*r<=10^(-m)`; at most two decimal cells
+give `2*2^(-m)<=2*20^s*r^s<8*r^s`; larger radii are trivial.
+Remove balls about every complex algebraic `alpha` of degree `d` and
+multiplicative Mahler measure `M`, of radius
+`exp(-100*d*(log(16*M)+d*log(2*d)))`.
+The shell `exp(m)<=M<exp(m+1)` contains at most
+`d*(2^(d+2)*exp(m+1))^(d+1)` centers, by the coefficient bound `2^d*M`.
+Its removed mass is at most `exp(-10*d^2-28*d*m-60*d)`:
+use `log(8*d)<=3*d^2`, `(d+1)*((d+2)*log(2)+1)<=7*d^2`,
+`d+1<=2*d`, `100*s>30`, `log(16)>2`, and `log(2)>2/3`.
+The double sum is below `10^(-30)`.
+Also remove rational balls of radius `q^(-7)` for `q>=10^40+1`;
+at most `4*q` centers meet K, and their total mass is at most
+`32*sum q^(-11/10)<=0.032`. The compact complement has positive measure;
+its minimum defines such a transcendental gamma, with exponent at most 7.
+This specifies a real number by existence, not a digit-computation algorithm.
+
+For primitive irreducible `Q` of degree `d>=2`, choose its root `alpha_1`
+nearest gamma. The nonzero integral discriminant gives
+`1<=abs(Q'(alpha_1))^2*2^((d-1)*(d-2))*M^(2*d-4)`;
+nearestness gives `abs(gamma-alpha_i)>=abs(alpha_i-alpha_1)/2`.
+Consequently `abs(Q(gamma))>=2^(-d*(d-1)/2)*M^(-(d-2))*abs(gamma-alpha_1)`.
+For `d=1`, use the algebraic-ball exclusion at every height directly:
+`Q=a*X+b`, `M=max(abs(a),abs(b))`, and
+`abs(Q(gamma))>=exp(-100*(log(16*M)+log(2)))`.
+The rational exclusions alone do not justify this for small denominators.
+Both cases imply
+`-log(abs(Q(gamma)))<=101*d*log(M)+100*d*log(16)+100*d^2*log(2*d)+(d^2/2)*log(2)`.
+Factor `P=c*product Q_i^e_i`. Multiplicativity and `M(P)<=L(P)` give
+`sum e_i*d_i*log(M(Q_i))<=D*log(L(P))` and
+`sum e_i*d_i^2*log(2*d_i)<=D^2*log(2*D)`, proving the stated bound.
+For `L>=max(3,L(P))`, its exponent magnitude is at most
+`1000*D*(log(L)+D*log(D))`, below the cited theorem's bound magnitude.
+The same gamma therefore works for all polynomial degrees, without a hidden
+degree-dependent onset. No decimal consequence for pi follows. The matched
+input is the scalar lower bound, not pi's defining exponential identity;
+stronger or differently structured uses of that identity are not excluded.
+The route remains paused under its preceding reopening condition.
+
 2026-09-05 BBP carry audit (`proof sketch`), first fatal line: avoidance implies eventual carry periodicity; with the known irrational seed, this is equivalent to P5, not a proved arithmetic bridge.
 Strongest retained: exact telescoping and the rational-telescoping pole obstruction (each pole class of R has one pole, whereas a rational 16f(z)-f(z+1) has two extreme poles).
 Reopen with a wrap-aware estimate using both the exact forcing and the distinguished rational seed; neither poles nor denominator growth supplies it.
