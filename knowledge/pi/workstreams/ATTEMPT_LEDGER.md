@@ -1275,10 +1275,78 @@ logarithmic coefficients, pi seed, signed six-cycle or recurrence for T_n.
 Reopen only with a new decimal-compatible ordered-numerator input or a
 proved decisive primitive cancellation with compatible full error; no
 extra unit powers, examples, or constant optimization is justified alone.
+The bounded primitive follow-up supplies two exact arithmetic facts and a
+subsequence tracking obstruction (`proof sketch`, independently audited).
+These concern the same sequence, not further units or parameter variants.
+First, for n>=2 and h=floor(log_3(2n)),
+
+    3^h T_n = (-1)^(h+1) Q_n (mod 3) in Z_(3),
+    v_3(T_n/Q_n)=-h.
+
+Indeed c_j lies in Z_(3)[s]. After multiplication by 3^h, only j=3^h
+and possibly j=2*3^h survive modulo 3. The latter has c_j=0, whereas
+`c_(3^h)=-4(-1)^h r^(3^h)` with positive logarithmic summand sign.
+In Z_(3)[s]/(3), s^2=0 and r=1-s, so r^(3^h)=1. Taking the trace
+after multiplication by epsilon^n proves the congruence. Finally
+`Q_n=2A_n`, where epsilon^n=A_n+B_n*s and A_n=2^n (mod 3), is a
+3-adic unit. Thus the fully reduced denominator of T_n/Q_n retains
+3^h: no exact multiplication by a power of 10 makes it integral.
+This polynomial-sized factor alone is not a global denominator estimate.
+
+Second, put W_n=2^n T_n, W_0=0, W_1=28. The exact recurrence is
+
+    W_(n+1)=8W_n-4W_(n-1)+F_n,
+    F_n=2U_n/(2n+1)-4V_(n-1)/(2n-1)+H_n/n,
+    U=(14,4,-10,10,-4,-14), V=(10,-4,-14,14,4,-10),
+    H=(0,-12,36,0,-36,12), with indices modulo 6.
+
+To check it algebraically, set Delta_n=S_(2n)-S_(2n-2). Then
+`T_(n+1)-4T_n+T_(n-1)=Tr(epsilon^(n+1)Delta_(n+1)-epsilon^(n-1)Delta_n)`.
+The matching even trace Tr(epsilon^n c_(2n)) vanishes. The remaining
+coefficients are exactly `U_j=4 Im Tr(epsilon(2+i*(-1)^j)a*zeta^j)`,
+`V_j=4 Im Tr((2+i*(-1)^j)a*zeta^j)` and
+`H_j=4(2+(-1)^j) Im Tr(epsilon^(-1)zeta^j)`; zeta^3=1 gives the arrays.
+All traces here flip s and fix i. Since v_2(F_n)>=2-floor(log_2 n),
+induction yields v_2(W_m)>=2-floor(log_2(m-1)) for m>=2.
+At n=2^k, k>=1, H_n is +/-36, and H_n/n has valuation 2-k,
+strictly below every other forcing and recurrence term. Hence, for N=2^k+1,
+
+    v_2(W_N)=2-k, v_2(T_N)=2-k-N,
+    v_2(den(T_N/Q_N))=N+k.
+
+Here Q_n is 4 modulo 8 for odd n (its recurrence modulo 8 has cycle
+2,4,6,4), so v_2(Q_N)=2. This is a subsequence statement, not the false
+all-index guess v_2(den(T_n))=n-2, already refuted by n=12.
+
+There is a full-error consequence independent of any odd cancellation.
+For N=2^k+1, k>=6, let x_N=T_N/Q_N. The signed-error bound above gives
+
+    |pi-x_N| > (2epsilon)^(-N)/(2N+1),
+    10^(N+k)|pi-x_N| > 10^k [10/(2epsilon)]^N/(2N+1) -> infinity.
+
+The least decimal preperiod of reduced x_N is
+`max(v_2(den x_N),v_5(den x_N))`, at least N+k: after j shifts the
+denominator is q/gcd(q,10^j), and pure periodicity starts precisely when
+it is coprime to 10. Its retained 3-factor ensures nontermination.
+But 2epsilon<8 and (5/4)^N>2N+1 for N>57 (the first three binomial
+terms suffice), so |pi-x_N|>10^(-N) for N>=65. The earlier upper error
+bound ensures x_N and pi both have integer part 3 there; they cannot
+share their first N fractional digits. Thus on this subsequence the
+periodic part starts beyond even the possible common-prefix window.
+This rules out that prefix-to-period transfer, not digit blocks of pi,
+all indices, or other ordered-numerator methods.
+
+The global primitive linear-form question is still unresolved. Writing
+T_n=u/v in lowest terms and g=gcd(u,Q_n) gives exactly
+`p=u/g`, `q=v Q_n/g`, and `q*pi-p=v E_n/g`; a lower bound on v
+does not bound g. Neither the 3-adic obstruction nor the subsequence
+tracking gap proves all primitive forms are large. Do not expand local
+valuations without an actual full-error/decimal-transfer improvement.
 The [exact checker](../../../workflows/experiments/20260908_pisot_conjugate_check.py)
-reconstructs 36 traces, coefficient and denominator caps, the six endpoint
-factors and rational Machin error enclosures. It is a finite experiment,
-not a proof of the asymptotic, digit occurrence or primitive cancellation.
+reconstructs 72 traces, coefficient and denominator caps, the endpoint and
+recurrence arrays, rational Machin error enclosures, primitive 3-valuations
+and the stated dyadic indices through 65. It is an `experiment`, not an
+all-index proof, formal verification, or pi-digit occurrence result.
 
 2026-09-07 bounded mixed-period round (`proof sketch`, independently audited;
 finite checks `experiment`): coupling canonical representations can cancel

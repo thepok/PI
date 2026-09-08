@@ -7,7 +7,7 @@ pi = 16 arctan(1/5) - 4 arctan(1/239) and exact alternating-series bounds.
 """
 
 from fractions import Fraction as F
-from math import lcm
+from math import gcd, lcm
 
 
 def q(a=0, b=0):
@@ -72,6 +72,20 @@ def atan_bounds(inv, terms=80):
     return min(partial, other), max(partial, other)
 
 
+def valuation(value, prime):
+    """Exact valuation of a nonzero rational; no floating logarithms."""
+    value = F(value)
+    assert value
+    num, den, result = abs(value.numerator), value.denominator, 0
+    while num % prime == 0:
+        num //= prime
+        result += 1
+    while den % prime == 0:
+        den //= prime
+        result -= 1
+    return result
+
+
 def main():
     one, imag_unit = (q(1), q()), (q(), q(1))
     eps = q(2, 1)
@@ -97,6 +111,18 @@ def main():
         zpow = cm(zpow, zeta)
     assert period == [4, -4, 8, 12, -12, -8]
 
+    # Recurrence coefficients, reconstructed from their defining traces.
+    us, vs, hs, zpow = [], [], [], one
+    for n in range(6):
+        odd = cm((q(2), q((-1) ** n)), cm(a, zpow))
+        us.append(4 * trace(qm(eps, odd[1]))[0])
+        vs.append(4 * trace(odd[1])[0])
+        hs.append(4 * (2 + (-1) ** n) * trace(qm(sigma(eps), zpow[1]))[0])
+        zpow = cm(zpow, zeta)
+    assert us == [14, 4, -10, 10, -4, -14]
+    assert vs == [10, -4, -14, 14, 4, -10]
+    assert hs == [0, -12, 36, 0, -36, 12]
+
     lo5, hi5 = atan_bounds(5)
     lo239, hi239 = atan_bounds(239)
     pi_lo, pi_hi = 16 * lo5 - 4 * hi239, 16 * hi5 - 4 * lo239
@@ -106,8 +132,8 @@ def main():
     sum_a = sum_b = (q(), q())
     ep, lcm_j = q(1), 1
     q_prev, q_now = 2, 4
-    samples = {}
-    for j in range(1, 73):
+    samples = {0: F(0)}
+    for j in range(1, 145):
         power_a, power_b = cm(power_a, a), cm(power_b, b)
         sign_over_j = F((-1) ** (j + 1), j)
         sum_a = ca(sum_a, cs(power_a, sign_over_j))
@@ -145,13 +171,43 @@ def main():
         assert max(abs(scale * e_lo - residue), abs(scale * e_hi - residue)) < remainder_bound
         samples[n] = t_n
 
+        if n >= 2:
+            h, power3 = 0, 1
+            while power3 * 3 <= 2 * n:
+                power3 *= 3
+                h += 1
+            assert valuation(t_n, 3) == valuation(t_n / q_n, 3) == -h
+            unit = power3 * t_n
+            assert unit.denominator % 3
+            assert (unit.numerator - (-1) ** (h + 1) * q_n * unit.denominator) % 3 == 0
+            m_n = d_n * t_n
+            g_n = gcd(m_n.numerator, d_n * int(q_n))
+            assert g_n % 3
+            assert (t_n / q_n).denominator == d_n * int(q_n) // g_n
+            index = n - 1
+            forcing = (2 * us[index % 6] / (2 * index + 1)
+                       - 4 * vs[(index - 1) % 6] / (2 * index - 1)
+                       + hs[index % 6] / index)
+            assert (2 ** n * t_n - 8 * 2 ** (n - 1) * samples[n - 1]
+                    + 4 * 2 ** (n - 2) * samples[n - 2]) == forcing
+            if index >= 2 and index & (index - 1) == 0:
+                k = index.bit_length() - 1
+                assert valuation(t_n, 2) == 2 - k - n
+                assert valuation(t_n / q_n, 2) == -n - k
+                if k >= 6:
+                    x_n = t_n / q_n
+                    assert F(3) < x_n < F(4)
+                    assert (pi_lo - x_n > F(1, 10 ** n)
+                            or x_n - pi_hi > F(1, 10 ** n))
+
     assert samples[2] == F(131, 3)
     assert samples[4] == F(256009, 420)
     assert samples[8] == F(68168981831, 576576)
     assert samples[12] == F(1964885998818327049, 85667662080)
-    print("PASS: 36 exact traces, coefficient/denominator caps, Pell clocks,")
-    print("six endpoint factors and rational Machin error enclosures.")
-    print("Finite experiment only; no pi digit occurrence or primitive-denominator claim.")
+    assert valuation(samples[12].denominator, 2) == 8
+    print("PASS: 72 exact traces, denominator caps, Pell clocks, endpoint/recurrence arrays,")
+    print("Machin enclosures, primitive 3-valuations and dyadic tracking checks through 65.")
+    print("Finite experiment only; no all-index proof or pi digit occurrence claim.")
 
 
 if __name__ == "__main__":
