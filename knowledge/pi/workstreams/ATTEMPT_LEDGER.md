@@ -396,6 +396,92 @@ B(1),B'(1)>0. Dividing by z-1 supplies no proved denominator saving or
 decimal-target estimate here. No novelty or Lean verification is claimed;
 this supporting calibration is not grounds for another filtered variant.
 
+2026-09-08 finite rational descent of Euler decimal branches (`proof sketch`,
+independently audited; Lindemann input `literature-checked`): the exact return
+`exp(2i*pi)=1` does not give an algebraic finite rational model of the decimal
+resets. This excludes the tested representation, not any pi digit language.
+Put `tau=exp(-2i)`, `Phi_d(u)=tau^d*u^10`, and
+`Gamma_d={exp(2ix):d/10<=x<(d+1)/10}`. On these branch domains the maps are
+exactly decimal shifting. With `a_0=3`, `a_N=10a_(N-1)+d_N`, the canonical
+pi seed is `u_0=tau^3`, and the ordered state is `u_N=tau^a_N`. For actual
+digits this equals `exp(2i(10^N*pi-a_N))`; the branch domains must not be
+dropped. For `r=||10^N*pi||`, its distance from `{1,tau^(-1)}` is `2 sin r`,
+between `(23/12)r` and `2r`. This exact target transfer is only a consumer.
+
+Strongest retained: for integer `b>=2` and nonzero complex `alpha,beta`, there exist
+nonconstant `h in C(z)` and `R,S in Qbar(z)` with
+`h(alpha*z^b)=R(h(z))`, `h(beta*z^b)=S(h(z))` if and only if
+`beta/alpha` is algebraic. This allows arbitrary finite degree and
+non-injective rational quotients, not just Mobius conjugation.
+To prove necessity, take `c^(b-1)=alpha`, `H(z)=h(z/c)` and `D=deg h`.
+Then `H(z^b)=R(H(z))`, `H((beta/alpha)z^b)=S(H(z))`, and `deg R=deg S=b`.
+Set `r=ceil(log_b(3D+2))` and `M=b^r-1>=3D+1`. Every root of `z^M=1`
+(not only primitive roots) is periodic under `z -> z^b`; its image under H
+is fixed by `R^r`, hence algebraic or infinity. Discarding at most D poles
+leaves at least `2D+1` finite algebraic samples `(zeta_j,H(zeta_j))`.
+The equations `P(zeta_j)-H(zeta_j)Q(zeta_j)=0`, with `deg P,deg Q<=D`,
+have a one-dimensional kernel: compare any solution with the reduced pair
+for H, use the `2D+1` zeros of their cross-product of degree at most `2D`,
+and then coprimality and `deg H=D`. Thus H has algebraic coefficients.
+Now `H(beta/alpha)=S(H(1))` is algebraic or infinity; a nonconstant rational
+map over Qbar has only algebraic preimages of such a point. Conversely,
+`h(z)=cz` makes the maps `z^b` and `(beta/alpha)z^b` algebraic when the
+ratio is algebraic. All identities and evaluations are on the projective line.
+
+Finite height budget: for a reduced homogeneous coefficient pair defining R,
+let `h_1` use the maximum of its two coefficient l1 norms at infinite places
+and the coefficient maximum at finite places, with normalized local weights.
+It is invariant under common scalar rescaling. Substitution of reduced
+homogeneous pairs creates no common zero, hence no common polynomial factor:
+a common zero would map under the inner morphism to a common zero of the
+outer pair. The local product estimates therefore give
+`h_1(R^r)<=M*h_1(R)/(b-1)`. The fixed-point polynomial has height at most
+`h_1(R^r)+log 2`, and the local root bound gives the same upper bound on
+each finite `height(H(zeta_j))`. Cofactors of the interpolation matrix then give
+
+```
+h_1(H) <= (2D+1)(M*h_1(R)/(b-1)+log 2)+log((2D+2)!).
+```
+
+Indeed each cofactor has at most `(2D+1)!` terms, each bounded at every
+place by `product_j max(1,|H(zeta_j)|)`. The triangle inequality costs the
+factorial only at infinite places. Roots of unity have local norm one everywhere.
+This is `O_b(D^2 h_1(R)+D log D)`, with no number-field-degree multiplier.
+The domain normalization H leaves the target R unchanged. No general claim
+that cancelling polynomial factors lowers coefficient height is used.
+
+For distinct `d,e in {0,...,9}`, the ratio of the branch multipliers is
+`tau^(e-d)=exp(-2i(e-d))`, transcendental by
+[Lindemann's theorem, as stated and proved in Popescu, Corollary 3.2](https://arxiv.org/html/2306.14352v2).
+Thus two branches have no common finite rational quotient over Qbar.
+Even making one branch algebraic cannot make the canonical seed algebraic:
+choose `c=exp(-2id/9)`, so `H in Qbar(z)` as above, but
+`h(tau^3)=H(exp(-2i(3+d/9)))` is finite and transcendental by the same
+theorem and the algebraic-fiber argument. For the usual nonempty-forbidden-word
+suffix automaton, every digit except the first digit of the forbidden word
+is an empty-state self-loop. Two such loops already rule out a model with
+one nonconstant rational coordinate per state and algebraic maps on every
+allowed transition. Equalities on the nonempty branch arcs suffice, since
+rational-function identities extend from an arc.
+
+Scope and reopening: the irrational control
+`theta=3+sum_(j>=1)(1+1_{j is a square})10^(-j)` has these same branch
+maps and domains and avoids both endpoints forever,
+but its state is `exp(2i*10^N*theta)*tau^(a_N(theta))`; it does NOT share
+the pi seed or period identity. The formal pi state `T^a_N` has coefficient
+height zero but function-field height `a_N=Theta(10^N)`. Reducing
+`Z[T,T^(-1)]` modulo an integer still leaves a polynomial parameter; further
+finite-ring specialization is possible, but no distinguished specialization
+encoding the complex phase has been supplied. This closes only the proposed
+simultaneous rational descent, including its finite-degree repair and the
+stated language-uniform state-coordinate model. It does not close all
+semiconjugacies, higher-dimensional/other representations, or constraints
+valid only along the actual pi trajectory. Reopen only with an independent
+arithmetic input outside this excluded model and a proved decimal transfer;
+larger quotient degree, better constants or endpoint recurrence in the
+renamed coordinate are not such inputs. No novelty, Lean verification,
+or progress on E/CW0/CW9/V1 is claimed.
+
 The positive-period row also covers the directed polygon tower
 `alpha_R=10^R*sin(pi/10^R)`.  It is an algebraic integer of degree
 `4*10^(R-1)`, generates the maximal real subfield of the corresponding
