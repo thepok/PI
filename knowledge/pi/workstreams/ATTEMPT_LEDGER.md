@@ -843,6 +843,96 @@ Reopen only with an independent estimate selecting the required paired parity at
 Strongest retained: their equation (3.13) gives A=(1-4z^2)^(-1/2), B=-2A arcsin(2z); B-pi A extends across z=-1/2, while sqrt(t)(B-beta A)(-1/2+t) tends to (pi-beta)/2. This distinction does not reduce decimal truncation height: choosing two distinct digits in {1,3,7,9} different from the first digit of w, the relabelled Thue--Morse number y=3+sum_j d_j 10^-j avoids w, while every truncation beta_n=P_n/10^n is reduced, has h(beta_n)=n log(10)+O(1), and the constant coefficient of (B-beta_n A)^j has exact denominator 10^(nj).
 Reopen only with a proved collective jet-lattice or other language-sensitive estimate preserving its analytic bounds uniformly in depth. The direct per-generator denominator saving fails; collective elimination is not ruled out. The source's reported unrestricted measure 15.086 gives no improvement over the existing pi bound and no digit occurrence; no new pi digit input is retained.
 
+2026-09-08 ordered joint-holonomy trial (`proof sketch`, coordinator-rederived
+and independently audited): the tested two-step connection and its three-step
+repair supply no independent decimal estimate. The repair retains genuine
+ordered pair interactions; their full remainder still tracks the scalar
+decimal remainder. This is a scoped result, not a general holonomy obstruction.
+
+Set F(t)=4 arctan t, G(t)=16 arctan(t/5)-4 arctan(t/239), f=F', g=G',
+delta=F-G, C(t)=integral_0^t Fg, K(t)=integral_0^t Cf, and
+A=C(1)-pi^2/2=integral_0^1 delta*g. The actual-pi normalization is
+F(0)=G(0)=0 and F(1)=G(1)=pi. For a=arctan(1/5),
+tan(2a)=5/12, tan(4a)=120/119 and tan(4a-arctan(1/239))=1;
+the real angle in (0,pi/2) fixes the Machin branch.
+
+For digits d_j in {0,...,9}, put h_j=d_j*10^(-j),
+beta_N=3+sum_(j=1)^N h_j, theta=lim beta_N, t_j=1-10^(-j),
+delta_j=delta(t_j), S_N=sum_(j=1)^N h_j delta_j. In dimension four use
+
+    X=E12+E34, Y=E23, Z=[X,Y]=E13-E24,
+    W=[X,Z]=-2E14, V=X+Y, U'=U(fX+gY), U(0)=I.
+
+Here [Y,Z]=0, W is central, and
+U=I+F E12+G E23+F E34+C E13+(FG-C)E24+K E14. Direct matrix logarithms give
+log U(1)=pi V+A Z+B W with B=pi^3/12-K(1)/2, and
+Ad_U V=V+delta Z+J W with J=F^2/2-C. Insert exp(-3V) initially and
+exp(-h_j V) at time t_j, preserving their chronological order. Equivalently,
+
+    P_N=exp(-3V) product_(j=1)^N exp[-h_j(V+delta_j Z+J(t_j)W)] U(1),
+    E_N=sum_(1<=i<j<=N) h_i h_j(delta_i-delta_j),
+    log P_N=(pi-beta_N)V+z_N Z+w_N W,
+    z_N=A-S_N,
+    w_N=B-sum_(j=1)^N h_j J(t_j)-E_N/2-beta_N A/2+(pi+3)S_N/2.
+
+All infinite sums converge absolutely. The E_N term comes from the central
+commutator of two pulled-back insertions; the initial insertion contributes
+3S_N/2. Thus it is retained, not replaced by a product of scalar errors.
+The two-step quotient has the same z_N and commuting pulled-back insertions.
+Uniformly over all digit sequences, z_infinity>26/891: indeed
+
+    f-g=80(11t^4-53954t^2+14579)/[(1+t^2)(25+t^2)(57121+t^2)].
+
+Its numerator changes sign once on [0,1], so delta>0 on (0,1).
+On [9/10,1], 3/4<g-f<6/5, giving
+(3/4)10^(-j)<=delta_j<=(6/5)10^(-j). Also g>3 on [0,1] and
+delta(t)>=(4/5)t-(4/3)t^3>=56/405 on [1/3,2/3]. Consequently
+A>56/405, S_infinity<=6/55, and z_infinity>26/891. For actual pi the
+first-level errors vanish in the limit, but the second-level remainder does
+not; exact scalar closure does not force P_infinity=I.
+
+The full-tail identity is the strongest retained calculation. Write
+r_N=theta-beta_N, R_N=S_infinity-S_N,
+E_tail=sum_(N<i<j)h_i h_j(delta_i-delta_j), and
+lambda_j=integral_(t_j)^1 f(s)(delta_j-delta(s))ds,
+Lambda_N=sum_(j>N)h_j lambda_j. Then
+
+    E_infinity-E_N=S_N r_N-(beta_N-3)R_N+E_tail,
+    J(t_j)+A-pi delta_j=-lambda_j,
+    w_infinity-w_N=(z_infinity/2)r_N+((theta-pi)/2)R_N
+                     +Lambda_N-E_tail/2.
+
+The middle identity follows from J'=F delta' and integration by parts;
+substitution into the exact w_N formula proves the last identity, including
+the old-prefix/new-tail cancellations. Since f<=4 and g-f<=6/5 near 1,
+0<=lambda_j<=(12/5)10^(-2j). Geometric summation gives
+0<=Lambda_N<=(4/185)10^(-3N) and
+0<=E_tail<=(2/185)10^(-3N), the latter using
+sum_(j>i)h_j<=10^(-i). For the actual digits of pi, theta=pi, hence
+
+    -(1/185)10^(-3N) <= w_infinity-w_N-(z_infinity/2)(pi-beta_N)
+                         <= (4/185)10^(-3N).
+
+Thus with c=z_infinity/2>13/891 and D_N=w_infinity-w_N,
+|10^N D_N-c{10^N pi}|<=(4/185)10^(-2N). Subsequence smallness
+D_N=o(10^(-N)), or c10^(-N)-D_N=o(10^(-N)), is exactly the respective
+unproved endpoint recurrence, not a new conjecture or a proved arithmetic input.
+
+The proposed monodromy input is unavailable: loop first-level coordinates
+belong to (4pi Z)^2, from the poles at +/-i, +/-5i and +/-239i. A nonzero
+rational insertion has coordinates (-h,-h), so is not itself a monodromy
+element. This does not prove that the full inserted product cannot
+coincidentally equal one, or that no other arithmetic constraint exists;
+monodromy restrictions simply have not been justified for these insertions.
+The irrational control theta=3+sum_j e_j10^(-j), with e_j=2 at squares and
+1 otherwise, keeps all decimal tails in [1/9,2/9]. It preserves the rational
+connection, seed, mesh and identities, but NOT theta=pi; its exact remainder
+keeps the (theta-pi)R_N/2 term, and R_N>=(1/132)10^(-2N). It is not a
+counterexample satisfying the full actual-pi hypothesis. Continue this object
+only with an independent arithmetic bound for its target-sensitive remainder;
+more insertion identities or merely higher nilpotent level are not such a
+bound. No novelty, Lean verification, E or word-occurrence result is claimed.
+
 2026-09-07 bounded collective-power calibration (`proof sketch`, coordinator-derived
 and independently audited): even the full generated power lattice is exactly
 unchanged by a forbidden word in the following degree range. This is a
