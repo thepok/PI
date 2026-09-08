@@ -944,6 +944,197 @@ and free high-degree block. Neither the singular-value bounds nor the safe
 clearing bound supplies it. No claim is made that an avoider preserves the
 canonical A,B seeds; no new digit input or novelty is claimed.
 
+2026-09-08 selected quadratic filtration (`proof sketch`, coordinator-derived,
+independently audited): the parameter weights of this classical logarithmic
+system can be halved asymptotically, but its errors remain first order.
+This is a scoped calibration within the preceding holonomy attempt, not a
+new frontier, novelty claim or formally verified result. Write
+
+    Q=1-4z^2, A=Q^(-1/2), T=-2 arcsin(2z), H_beta=A(T-beta),
+    G_beta=Q H_beta^2-beta^2=T^2-2 beta T,   G'_beta=-8 H_beta,
+
+with A(0)=1 and T(0)=0. The germs 1,H_pi,G_pi extend through the initial
+left endpoint z=-1/2 and have displayed parameter degrees 0,1,1, not 0,1,2.
+In fact 1,H_beta,G_beta are independent over Q(z) for every rational beta,
+including zero: a relation is a polynomial of degree at most two in T over
+C(z,A), and its quadratic, linear and constant coefficients successively
+vanish. Transcendence of T follows from the conic coordinate
+`w=sqrt(Q)+2iz`, where `z=(w-w^(-1))/(4i)`, `A=2/(w+w^(-1))` and
+`T=2i log w`; a loop around w=0 translates T by -4pi infinitely often.
+Thus evaluation of the rank-3(D+1) Laurent-polynomial source is injective.
+
+Strongest restricted classification: in
+`R=Q(z)[beta,T,A]/(Q A^2-1)`, retain the elements whose beta=pi specialization
+is single-valued meromorphic at the left endpoint. Every element is uniquely
+`P(beta,T)+A R(beta,T)`. The local involution `(A,T)->(-A,2pi-T)`,
+transcendence of T over C(z,A), independence of 1,A over C(z), and
+transcendence of pi over Q give the formal identities
+`P(beta,2beta-T)=P(beta,T)` and `R(beta,2beta-T)=-R(beta,T)`.
+Conversely these identities make the finite-principal-part Laurent series
+in sqrt(z+1/2) even, hence meromorphic in z. Even/odd polynomials in
+U=T-beta give uniquely
+
+    f=sum_j c_j(beta,z) G_beta^j + H_beta sum_j d_j(beta,z) G_beta^j,
+    deg_beta f=max_j{deg_beta c_j+j, deg_beta d_j+j+1}.
+
+Here c_j,d_j belong to Q(z)[beta]. At a maximal beta degree the different
+j have distinct leading T powers, so no cancellation lowers that degree.
+Consequently the Q(pi,z)-span of admissible specializations of degree <=nu
+is exactly `{G_pi^j:0<=j<=nu} union {H_pi G_pi^j:0<=j<nu}`, of rank
+2nu+1. The induced weights are 0,1,1,2,2,3,3,...; any selected rank m has
+mean weight `E>=floor(m^2/4)/m`. This describes this polynomial ring only,
+not all the spaces in [CDT, Theorem 2.6](https://arxiv.org/html/2510.04156v1).
+
+Coefficient costs are distinct from those parameter weights. Exactly,
+
+    [z^(2n+1)]G_beta=8 beta binom(2n,n)/(2n+1)  (n>=0),
+    [z^(2n)]G_beta=2*16^n/(n^2 binom(2n,n))    (n>=1).
+
+Put L_k=LCM(1,...,k), L_0=1. For beta=a/b reduced with b>0,
+`b L_k [z^k]H_beta` and `b L_k L_floor(k/2) [z^k]G_beta` are integers.
+For odd p, if a=v_p(n), l=floor(log_p(2n)), Legendre's sum gives
+`v_p binom(2n,n)<=l-a`: its first a summands vanish and each remaining
+one is at most one. Thus the even denominator's p-exponent is at most
+`a+l<=v_p(L_n L_2n)`; the power of 2 in the numerator clears the dyadic
+part. The safe row types are (0,0),(1,0),(1,1/2). CDT's *grouped* Theorem
+2.6 assigns one common type per parameter degree, giving tau=4/3 directly.
+The sharper tau=7/6 needs a per-function implementation of its proof.
+
+The explicit bookkeeping for that refinement is as follows. With
+`P_D=Z[z^(-1)]_(<=D)` and L=L_D, take the lattice
+`L^(-2)y_0 P_D direct_sum (b/L)y_1 P_D direct_sum b y_2 P_D`, evaluated
+at 1,H_beta,G_beta. Use canonical finite-place norms and the source's real
+Bost--Charles metric on the unscaled rows, multiplied by 1,beta_+,beta_+,
+where beta_+=max(1,|beta|). Its parameter cost is exactly
+`2(D+1)(log b+log beta_+)=2(D+1)h(beta)`.
+For the filtration by vanishing below z^(k-D), the sum of finite local
+evaluation heights is bounded by
+`log L_max(k,D)+log L_max(floor(k/2),D)`: the respective row clearings
+are L_D^2, L_D L_k and L_k L_floor(k/2). The underlying coefficient index
+is k-D+j<=k for 0<=j<=D; negative indices contribute zero. In the leading
+slopes accounting the finite cost is
+`D^2 integral_0^3[max(t,1)+max(t/2,1)]dt=(33/4)D^2`, less the source
+enlargement 3D^2, leaving `(21/4)D^2=(9/2)(7/6)D^2`.
+This checks the arithmetic cap, not the remaining analytic inequality or
+individual mixed ordinary/branch-jet slopes; the grouped theorem must not
+be cited unchanged as a theorem with tau=7/6.
+
+For alpha=log(rho^(-1))>0, kappa>0 and q=h(beta)/D>0, the relevant
+one-place objective is `F(q)=E m q+integral_0^m(alpha t-kappa q)^+ dt`.
+Direct minimization gives normalized infimum alpha when kappa<=E, and
+`alpha[1-(kappa-E)^2/kappa^2]` when kappa>E, with
+`q_*=m alpha(kappa-E)/kappa^2` only in the latter regime (E=0 allows
+the join with the constant branch). At m=3,E=2/3,kappa=1 the penalty is
+8alpha/9; at m>=4 in this ring no positive interior optimizer survives.
+This does not exclude boundary optimizers or other modules. Moreover, with
+delta=pi-beta and t=z+1/2,
+
+    H_beta-H_pi=delta A,   G_beta-G_pi=2 delta T,
+    G_beta=-pi^2+2pi delta-8delta sqrt(t)+16t+O(delta t^(3/2)+t^2).
+
+The bounded endpoint error is not holomorphic for delta!=0 and is not
+quadratic in delta. No forbidden-language estimate has entered these costs.
+
+The coordinator's full-cost check excludes the exponent-one inequality for
+this displayed rank-three system and the same map at **every** scale,
+even granting the sharper arithmetic cap. Put
+`phi_lambda(z)=-cos(sqrt(pi^2/4+2pi lambda z))/2`, lambda>0,
+Lambda=log lambda, and c=log(8/pi)>0. Then phi_lambda'(0)=lambda and
+`A(phi_lambda(z))=1/sin(sqrt(pi^2/4+2pi lambda z))` as initial germs.
+At `z_0=-pi/(8lambda)` this has a genuine inverse-square-root singularity.
+The displayed coefficient -A of beta in H_beta therefore forces the common
+coefficient radius `rho<=min(1,pi/(8lambda))`, or
+`alpha>=max(0,Lambda+c)`. Cancellation in H_pi does not cancel the separate
+coefficient singularity required by the source's radius condition.
+
+For any holomorphic phi near the closed unit disc with phi(0)=0 and
+phi'(0)!=0, Jensen applied first to phi(z)-phi(w), then to phi(w)/w,
+gives `C_phi=integral_(T^2)log|phi(z)-phi(w)| >= log|phi'(0)|`.
+Boundary zeros are logarithmically integrable; the inner integral is bounded
+below by log|phi(w)| outside finitely many exceptional w, and the integrand's
+positive part is uniformly bounded. Its negative part is then jointly integrable, justifying
+the iterated integral without a univalence assumption. In particular
+C_phi_lambda>=Lambda. The rank-three kappa=1 contradiction would require
+`3(Lambda-tau-8alpha/9)>C_phi_lambda`, with a positive parenthesis.
+For Lambda<=tau positivity already fails. For Lambda>tau, tau=7/6,
+
+    3(Lambda-tau-8alpha/9)
+      <= Lambda/3-3tau-(8/3)c < Lambda <= C_phi_lambda.
+
+Thus no numerical choice of lambda repairs this calculation. This is an
+exact analytic scale comparison, independently audited, not a numerical
+search or a closure of different maps, representations or filtered modules.
+
+Reduced decimal height correction (`proof sketch`, coordinator-derived and
+independently audited): put a_n=floor(10^n x), d_n=a_n-10a_(n-1),
+g_n=gcd(a_n,10^n), for x>=0 with infinitely many nonzero canonical digits.
+**Among any three consecutive nonzero positions, at least one has g_n<=25.**
+The positions need not be adjacent: intervening digits are zero. At a
+nonzero digit g_n contains at most one of 2,5. Hence g_n>25 implies type 2
+(`v_2(a_n)>=5`, even digit) or type 5 (`v_5(a_n)>=3`, digit 5).
+If successive nonzero positions have gap r, then a_next=10^r a+d_next;
+a high prime cannot repeat, since v_2(d_next)<=3 and v_5(d_next)<=1.
+Three high positions would therefore have types 2,5,2 or 5,2,5.
+For gaps r,s their last prefix is
+`10^(r+s)a_first+10^s d_middle+d_last`. In case 2,5,2,
+`v_2(5*10^s+d_last)<=4`: the maxima at s=1,2,3 are 3,3,4, and for
+s>=4 the valuation equals v_2(d_last)<=3. In case 5,2,5,
+`v_5(d_middle*10^s+5)<=2`: at s=1 use 5(2d_middle+1), and at s>=2
+the valuation is exactly one. The first term has strictly larger valuation
+in each case, contradicting the last high type. This proves the lemma.
+
+Apply it *conditionally* under failure of E for actual pi, so eventually
+`x_n={10^n*pi} in [eta,1-eta]` for some eta>0. Choose R with 10^(-R)<eta.
+There cannot be R consecutive zeros after that onset. Each block of 3R
+positions contains three consecutive nonzero positions and hence a good
+g_n<=25 index: these indices are syndetic (bounded gaps). For the reduced
+beta_n=a_n/10^n in (3,4), exactly
+
+    h(beta_n)=n log 10-log g_n+log beta_n,
+    kappa_n=-log(pi-beta_n)/h(beta_n)
+           =(n log 10-log x_n)/(n log 10-log g_n+log beta_n).
+
+On the selected indices all correction terms are O(1), so
+`h(beta_n)=n log 10+O(1)` and `kappa_n=1+O(1/n)`. This repairs the
+height calibration on a syndetic subsequence, not at all indices, and
+does not improve the exponent. The irrational control
+`x=3+sum_j d_j 10^(-j)`, with d_j=2 at positive squares and 1 elsewhere,
+has every shift in [1/9,2/9] and satisfies the same conclusion while avoiding
+0. Its digits are not eventually periodic: a sufficiently large square
+and that square plus any proposed period lie before the next square.
+Thus the height lemma alone supplies no pi-specific digit information.
+
+One enlargement checks the exact scope of the polynomial rank restriction
+(`proof sketch`, coordinator-derived and independently audited):
+`K_beta(z)=integral_0^z H_beta(t)/(1-t) dt` is another beta-linear holonomic
+function regular on the initial left branch, independent of 1,H_pi,G_pi
+over Q(pi,z). Indeed every continued branch at z=1 has H_pi(1)!=0:
+the values of arcsin(2) are `k*pi+(-1)^k(pi/2-i*ell)`,
+ell=log(2+sqrt(3))>0. Thus K_pi has the nonzero logarithmic term
+`-H_pi(1)log(1-z)`, unlike any rational combination of the other three.
+Writing K_beta=K_B-beta K_A, its coefficients obey
+`k K_A[k]=sum_(j<k) A_j` and `k K_B[k]=sum_(j<k) B_j`, so their
+common clearing through D is at most L_D^2, with only one extra factor b.
+
+But this candidate cannot retain the same arbitrarily enlarged entire map.
+The specialization of [CDT, Lemma 3.2](https://arxiv.org/html/2510.04156v1)
+is `phi(s)=-cos(sqrt(pi^2/4+2pi s))/2`, an entire function with
+phi(0)=0, phi'(0)=1. With v=sqrt(pi^2/4+2pi s) near v=pi/2, one has
+`A(phi)=1/sin v`, `T(phi)=pi-2v`, `H_pi(phi) phi'=-pi`, and
+`G_pi(phi(s))=8pi s`. Hence `(K_pi o phi)'=-pi/(1-phi)`.
+At `s_*=3pi/8-ell^2/(2pi)+i ell` one has phi(s_*)=1 and
+`phi'(s_*)=pi sin(pi+i ell)/(2(pi+i ell))!=0`. The derivative therefore
+has residue pi/phi'(s_*)!=0, impossible for the derivative of a meromorphic
+function. Thus `K_pi(phi(R^2 z))` is not meromorphic on the open unit disc
+when R^2>|s_*|; equality puts this obstruction on the boundary only.
+This excludes this one enlargement with this map, not other holonomic
+functions, maps or selected arithmetic modules. No kernel/rank family is
+being opened. Reopen only with an independently proved target-sensitive
+estimate or compatible decisive analytic/arithmetic saving beyond these
+calibrations. The [exact checker](../../../workflows/experiments/20260908_filtered_height_check.py)
+reproduces the coefficient, clearing and prime-valuation arithmetic (`experiment`);
+it does not prove the all-index or analytic assertions above.
+
 2026-09-07 Salikhov decimal-bridge investigation (`proof sketch`; finite diagnostics `experiment`): neither generic short integer combinations nor binary numerator divisibility supplies E; the current arithmetic is held pending target-specific input, not discarded or declared universally unusable.
 Strongest retained: for a rank-two lattice generated by (A_i,B_i), with S dividing every A_i, M=max|B_i| and epsilon=max|A_i+B_i*pi|, write g=gcd(B_i), Delta=gcd of the absolute nonzero minors and h=Delta/g. Its horizontal spacing is h, with S dividing h and g*S<=Delta<=2*M*epsilon; every nonzero horizontal combination has coefficient l1 norm at least h/epsilon. Thus a generic Bezout scale M/g cannot certify o(S/epsilon), although special decimal targets are not excluded. Separately, for each r the r-digit word W_r in {1,2} with W_r=3 mod 2^r exists uniquely by choosing successive digits from the right; 3+W_r/(10^r-1) has reduced numerator divisible by 2^r but every decimal shift lies in [1/9,2/9]. This is a family of rational separators for the numerator premise alone, not a replacement satisfying all Salikhov error identities.
 Reopen with a proved affordable combination whose second coordinate is S*10^m (and whose divided error tends to zero), or an actual-pi ordered-coset estimate in the transferable window. A nondecimal prime in gcd(B_i) obstructs that literal coordinate target; it does not by itself rule out cancellation in both final coordinates. No finite gcd table, arbitrary lattice saturation, or fixed-modulus sign law proves the missing assertion.
