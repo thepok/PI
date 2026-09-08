@@ -1206,6 +1206,80 @@ only. No new pi-digit assertion, universal carry obstruction or novelty
 claim is made. Separately, E is reflection-invariant: endpoint proximity,
 not a choice between the two endpoints, is the missing input for E alone.
 
+2026-09-08 fixed-quadratic conjugate test (`proof sketch`, independently
+audited; exact finite checks `experiment`): two logarithmic representations
+of actual pi can be balanced across their conjugate embeddings, but the
+displayed canonical integer clearing loses the resulting exponential decay.
+The primary starting identities are the two psi formulas in
+[Kristensen--Mathiasen, sections 2 and 4](https://arxiv.org/pdf/2208.07696),
+with psi=1+sqrt(3); their section 5 explicitly leaves digital information open.
+No novelty or irrational-base-to-decimal transfer is claimed here.
+
+Put s=sqrt(3), epsilon=2+s, r=(s-1)/2, t=(s+1)/2,
+`a=(s-1+i*(3-s))/4`, b=i*a, and let sigma flip s while fixing i.
+For `P_N(z)=sum_(j=1)^N (-1)^(j+1) z^j/j`, define
+
+    S_N=4 Im(2P_N(a)+P_N(b)),
+    T_n=epsilon^n S_(2n)+epsilon^(-n) sigma(S_(2n)),
+    Q_n=epsilon^n+epsilon^(-n), E_n=Q_n*pi-T_n.
+
+The principal arguments of 1+a, 1+b, 1+sigma(a), 1+sigma(b) are
+pi/12, pi/12, 5pi/12, -7pi/12. Thus the corresponding logarithmic
+combination has value pi in BOTH embeddings. The finite conjugate series
+does not converge: its argument modulus is t>1. Instead use the exact
+segment remainder `log(1+z)-P_N(z)=(-1)^N z^(N+1) int_0^1 u^N/(1+uz)du`;
+none of the four segments crosses the logarithm's cut.
+Since epsilon*r^2=t^2/epsilon=1/2, T_n is rational and
+`|E_n|<18*2^(-n)/n` for n>=1. Q_n is an integer with Q_0=2, Q_1=4,
+`Q_(n+2)=4Q_(n+1)-Q_n`; its residues modulo 5 repeat 2,4,4, so these
+are not themselves decimal powers. This does not exclude rational rescaling
+or cancellation in a reduced approximant.
+
+Here is the all-index arithmetic cap, not a reduced-denominator estimate.
+For zeta=(-1+i*s)/2, `a^2=zeta/(2epsilon)` and zeta^3=1.
+Writing `c_j=4 Im((2+i^j)a^j)` gives
+`c_(2k) in 2^(1-k) Z[s]` and `c_(2k+1) in 2^(-k) Z[s]`:
+use Im(zeta^k) in {0,s/2,-s/2} and the three integral values of
+4a*zeta^k in Z[s,i]. Hence, with L_m=lcm(1,...,m),
+`2^(n-1)L_(2n) S_(2n) in Z[s]`. Trace parity even gives
+`2^(n-2)L_(2n) T_n in Z` for n>=2; T_1=14. In particular
+`D_n=2^n L_(2n)` is a valid canonical clearing for every n>=1.
+
+Strongest retained full-error calculation:
+
+    E_n=2^(-n) [C_(n mod 6)/(2n+1)+rho_n],
+    (C_0,...,C_5)=(4,-4,8,12,-12,-8),
+    |rho_n|<144/((2n+1)(2n+2)).
+
+Indeed g_z(u)=1/(1+uz) has |g'_z(u)|<6 on all four segments;
+one integration by parts gives the endpoint term with error at most
+`6 |z|^(2n+1)/((2n+1)(2n+2))`. Weighting and summing gives the stated
+bound since r+t=s<2. The endpoint factors are
+`a/(1+a)=(3-s)(1+i)/6` and `b/(1+b)=(s-1)(-1+i)/2`.
+Taking `4 Im Tr_(Q(s,i)/Q(i))[zeta^n (2a/(1+a)+(-1)^n b/(1+b))]`
+gives the six displayed nonzero coefficients exactly. Thus for n>=36,
+`|D_n E_n|>2*4^n/(2n+1)^2`: each prime valuation of choose(2n,n)
+is at most floor(log_p(2n)), so choose(2n,n) divides L_(2n), and
+choose(2n,n)>=4^n/(2n+1). The canonical cleared error therefore grows
+exponentially, not merely according to an unsuccessful upper bound.
+This conclusion covers this D_n (and its constant-factor refinement), not
+optimal reduced denominators or arbitrary combinations.
+
+The coarse denominator/error data themselves remain insufficient. The
+irrational alpha with decimal digits 2 at positive squares and 1 elsewhere
+has every shifted fractional part in [1/9,2/9]. Taking
+`R_n=nearest_integer(D_n Q_n alpha)/D_n` gives
+`|Q_n alpha-R_n|<=1/(2D_n)<=2^(-n)/n`.
+This control retains only the displayed coarse data, NOT the exact
+logarithmic coefficients, pi seed, signed six-cycle or recurrence for T_n.
+Reopen only with a new decimal-compatible ordered-numerator input or a
+proved decisive primitive cancellation with compatible full error; no
+extra unit powers, examples, or constant optimization is justified alone.
+The [exact checker](../../../workflows/experiments/20260908_pisot_conjugate_check.py)
+reconstructs 36 traces, coefficient and denominator caps, the six endpoint
+factors and rational Machin error enclosures. It is a finite experiment,
+not a proof of the asymptotic, digit occurrence or primitive cancellation.
+
 2026-09-07 bounded mixed-period round (`proof sketch`, independently audited;
 finite checks `experiment`): coupling canonical representations can cancel
 first-order scalar errors, but none of the following three tested objects
