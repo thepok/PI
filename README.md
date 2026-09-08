@@ -4,7 +4,8 @@
 
 Nobody knows. It is not even known whether the digit 7 appears infinitely
 often. This repository is a research program on exactly that question, with
-every result machine-checked in Lean 4, and it carries a standing prize:
+a Lean 4 machine-checked core, separately labelled proof sketches and
+experiments, and a standing prize:
 
 > ## 💰 USD 10,000 for a Lean proof
 >
@@ -30,15 +31,19 @@ have to prove to get past them.
 
 ## Why this is hard
 
-Every property of π that has ever been proved (irrationality, transcendence,
-the irrationality-exponent bound 7.1032…, the BBP digit-extraction formula,
-Machin-type identities) is also satisfied by numbers whose decimal expansion
-*avoids* a chosen digit string entirely. Such numbers exist in abundance:
-badly approximable, transcendental, and living inside every deleted-digit
-Cantor set. Any proof of V1 therefore needs an input that those numbers do not
-have, and no such input is known. The program here makes that wall explicit,
-theorem by theorem, and reduces the problem to a single named question about
-the intersection of two well-studied sets of real numbers.
+Several coarse properties of π—irrationality, transcendence, and finite
+irrationality-exponent upper bounds—are compatible with avoiding a prescribed
+decimal word. The [separator theorem](knowledge/pi/results/intermediate/20260902-diophantine-separator-theorems.md)
+(`proof sketch`) gives badly approximable transcendental word-avoiders with
+irrationality exponent 2; it states the precise scope of this comparison.
+
+This does **not** mean another number satisfies π's fixed BBP series or fixed
+Machin identity: those uniquely specify their value. The missing step is to
+deduce unbounded decimal word occurrences from the actual coefficients and
+canonical data of π, not merely from a representation's existence or coarse
+approximation bounds. The [research map](FRONTIER.md) records the open target
+ladder and the inputs still missing from the investigated routes. These scoped
+limitations are not a theorem that every arithmetic approach must fail.
 
 ## What is inside
 
