@@ -360,6 +360,42 @@ Reopen only with a numerator-language-sensitive G-function theorem excluding
 an entire prescribed-word survivor language, not another restricted-denominator
 or repetition estimate.
 
+2026-09-08 function/value calibration (`proof sketch`, coordinator-derived
+and independently audited; not a new route or a digit result). Put
+
+    A(z)=4 arctan z,
+    B(z)=sum_(n>=0)(6n+1)binom(2n,n)^3 (z/256)^n.
+
+These are rational-coefficient G-functions: the coefficient denominators are
+cleared respectively by lcm(1,...,N) and 256^N, coefficient sizes have
+exponential bounds, and arctangent and the displayed hypergeometric series
+are D-finite. The coefficient ratio of B tends to 1/4, so B is holomorphic
+on |z|<4. [Ramanujan, section 13, equation (28)](https://ramanujan.sirinudi.org/Volumes/published/ram06.html)
+gives B(1)=4/pi (`literature-checked` identity), whereas A(1)=pi. Thus
+A(1)B(1)=4 at a point where both selected analytic branches are regular.
+
+Nevertheless A and B are algebraically independent over Qbar(z). Suppose
+P(z,A,B)=sum_j R_j(z,B)A^j=0 for nonzero P in Qbar[z,X,Y], after clearing
+denominators. A positive loop about i, avoiding -i and staying in |z|<4,
+changes A=(2/i)(log(1+iz)-log(1-iz)) by 4pi and fixes B. Continue the zero
+germ around this loop h times. For every z in a common neighborhood of 1,
+the polynomial sum_j R_j(z,B(z))X^j has the infinitely many distinct roots
+A(z)+4pi h; all its coefficients therefore vanish. At least one R_j is a
+nonzero polynomial. Divide its coefficients by their maximal common power
+of z-1. The resulting relation still vanishes, and evaluation at 1 gives
+a nonzero polynomial over Qbar for 4/pi, contradicting transcendence of pi.
+
+This separates functional independence from independence of specialized
+values; it does not preclude a future joint arithmetic constraint. The
+function-level Lucas/Frobenius criteria of
+[Adamczewski--Bell--Delaygue, introduction and Theorem 4.1](https://arxiv.org/pdf/1603.04187)
+are not numerical-specialization theorems. Their additional prime-local
+hypotheses are not asserted for this pair, and no theorem of that paper is
+being refuted. Also AB-4 has only a simple zero at 1, since A'(1)=2 and
+B(1),B'(1)>0. Dividing by z-1 supplies no proved denominator saving or
+decimal-target estimate here. No novelty or Lean verification is claimed;
+this supporting calibration is not grounds for another filtered variant.
+
 The positive-period row also covers the directed polygon tower
 `alpha_R=10^R*sin(pi/10^R)`.  It is an algebraic integer of degree
 `4*10^(R-1)`, generates the maximal real subfield of the corresponding
