@@ -4,7 +4,8 @@
 
 Nobody knows. It is not even known whether the digit 7 appears infinitely
 often. This repository is a research program on exactly that question, with
-every result machine-checked in Lean 4, and it carries a standing prize:
+a Lean 4 verified core and separately labelled literature reviews, proof
+sketches, and experiments. It carries a standing prize:
 
 > ## 💰 USD 10,000 for a Lean proof
 >
@@ -30,21 +31,25 @@ have to prove to get past them.
 
 ## Why this is hard
 
-Every property of π that has ever been proved (irrationality, transcendence,
-the irrationality-exponent bound 7.1032…, the BBP digit-extraction formula,
-Machin-type identities) is also satisfied by numbers whose decimal expansion
-*avoids* a chosen digit string entirely. Such numbers exist in abundance:
-badly approximable, transcendental, and living inside every deleted-digit
-Cantor set. Any proof of V1 therefore needs an input that those numbers do not
-have, and no such input is known. The program here makes that wall explicit,
-theorem by theorem, and reduces the problem to a single named question about
-the intersection of two well-studied sets of real numbers.
+Irrationality, transcendence, and finite irrationality-exponent bounds do not
+force decimal word occurrence. Even an irrationality exponent of exactly two
+is compatible with a decimal expansion using only 0 and 1. The exact BBP
+series and Machin identities identify π, but their known uses here do not
+supply the prescribed-target estimates needed for V1. See the
+[source review and explicit separator](knowledge/pi/workstreams/OPENAI_MATH_RELEVANCE_2026-10-16.md)
+for the distinction and the new exponent-two claim in `openai/math`.
+
+Every proposed route must identify information that distinguishes π from a
+suitable word-avoiding replacement and yields a prescribed target hit. The
+program makes that requirement explicit and studies both the remaining
+π-specific estimates and the intersection problems behind its separators.
 
 ## What is inside
 
 | Where | What |
 | --- | --- |
 | [`FRONTIER.md`](FRONTIER.md) | The research map: target ladder, the first open lemma, admission tests for new ideas. |
+| [`openai/math` source review](knowledge/pi/workstreams/OPENAI_MATH_RELEVANCE_2026-10-16.md) | Pinned external results, exact conditional adapters, reusable Lean lemmas, and verification limits. |
 | [`TheoryLib/`](TheoryLib/) + [`audit/AxiomAudit.lean`](audit/AxiomAudit.lean) | The verified Lean core. Every theorem behind a research claim is registered in the audit. |
 | [`knowledge/pi/workstreams/`](knowledge/pi/workstreams/) | Target specification, named open problems, the attempt ledger (what was tried, why it died, what would reopen it). |
 | [`knowledge/pi/results/`](knowledge/pi/results/) | Machine-checked, intermediate, and negative results. |
