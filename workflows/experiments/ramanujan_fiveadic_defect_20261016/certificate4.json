@@ -1,0 +1,43 @@
+{
+  "output_precision_exponent": 4,
+  "raw_forcing_precision_exponent": 7,
+  "H_coefficients_mod_raw": [
+    1,
+    3030,
+    59200,
+    38000,
+    7500,
+    47500,
+    50000,
+    46875
+  ],
+  "B_coefficients_mod_raw": [
+    77005,
+    49380,
+    47225,
+    2375,
+    0,
+    3125
+  ],
+  "forcing_coefficients_mod_output": [
+    616,
+    121,
+    42,
+    16,
+    150,
+    300,
+    150
+  ],
+  "P_coefficients_mod_output": [
+    512,
+    100,
+    550,
+    425
+  ],
+  "quadratic_remainder_coefficients_mod_output": [],
+  "forcing_degree": 6,
+  "P_degree": 3,
+  "P_mod_25": [
+    12
+  ]
+}

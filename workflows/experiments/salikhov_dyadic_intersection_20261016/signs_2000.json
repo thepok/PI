@@ -1,0 +1,687 @@
+{
+  "label": "experiment",
+  "max_n": 2000,
+  "pi_interval_bits": 48128,
+  "pi_interval_halfwidth_scaled": 177976,
+  "family_members": 46,
+  "zero_class_members": 34,
+  "zero_class_positive": 14,
+  "zero_class_negative": 20,
+  "all_signs_certified_by_integer_intervals": true,
+  "all_local_pairs_match_exact_rational_recurrence": true,
+  "all_reduced_numerator_bounds_pass": true,
+  "blocks": [
+    {
+      "k": 2,
+      "population": 1,
+      "complete_block": true,
+      "zero_class": 0,
+      "zero_class_positive": 0,
+      "zero_class_negative": 0
+    },
+    {
+      "k": 3,
+      "population": 2,
+      "complete_block": true,
+      "zero_class": 1,
+      "zero_class_positive": 1,
+      "zero_class_negative": 0
+    },
+    {
+      "k": 4,
+      "population": 4,
+      "complete_block": true,
+      "zero_class": 3,
+      "zero_class_positive": 1,
+      "zero_class_negative": 2
+    },
+    {
+      "k": 5,
+      "population": 8,
+      "complete_block": true,
+      "zero_class": 5,
+      "zero_class_positive": 3,
+      "zero_class_negative": 2
+    },
+    {
+      "k": 6,
+      "population": 16,
+      "complete_block": true,
+      "zero_class": 14,
+      "zero_class_positive": 5,
+      "zero_class_negative": 9
+    },
+    {
+      "k": 7,
+      "population": 8,
+      "complete_block": false,
+      "zero_class": 7,
+      "zero_class_positive": 3,
+      "zero_class_negative": 4
+    },
+    {
+      "k": 8,
+      "population": 4,
+      "complete_block": false,
+      "zero_class": 2,
+      "zero_class_positive": 0,
+      "zero_class_negative": 2
+    },
+    {
+      "k": 9,
+      "population": 2,
+      "complete_block": false,
+      "zero_class": 1,
+      "zero_class_positive": 0,
+      "zero_class_negative": 1
+    },
+    {
+      "k": 10,
+      "population": 1,
+      "complete_block": false,
+      "zero_class": 1,
+      "zero_class_positive": 1,
+      "zero_class_negative": 0
+    }
+  ],
+  "instances": [
+    {
+      "n": 4,
+      "k": 2,
+      "m": 1,
+      "local_pair": [
+        3,
+        2
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 10,
+      "proved_lower_bound": 3,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 8,
+      "k": 3,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 22,
+      "proved_lower_bound": 9,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 16,
+      "k": 4,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 37,
+      "proved_lower_bound": 23,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 24,
+      "k": 3,
+      "m": 3,
+      "local_pair": [
+        2,
+        3
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 52,
+      "proved_lower_bound": 39,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 32,
+      "k": 5,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 70,
+      "proved_lower_bound": 53,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 48,
+      "k": 4,
+      "m": 3,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 100,
+      "proved_lower_bound": 85,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 64,
+      "k": 6,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 135,
+      "proved_lower_bound": 115,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 80,
+      "k": 4,
+      "m": 5,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 162,
+      "proved_lower_bound": 147,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 96,
+      "k": 5,
+      "m": 3,
+      "local_pair": [
+        4,
+        1
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 197,
+      "proved_lower_bound": 179,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 112,
+      "k": 4,
+      "m": 7,
+      "local_pair": [
+        2,
+        3
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 226,
+      "proved_lower_bound": 211,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 128,
+      "k": 7,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 264,
+      "proved_lower_bound": 241,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 160,
+      "k": 5,
+      "m": 5,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 323,
+      "proved_lower_bound": 305,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 192,
+      "k": 6,
+      "m": 3,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 390,
+      "proved_lower_bound": 369,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 224,
+      "k": 5,
+      "m": 7,
+      "local_pair": [
+        2,
+        2
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 451,
+      "proved_lower_bound": 433,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 256,
+      "k": 8,
+      "m": 1,
+      "local_pair": [
+        4,
+        1
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 521,
+      "proved_lower_bound": 495,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 288,
+      "k": 5,
+      "m": 9,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 579,
+      "proved_lower_bound": 559,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 320,
+      "k": 6,
+      "m": 5,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 644,
+      "proved_lower_bound": 623,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 352,
+      "k": 5,
+      "m": 11,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 708,
+      "proved_lower_bound": 687,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 384,
+      "k": 7,
+      "m": 3,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 775,
+      "proved_lower_bound": 751,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 416,
+      "k": 5,
+      "m": 13,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 834,
+      "proved_lower_bound": 815,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 448,
+      "k": 6,
+      "m": 7,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 900,
+      "proved_lower_bound": 879,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 480,
+      "k": 5,
+      "m": 15,
+      "local_pair": [
+        4,
+        1
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 961,
+      "proved_lower_bound": 943,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 512,
+      "k": 9,
+      "m": 1,
+      "local_pair": [
+        2,
+        3
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 1034,
+      "proved_lower_bound": 1005,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 576,
+      "k": 6,
+      "m": 9,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 1156,
+      "proved_lower_bound": 1133,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 640,
+      "k": 7,
+      "m": 5,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 1285,
+      "proved_lower_bound": 1261,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 704,
+      "k": 6,
+      "m": 11,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 1413,
+      "proved_lower_bound": 1389,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 768,
+      "k": 8,
+      "m": 3,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 1544,
+      "proved_lower_bound": 1517,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 832,
+      "k": 6,
+      "m": 13,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 1667,
+      "proved_lower_bound": 1645,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 896,
+      "k": 7,
+      "m": 7,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 1797,
+      "proved_lower_bound": 1773,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 960,
+      "k": 6,
+      "m": 15,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 1922,
+      "proved_lower_bound": 1901,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1024,
+      "k": 10,
+      "m": 1,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 2059,
+      "proved_lower_bound": 2027,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1088,
+      "k": 6,
+      "m": 17,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 2180,
+      "proved_lower_bound": 2155,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1152,
+      "k": 7,
+      "m": 9,
+      "local_pair": [
+        4,
+        4
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 2309,
+      "proved_lower_bound": 2283,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1216,
+      "k": 6,
+      "m": 19,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 2435,
+      "proved_lower_bound": 2411,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1280,
+      "k": 8,
+      "m": 5,
+      "local_pair": [
+        4,
+        1
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 2566,
+      "proved_lower_bound": 2539,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1344,
+      "k": 6,
+      "m": 21,
+      "local_pair": [
+        2,
+        3
+      ],
+      "v2_q": 6,
+      "v2_reduced_numerator": 2689,
+      "proved_lower_bound": 2667,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1408,
+      "k": 7,
+      "m": 11,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 2822,
+      "proved_lower_bound": 2795,
+      "pi_minus_approximant_sign": 1
+    },
+    {
+      "n": 1472,
+      "k": 6,
+      "m": 23,
+      "local_pair": [
+        3,
+        4
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 2947,
+      "proved_lower_bound": 2923,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1536,
+      "k": 9,
+      "m": 3,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 2,
+      "v2_reduced_numerator": 3081,
+      "proved_lower_bound": 3051,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1600,
+      "k": 6,
+      "m": 25,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 3203,
+      "proved_lower_bound": 3179,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1664,
+      "k": 7,
+      "m": 13,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 3332,
+      "proved_lower_bound": 3307,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1728,
+      "k": 6,
+      "m": 27,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 3459,
+      "proved_lower_bound": 3435,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1792,
+      "k": 8,
+      "m": 7,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 3,
+      "v2_reduced_numerator": 3590,
+      "proved_lower_bound": 3563,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1856,
+      "k": 6,
+      "m": 29,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 5,
+      "v2_reduced_numerator": 3713,
+      "proved_lower_bound": 3691,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1920,
+      "k": 7,
+      "m": 15,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 4,
+      "v2_reduced_numerator": 3843,
+      "proved_lower_bound": 3819,
+      "pi_minus_approximant_sign": -1
+    },
+    {
+      "n": 1984,
+      "k": 6,
+      "m": 31,
+      "local_pair": [
+        0,
+        0
+      ],
+      "v2_q": 5,
+      "v2_reduced_numerator": 3968,
+      "proved_lower_bound": 3947,
+      "pi_minus_approximant_sign": -1
+    }
+  ]
+}
