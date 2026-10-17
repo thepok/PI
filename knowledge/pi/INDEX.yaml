@@ -1365,6 +1365,12 @@ documents:
   - id: bounty
     path: BOUNTY.md
     role: Bounty and submission boundary.
+  - id: salikhov-forced-divisor-20261016
+    path: knowledge/pi/results/intermediate/20261016-salikhov-forced-divisor.md
+    role: Index-forced multiplier divisor, sharp branch, and exact reduced denominator survival; no decimal-target claim.
+  - id: salikhov-companion-survival-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-companion-survival.md
+    role: Complete integration-by-parts and Cartier proof of five-adic companion survival on the special branch.
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1394,5 +1400,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6716
+  index_estimated_tokens: 6769
   generated_by: workflows/verification/build_knowledge.py
