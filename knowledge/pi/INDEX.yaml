@@ -1377,6 +1377,9 @@ documents:
   - id: salikhov-odd-multiplier-20261017
     path: knowledge/pi/results/intermediate/20261017-salikhov-odd-multiplier.md
     role: Odd-index binary multiplier congruence and exact finite-precision evaluator; compatible index-forced five-adic depths.
+  - id: salikhov-mixed-precision-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-mixed-precision.md
+    role: Actual-pi positive mixtures with simultaneous reduced prime precision, exponent 21/20, and an explicit irrational separator.
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1406,5 +1409,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6819
+  index_estimated_tokens: 6849
   generated_by: workflows/verification/build_knowledge.py

@@ -1,0 +1,96 @@
+{
+  "status": "experiment; infinite existence is in the accompanying proof sketch",
+  "avoided_digit": 2,
+  "certified_decimal_digits": 512,
+  "common_continued_fraction_length": 516,
+  "cases": [
+    {
+      "k": 1,
+      "continued_fraction_index": 66,
+      "convergent_denominator_bits": 94,
+      "H": 46,
+      "reduced_numerator_two_depth": 47,
+      "reduced_denominator_five_depth": 1,
+      "reduced_denominator_bits": 144,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 2,
+      "continued_fraction_index": 98,
+      "convergent_denominator_bits": 141,
+      "H": 70,
+      "reduced_numerator_two_depth": 70,
+      "reduced_denominator_five_depth": 2,
+      "reduced_denominator_bits": 218,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 3,
+      "continued_fraction_index": 121,
+      "convergent_denominator_bits": 187,
+      "H": 93,
+      "reduced_numerator_two_depth": 103,
+      "reduced_denominator_five_depth": 3,
+      "reduced_denominator_bits": 285,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 4,
+      "continued_fraction_index": 145,
+      "convergent_denominator_bits": 233,
+      "H": 116,
+      "reduced_numerator_two_depth": 117,
+      "reduced_denominator_five_depth": 4,
+      "reduced_denominator_bits": 361,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 5,
+      "continued_fraction_index": 174,
+      "convergent_denominator_bits": 281,
+      "H": 140,
+      "reduced_numerator_two_depth": 141,
+      "reduced_denominator_five_depth": 5,
+      "reduced_denominator_bits": 434,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 6,
+      "continued_fraction_index": 200,
+      "convergent_denominator_bits": 326,
+      "H": 162,
+      "reduced_numerator_two_depth": 162,
+      "reduced_denominator_five_depth": 6,
+      "reduced_denominator_bits": 503,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 7,
+      "continued_fraction_index": 228,
+      "convergent_denominator_bits": 372,
+      "H": 185,
+      "reduced_numerator_two_depth": 187,
+      "reduced_denominator_five_depth": 7,
+      "reduced_denominator_bits": 573,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    },
+    {
+      "k": 8,
+      "continued_fraction_index": 262,
+      "convergent_denominator_bits": 420,
+      "H": 209,
+      "reduced_numerator_two_depth": 210,
+      "reduced_denominator_five_depth": 8,
+      "reduced_denominator_bits": 649,
+      "exact_error_bound_Q_minus_six_fifths": true,
+      "exact_two_depth_at_least_quarter_log2Q": true
+    }
+  ]
+}
