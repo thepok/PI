@@ -1380,6 +1380,9 @@ documents:
   - id: salikhov-mixed-precision-20261017
     path: knowledge/pi/results/intermediate/20261017-salikhov-mixed-precision.md
     role: Actual-pi positive mixtures with simultaneous reduced prime precision, exponent 21/20, and an explicit irrational separator.
+  - id: salikhov-four-source-brackets-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-four-source-brackets.md
+    role: Four-source positive actual-pi brackets with simultaneous prime precision and exponent 13/12; two-sided irrational separator and finite period-transfer scope.
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1409,5 +1412,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6849
+  index_estimated_tokens: 6882
   generated_by: workflows/verification/build_knowledge.py
