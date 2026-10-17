@@ -1,0 +1,482 @@
+{
+  "label": "experiment",
+  "source_pi_commit": "2ab024737878cd9f1567cc296ef53f051a5ff10b",
+  "source_pr18_commit": "f5794f090c9025a8bc92ff426d68f5afd220d434",
+  "checks": {
+    "rank_two_toy_lattices": 800,
+    "integral_toy_combinations_checked": 11908,
+    "basis_witnesses_and_minor_gcd_checked": true,
+    "exact_interval_measure_cases": 2816,
+    "independent_multiplier_checks": 13,
+    "source_recurrence_max_index": 127,
+    "pi_enclosure_bits": 16896,
+    "pi_enclosure_halfwidth_integer": 62472
+  },
+  "blocks": [
+    {
+      "source_indices_inclusive": [
+        4,
+        7
+      ],
+      "positive_source_errors": 4,
+      "negative_source_errors": 0,
+      "G": 4,
+      "p0": 0,
+      "M": 1024,
+      "common_denominator_bits": 30,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [
+            150,
+            253,
+            407,
+            1201,
+            1806,
+            1807,
+            2287,
+            2633,
+            2710,
+            2711,
+            2832,
+            3001,
+            3232,
+            3366,
+            3869,
+            4073
+          ],
+          "minimum_error_lower_numerator": 23318545899,
+          "minimum_error_upper_numerator": 23318545900,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 1806,
+          "constructed_best_witness_l1_bits": 6250
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [
+            607,
+            756,
+            1347,
+            1765,
+            2060,
+            2071,
+            2295,
+            2307,
+            2689,
+            2864
+          ],
+          "minimum_error_lower_numerator": 248947789386,
+          "minimum_error_upper_numerator": 248947789387,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 1765,
+          "constructed_best_witness_l1_bits": 6113
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        8,
+        15
+      ],
+      "positive_source_errors": 2,
+      "negative_source_errors": 6,
+      "G": 4,
+      "p0": 0,
+      "M": 262144,
+      "common_denominator_bits": 79,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 11036001133053,
+          "minimum_error_upper_numerator": 11036001133054,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 356,
+          "constructed_best_witness_l1_bits": 2348
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 32650964603520,
+          "minimum_error_upper_numerator": 32650964603521,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 3368,
+          "constructed_best_witness_l1_bits": 12354
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        16,
+        19
+      ],
+      "positive_source_errors": 0,
+      "negative_source_errors": 4,
+      "G": 53940,
+      "p0": 0,
+      "M": 17179869184,
+      "common_denominator_bits": 93,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": true,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": true
+    },
+    {
+      "source_indices_inclusive": [
+        16,
+        23
+      ],
+      "positive_source_errors": 0,
+      "negative_source_errors": 8,
+      "G": 620,
+      "p0": 0,
+      "M": 17179869184,
+      "common_denominator_bits": 124,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": true,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": true
+    },
+    {
+      "source_indices_inclusive": [
+        16,
+        31
+      ],
+      "positive_source_errors": 0,
+      "negative_source_errors": 16,
+      "G": 4,
+      "p0": 0,
+      "M": 17179869184,
+      "common_denominator_bits": 167,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 314159265358979,
+          "minimum_error_upper_numerator": 314159265358980,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 3189
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 263893782901542,
+          "minimum_error_upper_numerator": 263893782901543,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 3189
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        16,
+        79
+      ],
+      "positive_source_errors": 30,
+      "negative_source_errors": 34,
+      "G": 4,
+      "p0": 0,
+      "M": 17179869184,
+      "common_denominator_bits": 449,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 314159265358979,
+          "minimum_error_upper_numerator": 314159265358980,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 3189
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 263893782901542,
+          "minimum_error_upper_numerator": 263893782901543,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 3189
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        32,
+        47
+      ],
+      "positive_source_errors": 8,
+      "negative_source_errors": 8,
+      "G": 28,
+      "p0": 0,
+      "M": 73786976294838206464,
+      "common_denominator_bits": 260,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 683,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 263893782901542,
+          "minimum_error_upper_numerator": 263893782901543,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 10274
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": true,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        32,
+        63
+      ],
+      "positive_source_errors": 24,
+      "negative_source_errors": 8,
+      "G": 4,
+      "p0": 0,
+      "M": 73786976294838206464,
+      "common_denominator_bits": 355,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 314159265358979,
+          "minimum_error_upper_numerator": 314159265358980,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 11826
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 263893782901542,
+          "minimum_error_upper_numerator": 263893782901543,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 11825
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    },
+    {
+      "source_indices_inclusive": [
+        64,
+        79
+      ],
+      "positive_source_errors": 6,
+      "negative_source_errors": 10,
+      "G": 36822656860,
+      "p0": 0,
+      "M": 1361129467683753853853498429727072845824,
+      "common_denominator_bits": 436,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 0,
+          "unit_error_possible_h": []
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": true,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": true
+    },
+    {
+      "source_indices_inclusive": [
+        64,
+        127
+      ],
+      "positive_source_errors": 34,
+      "negative_source_errors": 30,
+      "G": 4,
+      "p0": 0,
+      "M": 1361129467683753853853498429727072845824,
+      "common_denominator_bits": 725,
+      "exact_basis_witnesses_verified": true,
+      "scans": [
+        {
+          "multiplier": "10^h-0",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 314159265358979,
+          "minimum_error_upper_numerator": 314159265358980,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 75227
+        },
+        {
+          "multiplier": "10^h-16",
+          "h_range": [
+            2,
+            4096
+          ],
+          "attainable_multiplier_count": 4095,
+          "unit_error_possible_h": [],
+          "minimum_error_lower_numerator": 263893782901542,
+          "minimum_error_upper_numerator": 263893782901543,
+          "error_bound_denominator": 1000000000000,
+          "best_h": 2,
+          "constructed_best_witness_l1_bits": 75226
+        }
+      ],
+      "all_h_ge_1_decimal_multiplier_excluded_by_rough_G": false,
+      "all_h_ge_1_return_multiplier_excluded_by_five_dividing_G": false
+    }
+  ],
+  "unconstrained_fixed_sixteen_control": {
+    "multiplier": "10^h-16",
+    "h_range": [
+      2,
+      4096
+    ],
+    "attainable_multiplier_count": 4095,
+    "minimum_error_lower_numerator": 6924954,
+    "minimum_error_upper_numerator": 6924955,
+    "error_bound_denominator": 1000000000000,
+    "best_h": 3723,
+    "unit_error_possible_count": 4095,
+    "nearest_integer_mod_1024": 627,
+    "nearest_integer_mod_262144": 154227,
+    "signed_error_is_positive": true
+  },
+  "scope": [
+    "All integer coefficient vectors are classified, with both signs allowed.",
+    "The 4096-shift comparison is finite and is not a V1 result.",
+    "Different source blocks or rational coefficient normalization are not excluded.",
+    "No independent agent review or Lean verification was performed in this pass."
+  ]
+}
