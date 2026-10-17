@@ -253,6 +253,15 @@ was run in this review. Lean/Lake and PowerShell were not installed in the revie
 environment. The status here remains source inspection. No Lean declarations,
 axioms, dependencies, or target statements are changed by this contribution.
 
+The parallel [native verification PR #12](https://github.com/thepok/PI/pull/12)
+now supplies an isolated pinned-source workflow for this missing check.
+At the 2026-10-17 review of its initial commit
+`eccc5666959284183b855442ff77eda04642484a`, native compilation and axiom
+verification were still pending its Actions run. Its prepared provenance
+report is not a successful verification result; the upstream proof's status
+must be read from the completed native gate, not from this documentation
+PR's CI.
+
 ### Concrete verification and integration tasks
 
 1. Check out the pinned upstream commit, use its toolchain and pinned dependency
@@ -313,6 +322,24 @@ collision energy.
 Any proposed phase-sensitive extraction from the earlier expansion remains a
 research question requiring a new, exact statement and the existing admission
 tests; the paper does not supply that extraction.
+
+### Direct decimal-prefix adaptation audit (2026-10-17)
+
+The [follow-up interpolation audit](../results/negative/20261017-openai-math-interpolation-audit.md)
+records a precise limit of the proposed adaptation. The source's parameter
+inequalities are feasible exactly for approximation exponent greater than
+two. Under avoidance of a fixed zero word, decimal-floor approximations
+have effective exponent at most one plus the word length divided by the
+prefix length, so they eventually fall outside that regime.
+
+A separate Hermite interpolation proof also rules out obtaining a new
+uniform power-of-two or power-of-five divisor merely from proportional
+Taylor packets on all word-avoiding prefixes, even when the polynomial
+degree grows after the prefix depth is fixed. Its exact degree and jet
+conditions are stated, and the checker contains every finite input. This
+does not exclude arithmetic special to the actual pi prefixes or an
+estimate retaining the phases of the full determinant expansion. No
+such target-dependent estimate is supplied by this audit.
 
 ### Smaller Lean modules worth knowing about
 
