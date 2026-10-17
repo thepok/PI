@@ -1365,6 +1365,9 @@ documents:
   - id: bounty
     path: BOUNTY.md
     role: Bounty and submission boundary.
+  - id: moment-cancelled-positive-carriers-20261017
+    path: knowledge/pi/results/intermediate/20261017-moment-cancelled-positive-carriers.md
+    role: 'Proof sketch appendix: arbitrary odd-moment cancellation in Pythagorean pi series, positive tails after nonsmooth denominator clearing, and exact Gaussian five-adic height; no fixed decimal multiplier or target hit.'
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1394,5 +1397,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6716
+  index_estimated_tokens: 6763
   generated_by: workflows/verification/build_knowledge.py
