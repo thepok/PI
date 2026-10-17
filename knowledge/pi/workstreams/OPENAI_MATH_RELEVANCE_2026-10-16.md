@@ -1,16 +1,19 @@
 # Relevance of `openai/math` to Pi Lab
 
-Review date: 2026-10-16 UTC.
+Review date: 2026-10-16 UTC; native-verification evidence updated 2026-10-17 UTC.
 Review label: `literature-checked` for the source inventory and statement comparisons.
 The proposed mathematical transfers below are `proof sketch`; no upstream theorem
 is admitted to Pi Lab's `machine-checked` core by this review.
+The completed external native check in section 3 is `machine-checked` evidence
+for the explicitly repeated upstream statements under their native toolchain.
 
 ## Decision and scope
 
 There is useful material. The highest-priority item is family **017**, which
-claims **the irrationality exponent of π is exactly 2** and supplies a substantial
-Lean implementation. If independently verified and ported, it could discharge
-Pi Lab's external irrationality-measure premises and sharpen existing upper
+states **the irrationality exponent of π is exactly 2** and supplies a substantial
+Lean implementation. Its isolated native build, kernel recheck, literal
+statement checks, and four axiom reports now pass as documented in section 3.
+Porting that proof could discharge Pi Lab's external irrationality-measure premises and sharpen existing upper
 bounds on constant and periodic digit runs. It does **not** establish a prescribed
 digit occurrence, CW0, CW9, E, normality, or V1.
 
@@ -242,39 +245,68 @@ Two scope details are easy to miss:
 | Lean | [4.34.1][upstream-toolchain] | [4.30.0](../../../lean-toolchain) |
 | Mathlib commit | [`d13f23b723b8a846827a245b89c10fc7d3f11612`][upstream-manifest] | [`c5ea00351c28e24afc9f0f84379aa41082b1188f`](../../../lake-manifest.json) |
 
-A one-file copy of `Main.lean` cannot import the proof. A later isolated
-validation package could use the PiExponent closure and its matching Mathlib
-instead of the entire upstream library's unrelated dependencies. Such a package
-would itself need to reproduce the selected result without changing its meaning.
-PI's pinned toolchain is an acceptance requirement, not an incidental detail.
+A one-file copy of `Main.lean` cannot import the proof. The isolated native
+validation package in [PR #12](https://github.com/thepok/PI/pull/12) uses the
+PiExponent closure and its matching Mathlib without the upstream library's
+unrelated dependencies. PI's pinned toolchain remains an acceptance requirement.
 
-No upstream Lean build, Comparator execution, Nanoda execution, or `#print axioms`
-was run in this review. Lean/Lake and PowerShell were not installed in the review
-environment. The status here remains source inspection. No Lean declarations,
-axioms, dependencies, or target statements are changed by this contribution.
+### Completed native verification, 2026-10-17
 
-The parallel [native verification PR #12](https://github.com/thepok/PI/pull/12)
-now supplies an isolated pinned-source workflow for this missing check.
-At the 2026-10-17 review of its initial commit
-`eccc5666959284183b855442ff77eda04642484a`, native compilation and axiom
-verification were still pending its Actions run. Its prepared provenance
-report is not a successful verification result; the upstream proof's status
-must be read from the completed native gate, not from this documentation
-PR's CI.
+The [native workflow run](https://github.com/thepok/PI/actions/runs/39036618132)
+at PI commit `eccc5666959284183b855442ff77eda04642484a` completed successfully
+at 14:30:42 UTC. Its [verification job](https://github.com/thepok/PI/actions/runs/39036618132/job/117407671035)
+records successful native compilation, the separate bundled `leanchecker`
+environment recheck, and the final literal-statement/axiom gate. This review
+downloaded the resulting artifact and checked its digest and report, rather
+than inferring upstream verification from this documentation PR's green CI.
+
+The pinned source is still `openai/math@1581d4cbdd69a0faf34b2089614fe2a814316a6a`.
+All 869 proof modules and all nine dependency pins were checked before and after
+the final gate. The actual compiler was Lean 4.34.1. The
+[literal gate](https://github.com/thepok/PI/blob/eccc5666959284183b855442ff77eda04642484a/workflows/verification/pi_exponent_upstream_20261016/PiExponentGate.lean)
+repeats the natural- and integer-denominator approximation bounds using
+`Real.pi`, the exact exponent-two supremum statement, and the Flint--Hills
+summability statement. The checked `main` lower bound is
+
+\[
+\forall\nu>2\;\exists Q\ge2\;\forall p,q\in\mathbb Z,\quad
+q\ge Q\Longrightarrow q^{-\nu}\le|\pi-p/q|.
+\]
+
+Each of the four transitive axiom reports contains exactly
+`propext`, `Classical.choice`, and `Quot.sound`:
+
+- `OAI.PiExponent.main`;
+- `OAI.PiExponent.pi_eventual_lower_bound`;
+- `OAI.PiExponent.pi_irrationalityExponent_eq_two`;
+- `OAI.PiExponent.flint_hills_summable`.
+
+The [artifact](https://github.com/thepok/PI/actions/runs/39036618132/artifacts/12103733632)
+has ZIP SHA-256
+`57138fa33a3d9251b72c23ec3642117c714a6c1b6f1e4f4c35f0fe1c2aa6e763`.
+Its completed `report.json` has SHA-256
+`1cf10d8347fa36350c02d64f57f7610d813c5a6e7a22fd35c7cadb3fa7cb6bbd`;
+its `axioms.log` has SHA-256
+`626e8b07aa2ff4c3f7bc2b52fe160e7270435b1473a9e7261358adf18fe7aba5`,
+matching the report's recorded digest. The report phase is
+`native statement and axiom checks passed`.
+
+This is completed native `machine-checked` evidence for the explicit upstream
+statements. Comparator and Nanoda were not run by this workflow. The proof is
+not yet ported to PI's Lean 4.30.0 core, and this documentation update changes
+no Lean declarations, axioms, dependencies, or target statements. Its
+consequences for PI's exact predicates remain the adapters stated in section 1;
+the decimal-occurrence and target-sign gaps in section 2 are unchanged.
 
 ### Concrete verification and integration tasks
 
-1. Check out the pinned upstream commit, use its toolchain and pinned dependency
-   versions, and build the selected implementation. The upstream
+1. Preserve the completed native run and its exact pins. To reproduce it, use
+   the isolated driver in PR #12; a prepared report alone is not a passed run.
+2. If the upstream Comparator protocol is required, run
+   `lake env comparator ComparatorChallenges/PiExponent.json` from `lean/`
+   using its pinned environment. The upstream
    [verification instructions][comparator-readme] require Comparator, Landrun
-   and lean4export for the comparison step. Record any manifest changes rather
-   than silently replacing the reviewed pins with newer dependencies.
-2. Run `lake build OAI.NumberTheory.PiExponent.Main`, then
-   `lake env comparator ComparatorChallenges/PiExponent.json` from `lean/`.
-   These are proposed verification commands, **not results of this review**.
-   In an audit file importing that implementation, inspect `#print axioms` for
-   `OAI.PiExponent.main` and `OAI.PiExponent.pi_eventual_lower_bound`.
-   Check the Flint–Hills declaration separately if it will be used.
+   and lean4export. This is a remaining check, not a result claimed here.
 3. Decide between backporting the required closure to PI's pinned versions
    and a separately reviewed toolchain migration. Verify the statements against
    standard `Real.pi`, rational approximation and the exact PI predicates.
