@@ -1,0 +1,604 @@
+{
+  "status": "experiment; all-index claims require the accompanying proof sketch",
+  "fixed_polynomial_checks": {
+    "H_coefficients": [
+      32,
+      -112,
+      156,
+      -100,
+      25
+    ],
+    "J_coefficients": [
+      2,
+      -14,
+      39,
+      -50,
+      25
+    ],
+    "H_tail_zero": 1196
+  },
+  "exact_root_coefficient_indices": [
+    1,
+    50
+  ],
+  "exact_ramified_coefficient_count": 25,
+  "congruence_range": {
+    "L": [
+      3,
+      12
+    ],
+    "m": [
+      1,
+      79
+    ]
+  },
+  "congruence_counts": {
+    "odd_m": 400,
+    "even_m": 390
+  },
+  "crt_family": [
+    {
+      "a": 1,
+      "L": 7,
+      "m": 4,
+      "n": 513,
+      "q_two_valuation": 4,
+      "index_forced_five_depth_at_least": 1
+    },
+    {
+      "a": 2,
+      "L": 10,
+      "m": 13,
+      "n": 13313,
+      "q_two_valuation": 6,
+      "index_forced_five_depth_at_least": 2
+    },
+    {
+      "a": 3,
+      "L": 13,
+      "m": 111,
+      "n": 909313,
+      "q_two_valuation": 7,
+      "index_forced_five_depth_at_least": 3
+    },
+    {
+      "a": 4,
+      "L": 16,
+      "m": 467,
+      "n": 30605313,
+      "q_two_valuation": 9,
+      "index_forced_five_depth_at_least": 4
+    },
+    {
+      "a": 5,
+      "L": 19,
+      "m": 2324,
+      "n": 1218445313,
+      "q_two_valuation": 10,
+      "index_forced_five_depth_at_least": 5
+    },
+    {
+      "a": 6,
+      "L": 22,
+      "m": 8103,
+      "n": 33986445313,
+      "q_two_valuation": 13,
+      "index_forced_five_depth_at_least": 6
+    },
+    {
+      "a": 7,
+      "L": 25,
+      "m": 49841,
+      "n": 1672386445313,
+      "q_two_valuation": 8,
+      "index_forced_five_depth_at_least": 7
+    },
+    {
+      "a": 8,
+      "L": 28,
+      "m": 35527,
+      "n": 9536706445313,
+      "q_two_valuation": 9,
+      "index_forced_five_depth_at_least": 8
+    },
+    {
+      "a": 9,
+      "L": 31,
+      "m": 443894,
+      "n": 953255106445313,
+      "q_two_valuation": 11,
+      "index_forced_five_depth_at_least": 9
+    },
+    {
+      "a": 10,
+      "L": 34,
+      "m": 6403143,
+      "n": 110005159106445313,
+      "q_two_valuation": 14,
+      "index_forced_five_depth_at_least": 10
+    },
+    {
+      "a": 11,
+      "L": 37,
+      "m": 31317971,
+      "n": 4304309159106445313,
+      "q_two_valuation": 19,
+      "index_forced_five_depth_at_least": 11
+    },
+    {
+      "a": 12,
+      "L": 40,
+      "m": 107674512,
+      "n": 118389377959106445313,
+      "q_two_valuation": 14,
+      "index_forced_five_depth_at_least": 12
+    },
+    {
+      "a": 13,
+      "L": 43,
+      "m": 990021814,
+      "n": 8708323969959106445313,
+      "q_two_valuation": 15,
+      "index_forced_five_depth_at_least": 13
+    },
+    {
+      "a": 14,
+      "L": 46,
+      "m": 5311741008,
+      "n": 373780544129959106445313,
+      "q_two_valuation": 19,
+      "index_forced_five_depth_at_least": 14
+    },
+    {
+      "a": 15,
+      "L": 49,
+      "m": 663967626,
+      "n": 373780544129959106445313,
+      "q_two_valuation": 19,
+      "index_forced_five_depth_at_least": 15
+    },
+    {
+      "a": 16,
+      "L": 52,
+      "m": 22971179547,
+      "n": 103452995648129959106445313,
+      "q_two_valuation": 15,
+      "index_forced_five_depth_at_least": 16
+    },
+    {
+      "a": 17,
+      "L": 55,
+      "m": 250826719709,
+      "n": 9036984971328129959106445313,
+      "q_two_valuation": 21,
+      "index_forced_five_depth_at_least": 17
+    },
+    {
+      "a": 18,
+      "L": 58,
+      "m": 698925361448,
+      "n": 201451519832128129959106445313,
+      "q_two_valuation": 26,
+      "index_forced_five_depth_at_least": 18
+    },
+    {
+      "a": 19,
+      "L": 61,
+      "m": 11531457467056,
+      "n": 26589730586456128129959106445313,
+      "q_two_valuation": 23,
+      "index_forced_five_depth_at_least": 19
+    },
+    {
+      "a": 20,
+      "L": 64,
+      "m": 39588404839632,
+      "n": 730277172363096128129959106445313,
+      "q_two_valuation": 22,
+      "index_forced_five_depth_at_least": 20
+    }
+  ],
+  "special_branch_two_valuations": [
+    {
+      "k": 1,
+      "q_two_valuation": 4
+    },
+    {
+      "k": 2,
+      "q_two_valuation": 5
+    },
+    {
+      "k": 3,
+      "q_two_valuation": 2
+    },
+    {
+      "k": 4,
+      "q_two_valuation": 7
+    },
+    {
+      "k": 5,
+      "q_two_valuation": 6
+    },
+    {
+      "k": 6,
+      "q_two_valuation": 10
+    },
+    {
+      "k": 7,
+      "q_two_valuation": 8
+    },
+    {
+      "k": 8,
+      "q_two_valuation": 10
+    },
+    {
+      "k": 9,
+      "q_two_valuation": 15
+    },
+    {
+      "k": 10,
+      "q_two_valuation": 12
+    },
+    {
+      "k": 11,
+      "q_two_valuation": 12
+    },
+    {
+      "k": 12,
+      "q_two_valuation": 21
+    },
+    {
+      "k": 13,
+      "q_two_valuation": 17
+    },
+    {
+      "k": 14,
+      "q_two_valuation": 17
+    },
+    {
+      "k": 15,
+      "q_two_valuation": 20
+    },
+    {
+      "k": 16,
+      "q_two_valuation": 21
+    },
+    {
+      "k": 17,
+      "q_two_valuation": 18
+    },
+    {
+      "k": 18,
+      "q_two_valuation": 22
+    },
+    {
+      "k": 19,
+      "q_two_valuation": 19
+    },
+    {
+      "k": 20,
+      "q_two_valuation": 18
+    },
+    {
+      "k": 21,
+      "q_two_valuation": 21
+    },
+    {
+      "k": 22,
+      "q_two_valuation": 25
+    },
+    {
+      "k": 23,
+      "q_two_valuation": 27
+    },
+    {
+      "k": 24,
+      "q_two_valuation": 30
+    },
+    {
+      "k": 25,
+      "q_two_valuation": 31
+    },
+    {
+      "k": 26,
+      "q_two_valuation": 30
+    },
+    {
+      "k": 27,
+      "q_two_valuation": 32
+    },
+    {
+      "k": 28,
+      "q_two_valuation": 36
+    },
+    {
+      "k": 29,
+      "q_two_valuation": 32
+    },
+    {
+      "k": 30,
+      "q_two_valuation": 42
+    },
+    {
+      "k": 31,
+      "q_two_valuation": 35
+    },
+    {
+      "k": 32,
+      "q_two_valuation": 31
+    },
+    {
+      "k": 33,
+      "q_two_valuation": 37
+    },
+    {
+      "k": 34,
+      "q_two_valuation": 38
+    },
+    {
+      "k": 35,
+      "q_two_valuation": 34
+    },
+    {
+      "k": 36,
+      "q_two_valuation": 43
+    },
+    {
+      "k": 37,
+      "q_two_valuation": 38
+    },
+    {
+      "k": 38,
+      "q_two_valuation": 49
+    },
+    {
+      "k": 39,
+      "q_two_valuation": 44
+    },
+    {
+      "k": 40,
+      "q_two_valuation": 47
+    },
+    {
+      "k": 41,
+      "q_two_valuation": 57
+    },
+    {
+      "k": 42,
+      "q_two_valuation": 45
+    },
+    {
+      "k": 43,
+      "q_two_valuation": 42
+    },
+    {
+      "k": 44,
+      "q_two_valuation": 56
+    },
+    {
+      "k": 45,
+      "q_two_valuation": 48
+    },
+    {
+      "k": 46,
+      "q_two_valuation": 53
+    },
+    {
+      "k": 47,
+      "q_two_valuation": 57
+    },
+    {
+      "k": 48,
+      "q_two_valuation": 53
+    },
+    {
+      "k": 49,
+      "q_two_valuation": 60
+    },
+    {
+      "k": 50,
+      "q_two_valuation": 67
+    },
+    {
+      "k": 51,
+      "q_two_valuation": 56
+    },
+    {
+      "k": 52,
+      "q_two_valuation": 58
+    },
+    {
+      "k": 53,
+      "q_two_valuation": 62
+    },
+    {
+      "k": 54,
+      "q_two_valuation": 66
+    },
+    {
+      "k": 55,
+      "q_two_valuation": 74
+    },
+    {
+      "k": 56,
+      "q_two_valuation": 78
+    },
+    {
+      "k": 57,
+      "q_two_valuation": 73
+    },
+    {
+      "k": 58,
+      "q_two_valuation": 74
+    },
+    {
+      "k": 59,
+      "q_two_valuation": 64
+    },
+    {
+      "k": 60,
+      "q_two_valuation": 73
+    },
+    {
+      "k": 61,
+      "q_two_valuation": 67
+    },
+    {
+      "k": 62,
+      "q_two_valuation": 70
+    },
+    {
+      "k": 63,
+      "q_two_valuation": 74
+    },
+    {
+      "k": 64,
+      "q_two_valuation": 86
+    },
+    {
+      "k": 65,
+      "q_two_valuation": 87
+    },
+    {
+      "k": 66,
+      "q_two_valuation": 74
+    },
+    {
+      "k": 67,
+      "q_two_valuation": 85
+    },
+    {
+      "k": 68,
+      "q_two_valuation": 91
+    },
+    {
+      "k": 69,
+      "q_two_valuation": 99
+    },
+    {
+      "k": 70,
+      "q_two_valuation": 80
+    },
+    {
+      "k": 71,
+      "q_two_valuation": 85
+    },
+    {
+      "k": 72,
+      "q_two_valuation": 91
+    },
+    {
+      "k": 73,
+      "q_two_valuation": 87
+    },
+    {
+      "k": 74,
+      "q_two_valuation": 85
+    },
+    {
+      "k": 75,
+      "q_two_valuation": 91
+    },
+    {
+      "k": 76,
+      "q_two_valuation": 90
+    },
+    {
+      "k": 77,
+      "q_two_valuation": 102
+    },
+    {
+      "k": 78,
+      "q_two_valuation": 98
+    },
+    {
+      "k": 79,
+      "q_two_valuation": 92
+    },
+    {
+      "k": 80,
+      "q_two_valuation": 103
+    },
+    {
+      "k": 81,
+      "q_two_valuation": 95
+    },
+    {
+      "k": 82,
+      "q_two_valuation": 82
+    },
+    {
+      "k": 83,
+      "q_two_valuation": 85
+    },
+    {
+      "k": 84,
+      "q_two_valuation": 97
+    },
+    {
+      "k": 85,
+      "q_two_valuation": 94
+    },
+    {
+      "k": 86,
+      "q_two_valuation": 94
+    },
+    {
+      "k": 87,
+      "q_two_valuation": 77
+    },
+    {
+      "k": 88,
+      "q_two_valuation": 94
+    },
+    {
+      "k": 89,
+      "q_two_valuation": 103
+    },
+    {
+      "k": 90,
+      "q_two_valuation": 99
+    },
+    {
+      "k": 91,
+      "q_two_valuation": 100
+    },
+    {
+      "k": 92,
+      "q_two_valuation": 111
+    },
+    {
+      "k": 93,
+      "q_two_valuation": 108
+    },
+    {
+      "k": 94,
+      "q_two_valuation": 112
+    },
+    {
+      "k": 95,
+      "q_two_valuation": 113
+    },
+    {
+      "k": 96,
+      "q_two_valuation": 111
+    },
+    {
+      "k": 97,
+      "q_two_valuation": 100
+    },
+    {
+      "k": 98,
+      "q_two_valuation": 134
+    },
+    {
+      "k": 99,
+      "q_two_valuation": 124
+    },
+    {
+      "k": 100,
+      "q_two_valuation": 113
+    }
+  ],
+  "scope": "No computed five-adic q values at CRT indices, no reduced-Q five-adic survival there, and no decimal-digit conclusion."
+}
