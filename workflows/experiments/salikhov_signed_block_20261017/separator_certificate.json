@@ -1,0 +1,139 @@
+{
+  "label": "experiment",
+  "avoided_digit": 2,
+  "certified_decimal_digits": 1024,
+  "common_continued_fraction_length": 1020,
+  "cases": [
+    {
+      "k": 1,
+      "continued_fraction_index": 293,
+      "convergent_denominator_bits": 470,
+      "H": 234,
+      "prescribed_minimum_two_depth": 200,
+      "current_column_boost": 4,
+      "fractions": [
+        {
+          "side": "above",
+          "numerator_two_depth": 234,
+          "denominator_five_depth": 1,
+          "denominator_bits": 711,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        },
+        {
+          "side": "below",
+          "numerator_two_depth": 236,
+          "denominator_five_depth": 1,
+          "denominator_bits": 708,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        }
+      ]
+    },
+    {
+      "k": 2,
+      "continued_fraction_index": 426,
+      "convergent_denominator_bits": 698,
+      "H": 348,
+      "prescribed_minimum_two_depth": 200,
+      "current_column_boost": 4,
+      "fractions": [
+        {
+          "side": "above",
+          "numerator_two_depth": 348,
+          "denominator_five_depth": 2,
+          "denominator_bits": 1053,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        },
+        {
+          "side": "below",
+          "numerator_two_depth": 349,
+          "denominator_five_depth": 2,
+          "denominator_bits": 1056,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "continued_fraction_index": 559,
+      "convergent_denominator_bits": 930,
+      "H": 464,
+      "prescribed_minimum_two_depth": 200,
+      "current_column_boost": 4,
+      "fractions": [
+        {
+          "side": "above",
+          "numerator_two_depth": 466,
+          "denominator_five_depth": 3,
+          "denominator_bits": 1405,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        },
+        {
+          "side": "below",
+          "numerator_two_depth": 464,
+          "denominator_five_depth": 3,
+          "denominator_bits": 1403,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "continued_fraction_index": 706,
+      "convergent_denominator_bits": 1165,
+      "H": 582,
+      "prescribed_minimum_two_depth": 200,
+      "current_column_boost": 4,
+      "fractions": [
+        {
+          "side": "above",
+          "numerator_two_depth": 582,
+          "denominator_five_depth": 4,
+          "denominator_bits": 1756,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        },
+        {
+          "side": "below",
+          "numerator_two_depth": 582,
+          "denominator_five_depth": 4,
+          "denominator_bits": 1761,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        }
+      ]
+    },
+    {
+      "k": 5,
+      "continued_fraction_index": 838,
+      "convergent_denominator_bits": 1395,
+      "H": 697,
+      "prescribed_minimum_two_depth": 200,
+      "current_column_boost": 4,
+      "fractions": [
+        {
+          "side": "above",
+          "numerator_two_depth": 697,
+          "denominator_five_depth": 5,
+          "denominator_bits": 2106,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        },
+        {
+          "side": "below",
+          "numerator_two_depth": 698,
+          "denominator_five_depth": 5,
+          "denominator_bits": 2107,
+          "certified_error_at_most_Q_minus_six_fifths": true,
+          "certified_two_depth_at_least_quarter_log2Q": true
+        }
+      ]
+    }
+  ],
+  "scope": "Finite exact checks; arbitrary prescribed depths use the accompanying infinite proof sketch."
+}
