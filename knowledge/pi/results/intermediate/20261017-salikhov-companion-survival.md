@@ -42,6 +42,12 @@ Thus the forced powers of five in this explicit family survive reduction.
 This removes the rational-companion cancellation gap on this family. It
 does not provide a prescribed decimal residue or a sign law on the family.
 
+The [odd-seed extension](20261017-salikhov-seed-survival.md) gives an
+explicit, bounded-degree criterion for every index
+\(n=(t5^k+1)/2\), with \(t\) positive, odd, and prime to five.
+It supplies further all-\(k\) families and retains the unresolved
+same-index intersection with binary multiplier control.
+
 ## 1. A rational integration-by-parts identity
 
 Set \(u=x/5\), and define
