@@ -1,0 +1,568 @@
+{
+  "status": "experiment",
+  "source_commit": "5fd8197ce4a48304392e6c350cee68e29631aaee",
+  "gaussian_exponents": [
+    1,
+    6,
+    11,
+    16
+  ],
+  "fixed_integer_scale_L": 45045,
+  "fixed_pi_multiplier": "7312201734188972195365868646592391378010",
+  "positive_coefficient_threshold": 57,
+  "five_height_tradeoff_certificate": {
+    "left": "41315998049390537434494706752048189989275292685267576205290549704650361952269459114074325652482205302974450751563959894016",
+    "right": "66819117752304891153513411678787046970379922002626217449048437304009966024678258966762456338983611203730106353759765625",
+    "left_greater": true
+  },
+  "cases": [
+    {
+      "N": 80,
+      "initial_rough_prime_factors": [
+        [
+          23,
+          1
+        ]
+      ],
+      "initial_five_denominator_depth": 2529,
+      "corrections": [
+        {
+          "prime": 23,
+          "original_prime_depth": 1,
+          "h": 3,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 793,
+          "integer_coefficient": 19,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 25344,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 22815,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        }
+      ],
+      "result_rough_denominator": 1,
+      "result_numerator_two_valuation": 0,
+      "result_numerator_five_valuation": 0,
+      "result_denominator_two_valuation": 1574,
+      "result_denominator_five_valuation": 25344,
+      "minimum_decimal_clearing_exponent": 25344,
+      "decimal_cleared_numerator_two_valuation": 23770,
+      "decimal_cleared_numerator_five_valuation": 0,
+      "added_positive_error_less_than_two_power": -80,
+      "unscaled_positive_error_upper_less_than_ten_power": 31,
+      "full_decimal_clearing_makes_positive_tail_exceed_one": true,
+      "result_numerator_bits": 60556,
+      "result_denominator_bits": 60421
+    },
+    {
+      "N": 160,
+      "initial_rough_prime_factors": [
+        [
+          17,
+          1
+        ],
+        [
+          23,
+          1
+        ],
+        [
+          37,
+          1
+        ],
+        [
+          43,
+          1
+        ]
+      ],
+      "initial_five_denominator_depth": 5090,
+      "corrections": [
+        {
+          "prime": 17,
+          "original_prime_depth": 1,
+          "h": 5,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 722,
+          "integer_coefficient": 2,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 23073,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 17983,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 23,
+          "original_prime_depth": 1,
+          "h": 3,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 793,
+          "integer_coefficient": 13,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 25344,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 20254,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 37,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 684,
+          "integer_coefficient": 19,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 21857,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 16767,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 43,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 924,
+          "integer_coefficient": 23,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 29536,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 24446,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        }
+      ],
+      "result_rough_denominator": 1,
+      "result_numerator_two_valuation": 0,
+      "result_numerator_five_valuation": 0,
+      "result_denominator_two_valuation": 1834,
+      "result_denominator_five_valuation": 29536,
+      "minimum_decimal_clearing_exponent": 29536,
+      "decimal_cleared_numerator_two_valuation": 27702,
+      "decimal_cleared_numerator_five_valuation": 0,
+      "added_positive_error_less_than_two_power": -160,
+      "unscaled_positive_error_upper_less_than_ten_power": 15,
+      "full_decimal_clearing_makes_positive_tail_exceed_one": true,
+      "result_numerator_bits": 70549,
+      "result_denominator_bits": 70415
+    },
+    {
+      "N": 400,
+      "initial_rough_prime_factors": [
+        [
+          7,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          23,
+          1
+        ],
+        [
+          37,
+          1
+        ],
+        [
+          43,
+          1
+        ],
+        [
+          53,
+          1
+        ],
+        [
+          59,
+          1
+        ],
+        [
+          61,
+          1
+        ],
+        [
+          67,
+          1
+        ],
+        [
+          71,
+          1
+        ],
+        [
+          73,
+          1
+        ],
+        [
+          83,
+          1
+        ],
+        [
+          89,
+          1
+        ],
+        [
+          97,
+          1
+        ],
+        [
+          101,
+          1
+        ],
+        [
+          103,
+          1
+        ],
+        [
+          107,
+          1
+        ],
+        [
+          113,
+          1
+        ]
+      ],
+      "initial_five_denominator_depth": 12769,
+      "corrections": [
+        {
+          "prime": 7,
+          "original_prime_depth": 1,
+          "h": 15,
+          "e": 3,
+          "Teichmuller_moment_depth": 2,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 2572,
+          "integer_coefficient": 5,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 82272,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 69503,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 17,
+          "original_prime_depth": 1,
+          "h": 7,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 1011,
+          "integer_coefficient": 2,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 32321,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 19552,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 19,
+          "original_prime_depth": 1,
+          "h": 5,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 902,
+          "integer_coefficient": 7,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 28835,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 16066,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 23,
+          "original_prime_depth": 1,
+          "h": 5,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 1322,
+          "integer_coefficient": 15,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 42273,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 29504,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 37,
+          "original_prime_depth": 1,
+          "h": 3,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 2053,
+          "integer_coefficient": 35,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 65664,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 52895,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 43,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 924,
+          "integer_coefficient": 17,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 29536,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 16767,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 53,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 1404,
+          "integer_coefficient": 40,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 44897,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 32128,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 59,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 1740,
+          "integer_coefficient": 48,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 55646,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 42877,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 61,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 1860,
+          "integer_coefficient": 22,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 59487,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 46718,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 67,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 2244,
+          "integer_coefficient": 48,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 71773,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 59004,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 71,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 2520,
+          "integer_coefficient": 34,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 80608,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 67839,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 73,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 2664,
+          "integer_coefficient": 40,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 85215,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 72446,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 83,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 3444,
+          "integer_coefficient": 65,
+          "coefficient_five_valuation": 1,
+          "term_five_denominator_depth": 110174,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 97405,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 89,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 3960,
+          "integer_coefficient": 61,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 126689,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 113920,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 97,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 4704,
+          "integer_coefficient": 13,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 150494,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 137725,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 101,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 5100,
+          "integer_coefficient": 33,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 163168,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 150399,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 103,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 5304,
+          "integer_coefficient": 12,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 169696,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 156927,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 107,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 5724,
+          "integer_coefficient": 42,
+          "coefficient_five_valuation": 0,
+          "term_five_denominator_depth": 183134,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 170365,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        },
+        {
+          "prime": 113,
+          "original_prime_depth": 1,
+          "h": 1,
+          "e": 2,
+          "Teichmuller_moment_depth": 1,
+          "top_binomial_depth": 0,
+          "isolated_pole_depth": 1,
+          "correction_index": 6384,
+          "integer_coefficient": 100,
+          "coefficient_five_valuation": 2,
+          "term_five_denominator_depth": 204257,
+          "minimum_coefficient_five_depth_to_preserve_original_height": 191488,
+          "minimum_height_preserving_added_error_exceeds_one": true,
+          "positive_correction_below_budget": true
+        }
+      ],
+      "result_rough_denominator": 1,
+      "result_numerator_two_valuation": 0,
+      "result_numerator_five_valuation": 0,
+      "result_denominator_two_valuation": 12752,
+      "result_denominator_five_valuation": 204255,
+      "minimum_decimal_clearing_exponent": 204255,
+      "decimal_cleared_numerator_two_valuation": 191503,
+      "decimal_cleared_numerator_five_valuation": 0,
+      "added_positive_error_less_than_two_power": -400,
+      "unscaled_positive_error_upper_less_than_ten_power": -32,
+      "full_decimal_clearing_makes_positive_tail_exceed_one": true,
+      "result_numerator_bits": 487152,
+      "result_denominator_bits": 487018
+    }
+  ],
+  "limitations": [
+    "All-index existence and the uniform tradeoff require the written proof.",
+    "No prescribed decimal residue or occurrence theorem is asserted.",
+    "The exact error bounds use the positive series, not pi digits."
+  ]
+}
