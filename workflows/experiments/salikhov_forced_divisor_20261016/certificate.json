@@ -1,0 +1,101 @@
+{
+  "status": "experiment; all-index statements use the accompanying algebraic proofs",
+  "structural_checks": {
+    "ell_period": [
+      2,
+      1,
+      0,
+      2
+    ],
+    "F_initial_coefficients": [
+      2,
+      2
+    ]
+  },
+  "residue_formula_indices": [
+    0,
+    12
+  ],
+  "divisor_indices": [
+    1,
+    8000
+  ],
+  "sharp_branch": [
+    {
+      "k": 1,
+      "n": 3,
+      "b_valuation": 1,
+      "b_unit_mod5": 4,
+      "q_unit_mod5": 2,
+      "a_valuation": 0,
+      "a_unit_mod5": 4,
+      "a_unit_mod625": 544,
+      "reduced_denominator_valuation": 1
+    },
+    {
+      "k": 2,
+      "n": 13,
+      "b_valuation": 2,
+      "b_unit_mod5": 1,
+      "q_unit_mod5": 4,
+      "a_valuation": 0,
+      "a_unit_mod5": 3,
+      "a_unit_mod625": 323,
+      "reduced_denominator_valuation": 2
+    },
+    {
+      "k": 3,
+      "n": 63,
+      "b_valuation": 3,
+      "b_unit_mod5": 4,
+      "q_unit_mod5": 3,
+      "a_valuation": 0,
+      "a_unit_mod5": 4,
+      "a_unit_mod625": 439,
+      "reduced_denominator_valuation": 3
+    },
+    {
+      "k": 4,
+      "n": 313,
+      "b_valuation": 4,
+      "b_unit_mod5": 1,
+      "q_unit_mod5": 1,
+      "a_valuation": 0,
+      "a_unit_mod5": 3,
+      "a_unit_mod625": 373,
+      "reduced_denominator_valuation": 4
+    },
+    {
+      "k": 5,
+      "n": 1563,
+      "b_valuation": 5,
+      "b_unit_mod5": 4,
+      "q_unit_mod5": 2,
+      "a_valuation": 0,
+      "a_unit_mod5": 4,
+      "a_unit_mod625": 314,
+      "reduced_denominator_valuation": 5
+    },
+    {
+      "k": 6,
+      "n": 7813,
+      "b_valuation": 6,
+      "b_unit_mod5": 1,
+      "q_unit_mod5": 4,
+      "a_valuation": 0,
+      "a_unit_mod5": 3,
+      "a_unit_mod625": 373,
+      "reduced_denominator_valuation": 6
+    }
+  ],
+  "companion_congruence_failures": [],
+  "naive_scaling_counterexample": {
+    "n": 14,
+    "five_n": 70,
+    "depths": [
+      1,
+      1
+    ]
+  },
+  "avoider_instances": 64
+}
