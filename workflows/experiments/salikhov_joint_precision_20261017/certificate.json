@@ -1,0 +1,76 @@
+{
+  "modulus": 125,
+  "recurrence_checked_through": 45,
+  "sample_indices": [
+    {
+      "n": 1072,
+      "q_mod": 0,
+      "v_mod": 100,
+      "partial": 100,
+      "polynomial": 0,
+      "s": 5,
+      "vq": 4,
+      "vv": 2,
+      "vQ": 7
+    },
+    {
+      "n": 1536,
+      "q_mod": 0,
+      "v_mod": 120,
+      "partial": 95,
+      "polynomial": 25,
+      "s": 5,
+      "vq": 3,
+      "vv": 1,
+      "vQ": 7
+    },
+    {
+      "n": 2000,
+      "q_mod": 45,
+      "v_mod": 45,
+      "partial": 45,
+      "polynomial": 0,
+      "s": 5,
+      "vq": 1,
+      "vv": 1,
+      "vQ": 5
+    }
+  ],
+  "family_cutoff": 2000,
+  "family_count": 104,
+  "valuation_comparison": {
+    "equal": 75,
+    "v_higher": 27,
+    "q_higher": 2
+  },
+  "family_q_higher": [
+    [
+      1072,
+      4,
+      2,
+      5,
+      7
+    ],
+    [
+      1536,
+      3,
+      1,
+      5,
+      7
+    ]
+  ],
+  "proof_constants": {
+    "cartier_exponent_lt": "52/55",
+    "kummer_exponent_lt": "18/25",
+    "joint_precision_first_nonzero_length": 900,
+    "precision_samples": {
+      "899": 0,
+      "900": 2,
+      "1000": 2,
+      "10000": 21,
+      "100000": 194,
+      "1000000": 1866
+    }
+  },
+  "seconds": 45.052
+}

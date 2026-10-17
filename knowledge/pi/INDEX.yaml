@@ -1386,6 +1386,9 @@ documents:
   - id: sparse-forcing-length24-20261016
     path: knowledge/pi/results/intermediate/20261016-sparse-forcing-length24.md
     role: 'Proof sketch appendix: failure-tree Fourier and autocorrelation bounds lower the compatible sparse-corridor word-length threshold to 24 under the inherited complete-cylinder input; no claim about pi.'
+  - id: salikhov-full-pair-growing-precision-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-full-pair-growing-precision.md
+    role: 'Proof sketch appendix: growing common five-adic precision for both normalized Salikhov coordinates, uniformly on progressions and both signed entropy populations; reduced-denominator cancellation remains open.'
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1415,5 +1418,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 6994
+  index_estimated_tokens: 7036
   generated_by: workflows/verification/build_knowledge.py
