@@ -1,0 +1,123 @@
+{
+  "status": "experiment",
+  "claim_scope": "Exact finite arithmetic audit plus exact checks of constants in a written proof sketch; no V1/CW0 claim.",
+  "K": 3,
+  "gaussian_exponents": [
+    1,
+    6,
+    11,
+    16
+  ],
+  "triangles": [
+    [
+      3,
+      4,
+      5
+    ],
+    [
+      10296,
+      11753,
+      15625
+    ],
+    [
+      34182196,
+      34867797,
+      48828125
+    ],
+    [
+      98248054847,
+      116749235904,
+      152587890625
+    ]
+  ],
+  "weights": [
+    "20237813167667182175954562623/25370442797012851940748",
+    "2845713789208038687848365625/182265834464790912036",
+    "-61985080207781444644927978515625/12215845720953561225095964",
+    "-87107167701105936430394649505615234375/7683764032378103934543585406452"
+  ],
+  "integer_scale": "324662081660072025546270114178816356",
+  "annihilated_odd_moments": [
+    1,
+    3,
+    5
+  ],
+  "five_adic_law": {
+    "v0": 67,
+    "largest_exponent": 16,
+    "moment_valuation": "-v0 - 2*(n-K)*S for every n>=K",
+    "prefix_valuation_range": "2*N-1 < 5^S",
+    "reduced_prefix_numerator_is_5_unit": true
+  },
+  "coefficient_positivity_from_n": 57,
+  "last_negative_coefficient_in_audit": 7,
+  "negative_coefficient_indices": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_n": 160,
+  "large_prime_term_checks": 4593,
+  "denominator_samples": [
+    {
+      "N": 20,
+      "rough_denominator": "1",
+      "rough_bound": "27",
+      "smooth_denominator_decimal_digits": 436,
+      "prefix_v5": -610
+    },
+    {
+      "N": 40,
+      "rough_denominator": "7",
+      "rough_bound": "43659",
+      "smooth_denominator_decimal_digits": 895,
+      "prefix_v5": -1250
+    },
+    {
+      "N": 80,
+      "rough_denominator": "1771",
+      "rough_bound": "46381007673",
+      "smooth_denominator_decimal_digits": 1814,
+      "prefix_v5": -2530
+    },
+    {
+      "N": 160,
+      "rough_denominator": "1868109243",
+      "rough_bound": "1803297731606334094131",
+      "smooth_denominator_decimal_digits": 3652,
+      "prefix_v5": -5091
+    }
+  ],
+  "cleared_infinite_tail_upper_bounds": [
+    {
+      "N": 1000,
+      "rough_bound_bits": 451,
+      "certified_upper_lt_10_power": -17,
+      "inequality_checked": true
+    },
+    {
+      "N": 2000,
+      "rough_bound_bits": 867,
+      "certified_upper_lt_10_power": -87,
+      "inequality_checked": true
+    },
+    {
+      "N": 4000,
+      "rough_bound_bits": 1729,
+      "certified_upper_lt_10_power": -215,
+      "inequality_checked": true
+    }
+  ],
+  "elementary_rate_margin": {
+    "left": 4294967296,
+    "right": 6103515625
+  },
+  "limitations": [
+    "The nonsmooth clearing multiplier depends on N.",
+    "The remaining powers of 2 and 5 in the rational prefix grow with N.",
+    "No ordered decimal residue or prescribed word is forced.",
+    "The proof sketch, not a finite audit, supplies the all-N conclusion."
+  ]
+}
