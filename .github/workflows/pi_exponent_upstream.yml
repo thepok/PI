@@ -1,0 +1,86 @@
+name: Pinned upstream pi exponent
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/pi_exponent_upstream.yml'
+      - 'workflows/verification/pi_exponent_upstream_20261016/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pi-exponent-upstream-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-upstream-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - name: Check out PI verification driver
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Check out pinned upstream proof and metadata
+        uses: actions/checkout@v5
+        with:
+          repository: openai/math
+          ref: 1581d4cbdd69a0faf34b2089614fe2a814316a6a
+          path: workflows/state/pi-exponent-upstream/upstream
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /lean/OAI/NumberTheory/PiExponent/
+            /lean/lean-toolchain
+            /lean/lake-manifest.json
+            /lean/lakefile.lean
+          persist-credentials: false
+
+      - name: Exercise audit failure paths
+        run: python3 workflows/verification/pi_exponent_upstream_20261016/test_verify.py
+
+      - name: Prepare isolated pinned import closure
+        run: >-
+          python3 workflows/verification/pi_exponent_upstream_20261016/verify.py prepare
+          --upstream workflows/state/pi-exponent-upstream/upstream
+          --build workflows/state/pi-exponent-upstream/build
+          --report workflows/state/pi-exponent-upstream/report.json
+
+      - name: Compile native proof and recheck its kernel environment
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: workflows/state/pi-exponent-upstream/build
+          auto-config: 'false'
+          build: 'true'
+          build-args: OAI.NumberTheory.PiExponent.Main
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+          leanchecker: 'true'
+          leanchecker-args: OAI.NumberTheory.PiExponent
+
+      - name: Check literal statements, axioms, and unchanged pins
+        run: >-
+          python3 workflows/verification/pi_exponent_upstream_20261016/verify.py finish
+          --upstream workflows/state/pi-exponent-upstream/upstream
+          --build workflows/state/pi-exponent-upstream/build
+          --report workflows/state/pi-exponent-upstream/report.json
+
+      - name: Preserve source and axiom reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pi-exponent-upstream-verification
+          path: |
+            workflows/state/pi-exponent-upstream/report.json
+            workflows/state/pi-exponent-upstream/axioms.log
+            workflows/state/pi-exponent-upstream/build/lean-toolchain
+            workflows/state/pi-exponent-upstream/build/lakefile.lean
+            workflows/state/pi-exponent-upstream/build/lake-manifest.json
+            workflows/state/pi-exponent-upstream/build/PiExponentGate.lean
+          if-no-files-found: warn
