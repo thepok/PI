@@ -149,4 +149,4 @@ T189 is frozen as the finished consumer. A new candidate enters the active front
 
 ## Pointers
 
-[Index](knowledge/pi/INDEX.yaml) · [specification](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md) · [ledger](knowledge/pi/workstreams/ATTEMPT_LEDGER.md) · [bounty](BOUNTY.md)
+[Index](knowledge/pi/INDEX.yaml) · [specification](knowledge/pi/workstreams/TARGET_SPECIFICATION_v1.md) · [ledger](knowledge/pi/workstreams/ATTEMPT_LEDGER.md) · [bounty](BOUNTY.md) · [openai/math source review](knowledge/pi/workstreams/OPENAI_MATH_RELEVANCE_2026-10-16.md)

@@ -762,3 +762,21 @@ Reopen with a proved affordable combination whose second coordinate is S*10^m (a
 For every audited turn merge duplicates into one row and retain only the
 strongest new lemma, first fatal line or surviving step, and genuinely new
 input required to reopen.
+
+
+## Source 017 decimal-prefix adaptation audit (2026-10-17)
+
+Scope: the parameter regime and uniform Taylor-packet divisibility of the
+pinned openai/math interpolation proof. This audit is not a new active
+candidate or a digit-occurrence result.
+
+- **Reason:** its parameter inequalities require approximation exponent
+  greater than two; zero-word avoidance gives decimal-floor exponents
+  tending to one. Uniform primewise divisors of sufficiently long Taylor
+  packets on all allowed prefixes are also divisors of all integer values.
+- **Strongest retained lemma:** the all-degree, all-precision Hermite
+  interpolation inequality in the
+  [complete audit](../results/negative/20261017-openai-math-interpolation-audit.md).
+- **Reopening condition:** an actual-pi-specific target-dependent estimate
+  preserving determinant phases, or special divisibility outside the
+  audit's explicitly stated uniform jet hypotheses.
