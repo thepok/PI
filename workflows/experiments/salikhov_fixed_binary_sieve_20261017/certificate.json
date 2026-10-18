@@ -1,0 +1,121 @@
+{
+  "binary_base_modulus": 4096,
+  "binary_base_residue": 1981,
+  "conditional_density_upper_bound": "2^(-1042)",
+  "conditional_first_modulus_exponent": 1043,
+  "counts": {
+    "anchor_binomial_equalities": 168,
+    "explicit_exception_witnesses": 9,
+    "failing_tail_to_exception_checks": 12,
+    "interval_max_direct_comparisons": 6400,
+    "local_class_count_comparisons": 72,
+    "local_congruence_comparisons": 6390,
+    "local_union_bound_checks": 36,
+    "outer_interval_valuation_bounds": 13854,
+    "tail_inequality_checks": 220296
+  },
+  "first_exception_modulus_exponent": 1049,
+  "fixed_j": 5,
+  "largest_sample_m_bit_length": 5147,
+  "low_progression_m_step": 8000,
+  "scope": "finite exact arithmetic checks; unbounded proof is in the companion note",
+  "short_shells": {
+    "five_exact_inner_identities": [
+      {
+        "R": 1,
+        "inner_at_zero": -12,
+        "k": 0,
+        "substitution_margin": 6,
+        "valuation": 2
+      },
+      {
+        "R": 2,
+        "inner_at_zero": 140,
+        "k": 0,
+        "substitution_margin": 5,
+        "valuation": 2
+      },
+      {
+        "R": 3,
+        "inner_at_zero": -3696,
+        "k": 0,
+        "substitution_margin": 6,
+        "valuation": 4
+      },
+      {
+        "R": 3,
+        "inner_at_zero": 48048,
+        "k": 1,
+        "substitution_margin": 6,
+        "valuation": 4
+      },
+      {
+        "R": 3,
+        "inner_at_zero": -247104,
+        "k": 2,
+        "substitution_margin": 7,
+        "valuation": 6
+      }
+    ],
+    "independent_coordinate_multiplier_comparisons": [
+      {
+        "n": 0,
+        "q_n": 1
+      },
+      {
+        "n": 1,
+        "q_n": 1196
+      },
+      {
+        "n": 2,
+        "q_n": 2332792
+      },
+      {
+        "n": 3,
+        "q_n": 10438494160
+      },
+      {
+        "n": 4,
+        "q_n": 24731409956148
+      },
+      {
+        "n": 5,
+        "q_n": 120956288172017424
+      },
+      {
+        "n": 6,
+        "q_n": 301790286196858806292
+      },
+      {
+        "n": 7,
+        "q_n": 1527042646944062155201580
+      },
+      {
+        "n": 8,
+        "q_n": 3902975105539918144849821020
+      },
+      {
+        "n": 9,
+        "q_n": 20107481348107881072796676574416
+      },
+      {
+        "n": 10,
+        "q_n": 52115200570260694151939693580164192
+      },
+      {
+        "n": 11,
+        "q_n": 271498275329601987709570702966578743432
+      },
+      {
+        "n": 12,
+        "q_n": 710116256899078685853665452303078971837924
+      }
+    ],
+    "largest_short_shell_m_bit_length": 1049,
+    "short_outer_binomial_equalities": 90,
+    "short_shell_comparisons": 102,
+    "substitution_comparisons": 30
+  },
+  "status": "passed",
+  "successive_exponent_gap": 2048
+}

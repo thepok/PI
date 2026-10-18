@@ -1,0 +1,41 @@
+name: Salikhov exact certificates
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/salikhov_reduced_precision.yml'
+      - 'knowledge/pi/results/intermediate/20261017-salikhov-casoratian-non-cancellation.md'
+      - 'knowledge/pi/results/intermediate/20261017-salikhov-shifted-contour-kummer.md'
+      - 'knowledge/pi/results/intermediate/20261017-salikhov-fixed-binary-sieve.md'
+      - 'workflows/experiments/salikhov_casoratian_20261017/**'
+      - 'workflows/experiments/salikhov_shifted_contour_kummer_20261017/**'
+      - 'workflows/experiments/salikhov_fixed_binary_sieve_20261017/**'
+      - 'workflows/experiments/salikhov_mod5_support_20260906/full_pair.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-certificates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the reviewed source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Reproduce and compare exact certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          certificate_dir=$(mktemp -d "${RUNNER_TEMP:-.}/salikhov-certificates.XXXXXX")
+          trap 'rm -rf -- "$certificate_dir"' EXIT
+          for audit in \
+            salikhov_casoratian_20261017 \
+            salikhov_shifted_contour_kummer_20261017 \
+            salikhov_fixed_binary_sieve_20261017
+          do
+            python3 "workflows/experiments/$audit/audit.py" --json "$certificate_dir/$audit.json"
+            cmp "$certificate_dir/$audit.json" "workflows/experiments/$audit/certificate.json"
+          done
