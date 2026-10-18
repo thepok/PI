@@ -1398,6 +1398,12 @@ documents:
   - id: salikhov-fixed-binary-sieve-20261017
     path: knowledge/pi/results/intermediate/20261017-salikhov-fixed-binary-sieve.md
     role: 'Proof sketch appendix: exact binary multiplier valuations on three original consecutive indices outside an explicit sparse residue sieve, with a uniform conditional deletion bound and linear reduced numerator depth; no decimal-digit conclusion.'
+  - id: salikhov-score-moments-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-score-moments.md
+    role: 'Proof sketch appendix: exact second and fourth score moments and an injective return construction give a uniform supply of positive-score base-five words; no decimal-digit conclusion.'
+  - id: salikhov-positive-density-reduced-precision-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-positive-density-reduced-precision.md
+    role: 'Proof sketch appendix: positive-density families of original unmixed Salikhov approximants have both actual error signs, odd reduced denominator, linear two-adic numerator depth, and growing surviving five-adic denominator depth; no ordered decimal residue.'
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1427,5 +1433,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 7190
+  index_estimated_tokens: 7287
   generated_by: workflows/verification/build_knowledge.py

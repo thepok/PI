@@ -1,0 +1,517 @@
+{
+  "conditional_moments": {
+    "exact_transition_rows": 6,
+    "rows": [
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "5/8",
+          "0",
+          "125/128"
+        ],
+        "increments": [
+          "0",
+          "0",
+          "5/4",
+          "-5/4",
+          "0"
+        ],
+        "score": 0,
+        "state": 0
+      },
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "5/8",
+          "0",
+          "125/128"
+        ],
+        "increments": [
+          "0",
+          "0",
+          "5/4",
+          "-5/4",
+          "0"
+        ],
+        "score": 0,
+        "state": 1
+      },
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "1/4",
+          "3/16",
+          "13/64"
+        ],
+        "increments": [
+          "-1/4",
+          "-1/4",
+          "1",
+          "-1/4",
+          "-1/4"
+        ],
+        "score": 1,
+        "state": 2
+      },
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "1/4",
+          "-3/16",
+          "13/64"
+        ],
+        "increments": [
+          "1/4",
+          "1/4",
+          "-1",
+          "1/4",
+          "1/4"
+        ],
+        "score": -1,
+        "state": 3
+      },
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "5/8",
+          "0",
+          "125/128"
+        ],
+        "increments": [
+          "0",
+          "5/4",
+          "-5/4",
+          "0",
+          "0"
+        ],
+        "score": 0,
+        "state": 4
+      },
+      {
+        "conditional_moments_1_through_4": [
+          "0",
+          "5/8",
+          "0",
+          "125/128"
+        ],
+        "increments": [
+          "0",
+          "5/4",
+          "-5/4",
+          "0",
+          "0"
+        ],
+        "score": 0,
+        "state": 5
+      }
+    ],
+    "universal_return_word": [
+      0,
+      2,
+      1
+    ]
+  },
+  "exact_path_moments": {
+    "checkpoints": [
+      {
+        "length": 1,
+        "martingale_fourth_moment": "125/128",
+        "martingale_second_moment": "5/8",
+        "nonzero_score_state_probability": "2/5",
+        "proved_fourth_moment_upper_bound": "173/128",
+        "score_tail_words": 2,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 5
+      },
+      {
+        "length": 2,
+        "martingale_fourth_moment": "473/160",
+        "martingale_second_moment": "11/10",
+        "nonzero_score_state_probability": "8/25",
+        "proved_fourth_moment_upper_bound": "169/32",
+        "score_tail_words": 16,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 25
+      },
+      {
+        "length": 3,
+        "martingale_fourth_moment": "20529/3200",
+        "martingale_second_moment": "321/200",
+        "nonzero_score_state_probability": "42/125",
+        "proved_fourth_moment_upper_bound": "1509/128",
+        "score_tail_words": 90,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 125
+      },
+      {
+        "length": 5,
+        "martingale_fourth_moment": "1423429/80000",
+        "martingale_second_moment": "13021/5000",
+        "nonzero_score_state_probability": "1042/3125",
+        "proved_fourth_moment_upper_bound": "4165/128",
+        "score_tail_words": 2370,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 3125
+      },
+      {
+        "length": 10,
+        "martingale_fourth_moment": "4530029293/62500000",
+        "martingale_second_moment": "19938151/3906250",
+        "nonzero_score_state_probability": "3255208/9765625",
+        "proved_fourth_moment_upper_bound": "4145/32",
+        "score_tail_words": 8058608,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 9765625
+      },
+      {
+        "length": 25,
+        "martingale_fourth_moment": "3521293401718139648429/7629394531250000000",
+        "martingale_second_moment": "6010135014851888021/476837158203125000",
+        "nonzero_score_state_probability": "99341074625651042/298023223876953125",
+        "proved_fourth_moment_upper_bound": "103325/128",
+        "score_tail_words": 200427802443806272,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 298023223876953125
+      },
+      {
+        "length": 50,
+        "martingale_fourth_moment": "1057276488580782825010828673839569091793/568434188608080148696899414062500000",
+        "martingale_second_moment": "891879163115542420806984106699625651/35527136788005009293556213378906250",
+        "nonzero_score_state_probability": "29605947323337507744630177815755208/88817841970012523233890533447265625",
+        "proved_fourth_moment_upper_bound": "103225/32",
+        "score_tail_words": 67912680461840304209511712402874818,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 88817841970012523233890533447265625
+      },
+      {
+        "length": 100,
+        "martingale_fourth_moment": "188553040527860478597132979343538262875096256365736735460814088582992553709/25243548967072377773175314089049159349542605923488736152648925781250000",
+        "martingale_second_moment": "79050436544022224667300299979379203431835894851550013603021701176961263/1577721810442023610823457130565572459346412870218046009540557861328125",
+        "nonzero_score_state_probability": "2629536350736706018039095217609287432244021450363410015900929768880208/7888609052210118054117285652827862296732064351090230047702789306640625",
+        "proved_fourth_moment_upper_bound": "103175/8",
+        "score_tail_words": 5710722914914596112289692321698632022540554672644536510003236388661152,
+        "tail_probability_lower_bound": "1/32",
+        "total_words": 7888609052210118054117285652827862296732064351090230047702789306640625
+      }
+    ],
+    "complete_state_score_lengths_checked": 100
+  },
+  "interval_transitions": {
+    "rational_interval_inclusions": 30,
+    "rows": [
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "0",
+          "1/20"
+        ],
+        "state": 0,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "1/5",
+          "1/4"
+        ],
+        "state": 0,
+        "target": 0
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "2/5",
+          "9/20"
+        ],
+        "state": 0,
+        "target": 2
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "3/5",
+          "13/20"
+        ],
+        "state": 0,
+        "target": 3
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "4/5",
+          "17/20"
+        ],
+        "state": 0,
+        "target": 5
+      },
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "1/20",
+          "1/15"
+        ],
+        "state": 1,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "1/4",
+          "4/15"
+        ],
+        "state": 1,
+        "target": 1
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "9/20",
+          "7/15"
+        ],
+        "state": 1,
+        "target": 2
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "13/20",
+          "2/3"
+        ],
+        "state": 1,
+        "target": 3
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "17/20",
+          "13/15"
+        ],
+        "state": 1,
+        "target": 5
+      },
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "1/15",
+          "1/10"
+        ],
+        "state": 2,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "4/15",
+          "3/10"
+        ],
+        "state": 2,
+        "target": 1
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "7/15",
+          "1/2"
+        ],
+        "state": 2,
+        "target": 2
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "2/3",
+          "7/10"
+        ],
+        "state": 2,
+        "target": 4
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "13/15",
+          "9/10"
+        ],
+        "state": 2,
+        "target": 5
+      },
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "1/10",
+          "2/15"
+        ],
+        "state": 3,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "3/10",
+          "1/3"
+        ],
+        "state": 3,
+        "target": 1
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "1/2",
+          "8/15"
+        ],
+        "state": 3,
+        "target": 3
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "7/10",
+          "11/15"
+        ],
+        "state": 3,
+        "target": 4
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "9/10",
+          "14/15"
+        ],
+        "state": 3,
+        "target": 5
+      },
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "2/15",
+          "3/20"
+        ],
+        "state": 4,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "1/3",
+          "7/20"
+        ],
+        "state": 4,
+        "target": 2
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "8/15",
+          "11/20"
+        ],
+        "state": 4,
+        "target": 3
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "11/15",
+          "3/4"
+        ],
+        "state": 4,
+        "target": 4
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "14/15",
+          "19/20"
+        ],
+        "state": 4,
+        "target": 5
+      },
+      {
+        "digit": 0,
+        "image_open_interval": [
+          "3/20",
+          "1/5"
+        ],
+        "state": 5,
+        "target": 0
+      },
+      {
+        "digit": 1,
+        "image_open_interval": [
+          "7/20",
+          "2/5"
+        ],
+        "state": 5,
+        "target": 2
+      },
+      {
+        "digit": 2,
+        "image_open_interval": [
+          "11/20",
+          "3/5"
+        ],
+        "state": 5,
+        "target": 3
+      },
+      {
+        "digit": 3,
+        "image_open_interval": [
+          "3/4",
+          "4/5"
+        ],
+        "state": 5,
+        "target": 5
+      },
+      {
+        "digit": 4,
+        "image_open_interval": [
+          "19/20",
+          "1"
+        ],
+        "state": 5,
+        "target": 5
+      }
+    ],
+    "score_le_one_minus_carry_in_all_states": true
+  },
+  "return_injection": {
+    "complete_raw_words_checked": 19530,
+    "rows": [
+      {
+        "distinct_positive_score_return_words": 2,
+        "raw_length": 1,
+        "raw_words": 5,
+        "tail_words": 2
+      },
+      {
+        "distinct_positive_score_return_words": 16,
+        "raw_length": 2,
+        "raw_words": 25,
+        "tail_words": 16
+      },
+      {
+        "distinct_positive_score_return_words": 90,
+        "raw_length": 3,
+        "raw_words": 125,
+        "tail_words": 90
+      },
+      {
+        "distinct_positive_score_return_words": 464,
+        "raw_length": 4,
+        "raw_words": 625,
+        "tail_words": 464
+      },
+      {
+        "distinct_positive_score_return_words": 2370,
+        "raw_length": 5,
+        "raw_words": 3125,
+        "tail_words": 2370
+      },
+      {
+        "distinct_positive_score_return_words": 12128,
+        "raw_length": 6,
+        "raw_words": 15625,
+        "tail_words": 12128
+      }
+    ]
+  },
+  "schema": "salikhov-score-moments-v1"
+}
