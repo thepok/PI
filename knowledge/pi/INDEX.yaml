@@ -1389,6 +1389,15 @@ documents:
   - id: salikhov-full-pair-growing-precision-20261017
     path: knowledge/pi/results/intermediate/20261017-salikhov-full-pair-growing-precision.md
     role: 'Proof sketch appendix: growing common five-adic precision for both normalized Salikhov coordinates, uniformly on progressions and both signed entropy populations; reduced-denominator cancellation remains open.'
+  - id: salikhov-casoratian-non-cancellation-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-casoratian-non-cancellation.md
+    role: 'Proof sketch appendix: an actual third contour and exact Casoratian force surviving five-adic denominator depth in consecutive triples of original Salikhov approximants, with both actual error signs; no decimal-digit conclusion.'
+  - id: salikhov-shifted-contour-kummer-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-shifted-contour-kummer.md
+    role: 'Proof sketch appendix: a uniquely least-valuation coefficient and Kummer carry budget improve the actual shifted third contour, forcing reduced five-adic depth from a six-state digit score; no ordered decimal residue.'
+  - id: salikhov-fixed-binary-sieve-20261017
+    path: knowledge/pi/results/intermediate/20261017-salikhov-fixed-binary-sieve.md
+    role: 'Proof sketch appendix: exact binary multiplier valuations on three original consecutive indices outside an explicit sparse residue sieve, with a uniform conditional deletion bound and linear reduced numerator depth; no decimal-digit conclusion.'
 archive:
   - path: knowledge/pi/workstreams/HORIZON_TRANSPORT.md
     contains: The four former horizon-transport sections, verbatim after a three-line archive header.
@@ -1418,5 +1427,5 @@ _meta:
   generated_from: 21efcd6a24ec9c5b6c80d750a5125cf2e0e84139
   date: 2026-09-03
   token_estimate_method: word count multiplied by 1.4
-  index_estimated_tokens: 7036
+  index_estimated_tokens: 7190
   generated_by: workflows/verification/build_knowledge.py
